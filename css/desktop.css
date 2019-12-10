@@ -148,6 +148,7 @@
     .home {
         width: 100%;
         height: 100%;
+        background: #FCF7F7;
     }
 
 
@@ -167,6 +168,7 @@
         overflow: visible;
         width: 100%;
         height: 100%;
+        background: #fff;
     }
 
     .home-holder {
@@ -227,19 +229,22 @@
 
     .post-thumbnail {
         position: fixed;
-        top: 0;
         z-index: -9;
-        /*        visibility: hidden;*/
+        width: 70%;
+        top: 0px;
+        right: 20%;
+        visibility: hidden;
         text-align: center;
         opacity: 0;
         transition: all .3s ease;
     }
 
-    .home-item-holder .entry-holder.active-post + .post-thumbnail {
-        position: fixed;
+    .home-item-holder .entry-holder.active-post + .post-thumbnail{
+        position: absolute;
+
         z-index: -9;
-        top: 0;
-        /*        visibility: visible;*/
+        top: 0px;
+        visibility: visible;
         opacity: 1;
         transform: translateY(-120px);
     }
@@ -320,7 +325,7 @@
     .page1-title {
         position: absolute;
         top: 180px;
-        left: 15%;
+        left: 24%;
         width: 555px;
     }
 
