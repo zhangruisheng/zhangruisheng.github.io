@@ -131,7 +131,7 @@ iframe {
     .logo {
         position: fixed;
         z-index: 999;
-        margin: 40px 0 0 50px;
+        margin: 30px 0 0 40px;
         width: 180px;
         list-style: none;
         font-weight: 500;
@@ -146,7 +146,7 @@ iframe {
     .logo-t {
         position: relative;
         float: left;
-        margin: 10px 0 0 20px;
+        margin: 10px 0 0 25px;
 
     }
 
