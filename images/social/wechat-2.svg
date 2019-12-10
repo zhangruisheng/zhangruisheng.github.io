@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>投资组合/wechat@2x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="投资组合/wechat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(5.000000, 7.000000)" fill-rule="nonzero">
+            <path d="M14.8,5.77204819 C14.2306281,2.72412634 11.2456962,0.4 7.64894083,0.4 C3.64546136,0.4 0.4,3.27947381 0.4,6.83148476 C0.4,8.43286892 1.05965811,9.89755616 2.15103626,11.0233128 C2.50143275,11.3847468 1.16794151,12.9781014 1.59979685,13.2629695 C1.97307008,13.5091947 4.10234319,12.4574615 4.5259672,12.6371625 C5.47169204,13.0383383 6.53074948,13.2629695 7.64894083,13.2629695 C8.21832292,13.2629695 8.77237255,13.2047263 9.30393402,13.0945886" id="Path" stroke="#FFFFFF" stroke-width="1.2"></path>
+            <path d="M14.5,15.5720489 C17.5375661,15.5720489 20,13.4292728 20,10.7860245 C20,8.14277615 17.5375661,6 14.5,6 C11.4624339,6 9,8.14277615 9,10.7860245 C9,11.9777032 9.50050341,13.0676582 10.3285664,13.9053961 C10.5944233,14.1743592 9.58266144,15.3600628 9.9103237,15.5720489 C10.1935379,15.7552787 11.8090845,14.9726258 12.1305014,15.1063513 C12.8480527,15.4048884 13.651593,15.5720489 14.5,15.5720489 Z" id="Oval" stroke="#FFFFFF" stroke-width="1.2" transform="translate(14.500000, 10.800000) scale(-1, 1) translate(-14.500000, -10.800000) "></path>
+            <circle id="Oval" fill="#FFFFFF" cx="5.5" cy="5" r="1"></circle>
+            <circle id="Oval" fill="#FFFFFF" cx="12.8" cy="9.8" r="1"></circle>
+            <circle id="Oval" fill="#FFFFFF" cx="15.8" cy="9.8" r="1"></circle>
+            <circle id="Oval" fill="#FFFFFF" cx="9.5" cy="5" r="1"></circle>
+        </g>
+    </g>
+</svg>

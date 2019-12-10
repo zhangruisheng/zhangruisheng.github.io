@@ -1,0 +1,1164 @@
+@media screen and (max-width:900px) {
+
+
+    /***********************
+     
+     作者：monk.ren
+     说明：父级框架 CSS Document 
+     
+***********************/
+    /*初始化样式*/
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+    }
+
+    ::-moz-selection {
+        background: #ddd;
+        color: #000;
+        text-shadow: none;
+    }
+
+    ::selection {
+        background: #ddd;
+        color: #000;
+        text-shadow: none;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+
+
+    html,
+    body,
+    p1,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    input,
+    label {
+        font-family:
+            /* 西文 */
+            'Gotham-Book', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu,
+            "Helvetica Neue", Helvetica, Arial,
+            /* 中文 */
+            "PingFang SC", "Hiragino Sans GB",
+            "Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN", sans-serif;
+        font-weight: normal;
+        font-size: 12px;
+        color: #23182c;
+        text-rendering: optimizelegibility !important;
+        /*控制显示在线字体的微妙细节*/
+        -webkit-font-smoothing: antialiased !important;
+        /*无抗锯齿none*/
+        -webkit-font-smoothing: subpixel-antialiased;
+        /*次像素平滑default*/
+        -webkit-font-smoothing: antialiased;
+        /*灰度平滑*/
+        -webkit-font-smoothing: grayscale !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        -ms-text-size-adjust: 100% !important;
+        -webkit-text-size-adjust: 100%;
+
+    }
+
+    h1 {
+        letter-spacing: 0px;
+        font-weight: 600;
+        font-size: 40px;
+        font-family: Montserrat-Medium, PingFangSC-Medium;
+        line-height: 56px;
+    }
+
+    h4 {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+
+    html body {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        border: 0;
+    }
+
+    iframe {
+        position: fixed;
+        z-index: 99;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+
+
+    .container {
+        position: relative;
+        margin: 0 auto;
+        padding: 0px;
+        width: 100%;
+        /* 滚动顺畅*/
+        scroll-behavior: smooth;
+
+    }
+
+    .new {
+
+        position: relative;
+        float: left;
+        margin: 4px 6px 0 0;
+        padding: 4px;
+        width: auto;
+        background: #FF4169;
+        color: #fff;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1rem;
+    }
+
+
+
+    /*********************
+    
+        右侧导航栏
+    
+    **********************/
+
+    #page-nav {
+        position: fixed;
+        right: 0px;
+        bottom: 0px;
+        z-index: 999;
+        padding: 15px 0;
+        padding-right: 8px;
+        width: 110%;
+        height: 60px;
+        background: #fff;
+    }
+
+    #page-nav a {
+        position: relative;
+        display: block;
+        float: right;
+        margin-right: 4px;
+        padding: 2px 6px;
+        width: auto;
+        height: auto;
+        list-style-type: none;
+        text-align: right;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    #page-nav a.active {
+        background-color: #000;
+        color: #fff;
+    }
+
+
+
+    *,
+    *::after,
+    *::before {
+        box-sizing: border-box;
+    }
+
+    :root {
+        font-size: 16px;
+    }
+
+    body {
+        /*        background: #FCF7F7;*/
+        background: #fff;
+        --color-bg: #fff;
+        --color-link: #FD6856;
+        --color-deco: #422F51;
+        /*
+        margin: 0;
+        --color-text: #1c1b1b;
+        --color-bg: #efe6e1;
+        --color-link: #b07656;
+        --color-link-hover: #000;
+        --color-deco: #e4dbd6;
+        color: var(--color-text);
+        background-color: var(--color-bg);
+        font-family: mr-eaves-xl-sans,
+        sans-serif;
+*/
+    }
+
+    /* Page Loader */
+    .js .loading::before {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 100000;
+        width: 100%;
+        height: 100%;
+        background: var(--color-bg);
+        content: '';
+    }
+
+    .js .loading::after {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 100000;
+        margin: -30px 0 0 -30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--color-link);
+        content: '';
+        opacity: 0.4;
+        animation: loaderAnim 0.7s linear infinite alternate forwards;
+        pointer-events: none;
+    }
+
+    @keyframes loaderAnim {
+        to {
+            opacity: 1;
+            transform: scale3d(0.5, 0.5, 1);
+        }
+    }
+
+
+
+    /*********************
+    
+        Home
+    
+    **********************/
+    /*    banner*/
+    .label-banner {
+        position: relative;
+        float: left;
+        margin-top: 20px;
+        width: 300px;
+    }
+
+    .new-banner {
+        position: relative;
+        float: left;
+        margin-right: 16px;
+        padding: 4px 10px;
+        width: auto;
+        background: #FF4169;
+        color: #fff;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1rem;
+    }
+
+    .before-banner {
+        position: relative;
+        float: left;
+        margin-left: 4px;
+        margin-bottom: 30px;
+        padding: 4px 10px;
+        width: auto;
+        background: #422F51;
+        color: #fff;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1rem;
+
+    }
+
+    .class-banner {
+        position: relative;
+        float: left;
+        margin-right: 16px;
+        padding: 4px 10px;
+        width: auto;
+        background: #422F51;
+        color: #fff;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1rem;
+    }
+
+    .card-plate-style-banner {
+        position: relative;
+        float: left;
+        margin-top: -40px;
+        margin-bottom: 50px;
+        height: auto;
+        padding: 30px 6% 60px 6%;
+        background: #FCF7F7;
+        width: 100%;
+    }
+
+    .card-plate-style-new {
+        position: relative;
+        float: left;
+        display: flex;
+        display: -webkit-flex;
+        /* Safari */
+        flex-direction: row;
+        margin-top: 0px;
+        padding-left: 0%;
+        max-width: 1000px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: stretch;
+    }
+
+    .card-infos-banner {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+        padding-left: 10px;
+    }
+
+    .author-img-banner {
+        position: relative;
+        float: right;
+        margin-top: -30px;
+        margin-right: 10px;
+        width: auto;
+        height: auto;
+    }
+
+    .author-img-banner img {
+        border-radius: 100%;
+    }
+
+    .card-text-banner {
+        position: relative;
+        float: left;
+        width: 70%;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 1.4;
+        margin-top: 30px;
+    }
+
+    .card-banner {
+        /*
+        position: relative;
+        min-width: 340px;
+        max-width: 600px;
+        width: 36%;
+*/
+        position: relative;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    /*内容*/
+    .home {
+        position: relative;
+        margin-top: 100px;
+        width: 100%;
+    }
+
+
+    .home img {
+        opacity: 1;
+        transition: 0.5s;
+    }
+
+    .home img:hover {
+        opacity: 0.6;
+        transition: 0.5s;
+    }
+
+
+
+    .card-plate-style {
+        position: relative;
+        float: left;
+        padding: 0 6%;
+        width: 100%;
+    }
+
+    .card-style-1 {
+        position: relative;
+        z-index: 100;
+        float: left;
+        width: 100%;
+    }
+
+    .card-style-2 {
+        position: relative;
+        z-index: 100;
+        float: left;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        width: 100%;
+    }
+
+
+    .card {
+        position: relative;
+        width: 100%;
+    }
+
+    .card-2 {
+        padding: 10%;
+        width: 100%;
+    }
+
+
+
+    .card-picture {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .card-infos {
+        margin-top: 20px;
+        padding: 4px;
+    }
+
+    .card-title {
+        margin: 0;
+        color: #86888A;
+        font-weight: 400;
+        font-size: 13px;
+    }
+
+    .card-text {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .card-text-high {
+        font-weight: 600;
+    }
+
+
+    /*********************
+    
+        Work
+    
+    **********************/
+
+    .works {
+        position: relative;
+        float: left;
+        padding: 0 6%;
+        padding-top: 100px;
+        width: 100%;
+        background: #FCF7F7;
+    }
+
+
+
+
+
+
+    .work-title {
+        position: relative;
+        margin-bottom: 40px;
+    }
+
+    .work-fixed {
+        display: flex;
+        display: -webkit-flex;
+        /* Safari */
+        flex-direction: row;
+        margin-top: 80px;
+
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: stretch;
+    }
+
+    .work-card {
+        margin: 0 0px 32px 0;
+        width: 100%;
+    }
+
+    .work-card-guide {
+        margin: 0 0px 32px 0;
+        width: 100%;
+    }
+
+    .work-card-system {
+        margin: 0 0px 32px 0;
+        width: 100%;
+    }
+
+    .work-card-ui {
+        margin: 0 0px 32px 0;
+        width: 100%;
+    }
+
+
+    .work-card-app {
+        margin: 0 0px 32px 0;
+        width: 100%;
+    }
+
+    .Page {
+        margin-bottom: 120px;
+    }
+
+    /*********************
+    
+        learn
+    
+    **********************/
+
+
+    .home {
+        position: relative;
+        float: left;
+        margin-top: 100px;
+        padding: 0 6%;
+        width: 100%;
+    }
+
+    .learn-class {
+        float: left;
+        margin-bottom: 60px;
+        height: auto;
+    }
+
+    .learn-title {
+        position: relative;
+        float: left;
+    }
+
+    .learn-item-holder {
+        float: left;
+        width: 100%;
+    }
+
+    .entry-holder {
+        position: relative;
+        z-index: 99;
+        float: left;
+        margin-top: 60px;
+        width: 100%;
+        height: auto;
+    }
+
+    .post-thumbnail {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+    }
+
+    .learn-img {
+        width: 100%;
+    }
+
+    .entry-info {
+        float: left;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 10px;
+    }
+
+    .entry-title {
+        position: relative;
+        float: left;
+        font-weight: 500;
+        font-size: 30px;
+    }
+
+
+    /*********************
+    
+        Links
+    
+    **********************/
+
+
+    .links-bg {
+        position: relative;
+        left: 0px;
+        z-index: 99;
+        padding-top: 100px;
+        width: 100%;
+        height: auto;
+        background-color: #FCF7F7;
+    }
+
+
+
+    .links {
+        position: relative;
+        overflow: hidden;
+        height: auto;
+        float: left;
+        padding: 0 6%;
+        width: 100%;
+        background: #FCF7F7;
+    }
+
+    #link-page-nav {
+        position: fixed;
+        top: 20px;
+        right: 15px;
+        z-index: 110;
+        z-index: 999;
+        width: 104px;
+        height: 900px;
+    }
+
+
+    #link-page-nav a {
+        position: relative;
+        display: block;
+        float: right;
+        margin-bottom: 8px;
+        padding: 4px 10px;
+        width: auto;
+        height: auto;
+        list-style-type: none;
+        text-align: right;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    #link-page-nav a:hover {}
+
+    #link-page-nav a.active {
+        background-color: #000;
+        color: #fff;
+    }
+
+    .links-h4 {
+        float: right;
+        margin: 20px 10px 20px 0;
+        color: #908E96;
+        font-weight: 400;
+        font-size: 12px;
+    }
+
+
+
+
+    .linkgroup {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 30px;
+        color: #242025;
+        text-align: left;
+        letter-spacing: 2px;
+        font-weight: 400;
+        font-size: 16px;
+
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+
+    .linkmember {
+        position: relative;
+        overflow: hidden;
+        margin: 0px 30px 30px 0;
+        width: 170px;
+        height: 140px;
+        border-radius: 4px;
+        background-color: #fff;
+        text-align: center;
+        text-overflow: ellipsis;
+        font-size: 18px;
+        transition: .5s;
+    }
+
+    .linkmember-f {
+        position: relative;
+        overflow: hidden;
+        margin: 0px 30px 30px 0;
+        width: 170px;
+        height: 190px;
+        border-radius: 4px;
+        background-color: #fff;
+        text-align: center;
+        text-overflow: ellipsis;
+        font-size: 18px;
+        transition: .5s;
+    }
+
+    .linkmember:hover {
+        -webkit-box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
+        -moz-box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
+        box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
+        text-decoration: none;
+        opacity: 0.86;
+        filter: alpha(opacity=70);
+        transition-duration: 0.5s;
+    }
+
+    .linkmember-f:hover {
+        -webkit-box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
+        -moz-box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
+        box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
+        text-decoration: none;
+        opacity: 0.86;
+        filter: alpha(opacity=70);
+        transition-duration: 0.5s;
+    }
+
+    .linklogo {
+        position: relative;
+        float: left;
+        margin: 18px 0px 0px 0px;
+        width: 100%;
+        height: 40px;
+        background-color: #FFF;
+        -webkit-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    .linklogo-f {
+        position: relative;
+        float: left;
+        margin-top: 18px;
+        margin-left: 65px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #FFF;
+        -webkit-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        /*
+        -webkit-box-shadow: 0px 4px 5px #EFEFF3;
+        -moz-box-shadow: 0px 4px 5px #EFEFF3;
+        box-shadow: 0px 4px 5px #EFEFF3;
+*/
+    }
+
+    .xinzeng {
+        position: fixed;
+        margin: 2px 0 0 220px;
+        width: 34px;
+        height: 14px;
+        border-radius: 0px;
+        background-color: #FF4755;
+        color: #fff;
+        text-align: left;
+        text-indent: 2px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 110%;
+    }
+
+    .linkbt {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        margin: 12px 15px 20px 15px;
+        height: auto;
+        text-align: center;
+        letter-spacing: 0px;
+    }
+
+    .linkname {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+        font-weight: 600;
+        font-size: 14px;
+        font-family: Montserrat;
+        line-height: 0px;
+        transition: .5s;
+    }
+
+    .linkname1 {
+        position: relative;
+        float: left;
+        margin-top: 10px;
+        width: 100%;
+        height: auto;
+        color: #C9C9C9;
+        font-weight: 500;
+        font-size: 12px;
+        font-family: Montserrat;
+        line-height: 0px;
+        transition: .5s;
+    }
+
+    .linkintroduce {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        margin: 0;
+        width: 140px;
+        height: 50px;
+        color: #909090;
+        text-align: center;
+        text-overflow: ellipsis;
+        letter-spacing: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: normal;
+        transition: .5s;
+    }
+
+    .link a:hover {
+        outline: none;
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .links h1 {
+        margin-left: 4px;
+        font-size: 90px;
+        opacity: 0.04;
+    }
+
+    .links h4 {
+        margin-left: 12px;
+        opacity: 0.2;
+    }
+
+    /*
+    .link h3 {
+        position: relative;
+        width: 110%;
+        color: #000;
+        letter-spacing: 1.08px;
+        font-size: 18px;
+        font-family: Montserrat, PingFangSC-Semibold;
+    }
+
+    .link h5 {
+        color: #000;
+        letter-spacing: 1.08px;
+        font-size: 12px;
+        font-family: Montserrat, PingFangSC-Semibold;
+    }
+*/
+
+    /*********************
+    
+        footer
+    
+    **********************/
+    .footer {
+        position: relative;
+        z-index: 111;
+        float: left;
+        margin-top: 100px;
+        margin-bottom: 0px;
+        width: 100%;
+        height: auto;
+        background: #fff;
+    }
+
+    .copyright {
+        position: absolute;
+        right: 50px;
+        color: #242025;
+        text-align: right;
+        letter-spacing: 3.43px;
+        font-size: .5em;
+        font-family: MontserratLight;
+    }
+
+
+    .talk {
+        position: relative;
+        padding-left: 6%;
+        width: 100%;
+        height: 704px;
+        background: #fff;
+        color: #000;
+    }
+
+    .talk1 {
+        position: fixed;
+        margin: -220px 0 0 0;
+        width: 100%;
+        height: 280px;
+        background-color: #000;
+        transition: .5s;
+    }
+
+
+
+    .talk-page1 {
+        position: relative;
+        margin: 50px 0;
+        width: 70%;
+        height: auto;
+    }
+
+    .talk-page2 {
+        position: relative;
+        margin: 50px 0;
+        width: 70%;
+        height: auto;
+    }
+
+    .talk-page3 {
+        position: relative;
+        margin: 50px 0;
+        width: 70%;
+        height: auto;
+    }
+
+
+
+    .talk-page3-name {
+        position: relative;
+        margin-top: 35px;
+        margin-left: 65px;
+        width: auto;
+        height: 40px;
+        font-size: 10px;
+    }
+
+
+    .talk-link {
+        position: relative;
+        float: left;
+        margin: 0;
+        width: 100%;
+        list-style: none;
+    }
+
+    .talk-link li {
+        float: left;
+        margin-right: 10px;
+
+    }
+
+    .social {
+        position: relative;
+        float: left;
+        margin: 40px 0px 0 0px;
+        width: 100%;
+        list-style: none;
+    }
+
+    .social li {
+        position: relative;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .wechat:hover + .monkren {
+        display: block;
+    }
+
+    .monkren {
+        position: fixed;
+        right: 100px;
+        bottom: 130px;
+        display: none;
+        width: 90px;
+        height: auto;
+    }
+
+
+
+    .talkh6 {
+        margin: 0 0 20px 0;
+        color: #767677;
+        font-weight: 300;
+        font-weight: 400;
+        font-size: 13px;
+    }
+
+    .talkp {
+        margin: 0;
+        letter-spacing: 1px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 32px;
+    }
+
+    .talk-page1-copyright {
+        margin: 40px 0 0 0px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+
+
+
+    .access {
+        position: relative;
+        z-index: 101;
+        height: auto;
+        color: #000;
+        font-size: 12px;
+        margin: 60px 0px 100px 6%;
+    }
+
+    .www {
+        display: none;
+        float: right;
+        margin-right: 12px;
+    }
+
+    .www a {
+        color: #000;
+    }
+
+
+    /*  
+    
+    aboutme
+    
+    */
+    .aboutme {
+        margin-left: 0px;
+        width: 100%;
+        height: 600px;
+        background: #FCF7F7;
+    }
+
+
+    .aboutme h1 {
+        font-size: 28px;
+        line-height: 28px;
+    }
+
+    .aboutme h2 {
+        font-size: 38px;
+        font-family: SimSun, STSong;
+        line-height: 38px;
+    }
+
+    .aboutme img:hover {
+        position: relative;
+        -webkit-filter: brightness(1);
+        filter: brightness(1);
+        transition-duration: 0.5s;
+    }
+
+
+    .page1 {
+        position: relative;
+        overflow: visible;
+        width: 100%;
+        height: 700px;
+        background: url(../images/aboutme/Page01.png) no-repeat right;
+        padding-top: 300px;
+        
+    }
+
+    .page1-title {
+        position: absolute;
+        top: 100px;
+        margin: 0 6%;
+        padding: 20px;
+        padding-top: 60px;
+        width: 88%;
+        height: 500px;
+        background: #fff;
+    }
+
+    .page1-title h1 {
+        font-size: 32px;
+        font-family: SimSun, STSong;
+        line-height: 20px;
+    }
+
+    .page1-title h4 {
+        letter-spacing: 1.08px;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .page1-title h6 {
+        color: #212838;
+        letter-spacing: 2px;
+        font-weight: 400;
+        font-size: 12px;
+        font-family: PingFangSC-Medium;
+        line-height: 0px;
+    }
+
+    .aboutme-downbtn {
+        position: relative;
+        float: left;
+        margin: 60px 200px 40px 0px;
+        padding: 8px 30px 8px 30px;
+        border: none;
+        border-radius: 0px;
+        background: #FF4169;
+        color: #ffffff;
+        letter-spacing: 1.6px;
+        font-weight: 600;
+        font-size: 13px;
+    }
+
+    .page1-callme {
+        position: relative;
+        float: left;
+        margin-top: 0px;
+    }
+
+    .page2 {
+        position: relative;
+        left: -720px;
+        margin: 0 0 0 50%;
+        width: 1440px;
+        height: 600px;
+    }
+
+    .page2-img {
+        position: absolute;
+        top: 150px;
+        left: 10%;
+    }
+
+    .page2-title {
+        position: absolute;
+        top: 200px;
+        right: 12%;
+        width: 400px;
+    }
+
+    .page3 {
+        position: relative;
+        left: -720px;
+        margin: 0 0 0 50%;
+        width: 1440px;
+        height: 600px;
+    }
+
+    .page3-img {
+        position: absolute;
+        top: 70px;
+        right: 5%;
+        z-index: 1;
+        width: 700px;
+    }
+
+    .page3-title {
+        position: absolute;
+        top: 180px;
+        left: 18%;
+        z-index: 2;
+        width: 370px;
+    }
+
+}

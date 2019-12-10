@@ -1,0 +1,282 @@
+/* Desktop桌面端 CSS  */
+@media screen and (min-width:900px) {
+
+    /***********************
+     
+     作者：monk.ren
+     说明：父级框架 CSS Document 
+     
+***********************/
+    /*初始化样式*/
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+    }
+
+    ::-moz-selection {
+        background: #ddd;
+        color: #000;
+        text-shadow: none;
+    }
+
+    ::selection {
+        background: #ddd;
+        color: #000;
+        text-shadow: none;
+    }
+
+    ul,
+    li {
+        list-style: none;
+    }
+
+
+
+    html,
+    body,
+    p1,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    input,
+    label {
+        color: #23182c;
+        font-weight: normal;
+        font-size: 12px;
+        font-family:
+            /* 西文 */
+            'Gotham-Book', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu,
+            "Helvetica Neue", Helvetica, Arial,
+            /* 中文 */
+            "PingFang SC", "Hiragino Sans GB",
+            "Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN", sans-serif;
+
+        text-rendering: optimizelegibility !important;
+        /*控制显示在线字体的微妙细节*/
+        -webkit-font-smoothing: antialiased !important;
+        /*无抗锯齿none*/
+        -webkit-font-smoothing: subpixel-antialiased;
+        /*次像素平滑default*/
+        -webkit-font-smoothing: antialiased;
+        /*灰度平滑*/
+        -webkit-font-smoothing: grayscale !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        -ms-text-size-adjust: 100% !important;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    html body {
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+
+    h1 {
+        letter-spacing: 0px;
+        font-weight: 600;
+        font-size: 40px;
+        font-family: Montserrat-Medium, PingFangSC-Medium;
+        line-height: 56px;
+    }
+
+    h2 {
+        font-weight: 400;
+        font-size: 40px;
+    }
+
+    h3 {
+        letter-spacing: 1px;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    h4 {
+        letter-spacing: 1.08px;
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    p {
+        letter-spacing: 1.08px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 28px;
+    }
+
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+
+
+    a {
+        text-decoration: none;
+        /*去掉下划线*/
+    }
+
+    .container {
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        height: auto;
+
+        /* 滚动顺畅*/
+        scroll-behavior: smooth;
+    }
+
+
+
+    /*********************
+    
+        home
+    
+    **********************/
+
+    .home {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .page {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: #FCF7F7;
+    }
+
+
+
+
+    .home-class {
+        position: fixed;
+        float: right;
+        overflow: visible;
+        width: 100%;
+        height: 100%;
+    }
+
+    .home-holder {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .home-title {
+        position: relative;
+        float: right;
+        margin: 60px 20px 0 0;
+        width: 600px;
+        height: 60px;
+        text-align: right;
+        z-index: 999;
+    }
+
+    .home-title h3 {
+        font-size: 30px;
+        font-family: monospace;
+    }
+
+    .animate {
+        opacity: 1;
+        transition: .3s ease-in;
+        -webkit-transform: translate(0px, 0px);
+        -ms-transform: translate(0px, 0px);
+        transform: translate(0px, 0px);
+    }
+
+    .home-item-holder {
+        position: relative;
+        float: right;
+        width: 100%;
+        height: 60px;
+    }
+
+    .home-item-holder-new {
+        height: 60px;
+    }
+
+
+    .entry-holder {
+        position: relative;
+        z-index: 101;
+        float: right;
+        margin: 20px 20px 0 0;
+        width: 100px;
+        align-items: center;
+    }
+
+    .entry-holder:after {
+        position: absolute;
+        z-index: 1000;
+        width: auto;
+    }
+
+    .post-thumbnail {
+        position: fixed;
+        top: 0;
+        z-index: -9;
+        visibility: hidden;
+        text-align: center;
+        opacity: 0;
+        transition: all .3s ease;
+    }
+
+    .home-item-holder .entry-holder.active-post + .post-thumbnail {
+        position: fixed;
+        z-index: -9;
+        top: 0;
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(-120px);
+    }
+
+    .home-item-holder .entry-info {
+        position: relative;
+        float: right;
+        min-width: 150px;
+        width: 300px;
+        text-align: right;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+    }
+
+    .entry-date {
+        font-size: 12px;
+        opacity: 0.3;
+    }
+
+    .home-item-holder h2.entry-title a {
+        position: relative;
+        z-index: 999;
+        float: right;
+        padding: 2px 0;
+        width: 600px;
+        text-align: right;
+        word-break: break-word;
+        font-weight: 500;
+        font-size: 13px;
+        font-family: monospace;
+    }
+
+    .home-item-holder h2.entry-title a:hover {
+        color: #555;
+        /*        z-index: 99;*/
+    }
+
+
+}

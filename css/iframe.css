@@ -1,0 +1,601 @@
+/***********************
+     
+     作者：monk.ren
+     说明：父级框架 CSS Document 
+     
+***********************/
+/*初始化样式*/
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+::-moz-selection {
+    background: #ddd;
+    color: #000;
+    text-shadow: none;
+}
+
+::selection {
+    background: #ddd;
+    color: #000;
+    text-shadow: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+
+
+html,
+body,
+p1,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+input,
+label {
+    font-family:
+        /* 西文 */
+        'Gotham-Book', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu,
+        "Helvetica Neue", Helvetica, Arial,
+        /* 中文 */
+        "PingFang SC", "Hiragino Sans GB",
+        "Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN", sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    color: #23182c;
+    text-rendering: optimizelegibility !important;
+    /*控制显示在线字体的微妙细节*/
+    -webkit-font-smoothing: antialiased !important;
+    /*无抗锯齿none*/
+    -webkit-font-smoothing: subpixel-antialiased;
+    /*次像素平滑default*/
+    -webkit-font-smoothing: antialiased;
+    /*灰度平滑*/
+    -webkit-font-smoothing: grayscale !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    -ms-text-size-adjust: 100% !important;
+    -webkit-text-size-adjust: 100%;
+
+}
+
+html body {
+    /*    overflow-x: hidden;*/
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    border: 0;
+}
+
+/*
+iOS兼容iFrame滚动条样式
+*/
+
+.scroll-wrapper {
+    position: fixed;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    width: 10%;
+    height: auto;
+    z-index: 1000;
+    background: #000;
+}
+
+iframe {
+    position: fixed;
+    z-index: 98;
+    width: 100%;
+    height: 100%;
+    /*
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+*/
+}
+
+
+
+.bbbb {
+    overflow: hidden;
+}
+
+/* Desktop桌面端 CSS  */
+@media screen and (min-width:1126px) {
+
+
+    /*********************
+    
+        左侧导航栏
+    
+    **********************/
+    .nav {
+        position: fixed;
+        left: 0px;
+        /*70%的不透明度  */
+        z-index: 100;
+        width: 180px;
+        height: 100%;
+
+    }
+
+    .logo {
+        position: fixed;
+        z-index: 999;
+        margin: 40px 0 0 50px;
+        width: 180px;
+        list-style: none;
+        font-weight: 500;
+        font-size: 12px;
+    }
+
+    .logo-i {
+        position: relative;
+        float: left;
+    }
+
+    .logo-t {
+        position: relative;
+        float: left;
+        margin: 10px 0 0 20px;
+
+    }
+
+    .menu {
+        position: fixed;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        width: 180px;
+        height: 100%;
+        list-style: none;
+        font-weight: 600;
+        font-size: 12px;
+        z-index: 99;
+    }
+
+    .menu ul {
+        position: relative;
+        margin-top: 200px;
+        margin-left: 135px;
+        width: 50px;
+        height: auto;
+    }
+
+    .menu li {
+        position: relative;
+        float: right;
+        width: 100%;
+        height: 50px;
+        right: 20px;
+        list-style-type: none;
+        text-align: right;
+    }
+
+    .menu a {
+        position: relative;
+        z-index: 1;
+        display: block;
+        margin: 0;
+        padding: 0;
+        color: #23182C;
+        font-weight: 500;
+        text-decoration: none;
+        line-height: 30px;
+    }
+
+    .menu a.active {
+        color: #23182C;
+    }
+
+    .menu-iii {
+        display: none;
+    }
+
+    .menu-iii-x {
+        display: none;
+    }
+
+
+
+
+    /*********************
+    
+        footer
+    
+    **********************/
+    .footer {
+        position: relative;
+        left: -10px;
+        z-index: 111;
+        float: left;
+        margin-top: 00px;
+        margin-bottom: 00px;
+        width: 101%;
+        height: auto;
+        background: #fff;
+    }
+
+    .copyright {
+        position: absolute;
+        right: 50px;
+        color: #242025;
+        text-align: right;
+        letter-spacing: 3.43px;
+        font-size: .5em;
+        font-family: MontserratLight;
+    }
+
+    /*
+    .icp {
+        position: absolute;
+        top: 10px;
+        left: 40px;
+        color: #242025;
+        text-align: left;
+        letter-spacing: 0px;
+        font-size: 12px;
+    }*/
+
+    .talk {
+        position: relative;
+        margin: 0px 0 0 0;
+        margin-left: 70px;
+        padding-left: 12%;
+        width: 100%;
+        height: 488px;
+        background: #fff;
+        color: #000;
+    }
+
+    .talk1 {
+        position: fixed;
+        margin: -220px 0 0 0;
+        width: 100%;
+        height: 280px;
+        background-color: #000;
+        transition: .5s;
+    }
+
+
+
+    .talk-page1 {
+        position: absolute;
+        margin: 50px 0;
+        width: 23.5%;
+        height: auto;
+    }
+
+    .talk-page2 {
+        position: absolute;
+        margin: 50px 25%;
+        width: 23.5%;
+        height: auto;
+    }
+
+    .talk-page3 {
+        position: absolute;
+        margin: 50px 50%;
+        width: 23.5%;
+        height: auto;
+    }
+
+    /*
+    .talk-zhangruisheng-img {
+        position: relative;
+        display: block;
+        float: left;
+        margin: 30px 0px 10px 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+    }*/
+
+    .talk-page3-name {
+        position: relative;
+        margin-top: 35px;
+        margin-left: 65px;
+        width: auto;
+        height: 40px;
+        font-size: 10px;
+    }
+
+
+    .talk-link {
+        position: relative;
+        float: left;
+        margin: 0;
+        width: 100%;
+        list-style: none;
+    }
+
+    .talk-link li {
+        float: left;
+        margin-right: 20px;
+    }
+
+    .social {
+        position: relative;
+        float: left;
+        margin: 230px 0 0 -4px;
+        width: 100%;
+        list-style: none;
+    }
+
+    .social li {
+        float: left;
+        margin-right: 20px;
+    }
+
+    .wechat:hover + .monkren {
+        display: block;
+    }
+
+    .monkren {
+        position: fixed;
+        right: 100px;
+        bottom: 130px;
+        display: none;
+        width: 90px;
+        height: auto;
+    }
+
+
+
+    .talkh6 {
+        margin: 0 0 20px 0;
+        color: #767677;
+        font-weight: 300;
+        font-weight: 400;
+        font-size: 13px;
+    }
+
+    .talkp {
+        margin: 0;
+        letter-spacing: 1px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 32px;
+    }
+
+    .talk-page1-copyright {
+        margin: 170px 0 0 0px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+
+
+
+    .access {
+        position: relative;
+        z-index: 101;
+        padding: 8px;
+        padding-left: 24px;
+        height: auto;
+        background: #000;
+        color: #fff;
+        font-size: 12px;
+
+    }
+
+    .www {
+        float: right;
+        margin-right: 30px;
+    }
+
+    .www a {
+        color: #fff;
+    }
+
+
+}
+
+@media screen and (max-width:1126px) {
+    /*开屏*/
+
+    /*开始动画*/
+    #art {
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        height: 100%;
+        background-color: #23182C;
+        background-size: cover;
+    }
+
+    .start {
+        position: fixed;
+        bottom: 40px;
+        margin-left: 40px;
+        width: 260px;
+        height: auto;
+        color: #FFFFFF;
+        text-align: left;
+        letter-spacing: 12px;
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    .start1 {
+        position: relative;
+        color: #FFFFFF;
+        text-align: left;
+        letter-spacing: 4px;
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    .start2 {
+        position: relative;
+        margin-top: 10px;
+        color: #FFFFFF;
+        text-align: left;
+        letter-spacing: 4px;
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    /*********************
+    
+        左侧导航栏
+    
+    **********************/
+    nav {
+        position: fixed;
+        left: 0px;
+        /*70%的不透明度  */
+        z-index: 100;
+        width: 60px;
+        height: 100%;
+    }
+
+    .menu {
+        position: fixed;
+        left: -240px;
+        /* display: inline-block;*/
+        margin: 0;
+        padding: 0;
+        width: 240px;
+        height: 100%;
+        list-style: none;
+        transition: 0.6s;
+        z-index: 99;
+
+    }
+
+    .menu ul {
+        display: none;
+        position: relative;
+        top: -30px;
+        left: 0px;
+        padding: 200px 0 0 0;
+        height: 110%;
+        background: #fff;
+    }
+
+    .menu li {
+        display: none;
+        float: left;
+        padding-left: 60px;
+        width: 240px;
+        height: 60px;
+        list-style-type: none;
+        text-align: left;
+    }
+
+    .menu a {
+        display: none;
+        position: relative;
+        z-index: 1;
+        display: block;
+        margin: 0;
+        padding: 0;
+        color: #000;
+        text-decoration: none;
+        line-height: 30px;
+    }
+
+    .menu a.active {
+        display: none;
+        color: #000;
+    }
+
+    .menu-open {
+        position: fixed;
+        left: 0px;
+        /* display: inline-block;*/
+        margin: 0;
+        padding: 0;
+        width: 240px;
+        height: 100%;
+        list-style: none;
+        transition: 0.6s;
+        z-index: 99;
+
+    }
+
+    .menu-open ul {
+        position: relative;
+        top: -30px;
+        left: 0px;
+        padding: 200px 0 0 0;
+        height: 110%;
+        background: #fff;
+    }
+
+    .menu-open li {
+        float: left;
+        padding-left: 60px;
+        width: 240px;
+        height: 60px;
+        list-style-type: none;
+        text-align: left;
+    }
+
+    .menu-open a {
+        position: relative;
+        z-index: 1;
+        display: block;
+        margin: 0;
+        padding: 0;
+        color: #000;
+        text-decoration: none;
+        line-height: 30px;
+    }
+
+    .menu-open a.active {
+        color: #000;
+    }
+
+    .menu-iii {
+        position: fixed;
+        bottom: 12.5px;
+        left: 12px;
+    }
+
+    .menu-iii-x {
+        position: relative;
+        top: 14px;
+        left: 200px;
+        z-index: 102;
+        float: left;
+    }
+
+    .selector {
+        position: absolute;
+        left: 0px;
+        z-index: 1;
+        display: inline-block;
+        margin-top: 7px;
+        width: 2px;
+        height: 20px;
+        border-radius: 40px;
+        background: #000;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition-duration: 0.6s;
+    }
+
+
+
+    .logo {
+        position: fixed;
+        z-index: 999;
+        margin: 15px 0 0 13px;
+        width: 60px;
+        list-style: none;
+        font-weight: 500;
+        font-size: 12px;
+    }
+}
