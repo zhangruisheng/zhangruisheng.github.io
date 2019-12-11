@@ -239,7 +239,7 @@
         transition: all .3s ease;
     }
 
-    .home-item-holder .entry-holder.active-post + .post-thumbnail{
+    .home-item-holder .entry-holder.active-post + .post-thumbnail {
         position: absolute;
 
         z-index: -9;
@@ -275,7 +275,7 @@
         word-break: break-word;
         font-weight: 500;
         font-size: 13px;
-        font-family: monospace;
+
     }
 
     .home-item-holder h2.entry-title a:hover {
