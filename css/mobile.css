@@ -514,69 +514,157 @@
 
     /*********************
     
-        learn
+        home
     
     **********************/
 
-
     .home {
-        position: relative;
-        float: left;
-        margin-top: 100px;
-        padding: 0 6%;
         width: 100%;
+        height: 100%;
+        background: #FCF7F7;
     }
 
-    .learn-class {
-        float: left;
-        margin-bottom: 60px;
-        height: auto;
-    }
 
-    .learn-title {
+    .page {
         position: relative;
-        float: left;
+        width: 100%;
+        height: 100%;
+        background: #FCF7F7;
     }
 
-    .learn-item-holder {
-        float: left;
+
+
+
+    .home-class {
+        position: fixed;
+        float: right;
+        overflow: visible;
         width: 100%;
+        height: 100%;
+        background: #fff;
     }
+
+    .home-holder {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .home-title {
+        position: relative;
+        z-index: 999;
+        float: right;
+        margin: 40px 20px 0 0;
+        width: 200px;
+        height: 50px;
+        text-align: right;
+    }
+
+    .home-title h3 {
+        font-size: 28px;
+        font-family: monospace;
+    }
+
+    .animate {
+        opacity: 1;
+        transition: .3s ease-in;
+        -webkit-transform: translate(0px, 0px);
+        -ms-transform: translate(0px, 0px);
+        transform: translate(0px, 0px);
+    }
+
+    .home-item-holder {
+        position: relative;
+        float: right;
+        width: 100%;
+        height: 46px;
+    }
+
+    .home-item-holder-new {
+        height: 46px;
+    }
+
 
     .entry-holder {
         position: relative;
-        z-index: 99;
-        float: left;
-        margin-top: 60px;
-        width: 100%;
-        height: auto;
+        z-index: 101;
+        float: right;
+        margin: 20px 20px 0 0;
+        width: 100px;
+
+        align-items: center;
+    }
+
+    .entry-holder:after {
+        position: absolute;
+        z-index: 1000;
+        width: auto;
     }
 
     .post-thumbnail {
+        position: fixed;
+        top: -100px;
+        right: 14%;
+        z-index: -9;
+        visibility: hidden;
+        float: none;
+        width: 70%;
+        /*        text-align: center;*/
+        opacity: 0;
+        transition: all 0s ease;
+    }
+
+    .home-item-holder .entry-holder.active-post + .post-thumbnail {
+        /*        position: fixed;*/
+        /*top: 0px;*/
+        z-index: -9;
+        visibility: visible;
+        opacity: 1;
+        /*        transform: translateY(-120px);*/
+        transition: all 0s ease;
+    }
+
+    .home-item-holder .entry-info {
         position: relative;
-        float: left;
-        width: 100%;
-        height: auto;
-    }
-
-    .learn-img {
-        width: 100%;
-    }
-
-    .entry-info {
-        float: left;
+        float: right;
+        min-width: 150px;
+        width: 500px;
+        text-align: right;
         text-transform: uppercase;
         letter-spacing: 2px;
-        font-size: 10px;
     }
 
-    .entry-title {
+    .entry-date {
+        font-size: 12px;
+        opacity: 0.3;
+    }
+
+    .home-item-holder h2.entry-title a {
         position: relative;
-        float: left;
+        z-index: 999;
+        float: right;
+        /*        padding: 2px 0;*/
+        width: 600px;
+        /*
+        text-align: right;
+        word-break: break-word;
         font-weight: 500;
-        font-size: 30px;
+        font-size: 12px;
+*/
     }
 
+    .home-item-holder h2.entry-title a:hover {
+        color: #555;
+        /*        z-index: 99;*/
+    }
+
+    .home-item-holder h4 {
+        padding: 2px 0;
+        text-align: right;
+        word-break: break-word;
+        font-weight: 500;
+        font-size: 12px;
+    }
 
     /*********************
     
@@ -1061,7 +1149,7 @@
         height: 700px;
         background: url(../images/aboutme/Page01.png) no-repeat right;
         padding-top: 300px;
-        
+
     }
 
     .page1-title {
