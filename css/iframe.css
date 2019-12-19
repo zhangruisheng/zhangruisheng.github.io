@@ -325,7 +325,7 @@ iframe {
         position: fixed;
         left: 0px;
         /*70%的不透明度  */
-        z-index: 100;
+        z-index: 1000;
         width: 60px;
         height: 100%;
     }
