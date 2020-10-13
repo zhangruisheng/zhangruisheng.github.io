@@ -12,21 +12,62 @@
     a,
     input,
     label {
-        font-family: -apple-system, BlinkMacSystemFont, 'Microsoft YaHei', sans-serif;
-        /*"Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif !important;*/
-        color: #242025;
-        text-rendering: optimizelegibility !important;
-        /*控制显示在线字体的微妙细节*/
-        -webkit-font-smoothing: antialiased !important;
-        /*无抗锯齿none*/
-        -webkit-font-smoothing: subpixel-antialiased;
-        /*次像素平滑default*/
-        -webkit-font-smoothing: antialiased;
-        /*灰度平滑*/
-        -webkit-font-smoothing: grayscale !important;
-        -moz-osx-font-smoothing: grayscale !important;
-        -ms-text-size-adjust: 100% !important;
-        -webkit-text-size-adjust: 100%;
+
+        color: var(--color-00);
+        font-family: STSongti-SC-Regular, STSongti-SC;
+    }
+
+    text-rendering: optimizelegibility !important;
+    /*控制显示在线字体的微妙细节*/
+    -webkit-font-smoothing: antialiased !important;
+    /*无抗锯齿none*/
+    -webkit-font-smoothing: subpixel-antialiased;
+    /*次像素平滑default*/
+    -webkit-font-smoothing: antialiased;
+    /*灰度平滑*/
+    -webkit-font-smoothing: grayscale !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    -ms-text-size-adjust: 100% !important;
+    -webkit-text-size-adjust: 100%;
+
+    /* 设置滚动条的样式 */
+    /* 滚动条 */
+    ::-webkit-scrollbar-thumb:horizontal {
+        /*水平滚动条的样式*/
+        width: 0px;
+        background-color: #fafafa;
+        -webkit-border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+        background-color: #fff;
+        /*滚动条的背景颜色*/
+        -webkit-border-radius: 0;
+        /*滚动条的圆角宽度*/
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;
+        /*滚动条的宽度*/
+        height: 8px;
+        /*滚动条的高度*/
+    }
+
+    ::-webkit-scrollbar-thumb:vertical {
+        /*垂直滚动条的样式*/
+        height: 0px;
+        background-color: #fafafa;
+        -webkit-border-radius: 4px;
+        outline: 2px solid #fff;
+        outline-offset: -2px;
+        border: 2px solid #fff;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        /*滚动条的hover样式*/
+        height: 0px;
+        background-color: #9f9f9f;
+        -webkit-border-radius: 4px;
     }
 
 
@@ -38,57 +79,64 @@
     h4,
     h5,
     h6 {
-        font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+        margin-top: 0;
+        margin-bottom: 0;
+        color: var(--color-00);
         font-weight: 100;
-        color: #000;
+        font-family: STSongti-SC-Regular, STSongti-SC;
         line-height: 1.35;
-        margin-top: 0.5em;
-        margin-bottom: 0.6em;
     }
 
     h1 {
-        font-family: Montserrat-Medium, PingFangSC-Medium;
-        font-size: 26px;
-        font-weight: 400;
         letter-spacing: 0px;
-        line-height: 36px;
+        font-weight: 600;
+        font-size: 32xpx;
+        font-family: STSongti-SC-Regular, STSongti-SC;
+        line-height: 56px;
     }
 
     h2 {
-        font-size: 40px;
-        letter-spacing: 2.04px;
-        line-height: 1.5em;
-        font-weight: 400;
+
+        font-weight: 600;
+        font-size: 22px;
+        font-family: STSongti-SC-Regular, STSongti-SC;
+        /*        line-height: 56px;*/
     }
 
     h3 {
-        font-size: 24px;
-        line-height: 36px;
-        text-align: left;
+
         letter-spacing: normal;
         font-weight: 600;
+
+        font-size: 20px;
+        font-family: STSongti-SC-Regular, STSongti-SC;
+        line-height: 42px;
     }
 
     h4 {
-        font-family: Montserrat-Medium, PingFangSC-Medium;
-        font-size: 16px;
         letter-spacing: 2.04px;
-        line-height: 1em;
         font-weight: 500;
+        font-size: 14px;
+        font-family: Montserrat-Medium, PingFangSC-Medium;
+        line-height: 1em;
     }
 
     h5 {
-        font-size: 1em;
-        letter-spacing: 2.04px;
-        line-height: 1.5em;
-        font-weight: 400;
+
+        font-weight: 900;
+        font-size: 15px;
+        font-family: STSongti-SC-Black, STSongti-SC;
+        line-height: 20px;
+
     }
 
     h6 {
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 1.4em;
-        padding-bottom: 4px;
+        font-weight: 400;
+        font-size: 13px;
+        font-family: Montserrat-Medium, PingFangSC-Medium;
+        line-height: 1.6em;
+        opacity: .7;
+        margin-bottom: 12px;
     }
 
     h6 strong,
@@ -97,12 +145,84 @@
     }
 
     p {
+        padding-bottom: 15px;
+        color: var(--color-00);
+        /*        text-indent: 30px;*/
         font-weight: normal;
-        color: #000000;
         font-size: 1em;
         line-height: 2em;
-        padding-bottom: 4px;
-        text-indent: 30px;
+        text-align: center;
+    }
+
+    .line1 {
+        opacity: 1;
+        float: left;
+        width: 10px;
+        height: 2px;
+        background: var(--color-00);
+        margin-bottom: 16px;
+    }
+
+    .line {
+        position: relative;
+        float: left;
+        width: 90px;
+        left: 50%;
+        background: var(--color-00);
+        height: 6px;
+        margin-bottom: 30px;
+        margin-left: -45px;
+        margin-top: 30px;
+    }
+
+
+    /***************
+    
+    按钮
+    
+    ****************/
+    .button-black {
+        margin-top: 10px;
+        /*flex 布局*/
+        display: flex;
+        width: 100%;
+        height: 40px;
+        background: #000000;
+        color: #fff;
+        text-align: justify;
+        font-weight: 400;
+        /*实现垂直居中*/
+        align-items: center;
+        /*实现水平居中*/
+        justify-content: center;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .button-black:hover {
+        background: #333;
+    }
+
+    .button-red {
+        margin-top: 10px;
+        /*flex 布局*/
+        display: flex;
+        width: 100%;
+        height: 40px;
+        background: #FD6856;
+        color: #fff;
+        text-align: justify;
+
+        /*实现垂直居中*/
+        align-items: center;
+        /*实现水平居中*/
+        justify-content: center;
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .button-red:hover {
+        background: #FF8F81;
     }
 
     body {
@@ -116,42 +236,134 @@
         width: 100%;
         height: 100%;
         z-index: 100;
-        background: #FFF;
+        background: var(--color-ff);
         overflow-y: scroll;
         overflow-x: hidden;
+        color: var(--color-00);
+
         /* 滚动顺畅*/
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         /*       background: #F5F6F9;*/
+
+    }
+
+    .show {
+        position: relative;
+        width: 94%;
+        margin-left: 3%;
+        height: auto;
+
+    }
+
+
+    .information {
+        position: relative;
+
+        margin-top: 60px;
+        margin-bottom: 400px;
+        width: 100%;
+        height: auto;
+        /*        background: #F8F8F8;*/
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .information-n {
+
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+
+
+    .line1 {
+        position: relative;
+        float: left;
+
+        width: 10px;
+        height: 2px;
+        background: #000;
+        opacity: 1;
+        left: 50%;
+        margin-left: -5px;
+    }
+
+
+    .file {
+        /*
+    position: fixed;
+    bottom: 0px;
+    float: right;
+    right: 20px;
+*/
+        margin-top: 30px;
     }
 
 
 
 
-    .information {
+
+
+
+
+
+
+
+
+    .button-img {
+
+        position: relative;
+        width: 20%;
+        float: left;
+        margin-left: 20%;
+        margin-top: 20px;
+    }
+
+    .buy {
         position: relative;
         float: left;
-        bottom: 0px;
-        width: 100%;
-        height: auto;
-        margin-top: 100px;
+        z-index: 10;
+        padding: 30px 20px;
+        width: 92%;
+        height: 240px;
+        background: #F8F8F8;
         text-align: left;
         font-size: 12px;
-        z-index: 10;
-        background: #fff;
-        padding: 0 6%;
+        margin-top: 16px
+    }
+
+    .reward {
+        position: relative;
+        float: left;
+        padding: 30px 20px;
+
+        width: 92%;
+        height: 240px;
+        background: #F8F8F8;
+        text-align: left;
+        font-size: 12px;
+
+    }
+
+    .reward-img {
+        position: relative;
+        float: left;
+        margin-top: 10px;
+        width: 140px;
+        height: auto;
     }
 
     .author-img {
         position: relative;
         float: left;
-        width: 80px;
+        width: 100%;
         height: auto;
-        margin-bottom: 20px;
+        margin-top: 10px;
     }
 
     .author-img img {
-        border-radius: 10%;
+        border-radius: 0;
     }
 
 
@@ -163,6 +375,17 @@
         top: 0px;
         z-index: 9;
 
+        position: relative;
+        top: 0px;
+        z-index: 9;
+        overflow-x: hidden;
+        overflow-y: hidden;
+
+
+
+        /* 滚动顺畅*/
+        scroll-behavior: smooth;
+        margin-bottom: 80px;
 
     }
 
@@ -170,38 +393,137 @@
         position: relative;
         float: left;
         height: auto;
-        width: 88%;
+        width: 100%;
         z-index: 0;
         overflow: hidden;
-        margin-bottom: 30px;
-        background-color: #FCF7F7;
-        padding: 0 6%;
+
+        margin-top: 100px;
+
+
     }
 
-    .mainartcle img {
-        margin: 10px 0;
-    }
 
-    .art-img {
-        width: 100%;
-    }
+
 
     .main-title {
         position: relative;
+        width: 100%;
         margin-bottom: 0px;
+        text-align: center;
     }
+
+    .title {
+        font-family: sans-serif;
+        font-weight: 400;
+        position: relative;
+        float: left;
+        width: 100%;
+        text-align: center;
+        font-size: 10px;
+        margin-bottom: 20px;
+        opacity: 0.7;
+        margin-top: 60px;
+
+    }
+
+    .cover {
+        position: relative;
+        width: 100%;
+        float: right;
+        text-align: center;
+        font-family: 'Serif SC', serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 26px;
+
+
+    }
+
+    .content-w {
+        position: relative;
+        float: left;
+        text-align: left;
+        display: flex;
+        display: -webkit-flex;
+        /* Safari */
+        flex-direction: row;
+        margin-top: 24px;
+        width: 100%;
+
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+
+    .introduction {
+
+        position: relative;
+        width: 92%;
+        float: left;
+        margin-left: 4%;
+        text-align: center;
+        font-family: Songti TC;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 28px;
+        height: auto;
+    }
+
+    .content {
+        width: 94%;
+        margin-left: 3%;
+        float: left;
+        text-align: center;
+    }
+
+    .work-card-app {
+
+        width: 49%;
+        float: left;
+    }
+
+
+    .work-img {
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: auto;
+
+        /*        border-radius: 8px;*/
+    }
+
+
+
 
     .return {
         position: fixed;
-        width: 40px;
-        top: 20px;
-        right: 10px;
+        top: 16px;
+        right: 3%;
         z-index: 1000;
+        width: 300px;
+        text-align: right;
+        font-weight: 600;
+    }
+
+    .return-d {
+        display: none;
+    }
+
+    .return-m {
+
+        position: fixed;
+        top: 18px;
+        right: 50px;
+        z-index: 1000;
+        width: 300px;
+        text-align: right;
     }
 
     .return:hover {
+        opacity: 1;
         filter: alpha(opacity=70);
-        opacity: 0.50;
         transition-duration: 0.3s;
     }
 
@@ -211,16 +533,14 @@
     .main-bottom {
         position: relative;
         float: left;
-        width: 100%;
-        padding: 100px 0 0 6%;
+        width: 94%;
         height: auto;
         background: #fff;
+        margin: 0 3%;
+
 
     }
 
-    .main-bottom h4 {
-        margin: 40px 0 20px 0px;
-    }
 
     .bottom-more img {
         margin-right: 40px;
@@ -234,28 +554,21 @@
     }
 
     .top {
-       
         position: relative;
         float: right;
-        right: 0px;
-        width: 100px;
-        height: 120px;
         bottom: 50px;
-        text-align: center;
-
-    }
-
-
-    .social {
-        position: relative;
+        right: 10px;
+        z-index: 999;
+        /*
+        
+        
+        right: 20px;
+        z-index: 999;
         width: 100%;
-        height: 50px;
-        z-index: 1000;
-    }
-
-    .social li {
-        float: left;
-        margin-right: 10px;
+        height: auto;
+        text-align: right;
+        
+*/
     }
 
     .monkren {
@@ -271,5 +584,60 @@
 
     .wechat:hover + .monkren {
         display: block;
+    }
+
+    .follow {
+        position: relative;
+        float: left;
+        margin-top: 8px;
+        width: 320px;
+        height: 50px;
+
+
+
+    }
+
+    .social {
+        position: relative;
+        width: 100%;
+
+    }
+
+    .social ul {
+        /*
+        position: relative;
+        float: left;
+        width: 100%;
+       
+        padding-left: 25%;
+*/
+        display: flex;
+        display: -webkit-flex;
+        /* Safari */
+        flex-direction: row;
+        margin-top: 12px;
+        width: 60%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: space-around;
+        margin-left: 20%;
+    }
+
+    .social li {
+        /*
+        float: left;
+        margin-right: 10px;
+*/
+    }
+
+    .qz {
+        position: relative;
+        float: right;
+        text-align: center;
+
+        margin-bottom: 24px;
+        width: 100%;
+
+
     }
 }

@@ -1,3 +1,16 @@
+/*自定义变量换皮*/
+/*
+:root {
+    --color-00: #000;
+    --color-ff: #fff;
+    --color-d1: #140C1A;
+}*/
+
+
+
+
+
+
 /***********************
      
      作者：monk.ren
@@ -5,29 +18,14 @@
      
 ***********************/
 /*初始化样式*/
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-}
 
-::-moz-selection {
-    background: #ddd;
-    color: #000;
-    text-shadow: none;
-}
-
-::selection {
-    background: #ddd;
-    color: #000;
-    text-shadow: none;
-}
 
 ul,
 li {
+    margin: 0;
+    padding: 0;
     list-style: none;
 }
-
 
 
 html,
@@ -42,16 +40,21 @@ h6,
 a,
 input,
 label {
+    color: var(--color-00);
+    font-weight: normal;
+    /*    font-size: 12px;*/
     font-family:
         /* 西文 */
         'Gotham-Book', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu,
         "Helvetica Neue", Helvetica, Arial,
         /* 中文 */
-        "PingFang SC", "Hiragino Sans GB",
-        "Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN", sans-serif;
-    font-weight: normal;
-    font-size: 12px;
-    color: #23182c;
+        "PingFang SC",
+        "Hiragino Sans GB",
+        "Microsoft Yahei UI",
+        "Microsoft Yahei",
+        "Source Han Sans CN",
+        sans-serif;
+
     text-rendering: optimizelegibility !important;
     /*控制显示在线字体的微妙细节*/
     -webkit-font-smoothing: antialiased !important;
@@ -64,8 +67,72 @@ label {
     -moz-osx-font-smoothing: grayscale !important;
     -ms-text-size-adjust: 100% !important;
     -webkit-text-size-adjust: 100%;
+}
+
+/* 设置滚动条的样式 */
+/* 滚动条 */
+::-webkit-scrollbar-thumb:horizontal {
+    /*水平滚动条的样式*/
+    width: 0px;
+    background-color: #fafafa;
+    -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #fff;
+    /*滚动条的背景颜色*/
+    -webkit-border-radius: 0;
+    /*滚动条的圆角宽度*/
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    /*滚动条的宽度*/
+    height: 8px;
+    /*滚动条的高度*/
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    /*垂直滚动条的样式*/
+    height: 0px;
+    background-color: #fafafa;
+    -webkit-border-radius: 4px;
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+    border: 2px solid #fff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    /*滚动条的hover样式*/
+    height: 0px;
+    background-color: #9f9f9f;
+    -webkit-border-radius: 4px;
+}
+
+/*
+iOS兼容iFrame滚动条样式
+*/
+
+/*
+.scroll-wrapper {
+    position: fixed;
+    z-index: 1000;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    width: 10%;
+    height: auto;
+    background: #000;
+}*/
+
+iframe {
+    position: fixed;
+    z-index: 98;
+    width: 100%;
+    height: 100%;
+    background: var(--color-ff);
 
 }
+
 
 html body {
     /*    overflow-x: hidden;*/
@@ -76,41 +143,20 @@ html body {
     width: 100%;
     height: auto;
     border: 0;
-}
-
-/*
-iOS兼容iFrame滚动条样式
-*/
-
-.scroll-wrapper {
-    position: fixed;
-    overflow: hidden;
-    -webkit-overflow-scrolling: touch;
-    width: 10%;
-    height: auto;
-    z-index: 1000;
-    background: #000;
-}
-
-iframe {
-    position: fixed;
-    z-index: 98;
-    width: 100%;
-    height: 100%;
-    /*
-    -webkit-overflow-scrolling: touch;
-    overflow-y: scroll;
-*/
+    background: var(--color-ff);
 }
 
 
-
-.bbbb {
-    overflow: hidden;
-}
 
 /* Desktop桌面端 CSS  */
 @media screen and (min-width:1126px) {
+
+
+
+    .bbbb {
+        overflow: hidden;
+    }
+
 
 
     /*********************
@@ -122,36 +168,52 @@ iframe {
         position: fixed;
         left: 0px;
         /*70%的不透明度  */
-        z-index: 100;
+        z-index: 999;
         width: 180px;
         height: 100%;
-
     }
 
     .logo {
         position: fixed;
-        z-index: 999;
-        margin: 30px 0 0 40px;
+        z-index: 9999;
+        margin: 25px 0 0 20px;
+        width: 170px;
+        list-style: none;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .logo2 {
+        position: fixed;
+        bottom: 34px;
+        z-index: 9999;
+        margin-left: 20px;
         width: 180px;
         list-style: none;
         font-weight: 500;
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .logo-i {
         position: relative;
         float: left;
+        width: 80px;
+    }
+
+    .logo-i img {
+        border-radius: 0%;
     }
 
     .logo-t {
+        display: none;
         position: relative;
         float: left;
-        margin: 10px 0 0 25px;
-
+        margin: 0px 0 0 25px;
     }
 
-    .menu {
+    .menu-open {
         position: fixed;
+        z-index: 999;
         display: inline-block;
         margin: 0;
         padding: 0;
@@ -159,43 +221,81 @@ iframe {
         height: 100%;
         list-style: none;
         font-weight: 600;
-        font-size: 12px;
-        z-index: 99;
     }
 
-    .menu ul {
-        position: relative;
-        margin-top: 200px;
-        margin-left: 135px;
-        width: 50px;
+    .menu-open ul {
+        position: fixed;
+        top: 20%;
+        left: 20px;
+
+        width: 240px;
         height: auto;
+        text-align: left;
+        font-family: SF Pro Text;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 60px;
+
+
     }
 
-    .menu li {
+    .menu-open li {
         position: relative;
-        float: right;
+        margin-bottom: 16px;
         width: 100%;
-        height: 50px;
-        right: 20px;
+        height: 34px;
         list-style-type: none;
-        text-align: right;
     }
 
-    .menu a {
+    .menu-open a {
         position: relative;
         z-index: 1;
-        display: block;
-        margin: 0;
-        padding: 0;
-        color: #23182C;
-        font-weight: 500;
+        float: left;
+        color: var(--color-ff);
         text-decoration: none;
-        line-height: 30px;
+        font-weight: 600;
+        line-height: 20px;
+        -webkit-text-stroke: 0.5px var(--color-00);
+        text-stroke: 0.5px var(--color-00);
     }
 
-    .menu a.active {
-        color: #23182C;
+
+    .menu-open a:hover {
+        opacity: 1;
+        transition: opacity 0.2s;
+        -webkit-text-stroke: 0px var(--color-00);
+        text-stroke: 0px var(--color-00);
+        -webkit-text-fill-color: var(--color-00);
+        text-fill-color: var(--color-00);
     }
+
+    .active {
+        opacity: 1;
+        transition: opacity 0.2s;
+        /*字体描边*/
+
+        -webkit-text-stroke: 0px var(--color-00);
+        text-stroke: 0px var(--color-00);
+        -webkit-text-fill-color: var(--color-00);
+        text-fill-color: var(--color-00);
+
+    }
+
+
+    /*
+    .menu-open a:active {
+        color: #000;
+        opacity: 1;
+        transition: opacity 0.4s;
+
+        -webkit-text-stroke: 0px #000;
+        text-stroke: 0px #000;
+        -webkit-text-fill-color: #000;
+        text-fill-color: #000;
+    }*/
+
+
 
     .menu-iii {
         display: none;
@@ -213,59 +313,45 @@ iframe {
         footer
     
     **********************/
-    .footer {
-        position: fixed;
-        z-index: 111;
-        margin-bottom: 00px;
-        width: 100%;
-        height: auto;
-    }
-
-
 
 
 
 
     .access {
         position: fixed;
+        bottom: 0;
         z-index: 101;
+        width: 100%;
+        height: 24px;
         background: #000;
         color: #fff;
         font-size: 12px;
-        bottom: 0;
-        width: 100%;
-        height: 24px;
-
-
     }
 
     .ww {
-
         position: relative;
+        right: 2px;
         float: left;
-        right: 0px;
+        margin: 3px 10px;
         width: 700px;
-        margin-top: 3px;
-        margin-left: 10px
     }
 
     .www {
-
         position: relative;
-        float: right;
         right: 0px;
+        float: right;
+        margin-right: 20px;
         width: 500px;
-        margin-top: -1px;
-        margin-right: 30px
     }
 
     .www a {
-        color: #fff;
+        color: var(--color-ff)
     }
 
     .social-light {
         position: relative;
         float: right;
+        padding: 0px;
         width: 100%;
         list-style: none;
     }
@@ -277,43 +363,86 @@ iframe {
 
     .monkren {
         position: fixed;
+        right: 30px;
+        bottom: 40px;
         display: none;
         width: 160px;
         height: auto;
-        bottom: 40px;
-        right: 30px;
-
-
     }
 
     .wechat:hover + .monkren {
         display: block;
     }
+
+    /*源文件*/
+    .beta {
+        position: fixed;
+        float: left;
+        margin-left: 20px;
+        padding: 1px 6px;
+        background: #FE4A4B;
+        color: #fff;
+        font-size: 12px;
+        bottom: 226px;
+        text-align: right;
+
+    }
 }
 
 @media screen and (max-width:1126px) {
 
-    /*开屏*/
+
+    body {
+        position: relative;
+        margin-bottom: 100px;
+        padding: 0;
+        width: 100%;
+
+        margin-top: 0px;
+
+    }
+
+    .bbbb {
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+
+    iframe {
+        position: fixed;
+        z-index: 98;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0px;
+    }
+
     .logo {
         position: fixed;
-        z-index: 999;
-        margin: 30px 0 0 40px;
-        width: 180px;
-        list-style: none;
-        font-weight: 500;
-        font-size: 12px;
+        top: 8px;
+        left: 3%;
+        width: 90px;
+        height: 90px;
+
     }
+
 
     .logo-i {
         position: relative;
         float: left;
+        width: 50px;
     }
+
 
     .logo-t {
         position: relative;
         float: left;
-        margin: 10px 0 0 25px;
+        left: 50%;
+        font-size: 50px;
 
+        margin-left: -120px;
+        font-weight: 200;
+        top: -10px
     }
 
     /*********************
@@ -323,94 +452,40 @@ iframe {
     **********************/
     nav {
         position: fixed;
-        left: 0px;
-        /*70%的不透明度  */
-        z-index: 1000;
+        z-index: 999;
         width: 60px;
-        height: 100%;
+        height: auto;
     }
 
-    .menu {
-        position: fixed;
-        left: -240px;
-        /* display: inline-block;*/
-        margin: 0;
-        padding: 0;
-        width: 240px;
-        height: 100%;
-        list-style: none;
-        transition: 0.6s;
-        z-index: 99;
-
-    }
-
-    .menu ul {
-        display: none;
-        position: relative;
-        top: -30px;
-        left: 0px;
-        padding: 200px 0 0 0;
-        height: 110%;
-        background: #fff;
-    }
-
-    .menu li {
-        display: none;
-        float: left;
-        padding-left: 60px;
-        width: 240px;
-        height: 60px;
-        list-style-type: none;
-        text-align: left;
-    }
-
-    .menu a {
-        display: none;
-        position: relative;
-        z-index: 1;
-        display: block;
-        margin: 0;
-        padding: 0;
-        color: #000;
-        text-decoration: none;
-        line-height: 30px;
-    }
-
-    .menu a.active {
-        display: none;
-        color: #000;
-    }
 
     .menu-open {
         position: fixed;
         left: 0px;
-        /* display: inline-block;*/
+        z-index: 99;
         margin: 0;
         padding: 0;
-        width: 240px;
-        height: 100%;
+        width: 100%;
+        height: 90%;
         list-style: none;
         transition: 0.6s;
-        z-index: 99;
-
+        background: var(--color-ff);
+        top: 0%;
     }
 
     .menu-open ul {
-        position: relative;
-        top: -30px;
+        position: absolute;
         left: 0px;
-        padding: 200px 0 0 0;
-        height: 110%;
-        background: #fff;
+        bottom: 20%;
+        height: auto;
+        width: 100%;
     }
 
     .menu-open li {
         float: left;
-        padding-left: 60px;
-        width: 240px;
-        height: 60px;
+        width: 100%;
+        height: 40px;
         list-style-type: none;
-        text-align: left;
+        text-align: center;
     }
 
     .menu-open a {
@@ -419,28 +494,98 @@ iframe {
         display: block;
         margin: 0;
         padding: 0;
-        color: #000;
+        color: var(--color-00);
         text-decoration: none;
         line-height: 30px;
     }
 
     .menu-open a.active {
+        color: var(--color-00);
+    }
+
+
+
+ 
+
+
+
+    .menu {
+        position: fixed;
+        left: 0px;
+        z-index: 99;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 70%;
+        list-style: none;
+        transition: 0.6s;
+        background: var(--color-ff);
+        top: -70%;
+    }
+
+    .menu ul {
+        position: absolute;
+        left: 0px;
+        bottom: 20%;
+        height: auto;
+        width: 100%;
+    }
+
+    .menu li {
+        float: left;
+        width: 100%;
+        height: 40px;
+        list-style-type: none;
+        text-align: center;
+    }
+
+    .menu a {
+        position: relative;
+        z-index: 1;
+        display: block;
+        margin: 0;
+        padding: 0;
+        color: var(--color-00);
+        text-decoration: none;
+        line-height: 30px;
+    }
+
+
+    .menu a.active {
         color: #000;
     }
 
     .menu-iii {
         position: fixed;
-        bottom: 12.5px;
-        left: 12px;
+        top: 10px;
+        right: 3%;
+      
     }
 
     .menu-iii-x {
         position: relative;
-        top: 14px;
-        left: 200px;
+        bottom: -88%;
         z-index: 102;
-        float: left;
+        left: 50%;
+        margin-left: -15px;
     }
+
+
+    .logo2 {
+        position: absolute;
+        float: left;
+        bottom: 16px;
+        left: 10px;
+        z-index: 102;
+        display: none;
+
+    }
+
+
+
+
+
+
 
     .selector {
         position: absolute;
@@ -461,51 +606,37 @@ iframe {
         footer
     
     **********************/
-    .footer {
-        position: fixed;
-        z-index: 111;
-        margin-bottom: 00px;
-        width: 100%;
-        height: auto;
-    }
-
-
-
-
-
 
     .access {
         position: fixed;
+        bottom: 0;
         z-index: 101;
+        width: 100%;
+        height: 40px;
         background: #000;
         color: #fff;
         font-size: 12px;
-        bottom: 0;
-        width: 100%;
-        height: 24px;
-
+        left: 0px;
 
     }
 
     .ww {
-
-        position: relative;
+        position: fixed;
+        bottom: 0px;
+        display: none;
         float: left;
-        right: 0px;
-        width: 700px;
-        margin-top: 3px;
-        margin-left: 10px
+        margin: 3px 0px;
+        width: 100%;
+        text-align: center;
     }
 
     .www {
-
-        position: relative;
-        float: right;
-        right: 0px;
-        width: 500px;
-        margin-top: -1px;
-        margin-right: 30px
+        position: fixed;
+        width: 100%;
+        height: auto;
+        background: #000;
     }
+
 
     .www a {
         color: #fff;
@@ -513,40 +644,85 @@ iframe {
 
     .social-light {
         position: relative;
-        float: right;
+        left: 50%;
+        z-index: 9999;
+        float: left;
+        margin-top: 4px;
+        margin-left: -166px;
         width: 100%;
         list-style: none;
     }
 
     .social-light li {
-        float: right;
-        margin-left: 12px;
+        float: left;
+        margin-right: 7.5%;
+        padding: 0;
+    }
+
+    .social-light img {
+        width: 32px;
     }
 
     .monkren {
         position: fixed;
-        display: none;
-        width: 160px;
-        height: auto;
-        bottom: 40px;
         right: 30px;
-
-
+        bottom: 80px;
+        display: none;
+        width: 120px;
+        height: 120px;
     }
 
     .wechat:hover + .monkren {
+        position: fixed;
+        right: 10px;
+        bottom: 80px;
         display: block;
+        width: 120px;
+        height: 120px;
     }
 
-    /*
-    .logo {
+
+    .zzhao {
+        position: fixed;
+        z-index: 98;
+        width: 100%;
+        height: 100%;
+        background: var(--color-ff);
+        opacity: 0.7;
+        transition: 0.6s;
+        /*            点击穿透*/
+        pointer-events: auto;
+        left: 0;
+    }
+
+    .zzzhao {
         position: fixed;
         z-index: 999;
-        margin: 15px 0 0 13px;
-        width: 60px;
-        list-style: none;
-        font-weight: 500;
-        font-size: 12px;
+        display: none;
+        width: 100%;
+        height: 100%;
+        background: var(--color-ff);
+        opacity: 0;
+
+        /*            点击穿透*/
+        pointer-events: auto;
+        left: 0;
+        transition: 0.6s;
     }
-*/
+
+    /*源文件*/
+    .beta {
+        position: absolute;
+        float: left;
+        left: 50%;
+        padding: 1px 6px;
+        background: #FE4A4B;
+        color: #fff;
+        font-size: 12px;
+        top: 18%;
+        text-align: left;
+
+        margin-left: -20px;
+    }
+
 }

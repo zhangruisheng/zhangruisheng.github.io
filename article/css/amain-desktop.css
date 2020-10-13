@@ -1,0 +1,668 @@
+@media (min-width: 768px) {
+
+    html,
+    body,
+    p1,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    a,
+    input,
+    label {
+
+        color: var(--color-00);
+        font-family:
+            /* 西文 */
+            'Gotham-Book', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu,
+            "Helvetica Neue", Helvetica, Arial,
+            /* 中文 */
+            "PingFang SC",
+            "Hiragino Sans GB",
+            "Microsoft Yahei UI",
+            "Microsoft Yahei",
+            "Source Han Sans CN",
+            sans-serif;
+    }
+
+    text-rendering: optimizelegibility !important;
+    /*控制显示在线字体的微妙细节*/
+    -webkit-font-smoothing: antialiased !important;
+    /*无抗锯齿none*/
+    -webkit-font-smoothing: subpixel-antialiased;
+    /*次像素平滑default*/
+    -webkit-font-smoothing: antialiased;
+    /*灰度平滑*/
+    -webkit-font-smoothing: grayscale !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    -ms-text-size-adjust: 100% !important;
+    -webkit-text-size-adjust: 100%;
+
+    /* 设置滚动条的样式 */
+    /* 滚动条 */
+    ::-webkit-scrollbar-thumb:horizontal {
+        /*水平滚动条的样式*/
+        width: 0px;
+        background-color: #fafafa;
+        -webkit-border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-track-piece {
+        background-color: #fff;
+        /*滚动条的背景颜色*/
+        -webkit-border-radius: 0;
+        /*滚动条的圆角宽度*/
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;
+        /*滚动条的宽度*/
+        height: 8px;
+        /*滚动条的高度*/
+    }
+
+    ::-webkit-scrollbar-thumb:vertical {
+        /*垂直滚动条的样式*/
+        height: 0px;
+        background-color: #fafafa;
+        -webkit-border-radius: 4px;
+        outline: 2px solid #fff;
+        outline-offset: -2px;
+        border: 2px solid #fff;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        /*滚动条的hover样式*/
+        height: 0px;
+        background-color: #9f9f9f;
+        -webkit-border-radius: 4px;
+    }
+
+
+
+    /* 段落样式*/
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-weight: 100;
+        line-height: 1.35;
+        ;
+    }
+
+    h1 {
+        letter-spacing: 0px;
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 56px;
+    }
+
+    h2 {
+
+        font-weight: 400;
+        font-size: 28px;
+        font-family:
+            /* 西文 */
+            'Gotham-Book', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu,
+            "Helvetica Neue", Helvetica, Arial,
+            /* 中文 */
+            "PingFang SC",
+            "Hiragino Sans GB",
+            "Microsoft Yahei UI",
+            "Microsoft Yahei",
+            "Source Han Sans CN",
+            sans-serif;
+        /*        line-height: 56px;*/
+    }
+
+    h3 {
+        letter-spacing: normal;
+        font-weight: 600;
+        font-weight: 400;
+        font-size: 24px;
+
+        line-height: 42px;
+    }
+
+    h4 {
+        letter-spacing: 2.04px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1em;
+    }
+
+    h5 {
+
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    h6 {
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 1.6em;
+        opacity: .6;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    h6 strong,
+    h6 dfn {
+        color: #aaaaaa;
+    }
+
+    p {
+
+        padding-bottom: 16px;
+        color: var(--color-00);
+        /*        text-indent: 30px;*/
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        font-family: sans-serif;
+        letter-spacing: normal;
+    }
+
+    .line1 {
+        opacity: 1;
+        float: right;
+        width: 10px;
+        height: 1.5px;
+        background: #000;
+        margin-bottom: 16px;
+        margin-left: 90%;
+    }
+
+    .linel {
+        opacity: 1;
+        float: left;
+        width: 10px;
+        height: 2px;
+        background: #000;
+        margin-bottom: 16px;
+        margin-right: 90%;
+        margin-left: 2px;
+    }
+
+
+
+
+
+
+    .r {
+        float: right;
+    }
+
+    /***************
+    
+    按钮
+    
+    ****************/
+    .button-black {
+        margin-top: 10px;
+        /*flex 布局*/
+        display: flex;
+        width: 180px;
+        height: 28px;
+        background: var(--color-00);
+        color: var(--color-ff);
+        text-align: justify;
+        font-weight: 400;
+        /*实现垂直居中*/
+        align-items: center;
+        /*实现水平居中*/
+        justify-content: center;
+    }
+
+    .button-black:hover {
+        background: #333;
+    }
+
+    .button-red {
+        margin-top: 10px;
+        /*flex 布局*/
+        display: flex;
+        width: 180px;
+        height: 28px;
+        background: #FD6856;
+        color: #fff;
+        text-align: justify;
+
+        /*实现垂直居中*/
+        align-items: center;
+        /*实现水平居中*/
+        justify-content: center;
+    }
+
+    .button-red:hover {
+        background: #FF8F81;
+    }
+
+
+    body {
+        overflow: hidden;
+        background: var(--color-ff);
+    }
+
+
+
+    .showxx {
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        background: var(--color-ff);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        color: var(--color-00);
+    }
+
+    .show {
+        position: relative;
+        width: 90%;
+        margin-left: 18%;
+
+
+    }
+
+
+
+    .information {
+        position: fixed;
+        z-index: 10;
+        margin-top: 100px;
+        right: 10px;
+        padding: 20px 10px;
+        width: 180px;
+        height: auto;
+        /*        background: #F8F8F8;*/
+        text-align: right;
+        font-size: 12px;
+    }
+
+    /*
+ svg { 
+     fill: #333; 
+     stroke:#444;
+    }
+*/
+
+    .Knowledge {
+        width: 100%;
+        height: auto;
+    }
+
+    .information-work {
+        position: fixed;
+        z-index: 10;
+        margin-top: 80px;
+        margin-right: 20px;
+        right: 30px;
+        padding: 30px 20px;
+        width: 180px;
+        height: auto;
+        /*        background: #F8F8F8;*/
+        text-align: right;
+        font-size: 12px;
+    }
+
+    .buy {
+        position: relative;
+        float: left;
+        z-index: 10;
+        padding: 30px 20px;
+        width: 180px;
+        height: 360px;
+        background: #fafafa;
+        text-align: left;
+        font-size: 12px;
+    }
+
+
+    .information-n {
+
+        margin-bottom: 20px;
+
+
+    }
+
+    .button-img {
+        width: 60px;
+        position: relative;
+        float: right;
+        margin-left: 16px;
+    }
+
+    .button-img img {
+        position: relative;
+        left: -80px;
+        filter: drop-shadow(#999 80px 0);
+    }
+
+    .author-img {
+        position: relative;
+        float: left;
+        margin-top: 10px;
+        width: 100%;
+        height: auto;
+    }
+
+    .author-img img {
+        border-radius: 0px;
+    }
+
+
+    .main {
+        position: relative;
+
+        z-index: 9;
+        float: left;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        /*
+        max-width: 800px;
+        min-width: 500px;
+*/
+        width: 70%;
+        height: 100%;
+
+        /* 滚动顺畅*/
+        scroll-behavior: smooth;
+        margin-bottom: 60px;
+        text-align: right;
+    }
+
+    .mainartcle {
+        position: relative;
+        z-index: 0;
+        float: left;
+        margin-top: 36px;
+        width: 100%;
+
+        height: auto;
+
+
+    }
+
+    .cover {
+        position: relative;
+        width: 80%;
+        min-width: 400px;
+        max-width: 1060px;
+        float: right;
+        text-align: right;
+        font-family: 'Serif SC', serif;
+
+        font-size: 24px;
+        line-height: 40px;
+
+
+    }
+
+
+    .introduction {
+        position: relative;
+        width: 80%;
+        min-width: 500px;
+        max-width: 1060px;
+        float: right;
+        text-align: left;
+    }
+
+    .content {
+        width: 80%;
+        min-width: 500px;
+        max-width: 1060px;
+        float: right;
+        text-align: left;
+    }
+
+    .content-w {
+        position: relative;
+
+        min-width: 500px;
+
+        float: right;
+        text-align: left;
+
+        display: flex;
+        display: -webkit-flex;
+        /* Safari */
+        flex-direction: row;
+        margin-top: 24px;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+ 
+
+    .work-card-app {
+        margin-bottom: 20px;
+        min-width: 160px;
+        width: 18%;
+        float: left;
+    }
+    .brand-img{
+        margin-bottom: 20px;
+        min-width: 160px;
+        width: 30%;
+        float: left;
+    }
+
+    .work-img {
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: auto;
+
+        /*        border-radius: 8px;*/
+    }
+
+    .line {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 6px;
+        margin-bottom: 40px;
+    }
+
+    .brand-4 {
+        display: flex;
+        display: -webkit-flex;
+        /* Safari */
+        flex-direction: row;
+        margin-top: 0px;
+        width: 110%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: stretch;
+
+    }
+
+    /*
+    .brand-img {
+        position: relative;
+        margin: 0 20px 20px 0px;
+        min-width: 280px;
+        max-width: 420px;
+        width: 30%;
+        opacity: 1;
+        transition-duration: 0.5s;
+    }*/
+
+
+    .content img {
+        margin: 0 0 20px 0;
+    }
+
+    .main-title {
+        position: relative;
+        float: right;
+        text-align: left;
+        width: 100%;
+        height: auto;
+        margin-bottom: 60px;
+
+    }
+
+   
+
+    .title {
+
+        font-family: sans-serif;
+        font-weight: 400;
+        position: relative;
+        float: left;
+        width: 20%;
+        text-align: left;
+     
+
+    }
+
+
+    .bottom {
+        position: relative;
+        bottom: 0px;
+        height: 100%;
+    }
+
+    .return {
+        position: fixed;
+        top: 30px;
+        right: 20px;
+        z-index: 1000;
+        width: 300px;
+        text-align: right;
+    }
+
+    .return-d {
+        display: none;
+
+    }
+
+
+    .return-m {
+
+        position: fixed;
+        top: 30px;
+        right: 20px;
+        z-index: 1000;
+        width: 300px;
+        text-align: right;
+    }
+
+    .return a {
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .return:hover {
+        opacity: 1;
+        filter: alpha(opacity=70);
+        transition-duration: 0.3s;
+    }
+
+    /*回到顶部*/
+
+
+    .main-bottom {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+        /*        background: #fafafa;*/
+
+    }
+
+
+
+    .bottom-more img {
+        margin-right: 40px;
+    }
+
+    .bottom-title {
+        margin: 20px 0 80px 20px;
+        color: #444;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .top {
+        position: relative;
+        float: right;
+        bottom: 40px;
+        right: 20px;
+        z-index: 999;
+        width: 100%;
+        height: auto;
+        text-align: right;
+    }
+
+
+
+
+    .monkren {
+        position: fixed;
+        bottom: 120px;
+        right: 20px;
+        display: none;
+        width: 120px;
+        height: auto;
+        z-index: 99999;
+    }
+
+    .wechat:hover + .monkren {
+        display: block;
+    }
+
+    .follow {
+        position: relative;
+        float: left;
+        margin-top: 90px;
+        width: 420px;
+        height: 50px;
+
+
+    }
+
+    .social {
+        position: relative;
+        widows: 100%;
+        margin-left: 0px;
+        height: 30px;
+    }
+
+    .social li {
+        float: left;
+        margin-left: 8px;
+    }
+
+    .qz {
+        position: relative;
+        float: right;
+        text-align: center;
+        width: 400px;
+    }
+
+    .file {
+        /*
+    position: fixed;
+    bottom: 0px;
+    float: right;
+    right: 20px;
+*/
+        margin-top: 80px;
+    }
+
+}

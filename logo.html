@@ -46,6 +46,10 @@
     <link rel="stylesheet" href="css/mobile.css">
 
 
+    <!-- Put this inside the <head> section of your HTML. -->
+    <link rel="stylesheet" href="css/perfundo.css">
+
+
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -62,91 +66,338 @@
 
     </script>
 
-    <script>
-        document.documentElement.className = "js";
-        var supportsCssVars = function() {
-            var e, t = document.createElement("style");
-            return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e
-        };
-        supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
 
-    </script>
 </head>
 
 
-<body class="loading">
+<body>
+
+    <div id="page-nav">
+        <div class="nav-link">
+
+            <a href="#page-a" class="active">
+                <div class="work-nav">
+                    <h3>标识设计</h3>
+                    <br>
+                    <h4>品牌感知，从图形标识开始</h4>
+                    <p>Brand perception, starting with graphic signs</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
 
     <main class="container">
-
         <div class="works">
             <div class="work">
+                <div class="Page" id="page-a">
+                    <div class="workh4">
+                        <h4>设计标识</h4>
+                    </div>
+                    <!--
+                    <div style="height: auto;">
 
-                <!--
-                    <div class="work-title">
-                        <h4>标识设计</h4>
-                        <h1>品牌感知，从图形标识开始</h1>
-                        <h5>Brand perception, starting with graphic signs</h5>
+                        <img src="images/home/logo@2x.png" width="100%" height="200px" alt="">
+                        <div class="information-n">
+                            <h6>logo、pago</h6>
+                            <h4>我如何做logo</h4>
+                            <p>This useful Google Pixel 4 mockup for Sketch was designed and shared by JEANS Studio. Well done!</p>
+                        </div>
                     </div>
 -->
-                <div class="work-fixed">
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/00%E3%80%81%E6%BE%84%E6%B9%96e%E7%BA%BF.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/00%E3%80%81www.cos0.com.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/00%E3%80%81Lit%20Match.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/01%E3%80%81%E5%90%8C%E6%A1%8C%E6%B8%B8%E6%88%8F.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/01%E3%80%81juju.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/01%E3%80%81monk.ren.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/02%E3%80%81trg.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/02%E3%80%81banku.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/02%E3%80%81sxyd.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/03%E3%80%81vhall.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/03%E3%80%81yolo.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/03%E3%80%81melive.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/04%E3%80%81ear.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/04%E3%80%81young.jpg" alt="">
-                    </div>
-                    <div class="work-card">
-                        <img class="card-picture" src="images/work/logo/04%E3%80%81super.jpg" alt="">
-                    </div>
 
 
+
+                    <div class="work-fixed">
+                        <div class="work-card">
+                            <a>
+                                <img class="work-img" src="images/work/logo/parrot.png" width="100%">
+                                <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            </a>
+
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>Parrot</h4>
+                                <!--
+                                <p>parrot<br>
+                                </p>
+-->
+                            </div>
+                        </div>
+                        <div class="work-card">
+
+                            <img class="work-img" src="images/work/logo/parrot1.png" width="100%">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>Parrot</h4>
+                                <!--
+                                <p>parrot<br>
+                                </p>
+-->
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <a>
+                                <img class="work-img" src="images/work/logo/zebra.png" width="100%" alt="Demo image">
+                                <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            </a>
+
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>Zebra</h4>
+                                <!--
+                                <p>zebra<br>
+                                </p>
+-->
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <a>
+                                <img class="work-img" src="images/work/logo/unicorn.png" width="100%" alt="Demo image">
+                                <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            </a>
+
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>Unicorn</h4>
+                                <!--
+                                <p>unicorn<br>
+                                </p>
+-->
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <a>
+                                <img class="work-img" src="images/work/logo/QwikMatch.png" width="100%" alt="Demo image">
+                                <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            </a>
+
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>QwikMatch</h4>
+                                <p>❤️⚡️❤️⚡️❤️⚡️❤️⚡️❤️⚡️❤️⚡️❤️<br>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/%E4%B8%AD%E5%9B%BD%E4%B8%AD%E9%93%81.png" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>中国·中铁</h4>
+                                <p>China Railway Engineering Corporation</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <a>
+                                <img class="work-img" src="images/work/logo/Sign,%20Launcher.png" width="100%" alt="Demo image">
+                                <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            </a>
+
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>Sign Launcher｜ 标签快速启动</h4>
+                                <p>你想查看什么，点击图标立即启动你收藏的APP应用、网站链接<br>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <a>
+                                <img class="work-img" src="images/work/logo/AA%E8%AE%B0%E8%B4%A6.png" width="100%" alt="Demo image">
+                                <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            </a>
+
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>AA记账｜开始你的轻松旅行</h4>
+                                <p>
+                                    The solution for organizing Group Expenses</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <a>
+                                <img class="work-img" src="images/work/logo/05%E3%80%81juju.png" width="100%" alt="Demo image">
+                                <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            </a>
+
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>JUJU｜聚玩儿</h4>
+                                <p>JUJU！开心的一起玩</p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/Player Killing.png" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>P&K</h4>
+                                <p>Player Killing</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/image_processing20191220-14311-1rg46ux.png" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>PAGO</h4>
+                                <p>PAGO｜海外小游戏语音社交</p>
+                            </div>
+                        </div>
+
+
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/00%E3%80%81%E6%BE%84%E6%B9%96e%E7%BA%BF.png" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>澄湖e线</h4>
+                                <p>政商快捷办公平台小程序</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/00%E3%80%81www.cos0.com.jpg" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>www.cos0.com</h4>
+                                <p>管理平台LOGO</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/00%E3%80%81Lit%20Match.png" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>Lit Match</h4>
+                                <p>Lit Match ｜「新生代匿名匹配互动社交APP</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/01%E3%80%81%E5%90%8C%E6%A1%8C%E6%B8%B8%E6%88%8F.jpg" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>同桌游戏</h4>
+                                <p>小游戏社交APP</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/01%E3%80%81juju.jpg" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>JUJU</h4>
+                                <p>聚聚小游戏社交APP LOGO</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/01%E3%80%81monk.ren.jpg" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>MONK.REN</h4>
+                                <p>我的个人品牌LOGO</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/02%E3%80%81trg.jpg" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>TYER.G | 品牌、标识设计</h4>
+                                <p>Tyer.G New Materials Co. Ltd （TRG）LOGO</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/02%E3%80%81banku.jpg" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>Google Pixel 4 Mockup</h4>
+                                <p>This useful Google Pixel 4 mockup for Sketch was designed and shared by JEANS Studio. Well done!</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/02%E3%80%81sxyd.jpg" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>顺鑫易达</h4>
+                                <p>北京顺鑫易达物流有限公司</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/03%E3%80%81vhall.jpg" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>微吼直播</h4>
+                                <p><a href="https://e.vhall.com/" target="_blank">vhall.com「微吼专注企业直播</a></p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/03%E3%80%81yolo.jpg" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>Google Pixel 4 Mockup</h4>
+                                <p>This useful Google Pixel 4 mockup for Sketch was designed and shared by JEANS Studio. Well done!</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/03%E3%80%81melive.jpg" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>Google Pixel 4 Mockup</h4>
+                                <p>This useful Google Pixel 4 mockup for Sketch was designed and shared by JEANS Studio. Well done!</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/04%E3%80%81ear.jpg" alt="">
+                            <img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo</h6>
+                                <h4>邻居的耳朵</h4>
+                                <p> 倾听彼此的故事，温暖你我的内心，唤醒沉睡的梦想，用声音构建一块纯净的心灵栖息地。 </p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/04%E3%80%81young.png" alt=""><img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>YOUNG</h4>
+                                <p>我重设计了我第一份工作的项目<br>
+                                    YOUNG实名校园社区APP</p>
+                            </div>
+                        </div>
+                        <div class="work-card">
+                            <img class="work-img" src="images/work/logo/04%E3%80%81super.jpg" alt=""><img class="work-img-1" src="images/basis/1111c.png" width="100%">
+                            <div class="information-n">
+                                <h6>logo、pago</h6>
+                                <h4>Google Pixel 4 Mockup</h4>
+                                <p>This useful Google Pixel 4 mockup for Sketch was designed and shared by JEANS Studio. Well done!</p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
+
+
+
 
     </main>
 
 
 
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/loading.js"></script>
     <script>
         (function() {
             var bp = document.createElement('script');
@@ -161,6 +412,7 @@
         })();
 
     </script>
+
 
 
 </body>

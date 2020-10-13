@@ -1,3 +1,22 @@
+(function () {
+    var light = "#fff";
+    var dark = "#000";
+    if (new Date().getHours() > 18 || new Date().getHours() < 17) {
+
+        document.documentElement.style.setProperty('--color-ff', dark);
+        document.documentElement.style.setProperty('--color-00', light);
+
+        console.log('夜间模式开启');
+    } else {
+
+        document.documentElement.style.setProperty('--color-ff', light);
+        document.documentElement.style.setProperty('--color-00', dark);
+        console.log('夜间模式关闭');
+    }
+})();
+
+
+
 $(function () {
     var h1 = 400;
     var h2 = 480;

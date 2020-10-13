@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'coltrane regular demo';
+	src: url('coltrane-regular_demo-webfont.eot');
+	src: url('coltrane-regular_demo-webfont.eot?#iefix') format('embedded-opentype'),
+		url('coltrane-regular_demo-webfont.woff') format('woff'),
+		url('coltrane-regular_demo-webfont.ttf') format('truetype'),
+		url('coltrane-regular_demo-webfont.svg') format('svg');
+}

@@ -1,5 +1,22 @@
-/* Desktop桌面端 CSS  */
+@import url("../webfonts/coltrane_regular_demo/stylesheet.css");
+/*桌面端*/
+
+
+
 @media screen and (min-width:900px) {
+
+    /*自定义变量换皮*/
+    /*
+    :root {
+        --color-00: #000;
+        --color-ff: #fff;
+        --color-d1: #140C1A;
+    }*/
+
+    /*
+    :root {
+        --color-oa: #0A0A0A;
+    }*/
 
     /***********************
      
@@ -12,6 +29,8 @@
         margin: 0;
         padding: 0;
         text-decoration: none;
+
+
     }
 
     ::-moz-selection {
@@ -28,6 +47,8 @@
 
     ul,
     li {
+        margin: 0;
+        padding: 0;
         list-style: none;
     }
 
@@ -45,30 +66,80 @@
     a,
     input,
     label {
-        color: #23182c;
+        color: var(--color-00);
+        /*        color: #23182c;*/
         font-weight: normal;
         font-size: 12px;
         font-family:
             /* 西文 */
-            'Gotham-Book', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu,
-            "Helvetica Neue", Helvetica, Arial,
-            /* 中文 */
-            "PingFang SC", "Hiragino Sans GB",
-            "Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN", sans-serif;
+            “Helvetica Neue”, Helvetica, Arial;
+        /* 中文 */
+        "PingFang SC",
+        "Hiragino Sans GB",
+        "Microsoft Yahei UI",
+        "Microsoft Yahei",
+        "Source Han Sans CN",
+        "sans-serif";
 
-        text-rendering: optimizelegibility !important;
-        /*控制显示在线字体的微妙细节*/
-        -webkit-font-smoothing: antialiased !important;
-        /*无抗锯齿none*/
-        -webkit-font-smoothing: subpixel-antialiased;
-        /*次像素平滑default*/
-        -webkit-font-smoothing: antialiased;
-        /*灰度平滑*/
-        -webkit-font-smoothing: grayscale !important;
-        -moz-osx-font-smoothing: grayscale !important;
-        -ms-text-size-adjust: 100% !important;
-        -webkit-text-size-adjust: 100%;
     }
+
+    /*控制显示在线字体的微妙细节*/
+    -webkit-font-smoothing: antialiased !important;
+    /*无抗锯齿none*/
+    -webkit-font-smoothing: subpixel-antialiased;
+    /*次像素平滑default*/
+    -webkit-font-smoothing: antialiased;
+    /*灰度平滑*/
+    -webkit-font-smoothing: grayscale !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    -ms-text-size-adjust: 100% !important;
+    -webkit-text-size-adjust: 100%;
+
+    /* 设置滚动条的样式 */
+    /* 滚动条 */
+    /*      水平滚动条的样式*/
+    /*
+    ::-webkit-scrollbar-thumb:horizontal {
+      
+        width: 0px;
+        background-color: var(--color-ff);
+        -webkit-border-radius: 6px;
+    }
+*/
+
+    ::-webkit-scrollbar-track-piece {
+        background-color: #fff;
+        /*滚动条的背景颜色*/
+        -webkit-border-radius: 0;
+        /*滚动条的圆角宽度*/
+    }
+
+    ::-webkit-scrollbar {
+        width: 0px;
+        /*滚动条的宽度*/
+        height: 8px;
+        /*滚动条的高度*/
+    }
+
+    ::-webkit-scrollbar-thumb:vertical {
+        /*垂直滚动条的样式*/
+        height: 0px;
+        background-color: #fafafa;
+        -webkit-border-radius: 4px;
+        outline: 2px solid #fff;
+        outline-offset: -2px;
+        border: 2px solid #fff;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        /*滚动条的hover样式*/
+        height: 0px;
+        background-color: #9f9f9f;
+        -webkit-border-radius: 4px;
+    }
+
+
+
 
     html body {
         overflow-x: hidden;
@@ -77,39 +148,72 @@
         width: 100%;
         height: 100%;
         border: 0;
+        background: var(--color-ff);
     }
 
 
     h1 {
-        letter-spacing: 0px;
-        font-weight: 600;
-        font-size: 40px;
-        font-family: Montserrat-Medium, PingFangSC-Medium;
-        line-height: 56px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    font-size: 30px;
+    font-family: "coltrane regular demo";
+    line-height: 46px;
     }
 
     h2 {
-        font-weight: 400;
-        font-size: 40px;
+        font-weight: 500;
+        font-size: 16px;
     }
 
     h3 {
+        margin-bottom: 12px;
         letter-spacing: 1px;
         font-weight: 500;
-        font-size: 18px;
+        font-size: 14px;
+
+
     }
 
     h4 {
-        letter-spacing: 1.08px;
-        font-weight: 500;
-        font-size: 15px;
+        letter-spacing: 0.5px;
+        font-weight: 400;
+        font-size: 13px;
+    }
+
+    h5 {
+        margin-top: 8px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    h6 {
+        margin-top: 6px;
+        margin-bottom: 12px;
+        width: 100%;
+        font-weight: 400;
+        font-size: 12px;
+        font-family: "PingFang SC", "Hiragino Sans GB",
+            "Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN", sans-serif;
+        opacity: 0.6;
     }
 
     p {
-        letter-spacing: 1.08px;
+        margin: 4px 0;
+        letter-spacing: 0.4px;
         font-weight: 500;
-        font-size: 14px;
-        line-height: 28px;
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+    p1 {
+        margin: 8px 0;
+        letter-spacing: 0.4px;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 25px;
+        color: var(--color-00);
+        margin-bottom: 8px;
     }
 
 
@@ -118,23 +222,29 @@
         list-style: none;
     }
 
-
+    u {
+        text-decoration: underline
+    }
 
     a {
         text-decoration: none;
         /*去掉下划线*/
     }
 
+
+
     .container {
         position: relative;
         overflow: hidden;
-        margin: 0 auto;
+        margin: 0;
         padding: 0;
         width: 100%;
         height: auto;
+        background: var(--color-ff);
 
         /* 滚动顺畅*/
         scroll-behavior: smooth;
+
     }
 
 
@@ -146,17 +256,19 @@
     **********************/
 
     .home {
+        overflow: scroll;
         width: 100%;
-        height: 100%;
-        background: #FCF7F7;
+        margin: 0;
+        padding: 0;
+        background: var(--color-ff);
     }
 
 
     .page {
         position: relative;
         width: 100%;
-        height: 100%;
-        background: #FCF7F7;
+
+
     }
 
 
@@ -165,32 +277,37 @@
     .home-class {
         position: fixed;
         float: right;
-        overflow: visible;
+        overflow: scroll;
         width: 100%;
         height: 100%;
-        background: #fff;
+        background: var(--color-ff);
+
+
     }
 
     .home-holder {
         position: relative;
+        overflow: hidden;
         width: 100%;
-        height: 100%;
+        height: 1600px;
     }
 
     .home-title {
         position: relative;
         z-index: 999;
         float: right;
-        margin: 40px 20px 0 0;
+        margin: 20px 20px 0 0;
         width: 200px;
         height: 50px;
         text-align: right;
+
     }
 
     .home-title h3 {
-        font-size: 28px;
-        font-family: monospace;
+    font-size: 20px;
+    font-family: "coltrane regular demo";
     }
+
 
     .animate {
         opacity: 1;
@@ -204,7 +321,7 @@
         position: relative;
         float: right;
         width: 100%;
-        height: 46px;
+        height: 56px;
     }
 
     .home-item-holder-new {
@@ -216,9 +333,8 @@
         position: relative;
         z-index: 101;
         float: right;
-        margin: 20px 20px 0 0;
+        margin: 0px 20px 0 0;
         width: 100px;
-
         align-items: center;
     }
 
@@ -231,18 +347,18 @@
     .post-thumbnail {
         position: fixed;
         top: -100px;
-        right: 14%;
+        right: 5%;
         z-index: -9;
         visibility: hidden;
         float: none;
-        width: 70%;
+        width: 80%;
         /*        text-align: center;*/
         opacity: 0;
         transition: all 0s ease;
     }
 
     .home-item-holder .entry-holder.active-post + .post-thumbnail {
-        /*        position: fixed;*/
+        /*                position: fixed;*/
         /*top: 0px;*/
         z-index: -9;
         visibility: visible;
@@ -258,40 +374,101 @@
         width: 500px;
         text-align: right;
         text-transform: uppercase;
-        letter-spacing: 2px;
+        /*     字母大写*/
+        letter-spacing: 1.5px;
+
     }
 
     .entry-date {
-        font-size: 12px;
-        opacity: 0.3;
+        font-size: 11px;
+        opacity: .3;
     }
 
     .home-item-holder h2.entry-title a {
         position: relative;
         z-index: 999;
         float: right;
-        /*        padding: 2px 0;*/
         width: 600px;
-        /*
-        text-align: right;
-        word-break: break-word;
-        font-weight: 500;
-        font-size: 12px;
-*/
+
     }
 
     .home-item-holder h2.entry-title a:hover {
         color: #555;
-        /*        z-index: 99;*/
+
     }
 
-    .home-item-holder h4 {
-        padding: 2px 0;
-        text-align: right;
-        word-break: break-word;
-        font-weight: 500;
-        font-size: 12px;
+
+
+    .home-img {
+        width: 88%;
     }
+
+    /*源文件*/
+    .file {
+        position: relative;
+        float: right;
+        margin-left: 10px;
+        padding: 0 6px;
+        background: var(--color-00);
+        color: var(--color-ff);
+        font-size: 12px;
+        height: 100%;
+        text-align: right;
+
+    }
+
+    .look {
+        position: relative;
+        float: left;
+        width: auto;
+        padding: 0 12px;
+        background: var(--color-00);
+        color: var(--color-ff);
+        font-size: 12px;
+        height: 100%;
+        text-align: center;
+    }
+
+    /*源文件*/
+    .filered {
+        position: relative;
+        float: right;
+        margin-left: 10px;
+        padding: 0 6px;
+        background: #FE4A4B;
+        color: #fff;
+        font-size: 12px;
+        height: 100%;
+        text-align: right;
+
+    }
+
+
+    /*整理中*/
+    .doing {
+        position: relative;
+        float: left;
+
+        margin-top: 12px;
+        /*   margin-bottom: 20px;
+*/
+        padding: 4px 6px;
+        background: var(--color-00);
+        color: var(--color-ff);
+        font-size: 14px;
+        font-weight: 500;
+
+    }
+
+    .line60 {
+        float: right;
+        position: relative;
+        width: 100%;
+        text-align: right;
+        height: 60px;
+    }
+
+
 
     /*********************
     
@@ -300,23 +477,23 @@
     **********************/
     .works {
         position: relative;
-        margin-left: 70px;
-        padding: 100px 0;
-        width: 100%;
+        margin-left: 18%;
+        min-width: 900px;
+        width: 66%;
         height: 100%;
-
+        padding-top: 30px;
+        padding-bottom: 120px;
     }
 
     .work {
-        margin-left: 15%;
-        /*        max-width: 1280px;*/
-        width: 80%;
+        margin-bottom: 100px;
+        width: 100%;
         height: auto;
     }
 
     .work-title {
         position: relative;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     .work-fixed {
@@ -325,108 +502,144 @@
         /* Safari */
         flex-direction: row;
         margin-top: 0px;
-
+        width: 100%;
+        justify-content: space-between;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        align-content: stretch;
+        align-content: space-around;
     }
 
     .work-card {
-        margin: 0 50px 42px 0;
-        width: 260px;
+        position: relative;
+
+        width: 18%;
+        /*
+        min-width: 200px;
+        max-width: 320px;
+*/
+        opacity: 1;
+        transition-duration: 0.5s;
+
+
     }
 
     .work-card:hover {
-        margin: 0 50px 42px 0;
-        width: 260px;
-        -moz-box-shadow: 0px 2px 2px #E6E6E6;
-        -webkit-box-shadow: 0px 2px 2px #E6E6E6;
-        box-shadow: 0px 2px 2px #E6E6E6;
-        transition: all 0.5s ease;
+        opacity: 0.7;
+        transition-duration: 0.5s;
     }
 
+    /*
+    .perfundo__link:hover {
+        -webkit-box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
+        -moz-box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
+        box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
+        text-decoration: none;
+        opacity: 0.86;
+        filter: alpha(opacity=70);
+        transition-duration: 0.5s;
+    }
+*/
+
     .work-card-guide {
-        margin: 0 50px 42px 0;
-        width: 1090px;
+
+        width: 100%;
+
     }
 
     .work-card-system {
-        margin: 0 50px 42px 0;
-        width: 1090px;
+
+        width: 100%;
+        /*        max-width: 1220px;*/
+        min-height: 560px;
+        margin-bottom: 60px;
+    }
+
+    iframe {
+        position: relative;
     }
 
     .work-card-ui {
-        margin: 0 50px 34px 0;
-        width: 520px;
+        margin-bottom: 40px;
+        width: 32%;
+
     }
 
     .work-card-app {
-        margin: 0 40px 34px 0;
-        width: 244px;
+        margin-bottom: 20px;
+
+        width: 18%;
+        float: left;
     }
 
-    .card-picture {
-        display: block;
+
+    .work-img {
+        top: 0px;
+        left: 0px;
         width: 100%;
         height: auto;
+
+        /*        border-radius: 8px;*/
     }
+
+    .work-img-1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        /*        border-radius: 8px;*/
+        opacity: 0.3;
+        /*            点击穿透*/
+        pointer-events: none;
+
+    }
+
+    .work-card-1 {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        /*        background-image:url(images/basis/1111c.png);*/
+        background-color: aqua;
+    }
+
+    .information-w {
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        height: auto;
+
+
+    }
+
+    .information-w p {
+        display: block;
+    }
+
+
+
 
     /*********************
     
-        Links
+        右侧导航栏
     
     **********************/
-    .links-bg {
-        position: relative;
-        left: 70px;
-        z-index: 99;
-        padding-top: 50px;
-        width: 100%;
-        height: auto;
-        background-color: #FCF7F7;
-    }
 
-    .links {
-        position: relative;
-        overflow: hidden;
-        margin-left: 12%;
-        width: 70%;
-        height: auto;
-    }
-
-    .links h1 {
-        margin-left: 4px;
-        font-size: 90px;
-        opacity: 0.04;
-    }
-
-    .links h4 {
-        margin-left: 12px;
-        opacity: 0.2;
-    }
-
-
-
-    #link-page-nav {
+    #page-nav {
         position: fixed;
-        top: 60px;
-        right: 50px;
+        top: 30px;
+        right: 20px;
         z-index: 999;
-        width: 104px;
-        height: 900px;
+        width: 240px;
+        height: auto;
+        text-align: right;
     }
 
-
-
-
-
-    #link-page-nav a {
+    #page-nav a {
         position: relative;
         display: block;
         float: right;
-        margin-bottom: 8px;
-        padding: 4px 10px;
-        width: auto;
+
+        width: 100%;
         height: auto;
         list-style-type: none;
         text-align: right;
@@ -434,73 +647,213 @@
         font-size: 14px;
     }
 
-    #link-page-nav a:hover {}
-
-    #link-page-nav a.active {
+    #page-nav a:hover {
+        /*
         background-color: #000;
         color: #fff;
+*/
+        text-decoration: underline
     }
 
-    .links-h4 {
+    .work-nav {
+        position: relative;
+        z-index: 999;
         float: right;
-        margin: 20px 10px 20px 0;
-        color: #908E96;
+        margin-bottom: 30px;
+        width: 100%;
+        height: auto;
+        text-align: right;
+        font-size: 24px;
+
+    }
+
+    .work-nav h4:hover {
+        text-decoration: underline;
+    }
+
+
+    /*********************
+    
+        Links
+    
+    **********************/
+
+
+    .links {
+        position: relative;
+        margin-left: 18%;
+        min-width: 900px;
+        width: 66%;
+        height: auto;
+        color: var(--color-00);
+        padding-top: 30px;
+        padding-bottom: 120px;
+    }
+
+    .linkgroup {
+        display: flex;
+        display: -webkit-flex;
+        /* Safari */
+        flex-direction: row;
+        margin-top: 0px;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: space-around;
+
+    }
+
+
+    .linkmember-designer {
+        position: relative;
+        overflow: hidden;
+        width: 18%;
+        background-color: var(--color-oa);
+        text-align: center;
+        text-overflow: ellipsis;
+        font-size: 18px;
+        transition: .5s;
+        margin-bottom: 40px;
+
+        min-width: 250px;
+        max-height: 280px;
+
+
+    }
+
+    .linkbt {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        margin: 16px 10% 20px 10%;
+        width: 80%;
+        height: 120px;
+        text-align: center;
+        letter-spacing: 0px;
+    }
+
+    .linkname {
+        position: relative;
+        float: left;
+        margin-bottom: 6px;
+        width: 100%;
+        height: auto;
+        font-weight: 600;
+        font-size: 14px;
+        font-family: Montserrat;
+        transition: .5s;
+    }
+
+    .linkname1 {
+        position: relative;
+        float: left;
+        margin: 0px;
+        width: 100%;
+        height: auto;
+        color: #C9C9C9;
+        font-weight: 500;
+        font-size: 12px;
+        font-family: Montserrat;
+        line-height: 20px;
+        transition: .5s;
+    }
+
+    .linkintroduce {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        margin-top: 8px;
+        width: 100%;
+        height: 31.5px;
+        color: var(--color-00);
+        opacity: 0.7;
+        text-align: center;
+        text-overflow: ellipsis;
+        letter-spacing: normal;
         font-weight: 400;
         font-size: 12px;
+        line-height: normal;
+        transition: .5s;
+    }
+
+    .link a:hover {
+        outline: none;
+        color: var(--color-00);
+        text-decoration: none;
+        cursor: pointer;
     }
 
 
 
 
     .linksh4 {
+        margin: 40px 0 40px 0px;
         height: auto;
-        margin: 40px 0;
     }
 
-    .linkgroup {
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 30px;
-        color: #242025;
-        text-align: center;
-        letter-spacing: 2px;
-
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        align-content: flex-start;
-    }
 
     .linkmember {
         position: relative;
         overflow: hidden;
-        margin: 0px 30px 30px 0;
-        width: 170px;
-        height: 140px;
-        border-radius: 4px;
-        background-color: #fff;
+        width: 18%;
+        background-color: var(--color-oa);
         text-align: center;
         text-overflow: ellipsis;
         font-size: 18px;
         transition: .5s;
+        margin-bottom: 40px;
+        min-width: 250px;
+        max-height: 180px;
+
+    }
+
+
+
+    .linkmember-designer-like {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: row;
+        margin-top: 0px;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: space-around;
+        padding: 0px;
+
+
+    }
+
+    .linkmember-designer:hover {
+        /*
+        -webkit-box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
+        -moz-box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
+        box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
+        text-decoration: none;
+        opacity: 0.86;
+        filter: alpha(opacity=70);
+        transition-duration: 0.5s;
+*/
+        background-color: var(--color-ff);
     }
 
     .linkmember-f {
         position: relative;
         overflow: hidden;
-        margin: 0px 30px 30px 0;
-        width: 170px;
-        height: 190px;
-        border-radius: 4px;
-        background-color: #fff;
+        width: 18%;
+        background-color: var(--color-oa);
         text-align: center;
         text-overflow: ellipsis;
         font-size: 18px;
         transition: .5s;
+        margin-bottom: 40px;
+
+        min-width: 250px;
+        max-height: 280px;
+
     }
 
     .linkmember:hover {
+        /*
         -webkit-box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
         -moz-box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
         box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
@@ -508,9 +861,12 @@
         opacity: 0.86;
         filter: alpha(opacity=70);
         transition-duration: 0.5s;
+*/
+        background-color: var(--color-ff);
     }
 
     .linkmember-f:hover {
+        /*
         -webkit-box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
         -moz-box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
         box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
@@ -518,15 +874,16 @@
         opacity: 0.86;
         filter: alpha(opacity=70);
         transition-duration: 0.5s;
+*/
+        background-color: var(--color-ff);
     }
 
     .linklogo {
         position: relative;
         float: left;
-        margin: 18px 0px 0px 0px;
+        margin: 28px 0px 0px 0px;
         width: 100%;
-        height: 40px;
-        background-color: #FFF;
+        height: 50px;
         -webkit-background-size: 100% 100%;
         -moz-background-size: 100% 100%;
         background-size: 100% 100%;
@@ -540,13 +897,13 @@
 
     .linklogo-f {
         position: relative;
+        left: -30px;
         float: left;
-        margin-top: 18px;
-        margin-left: 65px;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: #FFF;
+        margin-top: 30px;
+        margin-left: 50%;
+        width: 60px;
+        height: 60px;
+        /*        border-radius: 50%;*/
         -webkit-background-size: 100% 100%;
         -moz-background-size: 100% 100%;
         background-size: 100% 100%;
@@ -574,66 +931,6 @@
         line-height: 110%;
     }
 
-    .linkbt {
-        position: relative;
-        float: left;
-        overflow: hidden;
-        margin: 12px 15px 20px 15px;
-        height: auto;
-        text-align: center;
-        letter-spacing: 0px;
-    }
-
-    .linkname {
-        position: relative;
-        float: left;
-        width: 100%;
-        height: auto;
-        font-weight: 600;
-        font-size: 14px;
-        font-family: Montserrat;
-
-        transition: .5s;
-        margin: 0px;
-    }
-
-    .linkname1 {
-        position: relative;
-        float: left;
-        width: 100%;
-        height: auto;
-        color: #C9C9C9;
-        font-weight: 500;
-        font-size: 12px;
-        font-family: Montserrat;
-        line-height: 20px;
-        transition: .5s;
-        margin: 0px;
-    }
-
-    .linkintroduce {
-        position: relative;
-        float: left;
-        overflow: hidden;
-        margin: 0;
-        width: 140px;
-        height: 50px;
-        color: #909090;
-        text-align: center;
-        text-overflow: ellipsis;
-        letter-spacing: normal;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: normal;
-        transition: .5s;
-    }
-
-    .link a:hover {
-        outline: none;
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
 
 
 
@@ -643,86 +940,572 @@
         width: 520px;
     }
 
+
+
+
+
     /* 
     
     aboutme
     
     */
+
     .aboutme {
-        width: 100%;
-        height: 900px;
-        background: #FCF7F7;
-    }
-
-    .aboutme h1 {
-        font-size: 28px;
-        line-height: 28px;
-    }
-
-    .aboutme h2 {
-        font-size: 38px;
-        font-family: SimSun, STSong;
-        line-height: 38px;
-    }
-
-    .aboutme img:hover {
         position: relative;
-        -webkit-filter: brightness(1);
-        filter: brightness(1);
-        transition-duration: 0.5s;
+        float: right;
+        margin-left: 18%;
+        width: 82%;
+        display: flex;
+        display: -webkit-flex;
+        /* Safari */
+        flex-direction: row;
+        margin-top: 0px;
+        width: 100%;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        align-content: space-around;
+        margin-bottom: 120px;
+        overflow: scroll;
+    }
+
+    .about {
+        position: relative;
+        float: right;
+        width: 25%;
+        height: 100%;
+        margin-right: 20px;
+        margin-top: 20px;
+        min-height: 100%;
+    }
+
+    .about-t {
+        padding: 20px;
+        background: var(--color-oa);
+        margin-bottom: 16px;
+    }
+
+    .about-i {
+        margin-bottom: 16px;
+    }
+
+    .about-w {
+        width: 30%;
+        margin-right: 40px;
+    }
+
+    .about-n {
+        position: relative;
+        margin-top: 20px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 60px;
+    }
+
+    .about-nn {
+        position: relative;
+        margin-bottom: 16px;
+        width: 100%;
+        height: auto;
+        padding: 8px 0;
+        /*        background: var(--color-oa);*/
+    }
+
+    .about-nt {
+        position: relative;
+        float: left;
+        margin-right: 12px;
+        font-size: 14px;
+        width: auto;
+    }
+
+    .friend-links {
+        position: relative;
+        float: left;
+        margin-top: 16px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: auto;
+        height: 20px;
+    }
+
+    .social {
+        position: relative;
+        margin-left: -4px;
+        height: 40px;
+        widows: 100%;
+    }
+
+    .social li {
+        position: relative;
+        float: left;
+        margin-right: 10px;
+    }
+
+    /*颜色*/
+    .red {
+        /*
+        color: firebrick;
+        opacity: 1;
+*/
+
+    }
+
+    .more {
+        font-family: SF Pro Text;
+        font-style: italic;
+        font-size: 34px;
+        color: var(--color-ff);
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 20px;
+        -webkit-text-stroke: 0.5px var(--color-00);
+        text-stroke: 0.5px var(--color-00);
+    }
+
+    .more:hover {
+        opacity: 1;
+        transition: opacity 0.2s;
+        -webkit-text-stroke: 0px var(--color-00);
+        text-stroke: 0px var(--color-00);
+        -webkit-text-fill-color: var(--color-00);
+        text-fill-color: var(--color-00);
     }
 
 
-    .page1 {
+
+    /*****************************
+    
+    uikits
+    
+    *****************************/
+    .share {
+
+        position: relative;
+        margin-left: 18%;
+        min-width: 900px;
+        width: 66%;
+
+        height: auto;
+        padding-top: 30px;
+        padding-bottom: 120px;
+    }
+
+    .uikits {
+        position: relative;
+
+        width: 100%;
+        height: auto;
+    }
+
+
+    .uikit-1 {
+        position: relative;
+        margin: 120px 0 60px 0;
+        /*        width: 940px;*/
+        width: 100%;
+        height: auto;
+    }
+
+    .uikit {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: row;
+        margin-bottom: 0px;
+        /*        width: 940px;*/
+        width: 100%;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: row;
+
+    }
+
+    .share-ll {
+        width: 17.5%;
+        min-width: 200px;
+        max-width: 320px;
+        height: 120px;
+        /*        background: var(--color-oa);*/
+        margin-bottom: 60px;
+
+
+
+    }
+
+    .share-ll:hover {
+
+        text-decoration: underline;
+        background: var(--color-ff);
+    }
+
+    .kit {
+        position: relative;
+        margin: 0 25px 0 0px;
+        width: 100%;
+        height: 500px;
+    }
+
+    .kit-free {
+        margin: 0 25px 0 0px;
+        width: 280px;
+        height: 320px;
+    }
+
+
+    .kit-picture {
+        position: relative;
+        float: left;
+        width: 600px;
+        max-width: 800px;
+    }
+
+    .kit-free-picture {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 220px;
+    }
+
+    .kit-img {
+        position: relative;
+        width: 100%;
+        /*设置图片轮播一次时间，以及轮播方式（无限循环）*/
+        /*让所有图片显示在一个位置，设置绝对位置*/
+        opacity: 1;
+    }
+
+    .kit-img-3 {
+        position: absolute;
+        /*设置图片轮播一次时间，以及轮播方式（无限循环）*/
+        /*让所有图片显示在一个位置，设置绝对位置*/
+        opacity: 0;
+        animation: kit-p 16s infinite;
+    }
+
+
+    .uikit-head {
+        position: relative;
+        margin-bottom: 20px;
+        width: 100%;
+        height: auto;
+    }
+
+    .uikit-buy {
+        position: relative;
+        float: left;
+        padding: 0px 40px;
+        width: 240px;
+        height: 460px;
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .uikit-information {
+        position: absolute;
+        bottom: 32px;
+    }
+
+    .information-n {
+        float: left;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        width: 100%;
+    }
+
+    .line {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 6px;
+        margin-bottom: 60px;
+    }
+
+    /*
+    .line {
+        height: 0.2px;
+        background: #000;
+        opacity: 0.3;
+    }
+*/
+
+    .line1 {
+
+        float: left;
+        margin-bottom: 16px;
+        width: 10px;
+        height: .5px;
+        background: #000;
+        opacity: 1;
+
+    }
+
+    /***************
+    
+    按钮
+    
+    ****************/
+    .button-black {
+        /*flex 布局*/
+        display: flex;
+        margin-top: 10px;
+        width: 240px;
+        height: 28px;
+        background: #000000;
+        color: #fff;
+        text-align: justify;
+
+        /*实现垂直居中*/
+        align-items: center;
+        /*实现水平居中*/
+        justify-content: center;
+    }
+
+    .button-black:hover {
+        background: #333;
+    }
+
+    .button-black-w1 {
+        /*flex 布局*/
+        display: flex;
+        margin-top: 10px;
+        width: 120px;
+        height: 32px;
+        background: #000000;
+        color: #fff;
+        text-align: justify;
+
+        /*实现垂直居中*/
+        align-items: center;
+        /*实现水平居中*/
+        justify-content: center;
+    }
+
+    .button-black-w1:hover {
+        background: #333;
+    }
+
+    .button-red {
+        /*flex 布局*/
+        display: flex;
+        margin-top: 10px;
+        width: 240px;
+        height: 28px;
+        background: #FD6856;
+        color: #fff;
+        text-align: justify;
+
+        /*实现垂直居中*/
+        align-items: center;
+        /*实现水平居中*/
+        justify-content: center;
+    }
+
+    .button-red:hover {
+        background: #FF8F81;
+    }
+
+
+
+    .workh4 {
+        position: relative;
+        height: auto;
+        width: 100%;
+
+    }
+
+    .title {
+        font-family: sans-serif;
+        font-weight: 400;
+        float: left;
+        width: 25%;
+        text-align: left;
+
+        font-size: 14px;
+
+    }
+
+    .cover {
+        position: relative;
+        width: 70%;
+        min-width: 500px;
+        max-width: 960px;
+        float: right;
+        text-align: right;
+
+        font-family: 'Serif SC', serif;
+        font-style: normal;
+        font-weight: normal;
+
+        font-size: 24px;
+        line-height: 40px;
+        padding-bottom: 60px;
+
+
+    }
+
+    .entry-title {
+        position: relative;
+        float: right;
+        margin-bottom: 6px;
+        width: 100%;
+    }
+
+    .entry-title:hover {
+        text-decoration: underline
+    }
+
+    .page2 {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        margin-top: 80px;
+        margin-bottom: 80px;
+        margin-left: 60px;
+        width: 36%;
+        height: auto;
+    }
+
+    .page3 {
+        /*
+        position: relative;
+        left: -720px;
+        margin: 0 0 0 50%;
+        width: 1440px;
+        height: 600px;
+*/
         position: relative;
         overflow: hidden;
+        margin-bottom: 50px;
         width: 100%;
-        height: 800px;
-        background: url(../images/aboutme/Page01.png) no-repeat right;
-    }
-
-    .page1-title {
-        position: absolute;
-        top: 180px;
-        left: 24%;
-        width: 555px;
-    }
-
-    .page1-title h1 {
-        font-size: 50px;
-        font-family: SimSun, STSong;
-        line-height: 70px;
-    }
-
-    .page1-title h6 {
-        color: #212838;
-        letter-spacing: 2px;
-        font-weight: 400;
-        font-size: 12px;
-        font-family: PingFangSC-Medium;
-        line-height: 0px;
-    }
-
-    .aboutme-downbtn {
-        position: absolute;
-        margin-top: 60px;
-        padding: 8px 30px 8px 30px;
-        border: none;
-        border-radius: 0px;
-        background: #FF4169;
-        color: #ffffff;
-        letter-spacing: 1.6px;
-        font-weight: 600;
-        font-size: 13px;
-        -webkit-transition: all ease-in-out 0.4s;
-        transition: all ease-in-out 0.4s;
-    }
-
-    .page1-callme {
-        position: absolute;
-        margin-top: 200px;
+        height: auto;
     }
 
 
 
+    .bottom {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+    }
+
+
+
+    .v20 {
+        margin: 20px 0px;
+    }
+
+    .video {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        z-index: 1;
+
+    }
+
+    /*    社交*/
+    .monkren {
+        position: fixed;
+        right: 30px;
+        bottom: 80px;
+        display: none;
+        width: 120px;
+        height: 120px;
+    }
+
+    .wechat:hover + .monkren {
+        position: fixed;
+        right: 10px;
+        bottom: 80px;
+        display: block;
+        width: 120px;
+        height: 120px;
+    }
+
+
+
+}
+
+/*图片循环*/
+@keyframes kit-p {
+    0% {
+        /*在百分之零时图片完全不可见*/
+        opacity: 0;
+    }
+
+    1% {
+        opacity: 0.3;
+    }
+
+    2% {
+        opacity: 0.5;
+    }
+
+    3% {
+        opacity: 0.8;
+    }
+
+    4% {
+        opacity: 1;
+    }
+
+    24% {
+        /*在此时本张图片显示结束，不透明度设置为0*/
+        opacity: 1;
+    }
+
+    25% {
+        /*在此时本张图片显示结束，不透明度设置为0*/
+        opacity: 0;
+    }
+}
+
+.kit-img-3:nth-child(0) {
+    animation-delay: 0s;
+}
+
+/*设置下一个子元素延迟时间*/
+.kit-img-3:nth-child(1) {
+    animation-delay: 4s;
+}
+
+
+.kit-img-3:nth-child(2) {
+    animation-delay: 8s;
+}
+
+.kit-img-3:nth-child(3) {
+    animation-delay: 12s;
+}
+
+/*
+.kit-img:nth-child(3) {
+    animation-delay: 9s;
+}
+
+.kit-img:nth-child(4) {
+    animation-delay: 11s;
+}
+
+.kit-img:nth-child(5) {
+    animation-delay: 14s;
+}
+*/
+
+.right {
+    float: right;
+}
+
+.new {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    background: var(--color-ff);
+    margin-bottom: 16px;
+
+}
+
+.new-t {
+    font-family: ;
+    margin-bottom: 8px;
 }
