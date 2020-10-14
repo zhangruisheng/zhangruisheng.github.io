@@ -1127,12 +1127,13 @@
         height: 120px;
         /*        background: var(--color-oa);*/
         margin-bottom: 60px;
+        line-height:30px;
 
 
 
     }
 
-    .share-ll:hover {
+    .share-ll a:hover {
 
         text-decoration: underline;
         background: var(--color-ff);
