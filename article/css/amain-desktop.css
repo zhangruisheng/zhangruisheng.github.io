@@ -267,8 +267,8 @@
 
     .show {
         position: relative;
-        width: 90%;
-        margin-left: 18%;
+        width: 100%;
+        left: 23%;
 
 
     }
@@ -372,7 +372,7 @@
         max-width: 800px;
         min-width: 500px;
 */
-        width: 70%;
+        width: 60%;
         height: 100%;
 
         /* 滚动顺畅*/
@@ -387,10 +387,7 @@
         float: left;
         margin-top: 36px;
         width: 100%;
-
         height: auto;
-
-
     }
 
     .cover {
@@ -512,7 +509,7 @@
         text-align: left;
         width: 100%;
         height: auto;
-        margin-bottom: 60px;
+        margin-bottom: 30px;
 
     }
 
@@ -526,7 +523,7 @@
         float: left;
         width: 20%;
         text-align: left;
-     
+     font-size: 13px;
 
     }
 
@@ -666,3 +663,23 @@
     }
 
 }
+
+    .social ul {
+        /*
+        position: relative;
+        float: left;
+        width: 100%;
+       
+        padding-left: 25%;
+*/
+        display: flex;
+        display: -webkit-flex;
+        /* Safari */
+        flex-direction: row;
+        margin-top: 12px;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: space-around;
+        margin-right: 20px;
+    }
