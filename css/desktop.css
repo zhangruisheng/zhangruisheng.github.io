@@ -29,7 +29,7 @@
         margin: 0;
         padding: 0;
         text-decoration: none;
-
+        background: var(-color-ff);
 
     }
 
@@ -153,11 +153,11 @@
 
 
     h1 {
-    letter-spacing: 0px;
-    font-weight: 400;
-    font-size: 30px;
-    font-family: "coltrane regular demo";
-    line-height: 46px;
+        letter-spacing: 0px;
+        font-weight: 400;
+        font-size: 30px;
+        font-family: "coltrane regular demo";
+        line-height: 46px;
     }
 
     h2 {
@@ -305,8 +305,8 @@
     }
 
     .home-title h3 {
-    font-size: 20px;
-    font-family: "coltrane regular demo";
+        font-size: 20px;
+        font-family: "coltrane regular demo";
     }
 
 
@@ -467,6 +467,7 @@
         width: 100%;
         text-align: right;
         height: 60px;
+
     }
 
 
@@ -486,7 +487,7 @@
         padding-bottom: 120px;
     }
 
- 
+
 
     .work-title {
         position: relative;
@@ -949,12 +950,14 @@
 
     .aboutme {
         position: relative;
-        float: right;
+        float: left;
         margin-left: 18%;
-        width: 82%;
+        width: 86%;
+        /*
+ 
         display: flex;
         display: -webkit-flex;
-        /* Safari */
+        
         flex-direction: row;
         margin-top: 0px;
         width: 100%;
@@ -963,12 +966,13 @@
         align-content: space-around;
         margin-bottom: 120px;
         overflow: scroll;
+*/
     }
 
     .about {
         position: relative;
-        float: right;
-        width: 25%;
+        float: left;
+        width: 30%;
         height: 100%;
         margin-right: 20px;
         margin-top: 20px;
@@ -986,8 +990,17 @@
     }
 
     .about-w {
-        width: 30%;
+        /*
+        width: 26%;
         margin-right: 40px;
+*/
+    }
+
+    .about-ww {
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-bottom: 160px;
     }
 
     .about-n {
@@ -1124,7 +1137,7 @@
         height: 120px;
         /*        background: var(--color-oa);*/
         margin-bottom: 60px;
-        line-height:30px;
+        line-height: 30px;
 
 
 
@@ -1228,13 +1241,14 @@
     }
 */
 
-    .line1 {
 
-        float: left;
-        margin-bottom: 16px;
+
+    .line2 {
+
+        bottom: 0;
         width: 10px;
-        height: .5px;
-        background: #000;
+        height: 15px;
+        background: #fff;
         opacity: 1;
 
     }
@@ -1420,6 +1434,56 @@
     }
 
 
+    /*    横向滚动*/
+
+    .father {
+        position: fixed;
+        top: 0px; // Hide the horizontal scrollbar.
+        left: 0;
+        width: 100vh;
+        height: calc(100vw);
+
+        overflow: scroll;
+        transform: rotate(-90deg);
+        transform-origin: center calc(50vh);
+        /*        background: #000;*/
+        z-index: 99;
+        background: var(--color-oa);
+    }
+
+    .child {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0em auto;
+        /*    padding: 2em;*/
+        width: 250px;
+        height: 280px;
+        transform: rotate(90deg);
+        text-align: left;
+        margin-right: 160px;
+    }
+
+    .childx {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0em auto;
+        width: 120px;
+        height: 80px;
+        text-align: left;
+        transform: rotate(90deg);
+
+        margin-right: 140px;
+    }
+
+    .child-img {
+        width: 100%;
+    }
+
+
 
 }
 
@@ -1496,13 +1560,53 @@
 .new {
     position: relative;
     width: 100%;
-    padding: 10px;
     background: var(--color-ff);
     margin-bottom: 16px;
 
 }
 
+.old {
+    position: relative;
+    width: 30%;
+    margin-right: 20px;
+    background: var(--color-ff);
+    margin-bottom: 16px;
+    float: left;
+}
+
 .new-t {
     font-family: ;
     margin-bottom: 8px;
+}
+
+.down {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 200px;
+    z-index: 9999;
+
+}
+
+.down h6 {
+    float: right;
+    text-align: right;
+}
+
+.button-img {
+    width: 60px;
+    position: relative;
+    float: right;
+    margin-left: 16px;
+    text-align: right；
+}
+
+.line1 {
+    float: right;
+    margin-bottom: 16px;
+    width: 10px;
+    height: .5px;
+    background: #000;
+    opacity: 1;
+
 }

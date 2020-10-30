@@ -446,7 +446,7 @@
     .work-card-app {
         margin-bottom: 20px;
         min-width: 160px;
-        width: 18%;
+        width: 300px;
         float: left;
     }
     .brand-img{
@@ -683,3 +683,5 @@
         align-content: space-around;
         margin-right: 20px;
     }
+
+
