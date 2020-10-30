@@ -1471,11 +1471,11 @@
         align-items: flex-start;
         margin: 0em auto;
         /*    padding: 2em;*/
-        width: 250px;
-        height: 280px;
+        width: 220px;
+        height: 240px;
         transform: rotate(90deg);
         text-align: left;
-        margin-right: 160px;
+        margin-right: 130px;
     }
 
     .childx {
@@ -1488,8 +1488,7 @@
         height: 80px;
         text-align: left;
         transform: rotate(90deg);
-
-        margin-right: 140px;
+        margin-right: 100px;
     }
 
     .childxx {
@@ -1503,7 +1502,7 @@
         text-align: left;
         transform: rotate(180deg);
 
-        margin-right: 150px;
+        margin-right: 130px;
         margin-bottom: 10px;
     }
 
