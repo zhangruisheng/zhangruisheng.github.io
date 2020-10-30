@@ -612,7 +612,7 @@
         position: relative;
         margin-left: 3%;
         width: 94%;
-         min-height: 320px;
+        min-height: 320px;
     }
 
     .work-card-ui {
@@ -1549,5 +1549,67 @@
         background: #FF8F81;
     }
 
+    /*    横向滚动*/
+
+    .father {
+        position: fixed;
+        top: 0px; // Hide the horizontal scrollbar.
+        left: 0;
+        width: 100vh;
+        height: calc(100vw);
+
+        overflow: scroll;
+        transform: rotate(-90deg);
+        transform-origin: center calc(50vh);
+        /*        background: #000;*/
+        z-index: 99;
+        background: var(--color-oa);
+    }
+
+    .child {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0em auto;
+        /*    padding: 2em;*/
+        width: 220px;
+        height: 240px;
+        transform: rotate(90deg);
+        text-align: left;
+        margin-right: 130px;
+    }
+
+    .childx {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0em auto;
+        width: 120px;
+        height: 80px;
+        text-align: left;
+        transform: rotate(90deg);
+        margin-right: 100px;
+    }
+
+    .childxx {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0em auto;
+        width: 420px;
+        height: 70px;
+        text-align: left;
+        transform: rotate(180deg);
+
+        margin-right: 130px;
+        margin-bottom: 10px;
+    }
+
+    .child-img {
+        width: 100%;
+    }
 
 }
