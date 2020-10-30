@@ -303,6 +303,19 @@
         text-align: right;
 
     }
+    
+    .doing-title {
+        position: relative;
+        z-index: 999;
+        float: right;
+        margin: 20px 0px 0 0;
+        width: 200px;
+        height: 50px;
+        text-align: right;
+         font-size: 16px;
+        font-family: "coltrane regular demo";
+
+    }
 
     .home-title h3 {
         font-size: 20px;
@@ -1218,8 +1231,8 @@
 
     .information-n {
         float: left;
-        margin-top: 16px;
-        margin-bottom: 16px;
+       
+        margin-bottom: 20px;
         width: 100%;
     }
 
@@ -1479,6 +1492,21 @@
         margin-right: 140px;
     }
 
+    .childxx {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0em auto;
+        width: 420px;
+        height: 70px;
+        text-align: left;
+        transform: rotate(180deg);
+
+        margin-right: 150px;
+        margin-bottom: 10px;
+    }
+
     .child-img {
         width: 100%;
     }
@@ -1583,7 +1611,7 @@
     position: fixed;
     right: 20px;
     bottom: 20px;
-    width: 200px;
+    width: 300px;
     z-index: 9999;
 
 }
@@ -1594,7 +1622,7 @@
 }
 
 .button-img {
-    width: 60px;
+    width: 80px;
     position: relative;
     float: right;
     margin-left: 16px;
