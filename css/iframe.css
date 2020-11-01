@@ -176,7 +176,7 @@ html body {
     .logo {
         position: fixed;
         z-index: 9999;
-        margin: 25px 0 0 20px;
+        margin: 15px 0 0 10px;
         width: 170px;
         list-style: none;
         font-weight: 500;
@@ -187,7 +187,7 @@ html body {
         position: fixed;
         bottom: 34px;
         z-index: 9999;
-        margin-left: 20px;
+        margin-left: 10px;
         width: 180px;
         list-style: none;
         font-weight: 500;
@@ -226,7 +226,7 @@ html body {
     .menu-open ul {
         position: fixed;
         top: 20%;
-        left: 20px;
+        left: 10px;
 
         width: 240px;
         height: auto;
@@ -378,7 +378,7 @@ html body {
     .beta {
         position: fixed;
         float: left;
-        margin-left: 20px;
+        margin-left: 10px;
         padding: 1px 6px;
         background: #FE4A4B;
         color: #fff;

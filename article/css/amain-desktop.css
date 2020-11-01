@@ -596,14 +596,24 @@
     }
 
     .top {
+        
         position: relative;
-        float: right;
-        bottom: 40px;
+       
+        bottom: 60px;
+        width: 36px;
+        right: -23%;
+        z-index: 999;
+        
+        
+/*
+        bottom: 100px;
         right: 20px;
         z-index: 999;
         width: 100%;
         height: auto;
         text-align: right;
+         width: 400px;
+*/
     }
 
 
@@ -659,7 +669,9 @@
     float: right;
     right: 20px;
 */
-        margin-top: 80px;
+        position: fixed;
+        bottom: 60px;
+        right: 20px;
     }
 
 }

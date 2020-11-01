@@ -514,8 +514,8 @@
     .return-m {
 
         position: fixed;
-        top: 18px;
-        right: 50px;
+        top: 10px;
+        right: 53px;
         z-index: 1000;
         width: 300px;
         text-align: right;
@@ -555,10 +555,12 @@
 
     .top {
         position: relative;
-        float: right;
-        bottom: 50px;
-        right: 10px;
+        float: left;
+        bottom: 80px;
+       left: 50%;
         z-index: 999;
+        width: 40px;
+        margin-left: -20px;
         /*
         
         
