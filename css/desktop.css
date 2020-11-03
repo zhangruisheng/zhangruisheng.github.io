@@ -1140,17 +1140,16 @@
         flex-wrap: wrap;
         justify-content: space-between;
         flex-direction: row;
+        padding: 0px;
+
 
     }
 
     .share-ll {
-        width: 17.5%;
-        min-width: 200px;
-        max-width: 320px;
-        height: 120px;
-        /*        background: var(--color-oa);*/
-        margin-bottom: 60px;
-        line-height: 30px;
+        margin: 0px;
+        width: 25%;
+        height: 240px;
+
 
 
 
@@ -1650,4 +1649,26 @@
     background: #000;
     opacity: 1;
 
+}
+
+.bottom_r {
+    border-width: 0 1px 0 0;
+    border-style: solid;
+    border-color: #fff;
+}
+
+.bottom_a {
+    /*
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fff;
+*/
+    outline-color: #fff;
+    outline-width: 1px;
+    outline-style: solid;
+    outline-offset: -4px;
+}
+
+.share-lll {
+    padding: 20px;
 }
