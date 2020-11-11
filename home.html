@@ -44,7 +44,20 @@
     <link rel="stylesheet" href="css/desktop.css">
     <link rel="stylesheet" href="css/mobile.css">
 
+    <!-- Google Analytics -->
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5CXJCNBDLL');
+
+    </script>
 
 </head>
 
@@ -347,52 +360,7 @@
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/home.js"></script>
-<!--
-<script type="text/javascript">
-    var ImgLazy = function() {
-        var $winH = $(window).height(); //获取窗口高度
-        var $img = $("img[lazy='y']"); //获取页面上要延时加载的图片集合
-        var $imgH = parseInt($img.height() / 2); //图片到一半的时候显示
-        var $srcDef = "images/six/m/loading_k.gif";
-        var runing = function() {
-            $img.each(function(i) { //遍历img                
-                var $src = $(this).attr("original"); //获取当前img URL地址
-                var $scroTop = $(this).offset(); //获取图片位置
-                if ($scroTop.top + $imgH >= $(window).scrollTop() && $(window).scrollTop() + $winH >= $scroTop.top + $imgH) { //判断窗口至上往下的位置
-                    if ($(this).attr("src") == $srcDef) {
-                        $(this).hide();
-                    }
-                    $(this).attr("src", function() {
-                        return $src
-                    }).fadeIn(300); //元素属性交换
-                }
-            })
-        }
-        runing(); //页面刚载入时判断要显示的图片
-        $(window).scroll(function() {
-            runing(); //滚动刷新
-        })
-    };
 
-    (function() {
-        ImgLazy();
-    });
 
-</script>
--->
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-99328969-2"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-
-    gtag('config', 'UA-99328969-2');
-
-</script>
 
 </html>
