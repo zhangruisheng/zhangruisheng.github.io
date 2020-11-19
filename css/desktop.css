@@ -1168,9 +1168,9 @@
     }
 
     .kit-free {
-        margin: 0 25px 0 0px;
-        width: 280px;
-        height: 320px;
+  margin-bottom: 0px;
+        width: 24%;
+        height: auto;
     }
 
 
@@ -1185,7 +1185,7 @@
         position: relative;
         float: left;
         width: 100%;
-        height: 220px;
+        height: auto;
     }
 
     .kit-img {
