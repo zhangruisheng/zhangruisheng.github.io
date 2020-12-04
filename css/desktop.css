@@ -1168,7 +1168,7 @@
     }
 
     .kit-free {
-  margin-bottom: 0px;
+        margin-bottom: 0px;
         width: 24%;
         height: auto;
     }
@@ -1544,8 +1544,13 @@
     }
 
     .new-t {
-        font-family: ;
+        font-family: "coltrane regular demo";
         margin-bottom: 8px;
+        
+    }
+
+    .new-tt {
+        margin: 10px 0;
     }
 
     .down {
