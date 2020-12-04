@@ -435,6 +435,7 @@ html body {
 
 
     .logo-t {
+/*
         position: relative;
         float: left;
         left: 50%;
@@ -443,6 +444,12 @@ html body {
         margin-left: -120px;
         font-weight: 200;
         top: -10px
+*/
+        font-size: 50px;
+        width: 100%;
+        font-weight: 200;
+        text-align: center;
+        
     }
 
     /*********************
