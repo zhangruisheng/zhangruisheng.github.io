@@ -768,6 +768,7 @@
     }
 
     .linkmember {
+/*
         position: relative;
         overflow: hidden;
         margin: 0px 10px 10px 0;
@@ -779,14 +780,26 @@
         text-overflow: ellipsis;
         font-size: 18px;
         transition: .5s;
+*/
+             position: relative;
+        overflow: hidden;
+        margin: 0 0 16px 3%;
+        width: 45.5%;
+        height: 140px;
+        border-radius: 4px;
+        background-color: var(--color-oa);
+        text-align: center;
+        text-overflow: ellipsis;
+        font-size: 18px;
+        transition: .5s;
     }
 
     .linkmember-f {
-        position: relative;
+     position: relative;
         overflow: hidden;
-        margin: 0px 2% 2% 0px;
-        width: 47%;
-        height: auto;
+        margin: 0 0 16px 3%;
+        width: 45.5%;
+        height: 210px;
         border-radius: 4px;
         background-color: var(--color-oa);
         text-align: center;
