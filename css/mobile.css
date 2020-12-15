@@ -1689,3 +1689,11 @@
 
     }
 }
+
+   .about-ww {
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-bottom:30px;
+        margin-top: 40px
+    }
