@@ -566,6 +566,17 @@
         margin-left: -45px;
         margin-top: 60px;
     }
+            .line3 {
+  position: relative;
+        float: left;
+        width: 90px;
+        left: 50%;
+        background: var(--color-00);
+        height: 2px;
+        margin-bottom: 0px;
+        margin-left: -45px;
+        margin-top: 60px;
+    }
 
     .work-title {
         position: relative;
