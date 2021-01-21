@@ -19,7 +19,7 @@ open1.onclick = function () {
 (function () {
     var light = "#fff";
     var dark = "#000";
-    if (new Date().getHours() > 18 || new Date().getHours() < 8) {
+    if (new Date().getHours() > 13 || new Date().getHours() < 8) {
 
         document.documentElement.style.setProperty('--color-ff', dark);
         document.documentElement.style.setProperty('--color-00', light);

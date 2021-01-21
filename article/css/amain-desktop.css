@@ -441,6 +441,9 @@
         flex-wrap: wrap;
         align-content: space-around;
     }
+    .content-w img{
+        margin-bottom: 20px;
+    }
  
 
     .work-card-app {
