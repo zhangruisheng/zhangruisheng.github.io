@@ -407,6 +407,18 @@
         /*        text-align: right;*/
 
     }
+        .filered2 {
+        position: relative;
+        float: right;
+        margin-left: 10px;
+        padding: 0 6px;
+        background: #186D62;
+        color: #fff;
+        font-size: 12px;
+        height: 100%;
+        /*        text-align: right;*/
+
+    }
 
     /*********************
     
