@@ -249,6 +249,7 @@ html body {
     }
 
     .menu-open a {
+
         position: relative;
         z-index: 1;
         float: left;
