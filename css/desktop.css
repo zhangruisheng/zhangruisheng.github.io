@@ -743,7 +743,7 @@ margin-top: 40px;
 
         min-width: 250px;
         max-height: 280px;
-
+    min-height: 160px;
 
     }
 
@@ -836,16 +836,16 @@ margin-top: 40px;
 
 
     .linkmember-designer-like {
-        display: flex;
+    
+       display: flex;
         display: -webkit-flex;
+        /* Safari */
         flex-direction: row;
         margin-top: 0px;
         width: 100%;
         justify-content: space-between;
         flex-wrap: wrap;
         align-content: space-around;
-        padding: 0px;
-
 
     }
 
@@ -1499,6 +1499,19 @@ margin-top: 40px;
         text-align: left;
         margin-right: 130px;
     }
+        .child3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0em auto;
+        /*    padding: 2em;*/
+        width: 640px;
+        height: 700px;
+        transform: rotate(90deg);
+        text-align: left;
+        margin-right: 130px;
+    }
 
     .child001 {
         display: flex;
@@ -1682,4 +1695,14 @@ margin-top: 40px;
 
 
 
+}
+
+.like-img {
+    position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+    min-height: 200px;
+   
+    
 }

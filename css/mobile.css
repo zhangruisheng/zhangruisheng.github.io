@@ -1646,6 +1646,19 @@
         text-align: left;
         margin-right: 80px;
     }
+     .child3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0em auto;
+        /*    padding: 2em;*/
+        width: 340px;
+        height: 600px;
+        transform: rotate(90deg);
+        text-align: left;
+        margin-right: 230px;
+    }
 
     .child001 {
         display: flex;
@@ -1720,3 +1733,11 @@
         margin-bottom:30px;
         margin-top: 40px
     }
+
+.like-img {
+    position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+   
+}
