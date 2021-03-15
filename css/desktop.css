@@ -743,7 +743,7 @@ margin-top: 40px;
 
         min-width: 250px;
         max-height: 280px;
-    min-height: 160px;
+    
 
     }
 
@@ -1258,6 +1258,7 @@ margin-top: 40px;
         height: 1px;
         margin-bottom: 60px;
         margin-top: 30px;
+        opacity: 0.1;
     }
             .line3 {
         position: relative;
