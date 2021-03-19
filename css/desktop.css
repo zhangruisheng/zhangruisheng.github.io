@@ -595,6 +595,12 @@ margin-top: 40px;
         width: 18%;
         float: left;
     }
+    .work-card-other
+    {
+        margin-bottom: 0px;
+        width: 49%;
+   
+    }
 
 
     .work-img {
