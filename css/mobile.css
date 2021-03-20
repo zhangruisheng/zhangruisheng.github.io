@@ -407,7 +407,8 @@
         /*        text-align: right;*/
 
     }
-        .filered2 {
+
+    .filered2 {
         position: relative;
         float: right;
         margin-left: 10px;
@@ -578,8 +579,9 @@
         margin-left: -45px;
         margin-top: 60px;
     }
-            .line3 {
-  position: relative;
+
+    .line3 {
+        position: relative;
         float: left;
         width: 90px;
         left: 50%;
@@ -1149,7 +1151,7 @@
         margin-right: 10px;
     }
 
-    .wechat:hover + .monkren {
+    .wechat:hover+.monkren {
         display: block;
     }
 
@@ -1646,7 +1648,8 @@
         text-align: left;
         margin-right: 80px;
     }
-     .child3 {
+
+    .child3 {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -1724,20 +1727,27 @@
         display: none;
 
     }
-}
 
-   .about-ww {
+
+    .about-ww {
         position: relative;
         float: left;
         width: 100%;
-        margin-bottom:30px;
+        margin-bottom: 30px;
         margin-top: 40px
     }
 
-.like-img {
-    position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%,-50%);
-   
+    .like-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+    .figma {
+        width: 100%;
+        margin-left: 0px;
+        height: 900px;
+    }
 }

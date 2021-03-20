@@ -126,6 +126,7 @@ iOS兼容iFrame滚动条样式
     background: #000;
 }*/
 
+/*
 iframe {
     position: fixed;
     z-index: 98;
@@ -134,10 +135,12 @@ iframe {
     background: var(--color-ff);
 
 }
+*/
 
 
 html body {
     /*    overflow-x: hidden;*/
+/*
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
     margin: 0;
@@ -146,6 +149,7 @@ html body {
     height: auto;
     border: 0;
     background: var(--color-ff);
+*/
 }
 
 
@@ -406,12 +410,14 @@ html body {
 
 
     body {
+/*
         position: relative;
         margin-bottom: 100px;
         padding: 0;
         width: 100%;
 
         margin-top: 0px;
+*/
 
     }
 
@@ -421,6 +427,7 @@ html body {
     }
 
 
+/*
     iframe {
         position: fixed;
         z-index: 98;
@@ -429,6 +436,7 @@ html body {
         top: 0;
         left: 0px;
     }
+*/
 
     .logo {
         position: fixed;
