@@ -256,8 +256,9 @@
 
     .showxx {
         position: fixed;
-        z-index: 100;
-        width: 100%;
+        right: 260px;
+        z-index: 10;
+        width: 66%;
         height: 100%;
         background: var(--color-ff);
         overflow-y: scroll;
@@ -268,7 +269,7 @@
     .show {
         position: relative;
         width: 100%;
-        left: 18%;
+        left: 0%;
 
 
     }
@@ -372,7 +373,7 @@
         max-width: 800px;
         min-width: 500px;
 */
-        width: 66%;
+        width: 100%;
         height: 100%;
 
         /* 滚动顺畅*/
@@ -401,7 +402,7 @@
 
         font-size: 24px;
         line-height: 40px;
-font-weight: 500;
+        font-weight: 500;
 
     }
 
@@ -442,10 +443,11 @@ font-weight: 500;
         flex-wrap: wrap;
         align-content: space-around;
     }
-    .content-w img{
+
+    .content-w img {
         margin-bottom: 20px;
     }
- 
+
 
     .work-card-app {
         margin-bottom: 20px;
@@ -454,7 +456,7 @@ font-weight: 500;
         float: left;
     }
 
-    .brand-img{
+    .brand-img {
         margin-bottom: 20px;
         min-width: 160px;
         width: 30%;
@@ -516,11 +518,11 @@ font-weight: 500;
         width: 100%;
         height: auto;
         margin-bottom: 0px;
-      
+
 
     }
 
-   
+
 
     .title {
 
@@ -530,7 +532,7 @@ font-weight: 500;
         float: left;
         width: 20%;
         text-align: left;
-     font-size: 13px;
+        font-size: 13px;
 
     }
 
@@ -603,16 +605,16 @@ font-weight: 500;
     }
 
     .top {
-        
+
         position: relative;
-       
+
         bottom: 60px;
         width: 36px;
         left: 82.5%;
         z-index: 999;
-        
-        
-/*
+
+
+        /*
         bottom: 100px;
         right: 20px;
         z-index: 999;
@@ -636,7 +638,7 @@ font-weight: 500;
         z-index: 99999;
     }
 
-    .wechat:hover + .monkren {
+    .wechat:hover+.monkren {
         display: block;
     }
 
@@ -681,16 +683,14 @@ font-weight: 500;
         right: 20px;
     }
 
-}
-
     .social ul {
         /*
-        position: relative;
-        float: left;
-        width: 100%;
-       
-        padding-left: 25%;
-*/
+            position: relative;
+            float: left;
+            width: 100%;
+           
+            padding-left: 25%;
+    */
         display: flex;
         display: -webkit-flex;
         /* Safari */
@@ -703,4 +703,18 @@ font-weight: 500;
         margin-right: 20px;
     }
 
+    .footer {
+        z-index: 99;
+        position: fixed;
+        bottom: 0px;
+        border: 0px;
+    }
 
+    .iframe {
+        z-index: 1;
+        position: fixed;
+        top: 0px;
+        border: 0px;
+        height: 800px;
+    }
+}
