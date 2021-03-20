@@ -1744,7 +1744,21 @@
         transform: translate(-50%, -50%);
     }
 
+    .footer {
+        z-index: 1;
+        position: fixed;
+        bottom: 0px;
+        border: 0px;
+        height:36px;
+    }
 
+    .iframe {
+        z-index: 99;
+        position: fixed;
+        top: 0px;
+        border: 0px;
+        height:100%;
+    }
     .figma {
         width: 100%;
         margin-left: 0px;
