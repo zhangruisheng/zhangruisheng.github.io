@@ -1745,4 +1745,25 @@
         height: 900px;
     }
 
+
+    .logo {
+        position: fixed;
+        z-index: 9999;
+        margin: 15px 0 0 10px;
+        width: 170px;
+        list-style: none;
+        font-weight: 500;
+        font-size: 14px;
+    }
+    .logo-i {
+        position: relative;
+        float: left;
+        width: 80px;
+    }
+
+    .logo-i img {
+        border-radius: 0%;
+    }
+
+
 }
