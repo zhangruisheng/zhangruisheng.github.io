@@ -26,7 +26,7 @@ li {
     margin: 0;
     padding: 0;
     list-style: none;
-    
+
 }
 
 
@@ -140,7 +140,7 @@ iframe {
 
 html body {
     /*    overflow-x: hidden;*/
-/*
+    /*
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
     margin: 0;
@@ -174,7 +174,7 @@ html body {
         position: fixed;
         left: 0px;
         /*70%的不透明度  */
-        z-index: 999;
+        z-index: 99999;
         width: 180px;
         height: 100%;
     }
@@ -252,7 +252,7 @@ html body {
         width: 100%;
         height: 28px;
         list-style-type: none;
-        
+
     }
 
     .menu-open a {
@@ -335,9 +335,9 @@ html body {
         color: #fff;
         font-size: 14px;
         font-weight: 400;
-       
-        
-/*        font-family: "coltrane regular demo";*/
+
+
+        /*        font-family: "coltrane regular demo";*/
     }
 
     .ww {
@@ -387,7 +387,7 @@ html body {
         height: auto;
     }
 
-    .wechat:hover + .monkren {
+    .wechat:hover+.monkren {
         display: block;
     }
 
@@ -410,7 +410,7 @@ html body {
 
 
     body {
-/*
+        /*
         position: relative;
         margin-bottom: 100px;
         padding: 0;
@@ -427,7 +427,7 @@ html body {
     }
 
 
-/*
+    /*
     iframe {
         position: fixed;
         z-index: 98;
@@ -466,13 +466,13 @@ html body {
         font-weight: 200;
         top: -10px
 */
-position: relative;
+        position: relative;
         font-size: 32px;
         width: 100%;
         font-weight: 200;
         text-align: center;
         font-family: "coltrane regular demo";
-       margin-top: 20px;
+        margin-top: 0px;
 
     }
 
@@ -483,7 +483,7 @@ position: relative;
     **********************/
     nav {
         position: relative;
-        z-index: 999;
+        z-index: 99999;
         width: 60px;
         height: 100%;
     }
@@ -517,7 +517,7 @@ position: relative;
         height: 36px;
         list-style-type: none;
         text-align: center;
-        
+
     }
 
     .menu-open a {
@@ -569,7 +569,7 @@ position: relative;
         height: 40px;
         list-style-type: none;
         text-align: center;
-        
+
     }
 
     .menu a {
@@ -705,7 +705,7 @@ position: relative;
         height: 120px;
     }
 
-    .wechat:hover + .monkren {
+    .wechat:hover+.monkren {
         position: fixed;
         right: 10px;
         bottom: 80px;
@@ -724,7 +724,7 @@ position: relative;
         opacity: 0.7;
         transition: 0.6s;
         /*            点击穿透*/
-        pointer-events:visible;
+        pointer-events: visible;
         left: 0;
     }
 
