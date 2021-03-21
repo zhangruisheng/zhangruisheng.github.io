@@ -247,10 +247,12 @@
         左侧导航栏
     
     **********************/
-    nav {
-        position: relative;
+    .nav {
+     position: fixed;
+        left: 0px;
+        /*70%的不透明度  */
         z-index: 99999;
-        width: 60px;
+        width: 180px;
         height: 100%;
     }
 
@@ -804,6 +806,7 @@
     **********************/
 
 
+    /*
     .links-bg {
         position: relative;
         left: 0px;
@@ -811,54 +814,23 @@
         padding-top: 0px;
         width: 100%;
         height: auto;
-        /*       background-color: #FCF7F7;*/
-    }
+
+    }*/
 
 
 
     .links {
+
         position: relative;
-        float: left;
-        overflow: hidden;
+
         width: 100%;
-        height: auto;
-        margin-bottom: 100px;
-        margin-top: 60px;
+        height: 100%;
+        color: var(--color-00);
+        padding-top: 30px;
+        padding-bottom: 120px;
 
     }
 
-    #link-page-nav {
-        position: fixed;
-        top: 20px;
-        right: 15px;
-        z-index: 110;
-        z-index: 999;
-        display: none;
-        width: 104px;
-        height: 900px;
-    }
-
-
-    #link-page-nav a {
-        position: relative;
-        display: block;
-        float: right;
-        margin-bottom: 8px;
-        padding: 4px 10px;
-        width: auto;
-        height: auto;
-        list-style-type: none;
-        text-align: right;
-        font-weight: 600;
-        font-size: 14px;
-    }
-
-    #link-page-nav a:hover {}
-
-    #link-page-nav a.active {
-        background-color: #000;
-        color: #fff;
-    }
 
     .links-h4 {
         float: right;
@@ -890,19 +862,7 @@
     }
 
     .linkmember {
-        /*
-        position: relative;
-        overflow: hidden;
-        margin: 0px 10px 10px 0;
-        width: 170px;
-        height: 140px;
-        border-radius: 4px;
-        background-color: var(--color-oa);
-        text-align: center;
-        text-overflow: ellipsis;
-        font-size: 18px;
-        transition: .5s;
-*/
+
         position: relative;
         overflow: hidden;
         margin: 0 0 16px 3%;
@@ -975,28 +935,11 @@
     }
 
     .linkmember-f:hover {
-        /*
-        -webkit-box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
-        -moz-box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
-        box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
-        text-decoration: none;
-        opacity: 0.86;
-        filter: alpha(opacity=70);
-        transition-duration: 0.5s;
-*/
         background-color: var(--color-ff);
     }
 
     .linkmember-designer:hover {
-        /*
-        -webkit-box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
-        -moz-box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
-        box-shadow: .5px 3px 5px rgba(0, 0, 0, .2);
-        text-decoration: none;
-        opacity: 0.86;
-        filter: alpha(opacity=70);
-        transition-duration: 0.5s;
-*/
+
         background-color: var(--color-ff);
     }
 
@@ -1027,11 +970,7 @@
         -moz-background-size: 100% 100%;
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        /*
-        -webkit-box-shadow: 0px 4px 5px #EFEFF3;
-        -moz-box-shadow: 0px 4px 5px #EFEFF3;
-        box-shadow: 0px 4px 5px #EFEFF3;
-*/
+
     }
 
     .xinzeng {
@@ -1123,23 +1062,7 @@
         font-size: 14px;
     }
 
-    /*
-    .link h3 {
-        position: relative;
-        width: 110%;
-        color: #000;
-        letter-spacing: 1.08px;
-        font-size: 18px;
-        font-family: Montserrat, PingFangSC-Semibold;
-    }
 
-    .link h5 {
-        color: #000;
-        letter-spacing: 1.08px;
-        font-size: 12px;
-        font-family: Montserrat, PingFangSC-Semibold;
-    }
-*/
 
     /*********************
     
