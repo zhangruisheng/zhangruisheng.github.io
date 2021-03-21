@@ -1,29 +1,10 @@
+/*字体引用*/
 @import url("../webfonts/coltrane_regular_demo/stylesheet.css");
+
+
 /*桌面端*/
-
-
-
 @media screen and (min-width:900px) {
 
-    /*自定义变量换皮*/
-    /*
-    :root {
-        --color-00: #000;
-        --color-ff: #fff;
-        --color-d1: #140C1A;
-    }*/
-
-    /*
-    :root {
-        --color-oa: #0A0A0A;
-    }*/
-
-    /***********************
-     
-     作者：monk.ren
-     说明：父级框架 CSS Document 
-     
-***********************/
     /*初始化样式*/
     * {
         margin: 0;
@@ -67,20 +48,14 @@
     input,
     label {
         color: var(--color-00);
-        /*        color: #23182c;*/
         font-weight: normal;
-        font-size: 12px;
-        font-family:
-            /* 西文 */
-            “Helvetica Neue”, Helvetica, Arial;
-        /* 中文 */
+        font-family: “Helvetica Neue”, Helvetica, Arial;
         "PingFang SC",
         "Hiragino Sans GB",
         "Microsoft Yahei UI",
         "Microsoft Yahei",
         "Source Han Sans CN",
         "sans-serif";
-
     }
 
     /*控制显示在线字体的微妙细节*/
@@ -94,18 +69,6 @@
     -moz-osx-font-smoothing: grayscale !important;
     -ms-text-size-adjust: 100% !important;
     -webkit-text-size-adjust: 100%;
-
-    /* 设置滚动条的样式 */
-    /* 滚动条 */
-    /*      水平滚动条的样式*/
-    /*
-    ::-webkit-scrollbar-thumb:horizontal {
-      
-        width: 0px;
-        background-color: var(--color-ff);
-        -webkit-border-radius: 6px;
-    }
-*/
 
     ::-webkit-scrollbar-track-piece {
         background-color: #fff;
@@ -139,8 +102,6 @@
     }
 
 
-
-
     html body {
         overflow-x: hidden;
         margin: 0;
@@ -150,7 +111,6 @@
         border: 0;
         background: var(--color-ff);
     }
-
 
     h1 {
         letter-spacing: 0px;
@@ -171,8 +131,6 @@
         letter-spacing: 1px;
         font-weight: 500;
         font-size: 14px;
-
-
     }
 
     h4 {
@@ -240,7 +198,7 @@
 
         margin: 0;
         padding: 0;
-        width: 86%;
+        width: 100%;
         height: 100%;
         right: 0px;
         background: var(--color-ff)
@@ -249,13 +207,160 @@
         z-index: 99;
     }
 
+    /* logo/导航*/
+
+    .nav {
+        position: fixed;
+        left: 0px;
+        /*70%的不透明度  */
+        z-index: 99999;
+        width: 180px;
+        height: 100%;
+    }
+
+    .logo {
+        position: fixed;
+        z-index: 9999;
+        margin: 15px 0 0 10px;
+        width: 170px;
+        list-style: none;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .logo2 {
+        position: fixed;
+        bottom: 34px;
+        z-index: 9999;
+        margin-left: 10px;
+        width: 180px;
+        list-style: none;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .logo-i {
+        position: relative;
+        float: left;
+        width: 80px;
+    }
+
+    .logo-i img {
+        border-radius: 0%;
+    }
+
+    .logo-t {
+        display: none;
+        position: relative;
+        float: left;
+        margin: 0px 0 0 25px;
+    }
+
+    .menu,
+    .menu-open {
+        position: fixed;
+        z-index: 999;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        width: 180px;
+        height: 100%;
+        list-style: none;
+        font-weight: 600;
+    }
+
+    .menu ul,
+    .menu-open ul {
+        position: fixed;
+        top: 20%;
+        left: 10px;
+        width: 240px;
+        height: auto;
+        text-align: left;
+        font-family: SF Pro Text;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 60px;
 
 
-    /*********************
-    
-        home
-    
-    **********************/
+    }
+
+    .menu li,
+    .menu-open li {
+        position: relative;
+        margin-bottom: 16px;
+        width: 100%;
+        height: 28px;
+        list-style-type: none;
+
+    }
+
+    .menu a,
+    .menu-open a {
+
+        position: relative;
+        z-index: 1;
+        float: left;
+        color: var(--color-ff);
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 20px;
+        -webkit-text-stroke: 0.5px var(--color-00);
+        text-stroke: 0.5px var(--color-00);
+    }
+
+
+    .menu a:hover,
+    .menu-open a:hover {
+        opacity: 1;
+        transition: opacity 0.2s;
+        -webkit-text-stroke: 0px var(--color-00);
+        text-stroke: 0px var(--color-00);
+        -webkit-text-fill-color: var(--color-00);
+        text-fill-color: var(--color-00);
+    }
+
+    .active {
+        opacity: 1;
+        transition: opacity 0.2s;
+        /*字体描边*/
+
+        -webkit-text-stroke: 0px var(--color-00);
+        text-stroke: 0px var(--color-00);
+        -webkit-text-fill-color: var(--color-00);
+        text-fill-color: var(--color-00);
+
+    }
+
+    .menu-iii {
+        display: none;
+    }
+
+    .menu-iii-x {
+        display: none;
+    }
+
+
+
+    .zzhao {
+        display: none;
+        position: fixed;
+        z-index: 98;
+        width: 100%;
+        height: 100%;
+        background: var(--color-ff);
+        opacity: 0.7;
+        transition: 0.6s;
+        /*            点击穿透*/
+        pointer-events: visible;
+        left: 0;
+    }
+
+
+
+    /*首页*/
+
 
     .home {
         position: relative;
@@ -377,7 +482,7 @@
         transition: all 0s ease;
     }
 
-    .home-item-holder .entry-holder.active-post+.post-thumbnail {
+    .home-item-holder .entry-holder.active-post + .post-thumbnail {
         /*                position: fixed;*/
         /*top: 0px;*/
         z-index: -9;
@@ -423,97 +528,15 @@
         width: 88%;
     }
 
-    /*源文件*/
-    .file {
-        position: relative;
-        float: right;
-        margin-left: 10px;
-        padding: 0 6px;
-        background: var(--color-00);
-        color: var(--color-ff);
-        font-size: 12px;
-        height: 100%;
-        text-align: right;
 
-    }
-
-    .look {
-        position: relative;
-        float: left;
-        width: auto;
-        padding: 0 12px;
-        background: var(--color-00);
-        color: var(--color-ff);
-        font-size: 12px;
-        height: 100%;
-        text-align: center;
-    }
-
-    /*源文件*/
-    .filered {
-        position: relative;
-        float: right;
-        margin-left: 10px;
-        padding: 0 6px;
-        background: #FE4A4B;
-        color: #fff;
-        font-size: 12px;
-        height: 100%;
-        text-align: right;
-
-    }
-
-    .filered2 {
-        position: relative;
-        float: right;
-        margin-left: 10px;
-        padding: 0 6px;
-        background: #186D62;
-        color: #fff;
-        font-size: 12px;
-        height: 100%;
-        text-align: right;
-
-    }
+    /*我的工作*/
 
 
-    /*整理中*/
-    .doing {
-        position: relative;
-        float: left;
-
-        margin-top: 12px;
-        /*   margin-bottom: 20px;
-*/
-        padding: 4px 6px;
-        background: var(--color-00);
-        color: var(--color-ff);
-        font-size: 14px;
-        font-weight: 500;
-
-    }
-
-    .line60 {
-        float: right;
-        position: relative;
-        width: 100%;
-        text-align: right;
-        height: 60px;
-        margin-top: 40px;
-    }
-
-
-
-    /*********************
-    
-        Work
-    
-    **********************/
     .works {
         position: relative;
-        margin-left: 8%;
+        margin-left: 18%;
         min-width: 900px;
-        width: 76%;
+        width: 68%;
         height: 100%;
         padding-top: 30px;
         padding-bottom: 120px;
@@ -542,10 +565,6 @@
         position: relative;
 
         width: 18%;
-        /*
-        min-width: 200px;
-        max-width: 320px;
-*/
         opacity: 1;
         transition-duration: 0.5s;
 
@@ -557,17 +576,6 @@
         transition-duration: 0.5s;
     }
 
-    /*
-    .perfundo__link:hover {
-        -webkit-box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
-        -moz-box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
-        box-shadow: .5px 3px 5px rgba(0, 0, 0, .1);
-        text-decoration: none;
-        opacity: 0.86;
-        filter: alpha(opacity=70);
-        transition-duration: 0.5s;
-    }
-*/
 
     .work-card-guide {
 
@@ -578,7 +586,6 @@
     .work-card-system {
 
         width: 100%;
-        /*        max-width: 1220px;*/
         min-height: 560px;
         margin-bottom: 60px;
     }
@@ -617,7 +624,6 @@
         width: 100%;
         height: auto;
 
-        /*        border-radius: 8px;*/
     }
 
     .work-img-1 {
@@ -626,7 +632,7 @@
         left: 0;
         z-index: 1;
         width: 100%;
-        /*        border-radius: 8px;*/
+
         opacity: 0.3;
         /*            点击穿透*/
         pointer-events: none;
@@ -638,7 +644,7 @@
         z-index: 1;
         width: 100%;
         height: 100%;
-        /*        background-image:url(images/basis/1111c.png);*/
+
         background-color: aqua;
     }
 
@@ -721,9 +727,9 @@
 
     .links {
         position: relative;
-        margin-left: 6%;
+        margin-left: 18%;
         min-width: 900px;
-        width: 76%;
+        width: 68%;
         height: auto;
         color: var(--color-00);
         padding-top: 30px;
@@ -993,8 +999,8 @@
     .aboutme {
         position: relative;
         float: left;
-        margin-left: 6%;
-        width: 100%;
+        margin-left: 18%;
+        width: 88%;
         /*
  
         display: flex;
@@ -1475,7 +1481,7 @@
         height: 120px;
     }
 
-    .wechat:hover+.monkren {
+    .wechat:hover + .monkren {
         position: fixed;
         right: 10px;
         bottom: 80px;
@@ -1723,6 +1729,110 @@
 
     }
 
+
+
+
+
+
+
+
+
+    /*线条样式*/
+
+    .line60 {
+        float: right;
+        position: relative;
+        width: 100%;
+        text-align: right;
+        height: 60px;
+        margin-top: 40px;
+    }
+
+
+    /*标签样式*/
+    .beta {
+        position: fixed;
+        float: left;
+        margin-left: 10px;
+        padding: 1px 6px;
+        background: #FE4A4B;
+        color: #fff;
+        font-size: 12px;
+        bottom: 226px;
+        text-align: right;
+
+    }
+
+    .file {
+        position: relative;
+        float: right;
+        margin-left: 10px;
+        padding: 0 6px;
+        background: var(--color-00);
+        color: var(--color-ff);
+        font-size: 12px;
+        height: 100%;
+        text-align: right;
+
+    }
+
+    .look {
+        position: relative;
+        float: left;
+        width: auto;
+        padding: 0 12px;
+        background: var(--color-00);
+        color: var(--color-ff);
+        font-size: 12px;
+        height: 100%;
+        text-align: center;
+    }
+
+    /*源文件*/
+    .filered {
+        position: relative;
+        float: right;
+        margin-left: 10px;
+        padding: 0 6px;
+        background: #FE4A4B;
+        color: #fff;
+        font-size: 12px;
+        height: 100%;
+        text-align: right;
+
+    }
+
+    .filered2 {
+        position: relative;
+        float: right;
+        margin-left: 10px;
+        padding: 0 6px;
+        background: #186D62;
+        color: #fff;
+        font-size: 12px;
+        height: 100%;
+        text-align: right;
+
+    }
+
+
+    /*整理中*/
+    .doing {
+        position: relative;
+        float: left;
+
+        margin-top: 12px;
+        /*   margin-bottom: 20px;
+*/
+        padding: 4px 6px;
+        background: var(--color-00);
+        color: var(--color-ff);
+        font-size: 14px;
+        font-weight: 500;
+
+    }
+
+    /*尾部信息*/
     .footer {
         z-index: 99;
         position: fixed;
@@ -1730,40 +1840,12 @@
         border: 0px;
     }
 
-    .iframe {
-        z-index: 1;
-        position: fixed;
-        top: 0px;
-        border: 0px;
-        height:800px;
-    }
 
     .figma {
         width: 70%;
-        margin-left: 10%;
+        margin-left: 00%;
         margin-top: 4%;
         height: 900px;
     }
-
-
-    .logo {
-        position: fixed;
-        z-index: 9999;
-        margin: 15px 0 0 10px;
-        width: 170px;
-        list-style: none;
-        font-weight: 500;
-        font-size: 14px;
-    }
-    .logo-i {
-        position: relative;
-        float: left;
-        width: 80px;
-    }
-
-    .logo-i img {
-        border-radius: 0%;
-    }
-
 
 }
