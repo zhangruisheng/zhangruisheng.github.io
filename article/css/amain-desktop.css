@@ -861,7 +861,19 @@
     }
 
 
+   /*标签样式*/
+   .beta {
+    position: fixed;
+    float: left;
+    margin-left: 10px;
+    padding: 1px 6px;
+    background: #FE4A4B;
+    color: #fff;
+    font-size: 12px;
+    bottom: 226px;
+    text-align: right;
 
+}
 
 
 
