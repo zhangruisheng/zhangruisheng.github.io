@@ -706,7 +706,7 @@
         overflow: hidden;
         margin: 16px 10% 20px 10%;
         width: 80%;
-        height: 120px;
+        min-height: 100px;
         text-align: center;
         letter-spacing: 0px;
     }
@@ -754,7 +754,23 @@
         line-height: normal;
         transition: 0.5s;
     }
-
+    .linkintroduce-h {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        margin-top: 8px;
+        width: 100%;
+        max-height: 100px;
+        color: var(--color-00);
+        opacity: 1;
+        text-align: center;
+        text-overflow: ellipsis;
+        letter-spacing: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: normal;
+        transition: 0.5s;
+    }
     .link a:hover {
         outline: none;
         color: var(--color-00);
@@ -818,7 +834,7 @@
         margin-bottom: 40px;
 
         min-width: 250px;
-        max-height: 280px;
+        max-height: 680px;
     }
 
     .linkmember:hover {

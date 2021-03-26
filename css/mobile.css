@@ -881,7 +881,7 @@
         overflow: hidden;
         margin: 0 0 16px 3%;
         width: 45.5%;
-        height: 210px;
+        max-height: 280px;
         border-radius: 4px;
         background-color: var(--color-oa);
         text-align: center;
@@ -895,7 +895,7 @@
         overflow: hidden;
         margin: 0 0 16px 3%;
         width: 45.5%;
-        height: 210px;
+        max-height: 280px;
         border-radius: 4px;
         background-color: var(--color-oa);
         text-align: center;
@@ -996,7 +996,7 @@
         float: left;
         overflow: hidden;
         margin: 16px 10% 20px 10%;
-        height: auto;
+        min-height: 100px;
         width: 80%;
         text-align: center;
         letter-spacing: 0px;
@@ -1045,7 +1045,23 @@
         line-height: normal;
         transition: .5s;
     }
-
+    .linkintroduce-h {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        margin-top: 8px;
+        width: 100%;
+        max-height: 100px;
+        color: var(--color-00);
+        opacity: 1;
+        text-align: center;
+        text-overflow: ellipsis;
+        letter-spacing: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: normal;
+        transition: 0.5s;
+    }
     .link a:hover {
         outline: none;
         color: #000;
