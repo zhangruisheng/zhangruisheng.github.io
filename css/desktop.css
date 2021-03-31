@@ -48,6 +48,7 @@
         font-family: “Helvetica Neue”, "Helvetica", "Arial", "PingFang SC",
             "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
             "Source Han Sans CN", "sans-serif";
+
     }
 
     /*控制显示在线字体的微妙细节*/
@@ -116,15 +117,15 @@
 
     h2 {
         font-weight: 500;
-        font-size: 15px;
-        margin-bottom: 8px;
+        font-size: 22px;
+        margin-bottom: 12px;
     }
 
     h3 {
         margin-bottom: 12px;
         letter-spacing: 1px;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 18px;
     }
 
     h4 {
@@ -157,17 +158,10 @@
         font-weight: 500;
         font-size: 13px;
         line-height: 20px;
+        margin-bottom: 12px;
+       
     }
 
-    p1 {
-        margin: 8px 0;
-        letter-spacing: 0.4px;
-        font-weight: 400;
-        font-size: 13px;
-        line-height: 25px;
-        color: var(--color-00);
-        margin-bottom: 8px;
-    }
 
     ul,
     ol {
@@ -354,7 +348,7 @@
     .page {
         position: relative;
         width: 100%;
-        margin-bottom: 100px;
+        margin-bottom: 20px;
     }
 
     .home-class {
@@ -754,6 +748,7 @@
         line-height: normal;
         transition: 0.5s;
     }
+
     .linkintroduce-h {
         position: relative;
         float: left;
@@ -771,6 +766,7 @@
         line-height: normal;
         transition: 0.5s;
     }
+
     .link a:hover {
         outline: none;
         color: var(--color-00);
@@ -873,8 +869,8 @@
         -moz-background-size: auto 100%;
         background-size: auto 100%;
         background-repeat: no-repeat;
-        background-position-x:center;
-        background-position-y:center;
+        background-position-x: center;
+        background-position-y: center;
         /*
         -webkit-box-shadow: 0px 4px 5px #EFEFF3;
         -moz-box-shadow: 0px 4px 5px #EFEFF3;
@@ -1064,126 +1060,7 @@
     uikits
     
     *****************************/
-    .share {
-        position: relative;
-        margin-left: 18%;
-        min-width: 400px;
-        width: 64%;
-
-        height: auto;
-        padding-top: 30px;
-        padding-bottom: 120px;
-    }
-
-    .uikits {
-        position: relative;
-        width: 100%;
-    }
-
-    .uikit-1 {
-        position: relative;
-        margin: 120px 0 60px 0;
-        /*        width: 940px;*/
-        width: 100%;
-        height: auto;
-    }
-
-    .uikit {
-        position: relative;
-        float: left;
-        display: flex;
-        display: -webkit-flex;
-        flex-direction: row;
-
-        /*        width: 940px;*/
-        width: 100%;
-        height: auto;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        flex-direction: row;
-    }
-
-    .share-ll {
-        width: 25%;
-        height: auto;
-    }
-
-    .share-ll a:hover {
-        text-decoration: underline;
-        background: var(--color-ff);
-    }
-
-    .kit {
-        position: relative;
-        margin: 0 25px 0 0px;
-        width: 100%;
-        height: 500px;
-    }
-
-    .kit-free {
-        margin-bottom: 0px;
-        width: 24%;
-        height: auto;
-    }
-
-    .kit-picture {
-        position: relative;
-        float: left;
-        width: 600px;
-        max-width: 800px;
-    }
-
-    .kit-free-picture {
-        position: relative;
-        float: left;
-        width: 100%;
-        height: auto;
-    }
-
-    .kit-img {
-        position: relative;
-        width: 100%;
-        /*设置图片轮播一次时间，以及轮播方式（无限循环）*/
-        /*让所有图片显示在一个位置，设置绝对位置*/
-        opacity: 1;
-    }
-
-    .kit-img-3 {
-        position: absolute;
-        /*设置图片轮播一次时间，以及轮播方式（无限循环）*/
-        /*让所有图片显示在一个位置，设置绝对位置*/
-        opacity: 0;
-        animation: kit-p 16s infinite;
-    }
-
-    .uikit-head {
-        position: relative;
-        margin-bottom: 20px;
-        width: 100%;
-        height: auto;
-    }
-
-    .uikit-buy {
-        position: relative;
-        float: left;
-        padding: 0px 40px;
-        width: 240px;
-        height: 460px;
-        text-align: left;
-        font-size: 12px;
-    }
-
-    .uikit-information {
-        position: absolute;
-        bottom: 32px;
-    }
-
-    .information-n {
-        float: left;
-
-        margin-bottom: 20px;
-        width: 100%;
-    }
+    
 
     .line {
         position: relative;
@@ -1296,7 +1173,7 @@
         font-family: sans-serif;
         font-weight: 400;
         float: left;
-        width: 25%;
+        width: 30%;
         text-align: left;
 
         font-size: 14px;
@@ -1308,6 +1185,19 @@
         min-width: 500px;
         max-width: 960px;
         min-height: 100px;
+        float: right;
+        text-align: right;
+        font-family: "Serif SC", serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 34px;
+        padding-bottom: 10px;
+    }
+
+    .cover-t {
+        position: relative;
+        width: 100%;
         float: right;
         text-align: right;
         font-family: "Serif SC", serif;
@@ -1485,6 +1375,17 @@
 
     .right {
         float: right;
+
+    }
+
+    .left {
+        float: left;
+    }
+
+    .bottom {
+        position: fixed;
+        bottom: 50px;
+        right: 20px;
     }
 
     .new {
@@ -1510,6 +1411,7 @@
 
     .new-tt {
         margin: 10px 0;
+        font-size: 14px;
     }
 
     .down {
@@ -1542,6 +1444,25 @@
         opacity: 1;
     }
 
+
+    /* 边线 */
+    .share-ll {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .share-ll a:hover {
+        text-decoration: underline;
+        background: var(--color-ff);
+    }
+
+    .share-lll {
+        position: relative;
+        height: auto;
+        padding: 20px;
+    }
+
     .bottom_r {
         border-width: 0 0.5px 0 0;
         border-style: solid;
@@ -1560,19 +1481,13 @@
         outline-offset: 0.5px;
     }
 
-    .share-lll {
-        position: relative;
-        height: 100%;
-        padding: 20px;
-    }
-
     /*0.5px 边框*/
     .border-l::before {
         content: "";
         position: absolute;
-        width: 50%;
+        width: 200%;
         height: 200%;
-        border-width: 1px 0px 1px 1px;
+        border-width: 1px 1px 0px 1px;
         border-style: solid;
         border-color: var(--color-00);
         transform-origin: 0 0;
@@ -1603,6 +1518,21 @@
         width: 200%;
         height: 200%;
         border-width: 0px 1px 0px 0px;
+        border-style: solid;
+        border-color: var(--color-00);
+        transform-origin: 0 0;
+        transform: scale(0.5);
+        /*    点击穿透*/
+        pointer-events: none;
+    }
+
+    .border-b::before {
+        content: "";
+        position: absolute;
+
+        width: 200%;
+        height: 200%;
+        border-width: 0px 0px 1px 0px;
         border-style: solid;
         border-color: var(--color-00);
         transform-origin: 0 0;
@@ -1694,17 +1624,20 @@
 
     /*整理中*/
     .doing {
-        position: relative;
-        float: left;
+        /* position:relative; */
+        /* float: left; */
 
         margin-top: 12px;
         /*   margin-bottom: 20px;
 */
         padding: 4px 6px;
-        background: var(--color-00);
-        color: var(--color-ff);
+        /* background: var(--color-00);
+        color: var(--color-ff); */
+        background: #186d62;
+        color: #fff;
         font-size: 14px;
         font-weight: 500;
+
     }
 
     /*尾部信息*/
@@ -1720,5 +1653,179 @@
         margin-left: 00%;
         margin-top: 4%;
         height: 900px;
+    }
+
+    /* 颜色 */
+
+
+
+
+
+    /* share */
+    .share {
+        position: relative;
+        margin-left: 18%;
+        min-width: 400px;
+        width: 64%;
+
+        height: auto;
+
+    }
+    .share1 {
+        position: relative;
+        float: left;
+        min-width: 400px;
+        width: 70%;
+
+        height: auto;
+        padding-top: 30px;
+        padding-bottom: 120px;
+ 
+    }
+    .share2{
+        position: relative;
+        padding-top: 30px;
+        padding-bottom: 120px;
+        float: right;
+        width: 28%;
+    
+    }
+
+
+
+    .uikits {
+        position: relative;
+        width: 100%;
+        min-height: 60px;
+
+    }
+
+    .uikits-l {
+        position: relative;
+
+        float: left;
+        width: 90%;
+        min-height: 2000px;
+
+    }
+
+    .uikits-r {
+        position: relative;
+        float: right;
+        width: 100%;
+        min-height: 60px;
+
+    }
+
+    .uikit-1 {
+        position: relative;
+        margin: 120px 0 60px 0;
+        /*        width: 940px;*/
+        width: 100%;
+        height: auto;
+    }
+
+    .uikit {
+        position: relative;
+        float: left;
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: row;
+
+        /*        width: 940px;*/
+        width: 100%;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-bottom: 30px;
+    }
+
+
+    .kit {
+        position: relative;
+        margin: 0 25px 0 0px;
+        width: 100%;
+        height: 500px;
+    }
+
+    .kit-free {
+        margin-bottom: 0px;
+        width: 24%;
+        height: auto;
+    }
+
+    .kit-picture {
+        position: relative;
+        float: left;
+        width: 600px;
+        max-width: 800px;
+    }
+
+    .kit-free-picture {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+    }
+
+    .kit-img {
+        position: relative;
+        width: 100%;
+        /*设置图片轮播一次时间，以及轮播方式（无限循环）*/
+        /*让所有图片显示在一个位置，设置绝对位置*/
+        opacity: 1;
+    }
+
+    .kit-img-3 {
+        position: absolute;
+        /*设置图片轮播一次时间，以及轮播方式（无限循环）*/
+        /*让所有图片显示在一个位置，设置绝对位置*/
+        opacity: 0;
+        animation: kit-p 16s infinite;
+    }
+
+    .uikit-head {
+        position: relative;
+        margin-bottom: 20px;
+        width: 100%;
+        height: auto;
+    }
+
+    .uikit-buy {
+        position: relative;
+        float: left;
+        padding: 0px 40px;
+        width: 240px;
+        height: 460px;
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .uikit-information {
+        position: absolute;
+        bottom: 32px;
+    }
+
+    .information-n {
+        float: left;
+
+        margin-bottom: 20px;
+        width: 100%;
+    }
+  
+    .uikit p,
+    .uikit h2 {
+        text-align: right;
+    }
+    .page p{
+        margin: 4px 0;
+        letter-spacing: 0.4px;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 26px;
+        margin-bottom: 32px;
+        color: var(-color-ff);
+        opacity: 0.9;
     }
 }
