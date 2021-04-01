@@ -717,7 +717,7 @@
         left: 0px;
         /*70%的不透明度  */
         z-index: 99999;
-        width: 180px;
+        width: auto;
         height: 100%;
     }
 
