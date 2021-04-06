@@ -891,7 +891,7 @@
     }
 
     .linkmember-designer {
-        position: relative;
+        position:relative;
         overflow: hidden;
         margin: 0 0 16px 3%;
         width: 45.5%;
@@ -902,25 +902,29 @@
         text-overflow: ellipsis;
         font-size: 18px;
         transition: .5s;
+        min-height: 200px;
     }
 
 
     .linkmember-designer-like {
-        position: relative;
+          position: relative;
         display: flex;
-        flex-direction: row;
+        
         margin-bottom: 10px;
         width: 100%;
+        
         color: var(--color-00);
         text-align: left;
         letter-spacing: 2px;
         font-weight: 400;
         font-size: 16px;
-        /*        margin-left: 2%;*/
+       flex-direction: row;
         flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        align-content: flex-start;
+        justify-content:flex-start;
+        align-items: stretch;
+       
+        align-content: flex-start;  
+ 
 
     }
 
