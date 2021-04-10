@@ -159,7 +159,7 @@
         font-size: 13px;
         line-height: 20px;
         margin-bottom: 12px;
-       
+
     }
 
 
@@ -338,11 +338,20 @@
 
     .home {
         position: relative;
+        float: right;
         overflow: scroll;
-        width: 100%;
+        width: 60%;
         height: auto;
-        margin: 0;
-        padding: 0;
+        margin:  0 20px 0 0;
+        padding:0;
+    }
+
+    .home-l {
+        position: relative;
+        float: left;
+        width: 28%;
+        left: 18%;
+        margin-top: 20px;
     }
 
     .page {
@@ -371,7 +380,7 @@
         position: relative;
         z-index: 999;
         float: right;
-        margin: 20px 20px 0 0;
+        margin: 20px 0px 0 0;
         width: 200px;
         height: 50px;
         text-align: right;
@@ -389,7 +398,13 @@
         font-family: "coltrane regular demo";
     }
 
-    .home-title h3 {
+    .home h3 {
+        font-size: 20px;
+        font-family: "coltrane regular demo";
+    }
+
+    .home-l h3 {
+        text-align: right;
         font-size: 20px;
         font-family: "coltrane regular demo";
     }
@@ -417,7 +432,7 @@
         position: relative;
         z-index: 101;
         float: right;
-        margin: 0px 20px 0 0;
+        margin:0;
         width: 100px;
         align-items: center;
     }
@@ -971,6 +986,13 @@
         margin-right: 40px;
 
     } */
+    .about-w {
+        position: relative;
+        float: left;
+        width: 42%;
+        margin-bottom: 160px;
+        margin-top: 40px;
+    }
 
     .about-ww {
         position: relative;
@@ -1060,7 +1082,7 @@
     uikits
     
     *****************************/
-    
+
 
     .line {
         position: relative;
@@ -1672,6 +1694,7 @@
         height: auto;
 
     }
+
     .share1 {
         position: relative;
         float: left;
@@ -1681,15 +1704,16 @@
         height: auto;
         padding-top: 30px;
         padding-bottom: 120px;
- 
+
     }
-    .share2{
+
+    .share2 {
         position: relative;
         padding-top: 30px;
         padding-bottom: 120px;
         float: right;
         width: 28%;
-    
+
     }
 
 
@@ -1814,12 +1838,13 @@
         margin-bottom: 20px;
         width: 100%;
     }
-  
+
     .uikit p,
     .uikit h2 {
         text-align: right;
     }
-    .page p{
+
+    .page p {
         margin: 4px 0;
         letter-spacing: 0.4px;
         font-weight: 400;
