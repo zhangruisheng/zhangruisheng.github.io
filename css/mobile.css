@@ -158,7 +158,7 @@
     p {
         margin: 4px 0;
         letter-spacing: 0px;
-        font-weight: 600;
+        font-weight: 400;
         font-size: 13px;
         line-height: 24px;
     }
@@ -426,6 +426,14 @@
         margin-bottom: 100px;
     }
 
+    .home-l {
+        position: relative;
+        float: left;
+        width: 100%;
+        
+        margin-top: 60px;
+    }
+
 
     .page {
         position: relative;
@@ -556,7 +564,7 @@
 
     .home-img {
         width: 100%;
-        border-radius: 4px;
+        /* border-radius: 4px; */
     }
 
 
@@ -1269,7 +1277,7 @@
         width: 100%;
         height: 100%;
 
-        margin-top: 20px;
+        margin-top: 50px;
 
 
     }
@@ -1451,7 +1459,13 @@
         margin-bottom: 16px;
 
     }
-
+    .new-home {
+        position: relative;
+        width: 94%;
+        margin-left: 3%;
+        background: var(--color-ff);
+        margin-bottom: 16px;
+    }
     .about-nn {
         position: relative;
         margin-bottom: 16px;

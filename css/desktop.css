@@ -155,7 +155,7 @@
     p {
         margin: 4px 0;
         letter-spacing: 0.4px;
-        font-weight: 500;
+        font-weight: 300;
         font-size: 13px;
         line-height: 20px;
         margin-bottom: 12px;
@@ -963,17 +963,20 @@
     .about {
         position: relative;
         float: left;
-        width: 30%;
+        width: 28%;
         height: auto;
-        margin-right: 20px;
+        margin-right: 4.4%;
         margin-top: 20px;
         /* min-height: 100%; */
+       
     }
 
     .about-t {
-        padding: 10px 16px;
-        background: var(--color-oa);
-        margin-bottom: 16px;
+        /* padding: 10px 16px; */
+        /* background: var(--color-oa); */
+        margin-bottom: 36px;
+        height: auto;
+       
     }
 
     .about-i {
@@ -990,8 +993,9 @@
         position: relative;
         float: left;
         width: 45.6%;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
         margin-top: 40px;
+        margin-right: 20px;
     }
 
     .about-ww {
@@ -1002,21 +1006,14 @@
         margin-top: 0px;
     }
 
-    .about-n {
-        position: relative;
-        margin-top: 20px;
-        width: 100%;
-        height: auto;
-        margin-bottom: 60px;
-    }
 
     .about-nn {
         position: relative;
-        margin-bottom: 16px;
+        float: left;
+        margin-bottom: 10px;
         width: 100%;
         height: auto;
-        padding: 8px 0;
-        /*        background: var(--color-oa);*/
+  
     }
 
     .about-nt {
@@ -1024,7 +1021,7 @@
         float: left;
         margin-right: 12px;
         font-size: 14px;
-        width: auto;
+        width: 100%;
     }
 
     .friend-links {
@@ -1103,7 +1100,16 @@
         height: 2px;
         margin-bottom: 40px;
     }
-
+    .line4 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 1px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        opacity: 0.1;
+    }
     /*
     .line {
         height: 0.2px;
@@ -1417,7 +1423,12 @@
         background: var(--color-ff);
         margin-bottom: 16px;
     }
-
+    .new-home {
+        position: relative;
+        width: 100%;
+        background: var(--color-ff);
+        margin-bottom: 16px;
+    }
     .old {
         position: relative;
         width: 22%;
