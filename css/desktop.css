@@ -994,7 +994,7 @@
         float: left;
         width: 45.6%;
         margin-bottom: 40px;
-        margin-top: 40px;
+        margin-top: 10px;
         margin-right: 20px;
     }
 
@@ -1442,7 +1442,9 @@
         font-family: "coltrane regular demo";
         margin-bottom: 8px;
     }
-
+    .new-t h3 {
+        font-family: "coltrane regular demo"; 
+    }
     .new-tt {
         margin: 10px 0;
         font-size: 14px;

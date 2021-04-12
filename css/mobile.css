@@ -47,43 +47,29 @@
     label {
         color: var(--color-00);
         font-weight: normal;
-        /* font-size: 12px; */
-        font-family:
-            /* 西文 */
-            'Gotham-Book', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu,
-            "Helvetica Neue", Helvetica, Arial,
-            /* 中文 */
-            "PingFang SC", "Hiragino Sans GB",
-            "Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN", sans-serif;
+        font-family: “Helvetica Neue”, "Helvetica", "Arial", "PingFang SC",
+            "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+            "Source Han Sans CN", "sans-serif";
     }
 
-    text-rendering: optimizelegibility !important;
     /*控制显示在线字体的微妙细节*/
-    -webkit-font-smoothing: antialiased !important;
+    -webkit-font-smoothing:antialiased
     /*无抗锯齿none*/
-    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing:subpixel-antialiased
     /*次像素平滑default*/
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing:antialiased
     /*灰度平滑*/
-    -webkit-font-smoothing: grayscale !important;
-    -moz-osx-font-smoothing: grayscale !important;
-    -ms-text-size-adjust: 100% !important;
-    -webkit-text-size-adjust: 100%;
+    /* -webkit-font-smoothing:grayscale;
+    -moz-osx-font-smoothing:grayscale;
+    -ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100%; */
 
-
-    /* 设置滚动条的样式 */
-    /* 滚动条 */
-    ::-webkit-scrollbar-thumb:horizontal {
-        /*水平滚动条的样式*/
-        width: 0px;
-        background-color: #fafafa;
-        -webkit-border-radius: 6px;
-    }
 
     ::-webkit-scrollbar-track-piece {
         background-color: #fff;
         /*滚动条的背景颜色*/
-        -webkit-border-radius: 0;
+        -webkit-border-radius: #000;
+        border-radius: 0;
         /*滚动条的圆角宽度*/
     }
 
@@ -98,6 +84,7 @@
         /*垂直滚动条的样式*/
         height: 0px;
         background-color: #fafafa;
+        border-radius: 4px;
         -webkit-border-radius: 4px;
         outline: 2px solid #fff;
         outline-offset: -2px;
@@ -108,8 +95,10 @@
         /*滚动条的hover样式*/
         height: 0px;
         background-color: #9f9f9f;
+        border-radius: 4px;
         -webkit-border-radius: 4px;
     }
+
 
 
     h1 {
@@ -117,7 +106,7 @@
         font-weight: 600;
         font-size: 26px;
         font-family: "coltrane regular demo";
-        line-height: 56px;
+        line-height: 46px;
     }
 
     h2 {
@@ -248,7 +237,7 @@
     
     **********************/
     .nav {
-     position: fixed;
+        position: fixed;
         left: 0px;
         /*70%的不透明度  */
         z-index: 99999;
@@ -260,7 +249,7 @@
     .menu-open {
         position: fixed;
         left: 0px;
-        z-index: 99;
+        z-index: 99999;
         margin: 0;
         padding: 0;
         width: 100%;
@@ -290,7 +279,7 @@
 
     .menu-open a {
         position: relative;
-        z-index: 1;
+        z-index: 99999;
         display: block;
         margin: 0;
         padding: 0;
@@ -306,7 +295,7 @@
     .menu {
         position: fixed;
         left: 0px;
-        z-index: 99;
+        z-index: 99999;
         margin: 0;
         padding: 0;
         width: 100%;
@@ -336,7 +325,7 @@
 
     .menu a {
         position: relative;
-        z-index: 1;
+        z-index: 99999;
         display: block;
         margin: 0;
         padding: 0;
@@ -353,12 +342,13 @@
         position: fixed;
         top: 16px;
         right: 3%;
+        
     }
 
     .menu-iii-x {
         position: relative;
         bottom: -88%;
-        z-index: 102;
+        z-index: 999999;
         left: 50%;
         margin-left: -15px;
     }
@@ -369,7 +359,7 @@
         float: left;
         bottom: 16px;
         left: 10px;
-        z-index: 102;
+        z-index: 99999;
         display: none;
 
     }
@@ -390,12 +380,12 @@
 
     .zzhao {
         position: fixed;
-        z-index: 98;
+        z-index: 9999;
         width: 100%;
         height: 100%;
         background: var(--color-ff);
         opacity: 0.7;
-        transition: 0.6s;
+        transition: 0s;
         /*            点击穿透*/
         pointer-events: visible;
         left: 0;
@@ -403,7 +393,7 @@
 
     .zzzhao {
         position: fixed;
-        z-index: 999;
+        z-index: 9999;
         display: none;
         width: 100%;
         height: 100%;
@@ -430,7 +420,7 @@
         position: relative;
         float: left;
         width: 100%;
-        
+
         margin-top: 60px;
     }
 
@@ -469,13 +459,19 @@
         text-align: right;
     }
 
-    .home-title h3 {
+    .home h3 {
         font-size: 16px;
         font-family: "coltrane regular demo";
         opacity: 1;
         font-weight: 800;
     }
-
+    .home-l h3 {
+        
+        text-align: right;
+        font-size: 16px;
+        opacity: 1;
+        font-family: "coltrane regular demo";
+    }
     .animate {
         opacity: 1;
         transition: .3s ease-in;
@@ -568,7 +564,25 @@
     }
 
 
+    .more {
+        font-family: SF Pro Text;
+        font-style: italic;
+        font-size: 34px;
+        color: var(--color-ff);
+        text-decoration: none;
+        font-weight: 600;
+        line-height: 20px;
+        -webkit-text-stroke: 0.5px var(--color-00);
+        margin-right: 6px;
 
+    }
+
+    .more:hover {
+        opacity: 1;
+        transition: opacity 0.2s;
+        -webkit-text-stroke: 0px var(--color-00);
+        -webkit-text-fill-color: var(--color-00);
+    }
 
 
 
@@ -899,7 +913,7 @@
     }
 
     .linkmember-designer {
-        position:relative;
+        position: relative;
         overflow: hidden;
         margin: 0 0 16px 3%;
         width: 45.5%;
@@ -915,24 +929,24 @@
 
 
     .linkmember-designer-like {
-          position: relative;
+        position: relative;
         display: flex;
-        
+
         margin-bottom: 10px;
         width: 100%;
-        
+
         color: var(--color-00);
         text-align: left;
         letter-spacing: 2px;
         font-weight: 400;
         font-size: 16px;
-       flex-direction: row;
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content:flex-start;
+        justify-content: flex-start;
         align-items: stretch;
-       
-        align-content: flex-start;  
- 
+
+        align-content: flex-start;
+
 
     }
 
@@ -966,8 +980,8 @@
         -moz-background-size: auto 100%;
         background-size: auto 100%;
         background-repeat: no-repeat;
-        background-position-x:center;
-        background-position-y:center;
+        background-position-x: center;
+        background-position-y: center;
     }
 
     .linklogo-f {
@@ -1057,6 +1071,7 @@
         line-height: normal;
         transition: .5s;
     }
+
     .linkintroduce-h {
         position: relative;
         float: left;
@@ -1074,6 +1089,7 @@
         line-height: normal;
         transition: 0.5s;
     }
+
     .link a:hover {
         outline: none;
         color: #000;
@@ -1202,7 +1218,7 @@
         margin-right: 10px;
     }
 
-    .wechat:hover + .monkren {
+    .wechat:hover+.monkren {
         display: block;
     }
 
@@ -1265,9 +1281,10 @@
 
     .aboutme {
         margin-left: 3%;
-        padding-top: 40px;
+        padding-top: 50px;
         width: 94%;
         height: auto;
+        z-index: 99;
     }
 
 
@@ -1308,10 +1325,6 @@
         margin-bottom: 12px;
     }
 
-    .aboutme h1 {
-        font-size: 28px;
-        line-height: 28px;
-    }
 
     .aboutme h2 {
         font-weight: 500;
@@ -1334,10 +1347,12 @@
         width: 100%;
         height: auto;
     }
-    .follow{
+
+    .follow {
         position: relative;
         margin-bottom: 26px;
     }
+
     /* .social {
         position: relative;
         margin-left: -4px;
@@ -1438,18 +1453,7 @@
 
 
 
-    .new-t {
-        font-family: "coltrane regular demo";
-        margin: 32px 0 10px 0;
-        opacity: 0.2;
-        padding: 0px;
-    }
-
-    .new-tt {
-        font-size: 14px;
-        margin: 6px 0px;
-
-    }
+ /* new */
 
     .new {
         position: relative;
@@ -1459,12 +1463,28 @@
         margin-bottom: 16px;
 
     }
+   
     .new-home {
         position: relative;
         width: 94%;
         margin-left: 3%;
         background: var(--color-ff);
         margin-bottom: 16px;
+    }
+    .new-t {
+        font-family: "coltrane regular demo";
+        margin: 32px 0 10px 0;
+        opacity: 1;
+        padding: 0px;
+    }
+    .new-t h3 {
+        font-family: "coltrane regular demo";
+      
+    }
+    .new-tt {
+        font-size: 14px;
+        margin: 6px 0px;
+
     }
     .about-nn {
         position: relative;
@@ -1680,18 +1700,18 @@
     /*    横向滚动*/
 
     .father {
-        position: fixed;
-        top: 0px; // Hide the horizontal scrollbar.
-        left: 0px;
-        width: 100vh;
-        height: calc(100vw);
+        position:fixed;
+        top: 0px; 
+        left:0px;
+        width:100vh;
+        height:calc(100vw);
 
-        overflow: scroll;
-        transform: rotate(-90deg);
-        transform-origin: center calc(50vh);
+        overflow:scroll;
+        transform:rotate(-90deg);
+        transform-origin:center calc(50vh);
         /*        background: #000;*/
-        z-index: 99;
-        background: var(--color-ff);
+        z-index:99;
+        background:var(--color-ff);
 
     }
 
