@@ -342,8 +342,8 @@
         overflow: scroll;
         width: 60%;
         height: auto;
-        margin:  0 20px 0 0;
-        padding:0;
+        margin: 0 20px 0 0;
+        padding: 0;
     }
 
     .home-l {
@@ -432,7 +432,7 @@
         position: relative;
         z-index: 101;
         float: right;
-        margin:0;
+        margin: 0;
         width: 100px;
         align-items: center;
     }
@@ -968,7 +968,7 @@
         margin-right: 4.4%;
         margin-top: 20px;
         /* min-height: 100%; */
-       
+
     }
 
     .about-t {
@@ -976,7 +976,7 @@
         /* background: var(--color-oa); */
         margin-bottom: 36px;
         height: auto;
-       
+
     }
 
     .about-i {
@@ -1013,7 +1013,7 @@
         margin-bottom: 10px;
         width: 100%;
         height: auto;
-  
+
     }
 
     .about-nt {
@@ -1021,7 +1021,7 @@
         float: left;
         margin-right: 12px;
         font-size: 14px;
-        width: 100%;
+        width: auto;
     }
 
     .friend-links {
@@ -1100,6 +1100,7 @@
         height: 2px;
         margin-bottom: 40px;
     }
+
     .line4 {
         position: relative;
         float: right;
@@ -1110,6 +1111,7 @@
         margin-top: 10px;
         opacity: 0.1;
     }
+
     /*
     .line {
         height: 0.2px;
@@ -1212,7 +1214,7 @@
         position: relative;
         width: 70%;
         min-width: 500px;
-        max-width: 960px;
+        
         min-height: 100px;
         float: right;
         text-align: right;
@@ -1424,12 +1426,14 @@
         background: var(--color-ff);
         margin-bottom: 16px;
     }
+
     .new-home {
         position: relative;
         width: 100%;
         background: var(--color-ff);
         margin-bottom: 16px;
     }
+
     .old {
         position: relative;
         width: 22%;
@@ -1442,10 +1446,13 @@
     .new-t {
         font-family: "coltrane regular demo";
         margin-bottom: 8px;
+        
     }
+
     .new-t h3 {
-        font-family: "coltrane regular demo"; 
+        font-family: "coltrane regular demo";
     }
+
     .new-tt {
         margin: 10px 0;
         font-size: 14px;
@@ -1861,6 +1868,7 @@
     }
 
     .page p {
+
         margin: 4px 0;
         letter-spacing: 0.4px;
         font-weight: 400;
