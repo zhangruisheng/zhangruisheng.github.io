@@ -1001,7 +1001,7 @@
     .about-ww {
         position: relative;
         float: left;
-        width: 100%;
+        width: 92%;
         margin-bottom: 60px;
         margin-top: 0px;
     }
@@ -1112,6 +1112,17 @@
         opacity: 0.1;
     }
 
+    .line5 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 1px;
+        margin-bottom: 10px;
+        margin-top: 30px;
+        opacity: 1;
+    }
+
     /*
     .line {
         height: 0.2px;
@@ -1214,7 +1225,7 @@
         position: relative;
         width: 70%;
         min-width: 500px;
-        
+
         min-height: 100px;
         float: right;
         text-align: right;
@@ -1407,6 +1418,7 @@
 
     .right {
         float: right;
+        text-align: right;
 
     }
 
@@ -1446,7 +1458,7 @@
     .new-t {
         font-family: "coltrane regular demo";
         margin-bottom: 8px;
-        
+
     }
 
     .new-t h3 {
@@ -1722,8 +1734,7 @@
         position: relative;
         float: left;
         min-width: 400px;
-        width: 70%;
-
+        width: 100%;
         height: auto;
         padding-top: 30px;
         padding-bottom: 120px;
@@ -1739,7 +1750,22 @@
 
     }
 
+    .share3 {
+        position: relative;
+        float: left;
 
+        width: 100%;
+        height: auto;
+        /* padding-top: 30px;
+        padding-bottom: 120px; */
+
+    }
+
+    .share-t {
+        position: relative;
+        width: 100%;
+        text-align: right;
+    }
 
     .uikits {
         position: relative;
@@ -1752,15 +1778,15 @@
         position: relative;
 
         float: left;
-        width: 90%;
-        min-height: 2000px;
+        width: 70%;
+        /* min-height: 2000px; */
 
     }
 
     .uikits-r {
         position: relative;
         float: right;
-        width: 100%;
+        width: 26%;
         min-height: 60px;
 
     }
