@@ -255,6 +255,13 @@
         height: auto;
 
     }
+    .showx {
+        position: relative;
+        width: 64%;
+        margin-left: 12%;
+        height: auto;
+
+    }
 
 
     .information {

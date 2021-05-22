@@ -254,6 +254,22 @@
 
 
 
+   
+
+   
+    .showx {
+        position: fixed;
+        z-index: 10;
+        width: 79%;
+        margin-left: 16%;
+        height: 100%;
+        margin-top: 40px;
+        background: var(--color-ff);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        color: var(--color-00);
+    }
+    }
     .showxx {
         position: fixed;
         right: 260px;
@@ -265,7 +281,6 @@
         overflow-x: hidden;
         color: var(--color-00);
     }
-
     .show {
         position: relative;
         width: 100%;
@@ -273,9 +288,6 @@
 
 
     }
-
-
-
     .information {
         position: fixed;
         z-index: 10;
