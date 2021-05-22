@@ -443,7 +443,10 @@
         flex-wrap: wrap;
         align-content: space-around;
     }
-
+    .content-h{
+        position: relative;
+        min-height: 600px;
+    }
     .content-w img {
         margin-bottom: 20px;
     }
