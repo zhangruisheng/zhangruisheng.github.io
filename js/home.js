@@ -22,7 +22,7 @@ $(function () {
     var dark = "#000";
     var oadark = "#0A0A0A"
     var oalight = "#fafafa"
-    if (new Date().getHours() > 13 || new Date().getHours() < 8) {
+    if (new Date().getHours() > 18 || new Date().getHours() < 6) {
         document.documentElement.style.setProperty('--color-ff', dark);
         document.documentElement.style.setProperty('--color-00', light);
         document.documentElement.style.setProperty('--color-oa', oadark);
