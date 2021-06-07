@@ -116,7 +116,7 @@
     }
 
     h2 {
-        font-weight: 500;
+        font-weight: 400;
         font-size: 22px;
         margin-bottom: 12px;
     }
@@ -155,9 +155,9 @@
     p {
         margin: 4px 0;
         letter-spacing: 0.4px;
-        font-weight: 300;
+        font-weight: 200;
         font-size: 13px;
-        line-height: 20px;
+        line-height: 26px;
         margin-bottom: 12px;
 
     }

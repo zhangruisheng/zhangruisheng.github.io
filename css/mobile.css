@@ -47,9 +47,9 @@
     label {
         color: var(--color-00);
         font-weight: normal;
-        font-family: “Helvetica Neue”, "Helvetica", "Arial", "PingFang SC",
+        font-family: “Helvetica Neue”, "Helvetica", "PingFang SC",
             "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
-            "Source Han Sans CN", "sans-serif";
+            "Source Han Sans CN";
     }
 
     /*控制显示在线字体的微妙细节*/
@@ -110,7 +110,7 @@
     }
 
     h2 {
-        font-weight: 600;
+        font-weight: 400;
         font-size: 16px;
     }
 
@@ -1327,9 +1327,9 @@
 
 
     .aboutme h2 {
-        font-weight: 500;
-        font-size: 30px;
-        font-family: SimSun, STSong;
+        font-weight: 400;
+        font-size: 26px;
+        
         line-height: 38px;
     }
 
