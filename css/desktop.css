@@ -991,6 +991,7 @@
 
     .about-i {
         margin-bottom: 16px;
+        
     }
 
     /* .about-w {
@@ -1662,7 +1663,19 @@
         height: auto;
         text-align: center;
     }
-
+    .look2 {
+        position: relative;
+        float: left;
+        width: auto;
+        padding: 0 12px;
+        background: var(--color-00);
+        color: var(--color-ff);
+        font-size: 16px;
+        height: auto;
+        text-align: center;
+        margin-bottom: 20px;
+        
+    }
     /*源文件*/
     .filered {
         position: relative;
