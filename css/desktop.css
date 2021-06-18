@@ -117,7 +117,7 @@
 
     h2 {
         font-weight: 400;
-        font-size: 22px;
+        font-size: 20px;
         margin-bottom: 12px;
     }
 
@@ -132,6 +132,7 @@
         letter-spacing: 0.5px;
         font-weight: 400;
         font-size: 13px;
+        line-height: 24px;
     }
 
     h5 {
@@ -287,7 +288,7 @@
         text-decoration: none;
         font-weight: 600;
         line-height: 20px;
-        -webkit-text-stroke: 0.5px var(--color-00);
+        -webkit-text-stroke: 0.4px var(--color-00);
 
     }
 
@@ -659,6 +660,7 @@
         height: auto;
         text-align: right;
         font-size: 24px;
+        font-weight: 400;
     }
 
     .work-nav h4:hover {
@@ -1704,6 +1706,7 @@
         border: 0px;
         left: -0.5%;
         width: 100.5%;
+        min-height: 200px;
     }
 
     .figma {
