@@ -1286,7 +1286,14 @@
         height: auto;
         z-index: 99;
     }
-
+    .monknew
+    {
+        margin-left: 3%;
+        padding-top: 50px;
+        width: 94%;
+        height: auto;
+        z-index: 99;
+    }
 
     .about {
         position: relative;
