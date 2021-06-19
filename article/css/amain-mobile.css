@@ -1,4 +1,37 @@
-@media screen and (max-width:768px) {
+/*字体引用*/
+@import url("../webfonts/coltrane_regular_demo/stylesheet.css");
+
+@media screen and (max-width:900px){
+
+
+
+    /*初始化样式*/
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+    }
+
+    ::-moz-selection {
+        background: #ddd;
+        color: #000;
+        text-shadow: none;
+    }
+
+    ::selection {
+        background: #ddd;
+        color: #000;
+        text-shadow: none;
+    }
+
+    ul,
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+
 
     html,
     body,
@@ -12,37 +45,31 @@
     a,
     input,
     label {
-
         color: var(--color-00);
-        font-family: STSongti-SC-Regular, STSongti-SC;
+        font-weight: normal;
+        font-family: “Helvetica Neue”, "Helvetica", "PingFang SC",
+            "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
+            "Source Han Sans CN";
     }
 
-    text-rendering: optimizelegibility !important;
     /*控制显示在线字体的微妙细节*/
-    -webkit-font-smoothing: antialiased !important;
+    -webkit-font-smoothing:antialiased
     /*无抗锯齿none*/
-    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-font-smoothing:subpixel-antialiased
     /*次像素平滑default*/
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing:antialiased
     /*灰度平滑*/
-    -webkit-font-smoothing: grayscale !important;
-    -moz-osx-font-smoothing: grayscale !important;
-    -ms-text-size-adjust: 100% !important;
-    -webkit-text-size-adjust: 100%;
+    /* -webkit-font-smoothing:grayscale;
+    -moz-osx-font-smoothing:grayscale;
+    -ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100%; */
 
-    /* 设置滚动条的样式 */
-    /* 滚动条 */
-    ::-webkit-scrollbar-thumb:horizontal {
-        /*水平滚动条的样式*/
-        width: 0px;
-        background-color: #fafafa;
-        -webkit-border-radius: 6px;
-    }
 
     ::-webkit-scrollbar-track-piece {
         background-color: #fff;
         /*滚动条的背景颜色*/
-        -webkit-border-radius: 0;
+        -webkit-border-radius: #000;
+        border-radius: 0;
         /*滚动条的圆角宽度*/
     }
 
@@ -57,6 +84,7 @@
         /*垂直滚动条的样式*/
         height: 0px;
         background-color: #fafafa;
+        border-radius: 4px;
         -webkit-border-radius: 4px;
         outline: 2px solid #fff;
         outline-offset: -2px;
@@ -67,92 +95,95 @@
         /*滚动条的hover样式*/
         height: 0px;
         background-color: #9f9f9f;
+        border-radius: 4px;
         -webkit-border-radius: 4px;
     }
 
 
-    /* 段落样式*/
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-top: 0;
-        margin-bottom: 0;
-        color: var(--color-00);
-        font-weight: 100;
-        font-family: STSongti-SC-Regular, STSongti-SC;
-        line-height: 1.35;
-    }
 
     h1 {
         letter-spacing: 0px;
         font-weight: 600;
-        font-size: 32xpx;
-        font-family: STSongti-SC-Regular, STSongti-SC;
-        line-height: 56px;
+        font-size: 26px;
+        font-family: "coltrane regular demo";
+        line-height: 46px;
     }
 
     h2 {
-
-        font-weight: 600;
-        font-size: 22px;
-        font-family: STSongti-SC-Regular, STSongti-SC;
-        /*        line-height: 56px;*/
+        font-weight: 400;
+        font-size: 16px;
     }
 
     h3 {
-
-        letter-spacing: normal;
+        margin-bottom: 12px;
+        letter-spacing: 1px;
         font-weight: 600;
-
-        font-size: 20px;
-        font-family: STSongti-SC-Regular, STSongti-SC;
-        line-height: 42px;
+        font-size: 16px;
     }
 
     h4 {
-        letter-spacing: 2.04px;
         font-weight: 500;
         font-size: 14px;
-        font-family: Montserrat-Medium, PingFangSC-Medium;
-        line-height: 1em;
+        margin-bottom: 10px;
     }
 
     h5 {
-
-        font-weight: 900;
-        font-size: 15px;
-        font-family: STSongti-SC-Black, STSongti-SC;
+        font-weight: 600;
+        font-size: 12px;
+        margin-top: 8px;
         line-height: 20px;
-
     }
 
     h6 {
-        font-weight: 400;
-        font-size: 13px;
-        font-family: Montserrat-Medium, PingFangSC-Medium;
-        line-height: 1.6em;
-        opacity: .7;
+        margin-top: 6px;
         margin-bottom: 12px;
-    }
-
-    h6 strong,
-    h6 dfn {
-        color: #aaaaaa;
+        width: 100%;
+        font-weight: 600;
+        font-size: 12px;
+        font-family: STSongti-SC-Regular, STSongti-SC;
+        opacity: 0.5;
     }
 
     p {
-        padding-bottom: 15px;
-        color: var(--color-00);
-        /*        text-indent: 30px;*/
-        font-weight: normal;
-        font-size: 1em;
-        line-height: 2em;
-        text-align: center;
+        margin: 4px 0;
+        letter-spacing: 0px;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 24px;
     }
+
+    p1 {
+        margin: 4px 0;
+        letter-spacing: 0px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 26px;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        /*去掉下划线*/
+    }
+
+
+    html body {
+
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        background: var(--color-ff);
+    }
+
+
+
+
+    /*  */
 
     .line1 {
         opacity: 1;
@@ -175,6 +206,223 @@
         margin-top: 30px;
     }
 
+    /* logo/导航*/
+
+
+
+    .logo {
+        position: fixed;
+        top: 16px;
+        left: 3%;
+        width: 90px;
+        height: 90px;
+    }
+
+    .logo-i {
+        position: relative;
+        float: left;
+        width: 50px;
+    }
+
+    .logo-t {
+        position: relative;
+        font-size: 32px;
+        width: 100%;
+        font-weight: 200;
+        text-align: center;
+        font-family: "coltrane regular demo";
+        margin-top: 0px;
+    }
+
+    /*********************
+    
+        左侧导航栏
+    
+    **********************/
+
+    .nav {
+        position: fixed;
+        left: 0px;
+        /*70%的不透明度  */
+        z-index: 99999;
+        width: auto;
+        height: 100%;
+    }
+
+    /*********************
+    
+        左侧导航栏
+    
+    **********************/
+    .nav {
+        position: fixed;
+        left: 0px;
+        /*70%的不透明度  */
+        z-index: 99999;
+        width: auto;
+        height: 100%;
+    }
+
+
+    .menu-open {
+        position: fixed;
+        left: 0px;
+        z-index: 99999;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 80%;
+        list-style: none;
+        transition: 0.6s;
+        background: var(--color-ff);
+        top: 0%;
+    }
+
+    .menu-open ul {
+        position: absolute;
+        left: 0px;
+        bottom: 20%;
+        height: auto;
+        width: 100%;
+    }
+
+    .menu-open li {
+        float: left;
+        width: 100%;
+        height: 36px;
+        list-style-type: none;
+        text-align: center;
+
+    }
+
+    .menu-open a {
+        position: relative;
+        z-index: 99999;
+        display: block;
+        margin: 0;
+        padding: 0;
+        color: var(--color-00);
+        text-decoration: none;
+        line-height: 30px;
+    }
+
+    .menu-open a.active {
+        color: var(--color-00);
+    }
+
+    .menu {
+        position: fixed;
+        left: 0px;
+        z-index: 99999;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 60%;
+        list-style: none;
+        transition: 0.6s;
+        background: var(--color-ff);
+        top: -70%;
+    }
+
+    .menu ul {
+        position: absolute;
+        left: 0px;
+        bottom: 20%;
+        height: auto;
+        width: 100%;
+    }
+
+    .menu li {
+        float: left;
+        width: 100%;
+        height: 40px;
+        list-style-type: none;
+        text-align: center;
+
+    }
+
+    .menu a {
+        position: relative;
+        z-index: 99999;
+        display: block;
+        margin: 0;
+        padding: 0;
+        color: var(--color-00);
+        text-decoration: none;
+        line-height: 30px;
+    }
+
+    .menu a.active {
+        color: #000;
+    }
+
+    .menu-iii {
+        position: fixed;
+        top: 16px;
+        right: 3%;
+       
+    }
+
+    .menu-iii-x {
+        position: relative;
+        bottom: -88%;
+        z-index: 999999;
+        left: 50%;
+        margin-left: -15px;
+    }
+
+
+    .logo2 {
+        position: absolute;
+        float: left;
+        bottom: 16px;
+        left: 10px;
+        z-index: 99999;
+        display: none;
+
+    }
+
+    .selector {
+        position: absolute;
+        left: 0px;
+        z-index: 1;
+        display: inline-block;
+        margin-top: 7px;
+        width: 2px;
+        height: 20px;
+        border-radius: 40px;
+        background: #000;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition-duration: 0.6s;
+    }
+
+    .zzhao {
+        position: fixed;
+        z-index: 9999;
+        width: 100%;
+        height: 100%;
+        background: var(--color-ff);
+        opacity: 0.7;
+        transition: 0s;
+        /*            点击穿透*/
+        pointer-events: visible;
+        left: 0;
+    }
+
+    .zzzhao {
+        position: fixed;
+        z-index: 9999;
+        display: none;
+        width: 100%;
+        height: 100%;
+        background: var(--color-ff);
+        opacity: 0;
+
+        /*            点击穿透*/
+        pointer-events: auto;
+        left: 0;
+        transition: 0.6s;
+    }
 
     /***************
     
@@ -245,6 +493,7 @@
         scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
         /*       background: #F5F6F9;*/
+        left: 0px;
 
     }
 
@@ -255,7 +504,7 @@
         height: auto;
 
     }
-   
+
 
 
     .information {
@@ -292,14 +541,16 @@
 
 
     .file {
-        /*
-    position: fixed;
+        /*         
+    position: relative;
     bottom: 0px;
-    float: right;
-    right: 20px;
-*/
+    float: left;
+    right: 20px; */
+        position: relative;
+        float: left;
         margin-top: 30px;
     }
+
 
 
 
@@ -319,6 +570,12 @@
         float: left;
         margin-left: 20%;
         margin-top: 20px;
+    }
+
+    .button-img img {
+        position: relative;
+        left: -80px;
+        filter: drop-shadow(#999 80px 0);
     }
 
     .buy {
@@ -516,8 +773,8 @@
     .return-m {
 
         position: fixed;
-        top: 10px;
-        right: 53px;
+        top: 16px;
+        right: 56px;
         z-index: 1000;
         width: 300px;
         text-align: right;
@@ -586,7 +843,7 @@
 
     }
 
-    .wechat:hover + .monkren {
+    .wechat:hover+.monkren {
         display: block;
     }
 
@@ -660,218 +917,7 @@
         height: 900px;
     }
 
-    /* logo/导航*/
 
-
-    .logo {
-        position: fixed;
-        top: 16px;
-        left: 3%;
-        width: 90px;
-        height: 90px;
-
-    }
-
-
-    .logo-i {
-        position: relative;
-        float: left;
-        width: 50px;
-    }
-
-
-    .logo-t {
-        /*
-        position: relative;
-        float: left;
-        left: 50%;
-        font-size: 50px;
-
-        margin-left: -120px;
-        font-weight: 200;
-        top: -10px
-*/
-        position: relative;
-        font-size: 32px;
-        width: 100%;
-        font-weight: 200;
-        text-align: center;
-        font-family: "coltrane regular demo";
-        margin-top: 0px;
-
-    }
-
-    /*********************
-    
-        左侧导航栏
-    
-    **********************/
-    nav {
-        position: relative;
-        z-index: 99999;
-        width: 60px;
-        height: 100%;
-    }
-
-
-    .menu-open {
-        position: fixed;
-        left: 0px;
-        z-index: 99;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 80%;
-        list-style: none;
-        transition: 0.6s;
-        background: var(--color-ff);
-        top: 0%;
-    }
-
-    .menu-open ul {
-        position: absolute;
-        left: 0px;
-        bottom: 20%;
-        height: auto;
-        width: 100%;
-    }
-
-    .menu-open li {
-        float: left;
-        width: 100%;
-        height: 36px;
-        list-style-type: none;
-        text-align: center;
-
-    }
-
-    .menu-open a {
-        position: relative;
-        z-index: 1;
-        display: block;
-        margin: 0;
-        padding: 0;
-        color: var(--color-00);
-        text-decoration: none;
-        line-height: 30px;
-    }
-
-    .menu-open a.active {
-        color: var(--color-00);
-    }
-
-    .menu {
-        position: fixed;
-        left: 0px;
-        z-index: 99;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 60%;
-        list-style: none;
-        transition: 0.6s;
-        background: var(--color-ff);
-        top: -70%;
-    }
-
-    .menu ul {
-        position: absolute;
-        left: 0px;
-        bottom: 20%;
-        height: auto;
-        width: 100%;
-    }
-
-    .menu li {
-        float: left;
-        width: 100%;
-        height: 40px;
-        list-style-type: none;
-        text-align: center;
-
-    }
-
-    .menu a {
-        position: relative;
-        z-index: 1;
-        display: block;
-        margin: 0;
-        padding: 0;
-        color: var(--color-00);
-        text-decoration: none;
-        line-height: 30px;
-    }
-
-    .menu a.active {
-        color: #000;
-    }
-
-    .menu-iii {
-        position: fixed;
-        top: 16px;
-        right: 3%;
-    }
-
-    .menu-iii-x {
-        position: relative;
-        bottom: -88%;
-        z-index: 102;
-        left: 50%;
-        margin-left: -15px;
-    }
-
-
-    .logo2 {
-        position: absolute;
-        float: left;
-        bottom: 16px;
-        left: 10px;
-        z-index: 102;
-        display: none;
-
-    }
-
-    .selector {
-        position: absolute;
-        left: 0px;
-        z-index: 1;
-        display: inline-block;
-        margin-top: 7px;
-        width: 2px;
-        height: 20px;
-        border-radius: 40px;
-        background: #000;
-        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        transition-duration: 0.6s;
-    }
-
-    .zzhao {
-        position: fixed;
-        z-index: 98;
-        width: 100%;
-        height: 100%;
-        background: var(--color-ff);
-        opacity: 0.7;
-        transition: 0.6s;
-        /*            点击穿透*/
-        pointer-events: visible;
-        left: 0;
-    }
-
-    .zzzhao {
-        position: fixed;
-        z-index: 999;
-        display: none;
-        width: 100%;
-        height: 100%;
-        background: var(--color-ff);
-        opacity: 0;
-
-        /*            点击穿透*/
-        pointer-events: auto;
-        left: 0;
-        transition: 0.6s;
-    }
 
 
 
@@ -888,4 +934,17 @@
         text-align: left;
         margin-left: -20px;
     }
+
+    /*尾部信息*/
+    .footer {
+        z-index: 10;
+        position: fixed;
+        bottom: 0px;
+        border: 0px;
+        height: 200px;
+    }
+
+
+
+
 }
