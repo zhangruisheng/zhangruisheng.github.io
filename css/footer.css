@@ -250,6 +250,7 @@ html body {
 
     /*源文件*/
     .beta {
+        display: none;
         position: fixed;
         float: left;
         margin-left: 10px;

@@ -757,6 +757,7 @@
     }
 
     .logo2 {
+        display: none;
         position: fixed;
         bottom: 34px;
         z-index: 9999;
@@ -888,6 +889,7 @@
 
     /*标签样式*/
     .beta {
+        display: none;
         position: fixed;
         float: left;
         margin-left: 10px;
