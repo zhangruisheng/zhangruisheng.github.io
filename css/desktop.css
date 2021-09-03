@@ -1498,13 +1498,13 @@
         width: 23%;
         margin-right: 1.8%;
         background: var(--color-ff);
-        margin-bottom: 16px;
+        margin-bottom: 4px;
         float: left;
     }
 
     .new-t {
         font-family: "coltrane regular demo";
-        margin-bottom: 8px;
+        margin-bottom: 2px;
         float: right;
 
     }
