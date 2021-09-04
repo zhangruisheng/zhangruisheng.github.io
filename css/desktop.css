@@ -184,7 +184,7 @@
         position: fixed;
         overflow: scroll;
 
-        margin:0 ;
+        margin: 0;
         padding: 0;
         width: 100%;
         height: 100%;
@@ -193,7 +193,7 @@
         /* 滚动顺畅*/
         scroll-behavior: smooth;
         z-index: 99;
-        
+
     }
 
     /* logo/导航*/
@@ -220,7 +220,7 @@
         top: 0px;
     }
 
- 
+
 
     .logo h3 {
         margin-top: 18px;
@@ -243,10 +243,10 @@
         float: left;
         margin-top: 12px;
         margin-right: 12px;
-        
+
         margin-left: 12px;
         width: 68px;
-       
+
 
     }
 
@@ -272,7 +272,7 @@
         height: 100%;
         list-style: none;
         font-weight: 600;
-        
+
     }
 
     .menu ul,
@@ -285,7 +285,7 @@
         height: auto;
         text-align: left;
         /* font-family: SF Pro Text; */
-      
+
         font-style: italic;
         font-weight: bold;
         font-size: 30px;
@@ -635,6 +635,63 @@
 
     .information-w p {
         display: block;
+    }
+
+    .app {
+        /* position: absolute;
+        float: left;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        height: 100px; */
+        display: flex;
+        display: -webkit-flex;
+        /* Safari */
+        flex-direction: row;
+        margin-top: 0px;
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .appbox {
+        margin-top: 20px;
+        width: 70px;
+        height: 170px;
+        margin-right: 60px;
+    }
+
+    .applogo {
+        position: relative;
+        width: 70px;
+        height: 70px;
+    }
+
+    .appbox h5 {
+        width: 100%;
+        text-align: center;
+        align-self: center;
+        align-items: center;
+    }
+
+    .tag-new {
+        position: relative;
+        float: left;
+        margin-left: 10px;
+        padding: 0 6px;
+        background: #186d62;
+        color: var(--color-00);
+        font-size: 12px;
+        height: 18px;
+        text-align: center;
+        margin-top: 4px;
+        align-self: center;
+        align-items: center;
     }
 
     /*********************
@@ -1138,11 +1195,11 @@
     .linetop {
         position: relative;
         float: left;
-        width: 98%;
+        width: 100%;
         background: var(--color-00);
         height: 3px;
-       left: 1%;
-      top: 6px;
+        left: 0%;
+
 
     }
 
@@ -1261,8 +1318,21 @@
         /* font-family: sans-serif; */
         font-weight: 400;
         float: right;
-        width: 100%;
+        width: 50%;
         text-align: right;
+        min-height: 30px;
+        font-size: 20px;
+
+    }
+
+    .title-l {
+        position: relative;
+        font-family: "coltrane regular demo";
+        /* font-family: sans-serif; */
+        font-weight: 400;
+        float: left;
+        width: 50%;
+        text-align: left;
         min-height: 30px;
         font-size: 20px;
 
