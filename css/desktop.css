@@ -372,8 +372,8 @@
     .home-l {
         position: relative;
         float: left;
-        width: 28%;
-        left: 18%;
+        width: 33%;
+        left: 12%;
         margin-top: 20px;
         margin-bottom: 200px;
     }
@@ -525,9 +525,9 @@
 
     .works {
         position: relative;
-        margin-left: 18%;
+        margin-left: 14%;
         min-width: 500px;
-        width: 64%;
+        width: 70%;
         height: 100%;
         padding-top: 30px;
         padding-bottom: 120px;
@@ -685,7 +685,7 @@
         margin-left: 10px;
         padding: 0 6px;
         background: #186d62;
-        color: var(--color-00);
+        color: var(--color-ff);
         font-size: 12px;
         height: 18px;
         text-align: center;
@@ -756,9 +756,9 @@
 
     .links {
         position: relative;
-        margin-left: 18%;
+        margin-left: 14%;
         min-width: 500px;
-        width: 64%;
+        width: 72%;
         height: auto;
         color: var(--color-00);
         padding-top: 30px;
@@ -1025,22 +1025,9 @@
     .aboutme {
         position: relative;
         float: left;
-        margin-left: 18%;
-        width: 87%;
-        /*
- 
-        display: flex;
-        display: -webkit-flex;
-        
-        flex-direction: row;
-        margin-top: 0px;
-        width: 100%;
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        align-content: space-around;
-        margin-bottom: 120px;
-        overflow: scroll;
-*/
+        margin-left: 14%;
+        width: 84%;
+
     }
 
     .monknew {
@@ -1050,12 +1037,49 @@
         width: 88%;
     }
 
-    .about {
+
+
+
+    .about2 {
         position: relative;
         float: left;
-        width: 28%;
+        width: 68%;
         height: auto;
-        margin-right: 4.4%;
+        padding-top: 10px;
+
+        /* min-height: 100%; */
+
+    }
+
+    .about3 {
+        position: relative;
+        float: right;
+        width: 30%;
+        height: auto;
+        text-align: right;
+        margin-top: 10px;
+        /* min-height: 100%; */
+
+    }
+
+    .about1 {
+
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+        margin-right: 4%;
+        margin-top: 20px;
+        /* min-height: 100%; */
+
+    }
+
+    .about4 {
+        position: relative;
+        float: left;
+        width: 47%;
+        height: auto;
+        margin-right: 3%;
         margin-top: 20px;
         /* min-height: 100%; */
 
@@ -1064,13 +1088,35 @@
     .about-t {
         /* padding: 10px 16px; */
         /* background: var(--color-oa); */
-        margin-bottom: 36px;
+        margin-bottom: 26px;
+        height: auto;
+
+
+    }
+    .about-nn {
+        position: relative;
+        float: left;
+        margin-bottom: 10px;
+        width: 100%;
         height: auto;
 
     }
 
+    .about-tt {
+       
+        margin-right: 10px;
+        height: auto;
+        width: auto;
+        position: relative;
+        float: left;
+        font-size: 1\5px;
+
+    }
+
     .about-i {
-        margin-bottom: 16px;
+        position: relative;
+        float: left;
+        margin-top: 20px;
 
     }
 
@@ -1089,28 +1135,32 @@
         margin-right: 2.2%;
     }
 
-    .about-ww {
+    .about1 {
         position: relative;
         float: left;
         width: 100%;
         margin-bottom: 60px;
-        margin-top: 0px;
+        margin-top: 10px;
     }
 
-
-    .about-nn {
-        position: relative;
+    .abouth1 {
+        font-size: 22px;
+        width: 60%;
+        float: right;
+        text-align: right;
+    }
+    .abouth1l {
+        font-size: 22px;
+        width: 60%;
         float: left;
-        margin-bottom: 10px;
-        width: 100%;
-        height: auto;
-
+        text-align: left;
     }
-
+   
     .about-nt {
         position: relative;
-        float: left;
-        margin-right: 12px;
+        float: right;
+        margin-left: 10px;
+        margin-top: 20px;
         font-size: 14px;
         width: auto;
     }
@@ -1134,8 +1184,8 @@
 
     .social li {
         position: relative;
-        float: left;
-        margin-right: 10px;
+        float: right;
+        margin-left: 10px;
     }
 
     /*颜色*/
@@ -1770,6 +1820,7 @@
         font-size: 12px;
         height: auto;
         text-align: center;
+        margin-top: 2px;
     }
 
     .look2 {
