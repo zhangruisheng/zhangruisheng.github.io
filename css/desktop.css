@@ -196,6 +196,10 @@
 
     }
 
+    img:hover{ cursor: pointer; }
+
+
+
     /* logo/导航*/
 
     .nav {
