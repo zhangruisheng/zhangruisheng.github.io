@@ -213,7 +213,7 @@
 
     .logo {
         position: fixed;
-        z-index: 9999;
+        z-index: 999999;
         width: 100px;
         height: 66px;
         list-style: none;
@@ -247,7 +247,7 @@
         float: left;
         margin-top: 12px;
         margin-right: 12px;
-
+        z-index: 999999;
         margin-left: 12px;
         width: 68px;
 
