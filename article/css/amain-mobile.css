@@ -500,9 +500,10 @@
         position: fixed;
         left: 0px;
         top: 0px;
+        padding-top: 80px;
         z-index: 10;
         width: 100%;
-        height: 100%;
+        height: 101%;
         background: var(--color-ff);
         overflow-y: scroll;
         overflow-x: hidden;
@@ -710,6 +711,14 @@
         line-height: 32px;
 
 
+    }
+    .cover img {
+        margin-bottom: 20px;
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+        margin-left: 0%;
     }
 
     .content-w {
