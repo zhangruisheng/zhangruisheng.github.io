@@ -1967,7 +1967,8 @@
         position: relative;
 
         float: left;
-        width: 70%;
+        width: 48%;
+        margin-right: 20px;
         /* min-height: 2000px; */
 
     }
