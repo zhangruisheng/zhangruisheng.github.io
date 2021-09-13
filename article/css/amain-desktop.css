@@ -295,6 +295,7 @@
         overflow-x: hidden;
         color: var(--color-00);
     }
+
     .showxxx {
         position: fixed;
         left: 12%;
@@ -306,7 +307,7 @@
         overflow-y: scroll;
         overflow-x: hidden;
         color: var(--color-00);
-        
+
     }
 
 
@@ -496,7 +497,7 @@
         flex-wrap: wrap;
         align-content: space-around;
     }
-   
+
     .content-h {
         position: relative;
         min-height: 600px;
@@ -589,7 +590,7 @@
         font-size: 14px;
         font-family: "coltrane regular demo";
         margin-bottom: 20px;
-        
+
 
     }
 
@@ -934,6 +935,17 @@
 
     }
 
+    .utterances {
+        position: relative;
+        width: 100%;
+        max-width: none;
+        float: left;
+    }
 
+    .utterances-frame {
+        position: relative;
+        width: 100%;
+
+    }
 
 }
