@@ -1,5 +1,6 @@
 /*字体引用*/
-@import url("../webfonts/coltrane_regular_demo/stylesheet.css");
+@import url("/webfonts/coltrane_regular_demo/stylesheet.css");
+@import url("/webfonts/logo/stylesheet.css");
 
 /*桌面端*/
 @media screen and (min-width: 900px) {
@@ -196,7 +197,9 @@
 
     }
 
-    img:hover{ cursor: pointer; }
+    img:hover {
+        cursor: pointer;
+    }
 
 
 
@@ -1097,6 +1100,7 @@
 
 
     }
+
     .about-nn {
         position: relative;
         float: left;
@@ -1107,7 +1111,7 @@
     }
 
     .about-tt {
-       
+
         margin-right: 10px;
         height: auto;
         width: auto;
@@ -1153,13 +1157,14 @@
         float: right;
         text-align: right;
     }
+
     .abouth1l {
         font-size: 22px;
         width: 60%;
         float: left;
         text-align: left;
     }
-   
+
     .about-nt {
         position: relative;
         float: right;
@@ -1911,11 +1916,10 @@
     /* share */
     .share {
         position: relative;
-        margin-left: 18%;
-        min-width: 400px;
-        width: 64%;
-
-        height: auto;
+        float: left;
+        margin-left: 14%;
+        width: 66%;
+        padding-top: 10px;
 
     }
 
@@ -1956,6 +1960,32 @@
         text-align: right;
     }
 
+    .share-title{
+        position: relative;
+        width: 100%;
+        text-align: left;
+
+    }
+    title-l{
+        position: relative;
+        font-size: 120px;
+        color: #FF4444;
+        line-height: 120px;
+        font-family: "coltrane regular demo";
+        float: left;
+        width: 20%;
+    }
+    title-r{
+        position: relative;
+        font-size: 30px;
+     
+        line-height: 200px;
+        font-family: "tcyxinghenglogomeihei-r-gbRg,coltrane regular demo";
+        float: right;
+        width: 70%;
+        text-align: right;
+        line-height: 50px;
+    }
     .uikits {
         position: relative;
         width: 100%;
@@ -2094,4 +2124,14 @@
         color: var(-color-ff);
         opacity: 0.9;
     }
+
+
+
+
+
+    .w200 {
+        position: relative;
+        width: 200px;
+    }
+
 }
