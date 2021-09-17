@@ -1,6 +1,8 @@
 /*字体引用*/
-@import url("/webfonts/coltrane_regular_demo/stylesheet.css");
-@import url("/webfonts/logo/stylesheet.css");
+@import url("webfonts/coltrane_regular_demo/stylesheet.css");
+/* @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"; */
+@import "sass/utilities/_all";
+@import "sass/grid/columns"; 
 
 /*桌面端*/
 @media screen and (min-width: 900px) {
@@ -1231,75 +1233,6 @@
     *****************************/
 
 
-    .line {
-        position: relative;
-        float: right;
-        width: 100%;
-        background: var(--color-00);
-        height: 1px;
-        margin-bottom: 60px;
-        margin-top: 30px;
-        opacity: 0.1;
-    }
-
-    .line3 {
-        position: relative;
-        float: right;
-        width: 100%;
-        background: var(--color-00);
-        height: 2px;
-        margin-bottom: 40px;
-    }
-
-    .linetop {
-        position: relative;
-        float: left;
-        width: 100%;
-        background: var(--color-00);
-        height: 3px;
-        left: 0%;
-
-
-    }
-
-    .line4 {
-        position: relative;
-        float: right;
-        width: 100%;
-        background: var(--color-00);
-        height: 1px;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        opacity: 0.1;
-    }
-
-    .line5 {
-        position: relative;
-        float: right;
-        width: 100%;
-        background: var(--color-00);
-        height: 1px;
-        margin-bottom: 10px;
-        margin-top: 30px;
-        opacity: 1;
-    }
-
-    /*
-    .line {
-        height: 0.2px;
-        background: #000;
-        opacity: 0.3;
-    }
-*/
-
-    .line2 {
-        bottom: 0;
-        width: 10px;
-        height: 15px;
-        background: #fff;
-        opacity: 1;
-    }
-
     /***************
     
     按钮
@@ -1782,16 +1715,7 @@
         min-height: 200px;
     }
 
-    /*线条样式*/
-
-    .line60 {
-        float: right;
-        position: relative;
-        width: 100%;
-        text-align: right;
-        height: 60px;
-        margin-top: 40px;
-    }
+  
 
     /*标签样式*/
     .beta {
@@ -1964,6 +1888,16 @@
         position: relative;
         width: 100%;
         text-align: left;
+        float: left;
+
+    }
+    .share-title-h1{
+        position: relative;
+        float: left;
+        width: 100%;
+        text-align: left;
+        font-family: "logo","coltrane regular demo";
+        font-size: 60px;
 
     }
     title-l{
@@ -2132,6 +2066,87 @@
     .w200 {
         position: relative;
         width: 200px;
+    }
+      /*线条样式*/
+    .line {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 1px;
+        margin-bottom: 60px;
+        margin-top: 30px;
+        opacity: 0.1;
+    }
+    line2 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 1px;
+        margin-bottom: 60px;
+        margin-top: 30px;
+       
+    }
+    .line3 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 2px;
+        margin-bottom: 40px;
+    }
+
+    .linetop {
+        position: relative;
+        float: left;
+        width: 100%;
+        background: var(--color-00);
+        height: 3px;
+        left: 0%;
+
+
+    }
+
+    .line4 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 1px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        opacity: 0.1;
+    }
+
+    .line5 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 1px;
+        margin-bottom: 10px;
+        margin-top: 30px;
+        opacity: 1;
+    }
+
+
+    .line2 {
+        bottom: 0;
+        width: 10px;
+        height: 15px;
+        background: #fff;
+        opacity: 1;
+    }
+
+
+      .line60 {
+        float: right;
+        position: relative;
+        width: 100%;
+        text-align: right;
+        height: 60px;
+        margin-top: 40px;
     }
 
 }
