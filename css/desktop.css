@@ -1,8 +1,8 @@
 /*字体引用*/
 @import url("webfonts/coltrane_regular_demo/stylesheet.css");
-/* @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"; */
-@import "sass/utilities/_all";
-@import "sass/grid/columns"; 
+@import "../sass/utilities/_all.css";
+@import "../sass/grid/columns.css"; 
+@import "../sass/helpers/spacing.css"; 
 
 /*桌面端*/
 @media screen and (min-width: 900px) {
@@ -1889,6 +1889,7 @@
         width: 100%;
         text-align: left;
         float: left;
+        padding-top: 20px;
 
     }
     .share-title-h1{
@@ -1898,6 +1899,7 @@
         text-align: left;
         font-family: "logo","coltrane regular demo";
         font-size: 60px;
+        font-weight: 400;
 
     }
     title-l{
@@ -2086,8 +2088,19 @@
         height: 1px;
         margin-bottom: 60px;
         margin-top: 30px;
+        opacity: 0.5;
        
     }
+    line4{
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 4px;
+        
+        opacity: 1;
+    }
+
     .line3 {
         position: relative;
         float: right;
