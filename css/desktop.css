@@ -1,8 +1,9 @@
 /*字体引用*/
 @import url("webfonts/coltrane_regular_demo/stylesheet.css");
 @import "../sass/utilities/_all.css";
-@import "../sass/grid/columns.css"; 
-@import "../sass/helpers/spacing.css"; 
+@import "../sass/grid/columns.css";
+@import "../sass/helpers/spacing.css";
+@import "../sass/layout/section.css";
 
 /*桌面端*/
 @media screen and (min-width: 900px) {
@@ -538,7 +539,7 @@
         min-width: 500px;
         width: 70%;
         height: 100%;
-        padding-top: 30px;
+        padding-top: 20px;
         padding-bottom: 120px;
     }
 
@@ -711,7 +712,7 @@
 
     #page-nav {
         position: fixed;
-        top: 30px;
+        top: 20px;
         right: 20px;
         z-index: 999;
         width: 280px;
@@ -1043,7 +1044,8 @@
         position: relative;
         float: left;
         margin-left: 12%;
-        width: 88%;
+        width: 88.5%;
+        margin-top: 10px;
     }
 
 
@@ -1154,17 +1156,18 @@
     }
 
     .abouth1 {
-        font-size: 22px;
+        font-size: 20px;
         width: 60%;
         float: right;
         text-align: right;
     }
 
     .abouth1l {
-        font-size: 22px;
+        font-size: 20px;
         width: 60%;
         float: left;
         text-align: left;
+        font-weight: 400;
     }
 
     .about-nt {
@@ -1715,7 +1718,7 @@
         min-height: 200px;
     }
 
-  
+
 
     /*标签样式*/
     .beta {
@@ -1884,7 +1887,7 @@
         text-align: right;
     }
 
-    .share-title{
+    .share-title {
         position: relative;
         width: 100%;
         text-align: left;
@@ -1892,17 +1895,23 @@
         padding-top: 20px;
 
     }
-    .share-title-h1{
+
+    .share-title-h1 {
         position: relative;
         float: left;
         width: 100%;
         text-align: left;
-        font-family: "logo","coltrane regular demo";
+        font-family: "logo", "coltrane regular demo";
         font-size: 60px;
         font-weight: 400;
 
     }
-    title-l{
+    .column a{
+        text-decoration: underline;
+
+    }
+    
+    title-l {
         position: relative;
         font-size: 120px;
         color: #FF4444;
@@ -1911,10 +1920,11 @@
         float: left;
         width: 20%;
     }
-    title-r{
+
+    title-r {
         position: relative;
         font-size: 30px;
-     
+
         line-height: 200px;
         font-family: "tcyxinghenglogomeihei-r-gbRg,coltrane regular demo";
         float: right;
@@ -1922,6 +1932,7 @@
         text-align: right;
         line-height: 50px;
     }
+
     .uikits {
         position: relative;
         width: 100%;
@@ -2069,7 +2080,8 @@
         position: relative;
         width: 200px;
     }
-      /*线条样式*/
+
+    /*线条样式*/
     .line {
         position: relative;
         float: right;
@@ -2080,6 +2092,7 @@
         margin-top: 30px;
         opacity: 0.1;
     }
+
     line2 {
         position: relative;
         float: right;
@@ -2089,16 +2102,18 @@
         margin-bottom: 60px;
         margin-top: 30px;
         opacity: 0.5;
-       
+
     }
-    line4{
+
+    line4 {
         position: relative;
         float: right;
         width: 100%;
         background: var(--color-00);
-        height: 4px;
-        
+        height: 3px;
+
         opacity: 1;
+        margin-top: 4px;
     }
 
     .line3 {
@@ -2153,7 +2168,7 @@
     }
 
 
-      .line60 {
+    .line60 {
         float: right;
         position: relative;
         width: 100%;
@@ -2162,4 +2177,19 @@
         margin-top: 40px;
     }
 
+    /* icon */
+    icon-article {
+        float: left;
+        position: relative;
+        width: 18px;
+        height: 18px;
+        margin-top: 3px;
+        background-image: url("/images/basis/article.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-right: 8px;
+    }
+    .colum li{
+margin-bottom: 12px;
+    }
 }
