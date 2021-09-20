@@ -375,7 +375,7 @@
         overflow: scroll;
         width: 60%;
         height: auto;
-        margin: 0 20px 0 0;
+        margin: 0 20px 60px 0;
         padding: 0;
     }
 
@@ -385,16 +385,27 @@
         width: 33%;
         left: 12%;
         margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .home {
+        position: relative;
+        float: left;
+        width: 88.7%;
+
+        left: 12%;
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+    .home-w {
+        position: relative;
+        float: left;
+        width: 87%;
+
+        left: 12%;
+        margin-top: 0px;
         margin-bottom: 200px;
     }
-.home{
-    position: relative;
-    float: left;
-    width: 88%;
-    left: 12%;
-    margin-top: 20px;
-    margin-bottom: 200px;
-}
     .page {
         position: relative;
         width: 100%;
@@ -406,7 +417,7 @@
         float: right;
         overflow: scroll;
         width: 100%;
-        height: 100%;
+
         /*        background: var(--color-ff);*/
     }
 
@@ -414,7 +425,8 @@
         position: relative;
         overflow: hidden;
         width: 100%;
-        height: 1600px;
+        height: auto;
+        height: 1200px;
     }
 
     .home-title {
@@ -439,16 +451,7 @@
         font-family: "coltrane regular demo";
     }
 
-    .home h3 {
-        font-size: 20px;
-        font-family: "coltrane regular demo";
-    }
 
-    .home-l h3 {
-        text-align: right;
-        font-size: 20px;
-        font-family: "coltrane regular demo";
-    }
 
     .animate {
         opacity: 1;
@@ -542,9 +545,9 @@
 
     .works {
         position: relative;
-        margin-left: 14%;
+        margin-left: 12%;
         min-width: 500px;
-        width: 70%;
+        width: 72%;
         height: 100%;
         padding-top: 20px;
         padding-bottom: 120px;
@@ -773,12 +776,12 @@
 
     .links {
         position: relative;
-        margin-left: 14%;
+        margin-left: 12%;
         min-width: 500px;
         width: 72%;
         height: auto;
         color: var(--color-00);
-        padding-top: 30px;
+        padding-top: 20px;
         padding-bottom: 120px;
     }
 
@@ -1923,11 +1926,12 @@
         font-weight: 400;
 
     }
-    .column a{
+
+    .column a {
         text-decoration: underline;
 
     }
-    
+
     title-l {
         position: relative;
         font-size: 120px;
@@ -2115,10 +2119,10 @@
         float: right;
         width: 100%;
         background: var(--color-00);
-        height: 1px;
+        height: .5px;
         margin-bottom: 60px;
         margin-top: 30px;
-        opacity: 0.5;
+        opacity: 1;
 
     }
 
@@ -2206,7 +2210,8 @@
         background-size: contain;
         margin-right: 8px;
     }
-    .colum li{
-margin-bottom: 12px;
+
+    .colum li {
+        margin-bottom: 12px;
     }
 }
