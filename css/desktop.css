@@ -163,9 +163,10 @@
         margin: 4px 0;
         letter-spacing: 0.4px;
         font-weight: 400;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 26px;
         margin-bottom: 12px;
+        /* font-family: "logo"; */
 
     }
 
@@ -725,7 +726,7 @@
         top: 20px;
         right: 20px;
         z-index: 999;
-        width: 280px;
+        width: 240px;
         height: auto;
         text-align: right;
     }
@@ -740,7 +741,7 @@
         list-style-type: none;
         text-align: right;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 16px;
     }
 
     #page-nav a:hover {
@@ -759,7 +760,7 @@
         width: 100%;
         height: auto;
         text-align: right;
-        font-size: 20px;
+        font-size: 14px;
         font-weight: 400;
         font-family: "coltrane regular demo";
     }
@@ -1165,7 +1166,7 @@
         margin-top: 10px;
     }
 
-    .abouth1 {
+    /* .abouth1 {
         font-size: 20px;
         width: 60%;
         float: right;
@@ -1178,7 +1179,7 @@
         float: left;
         text-align: left;
         font-weight: 400;
-    }
+    } */
 
     .about-nt {
         position: relative;
@@ -1327,8 +1328,8 @@
         float: right;
         width: 50%;
         text-align: right;
-        min-height: 30px;
-        font-size: 20px;
+        min-height: 20px;
+        font-size: 16px;
 
     }
 
@@ -1340,8 +1341,8 @@
         float: left;
         width: 50%;
         text-align: left;
-        min-height: 30px;
-        font-size: 20px;
+        min-height: 20px;
+        font-size: 16px;
 
     }
 
@@ -1869,6 +1870,7 @@
         margin-left: 14%;
         width: 66%;
         padding-top: 10px;
+        padding-bottom: 200px;
 
     }
 
@@ -1914,7 +1916,7 @@
         width: 100%;
         text-align: left;
         float: left;
-        padding-top: 20px;
+        padding-top: 0px;
 
     }
 
@@ -1926,6 +1928,8 @@
         font-family: "logo", "coltrane regular demo";
         font-size: 60px;
         font-weight: 400;
+        margin-bottom: 40px;
+        
 
     }
 
@@ -1936,9 +1940,9 @@
 
     title-l {
         position: relative;
-        font-size: 120px;
+        font-size: 80px;
         color: #FF4444;
-        line-height: 120px;
+        line-height: 94px;
         font-family: "coltrane regular demo";
         float: left;
         width: 20%;
@@ -1946,9 +1950,9 @@
 
     title-r {
         position: relative;
-        font-size: 30px;
+        font-size: 24px;
 
-        line-height: 200px;
+        line-height: 34px;
         font-family: "tcyxinghenglogomeihei-r-gbRg,coltrane regular demo";
         float: right;
         width: 70%;
