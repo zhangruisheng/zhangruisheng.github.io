@@ -112,18 +112,29 @@
         background: var(--color-ff);
     }
 
+    h1xl {
+        letter-spacing: 0px;
+        font-weight: 400;
+        font-size: 80px;
+        font-family: "coltrane regular demo";
+        line-height: 80px;
+    }
+
     h1 {
         letter-spacing: 0px;
         font-weight: 400;
-        font-size: 22px;
+        font-size: 52px;
+        /* font-size: 22px; */
         font-family: "coltrane regular demo";
-        line-height: 46px;
+        line-height: 52px;
     }
 
     h2 {
         font-weight: 500;
-        font-size: 20px;
+        font-size: 44px;
         margin-bottom: 12px;
+        font-family: "coltrane regular demo";
+        line-height: 44px;
     }
 
     h3 {
@@ -131,21 +142,24 @@
         letter-spacing: 1px;
         font-weight: 500;
         font-family: "coltrane regular demo";
-        font-size: 18px;
+        font-size: 32px;
+        line-height: 32px;
     }
 
     h4 {
         letter-spacing: 0.5px;
         font-weight: 400;
-        font-size: 13px;
-        line-height: 24px;
+        font-size: 20px;
+        line-height: 30px;
+        font-family: "coltrane regular demo";
     }
 
     h5 {
         margin-top: 8px;
         font-weight: 400;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 20px;
+        font-family: "coltrane regular demo";
     }
 
     h6 {
@@ -398,15 +412,17 @@
         margin-top: 0px;
         margin-bottom: 20px;
     }
+
     .home-w {
         position: relative;
         float: left;
         width: 87%;
 
         left: 12%;
-        margin-top: 0px;
-        margin-bottom: 200px;
+        margin-top: 20px;
+        margin-bottom: 100px;
     }
+
     .page {
         position: relative;
         width: 100%;
@@ -427,7 +443,7 @@
         overflow: hidden;
         width: 100%;
         height: auto;
-        
+
     }
 
     .home-title {
@@ -1929,7 +1945,7 @@
         font-size: 60px;
         font-weight: 400;
         margin-bottom: 40px;
-        
+
 
     }
 
@@ -2219,5 +2235,14 @@
 
     .colum li {
         margin-bottom: 12px;
+
+    }
+
+    .typ {
+        position: relative;
+        float: left;
+        width: 84;
+        left: 12%;
+        margin-bottom: 100px;
     }
 }
