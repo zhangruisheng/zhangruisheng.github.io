@@ -228,7 +228,7 @@
         left: 0px;
         /*70%的不透明度  */
         z-index: 99999;
-        width: 180px;
+        width: 120px;
         height: 100%;
     }
 
@@ -420,7 +420,7 @@
 
         left: 12%;
         margin-top: 20px;
-        margin-bottom: 100px;
+        margin-bottom: 180px;
     }
 
     .page {
