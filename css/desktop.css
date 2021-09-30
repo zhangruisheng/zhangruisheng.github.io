@@ -418,10 +418,9 @@
         position: relative;
         float: left;
         width: 87%;
-
         left: 12%;
         margin-top: 20px;
-        margin-bottom: 180px;
+        margin-bottom: 20px;
     }
 
     .page {
@@ -1865,7 +1864,8 @@
         border: 0px;
         left: -0.5%;
         width: 100.5%;
-        min-height: 200px;
+        height: 30px;
+        overflow:auto;
     }
 
     .figma {
