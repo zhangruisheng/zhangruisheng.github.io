@@ -4,6 +4,7 @@
 @import "../sass/grid/columns.css";
 @import "../sass/helpers/spacing.css";
 @import "../sass/layout/section.css";
+@import "../sass/elements/tag.css";
 
 /*桌面端*/
 @media screen and (min-width: 900px) {
@@ -149,7 +150,7 @@
     h4 {
         letter-spacing: 0.5px;
         font-weight: 400;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 30px;
         font-family: "coltrane regular demo";
     }
@@ -157,7 +158,7 @@
     h5 {
         margin-top: 8px;
         font-weight: 400;
-        font-size: 14px;
+        font-size: 13px;
         line-height: 20px;
         font-family: "coltrane regular demo";
     }
@@ -1172,6 +1173,7 @@
         margin-bottom: 40px;
         margin-top: 10px;
         margin-right: 2.2%;
+        
     }
 
     .about1 {
