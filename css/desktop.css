@@ -399,7 +399,7 @@
         position: relative;
         float: left;
         width: 33%;
-        left: 12%;
+        left: 14%;
         margin-top: 20px;
         margin-bottom: 20px;
     }
@@ -407,9 +407,9 @@
     .home {
         position: relative;
         float: left;
-        width: 88.7%;
+        width: 85%;
 
-        left: 12%;
+        left: 14%;
         margin-top: 0px;
         margin-bottom: 20px;
     }
@@ -417,8 +417,8 @@
     .home-w {
         position: relative;
         float: left;
-        width: 87%;
-        left: 12%;
+        width: 85%;
+        left: 14%;
         margin-top: 20px;
         margin-bottom: 20px;
     }
@@ -562,9 +562,9 @@
 
     .works {
         position: relative;
-        margin-left: 12%;
+        margin-left: 14%;
         min-width: 500px;
-        width: 72%;
+        width: 70%;
         height: 100%;
         padding-top: 20px;
         padding-bottom: 120px;
@@ -793,9 +793,9 @@
 
     .links {
         position: relative;
-        margin-left: 12%;
+        margin-left: 14%;
         min-width: 500px;
-        width: 72%;
+        width: 70%;
         height: auto;
         color: var(--color-00);
         padding-top: 20px;
@@ -1063,15 +1063,15 @@
         position: relative;
         float: left;
         margin-left: 14%;
-        width: 84%;
+        width: 85%;
 
     }
 
     .monknew {
         position: relative;
         float: left;
-        margin-left: 12%;
-        width: 88.5%;
+        margin-left: 14%;
+        width: 87%;
         margin-top: 10px;
     }
 
@@ -1886,7 +1886,7 @@
         position: relative;
         float: left;
         margin-left: 14%;
-        width: 66%;
+        width: 70%;
         padding-top: 10px;
         padding-bottom: 200px;
 
@@ -2243,8 +2243,8 @@
     .typ {
         position: relative;
         float: left;
-        width: 84;
-        left: 12%;
+        width: 85%;
+        left: 14%;
         margin-bottom: 100px;
     }
 }
