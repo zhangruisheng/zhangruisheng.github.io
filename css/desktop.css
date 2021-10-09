@@ -1888,46 +1888,10 @@
         margin-left: 14%;
         width: 70%;
         padding-top: 10px;
-        padding-bottom: 200px;
+        padding-bottom: 20px;
 
     }
 
-    .share1 {
-        position: relative;
-        float: left;
-        min-width: 400px;
-        width: 100%;
-        height: auto;
-        padding-top: 30px;
-        padding-bottom: 120px;
-
-    }
-
-    .share2 {
-        position: relative;
-        padding-top: 30px;
-        padding-bottom: 120px;
-        float: right;
-        width: 28%;
-
-    }
-
-    .share3 {
-        position: relative;
-        float: left;
-
-        width: 100%;
-        height: auto;
-        /* padding-top: 30px;
-        padding-bottom: 120px; */
-
-    }
-
-    .share-t {
-        position: relative;
-        width: 100%;
-        text-align: right;
-    }
 
     .share-title {
         position: relative;
@@ -1951,10 +1915,16 @@
 
     }
 
-    .column a {
+    .share-ttt  {
         /* text-decoration: underline; */
-
+        width: auto;
+        float: left;
+        margin-right: 10px;
+        
     }
+.share-ttt h3{
+    font-weight: 300;
+}
 
     title-l {
         position: relative;
@@ -2235,10 +2205,6 @@
         margin-right: 8px;
     }
 
-    .colum li {
-        margin-bottom: 12px;
-
-    }
 
     .typ {
         position: relative;
