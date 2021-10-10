@@ -398,7 +398,7 @@
     .home-l {
         position: relative;
         float: left;
-        width: 33%;
+        width: 31%;
         left: 14%;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -784,7 +784,16 @@
     .work-nav h4:hover {
         text-decoration: underline;
     }
-
+    .origin{
+        position: relative;
+        margin-left: 14%;
+        min-width: 500px;
+        width: 70%;
+        height: auto;
+        color: var(--color-00);
+        padding-top: 20px;
+        padding-bottom: 120px;
+    }
     /*********************
     
         Links
