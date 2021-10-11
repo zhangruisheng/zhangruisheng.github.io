@@ -2,6 +2,7 @@
 @import url("webfonts/coltrane_regular_demo/stylesheet.css");
 @import "../sass/utilities/_all.css";
 @import "../sass/grid/columns.css";
+@import "../sass/grid/tiles.css";
 @import "../sass/helpers/spacing.css";
 @import "../sass/layout/section.css";
 @import "../sass/elements/tag.css";
@@ -417,8 +418,8 @@
     .home-w {
         position: relative;
         float: left;
-        width: 85%;
-        left: 14%;
+        width: 100%;
+        left: 0%;
         margin-top: 20px;
         margin-bottom: 20px;
     }
