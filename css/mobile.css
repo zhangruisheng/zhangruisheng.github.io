@@ -488,14 +488,15 @@
         margin-top: 60px;
     }
     .home {
-        width: 100%;
+        width: 96%;
+        margin-left: 2%;
         height: auto;
         overflow: hidden;
         margin-bottom: 100px;
     }
     .home-w {
-        width: 94%;
-        margin-left: 3%;
+        width: 96%;
+        margin-left: 2%;
         height: auto;
         overflow: hidden;
         margin-bottom: 100px;
