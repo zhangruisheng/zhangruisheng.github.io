@@ -269,11 +269,11 @@
     .logo-i {
         position: relative;
         float: left;
-        margin-top: 12px;
-        margin-right: 12px;
+        margin-top: 44px;
+       
         z-index: 999999;
         margin-left: 12px;
-        width: 40px;
+        width: 120px;
 
 
     }
@@ -286,7 +286,7 @@
       
         position: relative;
         float: left;
-        margin: 20px 0 0 60px;
+        margin: 8px 0 0 12px;
     }
 
     .menu,
@@ -393,7 +393,7 @@
         overflow: scroll;
         width: 60%;
         height: auto;
-        margin: 0 20px 60px 0;
+        margin: 12px 20px 60px 0;
         padding: 0;
     }
 
@@ -402,7 +402,7 @@
         float: left;
         width: 31%;
         left: 14%;
-        margin-top: 20px;
+        margin-top: 8px;
         margin-bottom: 20px;
     }
 
@@ -452,10 +452,12 @@
         position: relative;
         z-index: 999;
         float: right;
-        margin: 20px 0px 0 0;
+        margin: 0;
         width: 300px;
-        height: 50px;
+        height: auto;
+        margin-bottom: 6px;
         text-align: right;
+       
     }
 
     .doing-title {
@@ -508,7 +510,7 @@
 
     .post-thumbnail {
         position: fixed;
-        top: -16px;
+        top: -4px;
         right: 5%;
         z-index: -9;
         visibility: hidden;
