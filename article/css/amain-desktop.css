@@ -792,15 +792,17 @@
     .logo {
         position: fixed;
         z-index: 999999;
-        width: 100px;
-        height: 66px;
+        width: 40px;
+        height: 40px;
         list-style: none;
         font-weight: 500;
         font-size: 14px;
         /* background-color: var(--color-o5); */
         /* backdrop-filter: blur(40px); */
-        top: 0px
+        top: 0px;
+        left:0px;
     }
+
 
     .logo2 {
         display: none;
@@ -817,23 +819,25 @@
     .logo-i {
         position: relative;
         float: left;
-        margin-top: 12px;
-        margin-right: 12px;
+        margin-top: 44px;
+       
         z-index: 999999;
         margin-left: 12px;
-        width: 68px
-    }
+        width: 120px;
+        display:none;
 
+    }
     .logo-i img {
         border-radius: 0%;
     }
 
     .logo-t {
-        display: none;
+      
         position: relative;
         float: left;
-        margin: 0px 0 0 25px;
+        margin: 8px 0 0 12px;
     }
+
 
     .menu,
     .menu-open {
@@ -846,23 +850,23 @@
         height: 100%;
         list-style: none;
         font-weight: 600;
+
     }
 
     .menu ul,
     .menu-open ul {
         position: fixed;
-        bottom: 30px;
-        left: 10px;
+        top: 60px;
+        /* bottom: 30px; */
+        left: 12px;
         width: 240px;
         height: auto;
         text-align: left;
-        font-family: SF Pro Text;
-        font-style: italic;
+        /* font-style: italic; */
         font-weight: bold;
-        font-size: 30px;
-        line-height: 60px;
-
-
+        font-size: 14px;
+        line-height: 20px;
+        font-family: "coltrane regular demo";
     }
 
     .menu li,
@@ -870,14 +874,12 @@
         position: relative;
         margin-bottom: 16px;
         width: 100%;
-        height: 28px;
+        height: 16px;
         list-style-type: none;
-
     }
 
     .menu a,
     .menu-open a {
-
         position: relative;
         z-index: 1;
         float: left;
@@ -885,30 +887,30 @@
         text-decoration: none;
         font-weight: 600;
         line-height: 20px;
-        -webkit-text-stroke: 0.5px var(--color-00);
-        text-stroke: 0.5px var(--color-00);
+        /* -webkit-text-stroke: 0.4px var(--color-00); */
+        font-family: "coltrane regular demo";
+        -webkit-text-fill-color: var(--color-00);
     }
-
 
     .menu a:hover,
     .menu-open a:hover {
         opacity: 1;
         transition: opacity 0.2s;
         -webkit-text-stroke: 0px var(--color-00);
-        text-stroke: 0px var(--color-00);
         -webkit-text-fill-color: var(--color-00);
-        text-fill-color: var(--color-00);
+        font-style: italic;
+
     }
 
     .active {
         opacity: 1;
+        
         transition: opacity 0.2s;
         /*字体描边*/
 
         -webkit-text-stroke: 0px var(--color-00);
-        text-stroke: 0px var(--color-00);
+
         -webkit-text-fill-color: var(--color-00);
-        text-fill-color: var(--color-00);
 
     }
 
@@ -919,7 +921,6 @@
     .menu-iii-x {
         display: none;
     }
-
 
 
     .zzhao {
