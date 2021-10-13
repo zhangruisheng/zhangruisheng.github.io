@@ -274,7 +274,7 @@
         z-index: 999999;
         margin-left: 12px;
         width: 120px;
-
+        display:none;
 
     }
 
@@ -306,18 +306,17 @@
     .menu ul,
     .menu-open ul {
         position: fixed;
-        /* top: 100px; */
-        bottom: 30px;
+        top: 60px;
+        /* bottom: 30px; */
         left: 12px;
         width: 240px;
         height: auto;
         text-align: left;
-        /* font-family: SF Pro Text; */
-
-        font-style: italic;
+        /* font-style: italic; */
         font-weight: bold;
-        font-size: 30px;
-        line-height: 60px;
+        font-size: 14px;
+        line-height: 20px;
+        font-family: "coltrane regular demo";
     }
 
     .menu li,
@@ -325,7 +324,7 @@
         position: relative;
         margin-bottom: 16px;
         width: 100%;
-        height: 28px;
+        height: 16px;
         list-style-type: none;
     }
 
@@ -338,8 +337,9 @@
         text-decoration: none;
         font-weight: 600;
         line-height: 20px;
-        -webkit-text-stroke: 0.4px var(--color-00);
-
+        /* -webkit-text-stroke: 0.4px var(--color-00); */
+        font-family: "coltrane regular demo";
+        -webkit-text-fill-color: var(--color-00);
     }
 
     .menu a:hover,
@@ -347,13 +347,14 @@
         opacity: 1;
         transition: opacity 0.2s;
         -webkit-text-stroke: 0px var(--color-00);
-
         -webkit-text-fill-color: var(--color-00);
+        font-style: italic;
 
     }
 
     .active {
         opacity: 1;
+        
         transition: opacity 0.2s;
         /*字体描边*/
 
