@@ -1097,9 +1097,10 @@
         float: left;
         width: 68%;
         height: auto;
-        padding-top: 10px;
+        /* padding-top: 10px; */
 
         /* min-height: 100%; */
+        margin-top: 6px;
 
     }
 
@@ -1109,7 +1110,7 @@
         width: 30%;
         height: auto;
         text-align: right;
-        margin-top: 10px;
+        margin-top: 8px;
         /* min-height: 100%; */
 
     }
@@ -1132,7 +1133,7 @@
         width: 47%;
         height: auto;
         margin-right: 3%;
-        margin-top: 20px;
+        /* margin-top: 20px; */
         /* min-height: 100%; */
 
     }
@@ -1361,6 +1362,7 @@
         text-align: right;
         min-height: 20px;
         font-size: 16px;
+       
 
     }
 
@@ -1370,10 +1372,11 @@
         /* font-family: sans-serif; */
         font-weight: 400;
         float: left;
-        width: 50%;
+        width: 100%;
         text-align: left;
         min-height: 20px;
         font-size: 16px;
+        margin-bottom: 20px;
 
     }
 
