@@ -231,7 +231,7 @@
         /*70%的不透明度  */
         z-index: 99999;
         width: 120px;
-        height: 100%;
+        height: auto;
     }
 
     .logo {
@@ -297,7 +297,7 @@
         margin: 0;
         padding: 0;
         width: 180px;
-        height: 100%;
+        height: auto;
         list-style: none;
         font-weight: 600;
 
@@ -424,6 +424,7 @@
         left: 0%;
         margin-top: 20px;
         margin-bottom: 20px;
+    padding: 12px;
     }
 
     .page {
