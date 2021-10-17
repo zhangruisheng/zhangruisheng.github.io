@@ -447,7 +447,7 @@
         overflow: hidden;
         width: 100%;
         height: auto;
-
+        min-height: 11S00px;
     }
 
     .home-title {
@@ -455,7 +455,7 @@
         z-index: 999;
         float: right;
         margin: 0;
-        width: 300px;
+        width: 100%;
         height: auto;
         margin-bottom: 6px;
         text-align: right;
@@ -512,12 +512,12 @@
 
     .post-thumbnail {
         position: fixed;
-        top: -4px;
+        
         right: 5%;
         z-index: -9;
         visibility: hidden;
         float: none;
-        width: 80%;
+        width: 90%;
         /*        text-align: center;*/
         opacity: 0;
         transition: all 0s ease;
