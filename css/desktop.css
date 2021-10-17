@@ -413,7 +413,7 @@
         width: 85%;
 
         left: 14%;
-        margin-top: 0px;
+        margin-top: 8px;
         margin-bottom: 20px;
     }
 
@@ -1216,7 +1216,7 @@
 
     .about-nt {
         position: relative;
-        float: right;
+        float: left;
         margin-left: 10px;
         margin-top: 20px;
         font-size: 14px;
@@ -1376,11 +1376,13 @@
         width: 100%;
         text-align: left;
         min-height: 20px;
-        font-size: 16px;
-        margin-bottom: 20px;
+        /* font-size: 16px; */
+        /* margin-bottom: 20px; */
 
     }
-
+.right{
+    text-align: right;
+}
     .cover {
         position: relative;
         width: 70%;
