@@ -393,7 +393,7 @@
         float: right;
         overflow: scroll;
         width: 60%;
-        height: auto;
+        height: a6uto;
         margin: 12px 20px 60px 0;
         padding: 0;
     }
@@ -401,7 +401,7 @@
     .home-l {
         position: relative;
         float: left;
-        width: 31%;
+        width: 26%;
         left: 14%;
         margin-top: 8px;
         margin-bottom: 20px;
