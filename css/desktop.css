@@ -1164,7 +1164,7 @@
         width: auto;
         position: relative;
         float: left;
-        font-size: 1\5px;
+        font-size: 15px;
 
     }
 
@@ -1583,9 +1583,10 @@
         text-align: right;
 
     }
-
+    
     .left {
         float: left;
+        text-align: left;
     }
 
     .bottom {
