@@ -1615,7 +1615,7 @@
         width: 23%;
         margin-right: 1.8%;
         background: var(--color-ff);
-        margin-bottom: 4px;
+        margin-bottom: 40px;
         float: left;
     }
 
@@ -1631,7 +1631,7 @@
 
     .new-t {
         font-family: "coltrane regular demo";
-        margin-bottom: 2px;
+        margin-bottom: 18px;
         float: right;
 
     }
@@ -1952,10 +1952,10 @@
         position: relative;
         font-size: 80px;
         color: #FF4444;
-        line-height: 94px;
+        line-height: 86px;
         font-family: "coltrane regular demo";
         float: left;
-        width: 20%;
+        width: auto;
     }
 
     title-r {
