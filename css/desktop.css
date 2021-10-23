@@ -797,8 +797,19 @@
         width: 70%;
         height: auto;
         color: var(--color-00);
-        padding-top: 20px;
+        padding-top: 8px;
         padding-bottom: 120px;
+    }
+
+    .download{
+        background-color: #04AA6D; /* 绿色背景 */
+        border: 1px solid green; /* 绿色边框 */
+        color: white; /* 白色文本 */
+        padding: 5px 16px; /* 内边距离、 */
+        cursor: pointer; /* 指针/手形图标 */
+        float: left; /* 并排浮动按钮 */
+       font-size: 12px;
+       float: left;
     }
     /*********************
     
