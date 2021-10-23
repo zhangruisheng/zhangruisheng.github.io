@@ -210,8 +210,8 @@
     p {
         margin: 4px 0;
         letter-spacing: 0px;
-        font-weight: 300;
-        font-size: 13px;
+        font-weight: 400;
+        font-size: 16px;
         line-height: 24px;
     }
 
@@ -247,9 +247,12 @@
         position: relative;
         overflow: hidden;
         margin: 0;
-        padding: 0;
-        width: 100%;
+        padding: 80px 0 0 0;
+        width: 98%;
         height: auto;
+        margin-left: 1%;
+
+
     }
 
 
@@ -493,6 +496,7 @@
         height: auto;
         overflow: hidden;
         margin-bottom: 100px;
+        text-align: right;
     }
     .home-w {
         width: 96%;
@@ -509,18 +513,12 @@
         margin-bottom: 4px;
         float: left;
     }
-.home-title{
-    position: relative;
-    width: 94%;
-    margin-left: 3%;
-    background: var(--color-ff);
-    margin-bottom: 4px;
-    float: left;
-}
+
     .page {
         position: relative;
-        width: 100%;
+        width: 96%;
         background: var(--color-ff);
+        margin-left: 2%;
     }
 
 
@@ -544,10 +542,12 @@
 
     .home-title {
         position: relative;
+        z-index: 999;
         float: right;
-        margin: 16px 13px 10px 0;
+        margin: 0;
         width: 100%;
         height: auto;
+        margin-bottom: 6px;
         text-align: right;
     }
 
@@ -579,7 +579,7 @@
         float: left;
         width: 100%;
         height: auto;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
     }
 
     .home-item-holder-new {
@@ -592,20 +592,20 @@
         z-index: 101;
         float: right;
         /* margin: 0px 13px 15px 0; */
-        width: 200px;
+        width: 100%;
         align-items: center;
     }
 
     .entry-holder:after {
         position: absolute;
         z-index: 1000;
-        width: auto;
+        width: 100%;
     }
 
     .entry-title {
         position: relative;
         float: right;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
         width: 100%;
     }
 
@@ -622,12 +622,13 @@
     .entry-info {
         position: relative;
         float: right;
-        max-width: 375px;
-        width: 300px;
+        /* max-width: 375px; */
+        /* width: 300px; */
         text-align: right;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 500;
+        margin-bottom: 12px;
     }
 
     .entry-date {
@@ -784,14 +785,14 @@
 
     .line {
         position: relative;
-        float: left;
-        width: 90px;
-        left: 50%;
+        float: right;
+        width: 100%;
+       opacity: 0.1;
         background: var(--color-00);
-        height: 6px;
-        margin-bottom: 0px;
-        margin-left: -45px;
-        margin-top: 60px;
+        height: 1px;
+        margin-bottom: 20px;
+      
+        margin-top: 20px;
     }
 
     .line3 {
@@ -827,8 +828,8 @@
     .work-card {
         position: relative;
         margin-bottom: 12px;
-        width: 45.5%;
-        margin-left: 3%;
+        width: 100%;
+        /* margin-right: 2%; */
     }
 
     .work-card:hover {
@@ -879,8 +880,8 @@
 
     .work-card-ui {
         margin: 0 0px 32px 0;
-        width: 94%;
-        margin-left: 3%;
+        width: 100%;
+        /* margin-left: 3%; */
     }
 
 
@@ -893,9 +894,9 @@
 
     .information-w {
         margin-top: 10px;
-        width: 94%;
-        margin-left: 3%;
-        text-align: center;
+        width: 100%;
+       
+        text-align: right;
         margin-bottom: 16px;
     }
 
@@ -1644,6 +1645,7 @@
         margin: 32px 0 10px 0;
         opacity: 1;
         padding: 0px;
+        float:right;
     }
 
     .new-t h3 {
@@ -1654,6 +1656,7 @@
     .new-tt {
         font-size: 14px;
         margin: 6px 0px;
+        text-align: right;
 
     }
 
@@ -2141,8 +2144,21 @@
         width: 100%;
         background: var(--color-00);
         height: 4px;
+        margin-bottom: 20px;
         
         opacity: 1;
     }
-  
+    .right {
+        float: left;
+        text-align: left;
+
+    }
+    
+    .left {
+        float: right;
+        text-align: right;
+     
+
+    }
+
 }
