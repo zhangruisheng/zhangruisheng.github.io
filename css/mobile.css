@@ -2030,8 +2030,8 @@
 
     .file {
         position: relative;
-        float: right;
-        margin-left: 10px;
+        float: left;
+        margin-right: 10px;
         padding: 0 6px;
         background: var(--color-00);
         color: var(--color-ff);
@@ -2042,8 +2042,8 @@
     /*源文件*/
     .filered {
         position: relative;
-        float: right;
-        margin-left: 10px;
+        float: left;
+        margin-right: 10px;
         padding: 0 6px;
         background: #FE4A4B;
         color: #fff;
