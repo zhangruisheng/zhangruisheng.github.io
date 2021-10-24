@@ -496,7 +496,7 @@
         height: auto;
         overflow: hidden;
         margin-bottom: 100px;
-        text-align: right;
+        text-align: left;
     }
     .home-w {
         width: 96%;
@@ -526,7 +526,7 @@
 
     .home-class {
         position: relative;
-        float: right;
+        float: left;
         width: 100%;
         height: auto;
         background: var(--color-ff);
@@ -548,7 +548,7 @@
         width: 100%;
         height: auto;
         margin-bottom: 6px;
-        text-align: right;
+        text-align: left;
     }
 
     .home h3 {
@@ -593,7 +593,7 @@
         float: right;
         /* margin: 0px 13px 15px 0; */
         width: 100%;
-        align-items: center;
+        /* align-items: center; */
     }
 
     .entry-holder:after {
@@ -604,9 +604,10 @@
 
     .entry-title {
         position: relative;
-        float: right;
+        float: left;
         margin-bottom: 8px;
         width: 100%;
+        text-align: left;
     }
 
     .post-thumbnail {
@@ -621,10 +622,10 @@
 
     .entry-info {
         position: relative;
-        float: right;
+        float: left;
         /* max-width: 375px; */
         /* width: 300px; */
-        text-align: right;
+        text-align: left;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 500;
@@ -669,6 +670,7 @@
         line-height: 20px;
         -webkit-text-stroke: 0.5px var(--color-00);
         margin-right: 6px;
+        margin-bottom: 20px;
 
     }
 
@@ -1645,7 +1647,7 @@
         margin: 32px 0 10px 0;
         opacity: 1;
         padding: 0px;
-        float:right;
+        float:left;
     }
 
     .new-t h3 {
@@ -1656,7 +1658,7 @@
     .new-tt {
         font-size: 14px;
         margin: 6px 0px;
-        text-align: right;
+        text-align: left;
 
     }
 
@@ -2053,7 +2055,7 @@
 
     .filered2 {
         position: relative;
-        float: right;
+        float: left;
         margin-left: 10px;
         padding: 0 6px;
         background: #186D62;
@@ -2149,14 +2151,15 @@
         opacity: 1;
     }
     .right {
-        float: left;
-        text-align: left;
+        float: right;
+        text-align: right;
+       
 
     }
     
     .left {
-        float: right;
-        text-align: right;
+        float: left;
+        text-align: left;
      
 
     }
