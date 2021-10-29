@@ -162,6 +162,7 @@
         font-size: 13px;
         line-height: 20px;
         font-family: "coltrane regular demo";
+        float: left;
     }
 
     h6 {
