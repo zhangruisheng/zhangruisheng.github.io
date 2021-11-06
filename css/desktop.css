@@ -319,7 +319,7 @@
         text-align: left;
         /* font-style: italic; */
         font-weight: bold;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 20px;
         font-family: "coltrane regular demo";
     }
@@ -1160,7 +1160,7 @@
         /* background: var(--color-oa); */
         margin-bottom: 26px;
         height: auto;
-        margin-left: 8px;
+        /* margin-left: 8px; */
 
 
     }
@@ -1395,6 +1395,7 @@
         min-height: 20px;
         /* font-size: 16px; */
         /* margin-bottom: 20px; */
+        /* margin-left: 8px; */
 
     }
 .right{
@@ -1849,6 +1850,8 @@
         height: auto;
         text-align: center;
         margin-bottom: 20px;
+        margin-right: 12px;
+        margin-top: 20px;
 
     }
 
