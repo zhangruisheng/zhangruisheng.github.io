@@ -137,7 +137,7 @@
         margin-bottom: 12px;
         font-family: "coltrane regular demo";
         line-height: 44px;
-        float: left;
+        /* float: left; */
     }
 
     h3 {
@@ -147,7 +147,7 @@
         font-family: "coltrane regular demo";
         font-size: 28px;
         line-height: 28px;
-        float: left;
+        /* float: left; */
         margin-right: 12px;
     }
 
@@ -165,7 +165,7 @@
         font-size: 13px;
         line-height: 20px;
         font-family: "coltrane regular demo";
-        float: left;
+        /* float: left; */
     }
 
     h6 {
@@ -184,8 +184,8 @@
         margin: 4px 0;
         letter-spacing: 0.4px;
         font-weight: 400;
-        font-size: 14px;
-        line-height: 26px;
+        font-size: 13px;
+        line-height: 20px;
         margin-bottom: 12px;
         /* font-family: "logo"; */
 
