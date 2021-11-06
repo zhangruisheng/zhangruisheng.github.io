@@ -211,8 +211,8 @@
         margin: 4px 0;
         letter-spacing: 0px;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 15px;
+        line-height: 20px;
     }
 
     p1 {
@@ -547,11 +547,11 @@
         margin: 0;
         width: 100%;
         height: auto;
-        margin-bottom: 6px;
+        margin-bottom: 10px;
         text-align: left;
     }
 
-    .home h3 {
+    /* .home h3 {
         font-size: 16px;
         font-family: "coltrane regular demo";
         opacity: 1;
@@ -564,7 +564,7 @@
         font-size: 16px;
         opacity: 1;
         font-family: "coltrane regular demo";
-    }
+    } */
 
     .animate {
         opacity: 1;
@@ -1467,13 +1467,17 @@
 
     .about-t {
         padding: 0px;
-        margin-bottom: 26px;
+        margin-bottom: 16px;
+        text-align: left;
     }
+    
 
     .about-tt {
         position: relative;
         padding: 0px;
-        margin-bottom: 26px;
+       
+        font-size: 18px;
+        font-weight: 400;
     }
 
 
@@ -2114,6 +2118,35 @@
         text-align: right;
         line-height: 50px;
     }
+    .title-l {
+        position: relative;
+        font-family: "coltrane regular demo";
+        /* font-family: sans-serif; */
+        font-weight: 400;
+        float: left;
+        width: 100%;
+        text-align: left;
+        min-height: 20px;
+        /* font-size: 16px; */
+        margin-bottom: 10px;
+        margin-top: 20px;
+
+    }
+    .look2 {
+        position: relative;
+        float: left;
+        width: auto;
+        padding: 0 12px;
+        background: var(--color-00);
+        color: var(--color-ff);
+        font-size: 16px;
+        height: auto;
+        text-align: center;
+        margin-bottom: 10px;
+        margin-right: 20px;
+
+    }
+
     /*尾部信息*/
     .footer {
         z-index: 10;
@@ -2151,8 +2184,8 @@
         opacity: 1;
     }
     .right {
-        float: right;
-        text-align: right;
+        float: left;
+        text-align: left;
        
 
     }

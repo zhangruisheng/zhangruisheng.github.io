@@ -125,10 +125,10 @@
     h1 {
         letter-spacing: 0px;
         font-weight: 400;
-        font-size: 52px;
+        font-size: 62px;
         /* font-size: 22px; */
         font-family: "coltrane regular demo";
-        line-height: 52px;
+        line-height: 62px;
     }
 
     h2 {
@@ -1178,7 +1178,7 @@
 
         margin-right: 10px;
         height: auto;
-        width: auto;
+        width: 100%;
         position: relative;
         float: left;
         font-size: 15px;
@@ -1950,6 +1950,7 @@
         font-size: 60px;
         font-weight: 400;
         margin-bottom: 10px;
+        
     }
 
     .share-ttt  {
@@ -1967,7 +1968,7 @@
         position: relative;
         font-size: 80px;
         color: #FF4444;
-        line-height: 86px;
+        line-height: 62px;
         font-family: "coltrane regular demo";
         float: left;
         width: auto;
@@ -2114,7 +2115,7 @@
         text-align: right;
     }
 
-    .page p {
+    /* .page p {
 
         margin: 4px 0;
         letter-spacing: 0.4px;
@@ -2124,7 +2125,7 @@
         margin-bottom: 32px;
         color: var(-color-ff);
         opacity: 0.9;
-    }
+    } */
 
 
 
