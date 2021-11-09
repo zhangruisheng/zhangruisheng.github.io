@@ -1,7 +1,7 @@
 (function () {
     var light = "#fff";
     var dark = "#000";
-    if (new Date().getHours() > 18 || new Date().getHours() < 6) {
+    if (new Date().getHours() > 6 || new Date().getHours() < 6) {
 
         document.documentElement.style.setProperty('--color-ff', dark);
         document.documentElement.style.setProperty('--color-00', light);
