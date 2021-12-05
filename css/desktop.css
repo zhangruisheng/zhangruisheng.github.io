@@ -601,7 +601,7 @@
     .work-card {
         position: relative;
 
-        width: 18%;
+        width: 23.5%;
         opacity: 1;
         transition-duration: 0.5s;
     }
@@ -679,6 +679,7 @@
         margin-top: 10px;
         margin-bottom: 20px;
         height: auto;
+       
     }
 
     .information-w p {
@@ -710,14 +711,17 @@
     .appbox {
         margin-top: 20px;
         width: 70px;
-        height: 170px;
+        height: auto;
         margin-right: 60px;
+        position: relative;
+       
     }
 
     .applogo {
         position: relative;
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
+        float: left;
     }
 
     .appbox h5 {
@@ -726,7 +730,12 @@
         align-self: center;
         align-items: center;
     }
-
+.lab-t{
+    position: relative;
+    float: left;
+    margin-left: 12px;
+    
+}
     .tag-new {
         position: relative;
         float: left;
