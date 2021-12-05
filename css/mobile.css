@@ -231,6 +231,7 @@
     a {
         text-decoration: none;
         /*去掉下划线*/
+    
     }
 
 
@@ -520,7 +521,6 @@
         background: var(--color-ff);
         margin-left: 0%;
     }
-
 
 
 
@@ -898,9 +898,9 @@
     .information-w {
         margin-top: 10px;
         width: 100%;
-       
         text-align: left;
-        margin-bottom: 16px;
+        margin-bottom: 80px;
+        
     }
 
 
@@ -953,8 +953,9 @@
 
     .applogo {
         position: relative;
-        width: 70px;
-        height: 70px;
+        width: 56px;
+        height: 56px;
+        float: left;
     }
 
     .appbox h5 {
@@ -963,7 +964,12 @@
         align-self: center;
         align-items: center;
     }
-
+    .lab-t{
+        position: relative;
+        float: left;
+        margin-left: 12px;
+       
+    }
     .tag-new {
         position: relative;
         float: left;

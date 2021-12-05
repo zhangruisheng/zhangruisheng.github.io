@@ -676,9 +676,10 @@
 
     .information-w {
         position: relative;
-        margin-top: 10px;
         margin-bottom: 20px;
         height: auto;
+      margin-top: 10px;
+
        
     }
 
@@ -719,8 +720,8 @@
 
     .applogo {
         position: relative;
-        width: 60px;
-        height: 60px;
+        width: 56px;
+        height: 56px;
         float: left;
     }
 
@@ -734,6 +735,7 @@
     position: relative;
     float: left;
     margin-left: 12px;
+  margin-top: 0px;
     
 }
     .tag-new {
