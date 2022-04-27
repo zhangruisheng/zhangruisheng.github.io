@@ -442,6 +442,7 @@
         position: relative;
         float: right;
         overflow: scroll;
+        
         width: 100%;
 
         /*        background: var(--color-ff);*/
@@ -449,10 +450,11 @@
 
     .home-holder {
         position: relative;
-        overflow: hidden;
+        /* overflow: hidden; */
         width: 100%;
-        height: auto;
-        min-height: 11S00px;
+        height: 100%;
+        overflow: auto;
+        /* min-height: 1100px; */
     }
 
     .home-title {
