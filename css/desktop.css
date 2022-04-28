@@ -429,9 +429,25 @@
         left: 0%;
         margin-top: 0px;
         margin-bottom: 20px;
-        overflow: hidden;
+        /* overflow: hidden; */
         padding: 0 12px;
-       
+        height: auto;
+        min-height: 900px;
+
+    }
+
+    .home-ww {
+        position: relative;
+        float: left;
+        width: 100%;
+        left: 0%;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        /* overflow: hidden; */
+        padding: 0 12px;
+        height: auto;
+
+
     }
 
     .page {
@@ -2292,10 +2308,10 @@
     #carousel {
         padding: 0;
         margin: 0;
-        position:absolute;
+        position: absolute;
         width: 85%;
-        height: auto;
-        min-height: 900px;
+        height: 100%;
+        min-height: 1200px;
         /* margin-left: 50%;
         transform: translateX(-50%); */
         /* margin-left: 13%;
@@ -2304,19 +2320,19 @@
     }
 
     #carousel li {
-       
+
         position: absolute;
         opacity: 0;
         list-style: outside none none;
         width: 100%;
-        max-height: 900px;
+        /* max-height: 900px; */
         /* max-height: 90%; */
         /* height: 100%; */
         /* margin-top:10%; */
 
         background: transparent;
         transition: opacity 1s;
-   margin-top: 12px;
+        margin-top: 12px;
 
 
     }
@@ -2340,8 +2356,8 @@
         top: 50%; */
         transform: translateY(-50%);
         /* margin-top: 50%;*/
-        margin-left: 60%; 
-        max-height: 800px;
+        margin-left: 60%;
+        max-height: 900px;
         transform: translateX(-50%);
     }
 
