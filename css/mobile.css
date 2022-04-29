@@ -500,11 +500,34 @@
         text-align: left;
     }
     .home-w {
-        width: 98%;
+        /* width: 98%;
         margin-left: 1%;
         height: auto;
         overflow: hidden;
-        margin-bottom: 100px;
+        margin-bottom: 100px; */
+        position:relative;
+        float: right;
+        width: 100%;
+        margin-top: 8px;
+        margin-bottom: 20px;
+  padding: 0;
+    }
+    .home-ww {
+        /* position: relative;
+        float: left;
+        width: 100%;
+        left: 0%;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        /* overflow: hidden; */
+        /* padding: 0 12px; */
+        /* height: auto; */
+        position: relative;
+        float: left;
+        width: auto;
+        /* padding: 0 12px; */
+      margin:12px;
+     
     }
     .old3  {
         position: relative;
@@ -529,7 +552,7 @@
         float: left;
         width: 100%;
         height: auto;
-        background: var(--color-ff);
+        /* background: var(--color-ff); */
         overflow: hidden;
         margin-top: 60px;
     }
@@ -579,7 +602,7 @@
         float: left;
         width: 100%;
         height: auto;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
 
     .home-item-holder-new {
@@ -2204,6 +2227,69 @@ padding-top: 20px;
         float: left;
         text-align: left;
      
+
+    }
+    #carousel {
+
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+        float: left;
+        
+        /* margin-left: 50%;
+        transform: translateX(-50%); */
+        /* margin-left: 13%;
+       margin-top: -22.5%; */
+        /* text-align: center; */
+    }
+
+    #carousel li {
+        position: absolute;
+        float: left;
+        opacity: 0;
+        /* list-style: outside none none; */
+        width: 100%;
+        max-height: 900px;
+        /* max-height: 90%; */
+        /* height: 100%; */
+        /* margin-top:10%; */
+
+        /* background: transparent; */
+        transition: opacity 1s;
+        margin-top: 12px;
+        text-align: center;
+  
+
+    }
+
+    /** || General Styles */
+
+
+    #carousel img {
+        position: relative;
+        display: block;
+        width: 100%;
+
+        max-height: 1000px;
+        /* width: 10%; */
+        /* margin-left: 0%; */
+        /* text-align: center; */
+        /* height: 100%; */
+        /* object-fit:fill; */
+        /* max-width: 900px;
+        height: auto;
+        margin: auto; */
+        /* left: 50%;
+        top: 50%; */
+
+        /* transform: translateY(-50%); */
+        /* margin-top: 50%;*/
+       /* margin-top: 25%;
+        transform: translateX(20%)
+        
+        translateY(-50%); */
+      
 
     }
 
