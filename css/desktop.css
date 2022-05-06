@@ -2375,7 +2375,7 @@
         /* transform: translateY(-50%); */
         /* margin-top: 50%;*/
         margin-top: 20%;
-        margin-left: 0%;
+        margin-left: -20%;
         transform: translateX(40%) translateY(-40%);
 
 
