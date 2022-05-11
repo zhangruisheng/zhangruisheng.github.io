@@ -476,7 +476,7 @@
         float: right;
         overflow: visible;
 
-        width: 100%;
+        width: 200px;
 
         /*        background: var(--color-ff);*/
     }
@@ -2323,15 +2323,18 @@
     #carousel {
 
         position: absolute;
-        width: 85%;
+        width: 100%;
         /* height: 100%; */
-        min-height: 1200px;
+        min-height: 800px;
         float: left;
         /* margin-left: 50%;
         transform: translateX(-50%); */
         /* margin-left: 13%;
        margin-top: -22.5%; */
         /* text-align: center; */
+        display: grid;
+        place-items:center;
+
     }
 
     #carousel li {
@@ -2374,9 +2377,9 @@
 
         /* transform: translateY(-50%); */
         /* margin-top: 50%;*/
-        margin-top: 20%;
+        /* margin-top: 20%;
         margin-left: -20%;
-        transform: translateX(40%) translateY(-40%);
+        transform: translateX(40%) translateY(-40%); */
 
 
     }
