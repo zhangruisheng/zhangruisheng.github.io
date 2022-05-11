@@ -1,0 +1,122 @@
+@charset "utf-8";
+/* CSS Document */
+
+* { margin:0; padding:0; list-style-image: none;list-style-type: none;}
+html{
+	background-color: #000000;
+	background-size: cover;
+	background-attachment: fixed;
+	background-image: url(../images/gif_06.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+body {
+	font-family:Verdana;
+	font-size:11px;
+}
+img { border:none;}
+.fix {clear:both;height: 1px;font-size: 0px;}
+
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-button:vertical{display:none}
+::-webkit-scrollbar-track:vertical{background-color:black}
+::-webkit-scrollbar-track-piece{background:#F4F4F4}
+::-webkit-scrollbar-thumb:vertical{background-color:#8E8E8E;border-radius:6px}
+::-webkit-scrollbar-thumb:vertical:hover{background-color:#3B3B3B}
+::-webkit-scrollbar-corner:vertical{background-color:#535353}
+::-webkit-scrollbar-resizer:vertical{background-color:#FF6E00}
+
+.zhezhao {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	-webkit-backdrop-filter: saturate(200%) blur(30px);
+    backdrop-filter: saturate(200%) blur(30px);
+    background: rgba(0,0,0,0.3);
+}
+
+.weixin01 {
+	position: absolute;
+	top: 6%;
+	left: 4%;
+	width: 5%;
+	z-index:100;
+}
+.weixin01 img {
+	width: 100%;
+}
+
+#container {
+	position: absolute;
+	z-index: 50;
+	top: 28%;
+	left: 25%;
+	width: 50%;
+	text-align: center;
+}
+.shopimg{max-width:80%;height:auto;text-align: center;}
+
+
+.copyright {
+	position: absolute;
+	bottom: 6%;
+	z-index: 100;
+	left: 4%;
+}
+.copyright dd.logo {
+	float: left;
+}
+.copyright dd.logo a {
+	text-decoration:none;
+	display: block;
+	height: 20px;
+	width: 120px;
+	background-image: url(../../../images/logo_2020/wkun_m_logo.svg);
+	background-repeat: no-repeat;
+	-webkit-transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);transform:rotate(0deg);
+}
+.copyright dd.logo a:hover {
+	-webkit-transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);transform:rotate(0deg);
+	opacity:0.70;
+}
+.copyright dd.b {
+	height: 20px;
+	float: left;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	line-height: 20px;
+	color: #FFFFFF;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+.copyright dd.b a {
+	text-decoration:none;
+	color: #FFFFFF;
+	-webkit-transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);transform:rotate(0deg);
+}
+.copyright dd.b a:hover {
+	text-decoration: none;
+	opacity:0.70;
+}
+.copyright_y {
+	position: absolute;
+	bottom: 6%;
+	z-index: 100;
+	right: 4%;
+	font-family: "微软雅黑";
+	font-size: 12px;
+	line-height: 22px;
+	color: #FFFFFF;
+}
+.copyright_y a {
+	text-decoration:none;
+	color: #FFFFFF;
+	-webkit-transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);transform:rotate(0deg);
+}
+.copyright_y a:hover {
+	text-decoration: none;
+	opacity:0.70;
+}
