@@ -460,7 +460,16 @@
         /* background: #000;
         background: var(--color-ff); */
     }
-
+    .home-c {
+        position: relative;
+        float: left;
+        width: 85%;
+        /* background: #000;
+        background: var(--color-ff); */
+        left: 14%;
+        margin-top: 8px;
+        margin-bottom: 20px;
+    }
     .page {
         position: relative;
         width: 100%;
@@ -604,14 +613,20 @@
 
     /*我的工作*/
 
-    .works {
-        position: relative;
+    .home-c {
+        /* position: relative;
         margin-left: 14%;
         min-width: 500px;
         width: 70%;
         height: 100%;
-        padding-top: 8px;
-        padding-bottom: 120px;
+        padding-top: 8px; */
+        /* padding-bottom: 120px; */
+        position: relative;
+        float: left;
+        width: 70%;
+        left: 14%;
+        margin-top: 8px;
+        margin-bottom: 20px;
     }
 
     .work-title {
