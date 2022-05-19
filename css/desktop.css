@@ -7,7 +7,7 @@
 @import "../sass/layout/section.css";
 @import "../sass/elements/tag.css";
 
- 
+
 
 
 /*桌面端*/
@@ -18,8 +18,8 @@
         margin: 0;
         padding: 0;
         text-decoration: none;
-        
-/*
+
+        /*
         background: var(--color-ff); */
     }
 
@@ -221,7 +221,7 @@
         padding: 0;
         width: 100%;
         height: 100%;
-     
+
         background: var(--color-ff);
         /* 滚动顺畅*/
         scroll-behavior: smooth;
@@ -400,7 +400,7 @@
     }
 
     /*首页*/
-/* 
+    /* 
     .home-r {
         position: relative;
         float: right;
@@ -460,6 +460,7 @@
         /* background: #000;
         background: var(--color-ff); */
     }
+
     .home-c {
         position: relative;
         float: left;
@@ -470,6 +471,7 @@
         margin-top: 8px;
         margin-bottom: 20px;
     }
+
     .page {
         position: relative;
         width: 100%;
@@ -2694,6 +2696,47 @@
     }
 
 
+
+
+
+
+    /* 导航栏 */
+    .nav-top {
+        position: fixed;
+        float: left;
+        margin-top: 0px;
+        width: 100%;
+        left: 0;
+        height: 48px;
+       /* padding: 0px 12px 0px -12px; */
+        background: var(--color-ff);
+        z-index: 999999;
+
+    }
+
+    .nav-top-ul{
+
+        position: relative;
+        width: 98%;
+        height: 100%;
+        margin-top: 0px;
+   margin-left: 12px;
+  
+        display: flex;
+        flex-direction:row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+
+    .nav-top-li{
+        position: relative;
+        float: left;
+        width: auto;
+        /* margin-right: 40px; */
+    }
+
+
 }
 
 
@@ -2708,7 +2751,7 @@
         height: auto;
         overflow: hidden;
         padding-bottom: 0px;
-min-height: 1000px;
+        min-height: 1000px;
 
     }
 
@@ -2733,8 +2776,8 @@ min-height: 1000px;
         opacity: 0;
         max-height: 1600px;
         transition: opacity 1s;
-        height:auto;
-       
+        height: auto;
+
 
     }
 
