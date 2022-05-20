@@ -1668,17 +1668,7 @@ top: 108px;
         width: 100%;
     }
 
-    .right {
-        float: right;
-        text-align: right;
-
-    }
-
-    .left {
-        float: left;
-        text-align: left;
-
-    }
+    
 
     .bottom {
         position: fixed;
@@ -2779,7 +2769,17 @@ top: 108px;
         border-radius: 20px;
     }
 
+    .right {
+        float: right;
+        text-align: right;
 
+    }
+
+    .left {
+        float: left;
+        text-align: left;
+
+    }
 }
 
 
