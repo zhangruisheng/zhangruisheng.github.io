@@ -2727,7 +2727,7 @@ top: 108px;
 
 
     .nav-top {
-        position: fixed;
+        position: relative;
         float: left;
         margin-top: 0px;
         width: 86%;
