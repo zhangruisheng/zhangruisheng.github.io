@@ -226,9 +226,32 @@
         /* 滚动顺畅*/
         scroll-behavior: smooth;
         z-index: 99;
-top: 108px;
+        top: 0px;
+        float: left;
 
     }
+
+    .works {
+        position: relative;
+        float: left;
+        top: 150px;
+        margin-bottom: 150px;
+    }
+
+    .share {
+        position: relative;
+        float: left;
+        top: 150px;
+        margin-bottom: 75px;
+    }
+    .monknew {
+        position: relative;
+        float: left;
+  
+        top: 120px;
+        margin-bottom: 60px;
+    }
+
 
     img:hover {
         cursor: pointer;
@@ -430,7 +453,7 @@ top: 108px;
         background: var(--color-ff); */
         left: 14%;
         margin-top: 8px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
     .home-w {
@@ -438,7 +461,7 @@ top: 108px;
         float: right;
         width: 100%;
         margin-top: 0px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         padding: 0;
         /* background: #000;
          background: var(--color-ff); */
@@ -1171,14 +1194,6 @@ top: 108px;
 
     }
 
-    .monknew {
-        position: relative;
-        float: left;
-        margin-left: 14%;
-        width: 87%;
-        margin-top: 10px;
-    }
-
 
 
 
@@ -1668,7 +1683,7 @@ top: 108px;
         width: 100%;
     }
 
-    
+
 
     .bottom {
         position: fixed;
@@ -1692,8 +1707,8 @@ top: 108px;
 
     .old {
         position: relative;
-        width: 23%;
-        margin-right: 1.8%;
+        width: 23.5%;
+        margin-right: 1.50%;
         background: var(--color-ff);
         margin-bottom: 40px;
         float: left;
@@ -1992,15 +2007,6 @@ top: 108px;
 
 
     /* share */
-    .share {
-        position: relative;
-        float: left;
-        margin-left: 14%;
-        width: 70%;
-        padding-top: 8px;
-        padding-bottom: 20px;
-
-    }
 
 
     .share-title {
