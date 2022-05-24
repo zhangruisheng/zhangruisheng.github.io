@@ -2370,6 +2370,12 @@ padding-top: 20px;
         margin-right: 2px;
     }
 
-
+    .monkey{
+        position: relative;
+        transform: rotateZ(90deg);
+        height: 200%;
+        width: 200%;
+        top: 50%;
+    }
 }
 
