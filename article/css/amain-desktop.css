@@ -1,5 +1,12 @@
 /*字体引用*/
 @import url("/webfonts/coltrane_regular_demo/stylesheet.css");
+@import url("webfonts/coltrane_regular_demo/stylesheet.css");
+@import "../sass/utilities/_all.css";
+@import "../sass/grid/columns.css";
+@import "../sass/grid/tiles.css";
+@import "../sass/helpers/spacing.css";
+@import "../sass/layout/section.css";
+@import "../sass/elements/tag.css";
 
 @media screen and (min-width: 900px) {
 
@@ -184,6 +191,48 @@
         /*去掉下划线*/
     }
 
+    .home-w {
+        /* position: relative;
+        float: left;
+        width: 100%;
+        left: 0%;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        /* overflow: hidden; */
+        /* padding: 0 12px; */
+        /* height: auto; */
+        position: relative;
+        float: left;
+        width: 100%;
+        left: 0%;
+        /* padding: 0 12px; */
+        margin: 12px;
+        /* background: #000;
+        background: var(--color-ff); */
+    }
+
+    .home-ww {
+        /* position: relative;
+        float: left;
+        width: 100%;
+        left: 0%;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        /* overflow: hidden; */
+        /* padding: 0 12px; */
+        /* height: auto; */
+        position: relative;
+        float: left;
+        width: 81%;
+        left: 17%;
+        /* padding: 0 12px; */
+        margin: 12px;
+        /* background: #000;
+        background: var(--color-ff); */
+    }
+
+
+
     .line1 {
         opacity: 1;
         float: right;
@@ -286,9 +335,7 @@
 
     .showxx {
         position: fixed;
-        left: 18%;
-        z-index: 10;
-        width: 81%;
+     width: 100%;
         height: 100%;
         background: var(--color-ff);
         overflow-y: scroll;
@@ -313,9 +360,13 @@
 
     .show {
         position: relative;
-        width: 100%;
-        left: 0%;
-        margin-top: 20px;
+     
+        left: 18%;
+        z-index: 10;
+        width: 81%;
+        
+       
+        margin-top: 120px;
     }
 
     .information {
@@ -780,10 +831,13 @@
     }
 
     .footer {
-        z-index: 99;
+        z-index: 999999;
         position: fixed;
         bottom: 0px;
         border: 0px;
+        height: 44px;
+        width: 101%;
+        left: -10px;
     }
 
     /* logo/导航*/
@@ -1022,5 +1076,49 @@
         text-align: left;
 
     }
+/* 线样式 */
+    .line {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 1px;
+        margin-bottom: 60px;
+        margin-top: 30px;
+        opacity: 0.05;
+    }
+
+    line2 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: .5px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        opacity: 1;
+
+    }
+
+    line4 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 3px;
+
+        opacity: 1;
+        margin-top: 4px;
+    }
+
+    .line3 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 2px;
+        margin-bottom: 40px;
+    }
+
 
 }
