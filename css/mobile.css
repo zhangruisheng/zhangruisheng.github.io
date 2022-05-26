@@ -2324,8 +2324,8 @@ padding-top: 20px;
         position: fixed;
         float: right;
         /* margin-top: 60px; */
-        width: 150px;
-        right: 1%;
+        width: 96%;
+        right: 2%;
         height: auto;
         bottom: 50px;
         /* padding: 0px 12px 0px -12px; */
@@ -2344,6 +2344,15 @@ padding-top: 20px;
         /* height: 100%; */
         margin-top: 0px;
         margin-left: 8px;
+        display: flex;
+        /* flex-wrap: wrap ;
+        flex-direction: row-reverse; */
+        /* flex-flow: row-reverse wrap-reverse; */
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        width: 100%;
+        /* justify-content: center; */
+        /* flex-wrap: wrap; */
 
         /* display: flex;
         flex-direction: row;
@@ -2360,7 +2369,7 @@ padding-top: 20px;
         width: auto;
         border-style: solid;
         border-width: 1.5px;
-        padding: 4px 24px;
+        padding: 0px 12px;
         height: auto;
         border-radius: 20px;
         background: var(--color-ff);
@@ -2368,6 +2377,8 @@ padding-top: 20px;
         float:right;
         text-align: right;
         margin-right: 2px;
+        height: 32px;
+        /* width: 20%; */
     }
 
     .monkey{
