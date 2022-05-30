@@ -244,11 +244,12 @@
         top: 150px;
         margin-bottom: 75px;
     }
+
     .monknew {
         position: relative;
         float: left;
-  
-        top: 120px;
+
+        top: 100px;
         margin-bottom: 60px;
     }
 
@@ -388,19 +389,43 @@
         -webkit-text-fill-color: var(--color-00);
         font-style: italic;
 
+
+
+
     }
 
-    .active {
+    .menu a span,
+    .menu-open a span {
+        display: none;
+    }
+
+    .menu a:hover span,
+    .menu-open a:hover span {
+        display:block;
+    }
+
+  .menu a span1,
+    .menu-open a span1 {
+        display: block;
+    }
+
+    .menu a:hover span1,
+    .menu-open a:hover span1 {
+        display: none;
+    } 
+
+
+    /* .active {
         opacity: 1;
 
         transition: opacity 0.2s;
-        /*字体描边*/
+  
 
         -webkit-text-stroke: 0px var(--color-00);
 
         -webkit-text-fill-color: var(--color-00);
 
-    }
+    } */
 
     .menu-iii {
         display: none;
@@ -465,6 +490,7 @@
         padding: 0;
         /* background: #000;
          background: var(--color-ff); */
+  
     }
 
     .home-ww {
@@ -2340,7 +2366,7 @@
 
         position: absolute;
         width: 100%;
-        min-height: 800px;
+        min-height: 700px;
         float: left;
         display: grid;
         place-items: center;
@@ -2351,7 +2377,7 @@
         position: absolute;
         float: left;
         opacity: 0;
-        max-height: 800px;
+        max-height: 700px;
         transition: opacity 1s;
         margin-top: 12px;
         text-align: center;
@@ -2365,8 +2391,8 @@
         position: relative;
         display: block;
         width: 100%;
-        max-width: 1400px;
-        max-height: 800px;
+        max-width: 1300px;
+        max-height: 700px;
 
     }
 

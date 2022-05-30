@@ -2388,5 +2388,27 @@ padding-top: 20px;
         width: 200%;
         top: 50%;
     }
+
+
+
+    .menu a span,
+    .menu-open a span {
+        display: none;
+    }
+
+    .menu a:hover span,
+    .menu-open a:hover span {
+        display:block;
+    }
+
+  .menu a span1,
+    .menu-open a span1 {
+        display: block;
+    }
+
+    .menu a:hover span1,
+    .menu-open a:hover span1 {
+        display: none;
+    } 
 }
 
