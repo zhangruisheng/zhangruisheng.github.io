@@ -2750,9 +2750,9 @@
     }
 
     .monkren-t {
-        font-size: 22px;
-        font-family: 微软雅黑, arial, "Hiragino Sans GB", 宋体, sans-serif;
-        font-weight: 700;
+        font-size: 32px;
+        font-family:"Helvetica Neue", Helvetica, sans-serif, "Helvetica Neue Regular", Icons;
+       font-weight: 900;
         position: relative;
         float: left;
         width: auto;
@@ -2761,6 +2761,17 @@
         height: 100%;
         margin-top: 0px;
 
+    }
+    .monkren-tt {
+        font-size: 22px;
+        font-family:"Helvetica Neue", Helvetica, sans-serif, "Helvetica Neue Regular", Icons;
+        position: relative;
+        float: left;
+        width: auto;
+        top: 8px;
+        padding: 4px 12px;
+        height: 100%;
+        margin-top: 0px;
     }
 
 
