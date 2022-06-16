@@ -258,7 +258,12 @@
 
 
     }
-
+    .monknew {
+        position: relative;
+        float: left;
+        top: 100px;
+        margin-bottom: 60px;
+    }
 
     /* logo/导航*/
 
@@ -503,33 +508,22 @@
         text-align: left;
     }
     .home-w {
-        /* width: 98%;
-        margin-left: 1%;
-        height: auto;
-        overflow: hidden;
-        margin-bottom: 100px; */
+    
         position:relative;
-        float: right;
-        width: 100%;
-        margin-top: 8px;
-        margin-bottom: 20px;
-  padding: 0;
-    }
-    .home-ww {
-        /* position: relative;
         float: left;
         width: 100%;
         left: 0%;
-        margin-top: 0px;
+        margin-top: 8px;
         margin-bottom: 20px;
-        /* overflow: hidden; */
-        /* padding: 0 12px; */
-        /* height: auto; */
+  
+    }
+    .home-ww {
+     
         position: relative;
         float: left;
-        width: auto;
-        /* padding: 0 12px; */
-      margin:12px;
+     
+      width: 100%;
+      left: 0%;
      
     }
     .old3  {
@@ -557,7 +551,7 @@
         height: auto;
         /* background: var(--color-ff); */
         overflow: hidden;
-        margin-top: 60px;
+        margin-top: 20px;
     }
 
     .home-holder {
@@ -569,7 +563,7 @@
     .home-title {
         position: relative;
         z-index: 999;
-        float: right;
+        float: left;
         margin: 0;
         width: 100%;
         height: auto;
@@ -577,20 +571,7 @@
         text-align: left;
     }
 
-    /* .home h3 {
-        font-size: 16px;
-        font-family: "coltrane regular demo";
-        opacity: 1;
-        font-weight: 800;
-    }
-
-    .home-l h3 {
-
-        text-align: right;
-        font-size: 16px;
-        opacity: 1;
-        font-family: "coltrane regular demo";
-    } */
+    
 
     .animate {
         opacity: 1;
@@ -1707,6 +1688,7 @@ padding-top: 20px;
         width: 100%;
         height: auto;
         padding: 8px 0;
+        border-top:0.5px solid;
         /*        background: var(--color-oa);*/
     }
 
