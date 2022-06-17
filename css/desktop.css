@@ -55,7 +55,7 @@
     input,
     label {
         color: var(--color-00);
-        font-weight: normal;
+        /* font-weight: normal; */
         /* font-family: “Helvetica Neue”, "Helvetica", "Arial", "PingFang SC",
             "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
             "Source Han Sans CN", "sans-serif"; */
@@ -241,7 +241,7 @@
     .share {
         position: relative;
         float: left;
-        top: 150px;
+        top: 188px;
         margin-bottom: 75px;
     }
 
@@ -249,7 +249,7 @@
         position: relative;
         float: left;
 
-        top: 100px;
+        top: 138px;
         margin-bottom: 60px;
     }
 
@@ -2738,7 +2738,7 @@
         margin-top: 0px;
         width: 100%;
         left: 0%;
-        height: 98px;
+        height: 128px;
         /* padding: 0px 12px 0px -12px; */
         background: var(--color-ff);
         z-index: 999999;
@@ -2749,30 +2749,7 @@
         align-content: space-around;
     }
 
-    .monkren-t {
-        font-size: 32px;
-        font-family:"Helvetica Neue", Helvetica, sans-serif, "Helvetica Neue Regular", Icons;
-       font-weight: 900;
-        position: relative;
-        float: left;
-        width: auto;
-        top: 8px;
-        padding: 4px 12px;
-        height: 100%;
-        margin-top: 0px;
-
-    }
-    .monkren-tt {
-        font-size: 22px;
-        font-family:"Helvetica Neue", Helvetica, sans-serif, "Helvetica Neue Regular", Icons;
-        position: relative;
-        float: left;
-        width: auto;
-        top: 8px;
-        padding: 4px 12px;
-        height: 100%;
-        margin-top: 0px;
-    }
+    
 
 
 
@@ -2830,6 +2807,31 @@
         text-align: left;
 
     }
+    .monkren-t {
+        font-size: 30px;
+        font-family:"Helvetica Neue", Helvetica, sans-serif, "Helvetica Neue Regular", Icons;
+       font-weight: 500;
+        position: relative;
+        float: left;
+        width: auto;
+        top: 8px;
+        padding: 4px 12px;
+        height: 100%;
+        margin-top: 0px;
+
+    }
+    .monkren-tt {
+        font-size: 22px;
+        font-family:"Helvetica Neue", Helvetica, sans-serif, "Helvetica Neue Regular", Icons;
+        position: relative;
+        float: left;
+        width: auto;
+        top: 8px;
+        padding: 4px 12px;
+        height: 100%;
+        margin-top: 0px;
+    }
+
 }
 
 
