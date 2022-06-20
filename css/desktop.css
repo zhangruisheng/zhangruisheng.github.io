@@ -234,7 +234,7 @@
     .works {
         position: relative;
         float: left;
-        top: 150px;
+        top: 170px;
         margin-bottom: 150px;
     }
 
@@ -510,6 +510,7 @@
         margin: 12px;
         /* background: #000;
         background: var(--color-ff); */
+        
     }
 
     .home-c {
