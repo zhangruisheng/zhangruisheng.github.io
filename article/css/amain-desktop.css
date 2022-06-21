@@ -361,21 +361,21 @@
     .show {
         position: relative;
      
-        left: 18%;
+        left: 24%;
         z-index: 10;
-        width: 81%;
+        width: 75%;
         
        
-        margin-top: 120px;
+        margin-top: 0px;
     }
 
     .information {
         position: fixed;
         z-index: 10000;
-        margin-top: 240px;
+        margin-top: 0px;
         left: 0px;
         padding: 0px 10px;
-        width: 220px;
+        width: 22%;
         height: auto;
         /*        background: #F8F8F8;*/
         text-align: left;
@@ -490,10 +490,10 @@
     .cover {
         position: relative;
         width: 100%;
-        min-width: 400px;
+        min-width: 100px;
         /* max-width: 1860px; */
-        float: right;
-        text-align: right;
+        float: left;
+        text-align: left;
         font-family: 'Serif SC', serif;
 
         font-size: 24px;
