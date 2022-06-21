@@ -967,9 +967,10 @@
 
     .applogo {
         position: relative;
-        width: 56px;
+        width: 100%;
         height: 56px;
         float: left;
+        text-align: center;
     }
 
     .appbox h5 {
