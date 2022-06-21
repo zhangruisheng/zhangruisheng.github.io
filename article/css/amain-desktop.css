@@ -366,13 +366,13 @@
         width: 75%;
         
        
-        margin-top: 0px;
+        margin-top: 150px;
     }
 
     .information {
         position: fixed;
         z-index: 10000;
-        margin-top: 0px;
+        margin-top: 150px;
         left: 0px;
         padding: 0px 10px;
         width: 22%;
