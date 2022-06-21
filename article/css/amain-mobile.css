@@ -743,7 +743,7 @@ width: 100%;
 
     .cover {
         position: relative;
-        width: 80%;
+        width: 100%;
         float: right;
         text-align: left;
         font-family: "coltrane regular demo";
@@ -753,7 +753,7 @@ width: 100%;
         line-height: 32px;
 margin-bottom: 20px;
 float: left;
-left: 10%;
+
 
 
     }
