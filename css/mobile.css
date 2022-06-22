@@ -148,7 +148,7 @@
         letter-spacing: 0px;
         font-weight: 400;
         font-size: 80px;
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
         line-height: 80px;
     }
 
@@ -157,7 +157,7 @@
         font-weight: 400;
         font-size: 52px;
         /* font-size: 22px; */
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
         line-height: 52px;
     }
 
@@ -165,7 +165,7 @@
         font-weight: 500;
         font-size: 44px;
         margin-bottom: 12px;
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
         line-height: 44px;
     }
 
@@ -173,7 +173,7 @@
         margin-bottom: 12px;
         letter-spacing: 1px;
         font-weight: 500;
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
         font-size: 32px;
         line-height: 32px;
     }
@@ -183,7 +183,7 @@
         font-weight: 400;
         font-size: 20px;
         line-height: 30px;
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
     }
 
     h5 {
@@ -192,8 +192,9 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 20px;
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
         width: auto;
+   
     }
 
     h6 {
@@ -578,7 +579,14 @@
         text-align: left;
     }
 
-    
+    .home-title h4 {
+    font-size: 12px;
+    }
+    .home-title h5 {
+        position: relative;
+        float: left;
+       width: auto;
+        }
 
     .animate {
         opacity: 1;
@@ -644,6 +652,7 @@
         letter-spacing: 1px;
         font-weight: 500;
         margin-bottom: 12px;
+        width: 100%;
     }
 
     .entry-date {
@@ -2066,7 +2075,7 @@ padding-top: 20px;
     .filered {
         position: relative;
         float: left;
-        margin-right: 10px;
+        margin-left: 0px;
         padding: 0 6px;
         background: #FE4A4B;
         color: #fff;
@@ -2079,7 +2088,7 @@ padding-top: 20px;
     .filered2 {
         position: relative;
         float: left;
-        margin-left: 10px;
+        margin-left: 0px;
         padding: 0 6px;
         background: #186D62;
         color: #fff;
