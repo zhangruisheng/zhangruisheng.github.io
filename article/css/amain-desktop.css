@@ -504,8 +504,8 @@
 
     .main-title {
         position: relative;
-        float: right;
-        text-align: left;
+        float: left;
+        text-align: center;
         width: 100%;
         height: auto;
         margin-bottom: 20px;

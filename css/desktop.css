@@ -730,7 +730,11 @@
         padding: 0;
         z-index: 1;
     }
-
+    .share-i{
+        position: absolute;
+        width: 100%;
+        height: 900px;
+    }
     .work-card-ui {
         margin-bottom: 0px;
         width: 32%;

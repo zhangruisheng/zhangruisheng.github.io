@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>自由职业/远程办公如何提高效率</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="848c4882-a7fb-46e4-99fb-d9bd970acf52" class="page sans"><header><h1 class="page-title">自由职业/远程办公如何提高效率</h1></header><div class="page-body"><h1 id="5d70c93b-ee74-4579-a14e-65abc44966f0" class="">远程和卡住。管理时间和提高工作效率的</h1><h1 id="54a15c7f-6b39-4273-9af8-769216817b1d" class=""><strong>一些简单的规则可以显着提高您的效率并帮助您明智地管理时间。</strong></h1><p id="c8ea474a-2da4-401a-8725-d61aa155a547" class="">2020 年 6 月 · 12 分钟阅读</p><h2 id="18002545-b585-40a0-923e-92222f5d5ec3" class=""><strong>贾姆谢德·卡西莫夫</strong></h2><figure id="abab3ce6-b5a6-4fb0-816e-99df0fc4bc02" class="image"><a href="https://thumb.tildacdn.com/tild3238-6330-4962-b363-363132333366/-/format/webp/00-start2-min.png"><img src="https://thumb.tildacdn.com/tild3238-6330-4962-b363-363132333366/-/format/webp/00-start2-min.png"/></a></figure><h1 id="463eca07-5c76-489d-8820-283b34996d27" class="">我们生活在一个有趣的时代，越来越多的人喜欢远程工作，许多公司也让员工远程工作<a href="https://www.achievers.com/blog/top-5-benefits-of-hiring-remote-employees/#:~:text=Reduces%20cost%2Dsavings,if%20they%20offered%20remote%20working.">的好处</a>。在员工自身的优势中，可以注意到以下几点：他们不花时间通勤，他们有灵活性和自主权，视频会议、各种软件和云服务等技术让他们保持联系。首先是分散注意力的因素：在心理层面上，如果人们在睡觉、吃饭、看电视或与家人共度时光的同一个地方工作——所有这些都会极大地影响生产力，对于一个人来说是非常具有挑战性的。集中. 不遵守工作时间表并开始拖延的诱惑非常高，人们经常因煮咖啡、吃零食、看电视节目等而分心。 当然，当家里有小孩时，有时专注于你的任务是不现实的。事实上，你不需要创造任何奇迹——只需遵循一些简单的规则，这些规则将大大提高你的效率并帮助你明智地管理你的时间。我们进行了研究，从各种来源获取了有用的信息，在本文中，我们想与您分享使您在家中表现出色的最佳技巧和策略。</h1><h1 id="96ffb33b-88e7-47b1-9c42-05b35a7366b3" class=""><strong>提前计划你的工作日</strong></h1><h1 id="ff4c7e64-da31-436c-ae1a-a37623aaa182" class=""><strong>第一个提示</strong></h1><figure id="aa197e64-5049-45f2-80c8-b3a6b4fbec61" class="image"><a href="https://thumb.tildacdn.com/tild3264-6337-4863-b338-333332393839/-/format/webp/01-plan-min.png"><img src="https://thumb.tildacdn.com/tild3264-6337-4863-b338-333332393839/-/format/webp/01-plan-min.png"/></a></figure><h1 id="82c104f1-c178-4950-9c51-829697b5c071" class="">提前计划下一个工作日可以让您更自觉地解决紧急问题并取得具体成果。它还可以减少焦虑，帮助您深度睡眠，并释放您的思维空间（您无需不断思考下一步该做什么以及按什么顺序）。这是给您的专业提示：列出任务并专注于它们的实施，而不是您应该花在工作上的时间。您可以使用常规记事本和特殊应用程序，例如。顺便说一句，请务必在我们<a href="https://setproduct.com/blog/figma-10-tech-companies">之前的帖子中</a>查看他们的成功故事.</h1><h1 id="60d8868d-ba7e-4f29-b1d4-b4a6e7947e9b" class=""><strong>早起，先处理最艰巨的任务</strong></h1><h1 id="374da799-6871-4f5a-8037-fcfc43afc872" class=""><strong>第二个技巧</strong></h1><figure id="88ed1b23-5159-4d04-937c-d85fbc8a1539" class="image"><a href="https://thumb.tildacdn.com/tild3933-6330-4138-b338-323639346435/-/format/webp/02-hardfirst-min.png"><img src="https://thumb.tildacdn.com/tild3933-6330-4138-b338-323639346435/-/format/webp/02-hardfirst-min.png"/></a></figure><h1 id="3436f48c-94e7-49c0-8cda-0e334825be0b" class="">因此，您已经编制了一份任务清单，并且当您实现每个目标时，都非常渴望从清单中划掉所有项目。我们为您提供了一些关于如何最好地开始新的一天的提示。<a href="https://writix.co.uk/blog/how-does-seven-to-eight-hours-of-sleep-affect-your-body">一个人需要7-8小时的夜间睡眠</a>您还可以在福布斯的了解早起的所有优势。<a href="https://www.briantracy.com/blog/time-management/the-truth-about-frogs/">吃掉那只青蛙</a>而那天早上的时间是当我们有最节能，焦点和意志力。还记得帕累托原理吗？我们 80% 的结果来自我们 20% 的行动。所以记住这一点，实施这些策略，不仅会提高你的生产力，还会提高你的士气。</h1><h1 id="ef2682ed-c8be-4c98-bffd-b938c77a4235" class=""><strong>在您周围创造一个专注的环境</strong></h1><h1 id="f898ecce-2468-49de-baaf-ffcf31c4c9ea" class=""><strong>第三个技巧</strong></h1><figure id="055905b8-71cc-4d77-86f6-6aa33e494c04" class="image"><a href="https://thumb.tildacdn.com/tild3333-3062-4331-b063-626565366534/-/format/webp/03-environment-min.png"><img src="https://thumb.tildacdn.com/tild3333-3062-4331-b063-626565366534/-/format/webp/03-environment-min.png"/></a></figure><h1 id="23f623a2-61c7-4ab5-be54-3a61e71f14ae" class="">试想一下：你坐下来工作，10 分钟后突然你的电话响了——你拿起了它。或者您的智能手机或平板电脑中的通知弹出 - 您又分心了。你的一些同事在 Slack 上给你发了一条消息——你猜怎么着？你又分心了！在日常生活中，很多事情会让我们分心。，由于分心，普通人会花费 2.1 小时。除此之外，我们还需要 20-25 分钟才能再次集中注意力。因此，关闭所有可能分散您注意力的东西非常重要。在工作时间成为一个很难找到的人。将您的设备置于飞行或请勿打扰模式并完成工作。并且不要忘记跟踪您的时间。如果您发现自己的注意力一直在分心并且白天没有做任何事情，那么是时候检查您的日程安排和优先事项了。尝试使用或进行时间跟踪。</h1><h1 id="469f305f-738c-4bbd-b351-25bdcb3966c8" class=""><strong>在高效率的短时间内工作</strong></h1><h1 id="2e8ca335-f0b0-48ef-a9d0-5fca0e00c9b8" class=""><strong>提示 4。</strong></h1><figure id="e801f513-de00-4e9e-9313-b527f1d4fb5b" class="image"><a href="https://thumb.tildacdn.com/tild6665-3265-4838-b032-366631633138/-/format/webp/04-short-min.png"><img src="https://thumb.tildacdn.com/tild6665-3265-4838-b032-366631633138/-/format/webp/04-short-min.png"/></a></figure><h1 id="e467412d-595f-44a1-aada-3c65eb5698e9" class=""><a href="https://open.buffer.com/science-taking-breaks-at-work/">科学家已经证明</a><em>1. 关闭所有干扰。2. 设定一个你希望在焦点冲刺期间完成的目标3. 将你的计时器设置为 90 分钟并开始工作</em><a href="https://www.verywellmind.com/color-psychology-green-2795817">看看绿色的东西</a>因此，了解活动的周期性后，您可以将工作日分成 90 分钟。这种方法将帮助您获得最大的效果并全天恢复力量。查看The Futur 的，特别是关于生产力和焦点冲刺。</h1><h1 id="ae23bae7-41c1-4d94-821c-533b7f08b47e" class=""><strong>照顾好你的健康</strong></h1><h1 id="ef62c58d-081c-4fab-bce6-efe5618d6ccb" class=""><strong>提示 5。</strong></h1><figure id="4bf5a9e7-8141-4c72-a5dc-f41d18bc1df0" class="image"><a href="https://thumb.tildacdn.com/tild3737-6162-4364-a331-323862396430/-/format/webp/05-health-min.png"><img src="https://thumb.tildacdn.com/tild3737-6162-4364-a331-323862396430/-/format/webp/05-health-min.png"/></a></figure><h1 id="99156a67-7fa0-44bc-b981-24fb1598fc06" class="">如果您有条理、专注和专业，那就太好了。但不要忘记你的健康。富有成效意味着过一种平衡的生活。<a href="https://www.youtube.com/watch?v=SG7n2QiaMB8">Mike Evans 博士</a>吃得好。已经在这个主题上进行了大量的研究。例如，杨百翰大学的科学家进行的一项研究表明，饮食不健康的员工抱怨生产力下降的频率比饮食正常的员工高 66%。打盹儿。为了恢复工作能力，午饭后需要睡20-40分钟。这是一个：除了恢复之外，白天的睡眠还有助于降低患心血管疾病的风险。此外，小睡能提高解决问题的能力，也有助于学习和记住重要信息。</h1><h1 id="70d6e87b-245a-41bb-9860-ee4dfe63e977" class=""><strong>优化您的工作空间</strong></h1><h1 id="9c56282f-02c0-46cf-b70d-53682b13b913" class=""><strong>提示 6。</strong></h1><figure id="387c6df9-9c65-4aed-9961-44f77e6f22bf" class="image"><a href="https://thumb.tildacdn.com/tild6637-6363-4632-a164-323935303033/-/format/webp/06-workspace-min.png"><img src="https://thumb.tildacdn.com/tild6637-6363-4632-a164-323935303033/-/format/webp/06-workspace-min.png"/></a></figure><h1 id="bcf8bc19-d5fb-4c36-807b-f6528e1ef4f0" class="">工作空间的优化是提高生产力的最重要的点之一。另外，如果您的工作区乱七八糟，那么您将很难找到所需的文件。众所周知，一个人要花费<a href="https://medium.com/@diamond_io/productivity-lost-time-and-the-power-of-ai-to-make-search-easier-a59d4cd85a26#:~:text=In%20a%20more%20recent%20IDC,the%20best%20at%20finding%20them.">4.5 小时来</a>搜索某些文件。<a href="https://thriveglobal.com/stories/health-benefits-of-a-kneeling-chair/#:~:text=When%20using%20a%20kneeling%20chair,the%20height%20of%20the%20seat.">此处</a>第三，尽量使用好的硬件。一切都在这里一目了然 - 使用强大的机器，您可以加快工作流程并提高结果。</h1><h1 id="62a02006-4fbe-4dc8-9fb8-df9e474d0a83" class=""><strong>Figma React UI 套件</strong></h1><h1 id="6aceeed7-1b60-4526-8ae2-7b27abfcc354" class="">在<strong>基于 Figma React</strong>的 Web UI 工具包中设计和组织良好。针对为桌面和移动应用程序构建复杂的数据密集型界面进行了优化。我们仔细地将 Figma 中的样式和规范翻译到了 React 框架中。<a href="https://setproduct.com/system"><em><strong>演示文稿</strong></em></a><em>·</em><a href="https://react.setproduct.com/"><em>文档</em></a><em>·</em><a href="https://setproduct.com/system/pricing"><em>定价</em></a><em>·</em><a href="https://www.figma.com/file/W3BLy8hbQNwFitzyrnAYhD/Setproduct-Design-System-2.0-UI-kit-preview/duplicate"><em>预览</em></a></h1><p id="fd5b6a56-de84-4703-9476-0b64a4d70786" class=""><a href="https://gum.co/figma2react/buynow"><strong>选择许可证</strong></a></p><h1 id="0a46e787-c672-4c75-a913-5845520ed995" class=""><strong>与优秀的人在一起</strong></h1><h1 id="aea5dddc-2ef9-4e20-a5ba-d104519731ce" class=""><strong>提示 7。</strong></h1><figure id="e9a14611-b2c7-471e-9c6d-7266fe175164" class="image"><a href="https://thumb.tildacdn.com/tild6566-3361-4533-a461-313438303030/-/format/webp/07-people-min.png"><img src="https://thumb.tildacdn.com/tild6566-3361-4533-a461-313438303030/-/format/webp/07-people-min.png"/></a></figure><h1 id="a7d777eb-450a-4bbe-9ea2-efb47eba78f6" class="">这不是我们清单上的典型项目。问题是世界上有许多杰出的人物。他们是各个活动领域的真正大师。<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2900004/">的大脑镜像神经元系统在</a>如果你想成为像他们一样的高绩效者——你需要模仿他们的行为、他们的习惯、他们如何安排他们的工作日，吸收他们的创造力。</h1><h1 id="86b32597-a0a1-4f9e-96ba-b5c46622a514" class=""><strong>忘记多任务处理</strong></h1><h1 id="8832002c-8960-4039-8b39-c30f8d5a3c17" class=""><strong>提示 8.</strong></h1><figure id="e6cd3945-84e5-419b-b374-440326bd0fa0" class="image"><a href="https://thumb.tildacdn.com/tild3635-6464-4132-b061-353631326537/-/format/webp/09-multitasking-min.png"><img src="https://thumb.tildacdn.com/tild3635-6464-4132-b061-353631326537/-/format/webp/09-multitasking-min.png"/></a></figure><h1 id="3140bc5d-857e-4c12-9816-102107962bf7" class="">是的，多任务处理能力在人力资源经理中非常流行，他们喜欢在撰写职位空缺时使用这个时髦的术语。然而，人们早就知道。<a href="https://www.sciencedaily.com/releases/2017/04/170425092429.htm#:~:text=The%20brain%20works%20most%20efficiently%20when%20it%20can%20focus%20on,a%20longer%20period%20of%20time&amp;text=Summary%3A,by%20as%20much%20as%2040%25.">研究表明</a>但这还不是全部：证明多任务处理不仅会影响生产力，还会影响人脑，尤其是负责集中注意力的区域。</h1><h1 id="a1c3c4ad-2b5b-4f52-bdfa-8e9b59ca7e3b" class=""><strong>开始学习</strong></h1><h1 id="352415f9-40a7-4a0f-9053-9f569b01f294" class=""><strong>最后提示！</strong></h1><figure id="c48a4bbc-35b2-4723-9b47-89b83678af57" class="image"><a href="https://thumb.tildacdn.com/tild3332-3161-4630-b164-333730623463/-/format/webp/08-learning-min.png"><img src="https://thumb.tildacdn.com/tild3332-3161-4630-b164-333730623463/-/format/webp/08-learning-min.png"/></a></figure><h1 id="aa2b85e6-9a9f-4701-ac6a-9a972a268468" class="">也许您想在您目前工作的公司实现职业发展，或者您想改变职业道路。或者，也许您想拥有自己的事业，或者只是想成为一个博学多才的人。不管你的目标是什么，开始学习。首先，学习如何为自我发展留出时间。你不应该找借口。即使您的工作日充满了需要完成的任务，也要花时间看书、听播客和观看教育视频。有一个叫做的原理，它说：“不管你的努力有多小，如果你一直都在做——它会累积起来，在你不知不觉中，你已经掌握了一项新技能。如果你在自律方面有困难，那么你可以应用，它是由著名的商业教练、演讲者和作家<a href="https://www.robinsharma.com/mastery-sessions/the-90901-rule">罗宾夏尔马发明的</a>。基本思想是这样的：在接下来的 90 天内，开始将工作时间的前 90 分钟花在您认为对您的生活很重要和至关重要的课程上。应用这条规则，在 90 天内，您的大脑已经接受了此类活动的训练，并将其视为一种习惯。</h1><h1 id="35636bb9-116d-42c6-8e5e-e7a755ba1342" class="">正如我们所见，在家工作与在办公室工作一样有效（或者可能更有效）。要做到这一点，你只需要应用上述规则，能够管理你的时间以分享工作和个人生活，成为一个高效的专业人士和一个优秀的家庭男人/女人。<strong>更多精彩内容即将推出</strong></h1></div></article></body></html>

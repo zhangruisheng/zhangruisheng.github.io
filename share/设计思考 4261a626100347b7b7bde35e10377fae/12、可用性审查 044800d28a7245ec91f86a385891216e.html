@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>12、可用性审查</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="044800d2-8a72-45ec-91f8-6a385891216e" class="page sans"><header><h1 class="page-title">12、可用性审查</h1></header><div class="page-body"><h1 id="c9e2a832-b013-488c-8d1b-34e70bbf0926" class=""><strong>如果人们在理解、遵循甚至阅读方面遇到困难，那么编写好的内容或提供非常有用的信息又有什么意义呢？</strong><strong>确保您的内容和信息具有良好的可读性和易读性是获得良好 SEO 和出色用户体验的首要因素。</strong></h1><h1 id="30c347b9-bcc6-4260-8495-d09172710c7e" class=""><strong>可读性</strong></h1><p id="9391c955-bc37-42f8-88e6-44a811763084" class="">可读性是衡量书面内容的易读性和易读性的指标。撰稿人、内容作者和设计师有责任确保书面内容具有良好的可读性。例如，非常复杂和长的句子很难理解和理解。</p><figure id="638a38dc-9922-46ad-8be5-bcb59bed1bcf" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/57tq72QNBp8ja8RLP8VMUR/0a595bb17fcf3c5014de71078680d069/2.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/57tq72QNBp8ja8RLP8VMUR/0a595bb17fcf3c5014de71078680d069/2.jpg"/></a></figure><h1 id="3110f4cf-a449-4937-8cde-bff6de7a6bf3" class=""><strong>确保良好可读性的指南</strong></h1><ol type="1" id="91132f63-725a-420b-94ea-1978c9e0d63a" class="numbered-list" start="1"><li>避免花哨的词和虚构的术语。此外，尽量避免使用首字母缩略词。</li></ol><ol type="1" id="b4f9d92b-eee8-4f40-b485-0f8f660b0249" class="numbered-list" start="2"><li>写短句和较小的段落。</li></ol><ol type="1" id="d1bdb023-d56c-4bdc-9f6c-bfe6622b88c1" class="numbered-list" start="3"><li>如果您的目标是更大的市场，请尝试以 8 年级的阅读水平写作。对于受过更多教育的观众来说，12 年级的阅读水平就足够了。</li></ol><ol type="1" id="3be6f618-bb7b-411c-86a7-0350f2e548a9" class="numbered-list" start="4"><li>从结论开始，然后详细说明，但要简短。<figure id="006c7538-ba13-4557-8422-f1fddba626f7" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/46qoxfXWerE0IsftN6ievv/410570140bcd0c8a793cffc0c86b0c68/3.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/46qoxfXWerE0IsftN6ievv/410570140bcd0c8a793cffc0c86b0c68/3.jpg"/></a></figure></li></ol><h1 id="9c1205ef-bf50-441c-b767-a54a61d0a53c" class=""><strong>易读性</strong></h1><p id="b2704b01-16af-496a-83ec-dd27277733c5" class="">人们是否能够看到、区分和识别您文本中的字符和单词？那么您的书面内容具有良好的易读性。“Legible”可以追溯到拉丁词</p><p id="69391aa5-aaa0-4c0e-a950-06e3049cc56c" class=""><em>legibilis</em></p><p id="76a120dc-1ef7-4849-b97c-2d545355bca0" class="">，意思是“可以阅读的”。易读性是通过尊重视觉设计和排版规则来确定的，例如良好的对比度、良好的跟踪、字距调整、行距。</p><figure id="d238f4d0-2bf6-4808-a905-43d8e329a3d8" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/rfcOz3GwsVMZPMmyLLtyz/79e8a53327a73c126a8943fd070e5eea/4.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/rfcOz3GwsVMZPMmyLLtyz/79e8a53327a73c126a8943fd070e5eea/4.jpg"/></a></figure><h1 id="8519f642-31e3-4d62-b0bf-a16e1605d5fe" class=""><strong>确保良好易读性的指南</strong></h1><ol type="1" id="81dcc0a6-73da-45d4-bbbb-da27c28fb4a1" class="numbered-list" start="1"><li>使用相当大的默认字体大小并允许用户更改字体大小。</li></ol><ol type="1" id="a287418f-88f1-43af-a7b0-7d54ed5c6f6f" class="numbered-list" start="2"><li>人物和背景之间有很高的对比度。</li></ol><ol type="1" id="b0897825-7d95-41da-84db-9b16ba01b45a" class="numbered-list" start="3"><li>使用干净的字体，并在使用手写或哥特式风格时要小心：这些风格降低了易读性。<figure id="70b61d6e-cb79-492b-9389-97098b4eae87" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2LdQZ0NwGeyRtUqOxA11rk/620600dfbe4c1ac16e88e5462ca271da/5.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2LdQZ0NwGeyRtUqOxA11rk/620600dfbe4c1ac16e88e5462ca271da/5.jpg"/></a></figure></li></ol><h1 id="40bd5dc5-1d16-48e5-930c-370cd2b9a65f" class=""><strong>锻炼</strong></h1><p id="76b2d72f-d3e2-4315-a60d-8ba59c539b05" class="">请注意，对于小字号，请使用更宽松的字母间距（跟踪）。看下面的例子，字体大小为 16px 时，字母间距不同。</p><figure id="2343f57a-ea1b-42cc-b394-162e6b7ce171" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/TU3qbmzVhymt5FAXywW5s/e0dce52eba3899244c6ae1d1af0077e3/6.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/TU3qbmzVhymt5FAXywW5s/e0dce52eba3899244c6ae1d1af0077e3/6.jpg"/></a></figure><p id="021c2612-abae-4837-9229-ebfecedb70df" class="">正文每行不应超过 40 到 60 个字符。对于桌面，您可以使用最多 120 个字符的更长行，但您需要增加行高。</p><figure id="cd918d62-42aa-411a-b921-f0de5fd3b6ec" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/7ikV2FAxcRDHf6um06jx9A/7c0a810d51a4ef3f96f64245e91b8fc8/7.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/7ikV2FAxcRDHf6um06jx9A/7c0a810d51a4ef3f96f64245e91b8fc8/7.jpg"/></a></figure><p id="7ca51718-a9b4-40fe-b26b-deddfceebd9b" class="">使用大于文本大小的行高（前导），可以安全地应用字体大小和行高之间的比率，如下所示：行高 = 字体大小 X 1.4（或 1.5）。</p><figure id="f086694c-07d6-446d-83af-e49db8676bdd" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6BdqrfT54k3XzXy4HjrsMA/fa0729718e8acec9bfe47f2cd946b93a/8.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6BdqrfT54k3XzXy4HjrsMA/fa0729718e8acec9bfe47f2cd946b93a/8.jpg"/></a></figure><p id="6a0d1932-e76e-452f-ab4d-39c5cd5eb528" class="">对于正文文本或长文本副本，保持文本左对齐而不是居中是一个很好的做法。这适用于英语等语言。</p><figure id="36a21027-b6df-45c3-9fee-c6a8de225eb2" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/1REVpgLxf37OIDAo4icK2R/07c6eb44c39a918252966ef5b526da83/9.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/1REVpgLxf37OIDAo4icK2R/07c6eb44c39a918252966ef5b526da83/9.jpg"/></a></figure><p id="f8b226a8-64ac-488e-8483-9186e5dfa368" class="">注意彩色文本与彩色背景的组合，不好的组合会导致文本的区分度低，并且会导致非常糟糕的可访问性。彩色文本应主要用于引起注意（标题、按钮和链接）。</p><figure id="e87929eb-5cfb-4462-9f55-f4033ebef959" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/b9oIhxHsJMtCIZKMMp1QY/af1045bde06a6de89ff76ce5b2569cc8/10.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/b9oIhxHsJMtCIZKMMp1QY/af1045bde06a6de89ff76ce5b2569cc8/10.jpg"/></a></figure><h1 id="5988cf73-ad0c-4347-ae12-00e562c355d6" class=""><strong>结论</strong></h1><p id="d2a4baf6-c026-4b64-8529-15a090e614f4" class="">大多数用户只会阅读不到 30% 的书面内容，因为我们主要是浏览信息并停留在我们感兴趣的任何内容上。确保良好的可读性和易读性是准备内容以获得出色体验的好方法。</p></div></article></body></html>

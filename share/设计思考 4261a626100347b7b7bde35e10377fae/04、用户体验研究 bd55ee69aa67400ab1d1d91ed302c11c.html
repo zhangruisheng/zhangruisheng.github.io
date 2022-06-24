@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>04、用户体验研究</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="bd55ee69-aa67-400a-b1d1-d91ed302c11c" class="page sans"><header><h1 class="page-title">04、用户体验研究</h1></header><div class="page-body"><h1 id="b72f8d4d-71ed-4d1e-8f0f-73feeaecd6e6" class=""><strong>用户体验研究基于观察、理解和分析。</strong><strong>UX 研究人员使用多种研究方法来发现问题、模式、用户心理模型、用户的思考和行为方式。</strong><strong>为了开展更有洞察力的研究，用户体验师与数据分析师、营销团队、数据科学家和利益相关者携手合作。</strong><strong>好的研究指导成功的设计。</strong></h1><h1 id="d218a194-15bc-49ea-b3b2-68062858a37f" class=""><strong>用户体验研究子集</strong></h1><p id="b7214e0f-be82-4a19-a98c-666982dd9897" class="">用户体验研究可以分为两个子集。我们将在下面讨论这两者。</p><figure id="49faf58e-72ba-4b3a-aa08-8d4c0bfa7e93" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2zVi8GABHFpbs0pBZKl9ck/27f97e227bb27599d05950217a5f4a04/1.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2zVi8GABHFpbs0pBZKl9ck/27f97e227bb27599d05950217a5f4a04/1.jpg"/></a></figure><h1 id="0164fb2a-6b64-4e28-b581-bfdbaa09d13d" class=""><strong>定性研究</strong></h1><p id="72f81219-b7b5-4cdf-881e-144330b9625f" class="">这包括用户访谈和民族志实地研究。定性研究可以更深入地了解用户为什么做他们所做的事情，他们的动机、目标是什么，是什么让他们对某事采取行动或不采取行动。这些研究侧重于用户的行为及其基本原理。</p><figure id="b2701006-032f-4cc6-9293-908bc13ff284" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5CsGWOK7N4FgwkR3Vw25UW/ec1ec0d8b4e232c9511bc0c7aefdf476/2.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5CsGWOK7N4FgwkR3Vw25UW/ec1ec0d8b4e232c9511bc0c7aefdf476/2.jpg"/></a></figure><h1 id="a021b872-1819-417d-b56e-858fffe764b5" class=""><strong>定量研究</strong></h1><p id="deb74972-0179-490f-98ae-a8d42634e008" class="">这包括调查和分析。定量研究是关于收集关于用户做什么、点击、使用、喜欢和不喜欢什么的可衡量数据。使用这种方法，我们可以发现大型用户组之间的模式。进行定性研究和定量研究是发现问题、制定正确解决方案的完美行动计划。这种组合将增加您开发成功且有用的设计和产品的机会。</p><figure id="0357c2a8-e895-403f-ad93-d8c7c4f1c32c" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/19Fu6unkP9IB8xvFx7HD5S/18b889768a61022181a3319f77d67af4/3.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/19Fu6unkP9IB8xvFx7HD5S/18b889768a61022181a3319f77d67af4/3.jpg"/></a></figure><h1 id="a4ec977c-773f-4954-877d-26c515266184" class=""><strong>各种用户体验研究方法</strong></h1><p id="88519dcf-d30b-4628-810a-ea751802df47" class="">有很多方法可以使用。了解所有这些将帮助您找到适合您的每个项目的最佳方法。例如，您可以使用卡片分类、树测试、启动团队会议、启发式评估、竞争分析、新旧产品的文献研究等方法。</p><figure id="8a9b0853-92e6-43b7-80bd-c4225b6efe31" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/3wcZhcSGdufzgejB2vDHYM/968c49675ecd23d8d5ea245541537fef/4.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/3wcZhcSGdufzgejB2vDHYM/968c49675ecd23d8d5ea245541537fef/4.jpg"/></a></figure><p id="ee13c212-fdee-4b91-b611-b29decf81d82" class="">您还可以使用利益相关者访谈、实地研究、日记研究、主题专家访谈 (SME)、产品/原型审计、A/B 测试、焦点小组、可用性测试等方法进行更详细的研究。</p><figure id="a4631297-a5b1-42bb-8e62-3198faa25ab3" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/j5Dgon9LmtZa6RJuG6hO3/736d191e183505e3023a72ee93f70c86/5.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/j5Dgon9LmtZa6RJuG6hO3/736d191e183505e3023a72ee93f70c86/5.jpg"/></a></figure><h1 id="b0b88b16-3e9c-4918-ab1c-efb69f9b728f" class=""><strong>练习：用户体验研究</strong></h1><p id="e1ec7e64-f95f-4cab-a63c-38a2e228a346" class="">我们将在此练习中使用“竞争分析”方法。</p><p id="e9e5bd73-3419-4395-b314-eb266343c6cf" class="">我们先选一个话题：吉他店。你想在美国开一家吉他网上商店。</p><figure id="7871e273-e454-43e9-a089-0a6b994960be" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/3QDfqcGgDLb29Xk7bTS28v/574eafb0c91d2d88806fe78df077aaf0/6.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/3QDfqcGgDLb29Xk7bTS28v/574eafb0c91d2d88806fe78df077aaf0/6.jpg"/></a></figure><p id="d9c4db21-fa62-411e-b9f9-1c1b5a5c7c65" class="">找出谁是您的竞争对手。打开一个隐身网页并使用 Google 搜索、Youtube、Pinterest 和 Instagram，搜索与“购买吉他”+“您的国家/城市”相关的字词，看看谁出现在热门搜索中。</p><figure id="16977968-8528-4687-8ca6-fe5cde682ff7" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5PAf7BhMMnnIVEKPjawIWo/88d49ee9156640f3bfe88ded4e723ed1/7.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5PAf7BhMMnnIVEKPjawIWo/88d49ee9156640f3bfe88ded4e723ed1/7.jpg"/></a></figure><p id="6e0e28c4-7b73-4974-903e-f6c080c1589e" class="">选择在所有搜索中重复的前 3-5 家企业。</p><figure id="239eed58-0f9d-4404-a797-89c0069ef06a" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6cLSKGfeP6cM4a1uIVwQn7/4fcb0558a811a30b62cb3dd0c21e4853/8.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6cLSKGfeP6cM4a1uIVwQn7/4fcb0558a811a30b62cb3dd0c21e4853/8.jpg"/></a></figure><p id="bfc86e1e-bd29-41ed-af9d-a8743427b2e9" class="">您的竞争对手的弱点和优势是什么？通过检查他们的网站、博客和社交媒体，写下包含他们的弱点和优势的列表。</p><figure id="e96943af-a2c7-435d-8955-0eb122578940" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2vYguW0CAccWNe976lAmUA/57c711b1c141d863f69041e9ac0a9540/9.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2vYguW0CAccWNe976lAmUA/57c711b1c141d863f69041e9ac0a9540/9.jpg"/></a></figure><p id="241cadc9-1f6e-4e41-a8c2-a815e47dc0dc" class="">也许他们对颜色的使用不好，也许他们的 CTA 按钮可以有更好的位置，也许他们的页面充满了导致糟糕用户体验的广告。研究并找出答案。</p><figure id="5d0d0b9d-d2f6-4e8c-93ed-6fa7b16f4d16" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/Ziy6VXSJCiQQMUDnWHKHB/d5c9e89a4b6d4c061803e48afbaa822c/10.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/Ziy6VXSJCiQQMUDnWHKHB/d5c9e89a4b6d4c061803e48afbaa822c/10.jpg"/></a></figure><p id="1fcc1c8a-a88f-45b7-9661-dfe5c2891125" class="">在线阅读客户对您的竞争对手、他们的产品的评价，以及他们的客户喜欢/讨厌他们的哪些方面。</p><figure id="9a85b408-011e-4a90-9d63-332f15d31a7b" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/145LWjR2EQYmQtsota8IUX/0d13efb49c37ef0bc005f8c618bf332e/11.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/145LWjR2EQYmQtsota8IUX/0d13efb49c37ef0bc005f8c618bf332e/11.jpg"/></a></figure><p id="b20a1331-e80e-4f5d-bc8e-c1b055c1b1d1" class="">了解您是否有机会击败竞争对手。如果您的竞争对手规模庞大且财务负担沉重，例如亚马逊、HelloFresh、Whole-foods，并且您的产品做同样的“事情”，这通常意味着很难赢得客户，因此最好的决定是找到另一个领域。</p><figure id="8d340731-1750-4731-919b-52d5d686ab67" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/OgQt7USUaI1Xds3BsKRam/79be22d01c911367f1430da7d8bca57a/12.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/OgQt7USUaI1Xds3BsKRam/79be22d01c911367f1430da7d8bca57a/12.jpg"/></a></figure><p id="589ba515-425a-4830-a038-b9d552e94225" class="">制定关于如何击败竞争对手的战略计划。一旦你发现了你的竞争对手的优缺点，你就可以根据你的发现做出改变或发展。例如，如果竞争对手的用户抱怨客户支持，请提供出色的客户支持，并确保人们知道这一点。</p><figure id="38c95aad-b104-4dd5-891e-7a02084ec653" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6UCxydeYltLSevpodsldWo/0c381daea6ea57b171e7d270526ceee5/13.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6UCxydeYltLSevpodsldWo/0c381daea6ea57b171e7d270526ceee5/13.jpg"/></a></figure><h1 id="da777422-2468-4308-937e-1e71ca4fbd55" class=""><strong>结论</strong></h1><p id="7fdaf107-a765-4d34-b2b0-1a99b16500c0" class="">了解每种方法、它的作用以及何时使用它是一个好主意。了解您可以使用哪些研究方法将有助于您在“预算有限”的情况下做好研究工作。根据您公司的预算，有很多方法可供选择，从长远来看，这将使您的生活更轻松。</p></div></article></body></html>

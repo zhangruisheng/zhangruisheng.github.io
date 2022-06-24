@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>访谈 Intervie</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4fb32902-11fa-4e61-95e0-0d1374591871" class="page sans"><header><h1 class="page-title">访谈 Intervie</h1></header><div class="page-body"><p id="8c1c8af5-c86e-4514-968b-f8da0be68d35" class=""><strong>Interview</strong></p><p id="b368ffde-a1a8-4abe-9a8c-54d3104cafdc" class="">访谈</p><h2 id="f8b41038-2ab3-4027-9990-66172d356d59" class=""><strong>摘要（Abstract）</strong></h2><p id="3ea8eaa5-5d1e-4d38-8d0b-c1c6fbf8d1ce" class="">透过对话来搜集研究对象对于访谈问题的想法，实施方式可以面对面进行面谈或以电话做访谈。现代人也会利用Skype、Line的网路软体进行视讯或通话，以解决无法和受访者近距离面谈的困扰。访谈的对象又分为个人访谈和团体访谈，个人访谈可以让受访者充分发表意见、进行更深入的了解；团体访谈可藉由多人发表意见，刺激彼此的想法，进行脑力激荡。访谈的问题设计分为「结构式访谈」、「半结构式访谈」和「非结构式访谈」三种，撷取使用者的想法与意见，做为分析潜在需求的元素。</p><h2 id="f8518521-a5b7-4ef6-a031-9a6d49847977" class=""><strong>定义（Definition）</strong></h2><p id="47e5a9a9-3101-4a81-92d6-18aae2792128" class="">－结构式访谈</p><p id="a3de8dda-180c-4dbd-ab4e-7235326bd7c0" class="">使用循序渐进的方式对受访者做询问，这种访谈内容会在访谈前先设计好问题，以统一的标准和方法做询问。控制访谈的自由度，采用标准化程序，谈话误差小，便于比较、分析，适合正式的、大范围的调查。</p><p id="bf70e954-bc3e-46f1-abed-720c95aed53b" class=""><strong>优点：访问结果方便量化&amp;可以对某些特定问题作深入调查。</strong></p><p id="7615c086-3e4f-41c0-96ea-f65f5eefebec" class=""><strong>缺点：对于敏感性、尖锐性或有关个人隐私的问题，它的效度就没这个高。</strong></p><p id="f1af9a59-b6c3-412a-ba37-1f70d1a3647f" class="">－半结构式访谈</p><p id="5302bb77-c308-4c7c-be80-0f45b839d0f0" class="">就访谈的状况适时以不同形式来问开放式问题，对所有受访者的提问只要预设问题，受访者可有较大表达意见的空间。</p><p id="1434bcef-7f11-4d36-84dc-4fb4e8b2068a" class="">－非结构式访谈</p><p id="5acaefe9-0726-418b-9622-be0627f11ab1" class="">事先不预定问卷和提出问题，只给受访者题目。与访谈的时候自由交谈。</p><p id="e921b965-d80e-42b2-bcf3-d6c4eeb465ab" class=""><strong>优点：因弹性较大，自由度高，访谈者可以对于问题作全面的了解。</strong></p><p id="fdd97296-fcc4-44c7-88a9-7522d3caf684" class=""><strong>缺点：较费时。访问过程是非标准化的，通常难以与其他受访资料作比较分析。</strong></p><h3 id="04a99037-88f5-4e9f-b4f2-a4232f9a2d62" class=""><strong>注意事项：巧妙转换问题以免脱离主题或产生争论、适时发问与插话、保持中立、注意时间、体贴受访者心境。</strong></h3><h2 id="dadb0e17-9a99-4066-b163-f716ce82f3b7" class=""><strong>步骤（Procedure）</strong></h2><p id="d076b2e0-6b09-4006-aba7-63e07bafe4d8" class="">Step1.访前准备</p><p id="72a1434d-723b-47f4-a62d-1d067f3aeba8" class="">先拟定访谈大纲、拟定问题、挑选受访者、拟定访谈日程以及备齐访谈中有可能会使用上的工具。</p><p id="a778bf3d-2613-4b4e-a5e7-72a0908147d2" class="">Step2.<strong>进行访谈</strong></p><p id="8b8bbd96-bbb1-4065-98c2-4802ae6710d5" class="">在表明身分跟单位后，告知受访者访谈内容（包括研究目的、提问的项目、并说明会尊重隐私权和机密处理访谈内容），并且告知选中受访者的原因，强调该研究的重要性。</p><p id="f6eebfb0-d1c6-4289-9bf9-277b5e454e04" class="">Step3.<strong>访谈中探测性处理</strong></p><p id="b4a185d2-aaf2-4e84-99c7-281c612cf056" class="">重复发问、复述答案、表示理解与兴趣、提出中性问题或评论。深入的探测性处理具有二项功能： 促使更完整与准确的答案和答覆符合可接受的基本要求。</p><p id="64fbbf06-9a24-41d4-ae41-886e7546597b" class="">Step4 <strong>.结束访谈</strong></p><p id="26575f00-91a9-447f-b8b9-88fc31b3f066" class="">访谈时间不宜过长，要把握结束谈话的时机。当发生争论或疲累时，就应设法结束谈话。最后也必须向受访者表达感谢之意。</p><p id="ea69c076-1830-4e26-aac8-62f71df68543" class="">Step5.<strong>整理内容</strong></p><p id="51f5fc2c-85aa-4df5-a9ad-9b45d04ba08f" class="">当场纪录（优点：资料完整不易偏差。 缺点：易忽略受访者情绪、动作讯息。）</p><p id="6e97052d-78fb-4d0f-82fd-408a7fce67ad" class="">事后纪录（优点：有多余时间进行互动，提升信任度。 缺点：记忆力不好，易忽略重要事项。）<a href="http://wiki.mbalib.com/wiki/%E8%AE%BF%E8%B0%88%E6%B3%95"></a></p><p id="17e0dfbd-b0c9-432c-8711-078d251c0665" class="">Step6.<strong>资料分析与撰写报告</strong></p><p id="fb2d5870-9e71-4f6c-8d87-d068ca7f7155" class="">将访谈资料整理后使用质性研究资料分析法进行分析，将受访者的访谈内容整理为逐字稿，字稿转换为意义单元后整理成受访者文本，将受访者文本分析纹研究者文本后从中撷取出研究发现，进而得到结论，最后进行报告的撰写。</p><h2 id="35bcf320-d5e3-4bce-994e-5a6c0d93ebce" class=""><strong>案例（Case）</strong></h2><h3 id="295d102d-feae-4757-9bbe-538ba0a827d1" class=""><strong>案例一 此案例采用-非结构式访谈、事后纪录，辅助工具：录音笔</strong></h3><p id="83b5b045-3cd7-416d-832a-b0f7580254fb" class=""><strong>Step1.</strong></p><p id="97715f40-2732-4cb1-af76-6062a27e001c" class="">挑选受访者-大学生族群。拟定大纲-大学生对于目前学校课程安排的感想（以非结构式访谈法来说，只需想出一个主题范围来探讨）</p><p id="77d32f8d-fbe4-4f3a-a5e6-82a53012d2e7" class=""><strong>Step2.</strong></p><p id="394de1b6-d4cf-458b-91cb-6f1ea32a8563" class="">事先向大学生说明调查的因素（如：需要让学校课程规画更丰富），并告知此调查的重要性，及挑选大学生访谈的主要因素（如：大学生是现阶段求学的主要族群），请受访者必须认真的回答以及完成访谈。</p><p id="27f231d8-1afc-429a-b59d-d69f4a07796d" class=""><strong>Step3.</strong></p><p id="94de8d17-0b70-4aac-bc18-7e52fdf96f45" class="">过程中大学生的回答，需要重复地做确认语意以防误解他们的想法，在访谈中也需要给予他们回应，表示理解，按照非结构式访谈法的方式，以他们回答的内容持续延伸，设计更多问题，而答案的内容则让受访者自由发挥。</p><p id="97db73af-e80f-44b0-bd6e-4fab6bd95c68" class=""><strong>Step4.</strong></p><p id="abfa905b-8571-415e-872c-0dd76d0fa59b" class="">访谈的途中，若大学生感到不耐烦时，应该停止访谈，而受访者转移话题时（与主题不相符时），则需拉回主题，把握访谈核心。</p><p id="585ee3a1-c841-4ac9-9d10-0d2687340dba" class=""><strong>Step5.</strong></p><p id="ab834b8e-1aef-400e-9b2f-f5adf536ca52" class="">结束访谈，感谢受访者，并于事后利用录音笔整理访谈纪录与统整。</p><hr id="114243c5-edf7-48c1-8653-26da9e1dea07"/><h3 id="182c4c11-5121-4276-a5f2-7b19974205c2" class=""><strong>案例二、此案例采用非结构式访谈、事后纪录，辅助工具为录音笔。</strong></h3><p id="6b921009-59b2-4276-ac54-9ae3abb35c25" class=""><strong>Step1.</strong></p><p id="21cab278-d88a-4ad2-8116-bab8b665629a" class="">访前准备：</p><p id="80c5c139-37db-459a-a5b6-10e9d15d287e" class="">拟定大纲-大学生族群对于出国留学的看法。</p><p id="705773ff-bad1-4381-aac5-2700bf15642f" class="">拟定问题-根据大纲订定访谈题目。</p><p id="982e0245-6c2a-43ff-9ac8-54603e633e1b" class="">挑选受访者-大学生族群。</p><p id="9c181a8c-226f-4237-bcc4-dddde53b6796" class="">拟定访谈日程-与受访者约定双方皆可的日期。</p><p id="f3a29f39-cc23-4b5c-ada9-f3c0adcf0c7f" class="">备齐访谈中使用工具-准备好录音笔及备用电池。</p><p id="dcabfe2b-8b0c-4eaa-ab68-ea9fe17b6676" class=""><strong>Step2.</strong></p><p id="1c567465-5efe-4603-8b03-30a167183801" class="">事先向大学生说明调查的原因（如：有意愿出国进修学生比例），并告知此调查的重要性，及挑选大学生访谈的主要因素（如：大学毕业后会选择出国进修或是待在国内），请受访者必须认真的回答以及完成访谈。</p><p id="6744a396-2a87-4717-8f6b-3043f3da5037" class=""><strong>Step3.</strong></p><p id="d4a662fe-bc9c-4ffc-b27e-f47926a4ac42" class="">过程中，重复地做确认以防误解受访者的想法，在访谈中也需要给予他们回应表示理解。而以非结构式访谈法的方式，根据受访者的回答的进行延伸，设计更多问题。</p><p id="c52ca059-bff7-4d7d-92ea-efa6459c73c3" class=""><strong>Step4.</strong></p><p id="ede9af3e-d1e3-4c06-a9ab-b21820dcb998" class="">注意访谈时间不宜过长，若是再访谈的途中，受访者感到不耐烦应停止访谈。在结束访谈后必须向受访者表示感谢之意。</p><p id="fb2af9c2-cce1-409e-919d-08daef04d128" class=""><strong>Step5.</strong></p><p id="5452fbed-9954-460f-8c60-1960f0a3abf6" class="">在事后利用录音笔整理访谈纪录与统整。</p><p id="8dbc6768-0c51-4a62-a166-c9658f09b361" class=""><strong>Stpe6.</strong></p><p id="9ec1a144-61c1-4f80-8beb-c6d7c017b77e" class="">整理完资料后进行质性研究资料分析法，并撰写报告、推导出结论。</p></div></article></body></html>

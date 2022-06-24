@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>15、搜索引擎优化</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6ebc066e-769e-4fed-a633-2c102f3eb2fe" class="page sans"><header><h1 class="page-title">15、搜索引擎优化</h1></header><div class="page-body"><h1 id="9cdf72c4-617e-440f-baf8-825fdf0ea79e" class=""><strong>SEO 代表搜索引擎优化。</strong><strong>这是优化要在搜索引擎的自然搜索结果中发现的 Web 内容的做法。</strong><strong>最大的搜索引擎是谷歌，但你应该知道还有很多其他的搜索引擎，比如 Bing、DuckDuckGo、Ecosia——甚至 Youtube 也是一个搜索引擎，但用于视频发现。</strong></h1><h1 id="cb90b5d9-dd94-41d3-896d-35f8d65f3a8e" class=""><strong>搜索引擎的背后是什么？</strong></h1><p id="5c2b44ab-b880-4c55-ab45-741215ebaa1b" class="">搜索引擎使用复杂而独特的一系列算法，在几分之一秒内为任何给定术语返回最佳和最相关的结果。根据 Google 的</p><p id="7bbc2aaf-10ce-44d6-8ed6-a87cbe318532" class=""><a href="https://www.google.com/search/howsearchworks/algorithms/"><strong>文档</strong></a></p><p id="58dbaf01-bce7-4535-a042-ef2ad4783e6f" class="">，这些算法会考虑许多因素，例如搜索查询的措辞、相关性、内容的新鲜度、用户体验、域权限、位置和设置。</p><figure id="f39019c3-0742-4ae7-94a0-34ce68c5c870" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/01aR21pOhfyOuFct5fdG9s/1fef133f754c22e5cac931862e6b057d/2.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/01aR21pOhfyOuFct5fdG9s/1fef133f754c22e5cac931862e6b057d/2.jpg"/></a></figure><h1 id="c03035cf-d701-4652-8a72-3eaec27e315a" class=""><strong>搜索引擎优化的主要好处</strong></h1><p id="b48ba2b5-7d54-4f6f-8d05-a34b6a4d5318" class="">有效的 SEO 策略将帮助您在搜索引擎结果页面（也称为 SERP）中</p><p id="056d5cc1-928e-434e-8d51-892c894dc83a" class=""><strong>排名更高</strong></p><p id="b811ba26-f483-4a52-be02-e1ee90ab5d63" class="">，从而提高流量的质量和数量。该</p><p id="cc8491c3-1f71-42de-867f-5fa827f3e041" class=""><strong>有机交通</strong></p><p id="cc7171ef-4420-432f-a140-305d10bda7c1" class="">你从你的SEO工作得到的是</p><p id="715f7a17-231e-4722-8a36-0a227eb0c6a2" class=""><strong>免费的</strong></p><p id="1380814c-ca67-4a47-9110-f1438420ae9a" class="">，</p><p id="5ec8a061-badd-415b-a0b7-45d28903069d" class=""><strong>一致的</strong></p><p id="9ddc73f5-98f5-4a77-b7db-85e5582f564e" class="">，一旦你在上面结果到达，并</p><p id="284ce1cb-66dd-40c5-8aaa-48db5e81bc8e" class=""><strong>有针对性的</strong></p><p id="015f1ef6-3253-4799-a336-196ba5be184a" class="">。登陆您页面的人已经对您提供的内容感兴趣，因此您的</p><ul id="9063eb99-45d2-4e49-b031-369fed05af78" class="bulleted-list"><li style="list-style-type:disc"><strong>*将有更大的机会**提高转化率。</strong></li></ul><figure id="4ba72b14-098a-497a-a220-bd148b4dcde5" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6ZzSBFKBDcrQRley9uA4eV/093ff8446f8b6c1f3a1b4baf19158263/3.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6ZzSBFKBDcrQRley9uA4eV/093ff8446f8b6c1f3a1b4baf19158263/3.jpg"/></a></figure><h1 id="a67e5f0b-5c25-46b1-bfa6-2346eca25b01" class=""><strong>如何实施有效的 SEO 策略</strong></h1><p id="1913c39e-0461-4252-832f-b6100694ea93" class="">成功的 SEO 策略的主要支柱是：</p><ul id="483fe871-c7a2-4fd1-836e-222996f8ae0e" class="bulleted-list"><li style="list-style-type:disc"><strong>关键字研究</strong><p id="21779a9a-12e5-4ae7-a9a3-f8b915a9bfce" class="">：使用关键字 Google Planner、Ahrefs、Semrush 等工具了解您的受众想要找到什么。</p><figure id="99f1cd04-7ef5-4576-8685-56608fa34006" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/3pCUtH5Grw71YTmc1Wt02l/9eb34f36824ed26e649a06a4b8b4b16d/4.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/3pCUtH5Grw71YTmc1Wt02l/9eb34f36824ed26e649a06a4b8b4b16d/4.jpg"/></a></figure></li></ul><ul id="7dceb26e-ea3d-47e8-be16-c443198da57d" class="bulleted-list"><li style="list-style-type:disc"><strong>页面搜索引擎优化</strong><em>（标题标签、内容、替代标签、用户体验、内部链接和 URL。）</em><p id="bfd0dd00-f622-427f-89ff-8c0bdd2c2346" class="">：为用户和搜索引擎优化您的书面内容</p></li></ul><ul id="9b5a0131-350a-426e-8f99-c9db36d09c52" class="bulleted-list"><li style="list-style-type:disc"><strong>技术搜索引擎优化</strong><p id="be1de38b-d835-4450-b30c-00718aa42a57" class="">：优化您的网站以进行抓取和索引。</p><figure id="1c71aae8-8e27-46de-b5a4-9ce71f7c4b9e" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5kisVffOfnTwuo78MHWSU3/0528c458ad353ebaa85daf095cf00c57/5.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5kisVffOfnTwuo78MHWSU3/0528c458ad353ebaa85daf095cf00c57/5.jpg"/></a></figure></li></ul><ul id="dde54026-4176-45ad-baf8-3e7fada9d8ca" class="bulleted-list"><li style="list-style-type:disc"><strong>链接建设</strong><p id="f4f3872c-cc25-444a-92d3-5f85605a898b" class="">：为了赢得搜索引擎的信任和权威，您需要其他可靠的来源链接到您的页面。这将使 Google 更加信任您的网站并帮助您获得更高的排名。</p></li></ul><h1 id="afb7342d-5b9b-472f-9401-d2346e56f58b" class=""><strong>练习：针对 SEO 优化图像</strong></h1><p id="06d87933-e167-4c90-84d5-2434ef0f51f0" class="">图片优化将帮助您为搜索引擎全面优化图片，帮助您提高排名并加快页面加载速度，这对用户体验至关重要。</p><h1 id="08c2e708-6b77-4943-92b4-183fe0bde387" class=""><strong>缩放图像</strong></h1><p id="fcfb806e-a676-4dc8-b33c-af9d29d6832b" class="">具有更高分辨率和大像素尺寸的图像会减慢您的页面加载时间。这就是为什么您需要调整图像大小以符合您网站的最大宽度尺寸的原因。假设我们需要将这个图像缩小到 720 像素的宽度。</p><figure id="b4f99e92-ff64-4482-b707-34ce7ffcdc0f" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/iSfzhI9pwAtglxpbp4TBG/28f85506269d261cf69cd31a5c073fea/6.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/iSfzhI9pwAtglxpbp4TBG/28f85506269d261cf69cd31a5c073fea/6.jpg"/></a></figure><p id="50f61266-62af-4cd0-9b2f-bc89e507fbdc" class="">我们将使用免费工具<a href="https://photoshop.adobe.com/"><strong>Adobe Photoshop Express</strong></a>。</p><h1 id="6877ba5a-cf6a-40c8-88fe-9dd7b5e033de" class=""><strong>命名您的图像</strong></h1><p id="4ae16e61-d091-4b7e-893c-d7ee267726a6" class="">您需要使用包含目标关键字的相关短标题来命名文件。假设我们想要优化“paleo pancake recipe”。图像的名称应包含我们的关键字，如下所示：“paleo-pancake-recipe”。使用连字符分隔单词。</p><figure id="584ae72c-33d7-42d3-bff1-05fc8d88b9f2" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2OM4vQQm4JV4gxsJfD4Ujj/6440888291ad0b5146da7aac39dc9154/7.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2OM4vQQm4JV4gxsJfD4Ujj/6440888291ad0b5146da7aac39dc9154/7.jpg"/></a></figure><h1 id="606931ec-3039-4b32-8a27-8cf455b38066" class=""><strong>选择正确的文件类型</strong></h1><p id="7deffd7f-9d8e-4762-8365-091aed84dee8" class="">对于照片或插图，建议使用 .jpeg，因为它会为您提供较小的文件大小。如果您的图像具有透明背景，请使用 .png。对于徽标和图标，请始终使用 SVG。在我们的例子中，我们将使用 jpeg。</p><figure id="d2185d08-e18f-45d6-bdad-7b3afc7e7e41" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5ln1E8X8JsKsCNlwH5q6bD/d7c895b360984847543017d32d9d6d0f/8.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5ln1E8X8JsKsCNlwH5q6bD/d7c895b360984847543017d32d9d6d0f/8.jpg"/></a></figure><h1 id="48783519-10ff-4691-b1e0-65363937fae5" class=""><strong>减小文件大小</strong></h1><p id="bad87002-304a-4d3a-bd4b-ca3496cf8d82" class="">您还需要确保文件大小不会太大。您可以使用付费工具或任何免费工具（如</p><p id="99d33297-9b81-4ff7-98a4-640a8308ab59" class=""><a href="https://imageoptim.com/mac"><strong>Impageoptim</strong></a></p><p id="e30e0b7d-a729-47e4-bac1-940ec36f9412" class="">或</p><p id="a0b8a9e6-e5ec-4237-a014-bae9e26e30f3" class=""><a href="https://imagecompressor.com/"><strong>Optimizilla）</strong></a></p><p id="1b4b2ed9-3dba-49c7-96e4-85696c1846ca" class="">来压缩您的图像。如果您使用 WordPress，请尝试使用</p><p id="52e05cf0-3e88-464b-b29c-9cd87a175a6f" class=""><a href="https://wordpress.org/plugins/wp-smushit/"><strong>Smush</strong></a></p><p id="ee0e3539-a97f-4aba-b84c-a8b7f5272508" class="">插件。</p><figure id="d70ae341-549f-4f33-bdde-5d598c13f7f5" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/NkG6B2EIwpvY8IpMD324A/f74edb52c569b5b27536bee6a5d38196/9.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/NkG6B2EIwpvY8IpMD324A/f74edb52c569b5b27536bee6a5d38196/9.jpg"/></a></figure><h1 id="2a216022-4ce6-4fea-a040-a485fd605ac1" class=""><strong>使用描述性替代文字</strong></h1><p id="76a2a8e2-1cae-4cdf-b24f-ff93c130a4ae" class="">“Alt 标签”对于图像优化和确保在无法加载图像时显示描述性文本至关重要。对于使用屏幕阅读器的视障人士来说，这也很重要。具有描述性和具体性。示例：“一盘松软的煎饼，上面放着新鲜的蓝莓、覆盆子和糖粉。”</p><figure id="83ca0303-c3a4-40b4-9a7f-91e7bd41245f" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5WYe9rbvEnlt6tsdUBc0mw/2dda68cd5aac7181106856fc532fbf7b/10.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5WYe9rbvEnlt6tsdUBc0mw/2dda68cd5aac7181106856fc532fbf7b/10.jpg"/></a></figure><h1 id="8decbfde-8487-43a4-94e4-5a9b2586a5d6" class=""><strong>结论</strong></h1><p id="d9080c1d-b6c3-4222-8fc6-d4189bbc9f84" class="">干得好！现在您知道如何优化图像以获得更好的页面速度、更好的用户体验和更好的排名。如果您想在竞争中脱颖而出，实施 SEO 策略是您绝对应该做的事情。</p></div></article></body></html>
