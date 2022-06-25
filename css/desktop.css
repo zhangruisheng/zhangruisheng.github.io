@@ -9,7 +9,58 @@
 
 
 
+@media screen and (min-width: 1700px) {
+    .home-w {
+        position: relative;
+        float: right;
+        width: 100%;
+        margin-top: 8px;
+        margin-bottom: 20px;
+        padding: 0;
+        height: auto;
+        overflow: hidden;
+        padding-bottom: 0px;
+        min-height: 1000px;
 
+    }
+
+    /** || Carousel Styles */
+
+    #carousel {
+
+        position: absolute;
+        width: 100%;
+        min-height: 1000px;
+        float: left;
+        display: grid;
+        place-items: center;
+
+
+
+    }
+
+    #carousel li {
+        position: absolute;
+        float: left;
+        opacity: 0;
+        max-height: 1600px;
+        transition: opacity 1s;
+        height: auto;
+
+
+    }
+
+    /** || General Styles */
+
+
+    #carousel img {
+        position: relative;
+        display: block;
+        width: 100%;
+        max-width: 1900px;
+        max-height: 1100px;
+    }
+}
 /*桌面端*/
 @media screen and (min-width: 900px) {
 
@@ -2840,55 +2891,3 @@
 }
 
 
-@media screen and (min-width: 1700px) {
-    .home-w {
-        position: relative;
-        float: right;
-        width: 100%;
-        margin-top: 8px;
-        margin-bottom: 20px;
-        padding: 0;
-        height: auto;
-        overflow: hidden;
-        padding-bottom: 0px;
-        min-height: 1000px;
-
-    }
-
-    /** || Carousel Styles */
-
-    #carousel {
-
-        position: absolute;
-        width: 100%;
-        min-height: 1000px;
-        float: left;
-        display: grid;
-        place-items: center;
-
-
-
-    }
-
-    #carousel li {
-        position: absolute;
-        float: left;
-        opacity: 0;
-        max-height: 1600px;
-        transition: opacity 1s;
-        height: auto;
-
-
-    }
-
-    /** || General Styles */
-
-
-    #carousel img {
-        position: relative;
-        display: block;
-        width: 100%;
-        max-width: 1900px;
-        max-height: 1100px;
-    }
-}
