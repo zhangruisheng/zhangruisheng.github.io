@@ -13,7 +13,7 @@
     .home-w {
         position: relative;
         float: right;
-        width: 100%;
+        width: 98%;
         margin-top: 8px;
         margin-bottom: 20px;
         padding: 0;
@@ -21,6 +21,9 @@
         overflow: hidden;
         padding-bottom: 0px;
         min-height: 1000px;
+        left: 1%;
+       
+        
 
     }
 
@@ -534,11 +537,11 @@
 
     .home-w {
         position: relative;
-        float: right;
-        width: 100%;
+        float: left;
+        width: 98%;
         margin-top: 0px;
         margin-bottom: 40px;
-        padding: 0;
+      left: 1%;
         /* background: #000;
          background: var(--color-ff); */
   
@@ -556,9 +559,10 @@
         /* height: auto; */
         position: relative;
         float: left;
-        width: auto;
+        width: 98%;
+        left: 1%;
         /* padding: 0 12px; */
-        margin: 12px;
+        /* margin: 12px; */
         /* background: #000;
         background: var(--color-ff); */
         
