@@ -834,7 +834,7 @@
     .information-w {
         position: relative;
         margin-bottom: 20px;
-        height: auto;
+        min-height: 40px;
         margin-top: 10px;
 
 
@@ -878,7 +878,7 @@
     .applogo {
         position: relative;
         width: 56px;
-        height: auto;
+        height: 56px;
         float: left;
         margin-bottom: 20px;
     }
@@ -2888,7 +2888,11 @@
         height: 100%;
         margin-top: 0px;
     }
-
+    .border{
+        border: 0.5px solid var(--color-00);
+        padding: 0;
+        margin: 0;
+    }
 }
 
 
