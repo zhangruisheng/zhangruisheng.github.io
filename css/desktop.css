@@ -252,7 +252,21 @@
         margin-bottom: 60px;
     }
 
-
+.monknew-ls{
+    width: 100%;
+  margin: 20px auto;
+    columns: 4;
+    column-gap: 30px;
+  
+    .item {
+      width: 100%;
+      break-inside: avoid;
+      margin-bottom: 30px;
+  
+      img {
+        width: 100%;
+      }
+}
     img:hover {
         cursor: pointer;
     }
