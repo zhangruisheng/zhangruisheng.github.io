@@ -1298,7 +1298,7 @@
         margin-bottom: 26px;
         height: auto;
         width: auto;
-
+margin-top: 20px;
         /* margin-left: 8px; */
 
 
@@ -1307,11 +1307,12 @@
     .about-nn {
         position: relative;
         float: left;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         width: 100%;
         height: auto;
         border-top: 0.5px solid;
         padding: 12px 0;
+       
 
     }
 
@@ -1323,6 +1324,7 @@
         position: relative;
         float: left;
         font-size: 15px;
+        margin-bottom: 4px;
 
     }
 
@@ -2885,6 +2887,13 @@
         float: left;
         width: 100%;
         /* min-width: 340px; */
+    }
+    .mb20{
+        
+        margin-top: 20px;
+    }
+    .mb20{
+   margin-bottom: 20px;
     }
 }
 
