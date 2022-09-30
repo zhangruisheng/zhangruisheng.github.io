@@ -117,6 +117,7 @@
         border: 0;
         background: #000;
         background: var(--color-ff);
+        overflow: visible;
     }
 
     h1xl {
@@ -213,8 +214,9 @@
 
     .container {
         position: fixed;
-        overflow-y: scroll;
+   
         overflow-x: hidden;
+        overflow-y: scroll;
         background: #000;
         margin: 0;
         padding: 0;
@@ -235,6 +237,8 @@
         float: left;
         top: 170px;
         margin-bottom: 150px;
+
+
     }
 
     .share {
@@ -278,7 +282,7 @@
     /* logo/导航*/
 
     .nav {
-        position: absolute;
+        position:absolute;
         left: 0px;
         /*70%的不透明度  */
         z-index: 99999;
@@ -494,6 +498,7 @@
         left: 14%;
         margin-top: 8px;
         margin-bottom: 40px;
+
     }
 
     .home-10 {
@@ -516,6 +521,7 @@
         left: 0.5%;
 
     }
+
     .home-about {
 
         position: relative;
@@ -1298,7 +1304,7 @@
         margin-bottom: 26px;
         height: auto;
         width: auto;
-margin-top: 20px;
+        margin-top: 20px;
         /* margin-left: 8px; */
 
 
@@ -1312,7 +1318,7 @@ margin-top: 20px;
         height: auto;
         border-top: 0.5px solid;
         padding: 12px 0;
-       
+
 
     }
 
@@ -2888,12 +2894,14 @@ margin-top: 20px;
         width: 100%;
         /* min-width: 340px; */
     }
-    .mb20{
-        
+
+    .mb20 {
+
         margin-top: 20px;
     }
-    .mb20{
-   margin-bottom: 20px;
+
+    .mb20 {
+        margin-bottom: 20px;
     }
 }
 
