@@ -300,6 +300,7 @@
         transition: 0.6s;
         background: var(--color-ff);
         top: 0%;
+       
     }
 
     .menu-open ul {
