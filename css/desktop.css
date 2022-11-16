@@ -251,7 +251,7 @@
     .monknew {
         position: relative;
         float: left;
-        top: 130px;
+        top: 0px;
         margin-bottom: 60px;
     }
 
@@ -288,7 +288,7 @@
         /*70%的不透明度  */
         z-index: 99999;
         width: 120px;
-        height: auto;
+        height: 300px;
         top: 180px;
         
     }
@@ -502,6 +502,7 @@
         left: 14%;
         margin-top: 8px;
         margin-bottom: 40px;
+        top:-300px;
 
     }
 
@@ -509,11 +510,12 @@
         position: relative;
         float: left;
         width: 100%;
-        margin-top: 0px;
+        margin-top:0px;
         margin-bottom: 40px;
         left: 0%;
         /* background: #000;
          background: var(--color-ff); */
+         top:-180px;
 
     }
 
@@ -2922,7 +2924,7 @@
         padding-bottom: 0px;
         min-height: 1000px;
         left: 0%;
-
+        top:-180px;
 
 
     }
