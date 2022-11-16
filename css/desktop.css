@@ -216,7 +216,7 @@
         position: fixed;
    
         overflow-x: hidden;
-        overflow-y: scroll;
+        overflow-y: visible;
         background: #000;
         margin: 0;
         padding: 0;
@@ -235,7 +235,7 @@
     .home-works {
         position: relative;
         float: left;
-        top: 170px;
+        top: 120px;
         margin-bottom: 150px;
 
 
@@ -251,8 +251,7 @@
     .monknew {
         position: relative;
         float: left;
-
-        top: 138px;
+        top: 130px;
         margin-bottom: 60px;
     }
 
@@ -282,12 +281,16 @@
     /* logo/导航*/
 
     .nav {
-        position:absolute;
+        /* position:absolute; */
+       position: -webkit-sticky;
+        position: sticky;  
         left: 0px;
         /*70%的不透明度  */
         z-index: 99999;
         width: 120px;
         height: auto;
+        top: 180px;
+        
     }
 
     .logo {
@@ -302,6 +305,7 @@
         /* backdrop-filter: blur(40px); */
         top: 0px;
         left: 0px;
+        display: none;
     }
 
 
@@ -330,7 +334,7 @@
         z-index: 999999;
         margin-left: 12px;
         width: 120px;
-        display: none;
+        
 
     }
 
@@ -364,7 +368,7 @@
     .menu ul,
     .menu-open ul {
         position: relative;
-        top: 308px;
+        /* top: 308px; */
         /* bottom: 30px; */
         left: 12px;
         width: 240px;
