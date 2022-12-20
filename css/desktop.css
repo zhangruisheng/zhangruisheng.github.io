@@ -505,7 +505,14 @@
         top:-300px;
 
     }
-
+    .home-100{
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-top:0px;
+        margin-bottom: 40px;
+        left: 0%;
+    }
     .home-10 {
         position: relative;
         float: left;
@@ -2922,7 +2929,7 @@
         height: auto;
         overflow: hidden;
         padding-bottom: 0px;
-        min-height: 1000px;
+        /* min-height: 1000px; */
         left: 0%;
         top:-180px;
 
