@@ -7,7 +7,7 @@ close1.onclick = function () {
     "use strict";
     document.getElementById("menu").setAttribute("class", "menu");
     document.getElementById("zzhao").setAttribute("class", "zzzhao");
-    document.getElementById("logo").setAttribute("class", "logom");
+    document.getElementById("logo").setAttribute("class", "logo");
 
 };
 
@@ -15,7 +15,7 @@ open1.onclick = function () {
     "use strict";
     document.getElementById("menu").setAttribute("class", "menu-open");
     document.getElementById("zzhao").setAttribute("class", "zzhao");
-    document.getElementById("logo").setAttribute("class", "logo");
+    document.getElementById("logo").setAttribute("class", "logom");
 
 
 };
