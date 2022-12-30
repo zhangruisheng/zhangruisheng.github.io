@@ -2933,7 +2933,7 @@
 }
 
 @media screen and (min-width: 1700px) {
-    .home-10 {
+    /* .home-10 {
         position: relative;
         float: right;
         width: 100%;
@@ -2943,10 +2943,19 @@
         height: auto;
         overflow: hidden;
         padding-bottom: 0px;
-        /* min-height: 1000px; */
         left: 0%;
         top:-180px;
 
+
+    } */
+    .home-10 {
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-top:0px;
+        margin-bottom: 40px;
+        left: 0%;
+        top:-180px;
 
     }
 
