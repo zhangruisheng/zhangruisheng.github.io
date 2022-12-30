@@ -277,11 +277,21 @@
     .logo {
         position: fixed;
         top: 16px;
-        left: 3%;
+        left: 50%;
+        margin-left: -20px;
         width: 40px;
         height: 40px;
         z-index: 99999;
 
+    }
+    .logom {
+        position: fixed;
+        top: 16px;
+        left: 3%;
+        /* margin-left: -20px; */
+        width: 40px;
+        height: 40px;
+        z-index: 99999;
     }
 
 
