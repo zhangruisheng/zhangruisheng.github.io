@@ -548,13 +548,13 @@ width: 100%;
         position: relative;
         float: left;
         width: 100%;
-        margin-top: 0px;
+        margin-top: -180px;
         margin-bottom: 40px;
         left: 0%;
         /* background: #000;
          background: var(--color-ff); */
-        top: -180px;
-
+         /* top: -180px;  */
+         min-height: 700px;
     }
 
     .home-9 {
@@ -2966,6 +2966,7 @@ width: 100%;
         /* 纵向拖动 */
         cursor: pointer;
         overflow: scroll;
+        margin-top: 20px;
      
     }
 
@@ -3001,10 +3002,11 @@ width: 100%;
         position: relative;
         float: left;
         width: 100%;
-        margin-top: 0px;
+        margin-top: -180px;
         margin-bottom: 40px;
         left: 0%;
-        top: -180px;
+        /* top: -180px; */
+        min-height: 900px;
 
     }
 
@@ -3023,7 +3025,7 @@ width: 100%;
 
         position: absolute;
         width: 100%;
-        min-height: 1100px;
+        min-height: 800px;
         float: left;
         display: grid;
         place-items: center;
