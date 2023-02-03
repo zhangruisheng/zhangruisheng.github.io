@@ -234,12 +234,55 @@
         </nav>
         <div class="home-works">
             <div class="home">
+
+
+
                 <div class="columns">
                     <div class="column is-full">
-                        <h2>Carplay for 911<span class="o3">🎨Design Rookie 🧑‍🎓School of Automotive Engineering, Wuhan
-                                University of
-                                Technology 📱Wechat official account：AUTD</span>
-                        </h2>
+
+                        <div class="dazzle">
+                            <div class="dazzle-header">
+                                <h2>Carplay for 911<span class="o3">🎨Design Rookie 🧑‍🎓School of Automotive
+                                        Engineering,
+                                        Wuhan
+                                        University of
+                                        Technology 📱Wechat official account：AUTD</span>
+                                </h2>
+                                <!-- <div class="hs__arrows"><a class="arrow disabled arrow-prev"></a><a
+                                        class="arrow arrow-next"></a></div> -->
+                            </div>
+                            <ul class="dazzle-imgs">
+                                <img class="dazzle-img" src="images/dazzle/dating/Home.png" height="100%" alt="" />
+                                <img class="dazzle-img" src="images/dazzle/dating/Home Swipe.png" height="100%"
+                                    alt="" />
+                                <img class="dazzle-img" src="images/dazzle/dating/Home Scroll.png" height="100%"
+                                    alt="" />
+                                <img class="dazzle-img" src="images/dazzle/dating/Home Scroll (more photos.png"
+                                    height="100%" alt="" />
+                                <img class="dazzle-img" src="images/dazzle/dating/Preferences.png" height="100%"
+                                    alt="" />
+                                <img class="dazzle-img" src="images/dazzle/dating/Chat.png" height="100%" alt="" />
+                                <img class="dazzle-img" src="images/dazzle/dating/Profile.png" height="100%" alt="" />
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="columns">
+                    <div class="column is-full">
+                        <div class="dazzle-header">
+                            <h2>Carplay for 911<span class="o3">🎨Design Rookie 🧑‍🎓School of Automotive
+                                    Engineering,
+                                    Wuhan
+                                    University of
+                                    Technology 📱Wechat official account：AUTD</span>
+                            </h2>
+                            <div class="hs__arrows"><a class="arrow disabled arrow-prev"></a><a
+                                    class="arrow arrow-next"></a></div>
+                        </div>
+
                         <div class="dazzle-imgs" id="dazzle">
                             <img class="dazzle-img" src="images/dazzle/dating/Home.png" height="100%" alt="" />
                             <img class="dazzle-img" src="images/dazzle/dating/Home Swipe.png" height="100%" alt="" />
@@ -253,7 +296,8 @@
                         <p class="w100"><span class="o7 w50">We put Carplay on a Porsche 911 from the 1980s. Porsche
                                 Classic Communication Management
                                 Systems and the new Carplay at WWDC 2022 were the inspiration for this project. We
-                                redesigned the instrument panel and center console for the 911, providing two displays
+                                redesigned the instrument panel and center console for the 911, providing two
+                                displays
                                 in
                                 place of the dashboard and radio. Criticisms and suggestions are welcome.</span>
                         </p>
@@ -276,7 +320,8 @@
                         <p class="w100"><span class="o7 w50">We put Carplay on a Porsche 911 from the 1980s. Porsche
                                 Classic Communication Management
                                 Systems and the new Carplay at WWDC 2022 were the inspiration for this project. We
-                                redesigned the instrument panel and center console for the 911, providing two displays
+                                redesigned the instrument panel and center console for the 911, providing two
+                                displays
                                 in
                                 place of the dashboard and radio. Criticisms and suggestions are welcome.</span>
                         </p>
@@ -308,7 +353,8 @@
                         <p class="w100"><span class="o7 w50">We put Carplay on a Porsche 911 from the 1980s. Porsche
                                 Classic Communication Management
                                 Systems and the new Carplay at WWDC 2022 were the inspiration for this project. We
-                                redesigned the instrument panel and center console for the 911, providing two displays
+                                redesigned the instrument panel and center console for the 911, providing two
+                                displays
                                 in
                                 place of the dashboard and radio. Criticisms and suggestions are welcome.</span>
                         </p>
@@ -550,48 +596,71 @@
     <iframe class="footer" width="100%" height="36px" src="footer.html" allowfullscreen></iframe>
     <!-- 横向滚动 -->
     <script type="text/javascript">
-        const ele = document.getElementById('dazzle');
-        ele.style.cursor = 'grab';
 
-        let pos = { top: 0, left: 0, x: 0, y: 0 };
+        // work in progress - needs some refactoring and will drop JQuery i promise :)
+        var instance = $(".dazzle");
+        $.each(instance, function (key, value) {
 
-        const mouseDownHandler = function (e) {
-            ele.style.cursor = 'grabbing';
-            ele.style.userSelect = 'none';
+            var arrows = $(instance[key]).find(".arrow"),
+                prevArrow = arrows.filter('.arrow-prev'),
+                nextArrow = arrows.filter('.arrow-next'),
+                box = $(instance[key]).find(".dazzle-imgs"),
+                x = 0,
+                mx = 0,
+                maxScrollWidth = box[0].scrollWidth - (box[0].clientWidth / 2) - (box.width() / 2);
 
-            pos = {
-                left: ele.scrollLeft,
-                top: ele.scrollTop,
-                // Get the current mouse position
-                x: e.clientX,
-                y: e.clientY,
-            };
+            $(arrows).on('click', function () {
 
-            document.addEventListener('mousemove', mouseMoveHandler);
-            document.addEventListener('mouseup', mouseUpHandler);
-        };
+                if ($(this).hasClass("arrow-next")) {
+                    x = ((box.width() / 2)) + box.scrollLeft() - 10;
+                    box.animate({
+                        scrollLeft: x,
+                    })
+                } else {
+                    x = ((box.width() / 2)) - box.scrollLeft() - 10;
+                    box.animate({
+                        scrollLeft: -x,
+                    })
+                }
 
-        const mouseMoveHandler = function (e) {
-            // How far the mouse has been moved
-            const dx = e.clientX - pos.x;
-            const dy = e.clientY - pos.y;
+            });
 
-            // Scroll the element
-            ele.scrollTop = pos.top - dy;
-            ele.scrollLeft = pos.left - dx;
-        };
+            $(box).on({
+                mousemove: function (e) {
+                    var mx2 = e.pageX - this.offsetLeft;
+                    if (mx) this.scrollLeft = this.sx + mx - mx2;
+                },
+                mousedown: function (e) {
+                    this.sx = this.scrollLeft;
+                    mx = e.pageX - this.offsetLeft;
+                },
+                scroll: function () {
+                    toggleArrows();
+                }
+            });
 
-        const mouseUpHandler = function () {
-            ele.style.cursor = 'grab';
-            ele.style.removeProperty('user-select');
+            $(document).on("mouseup", function () {
+                mx = 0;
+            });
 
-            document.removeEventListener('mousemove', mouseMoveHandler);
-            document.removeEventListener('mouseup', mouseUpHandler);
-       
-        };
+            function toggleArrows() {
+                if (box.scrollLeft() > maxScrollWidth - 10) {
+                    // disable next button when right end has reached 
+                    nextArrow.addClass('disabled');
+                } else if (box.scrollLeft() < 10) {
+                    // disable prev button when left end has reached 
+                    prevArrow.addClass('disabled')
+                } else {
+                    // both are enabled
+                    nextArrow.removeClass('disabled');
+                    prevArrow.removeClass('disabled');
+                }
+            }
 
-        // Attach the handler
-        ele.addEventListener('mousedown', mouseDownHandler);
+        }); Í
+
+
+
     </script>
 
     <!-- lateral loading bar -->
@@ -602,17 +671,17 @@
 
     <script src="js/iframe.js"></script>
     <script>
-        (function () {
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            } else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
+            (function () {
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                } else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
 
     </script>
 
