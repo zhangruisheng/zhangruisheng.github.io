@@ -2984,9 +2984,45 @@
         float: left;
         height: 100%;
         margin-right: 30px;
-
+        /* 点击穿透 */
         pointer-events: none;
+        /* 双击不选中 */
+        -moz-user-select: none;
+        /*火狐*/
+        -webkit-user-select: none;
+        /*webkit浏览器*/
+        -ms-user-select: none;
+        /*IE10*/
+        -khtml-user-select: none;
+        /*早期浏览器*/
+        user-select: none;
     }
+    .hs__arrows {
+        align-self: center;
+      }
+      .hs__arrows .arrow:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        content: "";
+        background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgMTUgOSI+Cgk8cGF0aCBmaWxsPSIjMzMzMzMzIiBkPSJNNy44NjcgOC41NzRsLTcuMjItNy4yMi43MDctLjcwOEw3Ljg2NyA3LjE2IDE0LjA1Ljk4bC43MDYuNzA3Ii8+Cjwvc3ZnPgo=");
+        background-size: contain;
+        filter: brightness(5);
+        width: 18px;
+        height: 12px;
+        cursor: pointer;
+      }
+      .hs__arrows .arrow.disabled:before {
+        filter: brightness(2);
+      }
+      .hs__arrows .arrow.arrow-prev:before {
+        transform: rotate(90deg);
+        margin-right: 10px;
+      }
+      .hs__arrows .arrow.arrow-next:before {
+        transform: rotate(-90deg);
+      }
+
 }
 
 @media screen and (min-width: 1700px) {
