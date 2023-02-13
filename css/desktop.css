@@ -270,27 +270,25 @@
         margin-bottom: 60px;
     }
 
-    /* .monknew-ls {
-  
+    .monknew-ls {
         width: 100%;
         margin: 20px auto;
         columns: 4;
         column-gap: 30px;
+    }
 
-        old {
-            width: 100%;
-            break-inside: avoid;
-            margin-bottom: 30px;
+    .monknew-ls .old {
+        width: 100%;
+        break-inside: avoid;
+        margin-bottom: 30px;
 
-            img {
-                width: 100%;
-            }
-        }
-
-        img:hover {
-            cursor: pointer;
-        }
-    } */
+    }
+    .monknew-ls img {
+        width: 100%;
+    }
+    .monknew-ls img:hover {
+        cursor: pointer;
+    }
 
     /* logo/导航*/
 
@@ -1833,6 +1831,7 @@
         background: var(--color-ff);
         margin-bottom: 40px;
         float: left;
+        /* margin-right: 23px; */
     }
 
     .old3 {
@@ -2997,10 +2996,12 @@
         /*早期浏览器*/
         user-select: none;
     }
+
     .hs__arrows {
         align-self: center;
-      }
-      .hs__arrows .arrow:before {
+    }
+
+    .hs__arrows .arrow:before {
         content: "";
         display: inline-block;
         vertical-align: middle;
@@ -3011,17 +3012,20 @@
         width: 18px;
         height: 12px;
         cursor: pointer;
-      }
-      .hs__arrows .arrow.disabled:before {
+    }
+
+    .hs__arrows .arrow.disabled:before {
         filter: brightness(2);
-      }
-      .hs__arrows .arrow.arrow-prev:before {
+    }
+
+    .hs__arrows .arrow.arrow-prev:before {
         transform: rotate(90deg);
         margin-right: 10px;
-      }
-      .hs__arrows .arrow.arrow-next:before {
+    }
+
+    .hs__arrows .arrow.arrow-next:before {
         transform: rotate(-90deg);
-      }
+    }
 
 }
 
