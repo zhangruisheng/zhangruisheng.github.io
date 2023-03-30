@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown File to HTML Example</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div id="markdown-content"></div>
+  <script>
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        const markdownContent = xhr.responseText;
+        const htmlContent = marked(markdownContent);
+        document.getElementById("markdown-content").innerHTML = htmlContent;
+      }
+    };
+    xhr.open("GET", "/md/微信产品设计 80 个为什么.md", true);
+    xhr.send();
+  </script>
+</body>
+</html>
+
