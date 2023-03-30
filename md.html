@@ -1,24 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Markdown File to HTML Example</title>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <meta charset="utf-8"/>
+    <title>Marked in the browser</title>
 </head>
+
 <body>
-  <div id="markdown-content"></div>
-  <script>
-    const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        const markdownContent = xhr.responseText;
-        const htmlContent = marked(markdownContent);
-        document.getElementById("markdown-content").innerHTML = htmlContent;
-      }
-    };
-    xhr.open("GET", "/md/微信产品设计 80 个为什么.md", true);
-    xhr.send();
-  </script>
+<div id="content"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(function(){
+        $.ajax({
+            type:"get",
+            url:"md/微信产品设计 80 个为什么.md",
+            dataType:"html",
+            success:function(res){
+               show(res)
+            }
+        })
+
+        function show(data) {
+            document.getElementById('content').innerHTML = marked.parse(data);
+        }
+    })
+</script>
 </body>
 </html>
-
