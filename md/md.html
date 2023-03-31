@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>微信8.0 设计重构「MONK.REN</title>
+
+    <!-- 移动端自适应-->
+    <meta name="viewport"
+        content="width=device-width,height=device-height,initial-scale=1, minimum-scale=0.5, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <!--/*中文*/-->
+
+    <link href="/article/css/amain-desktop.css" rel="stylesheet" type="text/css">
+    <link href="/article/css/amain-mobile.css" rel="stylesheet" type="text/css">
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <!-- Google Analytics -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5CXJCNBDLL');
+    </script>
+    <!-- Google AdSense-->
+    <script data-ad-client="ca-pub-1677892562045013" async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677892562045013"
+        crossorigin="anonymous"></script>
+    <!-- 头条搜索 -->
+    <script>
+        (function () {
+            var el = document.createElement("script");
+            el.src =
+                "https://sf1-scmcdn-tos.pstatp.com/goofy/ttzz/push.js?f531e7e47a28714a2f49eb52a46becb92bd082349d7801841df17436910a419abf822fac7779c3baa99751206e7b37d34f192ce1af70ac3a97bb777260beb18f";
+            el.id = "ttzz";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(el, s);
+        })(window)
+    </script>
+    <!-- 360 -->
+    <script>
+            (function () {
+                var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+                document.write('<script src="' + src + '" id="sozz"><\/script>');
+            })();
+    </script>
+    <script src="https://cdn.staticfile.org/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script>
+        $(function () {
+            $.ajax({
+                type: "get",
+                url: "微信产品设计 80 个为什么.md",
+                dataType: "html",
+                success: function (res) {
+                    show(res)
+                }
+            })
+
+            function show(data) {
+                marked.setOptions({
+                    renderer: new marked.Renderer(),
+                    gfm: true,
+                    breaks: true,
+                });
+                document.getElementById('md').innerHTML = marked.parse(data);
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <nav class="nav-all">
+        <a href="../index.html" target="_top">
+            <div class="monkren-t">
+                <img class="monkren-i" src="img/return.png" width="40px" height="" alt="" />
+            </div>
+        </a>
+        <div class="monkren-t">
+            <a href="about.html" target="_top">
+                Designer<br>
+                Besijing<br>
+                Ruisheng Zhang
+            </a>
+        </div>
+        <div class="monkren-t">
+            <img src="../favicon/logo.png" onMouseOver="this.src='favicon/pixelated.png'"
+                onMouseOut="this.src='favicon/logo.png'" width="40px" alt="MONK" />
+
+        </div>
+    </nav>
+    <nav class="nav">
+
+        <a href="../index.html">
+            <div id="logo" class="logo">
+                <div class="logo-i">
+                    <img src="/favicon/logo.png" width="100%" alt="" />
+                </div>
+            </div>
+        </a>
+
+        <menu class="menu" id="menu">
+
+            <div class="menu-iii-x" id="close-button">
+                <img src="/images/basis/menu-x.png" width="30px" alt="" />
+            </div>
+            <div class="logo-t">
+                <a href="../about.html" target="_top">
+                    <h4>MONK.REN</h4>
+                </a>
+            </div>
+            <ul>
+                <li><a href="../index.html" target="_top">HOME</a></li>
+
+                <li><a href="../work.html" target="_top">WORK</a></li>
+                <li><a href="../new.html" target="_top">MOMENT</a></li>
+                <li><a href="https://www.notion.so/monkren/DESIGN-4261a626100347b7b7bde35e10377fae" target="_blank">
+                        KNOWLEDGE</a></li>
+                <!--                <li><a href="share.html" target="mainiframe">NOTES</a></li>-->
+                <li><a href="../designer.html" target="_top">DESIGNER</a></li>
+                <li><a href="../links.html" target="_top">LINKS</a></li>
+                <li><a href="../about.html" target="_top">ME</a></li>
+
+
+
+            </ul>
+
+            <div class="logo2">
+
+                <img src="../images/basis/logo2.png" width="130px" alt="logo2" />
+
+            </div>
+        </menu>
+
+        <div id="open-button" class="menu-iii">
+            <img src="../images/basis/menu.png" width="36px" alt="" />
+        </div>
+        <div id="zzhao" class="zhao">
+        </div>
+    </nav>
+    <div cÍlass="showxx">
+        <div class="information">
+            <div class="main-title">
+                <div class="applogo">
+                    <img src="../images/work/app/wechat-logo.png" width="60px" alt="">
+                </div>
+                <div class="cover left">
+                    Hi，Wechat<br>
+                    微信 8.0，重设计<br>
+                    在遇见你的时候，感受你的感受<br>
+                    WeChat 8.0 UI REDESIGN <br>
+                    Light / Night
+
+                </div>
+            </div>
+
+            <div class="information-n">
+                <span id="busuanzi_container_page_pv">
+                    <h6>阅读次数</h6>
+                    <h2><span id="busuanzi_value_page_pv"></span></h2>
+                </span>
+            </div>
+            <div class="information-n">
+                <h6>Des</h6>
+                <h3>2020</h3>
+            </div>
+            <div class="information-n">
+                <h6>关键词</h6>
+                <h5>产品、UIUX，UI、REDESIGN
+                </h5>
+            </div>
+            <div class="information-n">
+                <div class="file">
+                    <h3>源文件查看</h3>
+                    <hr class="line1">
+                    <div class="information-n">
+
+                        <div class="button-img">
+                            <h6>Figma</h6>
+                            <a href="https://www.figma.com/file/q5n7lLVhW8IDFovJ9HZtEi/Wechat-Apps-Library?node-id=0%3A1 "
+                                target="_blank">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="60" height="60" fill="var(--color-00)" />
+                                    <path
+                                        d="M23.3744 50.9297C27.14 50.9297 30.1961 47.8736 30.1961 44.108V37.2864H23.3744C19.6088 37.2864 16.5527 40.3425 16.5527 44.108C16.5527 47.8736 19.6088 50.9297 23.3744 50.9297Z"
+                                        stroke="var(--color-ff)" stroke-width="3" />
+                                    <path
+                                        d="M16.5527 30.465C16.5527 26.6994 19.6088 23.6433 23.3744 23.6433H30.1961V37.2867H23.3744C19.6088 37.2867 16.5527 34.2305 16.5527 30.465Z"
+                                        stroke="var(--color-ff)" stroke-width="3" />
+                                    <path
+                                        d="M16.5527 16.8217C16.5527 13.0561 19.6088 10 23.3744 10H30.1961V23.6433H23.3744C19.6088 23.6433 16.5527 20.5872 16.5527 16.8217Z"
+                                        stroke="var(--color-ff)" stroke-width="3" />
+                                    <path
+                                        d="M30.1978 10H37.0194C40.785 10 43.8411 13.0561 43.8411 16.8217C43.8411 20.5872 40.785 23.6433 37.0194 23.6433H30.1978V10Z"
+                                        stroke="var(--color-ff)" stroke-width="3" />
+                                    <path
+                                        d="M43.8411 30.465C43.8411 34.2305 40.785 37.2867 37.0194 37.2867C33.2539 37.2867 30.1978 34.2305 30.1978 30.465C30.1978 26.6994 33.2539 23.6433 37.0194 23.6433C40.785 23.6433 43.8411 26.6994 43.8411 30.465Z"
+                                        stroke="var(--color-ff)" stroke-width="3" />
+                                </svg>
+
+                            </a>
+                        </div>
+                        <div class="button-img">
+                            <h6>Sketch</h6>
+                            <a href="https://www.sketch.com/s/vM0Db " target="_blank">
+                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="60" height="60" fill="var(--color-00)" />
+                                    <path d="M40.9838 11H19.0162L7 25.2857L30 51L53 25.2857L40.9838 11Z"
+                                        stroke="var(--color-ff)" stroke-width="3" stroke-linejoin="round" />
+                                    <path d="M8 25.5H52" stroke="var(--color-ff)" stroke-width="3"
+                                        stroke-linejoin="round" />
+                                    <path d="M19 11L30 50L41 11" stroke="var(--color-ff)" stroke-width="3"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="show">
+            <a name="top" id="top"></a>
+            <div id="md">
+
+            </div>
+            <main class="main">
+
+                <div class="mainartcle">
+
+
+                    <div id="md">
+
+                    </div>
+
+
+
+
+
+
+                    <div class="content">
+                        <h5>版权所有©MONK.REN</h5><br>
+                        <h6>
+                            声明：本站所展示和发布的设计作品仅供学习交流，未经书面许可，任何组织、任何人不得以任何形式进行商业用途的发布与篡改。本站作品的版权归创作者、合作者、签约机构、工作公司所有，且保留一切法律追究权利。
+                        </h6>
+                    </div>
+                </div>
+            </main>
+
+
+            <div class="top">
+                <a href="#top">
+                    <img src="img/on@2x.png" width="100%" height="" alt="" /><br>
+                </a>
+            </div>
+        </div>
+
+        <div class="show">
+            <line2></line2>
+            <div class="columns is-desktop is-6 p-0">
+                <div class="column is-7 p-0 is-desktop mt-8">
+                    <div class="column is-11 mt-0 IS-5">
+                        <img src="/images/basis/banner.png" width="100%" alt="me">
+
+                    </div>
+
+                    <div class="columns mb-6 ">
+
+                        <div class="column ml-2 is-desktop">
+                            <h6>MONK.REN</h6>
+                            <a href="/typography.html">
+                                <h5>Typography</h5>
+                            </a>
+                            <a href="/monkey.html">
+                                <h5>IP</h5>
+                            </a>
+                            <a href="/share.html">
+                                <h5>THINKING</h5>
+                            </a>
+
+                        </div>
+                        <div class="column ml-2 is-desktop">
+                            <h6>TOOLS
+                            </h6>
+                            <a target="_blank" href="https://www.sketch.com/">
+                                <h5>Sketch</h5>
+                            </a>
+                            <a target="_blank" href="https://www.figma.com/@monkren">
+                                <h5>Figma</h5>
+                            </a>
+                            <a target="_blank" href="https://www.figma.com/@monkren">
+                                <h5>
+                                    VS Code</h5>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="column is-4 p-0 is-desktop mt-8">
+                    <div class="column is-full is-vertical">
+                        <!-- <span class="tag is-black">广告呀</span> -->
+                        <script async
+                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677892562045013"
+                            crossorigin="anonymous"></script>
+                        <!-- 一级 -->
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1677892562045013"
+                            data-ad-slot="3087793882" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                        <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <iframe class="footer" width="100%" height="36px" src="../footer.html" allowfullscreen></iframe>
+</body>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/art.js"></script>
+<script src="../js/iframe.js"></script>
