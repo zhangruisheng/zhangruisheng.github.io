@@ -203,7 +203,7 @@
         letter-spacing: 0.4px;
         font-weight: 400;
         font-size: 13px;
-        line-height: 20px;
+        line-height: 150%;
         margin-bottom: 12px;
         /* font-family: "logo"; */
 
@@ -284,9 +284,11 @@
         margin-bottom: 30px;
 
     }
+
     .monknew-ls img {
         width: 100%;
     }
+
     .monknew-ls img:hover {
         cursor: pointer;
     }
@@ -533,6 +535,7 @@
         top: -260px;
 
     }
+
     .home-aicg {
         position: relative;
         float: left;
@@ -545,6 +548,7 @@
         top: -190px;
 
     }
+
     .home-100 {
         position: relative;
         float: left;
@@ -611,7 +615,7 @@
 
         width: 200px;
         margin-right: 12px;
-margin-top: -140px;
+        margin-top: -140px;
         /*        background: var(--color-ff);*/
         /* background: #000;
         background: var(--color-ff); */
@@ -939,11 +943,12 @@ margin-top: -140px;
         align-items: center;
     }
 
-    .md{
+    .md {
         position: relative;
         float: left;
         margin-top: 150px;
     }
+
     /*********************
     
         右侧导航栏
@@ -1360,10 +1365,10 @@ margin-top: -140px;
     .about-t {
         /* padding: 10px 16px; */
         /* background: var(--color-oa); */
-        margin-bottom: 26px;
+        margin-bottom: 40px;
         height: auto;
         width: auto;
-        margin-top: 20px;
+        margin-top: 0px;
         /* margin-left: 8px; */
 
 
@@ -1372,14 +1377,17 @@ margin-top: -140px;
     .about-nn {
         position: relative;
         float: left;
-        margin-bottom: 30px;
+        margin-bottom: 0px;
         width: 100%;
         height: auto;
         border-top: 0.5px solid;
-        padding: 12px 0;
+        padding: 12px 0 0px 0;
+        margin-top: 30px;
 
 
     }
+
+    
 
     .about-tt {
 
@@ -2953,6 +2961,11 @@ margin-top: -140px;
         /* min-width: 340px; */
     }
 
+    .h100 {
+
+        height: 100%;
+    }
+
     .w50 {
         position: relative;
         float: left;
@@ -3068,7 +3081,7 @@ margin-top: -140px;
         float: left;
         width: 100%;
         /* margin-top: -180px; */
-        
+
         margin-bottom: 40px;
         left: 0%;
         /* top: -180px; */
@@ -3080,8 +3093,8 @@ margin-top: -140px;
 
         position: relative;
         float: left;
-        width: 99%;
-        left: 0.5%;
+        width: 98%;
+        left: 1%;
 
     }
 
