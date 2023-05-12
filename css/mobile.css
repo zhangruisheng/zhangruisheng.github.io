@@ -512,7 +512,7 @@
         margin-bottom: 100px;
         text-align: left;
     }
-    .home-10 {
+    .home-100-t180 {
 
         position: relative;
         float: left;
@@ -522,8 +522,14 @@
         margin-bottom: 20px;
 
     }
+.home-m-94{
+      position: relative;
+        float: left;
 
-    .home-9 {
+        width: 94%;
+        left: 3%;
+}
+    .home-99 {
 
         position: relative;
         float: left;
@@ -533,7 +539,7 @@
 
     }
 
-    .home-about {
+    .home-85 {
 
         position: relative;
         float: left;
