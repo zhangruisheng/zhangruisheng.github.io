@@ -102,7 +102,7 @@
     }
 
 
-   
+
     h1xl {
         letter-spacing: 0px;
         font-weight: 400;
@@ -174,7 +174,7 @@
         letter-spacing: 0px;
         font-weight: 400;
         font-size: 15px;
-       
+
         line-height: 200%;
         width: 100%;
     }
@@ -504,14 +504,16 @@
         margin-bottom: 100px;
         text-align: left;
     }
+
     .home-aicg {
-        width: 100%;
+        width: 94%;
         margin-left: 3%;
         height: auto;
         overflow: hidden;
         margin-bottom: 100px;
         text-align: left;
     }
+
     .home-100-t180 {
 
         position: relative;
@@ -522,13 +524,15 @@
         margin-bottom: 20px;
 
     }
-.home-m-94{
-      position: relative;
+
+    .home-m-94 {
+        position: relative;
         float: left;
 
         width: 94%;
         left: 3%;
-}
+    }
+
     .home-99 {
 
         position: relative;
@@ -1660,7 +1664,7 @@
     .red {
         color: #FF4444;
         opacity: 1;
-        background-color: #FF4444 ;
+        background-color: #FF4444;
     }
 
     .linksh4 {
