@@ -570,7 +570,18 @@
         /* top: -180px;  */
         min-height: 700px;
     }
-
+    .home-100-t40 {
+        position: relative;
+        float: left;
+        width: 100%;
+        margin-top: -40px;
+        margin-bottom: 40px;
+        left: 0%;
+        /* background: #000;
+         background: var(--color-ff); */
+        /* top: -180px;  */
+        min-height: 700px;
+    }
     .home-99 {
 
         position: relative;
@@ -615,7 +626,7 @@
 
         width: 200px;
         margin-right: 12px;
-        margin-top: -140px;
+        margin-top: -100px;
         /*        background: var(--color-ff);*/
         /* background: #000;
         background: var(--color-ff); */
@@ -874,6 +885,27 @@
         display: block;
     }
 
+
+
+    .card-notion{
+        position: relative;
+        height: 400px;
+        width: 240px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     .app {
         /* position: absolute;
         float: left;
@@ -946,7 +978,7 @@
     .md {
         position: relative;
         float: left;
-        margin-top: 150px;
+       
     }
 
     /*********************
@@ -1246,6 +1278,24 @@
         margin: 28px 0px 0px 0px;
         width: 100%;
         height: 50px;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        /*
+        -webkit-box-shadow: 0px 4px 5px #EFEFF3;
+        -moz-box-shadow: 0px 4px 5px #EFEFF3;
+        box-shadow: 0px 4px 5px #EFEFF3;
+*/
+    }
+    .cardlogo {
+        position: relative;
+        float: left;
+        margin: 0px 0px 0px 0px;
+        width: 100%;
+        height: 150px;
         -webkit-background-size: auto 100%;
         -moz-background-size: auto 100%;
         background-size: auto 100%;
