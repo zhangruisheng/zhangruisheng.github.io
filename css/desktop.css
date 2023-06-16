@@ -545,7 +545,7 @@
         left: 14%;
         margin-top: 8px;
         margin-bottom: 40px;
-        top: -190px;
+        top: -180px;
 
     }
 
@@ -813,14 +813,13 @@
         margin-bottom: 60px;
     }
 
-    iframe {
+    /* iframe {
         position: fixed;
         float: left;
         margin: 0;
         padding: 0;
         z-index: 1;
-    }
-
+    } */
     .share-i {
         position: absolute;
         width: 100%;
