@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>自由职业</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3ae4bab4-39d6-41cb-a2fb-929c28526898" class="page sans"><header><h1 class="page-title">自由职业</h1><p class="page-description"></p></header><div class="page-body"><h1 id="e3c0ab41-9c0c-445b-823e-9095131e6cc0" class="">您可以随心所欲地从事自由设计工作</h1><p id="41882301-4d87-4463-9bb2-23dd8b08c76d" class="">标签： <a href="https://maxsnitser.com/tag/freelance">#自由职业者</a></p><figure id="4e8ca259-8d28-4970-9cde-be5ecc20cbfd" class="image"><a href="https://maxsnitser.com/images/blog/2021-03-10/freelance-fesign-jobs-you-can-do-anywhere-you-want.jpg"><img src="https://maxsnitser.com/images/blog/2021-03-10/freelance-fesign-jobs-you-can-do-anywhere-you-want.jpg"/></a></figure><p id="865c98a3-b0c5-4d11-9faa-3da9aef5c7d7" class="">这篇文章是关于达到 6 位数收入的自由设计机会。撇开笑话不谈，请自己阅读并查看这些示例。</p><p id="ca76bdc8-aa57-4132-ad03-9a41ce61696d" class=""><strong>文章内容：</strong></p><ul id="171df1ba-43e9-4cfb-924e-3a29c9b712d0" class="bulleted-list"><li style="list-style-type:disc">自由设计工作的类型和简要说明</li></ul><ul id="f318a0aa-ea4d-4676-9867-c92764742489" class="bulleted-list"><li style="list-style-type:disc">网站设计者</li></ul><ul id="ab575487-51d7-4831-92c7-28216dc3cfb5" class="bulleted-list"><li style="list-style-type:disc">平面设计师</li></ul><ul id="f9f6be0d-2f68-4eb8-8ea4-443d7529e7e9" class="bulleted-list"><li style="list-style-type:disc">营销设计师</li></ul><ul id="ca2c0e80-c13b-4e69-a479-7f3a10e6ab3a" class="bulleted-list"><li style="list-style-type:disc">品牌设计师</li></ul><ul id="e68f69ac-c3ab-4721-b63e-86c1acc60da9" class="bulleted-list"><li style="list-style-type:disc">用户体验/用户界面设计师</li></ul><ul id="05afb13f-6800-46c5-b744-69fe5d69a26c" class="bulleted-list"><li style="list-style-type:disc">时装设计师</li></ul><ul id="73084040-5bc2-437e-a263-3ce36144f8a1" class="bulleted-list"><li style="list-style-type:disc">数字艺术家</li></ul><ul id="44ae9cfe-c7fa-4ce9-a2a1-21bf39957386" class="bulleted-list"><li style="list-style-type:disc">插画师</li></ul><ul id="d1a5c04a-4d85-4692-a842-54e6c7305d1f" class="bulleted-list"><li style="list-style-type:disc">图标设计师</li></ul><ul id="d6aeb4b5-8214-4d0f-a903-ad81bcee2edb" class="bulleted-list"><li style="list-style-type:disc">刻字艺术家</li></ul><ul id="0a85dc48-7bc4-40b3-882f-a1bca40f57e8" class="bulleted-list"><li style="list-style-type:disc">3D 设计师</li></ul><ul id="baf5b9f0-2a49-41aa-ad66-6b83cb315474" class="bulleted-list"><li style="list-style-type:disc">印前设计师</li></ul><ul id="51979e47-8fe7-4c0b-807e-fbf3407a463b" class="bulleted-list"><li style="list-style-type:disc">自由职业者 vs. 朝九晚五</li></ul><ul id="9dd50f0a-9a47-44fd-9af8-608bc3aee3d0" class="bulleted-list"><li style="list-style-type:disc">自由职业者与远程工作</li></ul><ul id="efa736e3-3c3d-4fbf-ba69-bb8d69524e66" class="bulleted-list"><li style="list-style-type:disc">远程和自由职业者有什么区别？</li></ul><ul id="8e605c68-02f1-4065-940d-e21c33433cd7" class="bulleted-list"><li style="list-style-type:disc">自由职业者能赚多少钱？</li></ul><ul id="bcc54d1a-2532-4c69-b8fb-b14e6322554e" class="bulleted-list"><li style="list-style-type:disc">哪里可以找到自由设计工作？</li></ul><figure id="e8734e84-5206-4d6d-8dc5-c6b733c4d158" class="image"><a href="http://remotecreators.io/images/rc-banner-920x160-01.jpg"><img src="http://remotecreators.io/images/rc-banner-920x160-01.jpg"/></a></figure><h2 id="2a960433-4e33-49d2-8eae-66d24f417f55" class="">自由设计工作的类型和简要说明</h2><h3 id="fca79043-c9ea-412e-be36-2c3c87124c27" class="">网站设计者</h3><p id="311d20a9-d70c-48b2-9a7c-4cf26028e49b" class="">在大多数情况下，自由网页设计师的主要职责包括网站的设计和编码。</p><p id="f267cd73-17ce-47bd-b200-19e5599a7341" class="">乍一看，这似乎是一个复杂的组合，要在体面的水平上做到这两点是具有挑战性的。但是，那些设计出色网页并将其作为功能<strong>齐全的网站交付的人，</strong>可以为客户带来<strong>更多价值</strong>。这意味着他们通常会从他们的工作中获得更高的回报。</p><p id="3b699d8e-3f8f-4269-9081-c55b41dd113f" class="">通常，您需要重新设计现有网站。这意味着您需要应用与最新趋势、最佳最新实践相关的知识和技能，确保它在所有可能的屏幕尺寸上都能正常工作并看起来不错，等等。</p><p id="68360a16-3b83-4431-b575-1a8200ec60ff" class="">有时，您可能会偶然发现工作或小项目，例如设置插件、更改网站设置、创建单独的模块或插件，甚至兼职管理网站技术问题和流程。</p><p id="056c4d6f-640f-4231-8e1a-6ab7a8fc4730" class=""><strong>网页设计已经存在了几十年。</strong>尽管有大量的 Web 构造器解决方案和多年来想要取消 Web 设计的人们，但企业主、公司和初创公司仍在搜索它。</p><p id="08f22062-741a-4181-b437-90f27f3d2b51" class="">所以<strong>工作和项目仍然存在，并且有可能找到一份工作</strong>。此外，知识库前所未有地丰富且易于访问。填补您不了解的网页设计方面的空白以找到适合您的工作相对容易。</p><h3 id="2e917343-aa49-4f6a-bb6e-968f061467eb" class="">平面设计师</h3><p id="c8279fd8-634f-4a2c-be8b-f3ebca6fe0c5" class="">在自由设计界，这是一个巨大而广阔的领域，你甚至不能说它是一个利基市场。就像网页设计，或者我会说，甚至更大，平面设计结合了多个学科和大量知识。</p><p id="50b197c1-8bbc-43b1-9a25-6477e4581983" class=""><strong>可能需要平面设计师来设计：</strong></p><ul id="b633fd4e-3a6c-4367-9814-ecfa4f7fe3b2" class="bulleted-list"><li style="list-style-type:disc">一个 Apple Watch 表带，</li></ul><ul id="2c17503a-5282-46e1-940b-c30cd6a7e277" class="bulleted-list"><li style="list-style-type:disc">设计游戏角色，</li></ul><ul id="1fabe303-2bf7-43af-b666-30b5613aa856" class="bulleted-list"><li style="list-style-type:disc">打造时尚系列，</li></ul><ul id="ac389d10-de69-4357-897f-009955d316d3" class="bulleted-list"><li style="list-style-type:disc">设计跨多个平台的社交媒体活动，</li></ul><ul id="259d9e94-efe2-4dca-8a87-cbeee3e4b683" class="bulleted-list"><li style="list-style-type:disc">改造店面，</li></ul><ul id="d55e6787-e9ce-4453-906c-7d36f5d878b8" class="bulleted-list"><li style="list-style-type:disc">创造数字艺术，</li></ul><ul id="e7cb2a03-99eb-481d-8b73-d46ea1b21c89" class="bulleted-list"><li style="list-style-type:disc">设计一个标志，</li></ul><ul id="e9d0625a-58f2-473e-9362-5736605c9a21" class="bulleted-list"><li style="list-style-type:disc">和更多...</li></ul><p id="b4376053-c44d-46f0-98c5-a755e289445e" class="">自由职业者可以做所有这些和类似类型的项目。我什至听说过一个自由职业者参与设计第一款 Apple Watch 的故事。我不确定这有多真实，但我知道许多知名品牌如可口可乐和耐克使用自由职业者在侧面设计了他们的标志，而这些标志现在要花一大笔钱（寻找证据）。</p><p id="763b72b5-617c-4e77-b08f-654a76fe482f" class="">正如您所看到的，平面设计师可以专注于不同的领域，而不是真正相互关联。因为每个子领域都有很多细节，很难在体面的水平上了解所有内容。</p><p id="14eb360c-b4e5-4626-b220-b136a79cfb9e" class="">我将在下面将一些子领域作为单独的工作类型进行更深入的讨论。</p><h3 id="9aea0d69-7fc2-49c2-819d-f8217fbece92" class="">品牌设计师</h3><p id="31e9cbb4-fc54-4a3f-b09b-650ed5a553f9" class="">您可能会偶然发现诸如名片、小册子、包装、传单和信头设计之类的要求，但实际上，还不止这些。</p><p id="7da69c66-088e-4dc5-b342-205bc07464d4" class=""><strong>一名自由品牌设计师可以创造性地传达公司或企业的信息</strong>。这意味着潜在消费者更容易记住、喜爱和与品牌互动。</p><p id="8ac0c44d-18b3-4846-b2c8-0cfc01ff5e81" class="">在申请自由职业或品牌设计师的工作之前，记住这个价值很重要。</p><p id="1a164766-4029-405f-8b81-8fe711887739" class="">孤立的业务或传单设计可能会花费几美分。尽管如此，企业通过这些印刷品或任何其他品牌可交付成果传达的信息才是真正的价值。</p><h3 id="31619940-0540-4558-9461-58bb36f1f022" class="">用户体验/用户界面设计师</h3><p id="617b31b4-3214-4d41-944a-e38f0231edec" class="">互联网上的许多人问是否有可能成为自由 UX/UI 设计师。根据我自己的经验，我可以说它不像自由网页设计师或平面设计师那么常见，但你仍然可以在这个领域找到不错的演出。</p><h3 id="08171e66-f3d0-40c8-8967-de91219bfe4d" class="">为什么成为远程 UX/UI 设计师并不常见？</h3><p id="5c0f535c-b4f9-452c-8490-9ef5d416586f" class="">起初，没有人知道它是什么以及它与 Apple Keynote 之前的 Web Design 有何不同，他们在那里展示了第一部 iPhone。</p><p id="783388d1-e536-42e4-8d69-8f89c1a3b27a" class="">不久之后，UX/UI 设计成为一个非常流行的领域，每个人都想过渡到它，因为这是真正赚钱的地方。嗯，有点...</p><p id="d691ef15-af32-4fdb-afaf-291250186cbf" class=""><strong>一旦它成为一个时尚话题</strong>，几乎每个互联网公司和初创公司都想聘请某人来修复他们的用户体验和设计美观的用户界面。没有多少公司，尤其是初创公司，认为这是一项长期工作，他们聘请自由职业者来迭代他们的产品。</p><p id="bfcd5276-7c43-44b4-9769-0485485dd4a3" class=""><strong>2-3 年后，它更多地朝着企业方向发展</strong>，变得更加正式。所以现在大部分 UX/UI 设计工作都是全职或兼职的。基本上，<strong>公司意识到他们需要有人负责他们的客户体验</strong>、界面性能、竞争分析、信息架构和其他在数字产品业务中有益的智能事物。</p><p id="8fcb1e89-5418-4c8e-9378-78a76d5f0fd9" class="">但是，公司和初创公司仍然<strong> 希望聘请自由职业者</strong>来构建与其主营业务无关的新功能和副项目。</p><p id="c28df90b-6dfa-4b5f-a09e-49592c5119a9" class="">一些初创公司没有足够的资金，或者他们正在自力更生。因此，他们正在寻找没有长期承诺构建 MVP 或第一个工作原型的自由职业者。有些人甚至想建立一个概念并将其呈现给投资者。</p><h3 id="9c5afbfa-76fc-4372-85f4-c3a425d66540" class="">时装设计师</h3><p id="c5c76dc9-54d3-4fa9-a63f-f350dcb76882" class="">在与其他设计师讨论此类设计工作并研究该主题之前，自由时装设计师似乎过于具体且与我的理解相去甚远。</p><p id="90ab3249-0097-4364-a370-f7e097ff02a1" class="">实际上，几乎所有与服装相关的工作都可以由自由职业者远程完成。</p><h3 id="1caa3372-2db3-4c5b-bcde-b47666a3073a" class="">如果您对自由时装设计机会感兴趣，这里有一些想法</h3><ul id="bb13edce-2a67-45d2-8eb8-1ac9daa3b0ef" class="bulleted-list"><li style="list-style-type:disc">时尚插图：用于艺术展示、配件示意图（如何使用和/或功能）和产品插图；</li></ul><ul id="fc56a79e-5174-4c45-b4f0-b8286ce49cd5" class="bulleted-list"><li style="list-style-type:disc">技术设计：创建技术包、技术平面或协助产品开发；</li></ul><ul id="d1883092-6476-498d-a28b-444b49b50fb8" class="bulleted-list"><li style="list-style-type:disc">时尚平面设计：包装、品牌标志、网站或社交媒体图形；</li></ul><ul id="8222ded0-1e45-4e11-afe0-4f6e117b0e45" class="bulleted-list"><li style="list-style-type:disc">造型师：为特殊活动和拍摄照片策划衣橱。</li></ul><ul id="c9fcc67b-a887-45ef-9039-52a9c0f5e0c3" class="bulleted-list"><li style="list-style-type:disc">时装设计师：协助客户创建他们的系列；</li></ul><ul id="cd8ab31f-544a-4f22-950c-864f592e8784" class="bulleted-list"><li style="list-style-type:disc">和更多...</li></ul><h3 id="5db9ac16-1a7a-46fe-92f7-32d989314328" class="">数字艺术家</h3><p id="f6654329-438b-4da6-9f1c-75ca20c3dfa9" class="">基本上，作为自由数字艺术家，您可以按照自己的条件出售您的艺术作品。这意味着创建和销售实体或数字艺术品。或者您甚至可以将两者结合起来。</p><p id="d4575cae-d9f2-45dd-86d3-6c2559eddc46" class=""><strong>您可以在</strong>提供一定流量的<strong>网站或市场平台上销售艺术品</strong>，并从每次艺术品销售中支付佣金。</p><p id="299c6266-d32c-40bf-b33c-9ca281c96bd0" class="">还有另一种方式可以让您的数字艺术货币化。它很新，我不能说它是否被证明是因为它现在周围有太多的噪音。</p><p id="d391af4f-fdb3-45e8-8bb2-d6a0688c0908" class="">无论如何，它正在创建<strong>NFT</strong>。我不会在这里详细介绍。基本上，如果我理解正确的话，就是您的艺术品是使用区块链技术加密的。这意味着它是现实世界中作为收藏品（即蒙娜丽莎）的独特人工制品，您可以在特定网站上出售。</p><p id="66a9447f-d87b-435d-8bb5-3ee49c459d24" class="">它需要一些投资来真正加密你的艺术品，但如果它获得了很大的兴趣，回报可能是巨大的。</p><p id="843ac2fb-e604-4ece-b7da-a8834f018575" class=""><strong>有些人已经通过它赚了数百万美元 </strong>。</p><p id="8454aad6-e291-4eaa-84a7-526d988dab4a" class="">同样，我不知道这是完全炒作还是其中某些信息是正确的，但您可以尝试这样做。丰厚的回报蕴含着风险。这不是财务建议。</p><h3 id="d649447f-dd20-4a8c-be13-afe745a4bda7" class="">插画师</h3><p id="aeadc3ac-ca31-40e9-b797-8cf6405c72da" class="">作为一名自由插画师，您可以通过销售类似于我上面写的数字艺术家的插图来赚取收入。</p><p id="2667ea24-7caa-4b1d-98e7-09199c7d0fc6" class="">此外，它可以是一种更传统的客户工作方式，并以自由职业者的身份为需要为各种媒体提供独特插图的企业提供服务。</p><h3 id="8483e22e-fe6b-4ffb-ba70-3826ea5e896c" class="">您可以为以下内容创建插图</h3><ul id="1edae99d-515e-4c36-8d35-9892a506dfe6" class="bulleted-list"><li style="list-style-type:disc">网站；</li></ul><ul id="5784627b-750a-4e8a-b117-6c2b3c942a2e" class="bulleted-list"><li style="list-style-type:disc">应用;</li></ul><ul id="190b0ad9-3725-4583-9ef5-38de417675fd" class="bulleted-list"><li style="list-style-type:disc">宣传材料和社交媒体活动；</li></ul><ul id="05f6c59d-3ef6-4387-ab95-2b06cf5bf5fe" class="bulleted-list"><li style="list-style-type:disc">书籍封面和音乐专辑封面；</li></ul><ul id="8edd5df6-c9ba-4a73-9e1b-74c1ca2346df" class="bulleted-list"><li style="list-style-type:disc">社论、媒体、出版物；</li></ul><ul id="ffc0881d-ca4f-4452-ab40-beaa56ce76b6" class="bulleted-list"><li style="list-style-type:disc">游戏；</li></ul><ul id="c7e86cab-dc5d-4366-b9e9-f58fa440f2fd" class="bulleted-list"><li style="list-style-type:disc">和更多...</li></ul><p id="b9c5fa13-2464-4b99-be2a-907a1ba6d51d" class="">您作为自由插画师的角色可以是独立的。您可以与其他创意人员（如平面设计师、时装设计师、网页设计师、UX/UI 设计师以及与任何类型的图形相关的几乎所有内容）一起工作。</p><p id="769823fc-a05c-42f0-8362-802b701c465f" class="">在理解钢笔工具以及如何正确创建矢量时，可能需要一些重要的技能。</p><h3 id="f5b84ae3-e4a4-48b7-8424-9438f4124690" class="">图标设计师</h3><p id="27a62770-7b08-4883-b8e0-b259d98900e7" class="">这似乎是一种有限的工作，但实际上，作为一名自由图标设计师，您可以获得巨大的成功。</p><p id="2fd6bb81-ae0c-47c4-8003-97537da92b3c" class=""><strong>Icon Designer 是一种非常具体且具有挑战性的设计工作。</strong>挑战之一是您的画布有限，无法在其上创建有意义的内容。它不仅具有挑战性，同时也有益。</p><p id="aff7e204-2749-4fee-ba21-c615c01e06ce" class="">像这样的约束教会你在更大范围内达到相同水平的完美之前要专注和自律。</p><p id="66d0b087-bee8-4d74-a4ff-453d87127840" class=""><strong>一个例子是像素艺术。</strong>这就是您实际上可以操作的像素数量有限的地方，但如果操作正确，它会创造真正的价值并易于识别。</p><p id="2b4e1b76-c702-4a3a-858b-6c9abdeef568" class=""><strong>另一个很好的例子是为 iOS 和 Android 等平台创建应用程序图标。</strong></p><p id="13ebbf88-bcad-4e22-8d65-9c828710b267" class="">我关注了一家公司，他们开始使用拟物风格（当时很流行）的高度详细和整洁的应用程序图标来构建他们的 Dribbble 个人资料。他们获得了巨大的声誉，然后在界面设计中建立了自己的方式，应用他们从图标设计背景中获得的技能。现在，他们作为数字产品代理商运营，客户包括 Netflix、Adobe、Opera、SalesForce 等。</p><p id="1391a0db-fa45-48b7-93f9-8c284998278e" class="">为特定项目创建图标库或自定义包是与客户合作的好方法。您可以在您的网站和市场上独立销售您的图标包和库。</p><p id="d01f746d-6452-4414-867f-7f3be2c82545" class=""><strong>最近一个令人瞠目结舌的例子</strong>是关于一个人在四个星期内以 28 万美元的价格出售了一个 iOS 14 图标包。你可以 <a href="https://www.indiehackers.com/podcast/179-james-traf-of-super"><strong>阅读这篇文章</strong></a> 并更多地了解他的经历。</p><h3 id="d0a406e4-c53c-4311-a238-38d6e77de45c" class="">刻字艺术家</h3><p id="29deb286-bcf8-4d14-bf0d-f22d32a5a0cb" class=""><strong>成为一名刻字艺术家需要大量的工作才能做出体面的艺术品和收入。</strong></p><p id="3212f381-66e9-4574-9cb6-c57380173998" class="">通过一些计算，我在网上发现可能需要大约 1-2 年的时间才能创造出非常酷且畅销的东西。当然，这取决于您对这项工艺的承诺和参与程度。</p><p id="1e94f4c1-4840-4a7d-a886-c15109ea3cdd" class="">关于刻字的一个很酷的事实是你不能真的伪造它。这里的大部分价值来自独家作品。您可以看到的是使用您的作品的专有权和许可。</p><p id="6de7b1c4-961e-42ad-8edb-415296ba4f65" class="">这里有一个 <a href="https://seanwes.com/2015/the-selling-power-of-hand-lettering/"><strong>一封手信的故事</strong></a> （当时）他以 5 位数的价格售出了 5 件作品。</p><h3 id="ce71f998-2dc0-4eb4-bcd7-6f40fe8e061c" class="">3D 设计师</h3><p id="c178d766-58ed-4bfa-8d7e-bd5aa7999e2e" class=""><strong>3D 可视化可能非常困难、费力且耗时</strong>。我知道这一点，因为我当时研究它大约一年。</p><p id="def71bbf-e135-481e-af5a-ad7b4fe6b6d6" class="">它需要强大的硬件，有时会使用渲染农场。3D 软件很贵。这些项目可能非常漫长。虽然，这是相当有回报的。</p><p id="ba7f3930-0204-4220-8a0c-9941d5857704" class=""><strong>你需要知道你的利基</strong>。您可以从事游戏角色建模、电影 CGI 或专注于事物的建筑方面。</p><p id="e2c771d2-dd95-4a9d-9b93-939914a329ff" class="">所有这些都是相当大的利基市场。所以你绝对需要选择一个。</p><p id="d23e2d6a-a0d1-40fe-adcb-4660ff1da0dc" class=""><strong>3D 专家可以轻松赚取 6 位数的收入，</strong>无论是月薪工作、零工组合，还是您拥有大量在市场或网站上销售的 3D 对象。</p><h3 id="27385bd9-e1fc-4996-a019-2340f7c69a05" class="">印前设计师</h3><p id="2c985711-16d2-4628-a5a3-7ff9cb742135" class="">印前自由设计师的主要活动领域是准备用于印刷的图形设计文件。</p><h3 id="858a1dac-cd8d-4b42-b2be-8e156e5e6f8d" class="">以下是印前设计器可能需要的任务</h3><ul id="633f3a2b-ea62-4b92-9669-f4935c2ef664" class="bulleted-list"><li style="list-style-type:disc">检查字体间距——检查文本的前导、跟踪和字距调整；</li></ul><ul id="3692f4fb-df80-4d85-b92f-5ba71c511a29" class="bulleted-list"><li style="list-style-type:disc">确认图像大小和分辨率 - 确保打印项目具有 300 DPI 或更高或根据项目中的规格，</li></ul><ul id="0e86a9c5-ef40-4c84-a653-7f5fa1863289" class="bulleted-list"><li style="list-style-type:disc">确保颜色准确性——检查文档的颜色模式，将其更改为 CMYK，并确保一切正常；</li></ul><ul id="1db57b05-5f5e-4210-8404-7412cdadff2e" class="bulleted-list"><li style="list-style-type:disc">定义出血和裁剪标记 - 基本上，检查设计的边缘和应该进行切割的位置，以及打印后的页面边界在哪里；</li></ul><ul id="7c17286c-50bf-40ee-9aec-d5677df780bd" class="bulleted-list"><li style="list-style-type:disc">小心拼版——将设计的所有页面排列到纸张上，以加快打印速度并减少纸张浪费；</li></ul><ul id="36e4f7d7-d29d-478e-91f6-a7eea92346ec" class="bulleted-list"><li style="list-style-type:disc">创建高分辨率PDF；</li></ul><ul id="ae875e88-9007-457b-af40-35c8df41e443" class="bulleted-list"><li style="list-style-type:disc">至少了解印刷设计软件的基础知识（即 InDesign、CorelDraw...）</li></ul><h2 id="ce6b5780-af06-4a93-8944-f0261e739a5e" class="">自由职业者 vs. 朝九晚五</h2><p id="4c19e71e-a534-4362-ba40-70c08de449e7" class=""><a href="https://maxsnitser.com//blog/everything-you-need-to-know-about-remote-work-and-location-independent-business"><strong>远程工作或成为自由职业者</strong></a> 与朝九晚五工作不同。我的意思是，一切都不同了。</p><p id="4098ee3d-0fc3-437d-b69f-1e17a28267c7" class=""><strong>您真的不需要每周 40 多个小时来处理项目</strong>和完成里程碑。然而，更少的时间并不意味着自由职业者没有紧张的日程安排，那些坚持下去的人是真正勤奋的人。</p><p id="dd3cd936-913c-444c-90fb-7a78ff361d77" class="">通常情况下，你不会在一个项目或一份工作上工作多年，每个项目平均持续 2 周到 1 个月。当然，这取决于您提供的服务或您制造、营销和销售的产品。</p><p id="42f62c5f-74fc-4962-9f6b-c0a93f260a2f" class=""><strong>您可以随时休假</strong>，但如果您愿意或需要一些额外的时间来完成工作，您也可以在周末工作。</p><p id="4d12dd95-24b3-44b9-9a1a-a971bcbadfed" class="">当你是自由职业者时，没有时间表是很常见的。</p><p id="f8f392a6-aaab-443a-93c0-e3158c20ad19" class=""><strong>您的办公空间可以随心所欲</strong>。它可以是您房间中的永久办公桌、共享工作空间以及您喜欢的各种咖啡店。</p><p id="d8ab974e-7d57-4993-a0f9-b5b81f08cb1e" class=""><strong>自由职业者与其他一切事物一样有起有落</strong>。这意味着你更独立，不受办公室规则和企业文化的影响，你更有自我意识，并做出更多决定。同时，与在办公室工作相比，您有更多的责任。</p><p id="fb22b201-83f6-4a54-946b-36001eba3504" class="">自由职业者的结构性较差，而且客户通常不会确切地告诉您他们想要实现的目标。您有责任对此进行调查并发现项目的所有来龙去脉。</p><h2 id="d93d704a-1db7-48ea-b033-c46ec78949a0" class="">自由职业者与远程工作</h2><p id="e7cc7220-4464-48a1-8f63-9e9ae95ae30b" class="">远程工作并不是真正的自由职业者。这两者之间没有严格的界限，有些人认为是一回事。</p><p id="3a441d41-7d25-4dab-bbe6-196a9050f159" class="">你可以在网上找到大量的自由职业机会，但实际上，这些可能是远程工作。仅仅因为他们寻求长期的“候选人”并且他们有一系列要求。基本上，它看起来与常规工作相同，但带有“远程”标签。</p><h3 id="c552aff0-4062-4115-b621-27b1f6aa0ab6" class="">Freelance 和 Remote 有什么区别？</h3><p id="df11e26d-e8c7-4e5d-86c3-473440e35015" class=""><strong>寻求自由职业者的客户通常没有任何要求</strong>。他们有一个他们想要解决的问题，但他们不知道如何解决。自由职业者可以解决这个问题。其余无所谓。</p><p id="d7bd71a0-7b30-4896-9304-be86dc97f353" class=""><strong>远程工作更像是传统</strong>的朝<strong>九</strong>晚<strong>五的工作</strong>，但你和你的雇主有在办公室外工作的协议，或者他们甚至没有办公室，而且每个人从第一天起就处于远程状态。</p><p id="e9472daf-c382-4c6e-b32d-5be051203fde" class="">大多数属性，如工作时间、预定会议、管理工作方式，都与办公室工作相同。</p><p id="53d6c1fe-bf99-4052-9345-503ed394fb43" class="">通常，唯一的区别是您的位置以及您用来替代面对面会议和通信的工具。</p><p id="866e61d1-e518-4ec4-acc5-7034a545bf18" class="">你可以说它有更多的自由，因为显然没有人在你的肩膀后面看着你的屏幕。</p><p id="6cfcd43c-3b03-472a-9346-420ea913e094" class="">由于您可以轻松切换到请勿打扰模式，因此很难将您从正在执行的任务中分心。</p><p id="3c6ab8c0-318d-474c-b91c-3dfb10b90742" class="">你可能在不同时区的不同国家工作，这会改变更多。</p><p id="772dbe3d-dbd7-49b9-af27-9f4f5e2752d9" class="">但是，远程工作通常具有与办公室工作几乎完全相同的属性。</p><p id="e5bbca47-8248-4d84-9506-7cb9475af9b9" class=""><strong>与自由职业不同，远程工作有固定的薪水</strong>。这对某人来说实际上可能是一件好事。这是一种更稳定的生活，你有稳定的收入，而且你确信你可以支付账单。很多时候，一份远程工作可以成为稳定生活的垫脚石，就像一份普通的工作一样。</p><p id="2e6fd705-6c41-4317-b9d3-6b2529b37370" class="">此外，如果您想发展、试验和建立您的投资组合，这可能是一件坏事。如果您是自由职业者，这样做会更容易。是的，您的收入不稳定，但这并不意味着比您在公司远程工作的收入低。</p><p id="6949cf54-203b-42a0-85de-bcfc1adcb948" class="">归根结底，这取决于您如何设置和管理财务。</p><p id="7dc17425-2726-448f-b01c-d1905e2fe0ca" class=""><strong>远程作业可以有很多规则和严格的时间表</strong>。所以你基本上被锁在你的办公桌前，你的管理层希望你在他们想打扰你的时候回答你，或者你和你的团队成员开会一整天，主要是因为这是适用于你的公司文化和规则。</p><p id="2e843406-b079-4516-81b8-5fbcbcceed46" class="">你在工作中开的会议越多，你对办公桌的压力就越大。</p><p id="a6110537-3d0e-4fc8-a431-1fa35b20c295" class=""><strong>自由职业者，另一方面，给你更多的自由</strong>。因为你是做出决定的人 <a href="https://maxsnitser.com//blog/how-design-feedback-changes-quality-of-design"><strong>您希望如何与客户合作</strong></a>，您对哪些工具和软件感到满意，以及在您的情况下什么时间或日程安排会更有效率。</p><p id="dd717cc7-2939-4f83-a5fd-f478b3941183" class="">你做你的方式 <a href="https://maxsnitser.com//blog/everything-you-need-to-know-about-remote-work-and-location-independent-business"><strong>自由职业者</strong></a> 取决于很多因素。重要的是拥有 <a href="https://maxsnitser.com//blog/how-to-stop-searching-for-clients"><strong>合适的客户</strong></a> 并在开始演出之前就一切达成一致。</p><p id="220ee387-2e4e-422a-b35e-2bcfb1a374cd" class="">另一个主要区别是远程工作的重点是您花在工作活动上的时间。最令人困惑的情况是客户希望自由职业者按小时计费。</p><p id="169d94f3-6aec-42cf-ad66-2ccd55b985a6" class="">一些客户想知道您的每小时费率以及您的工作需要多少小时。<strong>理想情况下，作为自由职业者，您没有小时费率</strong>。否则，这是一项远程工作，您花费了可计费的时间工作，而重点放在错误的地方。</p><figure id="34efcc66-3056-42a7-814c-5a7c39164208" class="image"><a href="http://remotecreators.io/images/rc-banner-920x160-02.jpg"><img src="http://remotecreators.io/images/rc-banner-920x160-02.jpg"/></a></figure><h2 id="a4b8973f-fcca-4d12-b4ec-764f33038dd1" class="">自由职业者能赚多少钱？</h2><p id="1a7fb55f-3655-4df2-88ce-d47d321c0a86" class="">在谈论自由职业者时，您可以说天空是极限。但是，作为一家单人公司，您可能会遇到一些限制。</p><p id="9e816ffe-f987-460b-ba63-ddb8db01f193" class="">更现实地说，我知道有<strong>经验的自由职业者每月收入在 3-7000 美元之间。有些人赚了 1 万美元甚至更多。</strong></p><h3 id="2e415c22-00ec-46cf-b470-2293c6834edb" class="">您的收入取决于几个关键指标</h3><ul id="045cb8f8-70f1-4db1-866e-4d7e333bf313" class="bulleted-list"><li style="list-style-type:disc">您提供的服务水平；</li></ul><ul id="438ef43e-4503-4c44-b0d3-bddb432b4e2d" class="bulleted-list"><li style="list-style-type:disc">您的销售漏斗；</li></ul><ul id="e27ee9ec-22c9-4ad3-ab3c-7ab0b7e24ace" class="bulleted-list"><li style="list-style-type:disc">你如何谈判交易；</li></ul><ul id="9985cffb-8cca-4814-bd0a-dcfe7900f0b7" class="bulleted-list"><li style="list-style-type:disc">您的入职流程；</li></ul><ul id="a4d2b149-cff7-4e26-9b7d-029bd34e475c" class="bulleted-list"><li style="list-style-type:disc">你是创造性的过程；</li></ul><ul id="e296589e-42b6-48eb-8c89-962f5e944f77" class="bulleted-list"><li style="list-style-type:disc">可交付成果；</li></ul><ul id="2a06970e-c2a4-446e-870f-356ffe01b4c3" class="bulleted-list"><li style="list-style-type:disc">以及您通常如何与客户建立关系。</li></ul><p id="9ed62ab6-8fda-4c2f-9c79-d9c45917a6d7" class="">副业和半被动收入也是赚取体面收入的好方法。您可以销售商品、印刷品、数字图形资产、构建软件并通过它获利、创建课程和写书。</p><p id="55d1ec7e-00a4-4f2e-89b5-8f1bf139b1e7" class="">有些人通过他们的博客赚了很多钱。</p><p id="9506eefa-5fcd-4d5b-855d-9ab22b8ccb49" class="">所有这些加起来，你决定你要建立什么帝国。</p><h2 id="66a29ab1-dcf2-479b-967d-5ad82aaf81bc" class="">哪里可以找到自由设计工作？</h2><p id="23d0210b-1dc3-40e0-a5f6-f155c46f6a4f" class="">首先，您需要找到您的潜在客户并了解您的客户是谁。完成后，您可以处理您的在线形象、投资组合、销售渠道和网络。</p><p id="ad64eb60-22d3-4f44-9fe7-5c0a9ad8f6a7" class="">如果你被卡住了，那也没关系。</p><h3 id="a7c4bc09-02e5-45b6-ae8f-69516cb18ad0" class="">以下是您可以找到客户的一些地方和想法</h3><ul id="7d130149-61ea-4f37-b355-7ccedad61d16" class="bulleted-list"><li style="list-style-type:disc">加班；</li></ul><ul id="b719a071-583a-4dcb-a387-f5161fc6f8b0" class="bulleted-list"><li style="list-style-type:disc">五福;</li></ul><ul id="1147811f-c1e0-4380-ab4d-06e4d5dc757c" class="bulleted-list"><li style="list-style-type:disc">远程OK；</li></ul><ul id="39597ac7-e588-4d03-8278-cf757c9318fd" class="bulleted-list"><li style="list-style-type:disc">天使名单；</li></ul><ul id="91b161eb-5bf3-4295-97e5-73e0c59fdde0" class="bulleted-list"><li style="list-style-type:disc">子版块；</li></ul><ul id="30f0c957-b99b-49a2-9203-0bf5a6314160" class="bulleted-list"><li style="list-style-type:disc">Facebook群组（招聘）；</li></ul><ul id="1a4fbd9e-8177-443e-811a-1624cd876186" class="bulleted-list"><li style="list-style-type:disc">克雷格列表；</li></ul><ul id="f68312ce-0036-4f19-8902-f4d8f8ff86f2" class="bulleted-list"><li style="list-style-type:disc">朋友和其他自由职业者；</li></ul><ul id="3042203e-0037-47cf-a799-8b8ecc8e17e4" class="bulleted-list"><li style="list-style-type:disc">冷电子邮件。</li></ul><figure id="a1db91c3-a0fb-4fd3-8083-3400c90a1680" class="image"><a href="http://remotecreators.io/images/rc-banner-920x160-03.jpg"><img src="http://remotecreators.io/images/rc-banner-920x160-03.jpg"/></a></figure><h2 id="b560f360-4ac4-47a9-a5d7-156b9a556a4e" class="">结论</h2><p id="c7dc7d11-47e5-4210-a5da-f0cbeef24fe0" class=""><strong>自由职业者是一个不同的世界，这是肯定的</strong>。它绝不是一种在线完成工作的确切方式。没有任何指南或课程可以真正教你正确地做这件事。你的练习可以。</p><p id="9dc97538-5110-429f-80ad-19d89e86fbe5" class=""><strong>尝试一些事情，阅读并看看其他人是怎么做的</strong>。尝试并做更多最适合您的事情。</p><p id="33133d3d-5797-4b56-9c65-f7ecaf4c2e06" class="">也许远程工作是你的果酱。谁知道。甚至 9 到 5 是你无法用其他任何东西代替的东西......由于最近的全球事件，你可能不得不在接下来的 1-2 年内这样做 :-)</p><p id="f2b9a581-649d-43d8-b8f0-b69aaadd4a44" class="">无论如何，我希望你在这篇文章中找到了一些有用的信息和/或在这里看到了不同的观点。</p><p id="9b14a3e9-ccf8-4079-85a7-190826aa656f" class="">狩猎快乐;)</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

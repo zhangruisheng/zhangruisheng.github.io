@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>出海产品设计之多语言设计指南</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="778fbfc8-ddc4-4bfc-b200-f01370e7bf89" class="page sans"><header><h1 class="page-title"><strong>出海产品设计之多语言设计指南</strong></h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Owner</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a-/AAuE7mCYLgNL-U_Il_abXX0ZuWQePjPOGoT8vXJW8WBz=s100" class="icon user-icon"/>张大圣</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td></td></tr></tbody></table></header><div class="page-body"><p id="6da2d62e-ec49-4e22-a7a7-b85d0d2abf68" class="">
+</p><p id="66456b04-32e9-49d5-af67-3b2afd601e98" class="">一、背景介绍</p><p id="2bcb57e7-53c1-46b2-98be-2bce0bfa3515" class="">1.1、国际化与本地化</p><p id="e36cb8f1-3733-419d-bbde-c34a67225fb2" class="">在认识出海产品时，我们常常会听到“国际化”和“本地化”两个概念。在信息技术领域的官方定义下，对产品进行国际化（i18n）与本地化（L10n）处理的含义是，通过修改软件，使之能适应目标市场的语言、地区差异以及技术需要。</p><p id="596605d4-5b2c-48ba-b588-d183c8fe1c0a" class="">两者概念区别有些微妙，我们或许可以用更简单的说法来解释——“国际化”意味着兼容，即用一套产品方案，来面对不同地区的用户，这叫实现产品的“国际化”。而“本地化”意味着定制，需要根据不同地区特性，进行分别处理，这叫“本地化”处理。两者的共同实现，才能更好地服务拥有不同文化背景的用户们。</p><figure id="e4e8b687-2389-4b6b-bfb2-aa489913f572" class="image"><a href="https://cdn.nlark.com/yuque/0/2022/png/487294/1668502944906-f25e135d-9e1c-4ef1-99f1-a6e205bd4c48.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_31%2Ctext_55uK6L6-6K6-6K6h5bqT%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10"><img style="width:540px" src="https://cdn.nlark.com/yuque/0/2022/png/487294/1668502944906-f25e135d-9e1c-4ef1-99f1-a6e205bd4c48.png?x-oss-process=image%2Fwatermark%2Ctype_d3F5LW1pY3JvaGVp%2Csize_31%2Ctext_55uK6L6-6K6-6K6h5bqT%2Ccolor_FFFFFF%2Cshadow_50%2Ct_80%2Cg_se%2Cx_10%2Cy_10"/></a></figure><p id="c21ce8fc-715d-441a-8812-6667733b35b2" class="">1.2、为什么要做多语言设计</p><p id="af6a1b5b-a0b1-4f5e-b93f-030e2300d13f" class="">由上述背景可知，一个出海产品想要达成良好的国际化与本地化效果，需要整个产品研发团队从内容、设计、技术多个层面进行全面考量。</p><p id="44521cb0-ef30-417a-9666-36d0979af2db" class="">对于设计环节而言，多语言设计是最需要关注的重点之一。做好多语言设计，能让产品拥有最基本的、适应不同地区的潜力——也为本地化内容的翻译呈现，提供良好的环境。</p><p id="4e29f575-315c-43e8-8ee8-fb4003f4192a" class="">国内设计师更常接触单一中文产品，但用中文产品设计的习惯来做出海产品，很容易“踩坑”。这与出海产品和国内产品的研发流程不同有关。我们团队在实际的项目经历中，发现具有一定规模的平台型产品，不太可能在设计初期拿到各语种的真实文案。因此在出海产品的实现过程中，会在中间阶段多出翻译、内容校验等阶段。</p><p id="2f0767c9-663a-4658-aa04-1fdaaa427dd2" class="">二、认识语言差异</p><p id="7e96402e-1128-4aa6-a3e5-a97c04e1457f" class="">全球文化多元各异，最直观的体现便是在语言和文字上。如何用一套设计方案来兼容存在各种各样差异的多国语言呢？这正是多语言设计的难点所在。首先，我们需要认识各类语言间存在哪些主要差异。</p><p id="a3fb1c8d-a5f1-4427-83a8-678cc28d07f2" class="">2.1、字符形态的差异</p><p id="711396d0-a125-4298-8a86-c5ad412f0adb" class="">字符是语句的基本构成单位。不同的文化发展背景下诞生出了形态各异的字符样式。而部分语言会共用一套字符体系。常见的字符体系有如下几种类型。</p><p id="cbefad51-1e0d-4ee0-b3f1-26b979a52339" class="">从图形的角度分析这些字符的形态，不难发现，像拉丁字母以及西里尔字母，字符笔划构成相对简单，且笔划多为平直线条或是规整的弧线。而像阿拉伯字母、泰文等字符，组成相对复杂，笔划线条特殊的曲度较多。这是非常关键的字符形态差异，它将会影响后续我们对字体的选择。</p><p id="f5a78c81-272f-45f7-b308-daa49794c288" class="">2.2、内容长度的差异</p><p id="ed254a9e-38e0-4a62-9af8-83edc8557c6d" class="">在不同语言下，同样含义的内容进行翻译后，得到的文本长度可能会有较大的差异。如何通过设计兼容这些信息，正是做多语言产品最大的难点所在。</p><p id="da5ff765-7dc9-4435-95ae-33a8fc0f218c" class="">因此，在多语言设计阶段，非常建议基于英语进行设计(善用谷歌翻译)，以便于更直观地对信息兼容进行处理和判断。这里需要提醒的是，不建议大家用最习惯的中文进行占位，因为中文可以精炼文字，信息本身较短，很容易产生多语言适配的“盲区”。</p><p id="223d5ba6-6344-4797-b253-91e9f609e5ff" class="">如果设计想要预知信息翻译后的长度，以便制定布局策略，可以用 google 文档自带的翻译函数 fx=GOOGLETRANSLATE(文本，“源语言”，“目标语言”) ，以及字符统计函数 fx=LEN(文本) ，快速实现多种语言的批量翻译和字符数计算，为设计提供初步参考。</p><p id="0697d0b1-45b8-4299-a872-d2f81e79aa1e" class="">2.3、词汇分界的差异</p><p id="4dd31af7-17df-4ee0-ae3f-e91496ce52e4" class="">语言还分为带有词汇分界、和不带有词汇分界两种情况。带有词汇分界的语言有英语、俄语等，分界意味着他们的语句以单词为最小单位。而中文、泰语等语言是没有分界的，一个语句中除了标点符号分隔，字符都是相连的。这也是影响段落布局的一个重要因素。</p><p id="5282e094-0a50-432f-afd2-fa1744b7a5b4" class="">2.4、阅读顺序的差异</p><p id="dc0657be-0956-42d3-8eaa-68d710d5cffd" class="">阅读顺序分为 LTR (Left to Right)和 RTL (Right to Left)两种。我们常见的绝大部分语言都是从左到右的阅读顺序，而使用特殊右至左顺序的，则以阿拉伯语为代表。不同的阅读顺序，决定了布局时信息对齐、元素排布、甚至图标图示，都可能存在不同的规则。</p><p id="cba2f52d-0097-4191-892e-aeb7f1921b83" class="">综上，在正式启动设计以前，建议设计同学向业务方了解清楚，平台会支持哪些语言。明确语言类型，了解以上差异后，才能更好地制定设计方案。</p><p id="4ff8538e-3618-418f-a2ef-cc782e8341ba" class="">三、核心原则：可读性与包容性</p><p id="69a3cda0-a3a9-4bb2-b42b-0248eb08863a" class="">根据对于不同语言差异的认识，以及我们团队在项目实施过程中的经验，我们可以将多语言设计的核心原则总结为可读性与包容性两大原则。</p><p id="e4e99f26-dffa-47d1-bcff-92b734bb28d4" class="">可读性包含(1)字符可读性 (2)内容可读性；</p><p id="53c1112f-b2c0-4a59-9591-cd2b0963f0e6" class="">包容性包含(1)布局包容性 (2)认知包容性。</p><p id="d4c6b6ad-4a53-41c9-b7b3-c51771f6852f" class="">3.1、可读性原则</p><p id="a2bcd614-0472-4bcc-ba72-fcc441ed2094" class="">a、字符可读性</p><p id="843396d9-5e0d-48a3-85a6-d5e3e7ce8491" class="">字符可读性，主要针对的是在应用风格化字体时，需考虑到在不同语言下的显示效果。</p><p id="b0c7ca65-3df6-4ed6-86b5-486d4b534728" class="">部分产品因为品牌调性或美术风格的需要，会引用带有特殊风格个性的字体。而我们发现，市面上大部分风格化字体都是基于拉丁字母设计的。而那些形态特殊的字符，可能会比较难找到同种风格的风格化字体。即便有，它们的可读性受字体影响的风险会更高，因此检验字符可读性尤为必要。</p><p id="a03b036d-b692-46e5-af68-17a9d5a98fa0" class="">所以当产品覆盖的语言类型特别多时，如果要一一对应特殊语言去找风格化字体，无论是设计成本、或是页面加载成本都会特别高。这种情况下，可以适当考虑放弃部分语言的风格化字体效果，转用基础字体，优先保证字符的可读性。</p><p id="fea4d270-820a-4537-9e64-f33870dfcead" class="">b、内容可读性</p><p id="0af503c0-edb0-4f3d-bf22-0387e8fcd989" class="">内容可读性，指页面容纳信息时，是否给用户传递出了足够多的内容，让用户能达到最基本的信息理解，而不是靠猜。因此我们要针对多语言内容的长度特性，留有一定信息空间——尤其是信息使用了缩略处理时，需谨慎地确认露出的部分是否足以被用户理解。</p><p id="3190c1ff-da0b-49bc-84cf-ea85f202e845" class="">3.2、包容性原则</p><p id="fb8b9c70-fff3-4c6f-a998-b957fce474ea" class="">a、布局包容性</p><p id="da34d1df-00f1-4b25-820e-93c1dcdd206a" class="">布局包容性，即需要设计同学在元素、组件、模块等设计中，要进行弹性的设计考量，通过合理的布局设置，更好地兼容极多或极少内容的情况。</p><p id="da9e4967-9340-4bcd-80e9-585c4bc3ba12" class="">布局的包容性对于平台型产品尤为重要。如果是一次性产出的、纯展示型产品，细致地根据实际内容检查调整适配效果并不需要太大功夫。但如果是需要长期维护、内容持续变更的平台型产品，一个高度包容性的布局，才能帮助产品用有限的成本达成较好的落地效果。</p><p id="3bff09e7-0052-47af-b6d3-eb08ca548806" class="">字体的选择同样会影响布局包容性。当你选择了一个默认字符尺寸太超乎寻常的字体（过扁、过宽）时，在产品存在多语言多字体的情况下，会发现即便是同样的文本参数，单个字符宽度却相差很大。这会使得文本展示空间变得更不可控，导致适配风险增大。</p><p id="0782f5f7-edab-490f-993d-287d3b03275f" class="">b、认知包容性</p><p id="940efe1c-cabc-4e48-9b45-53f7963491bf" class="">认知包容性，是指设计时需要考虑到不同文化背景下用户，对于某些元素、符号的认知是否相通。例如，当产品出现需要单独使用图标来指代信息的情况时，需尽量保证选用的图标具有全球性的大众共识，并且不能产生歧义。当然，若非极端情况（如文字信息实在是兼容不下），大部分场景下还是建议尽量将图标配合文字使用，帮助不同语言、不同互联网认知水平的用户更好地理解并使用产品。</p><p id="07e49723-47ed-49b8-82c2-7d908883a00e" class="">四、设计实施要点</p><p id="1a32cd4a-2f2a-46f5-85db-0be8c17ccda7" class="">接下来，我们将从基础样式、通用布局、组件使用和图标设计四个维度，介绍多语言设计时需要关注的问题要点，以及相关的处理建议。</p><p id="c80a7496-c3eb-410b-9626-69283e06abda" class="">4.1、基础样式</p><p id="3bacebd1-05f2-41bc-9637-d8820a0d42fd" class="">a、字阶</p><p id="932c23b8-b278-4d66-b5c3-595aefc982ca" class="">在同样的文字参数下，不同语言字符的体积视觉感受确实会略有不同。但遇到体量较为复杂庞大的产品，建议使用同一套字阶应对，尽可能降低设计成本和维护成本。可以基于本平台用户群体量级最大的语言为准来制定。</p><p id="7c8806d6-1b00-4066-b924-50184d3c066f" class="">b、行高</p><p id="68b6a9aa-0b04-4706-8dd5-92c0cc69ab85" class="">为了让文本能更弹性的适应场景需要，建议文字默认带有行高，不按区分单行/多行情况，也便于字体样式的统一管理。</p><p id="92646917-c558-48fb-bff4-ac48b86c6bdc" class="">4.2、通用布局</p><p id="252254d6-9db0-408f-90cf-11832e8090cf" class="">a、关注文本空间</p><p id="63517614-e17e-4085-abc5-e1e8d8d9e283" class="">预留文本空间</p><p id="3ab911f8-73dd-4618-9438-e5249ca61f2f" class="">普遍情况下，多语言场景下文本长度会大于中文场景的文本长度，因此需要考虑预留更多文本空间，以保证信息露出的有效性。过小的露出空间（如只能露出一个单词）会让用户无法理解内容，产生困惑。</p><p id="fc3704aa-b2fb-467e-9204-c91ae0611866" class="">选择排列方式</p><p id="4c1d0725-2764-4c79-adfd-17e4b44cea3f" class="">在多语言设计中，排列方式的选择，需要视功能的实际场景确定。</p><p id="db393de7-72bb-4214-8c20-721ab9124fc8" class="">两类信息在同一水平下横排，就必然会需要分割有限的宽度空间，这种情况下如果文本超长需要换行时，信息可能会显得略微杂乱；但它的好处在于节约纵向空间，在信息不长或者横行空间较大的情况下仍可以使用。如果使用上下排列的方式，文本容纳的空间也将会更大，换行时的显示效果会相对更为可控。</p><p id="974bc9fe-eafe-40bf-9f4a-c7f58f375a28" class="">当图标与文本内容组合出现时，同样也需要考虑合适的排列方式。竖排更强调图标，可以应用在强调状态的场景下，如结果页；而横排时图标与文本同级，图标做辅助的说明作用，更适用于轻提示、列表等场景。</p><p id="837cdb97-6f3e-4903-919a-14e44abcdda6" class="">b、关注段落空间</p><p id="57d07b20-f974-49e5-942d-46c81f9a884f" class="">注意最小段落宽度</p><p id="3a1b3828-4308-4d6a-85ff-59f53b2d929d" class="">当页面的横行分割较多时，单个段落宽度就会变得较小。此时在某些语言场景下容易出现单个单词换行，甚至宽度都容纳不下一个极长的单词情况。因此，在多语言场景下，需要保证段落有一定的宽度容纳信息。移动端小屏幕建议谨慎使用一行三个的布局方式。</p><p id="c982d406-009e-4782-847f-70008de22155" class="">“加大”有限宽度</p><p id="972bd369-0fb0-4808-b993-de2183989f2c" class="">排版时也可以通过改变排列方式加大段落宽度，只是这样会导致同样高度下可展示的卡片数量变少，信息密度降低，因此需要根据实际情况取舍；如果实在改变不了段落宽度，还可以通过缩小字号或字间距，变相加大宽度，尽可能容纳多一些信息。</p><p id="d9a1663c-5b1e-4f21-a094-575f01ef5d14" class="">c、关注信息对齐</p><p id="1aa0b312-6dae-4bba-9587-7829814c92c4" class="">常用左对齐</p><p id="e95344d2-3918-4433-8b85-1979a7736cf0" class="">如前文所说，不同语言在书面上的最小单位不同，为了更好的兼容各种情况，建议多用左对齐。因为像英语这种按单词分界的语言，很难保证每行内容宽度一致，并且中文常用的两端对齐的效果也并不能适用。多语言场景段落的左对齐相比居中对齐，更能带给用户较好的阅读体验。</p><p id="af0c53fc-0f40-4b62-aaa3-ec1d5e5ea7f9" class="">同类信息水平对齐</p><p id="63eb62e5-fb07-4279-9b05-fd0c4c8fcb03" class="">当一个卡片模块中有多类信息并存时，需要关注重要信息的水平对齐，确保阅读动线的流畅，便于用户获取信息。</p><p id="db7d47d1-b8fc-486b-8d11-41d558110459" class="">限定高度内使用下对齐</p><p id="e73fd219-5bd3-4042-82dd-4eb067ecf634" class="">下对齐的使用，能帮助设计师在不改变限定空间尺寸的情况下兼容延展更多信息。例如大图卡片空间内的文本。下对齐之所以优于上对齐，是因为它能避免信息不足时，可能会浮在空中的情况。</p><p id="7820e050-6465-4041-b3b5-c5e24147129e" class="">特殊的“右对齐”——阿语规则</p><p id="3663b300-4943-4024-8064-09819c1e0368" class="">阿拉伯语界面需要根据一定的规则来满足这个地区用户从右至左阅读的需求，但其中也存在一些并不需要用 RTL 做处理的信息。设计阶段如果想要快速产出 RTL 界面，也可以应用设计软件中一些现有的插件资源来实现。协作中也可以将阿语规则与开发同学优先对齐，由开发实现后，最后再进行细节的检查。</p><p id="9f513e3e-9e68-45fc-87d5-eb79fd6426b0" class="">4.3、组件使用</p><p id="373ac7a1-e98c-4560-ba1e-13734ef5b162" class="">标签组件</p><p id="78303118-3a9d-4ba9-9452-27ae93ff6a61" class="">在中文场景下，标签通常精简为 2-4 字。而在英语这类带有分界的语言下，通常建议标签内最多不超过两个单词，或是使用数字和符号代替，如 20%off 或 -20% 代替 20 percent off。如果一些辅助描述信息，必须展示 3 个及以上单词才能说清楚，建议以文本形式放到界面中，而不是使用标签组件，以保证信息的可拓展性。</p><p id="a5f67d0d-f1be-49d9-a63e-e8895911df24" class="">按钮组件</p><p id="b73a021d-2c16-4e1e-9562-2503bc5a6801" class="">竖排的按钮组合相比横排按钮，能兼容更多信息，因此在多语言产品下的使用会更为广泛。非均等场景的按钮组合，需要限制图标下文字长度；如果为可能分界的语言，建议使用单个单词，否则建议更换成其他按钮组合样式。</p><p id="f549b093-2a76-4f6d-a294-618a70a5611e" class="">通知栏组件</p><p id="b8657585-072a-4b83-b4dd-a84f47cb81ed" class="">在移动端的多语言产品中，通知栏组件一行容纳不下全部文案的情况非常常见。在文本超出通知栏宽度的情况下，需要灵活使用信息横向滚动、或是带操作的方式，允许用户进入下一级或配合气泡、弹窗，确保用户有办法能获知完整内容。</p><p id="507d8100-fad9-4c09-b6ca-4711e3d79373" class="">选项卡组件</p><p id="e0533bd3-3a33-4027-9eeb-384e9de49a62" class="">当选项卡选项大于等于三个时，建议使用等间距的选项设计，而不是均分宽度的选项设计，以避免文案溢出，同时显示信息更均匀紧凑。</p><p id="5bd34d12-bf82-4d24-b63a-64461d371a5d" class="">4.4、图标设计要点</p><p id="c679038b-6055-429b-8e16-24a55aa23b5b" class="">a、选用有大众共识的图形</p><p id="7c42910c-e881-4d77-aa15-a735863b705e" class="">图形需要满足认知包容性原则，可以多去观察成熟的全球性产品，何时会使用到纯图标的场景，又使用了什么样的图标。基础图形如代表播放的三角形、代表喜欢的爱心型，都是比较具有大众共识的。另外一些本身模拟了常见物品的图标，也不容易出错，如代表录制的摄像机、代表收藏的标签等。</p><p id="f5298d5d-175a-4764-87e0-a9af2ad81165" class="">b、避免出现特定指代元素</p><p id="4bba42e1-a0c8-46d5-be84-308d783d8270" class="">在图标设计中，可能会使用到一些特定的信息作为装饰，如文字或者是符号。如果这些符号带有特定区域，如美元的货币符号、或是赞的汉字，在全球性多地区的产品图标中必须谨慎使用。建议用更通用的元素代替，避免产生歧义。</p><p id="69ee5467-1abf-41ca-baf1-6ddf954a47b6" class="">c、RTL 场景图标规则</p><p id="28c00462-2464-40df-a6be-746e4f5358c0" class="">RTL 场景中，并非所有图标都需要镜像。例如暗示真实物体时，图标可以保持一致。需要镜像的常为带有方向含义的图标。</p><p id="712fd511-417e-4f8f-9e9b-5263aebb7f41" class="">五、落地还原</p><p id="7fcd3eef-3147-49f9-ad3d-927c073968ee" class="">在完成设计输出后，如何与开发同学配合落地，尽量在真实文案上线前打好适配基础，也是设计师需要投入精力关注的。</p><p id="b5a96341-eaa9-4351-a35c-cfc8f4c828b7" class="">5.1、设定规则</p><p id="688ad828-45fa-4753-8cac-baa5b44dd293" class="">a、设定适配规则</p><p id="ba6cea02-62b3-4d3e-8ad1-e56595988aad" class="">在设计方案交付到开发时，需要预先明确一些规则与开发同学对齐。</p><p id="915a1bf7-5026-4175-b9bd-d3c8496d4603" class="">例如在非通栏的容器中，需要向开发同学示意信息的极限宽度和内边距，并且明确超出该范围的情况下，应直接省略、滚动显示、还是换行处理。如省略处理，需要检查省略号前展示的内容是否可被用户理解；如滚动显示处理，需要评估是否会过于吸引视线，打扰到用户；如换行处理，需要进一步明确极限行数，保证容器高度可控。</p><p id="6f1bf4ce-a2c1-4a2c-8ac0-ddbc43458490" class="">b、设定字体应用规则</p><p id="11adfdf6-5332-442f-9925-b8792abeac0b" class="">为了呈现效果等合理性，字体选择也必须进行更详尽的适配考量。以下内容主要介绍在网页产品中，可以如何制定字体选择和应用的规则。</p><p id="bfa10282-2fa8-4a74-a090-e126af09f84f" class="">5.2、验收效果</p><p id="806bab92-508a-4b7e-a9d7-9abfd9107820" class="">a、走查适配效果</p><p id="7f72b2d0-91b2-41f5-8fc5-e66c71945375" class="">在走查还原效果时，建议多运用代码走查，在 html 结构中增加文本或是增加模块，检验开发同学是否有进行响应适配情况的处理，处理效果是否符合预期。</p><p id="c05851bc-57f6-4725-b939-24afcf3ffdc0" class="">b、检查字体显示情况</p><p id="358ec7c4-b354-43d2-bd85-ff4e49127c42" class="">着重检查 font-family 的规则，是否符合不同语言下的效果预期。其中需要注意，如果需要特别声明中文字体，务必把英文基础字体最前置，以防中文字体包中的字母样式覆盖英语场景。</p><p id="67ab974d-b46a-4ad2-b42a-4541e49b9a76" class="">六、结语</p><p id="e38c30b6-bfee-4a42-91ce-7778d38642d4" class="">文字是一个产品触达用户的桥梁，而出海产品的多语言适配，需要产品、设计、开发、翻译同学多方通力配合，才能尽可能达成较好的效果，呈现给各地区用户使用。本文主要以设计师视角介绍了多语言适配设计过程中需关注的要点和建议，希望可以帮助设计师规避设计产出到落地过程中可能存在的“坑”，更好的与各侧协作。但多语言适配涉及到的细节之多，在某些场景下并非只有唯一解，需要整个团队一起，具体问题具体分析，才能打磨出更友好的出海产品。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

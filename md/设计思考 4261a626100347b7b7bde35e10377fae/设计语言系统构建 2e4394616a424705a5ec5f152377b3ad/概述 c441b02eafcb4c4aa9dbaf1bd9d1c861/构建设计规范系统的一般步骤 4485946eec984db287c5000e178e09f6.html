@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>构建设计规范系统的一般步骤</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4485946e-ec98-4db2-87c5-000e178e09f6" class="page sans"><header><h1 class="page-title">构建设计规范系统的一般步骤</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Created</th><td><time>@June 16, 2021 5:02 PM</time></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedBy"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 10.4229C6.05176 10.4229 4.54785 11.1133 3.83008 11.9131C2.90039 10.9082 2.33301 9.55469 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 9.55469 13.1064 10.9082 12.1699 11.9131C11.4521 11.1133 9.94824 10.4229 8 10.4229ZM8 9.30176C9.32617 9.30859 10.3516 8.18066 10.3516 6.71094C10.3516 5.33008 9.31934 4.18164 8 4.18164C6.6875 4.18164 5.6416 5.33008 5.64844 6.71094C5.65527 8.18066 6.68066 9.28809 8 9.30176Z"></path></svg></span>Added by</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a-/AAuE7mCYLgNL-U_Il_abXX0ZuWQePjPOGoT8vXJW8WBz=s100" class="icon user-icon"/>张大圣</span></td></tr></tbody></table></header><div class="page-body"><blockquote id="0b2977e8-4dc1-4cc5-a3af-ca5a5701e10f" class="">设计规范系统最近在行业里变得很流行，相信你肯定已经在很多地方见过这个词了，我最初认识到“设计系统”这个词，是在我们2019年1月设计网站设计系统时开始的。作为在99.co仅有的两名产品设计师之一，其实如果我们要开始一个新的项目，手头上的资源是很吃紧的。</blockquote><figure id="33e65015-fb52-4f9b-9a05-1b9c0c397d37" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318zmIUIc.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318zmIUIc.jpg"/></a></figure><p id="cf11b5c8-7b21-4072-be76-22897991072a" class="">然而，我们坚信设计系统可以帮助不仅是我们和开发的同事，消除现有不统一的设计，并随着公司逐渐扩大，改善未来的工作流程。话虽如此，想要推动这个项目，我们仍然需要做很多的准备工作。</p><p id="4e0a913c-43de-4cbd-ab19-f7556fc631ac" class="">这里想先让你知道将要看到的是什么，我会先定义我们这里说的设计规范系统是什么意思——是一个设计师和开发人员共同分享的，一个储存着多个可重用组件的使用规范指南的知识库。它应该呈现所有现存组件的使用方法，包括什么时候用、如何用并带有随时可用的代码。</p><p id="49a2809c-790b-4a22-abb2-ee9754d9c500" class="">尽管我们的设计系统还在制作中，我希望能够把这个过程记录下来，并分享我觉得有帮助的技巧和工具。</p><p id="2f555bed-5eca-4441-a0de-b4e2701aa83b" class=""><strong>步骤：</strong></p><ol type="1" id="6c8086b8-3dc1-40cc-8c2a-addd81609bde" class="numbered-list" start="1"><li><strong>审校原有组件</strong></li></ol><ol type="1" id="d370cfa5-4d1c-40e1-9d84-350dbf3cd5ce" class="numbered-list" start="2"><li><strong>研究其他设计系统</strong></li></ol><ol type="1" id="42e4a226-bd46-4991-aeaa-d9a45dd01617" class="numbered-list" start="3"><li><strong>列出所有模式和组件</strong></li></ol><ol type="1" id="b081ca4f-3522-4863-b79e-7288141d1f81" class="numbered-list" start="4"><li><strong>计划一个时间线</strong></li></ol><ol type="1" id="67b7f0af-30fa-4e4c-98c7-e8d4de7a0c1e" class="numbered-list" start="5"><li><strong>研究和讨论组件</strong></li></ol><ol type="1" id="ca2a3f20-720d-4b78-9d1f-3971ba5edd86" class="numbered-list" start="6"><li><strong>创造设计符号（风格指南）</strong></li></ol><ol type="1" id="5444a7eb-f398-4260-bd80-5b9ecdb27a77" class="numbered-list" start="7"><li><strong>“设计”设计系统</strong></li></ol><ol type="1" id="befd9065-00d3-49fb-8086-c4dde6b4bcb0" class="numbered-list" start="8"><li><strong>实施设计系统</strong></li></ol><h2 id="7f60cf58-2a29-483c-83d6-58872a3017b3" class=""><strong>第一步、审校现有组件</strong></h2><p id="35859f44-4aeb-4dba-aa98-c050d322e191" class="">为了得到一个能够看到所有需要迎合的使用场景鸟瞰图，很重要的一步就是要审校我们产品里现有的所有组件。对，每个页面中的每个组件。这是至关重要同时也是很枯燥的一步。于是我们通过截图的方式把它们整理到Trello里面。</p><figure id="3c9d3fe5-472f-498a-95a6-a91a9c79cc8e" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318507MDN.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318507MDN.jpg"/></a></figure><p id="ebccd6f0-d4cb-4f49-8868-c664beaa1099" class="">带有卡片列表和标签显示的Trello板</p><p id="f05526c7-3c66-48e9-97cd-50d722b3f713" class="">每一个列表（从上到下）代表着我们网站上的一个页面，例如：主页。每一列里面的每个卡片，都包含了页面上不同部分的截图。每一个卡片都有标签标记（下图最右方），用来记录每个部分里面包含的组件。每一个标签都根据不同类型进行颜色区分，例如：复选框、单选按钮、文本框等是数据输入的方式，所以这些标签都是绿色的。</p><figure id="25d74192-bcc7-41ea-9a28-7f4913649145" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318XyNYJV.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318XyNYJV.jpg"/></a></figure><p id="f42989b9-4b0f-4cd8-abfe-57c077f489ec" class="">经过“复选框”过滤筛选之后的Trello板</p><p id="98a65a0a-e670-43a0-a734-b3b802e33b4c" class="">经过这样的一番整理，我们可以轻松地搜索到特定的页面，并利用最右方的标签版面去过滤组件。从而能够看到这个组件目前在所有页面中的使用场景。它也能帮助我们找到设计不统一的地方。</p><h2 id="bf6c09c2-a5fb-4590-88e5-a8382ccae4db" class=""><strong>第二步、研究其他设计系统</strong></h2><p id="78fc8ae8-34f3-461b-949a-27fb19730c8a" class="">我们参考了以下设计系统去帮助塑造我们想要的系统：</p><ul id="876ce2fd-8023-466b-ae5a-d6dc973c05e9" class="bulleted-list"><li style="list-style-type:disc">Atlassian</li></ul><ul id="0722628e-2859-439a-a227-399fd4010b4c" class="bulleted-list"><li style="list-style-type:disc">Ant Design</li></ul><ul id="45fc5126-f810-4892-9f24-f1988fdf516f" class="bulleted-list"><li style="list-style-type:disc">IBM</li></ul><ul id="20d3b9d6-0f94-4750-8b40-5867a6a84f9e" class="bulleted-list"><li style="list-style-type:disc">Zendesk</li></ul><ul id="6bcd87d4-f5be-49d5-8509-599159499e09" class="bulleted-list"><li style="list-style-type:disc">Workday</li></ul><ul id="f884a26c-0bf1-489d-a39d-16b585954f46" class="bulleted-list"><li style="list-style-type:disc">HubSpot</li></ul><ul id="5cd52c4c-5bb3-4398-bd60-b1ad9dcba5f6" class="bulleted-list"><li style="list-style-type:disc">Salesforce</li></ul><ul id="34b32282-633b-423a-a662-b9a138a08a69" class="bulleted-list"><li style="list-style-type:disc">Shopify</li></ul><ul id="f3b0cfcc-30a2-48fd-abfd-db8c1bb0acbb" class="bulleted-list"><li style="list-style-type:disc">Bootstrap</li></ul><ul id="769a7dc8-0582-4c3b-9835-d6bb9db0bda5" class="bulleted-list"><li style="list-style-type:disc">QuickBooks</li></ul><p id="f9452257-a311-41f6-9495-a848100507ca" class="">我们想要从这些非常棒的设计系统中提取最佳的范例，同时参考它们是如何组织和展示内容的。下面我列举两个我个人非常喜欢的系统—— Atlassian*和Ant Design。</p><ul id="a4257ec4-c49d-4813-891a-29e7caf2b790" class="bulleted-list"><li style="list-style-type:disc">译者注：Atlassian是澳大利亚的一家开发与协作软件公司，主力产品为专门用作追踪应用程序问题的JIRA。</li></ul><figure id="da20160d-4f95-4ead-9cf7-48b1886eb37d" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318IekfSA.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318IekfSA.jpg"/></a></figure><p id="5a870df1-15d0-4cbc-98b8-b15232074eee" class="">Atlassian将他们的设计系统分为品牌，市场营销和产品。因为不同的设计需要不同的指南，满足不同设计的需求能够保证整个公司设计语言的一致性。例如，市场营销或许需要更多颜色去设计好看的宣传资料，相比之下产品部门一般只需要一套固定的颜色去呈现不同组件的交互状态。Atlassian也为每一个组件提供了极度清晰的使用方法，从它的不同风格到在使用场景里的各种变量以及它的最佳范例。</p><figure id="3bd7ab7a-611c-4375-ab7e-970e9e1cf52b" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/202003186kklHe.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/202003186kklHe.jpg"/></a></figure><p id="ae8d257a-c681-4887-bd8f-176ea6cf19f4" class="">Ant Design把他们的组件分成不同类别，例如：数据显示、数据输入、导航等。这对整理和查找组件有非常大的帮助。他们的页面在右上角提供了锚点菜单，因此用户不需要滚动页面便可以清楚地知道里面的内容。在每一个组件页面开头都放了它的风格和变量，并且都是交互式的。里面附带的源代码的功能，也使开发人员能够很快速地复制或在不同的环境里打开并使用。他们设计系统的用户体验非常值得称赞！</p><h2 id="9c802af3-60ce-40f8-a9e8-87a995b97091" class=""><strong>第三步、列出所有模式和组件</strong></h2><p id="a105946f-3c1d-4da4-8e43-7b7ac200e195" class="">研究完其他设计系统后，我回到了自己的项目上。通过Trello整理出来的标签和过滤，列出我们需要的模式和组件。这个概况能让我们知道什么组件需要被审核，并制定相应的追踪和时间计划。</p><figure id="b35940db-d620-44ae-9b35-871fa8b22a2c" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318S4RCiP.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318S4RCiP.jpg"/></a></figure><p id="f6520a8e-b4d3-48e1-bcdd-0db2b5cc37df" class="">在Google文档上面整理所有模式和组件</p><p id="c505d6d9-7e84-45a3-ac3e-09e206c40c79" class="">我根据这些组件的功能特性，把它们整理成以下几个分类：按钮、数据输入、数据显示、反馈和导航。每当我们完成一个组件的讨论，便会持续地审核和设计这个列表上的内容。</p><h2 id="0e400920-971e-42ad-aa8b-567ef6b2d6db" class=""><strong>第四步、规划时间线</strong></h2><p id="ef319cbe-016a-4b72-a666-ee2b6e385474" class="">接下来，我们制定了一个周计划来记录谁需要做什么。这帮助我们的相关同事和所有人参与到更新设计系统的进程中来，并有助于我们的资源分配。我们计划了需要讨论哪个组件，一般是根据Trello整理的使用场景找出最常用的组件开始入手。一些例如字体排版，颜色和布局的模式，也是我们首先要讨论的内容。因为这些都是构成其他组件的重要元素。</p><figure id="450780a6-3431-4d38-a94b-ba2e08969ac5" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318GaQVUa.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318GaQVUa.jpg"/></a></figure><p id="18bec09c-bfae-4e17-a22c-e4f840085a56" class="">Google表格上的时间线规划</p><p id="dcf7508a-1890-47c2-8e20-fe23a6894b0a" class="">在需要完成我们每日原有的任务，我们利用仅剩的时间，期望在每周尽量做2-3次设计系统的讨论，每次讨论大概持续2个小时。当然了，这都是理想化的情况。有更多的时候，我们两个设计师忙得不可开交，并不能抽出时间来。只有在非常偶然的时候，我们才能够抽出时间来讨论设计系统，然后再补回其他工作。</p><p id="87036db6-cb6f-45ff-aa9b-a54de1c551f2" class="">除了每周讨论之外，我们还规划了以下几个步骤——在Sketch里创建组件用到的符号、为设计系统设计页面、交给我们的前端工程师建立这些页面。根据我们每一周的进程，会持续相应地更新我们的时间线。</p><h2 id="15f35998-80c0-4d6f-a202-add7cfbf718d" class=""><strong>第五步、研究和讨论组件</strong></h2><p id="e8d0fa1b-4a43-42b4-9415-74bd18c402c1" class="">讨论的最终目标是为了设计每个组件的属性和状态，并且建立它的使用指南。对于每一个组件，我们会审核在Trello上列出的使用情景和研究它的最佳范例。这包括阅读文章和参考其他公司是如何使用这个组件的。</p><p id="9dae0713-fe95-49cb-9b5c-fa72567d0441" class="">一开始的时候，我们会在讨论会议里做这些组件调查。但之后我们意识到，这些调查并不需要我们两个设计师同时在场。想要更好地利用这个时间来讨论，我们应该先提前在各自的时间里做好调查。</p><figure id="7c4de945-69b6-4a6d-a802-94cff9946952" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318XKxjRm.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318XKxjRm.jpg"/></a></figure><p id="a5614c14-0d5a-4f5c-8660-4aa2a56bd676" class="">在Google文档上记录我们的讨论内容</p><p id="84fd7b8e-7546-49fe-96db-ae938ece9643" class="">我们在Google上记录我们讨论的内容和如何达成那些决定的过程。这对我们日后要回顾之前讨论过的组件起到了很大的帮助。它们能够帮我们会想起以前的思考和决定过程，从而帮助我们更好地完成日后的讨论。</p><h2 id="f73f384d-9763-4c2b-9eb5-1902e2f8b8b2" class=""><strong>第六步、创建设计符号</strong></h2><p id="c7c784e5-4f5b-4db0-859a-e304e5a7f875" class="">随着讨论的顺利进行，我们开始建立我们的风格指南。我创建了文字和图层风格库，并在Sketch创造了每个组件的符号并包括了它的状态和变量。</p><figure id="62cc9e47-712a-4230-91bb-cb09f25827be" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318jNDe0t.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318jNDe0t.jpg"/></a></figure><p id="59384caf-927d-44ff-9502-5f5232b4e962" class="">Sketch上的文字和图层风格库</p><figure id="b0d25fb4-b6eb-46dd-8c0e-1f8a448cf7af" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/2020031887BkTo.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/2020031887BkTo.jpg"/></a></figure><p id="64324492-69cc-437d-aead-e4cf94a4755a" class="">Sketch上的组件库</p><p id="cb1de0cd-0ec7-4d2e-8c0e-7778443b3bc3" class="">再次，我们梳理了许多文章，查看了许多 UI设计包，对比它们的命名方式，以及如何创建套件等。我发现其实并没有一个整理这些组件的最好方法，只有最适合我们目前的工作流程的方法。很可能的是，当我们使用的工具随着时间更新换代，我们也需要调整我们的工作流程去充分利用这些工具。</p><p id="e507aaaa-82bd-4f7f-8032-d5b43c7e85fc" class="">举个例子，Sketch60最近更新了新的组件面板和Popover。我们之前风格库的命名方法是根据尺寸、宽度、颜色、排列对齐、和行高来进行多个图层的归类。而因为新加的Popover里的搜索（其实更像过滤）功能，我们现在则需要滚动页面和点击多个文件夹去查找一个特定的风格。</p><figure id="be8410f1-5df6-42e8-9ce7-48055cc6e190" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/202003185YQ589.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/202003185YQ589.jpg"/></a></figure><p id="81ed0e9d-1073-4cda-92b8-01d87f6f15eb" class="">给文字风格库更新过的命名方法</p><p id="0506f695-2491-4234-901c-4ca8e3acd038" class="">为了迎合这个更新，我把我们的命名结构平整化了，从此我们能用[尺寸][宽度]来搜索所有带/不带行高的字体颜色、或用[颜色]来查看所有根据大小和宽度排列过的字体。</p><p id="02ae087a-c702-455b-9787-e45a432f814d" class="">因为当显示大字体时，Popover里显示的水平空间有限，我们的中性色板的命名也从Dark、Mid、Light Neutrals相应地改成了D、M、L Neutrals。在以后的日子里，我预测将会有更多的修改。但总体来说，因为这些更新，我可以肯定我们的效率也得到了提升。</p><p id="0694588e-0bca-4881-8380-98abc1c7d7f5" class="">这里一些有用的文章：</p><ul id="1f237913-6431-4466-b899-6743bedebef5" class="bulleted-list"><li style="list-style-type:disc">在Sketch中释放符号功能的所有潜力</li></ul><ul id="2be67819-c6e1-4c62-9519-d7263b04ea79" class="bulleted-list"><li style="list-style-type:disc">我们一直在等待的Sketch更新</li></ul><ul id="d9535d1e-0312-4107-a497-35bb0dd0f2ad" class="bulleted-list"><li style="list-style-type:disc">Sketch 58 —— 智能布局</li></ul><ul id="596d0602-95e1-4691-8e87-4c7d927c724d" class="bulleted-list"><li style="list-style-type:disc">在Sketch里使用智能布局</li></ul><ul id="a6e374c8-a164-4a01-af83-9f7f19c8178e" class="bulleted-list"><li style="list-style-type:disc">Sketch 60和新组件面板 —— 如何使用它？</li></ul><ul id="c82ce1d0-4d56-4a61-bb43-e675185ff053" class="bulleted-list"><li style="list-style-type:disc">在Sketch组件面板中如何使用风格和符号功能</li></ul><p id="b7d7c37e-e99a-4cc9-b889-1efe2e86c0ed" class="">……还有Sketch插件：</p><ul id="542b9c58-c804-4141-9b86-18a4ff1e86e0" class="bulleted-list"><li style="list-style-type:disc">查找和替换：在图层和符号里替换文字</li></ul><ul id="4a37df39-3756-4721-b092-9e318be83866" class="bulleted-list"><li style="list-style-type:disc">共享风格查找器：查找共享（重复使用过）的图层和文字风格</li></ul><ul id="641a1462-3c9d-403b-8aa3-08b9c9701a4b" class="bulleted-list"><li style="list-style-type:disc">Sketch执行器：利用键盘更快速地执行Sketch动作</li></ul><ul id="c678f52a-9a76-4315-bd58-537bf6b8a394" class="bulleted-list"><li style="list-style-type:disc">符号整理器：按字母排序整理符号，和根据符号名字进行分组</li></ul><h2 id="ed472715-02a2-4ecd-a8d6-595ed4323516" class=""><strong>第七步、“设计”设计系统</strong></h2><p id="688344cb-662e-4cb2-af1f-8b38d51d5b88" class="">上文提到，我们想要把其他设计系统里的最佳范例整合到我们的设计系统中。在每个组件都被符号化之后，我给它们的每个页面都设计了原型图，然后递交给我们的前端工程师去建设这些页面。</p><figure id="48578ef6-e9c3-46b8-840c-56a58a40ea2c" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318dxArXc.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318dxArXc.jpg"/></a></figure><p id="27f9dd7e-2913-4339-8589-af1af2982bbd" class="">Sketch上的设计系统原型图</p><p id="8ffb9397-cc71-4c6d-8692-db524b895e9b" class="">很快地我们意识到这不是我们最理想的工作流程，因为如果我们想尽可能地按照我们的意思去做，建设这些页面会占用我们本来就已经很有限的资源。因此，我们找到一些能够帮我们简化流程的工具，好让我们的资源能够更好地分配到必要的环节上，例如：构建组件和把它们实行到产品中去。</p><p id="17a49e44-2a5c-47a8-932e-7aff655764f8" class="">能够找到一个可以整合到我们现有的工作流程并带有以下功能的工具是很关键的，例如：版本控制、自定义品牌风格功能等。我们找到了uxtools.co提供的一个对比设计系统工具和它们的性能的表格。</p><p id="98c5ea09-7a27-4516-ab12-3896f017f09d" class="">我尝试了几个不同的设计系统工具，例如brand.ai (现在叫Invision DSM)、 Lingo 和 Zeroheight 以帮助我们找到最能满足我们需求的一个。尽管每一个工具都有其独特之处，我们最后选择了Zeroheight 。</p><figure id="34a12061-34ed-4215-a04e-c218669ee16f" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318hgrE5T.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318hgrE5T.jpg"/></a></figure><p id="8ec72ed5-76d1-49e3-8e3b-8fc10008702d" class="">在Zeroheight上的设计系统</p><p id="5671546a-6de1-42b4-b6a1-472dd24d59e3" class="">每个页面我都创建了不同组件及其变量的页面和章节。我根据每一个使用情景清晰地列出了组件的使用范例。并且用插件把在Sketch里的风格符号直接导入到Zeroheight中。</p><p id="2b9c2f3c-bef1-4be4-b104-54a6995e9efb" class="">用户可以通过用动态的HTML片段和Storybook组件实时地呈现组件例子。开发人员也可以很容易地把设计同步到他们的设计指令API中。</p><h2 id="9ba5c6b1-8c2b-4c78-a0b9-40ce1e1959d4" class=""><strong>第八步、实行设计系统</strong></h2><p id="f187c9e9-860a-462d-ac6d-9fcac8c64173" class="">在整个过程中，和工程师、产品经理和其他相关的同事沟通是至关重要的，特别是最后这一步。为了实行这个设计系统，我们需要构建新的组件，把它们连接到Zeroheight，并且替换掉我们现有系统里和设计文档里的旧组件。</p><figure id="24fc7605-04dc-4914-9a5d-6aab6890ecbd" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318W8AGza.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318W8AGza.jpg"/></a></figure><p id="8bf6c1ca-9a1d-4475-90c0-3fe308d82336" class="">在Google表格中的实施方案</p><p id="0613f92c-b64a-4e87-9494-15ba1ee46c55" class="">我从我的数据分析师那里得到了一份最常访问页面的列表。根据排列这些最高流量的页面，我们决定了在不同阶段更新这些页面上的组件。最初的方案是在每两个星期的冲刺计划中拿出几个冲刺工作量来给设计师和工程师去做这些实行工作。</p><p id="9a8ee29b-46bf-4e85-b29d-b9c15668b1e9" class="">但是作为一个初创公司，我们常常只能优先做产品功能的工作，于是我们并不能按照原计划做设计系统的工作。与其腾出时间来修改特定的页面，我们退而求其次地选择了去更新本来就需要设计新功能的页面里的组件。</p><figure id="3902ed78-af0a-46df-8198-240eb06ad673" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318dYy7TZ.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318dYy7TZ.jpg"/></a></figure><p id="5402b4b8-773c-4c20-9e54-f10b95e4ea07" class="">Zeplin上的整体风格指南</p><p id="747d3310-869d-40d1-87e5-e35211bb5f93" class="">另外一个帮助我们设计师和工程师在实施设计系统过程中提高协作的工具叫Zeplin。它包含了整体风格指南和连接组件的功能。如上图所示，我们把所有的新组件符号直接上传到我们的风格指南。</p><p id="2a818845-794b-4da6-89a4-61bc1dfeb521" class="">然后我们的开发人员能够把组件跟他们的代码库和记录工具（如Storybook或Github）连接起来。等以上步骤完成之后，开发人员可以随时在Zeplin上查看设计，他们能够看到连接到我们的风格指南的这个组件的全貌，并重复使用这个组件。</p><figure id="a9df1b62-8368-4132-8664-5b2314c07607" class="image"><a href="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318PAkkXf.jpg"><img src="https://pic.cnwebe.com/wp-content/uploads/2020/03/20200318PAkkXf.jpg"/></a></figure><p id="8077a6ae-190c-4bfb-b2d8-a5e897d83d9a" class="">总而言之，这就是如何从零开始建立我们的设计系统的过程。这里面还有很多工作需要完成，但缓慢的进展总比没有进展好得多。随着我们继续更新和更好地迎合我们公司的需求，建立一个设计系统是一个永不结束的挑战。一开始或许会让人很气馁，但小小的一步都能够离实现这个项目更近一点。慢慢来（Baby Steps）！</p><p id="4112494c-067e-4399-83d1-4c3f9cda0a18" class="">原文作者：@Ruiwen Tay</p><p id="59ea4368-2142-4e43-983f-bd5940ecfa1f" class="">原文地址：https://uxdesign.cc/starting-a-design-system-in-a-start-up-3359f2d4784b</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

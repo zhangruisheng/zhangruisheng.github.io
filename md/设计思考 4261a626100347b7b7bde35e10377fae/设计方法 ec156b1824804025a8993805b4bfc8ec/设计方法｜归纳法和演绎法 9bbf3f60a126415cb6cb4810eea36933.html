@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>设计方法｜归纳法和演绎法</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9bbf3f60-a126-415c-b6cb-4810eea36933" class="page sans"><header><h1 class="page-title">设计方法｜<strong>归纳法和演绎法</strong></h1><p class="page-description"></p></header><div class="page-body"><p id="979950a5-b838-4134-b7b1-812da7c6ceb1" class="">
+</p><h1 id="418d08af-574f-4f9d-a4ac-e53354dba9d8" class=""></h1><p id="ab320209-3d9e-4cf7-be1c-da7894e1c68d" class="">上上期我介绍了“刻意练习”的三条方法论：创建模型、刻意练习和及时反馈，其中最重要的就是创建模型，那么我们如何发现并创建正确的思维模型呢？从本期开始，我将会通过一系列的文章给大家介绍一种思维升级的训练方法：第一性原理。第一性原理是一种建立可信赖逻辑模型的思维模型，它是基于一种哲科思维，所以往后思维升级的内容会非常非常烧脑，大家一定做好心理准备，但是一旦具备这种哲科思维，将会对我们的一生产生巨大的影响，说白了，通过第一性原理的思维训练让你具备可以<strong>透过现象看本质</strong>的能力。</p><h3 id="52936ef3-7703-4ed3-a64c-cf05e4845c7f" class=""><strong>第一性原理</strong></h3><p id="0a5984b1-1766-4dfd-aef1-1cea605b2c6c" class="">我们以为是“我”在做决策，其实是我的“心智模式”在做决策。我脑子里面的思维模型很多，我怎么知道哪些是好的，哪些是不好的？我如何去发现并创建正确的思维模型呢？我们想想，如果你的思维模式是正确的，通过刻意练习长到你的大脑去，对你起到极大的好处；但如果你的思维模式是错误，有害的，长到大脑里面去，那对你的害处也是一样的大。</p><p id="859ee02c-7eb0-48c8-b88e-b8c2b89af93c" class=""><strong>第一性原理：是一种建立可信赖逻辑模型的思维模型！</strong></p><p id="fd1f70c5-e993-4fd2-94b9-5f48a5f679b1" class="">“第一性原理”最佳的解读者我认为是特斯拉的创始人-马斯克，他对“第一性原理”的解读是：“我们运用第一性原理，而不是比较思维去思考问题是非常重要的。我们在生活中总是倾向于比较，对别人已经做过或者正在做的事情我们也都去做，这样发展的结果只能产生细小的迭代发展。”</p><p id="a594d22f-408a-45f2-8811-2d676350233b" class="">通常人类对事物的认知有两种逻辑形式，第一种逻辑形式叫做归纳法，归纳法是对感性经验的归纳，第二种也是更高级一点的逻辑形式叫做演绎法，演绎法是对理性思维的演绎。</p><figure id="ba125cd7-807f-4f5d-b2be-66a6bad2e2e2" class="image"><a href="https://upload-images.jianshu.io/upload_images/9422277-58990f9dc947d544.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"><img src="https://upload-images.jianshu.io/upload_images/9422277-58990f9dc947d544.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"/></a></figure><p id="1c5a248b-4cb3-4b4a-9b28-8ca461249a92" class="">两种逻辑形式</p><p id="f12059ce-d22b-4813-846b-94503bacb1d7" class="">两种逻辑方式在日常生活中的使用比例分别是99%和1%，为什么大家习惯于使用归纳法？因为演绎法所需计算功率更高，所需要消耗的认知能量更高，换句话就是说演绎法太烧脑，而人类天生喜欢把问题简单化，能不用脑就不用脑，所以人们默认使用归纳法。</p><h3 id="ebdd4fc8-4021-4494-9c7a-89deeb12fe56" class=""><strong>归纳法</strong></h3><p id="ed24970b-08c4-4a1a-b653-c453cc67f850" class="">首先，我们先介绍一下我们是如何使用归纳法形成我们的思维模型。归纳法是人类最基础、最常见的用智方式，借助感觉和经验来积累知识。归纳法大致可以分为两类：空间性归纳和时间性归纳。</p><p id="41e8332b-9d7e-46f0-b523-cbd81e9f9567" class="">1、空间性归纳：我们把在一个地方，一个群体的性质，归到所有地方，所有群体的性质，就叫做空间性归纳。比如说，在欧洲看到的所有的天鹅都是白色的，所以，全世界的天鹅都是白色的。</p><p id="d1483e6c-e687-4af9-8b0a-2ad6b9c3d8fd" class="">2、时间性归纳：我们把在过去或者现在积累的经验，归纳到未来，认为未来也和现在和过去一样，这叫做时间性归纳。比如说，在我们过去的时间和经验里，太阳总是从东方升起，所以将来太阳还会从东方升起。</p><p id="978d6d1c-74c9-4274-9b0a-5ca533162240" class="">几千年来，我们一直使用这个简单的归纳推理，100%的经验知识是建立在归纳法之上。绝大多数人的知识都是在工作经验，日常经验的累积下形成的，这就是归纳法。培根写了一本书叫做《新工具》，提倡科学的归纳法，今天常规科学的研究方法还是归纳法。我们平常在工作中，也非常擅长使用归纳法，举个例子，我们在做销售规划时，通常会根据过去几年的增长率预测未来的增长率，言外之意就是我过去是这么增长的，那我未来还会继续这么增长，这其实就是一种时间性归纳。</p><p id="d3fc6bb7-32db-423b-ae75-5cc36e47dc96" class="">但是直到休谟第一个发现了归纳法的谬误：<strong>即时所有前提都是正确的，结论依然有可能错误。归纳法只能得出概率性趋势，而不是必然性知识。</strong>比如，在所有大洲发现的天鹅都是白色，但是在大洋洲发现了一只黑天鹅，那么“全世界的天鹅都是白色的”这个结论就是错误的。</p><p id="b51b0318-9f13-4c46-8633-d224b3d8fb42" class="">时间性归纳法有个致命Bug，需要一个重要的“隐含假设”：这个假设叫做<strong>“连续性假设”</strong>。举个例子，看下面这句话：在我们过去的经验里，太阳总是从东方升起来，<strong>[未来跟过去一样]</strong>，所以，将来太阳会继续从东方升起。所以只有“未来跟过去一样”这个隐含假设条件成立，这个结论才正确，这个就是归纳法背后有一个我们不知道，但是必然存在的隐含假设，叫连续性假设。换句话说，我们过去用归纳法建立的知识都建立在一个假设之上，那就是连续性假设，而连续性假设是出现在我们的脑子当中，并不一定存在于现实生活当中。</p><p id="6d1d3bd8-fee6-4707-acbd-044722428012" class="">那我们再深入追问一下，这个连续性假设是否正确呢？也就是说我们凭什么认为“未来跟过去一样”。唯一的原因：今天跟昨天一样，昨天跟前天一样......所以，“在我们的经验里，未来总是跟过去一样。”，可见，连续性假设也是来自于归纳法。</p><p id="dbf8beb6-b70c-45da-9ca9-9ebb8e400dce" class="">上面那句话再深入下去：在我们过去的经验里，“未来总是跟过去一样”，<strong>[未来跟过去一样]</strong>，所以，将来，“未来还会继续跟过去一样”。</p><p id="0a16dc7b-4704-4752-9df5-6c7f95162efa" class="">重点来了！这在哲学史上是一个重大公案：这是一个<strong>循环论证</strong>，它所需要的证据就是它要证明的对象。归纳法所依赖的“连续性假设”，<strong>在逻辑上无法证明</strong>。</p><p id="fb28e8cc-891e-4fa1-9c84-7b6f31fc8c4b" class="">换句话说，归纳法想要成立的那个“连续性假设”在逻辑上不成立，更可怕的推论是我们人类所有的知识，建立在归纳法上，而归纳法需要连续性假设，而连续性假设是不成立的，所以休谟提出一个大问题：人类所有的知识，全都不成立。这句话惊醒了康德，后来康德一生都为了回答这句话，在做努力。</p><p id="8d6bc8d9-5a23-495a-934e-b962cf13b07a" class=""><strong>“归纳法谬误”：</strong>通过归纳法得出的结论必须建立在并不存在的“连续性假设”之上。换句话说，这是一个结构性的悖论，我们的头脑当中必须依赖连续性假设，可是现实生活当中又是非连续性的。我们最后所有的重大问题，全都因为这个悖论而产生重大的灾难。</p><p id="236eb594-f078-4b0c-9527-f0b297a3d79f" class="">那么，既然“连续性假设”有可能导致灾难，那为什么人类需要这个“非逻辑的武断”呢？就是因为大脑有病，大脑有一个最小作用力原则：为了节省大脑运算空间，人类大脑只能假设未来不会变化。我们的大脑有先天性的缺陷，它只能建立在连续性假设之上。</p><p id="19d0bc8b-d547-4c83-9a2b-ef1985b999ab" class="">所以认知心理学家，把这个现象称为“认知吝啬鬼”。认知吝啬鬼规则之一：认知的时候，默认用眼睛。认知吝啬鬼规则之二：用脑的时候，默认连续性。换句话说，你在说服别人的时候，千万不要用理性，你用直觉，用眼睛就可以了，但是你防止被别人忽悠的时候，一定要用理性，这样就可以止被别人忽悠。</p><p id="aeb74634-020c-43f8-b5ce-9e77bcee6eb6" class="">所以这就是归纳法的局限性，我们在一个认知的通道里面，归纳法是通道之内内容的归纳，但是等到这个通道本身发生变化的时候，当即失灵，你在某一个领域之内的知识越多，你根据知识归纳的那个形式，越把你封锁在其内。大多数人把经验的累积，当做是学习的方法，而高手的学习，不是经验的累积，而是经验背后的模型。</p><figure id="c475762e-1845-499a-a184-0cc3aaeacc43" class="image"><a href="https://upload-images.jianshu.io/upload_images/9422277-059063275614f961.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"><img src="https://upload-images.jianshu.io/upload_images/9422277-059063275614f961.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"/></a></figure><p id="02ef5c27-66bf-4525-9a2e-2c9f9fdf891c" class="">归纳法的局限性</p><p id="a4e3211b-15d5-431a-8add-78745cf42fa3" class="">在同一个逻辑通道内知识的累积，归纳法有效；从一个通道到另外一个通道，归纳法立即失效。<strong>所以对于CEO做战略的第一问题应该是：通道本身是否正在或者即将发生改变？所以对于企业家、投资人、创业者，如何发现新的通道将变的至关重要。</strong></p><h3 id="4c801ef0-9a35-4e6f-9c89-0f0d8e86d971" class=""><strong>演绎法</strong></h3><p id="602f2c4f-0a86-4b96-8ce0-a8d7d43f0f01" class="">那有没有一种理性的方式，去寻找和建立新的逻辑通道？这个方式就是演绎法。</p><p id="f7d25d81-11d1-4e2f-8740-3f75d0f21f1a" class="">可非常非常可惜的是，中国人天然习惯于具象的归纳法，中国人不习惯抽象的演绎法，这是进到科学革命以后，我们一落千丈的本质原因。</p><p id="942f1d62-6a32-4105-a50f-66d0127a4b1a" class="">那归纳法是对感性经验的归纳，而演绎法是对理性逻辑的演绎。演绎法是基于理性进行推论的最主要的逻辑形式，它有一个极具价值的特点：<strong>可以从已知模型推出新模型</strong>。也就是说高手如何找到自己的那个逻辑模型，就是靠演绎法。从已经被证明的道理当中出发，去推出新的道理，或者说从已经被证明的重要学科的重要理论当中，推出新的理论出来，这就是演绎法。</p><p id="80307b2a-eb66-494a-ae8e-eb331b6132f1" class=""><strong>归纳法：即时前提正确，也不能保证结论一定正确。演绎法：如果前提的正确的，那么结论一定正确。</strong>所以，同一个通道之内的增长，连续性，归纳法最有效率；而转换到另一个通道，非连续性，必须运用演绎法。</p><figure id="57217a56-61da-4b10-819a-e79a5a75ca78" class="image"><a href="https://upload-images.jianshu.io/upload_images/9422277-6ec2d752ace29771.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"><img src="https://upload-images.jianshu.io/upload_images/9422277-6ec2d752ace29771.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"/></a></figure><p id="742c28ca-cd83-4e77-a1b0-32b0171939bc" class="">逻辑模型变革</p><p id="e7b0a5e0-678b-4324-83b7-d397bac1599c" class="">归纳法基于“经验”，是“内容”的归纳；演绎法基于“理性”，是“模型”的演绎。</p><p id="f67beb61-588c-4460-839c-f1546a6dea5b" class="">把这个和我们的“成长定律”结合起来看，4个因素当中，决定我们人生成长的方向和赛道的就是<strong>思维方式</strong>，思维方式的提升可以让我们变换人生赛道，实现弯道超车，而思维方式的提升就需要靠演绎法。如果思维方式不对，我们积累再多的硬实力、软实力、驱动力，都是在一个低水平的赛道里重复而已。</p><p id="dd83fe33-da71-491d-9800-26c052122949" class="">所谓“哲科思维”，一言以蔽之，就是<strong>假设与证明</strong>。演绎法，就是对新逻辑模型的“假设”。所谓做学问，要先存一点明白，那个先存一点的明白，就是对这个模型的一个假设，这就是演绎法。</p><p id="bd59f4d6-59a6-4d00-80e0-b8de320352ad" class="">但是，演绎法也有一个问题，如果演绎法的前提来自于归纳法，那么演绎法的结论同样终极无效。比如看下面这个推论，所有人都会死，苏格拉底是人，所以苏格拉底也会死。这是一个典型的三段论，属于演绎法的推导方式：只要前提正确，结论是一定正确的。但是，凭什么说，所有人都会死？“所有人都会死”这个假设也同样是来自于经验。</p><p id="f125278c-1c0f-493d-bd38-2958aa782705" class="">演绎法的问题是：你凭什么相信你的道理必然为真？有且只有一个办法：即使用的前提必须是真的。这样结论就自然继承了前提的真实性。如果前提来自于归纳法终极无效，那么我们的前提就不能来自于归纳法；如果我们的前提不能来自于归纳法，如何保证演绎前提的确定性？那么只剩下一个办法，前提必须是另外一个更高链条的演绎推理所导出来的一个结论。如何保证更高链条演绎前提的确定性呢？那么只有一个办法，它的前提是另外一个更更高链条的演绎推理的结论......</p><h3 id="bf2dcb28-fb47-4bd2-874c-7ab0a1ba6db8" class=""><strong>第一性原理</strong></h3><p id="f7e802bb-646b-406e-844a-b30ed1edc4bd" class="">当然，演绎法的链条不能无限倒推，必须最终有一个<strong>自确定的元起点</strong>。它必须<strong>天然真实</strong>，可作为<strong>推理的基石</strong>，故称之为：<strong>第一性原理，First Principle</strong>。</p><p id="5a684686-afbc-4288-93a4-0a9d3f941231" class="">如果我们的归纳有问题，倒逼我们唯一正确的推理，就是这样的一个推理，而这个推理里边必须有一个自确定的元起点，找到人类知识最早的那个石头，然后在它上面盖房子，你心里就踏实了，这个自确定的元起点就叫做“第一性原理”。</p><p id="e4293290-ee48-424b-9766-3507b0ab23c4" class="">第一性原理最早的提出者是亚里士多德，亚里士多德是一个非常有智慧的人，西方在两千年的时间里，都生活在亚里士多德的世界观里面，在整个哲学界，亚里士多德就是哲学家的代名词。亚里士多德说：“在任何一个系统中，存在第一性原理， 是一个最基本的命题或假设，不能被忽略，也不能被违反。”</p><p id="133ce733-1a5d-4221-9aba-09e8b42db95c" class="">第一性原理是哲科思维，绝对不是具象的归纳思维、记忆思维所能够比拟的。</p><p id="62ea7fc5-0e11-4d02-a19a-aefd65db9c6d" class="">最后我们来看一下谷歌百科对第一性原理的定义：第一性原理是一个基础的，不证自明的一个假设。在哲学里面，是亚里士多德第一个提出的第一性原理，也是康德所提的先天规定性；在数学里，相当于公理；在物理学和其他科学里，它相当于已经被证明出来的那些科学道理。</p><p id="28b47cf7-f210-44bc-bef3-ff6b547d5a6f" class="">关于第一性原理的介绍，我们先暂告一段落，下一节我们继续深入介绍第一性原理。</p><p id="c98a145e-8cd3-4b69-8196-f67029a74806" class="">（本文内容是对混沌大学创始人李善友教授的讲座《认知升级之第一性原理》的整理。）</p><p id="68f8391c-ced8-42e5-93e3-d834b7d2de43" class="">
+</p><p id="e971974d-a826-4c1d-8edb-9c65c2a621c2" class="">
+</p><p id="69dc1de1-ba20-45a0-9dfc-e9d56f584e2a" class="">上上周我们介绍了人类对事物的认知有两种逻辑形式：归纳法和演绎法，演绎法是对理性思维的演绎，也是更高级一点的逻辑形式。当然，演绎法的链条不能无限倒推，必须最终有一个<strong>自确定的元起点</strong>。它必须<strong>天然真实</strong>，可作为<strong>推理的基石</strong>，故称之为：<strong>第一性原理，First Principle</strong>。</p><figure id="564e06d4-d931-40d7-b676-ed74386d9e93" class="image"><a href="https://www.notion.so//upload-images.jianshu.io/upload_images/9422277-9a1f584959f92ef2.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1024/format/webp"><img src="https://www.notion.so//upload-images.jianshu.io/upload_images/9422277-9a1f584959f92ef2.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/1024/format/webp"/></a></figure><p id="4522cc94-4cb3-48d6-bd16-dfb9281aa978" class="">如果我们的归纳有问题，倒逼我们唯一正确的推理，就是这样的一个推理，而这个推理里边必须有一个自确定的元起点，找到人类知识最早的那个石头，然后在它上面盖房子，你心里就踏实了，这个自确定的元起点就叫做“第一性原理”。</p><p id="1fbe6091-89b1-44b3-a3a9-943ca8b5b5fe" class="">今天从三个方面给大家讲一下，什么叫做“第一性原理”，也就是“第一性原理”背后的3个哲学基石：①理念论；②简一律；③第一因。</p><h3 id="70cadbbb-3f50-4bc5-9fc0-e99f5a2bb18f" class="">一、理念论</h3><p id="7c7a94d0-7dfe-4298-864b-6507211f0c08" class="">古希腊哲学家对现象总是寻求合乎理性的解释，而不是将其简单归因于上帝或其他超自然物；他们致力于探索一种终极原因或要素，其他一切事物由此产生。</p><p id="476eea46-4eff-4993-943f-1087ceeb4bba" class="">我们中国人相信眼见为实，古希腊人恰恰相反，古希腊哲人说：你所看到的都是流变的“假象”，真正不变的是事物背后的支配力量，某种恒定的，不可分的“本体”。</p><p id="b1428690-664b-405b-93a7-2f621110689f" class="">那什么是“本体”？有两大流派。</p><p id="ee60ea41-46d7-483d-b6fd-f95afec7c47b" class="">第一流派说本体是一个物质，是组成这个世界最基本的一个单元，叫“质料论”。</p><figure id="388e525f-8338-4df0-87f3-ed54c0f3e0e1" class="image"><a href="https://www.notion.so//upload-images.jianshu.io/upload_images/9422277-357526566ba2e633.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"><img src="https://www.notion.so//upload-images.jianshu.io/upload_images/9422277-357526566ba2e633.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"/></a></figure><p id="c31a29cf-523a-4c6f-9687-ba1133566791" class="">质料论</p><p id="58ff64ff-ea49-49cb-a875-d0e540ad8e31" class="">另一种说法，说世界的本源，世界的本体，真正对这个世界的决定力量不是物质，而是某种理念，是某种精神，这个叫做“理念论”。</p><figure id="efb83295-4830-4e7c-99be-bb8c8832d728" class="image"><a href="https://www.notion.so//upload-images.jianshu.io/upload_images/9422277-089caff5303ae70b.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"><img src="https://www.notion.so//upload-images.jianshu.io/upload_images/9422277-089caff5303ae70b.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"/></a></figure><p id="13f95877-446f-4290-bbdf-b9313f7cbea8" class="">理念论</p><p id="53653657-4964-45d8-acd3-735b2a3c8175" class="">第一性原理源于柏拉图的理念论：世界的背后是不变的理念。第一性原理，就是事物的本体、本质、本性，是事物背后的支配理念，而不是现象层面流变的物质。</p><p id="98fef572-f7ad-4966-b008-a66d339f095a" class="">第一性原理必须是抽象的理念，没有掺杂物质的纯粹形式。把一切具体现象抽离出去，得到一个抽象的总结，之后再检验和应用于具体现象。也就是说一旦在逻辑上导通一个共同的抽象概念，与此相关的所有具象问题，立即全部化解。</p><blockquote id="f1a4b6da-7156-4bff-8836-c122272ef8e1" class="">举个例子，F=ma。在牛顿发现F=ma之前，全世界对力的运用是具象的，但是牛顿发现了这个抽象的F=ma之后，与此相关所有的问题，全都解决掉了，然后西方才有了工业革命、科学革命，这就叫第一性原理，是一个抽象的概念。        乔布斯的第一性原理是“产品至上”？No，这是在现象层面的多因素比较。“简洁”理念才是乔布斯的第一性原理。</blockquote><p id="0473ad95-0322-4a40-8d5d-1044144693ef" class="">为什么“第一性原理”是“原理”？它一定是一个抽象的概念，一定是事物背后的某个理念，它源于古希腊人对本体论的追求，源于柏拉图的理念论，如果没有这个哲学思维，就得不出第一性原理了。</p><h3 id="f93900dd-45f2-43e7-ad75-70fe12aecf1f" class="">二、简一律</h3><p id="3918c3b5-1b3e-4bce-ad49-5cc7d088283d" class="">第一性原理，为什么是“一”？简一律是人类高级逻辑的4个逻辑的第一个逻辑，它在物理学里表达为最小作用原理，在思维里表达为思维经济原则，也叫做奥卡姆剃刀。思维经济原则的极致就是简一律。王东岳在《物演通论》里边有这样一句话：任何真正理性化的思想系统，一般都会运行在一条基本原理之上，你可以把任何复杂的系统简约为一个极简约的概念，而且愈高深的概念一定愈简约。追本溯源的话，世界在本源上一定是极简单的。简单就是坚实和美，复杂反而是脆弱和震荡。</p><p id="693be82e-c0d5-49b4-a845-f05201c4aeb6" class="">这个跟我们的想象完全不一样，现实生活中我们总是不由自主的复杂化，举个简单的例子，看大家有没有同感，比如新买一套房子，刚装修完，家里收拾的特别干净、整洁，有没有觉得随着日子一天天过去了，家里变得一天比一天乱。还有创业公司，刚创业的时候，大概十个人以内的时候是最美的时候，但是过了一百人，五百人，一千人的时候，会发现公司越来越复杂， 效率越来越低了。所以在具象层面上，一定会有不由自主地复杂化，我们一直在做加法。</p><p id="c3edf978-730f-4011-925d-d5137cb000db" class="">我们再来看一下达尔文，整个生物演变三十七亿年的时间，达尔文就用了4个字就解释了生物进化的规律：自然选择！非常简约。</p><p id="92a30b02-0641-4745-8565-9ae83cd9f520" class="">简一律，就是追究终极，只有找到了那个不变的一，才可以说，在这个学科、这个领域里面你找到的那个思维模型才是可信赖的思维模型。如果不能找到那个“一”，就是在现象层面的分类归纳而已。</p><figure id="043f196f-1f09-43c2-b0e3-2f5788044a36" class="image"><a href="https://www.notion.so//upload-images.jianshu.io/upload_images/9422277-14128a57c35bf357.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"><img src="https://www.notion.so//upload-images.jianshu.io/upload_images/9422277-14128a57c35bf357.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"/></a></figure><p id="14d55701-b822-411d-9b41-0c2f3496558f" class="">简一律</p><p id="40105a1d-6890-4f8a-b85f-b0e2bcb224ef" class="">简一律不是现象层面的减法，而是破除现象深入本质的除法。聪明的人做减法，智慧的人做除法。</p><p id="b09d4c59-0dd5-46ef-80bf-d94f610c7600" class="">所以，第一性原理必须符合简一律。凡是不符合简一律的就不是第一性原理。</p><h3 id="3ea03131-6c16-4d89-9936-c7d011a1c38b" class="">三、第一因</h3><p id="e3c1f5f9-a0c4-43b0-903d-bafff82128f1" class="">第一性原理，为什么是“第一”？哲学当中有一个比第一性原理更为基础的话，叫做“第一因”。</p><p id="60bcde28-62e6-4106-8d1f-01437544903a" class="">那么什么是第一因呢？任何事物必有原因，那么这个原因背后也有原因，原因的背后还有原因......但是我们不能无限倒推啊，必须有一个“第一因”，有了“第一因”之后，它也一定是<strong>唯一因</strong>，它跟之前的那些果就不是因果关系了，而是由它产生了所有的现象，那这个就叫做第一因。</p><blockquote id="25f2f418-02da-49f8-a349-0b422ae7dd7e" class="">比如，现在对于宇宙的第一因的解释就是“奇点”，奇点大爆炸之后，就有了我们今天的宇宙。</blockquote><p id="edb043dd-8e5a-4671-b701-9abb9f91238f" class="">第一因必须是<strong>动力因</strong>（亚里士多德四因说：质料因、形式因、目的因、动力因）。宇宙中任何一个特定的运动都是由其他运动产生的，而第二个运动又是由第三个运动产生，等等。既然不能无限倒推，就必然有一个不动的施动者，作为这一系列运动的第一因。</p><figure id="943d3072-3378-48d2-bb01-41400a976254" class="image"><a href="https://www.notion.so//upload-images.jianshu.io/upload_images/9422277-31648838f8941bb9.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"><img src="https://www.notion.so//upload-images.jianshu.io/upload_images/9422277-31648838f8941bb9.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/950/format/webp"/></a></figure><p id="b6697c45-7efd-4e39-a387-9156d119695e" class="">现象界循环因果</p><p id="a7d72f1c-63c3-464b-9f94-e662696ad09d" class="">日常生活中，一件问题产生了，我们一般是怎么解决的，有人说是由于这个原因，这个原因又是由于下一个原因，下一个原因又是由于下下个原因，就像一团麻，总是多因素循环分析，找不到那个根儿。就像一个公司里面，一个产品今天要上线，但是没上线，然后产品部的人说是技术部的人没有按时开发出来，技术部的人说是财务部没有把我们要招的人招进来，财务部的人说是由于市场部没有把公司的业绩做上去，现实生活中，我们总是喜欢A推B，B推C，C推D，D推A，没玩没了。</p><p id="2a9d58c0-ab98-4359-b874-8e8d43251e3a" class="">今天讲的“第一因”就是找到这个第一因、动力因之后，上面所有的问题就全都找到了，我们都不需要解决现象层面的问题，找到下面那个问题就可以了。</p><p id="f12b1387-32d3-4288-afee-e085118b21b0" class="">所以，找到第一性原理，就像是找到支配事物运动的发动机。第一性原理是自变量，其他是因变量。</p><h3 id="4048c20a-5426-4313-8a46-c7d36b6dc779" class="">第一性原理（第一因、简一律、理念论）对工作有什么启示？</h3><p id="a4f2ea9e-e031-43ba-a129-2770f55ca08a" class="">我们并不是来学哲学的，讲了这些东西一定要对我们成长、工作有所启示。</p><p id="de8d8ab4-9801-4fc6-9233-d91eec525d1f" class="">亚马逊的贝索斯曾说：把所有资源all in在不变的事物上（不要在流量上浪费资源）。我们想想看，亚马逊多少年一直在亏损，其实亚马逊不是在亏损，而是把利润永远投资到未来，这就是为什么亚马逊多年来一直亏损，但是市值一直很高。这个就是贝索斯的第一性原理，把所有资源all in在不变的事物上，而不是浪费在流量上。我们花了大代价获得的流量，在未来可能会被别人给挖走，长久来看，我们花很多的钱买流量，买来的流量有意义吗？没有意义。所以，我们回头看一下自己的公司，是把钱花在了流量上，还是花在了事物背后那个不变的量上。这就是第一性原理的思维。</p><p id="11b68d3f-6ec3-4004-b33c-ad9ec6e7b318" class="">我们再来看一下芒格这一句话：在商界有条非常有用的古老守则，它分两步：找到一个简单的、基本的道理（第一性原理）；非常严格地按照这个道理行事。</p><p id="91736475-d841-4dc4-8a66-e6d3c4077f91" class="">“听过很多道理，依然过不好这一生”。其实不是道理的问题，而是你的问题。第一，你在学习、工作当中，到底是在学道理还是在学现象；第二，就算你想找道理，你是否找到的是第一性原理；第三，即使你找到了第一性原理，当原理和现象相冲突的时候，你选择了什么？所以大家一定不要被这一句轻飘飘的话蒙蔽住，一定要学习背后的道理。</p><p id="a9c31ccc-a6ff-4161-9163-1380c275db93" class="">那么第一性原理是什么？是理念论、是简一律、是第一因，是这样硬邦邦，沉甸甸的哲思词汇。第一性原理不是什么？不是使命、愿景、价值观，不是企业文化，不是公司的口号、Slogan。第一性原理一定要通过跨学科的学习，深入思考才能找出来的。所以，第一性原理是自确定的起点，是所有其他逻辑模型的基石原理，找到了第一性原理， 就像找到了钥匙一样。</p><h3 id="b9285ed3-aff4-4aa4-a665-16f2eda79a21" class="">“成长定律”的第一性原理是什么？</h3><p id="12c86342-b7b2-459c-a09c-7b4e6623f960" class="">“成长定律”的第一性原理：复利效应。其实我们可以发现，成长曲线和复利增长曲线、世界人口增长曲线、道琼斯指数百年增长曲线、人类的技术进步曲线等等有着惊人的相似。其实他们背后都是一个叫做复利效应的概念，复利效应是自然界普遍存在的一种自然规律。<a href="https://www.jianshu.com/writer">爱因斯坦曾经说过：复利是“世界第八大奇迹”，知之者赚，不知者被赚。</a>而这个复利效应也是对我们所有人来说最公平的效应了。<strong>要想走出一条完美的成长曲线，只需要满足两个条件，而且是必须要满足这两个条件才能实现：一是人生不设限，二是知行合一。（这部分内容大家可以查看公众号文章“【演讲实录】你的未来超乎想象”）</strong></p><p id="f05a8805-620c-427e-96df-be895fa26e38" class="">（本文内容是对混沌大学创始人李善友教授的讲座《认知升级之第一性原理》的整理。）</p><p id="f81002ff-0d01-4505-86c7-3c266fc8322b" class="">作者：浩哥成长训练营</p><p id="009cc624-0a73-4ad6-a4f4-ada377931a61" class="">链接：https://www.jianshu.com/p/46afdf3861b2</p><p id="a8c55f5d-5903-415d-bd82-9ccb3615b03d" class="">来源：简书</p><p id="16ce8c6a-8829-4ddc-a1ce-3eed050c643e" class="">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

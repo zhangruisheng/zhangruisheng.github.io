@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>HMI车载设计指南（进阶篇）</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="79e1a7bc-388e-4545-8b62-0b3185abf582" class="page sans"><header><h1 class="page-title"><strong>HMI车载设计指南（进阶篇）</strong></h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Owner</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a-/AAuE7mCYLgNL-U_Il_abXX0ZuWQePjPOGoT8vXJW8WBz=s100" class="icon user-icon"/>张大圣</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td></td></tr></tbody></table></header><div class="page-body"><p id="51346e04-1292-4581-9c40-56914bd4505a" class="">在上篇的文章中我们提到了<a href="https://www.uisdc.com/tag/%e8%bd%a6%e8%bd%bd%e8%ae%be%e8%ae%a1">车载设计</a>的基础知识，今天的这篇进阶的文章我来讲讲<a href="https://www.uisdc.com/tag/hmi">HMI</a>设计落地中交互和视觉的要点知识。<a href="https://www.uisdc.com/design-guide-for-vehicular-hmi">
+本文从HMI概念、汽车座舱的进化、车载生态系统、车载设计趋势、HMI设计原则、设计流程、商业设计案例、HMI设计资源等9个章节，帮你快速入门HMI设计。</a></p><figure id="4383124a-802b-442e-92be-07a4d3ad3e68" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/021rj4zi55l2fe1qfwfrgy3734.png"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/021rj4zi55l2fe1qfwfrgy3734.png"/></a></figure><h1 id="d813dc40-5131-4849-a008-4b7b79971aa9" class="">一、HMI 交互设计基础</h1><p id="857e6671-7a69-4b14-94a7-e1fde8db50b8" class=""><strong>1. HMI 交互设计及其发展概述</strong></p><p id="68c4b6f1-87b9-404b-a0a1-fbf362311a22" class="">2012 年以前，汽车行业最开始没有HMI设计这样的概念，OEM 商称之为”Flowchat“即流程图，2012 年以后，汽车 HMI 随着互联网大潮的推动，特别是汽车四化-电动化、网联化、智能化、共享化的发展趋势，HMI 交互设计才真正意义上有了更加专业的定位，不同时期对应的是汽车 HMI 主流交互方式的变化</p><p id="4c55f33c-2d8c-4ea9-a4cf-c8513e44d9bb" class="">2006 年以前的主流交互方式：物理按键</p><p id="dcaadce8-c37c-42de-aff2-3f6c5bfd36af" class="">2008-2012 年的主流交互方式：物理按键+触控</p><p id="ff6508a9-e091-43c9-8cf3-6df0a9d8f410" class="">2012-2018 年的主流交互方式：触控+手势+物理按键+语音识别</p><p id="4ff85fb4-6192-4144-b931-c9a09f986546" class="">2018-2020 年的主流交互方式：语音识别+触控+手势+物理按键</p><p id="067d8d19-b9ef-48f7-98dc-44ad0abda796" class="">2020 年后主流交互方式：多模态交互方式（视、触、听、味、嗅）</p><figure id="b4a99789-dd2b-455a-b032-6394f83a9681" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-2.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-2.jpg"/></a></figure><p id="ae9d5d0e-26ed-4290-a32d-cce194feacc5" class=""><strong>2. HMI 交互设计的基础认知</strong></p><p id="922426c2-efcd-4ff4-8aab-98b44581360b" class="">① 安全至上</p><p id="2fc61e4a-c0a6-4b8d-9b07-fcd50503e14a" class="">和玩 APP 和 iPad 不同的是场景，驾驶员经常是在驾驶的场景下开车，非常容易因为注意力不集中而导致事故的发生，所以设计的时候要避免过多的让驾驶员的注意力分配到车机上，而应该更加聚集于驾驶本身，即使现在有的车搭载了自动驾驶技术，但是还是经常能够看到因为驾驶员过度让 AI 接管驾驶而导致事故发生的新闻，期待有一天自动驾驶技术的成熟，车成为移动的第三空间，驾驶员可以做其他的事情，这时候或许我们不用再考虑 HMI 对驾驶安全的影响。</p><p id="c3ce41ff-ddfc-420c-830a-8193fea0cec8" class="">② 汽车数字座舱&amp;显示屏</p><p id="20abcf38-2a1f-405c-a9d3-6fc6938e9c44" class="">首先我们要明确的一点是汽车数字座舱，并不仅仅指是几块屏幕那么简单，而是座舱电子的全面提升，由车载娱乐系统、流媒体中央后视镜、抬头显示 HUD、全液晶仪表、车联网模块、360 度环视、辅助安全驾驶、副驾及其后座娱乐系统等组成的一套完成的体系。</p><p id="bc8cc78e-0b5f-475c-9c84-98b895499b72" class="">而车内显示屏主要主要分为 HUD、仪表盘、中控屏+副驾驶娱乐屏、中控台、后排娱乐屏幕、扶手屏，所以 HMI 设计师主要关注的就是这些显示屏。</p><figure id="72c6201f-d404-46b1-87f7-dedf0c900aae" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-4.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-4.jpg"/></a></figure><p id="780834da-9cf4-40e3-b395-07b8ba9b86bc" class="">③ 常见功能使用频率</p><p id="301d411b-16d4-4355-84ad-5c75bd48a364" class="">我们将按照使用频率和重要度这 2 个维度来划分我们的功能，常用的功能是导航、音乐、电话；常用的控制操作是空调控制、除雾开关、倒车、充电，不常用的有：三方 APP、设置等功能，所以大家基本上看到不管是新能源车还是燃油车，基本常用的几个功能基本上都是显示在首页，并且各大车厂相差无异。</p><figure id="4308ed62-33c8-424c-8650-514583b7333a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-5.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-5.jpg"/></a></figure><p id="15b62d25-2f47-4ffe-8405-24e02fdcce81" class="">④ 对基本的触控的认知</p><p id="908b0370-129a-4758-bc71-5b1a1bf1fa9a" class="">我们在考虑功能布局的时候，要很清楚对驾驶场景有很清晰的认知，特别是对于出行过程中信息获取的直观性以及触控的便捷度要重点考量，需要对全局的功能布局，交互结构进行合理的编排。</p><p id="0fd4168e-d5c1-44ce-9532-f76ec81f9ae1" class="">在驾驶员位置的时候，中控界面的最左侧的区域是容易触控区，它是距离驾驶员最近的地方，也是信息获取最清晰，操作最便捷的区域；中间部分的区域是可触控区域，它相对来说说触控也是比较方便的；</p><p id="f98d181f-62d9-4323-8341-0b55a8e33442" class="">最右侧的区域是较难触控区，驾驶员要将手伸的很长才能够触碰到，这块区域尽量是避免设置重要的功能入口。</p><figure id="9924c2fd-dcd9-4977-bf32-fdfd83538e5f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-6.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-6.jpg"/></a></figure><p id="6f6f50ff-d9e9-44c6-bf8b-1636c31e21d5" class="">⑤ 多模态交互</p><p id="17c5cd04-4ada-4bc5-80df-f456e574e361" class="">“多模态交互”是融合了人的视觉、听觉、触觉等多种感官，计算机利用多种通信通道响应输入，并充分模拟人与人之间的交互方式</p><p id="c59d9670-3915-4b13-9e6d-62d8ccc70918" class="">随着汽车的不断智能化，操作方式从传统的机械按键到现在的触控操作、语音操控、手势操控，人车之间的交互途径增加并且更加多样化，汽车的开发者们也开始思考驾驶场景中的交互逻辑，如何实现高效、安全、易用的人机交互。</p><figure id="5c5c29c5-8f2b-45b7-9b86-e61b85e19f70" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-7.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-7.jpg"/></a></figure><p id="02e3d68b-7133-4989-89eb-a0388e1651c4" class="">⑥ 自动驾驶级别定义&amp;ADAS</p><p id="e9891433-c4cd-443d-93c7-fc78e36d5146" class="">说到 ADAS，可能很多人听过，但是没有全方位地了解过，ADAS 是 Advanced Driving Assistance System 的简称。中文名叫做高级驾驶辅助系统</p><p id="71e1788b-1d29-496a-b1a0-7b85df614ab0" class="">按照 SAE（美国汽车工程师学会）的标准，自动驾驶汽车视智能化、自动化程度水平分为 6 个等级：无自动化（L0）、驾驶支援（L1）、部分自动化（L2）、有条件自动驾驶（L3）、高度自动驾驶（L4）和完全自动驾驶（L5）</p><ol type="1" id="0b82ee3f-d3b7-487b-bdf9-c953584b920d" class="numbered-list" start="1"><li>无自动化（L0）：就是完全由驾驶员进行驾驶操作，属于纯人工驾驶，汽车只负责机械执行驾驶员的操控命令并不进行驾驶干预</li></ol><ol type="1" id="ebf58061-a51f-4417-8c2d-e57e2090a1b8" class="numbered-list" start="2"><li>驾驶支援（L1）：自动系统有时能够辅助驾驶员完成某些驾驶任务，比如常说的车道保持系统和自动制动系统就属于 L1 级自动驾驶的范畴，现在的燃油车基本属于 L1 级别</li></ol><ol type="1" id="c22c6811-772e-4da6-a7a5-0420465007f8" class="numbered-list" start="3"><li>部分自动化（L2）：是自动系统能够完成某些驾驶任务，但驾驶员需要监控驾驶环境并准备随时接管。目前绝大多数车企（华为、小鹏、特斯拉）都已经做到了 L2 级别的自动驾驶技术，比如 ACC 自适应巡航和拨动转向灯即可实现自动变道行驶等等。在这个阶段，虽然机器可以独立完成一些组合行驶需求，但驾驶员仍需要将双手双脚预备在方向盘及制动踏板上随时待命</li></ol><ol type="1" id="b99005b4-318e-4bbd-a2f3-da81cdabd5ab" class="numbered-list" start="4"><li>有条件自动驾驶（L3）：在 L3 级别下，车辆可以实现绝大部分路况的自动驾驶，接管汽车一大部分驾驶功能。但是在 L3 阶段，驾驶员仍需时刻保持注意力，以便在出现紧急情况时及时接管车辆。</li></ol><ol type="1" id="6e344249-e6ab-4447-a228-72b519c37e47" class="numbered-list" start="5"><li>高度自动驾驶（L4）：到了 L4 级自动驾驶，车内的自动化系统已经非常完善，车辆已经可以接替驾驶员的工作达到自动驾驶的水平，但如果驾驶员想亲自开车，仍可以接管车辆。不夸张的说，坐在 L4 级别自动驾驶的汽车里，你已经可以安稳的睡觉了。</li></ol><ol type="1" id="03202d04-3eea-4d77-aaec-d646f2de9d43" class="numbered-list" start="6"><li>完全自动驾驶（L5）：到了这个级别，汽车已经可以在完全不需要驾驶员介入的情况下来进行所有的驾驶操作，驾驶员也可以将注意力放在其他的方面比如工作或是休息</li></ol><figure id="c773b516-7846-4afd-8291-a4c57669976c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-8.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-8.jpg"/></a></figure><p id="dfc102d4-f58c-4994-8e36-5b2ce67fbc85" class="">⑦ 视觉在上，操作在下</p><p id="1a660444-e009-4f24-9706-769867fbd733" class="">在驾驶员驾驶的过程中，用户大部分的精力是聚焦在驾驶行为上，小部分的时间会用来操控车辆，所以避免因为用户的操作行为而干扰用户的注意力，所以信息的布局是我们要重点考虑的。</p><figure id="b6d9b6e7-6d3f-4a6a-bcea-daf72817ec53" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-9.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-9.jpg"/></a></figure><p id="2e1a26ab-6fc9-48f8-a47e-56b622d4b4ed" class="">避开方向盘</p><p id="ef7554af-205e-482f-a6e3-11e3552cd02e" class="">方向盘的遮挡也是我们在设计时需要注意的地方，一般左下角的位置是距离方向盘最近的地方，也是最容易被方向盘视线遮挡的地方,还有仪表盘的四个角落的位置</p><figure id="4b6403ef-62b2-485a-8f25-e1a3beb09b1c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-10.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-10.jpg"/></a></figure><p id="ee55e0f0-098b-4e29-b9a4-5d72f4f14ad4" class="">⑧ 3s 原则</p><p id="a3f5d467-5d4c-43f2-a94a-cafd03f3642d" class="">3 秒原则：用户的注意力管理对减少由注意力分散导致的交通事故十分必要，开车过程中，必要操作需要遵循 3 秒原则，用户必须在第 1 秒内找到应用场景的重点信息与功能入口，然后第 2 秒进行交互动作，最后第 3 秒得到想要的信息结果。准确把握每个过程中的时间，排除多余元素干扰，避免分散注意力。</p><figure id="77eebbc8-f4bf-4b68-96a2-8c09d1259e82" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-11.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-11.jpg"/></a></figure><p id="165ffb88-cd2a-451c-a525-9a3423c7ed37" class="">⑨ 常见的汽车交互场景</p><p id="84bd62f8-3376-4399-8d76-5ad6fb0617df" class="">在基础篇中我们提到未来的汽车是人们的第三智能生活空间（娱乐空间、办公空间、生活空间...）未来车内的交互场景将逐渐由驾驶舱舱内的驾驶行为主导的人机交互转变为基于日常生活中多场景的交互，基于不同的场景，我们的设计应该也有所不同。</p><p id="340a28a0-bd4a-4cc1-8a63-1a34a3beec59" class="">而目前对于新能源车来说在座舱需要产生的常见交互的场景是：娱乐场景、养护场景、休息场景、出勤场景，接送孩子场景，情侣恋爱场景，车内聚会场景，长途出行场景，自动驾驶场景，共享租赁场景，车外交互场景，智能家居互联场景等，这些都和我们的生活息息相关，还需要我们设计师去挖掘探索。</p><figure id="5c535914-668c-4a41-9ba6-ac2a2724be30" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-12.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-12.jpg"/></a></figure><p id="1180e3b3-e934-40f2-a7c5-3e553435e55a" class="">⑩ 全触控并不一定好</p><p id="afac87f8-9701-46cc-ba0b-f3186c49a9b3" class="">有些车为了主打科技的产品理念，将车内的操控都变成了触控、电子化，但是全面的电子化并不定都是最佳的体验，比如开门的按键，触控的方式就不如按键更加直接，还有些触控的按键在强光下识别性会变得非常的弱</p><figure id="8a426b46-c870-4806-99ac-43801e8cc595" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-13.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-13.jpg"/></a></figure><h1 id="860d948f-e5cb-4297-890c-12a2cb513076" class="">二、HMI 交互设计需求分析的要点</h1><p id="636245c6-f4e8-405d-8ee8-3c0cd565489b" class=""><strong>1. 需求分析-了解自身，通过设计放大特点</strong></p><p id="89e48f59-943a-4209-aded-69ee3217ba13" class="">HMI 的设计和其他数字产品一样，在设计开始前，我们都要对当前的产品、市场、用户、品牌有着清晰的认知，HMI 设计的目的也是放大产品的特点，以下是我们要了解的内容举例：汽车性能要求、造型姿态、功能、内饰效果、汽车设计理念、操控、人性化、品牌传承、目标用户</p><figure id="62eebb95-775f-4244-8714-3e9913dbe06e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-14.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-14.jpg"/></a></figure><p id="0a1893f1-c2e2-49a4-bf50-c2d7e06dcfa6" class=""><strong>2. 竞品分析-制定差异化的产品策略</strong></p><p id="75ab343a-4409-407a-9370-0f1a21079ed4" class="">对竞品分析目的是的明确当前的市场定位，发掘对方的优缺点，帮助我们自身的产品制定差异化的竞争策略，也是取长补短虚心学习的过程，比如我们可以看到蔚来的产品定位是一二线时尚且有一定消费能力的人群，年龄层次在 30-40 岁左右，和特斯拉的人群有着一些重合，所以我们能够看到蔚来汽车的内饰、线下店、HMI 配色都是比较柔和的，更像是一个时尚温馨的家庭空间；</p><p id="2fbb8130-9f77-4ff8-b420-d8c4dbdb8d53" class=""><strong>3. 受众分析-吸引目标消费者购买</strong></p><p id="6cc1c389-4c95-451d-b664-3a1c5cd9d003" class="">做产品永远绕不开的用户，HMI 的设计同样，我们要对用户进行调研，了解用户的消费意向和和核心考量的因素，并为他们的需求找到合理化的解决方案</p><figure id="7b9faa60-79df-45ac-91e1-5a09189774d0" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-15.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-15.jpg"/></a></figure><h1 id="d4bc23de-8965-4f68-8bef-7510368c8e2a" class="">三、HMI 创新的交互形式</h1><p id="19564e7f-ff2c-476b-8e94-252c7e9edeb9" class=""><strong>1. 沉浸式</strong></p><p id="bcc76edf-5803-4808-aef7-9a7aed13ebc6" class="">通过多角度的方式去为用户塑造沉浸感，结合智能表面和车窗屏幕技术的发展，为车内打造了个性化的场景体验。比如，我们在车窗屏幕上购物；在天窗和前挡风玻璃上看电影；轻点扶手区，在中控区感受大海的浪漫，再结合环绕式音响技术来体验自然等。</p><figure id="0fd1b9d0-00e7-4ea7-9fa6-b4ce1956e560" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-18.gif"><img style="width:639px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-18.gif"/></a></figure><figure id="cfad103f-aade-48e5-9a35-11d4b5bb8806" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-19.gif"><img style="width:639px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-19.gif"/></a></figure><figure id="d34da453-12f3-4a4b-8baf-e83bfe340ae5" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-16.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-16.gif"/></a></figure><figure id="167ef569-2be7-4bf1-a016-829df062fcd3" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-17.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-17.gif"/></a></figure><p id="f4912849-9fdd-4292-be8a-5446e0798564" class=""><strong>2. 本土化设计</strong></p><p id="03fd196f-3780-4d46-ab05-6ce9d1709019" class="">不同的国家有着不同的文化积淀，用好经过历史长河遗留下来的文化隗宝也能够让我们的设计充满文化气息，带来更多名族自豪感和认同感。比如：结合中国文化，红旗以“尚·致·意”为核心设计理念，通过 HMI 界面中的山河意境，来致敬华夏数千年的大好河山，从视觉和操作上，打造极致的驾驶体验，真正体现东方骨架，现代解构</p><figure id="79c7fb45-6a57-4dd9-b984-07b0f57af43f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-21.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-21.jpg"/></a></figure><p id="6d7ab63a-2b3d-4d1d-bca2-77cb964bd10d" class=""><strong>3. 制造惊喜</strong></p><p id="8f2f08cc-8ff3-4b88-afb8-b2175672ff35" class="">在用户的不经意间创造惊喜，维持高质量的车载体验，比如：节日氛围、生日的祝福...</p><p id="829552ce-b6bd-4f35-b78f-dbb2d80c38de" class=""><strong>4. 主动交互</strong></p><p id="47f3c22f-8edd-4e64-8a61-c31696a9ccb7" class="">未来的汽车更像是一个懂你的朋友，他能够知晓你下一步的动作，主动和你交互，而不是被动的等待你发出指令去执行，主动交互主要可以分为功能性、情感性、安全性这几个类别</p><p id="f257f715-0864-4050-bf1d-25b5c504ed27" class="">功能性：比如当我们走向车辆时，车辆会自动打开车门并通过灯光投射出迎宾语</p><figure id="860518c6-e3fb-42e2-b779-5ae830ce0d1e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-22.gif"><img style="width:640px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-22.gif"/></a></figure><figure id="f7fdf337-d0cd-45bb-a78f-b66381e2ec36" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-23.gif"><img style="width:640px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-23.gif"/></a></figure><p id="e4d75dc2-de6f-457d-bce8-e1419b138c0a" class="">娱乐性：比如当我们再情绪低落的时候，车载机器人会主动过来和人类进行交流，当我们累了的时候会主动提供按摩服务，播放舒缓的音乐</p><figure id="57777f92-7191-4cd5-a943-db1c3261c6bd" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-24.gif"><img style="width:640px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-24.gif"/></a></figure><figure id="e20b7ab3-2bbc-4f93-8c55-9d7ed401f1eb" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-25.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-25.gif"/></a></figure><p id="999dbb16-3921-41ea-839f-c5889c846306" class="">安全性：比如驾驶员疲劳驾驶是，通过释放气味和音乐来唤醒驾驶员，晚上汽车灯光自动识别行人，主动降低灯光亮度，避免直射行人眼睛</p><figure id="a95acda2-fea3-4267-8899-8496e004519b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-26.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-26.gif"/></a></figure><h1 id="d77043fd-b5c8-4f01-946b-facb4070ad3b" class="">四、HMI 视觉设计</h1><p id="199a0302-a233-4ad4-a6ad-72f1cd885f8e" class=""><strong>1. HMI 视觉设计的特点分析</strong></p><p id="2748e263-89ec-46e1-b8cf-6d6df01e78da" class="">我们基本上对于 HMI 视觉设计特点可以分为 3 种类型：1、潮流化；2、个性化；3、品牌化</p><p id="1240d0f4-acd1-4826-986b-67da87af66a0" class="">① 潮流化</p><p id="1895743c-b499-428f-9fe9-4a8920da9026" class="">潮流化指的紧跟目前主流的设计趋势，比如我们可以看到各大主机厂用烂了的卡片化设计，蔚来、小鹏、理想的 HMI 都是沿用了互联网的主流设计方式：卡片式设计、扁平化</p><p id="623ba043-f96c-432f-9cfc-0b2ecd787708" class="">扁平化设计：扁平化的设计虽然是趋势，但是也是能够设计出不一样的产品个性来，并不是大家说的要加各种光效、纹理、材质</p><p id="de431877-44fa-4e20-8a60-e67712b9d8cd" class="">卡片式设计：国内汽车品牌绝大多数都在使用卡片式的设计，当然有时是出于信息区分和适配的角度考虑，但是卡片式的设计却很容易限制创意和个性的产生</p><figure id="2bc8200c-b2f9-4908-b3ad-b8224114e46e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-28.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-28.jpg"/></a></figure><p id="3c8e1232-f823-4e0b-a0b0-982aefda5cd8" class="">② 个性化</p><p id="6be75839-4ae6-4400-aad0-763f44e9b367" class="">个性化指的是能够凸显产品的个性特点，能够根据车型的特点进行个性化的设计，强化产品的设计特点，从在产品咨询公司接触过的 HMI 设计项目来说，一般主机厂还是希望能够突出自己的个性，打破固化的设计思维，比如特斯拉 cybertruck HMI 未来、硬朗的设计风格，强化了皮卡硬朗的设计特点，拜腾让 HMI 去掉呆板的卡片式设计，运用不规则的排版、多边形的设计塑造产品的个性</p><figure id="24f5529b-bf84-47b5-8273-cacce4a94dd7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-29.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-29.jpg"/></a></figure><p id="15848119-d2aa-4a25-a61c-49bc42024f12" class="">③ 品牌化</p><p id="72e5119a-dadf-4c5d-acd2-05667776c8a2" class="">品牌化指的是品牌定位、产品家族、HMI 风格能够形成高度的统一，比如蔚来塑造的未来的第三生活空间，从内饰、门店、HMI、品牌理念都给人温馨、惬意的未来生活空间的感受，也算是国内品牌化做的比较好的汽车品牌。</p><figure id="4ec100dc-3e70-4ec2-8d97-ed2eeaf7b81b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-30.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-30.jpg"/></a></figure><p id="c08d9cd3-c76f-411b-ad36-8b41c5bfd853" class=""><strong>2. HMI 的设计原则&amp;理念</strong></p><p id="71edd7e1-9a91-4897-ad11-6b5b657feb06" class="">HMI 相关的设计需要关注汽车所定位的目标用户他们的行为习惯、消费偏好，为产品提供专业、契合品牌调性的设计方案，并通过 HMI 的设计提升产品的安全性、人性化、情感化、个性化的价值。</p><figure id="a13b4a54-159a-4fb2-a65e-777076c45672" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-31.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-31.jpg"/></a></figure><p id="5c57de6c-ce5e-49f0-948e-8b4d9ed0efab" class=""><strong>3. HMI 视觉设计的方法</strong></p><p id="12a8e242-814a-43db-9200-2fd977029c4e" class="">① 仪表的造型设计方法</p><p id="b773f6db-4e70-46fa-8ebf-5a18bc2ec6b8" class="">当我们设计仪表的时候要考虑的几个点分别是：1、空间透视；2、仪表的表头形态；3、不同模式仪表的形态变化</p><p id="19f42ccb-6cda-49c7-9847-c3ba49860cfa" class="">区别于扁平化的设计，仪表的设计经常会采用空间纵深感比较强的设计方式，它能够和我们的驾驶空间透视场景保持统一，同时也能构让界面层次更加富有变化。</p><p id="5dba3dd8-9902-467e-accb-fe1e47545312" class="">大部分的汽车都会设置运动模式、舒适模式、经济模式，当不同的模式我们可以考虑设计仪表不同形态变化，让用户更容易感知模式的变化。</p><figure id="aae52842-22d9-4c7c-928d-be72b4d25cbc" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-32.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-32.jpg"/></a></figure><p id="0afb354e-87ec-4c94-a5a8-bfdbdee19283" class="">仪表的功能一般要体现车速、转速、减速、用电功耗、档位、油量变化等功能，在造型设计上，我们主要可以从 3 个方式去寻找设计灵感：</p><ol type="1" id="ae4c6f7c-c86b-42a1-97eb-6aae60a657c2" class="numbered-list" start="1"><li>通过契合产品特点的工业、建筑造型设计来寻找设计的灵感；</li></ol><ol type="1" id="cca3aa3b-4ca6-42c5-9fc0-aaae85285ef3" class="numbered-list" start="2"><li>通过汽车造型的设计语言（车头前脸、尾灯、内饰、车身线条）来寻找设计的方向；</li></ol><ol type="1" id="0d35036e-3d6d-4377-a0e2-3640c74fb3be" class="numbered-list" start="3"><li>从品牌调性来探索 HMI 的设计灵感</li></ol><figure id="6a1cb5ba-ee76-4f7f-9046-f2ab476597ba" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-33.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-33.jpg"/></a></figure><p id="5f8e6bb3-f95a-47ed-8f7e-12394870f071" class="">② IVI（中控屏）设计的难点</p><p id="306999e8-dd5b-4f8b-83b6-bd6c05ca4cec" class="">IVI（In-Vehicle Infotainment）是车载信息娱乐系统，也就是我们说的中控屏，中控屏的视觉设计首先要重点考虑的是如何与仪表盘的设计风格上保持一致，并在一体化的构图下，仪表和中控能形成一个整体，其次要考虑的点是如何在基本常用功能一致的情况下，在视觉上能够和其他产品拉开比较大的差距。</p><figure id="de85d8e3-5466-49b8-979d-79335392d087" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-34.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-34.jpg"/></a></figure><p id="430c50b3-22a1-4b7e-8e9d-4a76153dc4c5" class=""><strong>4. HMI 如何设计得不一样</strong></p><p id="0d578a37-03d5-4da5-b83e-fb74dd7ee9ff" class="">当我们不管看国内主机厂设计的车机界面，还是看国内设计平台设计师发布的 HMI 设计方案，发现大部分的设计逃不过卡片式设计，基本在布局、设计理念上并没有太多的创新，那么对于我们设计师来说应该如何去打破这种固定的设计方式呢？或许从优秀的设计中我们能找寻到这个问题的答案。</p><figure id="039e8c8f-f796-4898-8afd-a914dbf4e438" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-35.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-35.jpg"/></a></figure><figure id="f6a7067e-05ca-4263-bdb8-6f999eefc875" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-36.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-36.jpg"/></a></figure><p id="0ff56cf8-b4c3-4609-8256-fd1ee23cf62b" class="">① 打造无边界设计</p><p id="df13a6c3-5422-44d2-afc8-70334c019edc" class="">无边界的设计指的是突破卡片的限制，让设计更加的一体化，在构图和页面布局上也更加的大胆，比如，我们可以看到拜腾汽车和特斯拉 cybertruck HMI 概念设计都尝试创造无边界的设计。</p><figure id="4e7662f6-2d38-406b-9bd1-e83d7850eaa9" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-37.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-37.jpg"/></a></figure><figure id="cd66210b-a626-4af9-a8d9-d81d3ff6a18d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-38.jpeg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-38.jpeg"/></a></figure><figure id="7ab20ea4-6774-4027-ba8a-fa008559e619" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-39.jpeg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-39.jpeg"/></a></figure><p id="833ffb5c-3a4c-40ef-90b1-d42197ae3dd2" class="">② 塑造空间立体感</p><p id="486bcaa1-3bd2-40ba-a484-14bbc3ece082" class="">我们经常在设计中听到“你的设计太平了”，这其实就是说我们的设计没有没有立体空间感、没有层次变化，HMI 的设计也是同样的道理，塑造空间感能够让我们的画面层次更加分明，画面更加具有想象空间。</p><figure id="db25beb0-abbd-4b1f-b4de-18a64ff26b62" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-40.jpeg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-40.jpeg"/></a></figure><figure id="9b0d699c-02a0-4144-9a8d-650faeae3cc1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-41.jpeg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-41.jpeg"/></a></figure><p id="d5167cb3-3129-458e-9f47-3eb3c3adb218" class="">③ 特殊的质感</p><p id="10b2a07c-a3f1-4e4f-a766-bbece524a6ce" class="">在界面中应用好质感也是能够让设计变的更加精致，质感可以增加视觉层次，让画面更加耐看。简单地说，质感就是物体呈现出的物质真实感，这体现在很多方面，例如光影、色泽、质地等。想想苹果 iOS7.0 之后的系统界面，毛玻璃效果的磨砂质感让画面看起来精致优雅，轻轻松松达到简约的高级美感。</p><figure id="218e361d-337d-44b9-aac2-ccfe4faef878" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-43.jpeg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-43.jpeg"/></a></figure><figure id="8d850c91-5f13-48de-b0d5-c1a761abe2be" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-44.jpeg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-44.jpeg"/></a></figure><p id="1715552e-ab20-4f85-b3ca-87923b80b289" class="">④ 独特的造型</p><p id="31bff3f5-5807-4daf-af0f-ddc5eae05e4a" class="">独特的造型是突出产品个性最直观的表达方式，前面提到的无边界设计、质感、立体感是能够提升设计的品质感和差异化，但也是比较难的，他们是设计的隐喻表达，这些就像是人的内在性格，要多去接触才能够感受到，但是独特的造型是设计最直观的表达，它就像是一个人和大多数的圆脸不一样，突然长了一个多边形脸，你看一眼就基本能够记住他了</p><figure id="d22aeba7-f4e1-4a4f-b705-96f32727db69" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-45.jpeg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-45.jpeg"/></a></figure><figure id="90caaf60-6d8e-4b87-89c8-24b1038976ce" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-47.jpeg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-47.jpeg"/></a></figure><p id="7b035cc3-92d3-433c-beb7-086ac7b9ddf8" class="">⑤ 独特的设计理念</p><p id="f3b74bb9-801a-4d5c-8fde-3080f80defea" class="">当我们的设计表达有了设计理念和故事，就变得有了灵魂</p><p id="4d0e73d4-ffdc-4c23-a5ac-caf56da3cd66" class="">奔驰 smat#1 的 HMI 设计理念来源于“smart 灵感星球”，界面、HMI 都采用 LOW POY 多面体的设计语言，看起来非常的特别和大胆，和新车的灵动、感性的调性也非常契合</p><figure id="1a09c5fb-7bd5-4e69-9d09-0953211837cc" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-48.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-48.jpg"/></a></figure><figure id="36092be7-51ed-4965-86a5-519c1ce9b99a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-49.jpeg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-49.jpeg"/></a></figure><p id="6936b811-1874-42ec-a611-4107951258bb" class="">全新 BMW iDrive 采用了斜切角设计和独特的光影效果，视觉语言要传达的是有性格、有棱角的态度。斜切角的设计不仅出现在仪表盘上，还有抬头显示的速度托盘、中央扶手旋钮区域的木质托盘、中控屏主菜单的卡片单元背景，以及在内饰、外饰很多细节处。 做这些设计要达成的效果就是打造高辨识度和豪华感</p><figure id="bece2763-d3f3-40b2-bd2c-11c811cce77f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-50.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-50.jpg"/></a></figure><figure id="3704a724-51a4-4917-8c10-bd218e83bc38" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-17.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-17.gif"/></a></figure><p id="aa744aef-b692-4796-a3b6-e60adab7f26b" class="">⑥ 炫酷的动效</p><figure id="1b797663-37e5-4b7b-8932-11c8796ca865" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-52.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/09/uisdc-0z-20220923-52.gif"/></a></figure><h1 id="f98a7ebb-bef7-4bcc-b984-8e043cb2dc55" class="">五、总结</h1><p id="c1fbbc26-b162-4fa3-bdea-f18ca33a153d" class="">我们来简单回顾下车载 HMI 设计指南（基础篇）&amp;（进阶篇）所讲述的内容，在基础篇中和大家讲解了 HMI 设计的一些基本知识，带大家了解了 HMI 设计这个神秘有趣的行业；在进阶篇和大家主要讲解了 HMI 设计落地过程中交互&amp;视觉我们需要注意的点和基本方法。</p><p id="4f40640b-4aec-42f3-a010-90add18aa2f9" class="">最后，希望这 2 篇文章你能够开启你 HMI 设计的大门。</p><p id="4bd76bd1-64aa-4858-9b26-4b7e33e2c1f7" class=""><a href="https://www.uisdc.com/hud-design"><strong></strong></a><a href="https://www.uisdc.com/hud-design"><strong><strong>7000字深度解读！车载HUD的交互和视觉设计知识总结</strong></strong></a><a href="https://www.uisdc.com/hud-design">
+</a><a href="https://www.uisdc.com/hud-design">本次文章的主题是围绕 HUD 讲解，大家拿好小本子记好笔记奥。</a></p><p id="7c5c399f-a413-4c83-8e8f-e042ed6ff414" class="">参考文献：</p><p id="3c98607d-c0d6-49af-9a21-4d564a5b3034" class="">[1] 《快速上手，车载 HMI 设计要点》 <a href="https://link.uisdc.com/?redirect=http%3A%2F%2Fwww.360doc.com%2Fcontent%2F22%2F0704%2F10%2F144930_1038535299.shtml">http://www.360doc.com/content/22/0704/10/144930_1038535299.shtml</a></p><p id="5b763885-3fc9-41bc-8412-f3f4301a0c69" class="">[2] 《7000 字深度解读！车载 HUD 的交互和视觉设计知识总结》 <a href="https://www.uisdc.com/hud-design">https://www.uisdc.com/hud-design</a></p><p id="354b50d1-0f57-4cb1-a50b-02e1fafb569b" class="">[3] 《趋势洞察丨最全面的智能驾驶舱显示屏趋势分析》 <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F113882077">https://zhuanlan.zhihu.com/p/113882077</a></p><p id="5051ab37-fc7f-49d6-b655-89f11b77c595" class="">文内出现的商标及图像版权属于其合法持有人，只供传递信息之用，非商务用途。如无意侵犯到您的权益，请及时联系我处理。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

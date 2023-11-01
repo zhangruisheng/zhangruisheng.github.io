@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>如何4步建立系统级色彩体系？来看京东高手的方法！</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2fc2b737-8ee8-494f-834f-26d16546dbce" class="page sans"><header><h1 class="page-title"><strong>如何4步建立系统级色彩体系？来看京东高手的方法！</strong></h1><p class="page-description"></p></header><div class="page-body"><p id="4c3cf1d8-8172-4540-90a3-6191c7efcb7b" class=""><a href="https://www.uisdc.com/tag/%e8%89%b2%e5%bd%a9%e4%bd%93%e7%b3%bb">色彩体系</a>的推导其实有很多文章有详细的介绍了，这一篇主要粗浅的梳理了整体流程经验，补充一下技术方法与色彩模型的差异。</p><p id="3e6a6cfb-5627-4cd8-8dac-9ade33ad1f35" class="">相关干货：</p><p id="042c67cd-83ed-475c-82ca-97c21df74f12" class=""><a href="https://www.uisdc.com/business-color-system"><strong></strong></a><a href="https://www.uisdc.com/business-color-system"><strong><strong>如何设计B端色彩体系？3个步骤帮你掌握起来！</strong></strong></a><a href="https://www.uisdc.com/business-color-system">
+</a><a href="https://www.uisdc.com/business-color-system">编者按：B端设计的色彩体系如何构建？</a><a href="https://www.uisdc.com/business-color-system">阅读文章 </a><a href="https://www.uisdc.com/business-color-system"><em>&gt;</em></a></p><p id="9d96aa11-c810-4359-a799-476cc8d7dde8" class=""><strong>前言：</strong></p><p id="4b4fd9cb-386b-44ba-a26b-8ff02f21c4b0" class="">本文粗浅阐述色板生成、检验与应用的流程方法，包括主流的基准色选取、演算方法、补充色彩空间底层差异、以及 Tokens 结构。好了，那就开始吧~</p><figure id="02dc393b-6404-4497-b6a6-758e21027ac7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-1.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-1.jpg"/></a></figure><h1 id="e5b064b2-f72b-4229-bc43-c357ad49dc77" class="">一、取色</h1><figure id="25e19d58-1804-4528-a3ad-eec16ee7cdfa" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-2.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-2.jpg"/></a></figure><p id="f20f228e-6d42-41d2-ab67-1f80f7670c22" class=""><strong>1. 主色：从产品或品牌主色开始</strong></p><p id="fceed132-8e92-47ad-b410-10c59f02ecfe" class="">注：以个人项目主色为案例，前期产品色是基于 HSB 色彩模型选取的主色</p><figure id="498ad8af-6f7c-45f3-8cb2-4e698ca171c3" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-3.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-3.jpg"/></a></figure><p id="5f6b6d33-29f7-4204-b032-413a0a09030a" class=""><a href="https://www.uisdc.com/tag/%e9%85%8d%e8%89%b2">配色</a>：品牌/产品所要传递的调性</p><p id="ecda6782-7827-495f-ae2d-3012ec3d2d0d" class="">以拾取 24 色为例：H 360/24=15°递进，Brand Blue H218°。</p><p id="61f7cd3d-15bb-48de-9f71-49cd63e4b3ae" class="">配色原则方法：1、基于品牌传递调性；2、基于邻近色、对比色、互补色。</p><p id="fa6e4bd3-cd1e-48cf-b38a-b64a356215e4" class="">配色种类：自定义（6、8、12、16...）</p><figure id="c029ed22-4149-4171-b0ef-7443d57569f9" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-4.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-4.jpg"/></a></figure><p id="70dc5a5d-333c-417d-bc7a-e4952ce18a7a" class=""><strong>2. 检验：主色保持视觉感官一致</strong></p><p id="db43b7be-16a5-4a98-9e78-22a58df51c34" class="">保持视觉感官一致，适宜长时间浏览阅读。矫正饱和度 S 与亮度 B，HSB（brightness）的亮度一致不能保证视觉感知一致，需引入 Photoshop 图像灰度模式或者 Lab 色彩空间下的亮度 L（Lightness）来检验。在保证主色色彩主观感受舒适下，以品牌色亮度为基准，亮度过渡尽量平缓，矫正过于跳跃的色彩主色，才能衍生出接近视觉感官一致的全色系色板。</p><figure id="deec809c-0586-44fb-baca-639ca548f6f7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-5.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-5.jpg"/></a></figure><h1 id="cd0474a6-965b-43ca-bd5e-c488cf315bdc" class="">二、延展</h1><figure id="b33c79f6-ec72-4f49-8188-3ce112bc3479" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-6.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-6.jpg"/></a></figure><p id="53a7a2c5-6bf5-44de-b62b-81883eaa98f7" class=""><strong>演算 1.0：透明叠色</strong></p><p id="1d692130-6765-4fc8-805e-4c5992174916" class="">操作性快捷，色彩过渡平均。假设不以纯白纯黑作为起点与终点，就需要确定最小起点值 95%(自定义)，确定 11 色(自定义)，白色步幅为 n=5(自定义)，黑色步幅为 n=5(自定义)，得出 95%/n=19%。</p><figure id="5be2d8d9-ed36-4a51-a7c8-81837dcc0b6c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-7.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-7.jpg"/></a></figure><p id="262d3845-5eda-44a2-a819-d9525caa1212" class=""><strong>演算 2.0：等序差值</strong></p><p id="a0a06bed-a52f-437c-b271-95b69941382d" class="">操作性容易，有规律推算 S 值与 B 值。同样假设不以纯白纯黑作为起点与终点，就需要确定最小起点 Smin=5%(自定义)；Smax=100%(自定义)；Bmax=100%(自定义)；Bmin=20%(自定义)，浅色步幅为 n=5(自定义)，深色步幅为 n=5(自定义)。如果把调色板看成是一个二维坐标轴，我们有主色坐标、深色坐标与浅色坐标，三个坐标点之间进行均值计算，一次衍生步幅坐标点。</p><figure id="642cc34f-7b04-44e3-9ad3-dcc8afc8274c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-8.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-8.jpg"/></a></figure><p id="df7f24e6-55af-413d-9297-3220a740fdaa" class="">通过此规律，那么就可以利用 Numbers 表格搭建简单演算工具，依靠公式修改基准色 S 值与 B 值，演算延展出完整的深浅色板。</p><figure id="99d2da14-487b-4f7f-af48-07ef4b26ad02" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-9.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-9.jpg"/></a></figure><figure id="6a04981b-7453-414b-9574-2af1cdd43cad" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-10.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-10.jpg"/></a></figure><p id="2bd8b37f-2327-482c-a464-de97d9005d9a" class=""><strong>演算 3.0：曲线拟合</strong></p><p id="f12032e6-1124-49e7-8666-187a4f8daa0c" class="">依赖曲线函数，多种过渡变化。色彩过渡缓和在直线的基础之上，引入线段曲率与点速度，也可以使用常用的曲线函数：EaseIn；EaseOut；EaseInOut 等。曲线色彩梯度自行推导难度相对较大，需要依赖工具生成。</p><figure id="03a51fa1-3e4b-4db4-ad07-b515bb18dc19" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-11.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-11.jpg"/></a></figure><h1 id="f333cb20-e44e-4e36-98e1-237cc48cf05c" class="">三、检验</h1><figure id="1b271d16-da50-4428-9f9a-cb9fddef60d1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-12.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-12.jpg"/></a></figure><p id="420f92b3-42b5-44c0-ab05-36fc7aba2103" class=""><strong>1. 检验色板：视觉感官的一致性亮度</strong></p><p id="f2423816-ca99-4747-aa22-194605d20b2d" class="">当然除了亮度检验，还需要做 WCAG 2.1 标准下的对比度检验。</p><figure id="00f1838c-27e0-4ad2-89d6-dfd0f66442dd" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-13.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-13.jpg"/></a></figure><p id="6792a6e3-2a9a-4fab-a906-2a23ce5d1b50" class="">相比于直线生成的色板，曲线函数的优势能生成亮度一致性更接近的色板，但是仍然无法完全解决这个问题，那么是不是问题出在色彩模型下呢？</p><p id="009e73b5-155b-43c1-b12c-47ac2e657e11" class=""><strong>2. 两类色彩模型的底层差异</strong></p><p id="2cf05ba3-9d8f-4fed-9970-dd4e1b6309a9" class="">追求亮度一致的视觉感知体验，目前在软件层面涉及到色彩部分，几乎都是以 RGB 或者 RGB 的色彩模型衍生出来的色彩空间。RGB 的原理发光元件通过三色光叠加，是一种基于计算机显示技术发展而来的色彩模型。</p><p id="b3e2116e-c892-48f2-a145-89aca2f7e714" class="">其实对发光元件而言的亮度与人眼感知的亮度是存在非常大的差异。那么基于人眼测定的色彩模型就有像 Lab、HCL 以及最新的谷歌 HCT，常用的 Photoshop 图像灰度模式与 Lab 中的 L 都是基于人眼测定的亮度 Lightness 通道。</p><p id="45ce8fcd-5736-4000-a3ad-2abd408b6f9a" class="">下图可以直观感受基于两种色彩模型差异，虽然都是相同的亮度 Lightness，但是视觉感官体验上的舒适性差异明显。</p><figure id="16f97d7b-43db-4048-a9af-f800ff4c8ae9" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-14.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-14.jpg"/></a></figure><p id="0a26ee79-06eb-49f3-b59f-bdddb1c137e2" class="">在这里补充色彩模型差异，主要原因是软件产品服务对象是人本身，所选用色彩模型应尽量贴近人眼感知层面的色彩模型。基于 HSL、HSB 生成的色彩，同样可以通过换算关系，转换成 Lab、HCL，但是由于色域范围不一致，色彩会存在不兼容的情况。</p><p id="86498e36-09f6-41bc-9d83-085c8aad04fd" class="">换算关系：sRGB(HSL/HSB) → linearRGB → CIEXyz → CIELab → CIELch， 在 W3C（15. Sample code for color conversions）文档中有给出具体转换公式代码。</p><figure id="df731bab-b3f1-46a3-aab9-51b255a241a0" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-15.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-15.jpg"/></a></figure><h1 id="3a76b083-d1b1-48dc-91c6-d3ee98e80c6d" class="">四、应用</h1><figure id="e0ef1856-34ab-4ca0-babb-b69ddf8f38c5" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-16.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-16.jpg"/></a></figure><figure id="8e31ca76-dda9-4572-a917-2c8a3626fdaf" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-17.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-17.jpg"/></a></figure><figure id="66a8322f-5acc-42da-a3bf-701b482498ad" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-18.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-18.jpg"/></a></figure><figure id="641eb030-18af-4b50-9c34-4ae6c09e11e6" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-19.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/12/uisdcjd-20221219-19.jpg"/></a></figure><p id="8bdde28f-f355-4296-842f-ec2dcaf35fa3" class=""><strong>工具资源</strong></p><ol type="1" id="c5ae29c5-cd6e-449e-b382-a6aaf14efbdf" class="numbered-list" start="1"><li>对比度检测 Color.review WCAG2.1： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fcolor.review%2F">https://color.review/</a></li></ol><ol type="1" id="c5482b1b-0362-42de-aa2d-809aa68bc848" class="numbered-list" start="2"><li>透明度叠加工具 Tint and Shade Generator： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fmaketintsandshades.com%2F">https://maketintsandshades.com/</a></li></ol><ol type="1" id="89864d4a-f7b4-43f8-968d-39eb6fb25b4e" class="numbered-list" start="3"><li>直线等分亮度工具 chroma.js palette helper： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fgka.github.io%2Fpalettes%2F%23%2F9+%7Cs%7C00429d%2C96ffea%2Cffffe0%7Cffffe0%2Cff005e%2C93003a%7C1%7C1">https://gka.github.io/palettes</a></li></ol><ol type="1" id="4ab04a1e-13cf-4bd3-bb8e-89104292b3bb" class="numbered-list" start="4"><li>色彩曲线工具 ColorBox by Lyft Design（搭梯子使用）： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Flyft-colorbox.herokuapp.com%2F">https://lyft-colorbox.herokuapp.com/</a></li></ol><p id="5d504b02-5bf8-45aa-ac08-233cdba122cb" class=""><strong>色板生成工具</strong></p><p id="98d46b3c-9a41-487b-86a4-276a6df14515" class="">基于 HSL/HSB</p><ol type="1" id="33114f02-af1b-427b-b4ff-c7216f8a6770" class="numbered-list" start="1"><li>Eva Design System: Deep learning color generator： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fcolors.eva.design%2F">https://colors.eva.design/</a></li></ol><ol type="1" id="bddd5f3a-ad82-440a-a650-afd9da2b4677" class="numbered-list" start="2"><li>ColorBox： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fcolorbox.io%2F">https://colorbox.io/</a></li></ol><p id="58a0a99b-7e34-45ef-9c71-a32933b41c5b" class="">基于 HCL</p><ol type="1" id="a7fa207c-dcc0-43dd-a5ad-649cc5f88db1" class="numbered-list" start="1"><li>Atmos - Create UI color palettes with ease： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fapp.atmos.style%2F">https://app.atmos.style/</a></li></ol><ol type="1" id="15568087-f0d4-44e8-bc95-1b349c766cca" class="numbered-list" start="2"><li>Colorpicker for data： <a href="https://link.uisdc.com/?redirect=http%3A%2F%2Ftristen.ca%2Fhcl-picker%2F%23%2Fhlc%2F12%2F1.03%2F182009%2FA9FC8E">http://tristen.ca/hcl-picker</a></li></ol><p id="c532d436-7115-4601-adc7-909a7c0a677c" class="">基于 HCT</p><ol type="1" id="678d49c7-3c1d-4bb8-acc9-1c1a4eeb69cf" class="numbered-list" start="1"><li>Material Theme Builder： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fmaterial-foundation.github.io%2Fmaterial-theme-builder%2F%23%2Fdynamic">https://material-foundation.github.io</a></li></ol><ol type="1" id="541c3931-cf49-4aca-8ece-c6c198dad62f" class="numbered-list" start="2"><li>Figma 插件(Color Space: First plugin with HCT)： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fwww.figma.com%2Fcommunity%2Fplugin%2F1105513882835626049%2FColor-Space%253A-First-plugin-with-HCT">https://www.figma.com</a></li></ol><p id="088e1403-f64b-4926-9a10-847ea15e01aa" class="">来源参考：</p><ol type="1" id="a35f7585-b64c-442a-a3ab-75b8369c78cd" class="numbered-list" start="1"><li>使用 Chroma.js 掌握多色调色阶： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fwww.vis4.net%2Fblog%2F2013%2F09%2Fmastering-multi-hued-color-scales%2F">https://www.vis4.net/blog</a></li></ol><ol type="1" id="e863d1ba-4bab-4ccb-82e7-cb8b9767ea43" class="numbered-list" start="2"><li>Re-approaching Color： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fdesign.lyft.com%2Fre-approaching-color-9e604ba22c88">https://design.lyft.com/re-approaching-color</a></li></ol><ol type="1" id="4730a1c5-add6-4680-b8a3-90bc51669977" class="numbered-list" start="3"><li>Designing Systematic Colors： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fuxplanet.org%2Fdesigning-systematic-colors-b5d2605b15c">https://uxplanet.org/designing-systematic-colors</a></li></ol><ol type="1" id="8b5e5158-23b6-4195-80a8-7c206b523a8c" class="numbered-list" start="4"><li>关于 HCL 颜色的一些笔记： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fsegmentfault.com%2Fa%2F1190000023056925">https://segmentfault.com/a/1190000023056925</a></li></ol><ol type="1" id="e1fd657f-4e33-4c5b-a94a-906737624f60" class="numbered-list" start="5"><li>产品配色 2.0：使用 HCL 色彩空间替代 HSL 生成配色： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fjessieji.com%2F2020%2Fhcl-instead-of-hsl">https://jessieji.com/2020/hcl-instead-of-hsl</a></li></ol><ol type="1" id="7ca7de20-aa57-425b-a243-b4bd24a8f72b" class="numbered-list" start="6"><li>The Science of Color &amp; Design： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fmaterial.io%2Fblog%2Fscience-of-color-design">https://material.io/blog/science-of-color-design</a></li></ol><ol type="1" id="3a120d0d-03ff-461c-93e7-79f221cc4190" class="numbered-list" start="7"><li>Design tokens： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fm3.material.io%2Ffoundations%2Fdesign-tokens%2Foverview">https://m3.material.io/foundations/design-tokens/overview</a></li></ol><ol type="1" id="e76d50e2-24d6-47b2-8cd5-88aba7664258" class="numbered-list" start="8"><li>W3C： <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fwww.w3.org%2FTR%2Fcss-color-4%2F%23color-conversion-code">https://www.w3.org/TR/css-color-4/#color-conversion-code</a></li></ol><p id="18a31957-f2db-47f0-b5a5-5e5f2fae1604" class="">更多色彩体系干货：</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

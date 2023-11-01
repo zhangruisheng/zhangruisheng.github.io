@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>概述「设计系统」</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="b844f655-aaf3-4948-9646-7c0902f3d403" class="page sans"><header><h1 class="page-title">概述<strong>「设计系统」</strong></h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Created</th><td><time>@June 13, 2021 3:59 PM</time></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedBy"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 10.4229C6.05176 10.4229 4.54785 11.1133 3.83008 11.9131C2.90039 10.9082 2.33301 9.55469 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 9.55469 13.1064 10.9082 12.1699 11.9131C11.4521 11.1133 9.94824 10.4229 8 10.4229ZM8 9.30176C9.32617 9.30859 10.3516 8.18066 10.3516 6.71094C10.3516 5.33008 9.31934 4.18164 8 4.18164C6.6875 4.18164 5.6416 5.33008 5.64844 6.71094C5.65527 8.18066 6.68066 9.28809 8 9.30176Z"></path></svg></span>Added by</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a-/AAuE7mCYLgNL-U_Il_abXX0ZuWQePjPOGoT8vXJW8WBz=s100" class="icon user-icon"/>张大圣</span></td></tr></tbody></table></header><div class="page-body"><h2 id="57757e3b-86b8-43f5-8a66-8ccbe3cdc178" class=""><strong>帮你深入浅出掌握</strong></h2><figure id="52168f6b-4e26-47ab-9a45-e961d79bc3fc" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVEuWtUPGoWN3G4iaibys2qhbvSYwI8LibjUVqFe19nZXraK7g832t2P2Pg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVEuWtUPGoWN3G4iaibys2qhbvSYwI8LibjUVqFe19nZXraK7g832t2P2Pg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="ecd0339a-e3ce-44dd-85e3-c0cb13710baa" class="">UI设计达人 <em>5月27日</em></p><p id="11f527d2-8ead-49f9-923d-61e253468304" class="">以下文章来源于负能量补给站 ，作者闫一会</p><p id="90e7147e-5c4d-4f59-84bb-643a9d0f177a" class=""><a href="https://mp.weixin.qq.com/s?__biz=MzAwNjM0MzIzNA==&amp;mid=2650336726&amp;idx=1&amp;sn=227077c9a847ecc7eb9da3613e5bea8f&amp;chksm=830292fbb4751bed696ca205b41e3a2c6fce4be2054a78b5a58bb6fd8812f23ff361135cf9b9&amp;mpshare=1&amp;scene=1&amp;srcid=06131LIfsMtxlHDofNFvftFg&amp;sharer_sharetime=1623571066572&amp;sharer_shareid=ff97b7e0c39dacbf582b73e2ece170f0&amp;key=c186853f5f67925b5f31ab9e3f0b007834b23f88261316a8496c812e2e4667342900a10304472233e224fba577f80d7446dfd5e7a7e5cf2cec1b51152348394aad1fb35d506b208ff5feb30435eaddf0ff6c1aca7f32f90de74570f5105df1b3d27848670f9229737c2e3a91c029882e2ab4daed442bee635b9a5e414f274255&amp;ascene=1&amp;uin=MjE0NTYwNQ%3D%3D&amp;devicetype=Windows+10+x64&amp;version=6302019c&amp;lang=zh_CN&amp;exportkey=AcGtuG89nLk%2BVTTJdSakN4w%3D&amp;pass_ticket=7mc%2Bm9neaLgvBSrkdY49AyMKhqt60AhD24F1DUxE5oP7cLLbzsejNVAUlFw5uBqo&amp;wx_header=0&amp;fontgear=2#"><strong>负能量补给站</strong></a><a href="https://mp.weixin.qq.com/s?__biz=MzAwNjM0MzIzNA==&amp;mid=2650336726&amp;idx=1&amp;sn=227077c9a847ecc7eb9da3613e5bea8f&amp;chksm=830292fbb4751bed696ca205b41e3a2c6fce4be2054a78b5a58bb6fd8812f23ff361135cf9b9&amp;mpshare=1&amp;scene=1&amp;srcid=06131LIfsMtxlHDofNFvftFg&amp;sharer_sharetime=1623571066572&amp;sharer_shareid=ff97b7e0c39dacbf582b73e2ece170f0&amp;key=c186853f5f67925b5f31ab9e3f0b007834b23f88261316a8496c812e2e4667342900a10304472233e224fba577f80d7446dfd5e7a7e5cf2cec1b51152348394aad1fb35d506b208ff5feb30435eaddf0ff6c1aca7f32f90de74570f5105df1b3d27848670f9229737c2e3a91c029882e2ab4daed442bee635b9a5e414f274255&amp;ascene=1&amp;uin=MjE0NTYwNQ%3D%3D&amp;devicetype=Windows+10+x64&amp;version=6302019c&amp;lang=zh_CN&amp;exportkey=AcGtuG89nLk%2BVTTJdSakN4w%3D&amp;pass_ticket=7mc%2Bm9neaLgvBSrkdY49AyMKhqt60AhD24F1DUxE5oP7cLLbzsejNVAUlFw5uBqo&amp;wx_header=0&amp;fontgear=2#">
+</a><a href="https://mp.weixin.qq.com/s?__biz=MzAwNjM0MzIzNA==&amp;mid=2650336726&amp;idx=1&amp;sn=227077c9a847ecc7eb9da3613e5bea8f&amp;chksm=830292fbb4751bed696ca205b41e3a2c6fce4be2054a78b5a58bb6fd8812f23ff361135cf9b9&amp;mpshare=1&amp;scene=1&amp;srcid=06131LIfsMtxlHDofNFvftFg&amp;sharer_sharetime=1623571066572&amp;sharer_shareid=ff97b7e0c39dacbf582b73e2ece170f0&amp;key=c186853f5f67925b5f31ab9e3f0b007834b23f88261316a8496c812e2e4667342900a10304472233e224fba577f80d7446dfd5e7a7e5cf2cec1b51152348394aad1fb35d506b208ff5feb30435eaddf0ff6c1aca7f32f90de74570f5105df1b3d27848670f9229737c2e3a91c029882e2ab4daed442bee635b9a5e414f274255&amp;ascene=1&amp;uin=MjE0NTYwNQ%3D%3D&amp;devicetype=Windows+10+x64&amp;version=6302019c&amp;lang=zh_CN&amp;exportkey=AcGtuG89nLk%2BVTTJdSakN4w%3D&amp;pass_ticket=7mc%2Bm9neaLgvBSrkdY49AyMKhqt60AhD24F1DUxE5oP7cLLbzsejNVAUlFw5uBqo&amp;wx_header=0&amp;fontgear=2#">害～设计相关的负能量，我来帮你催吐</a></p><h2 id="fd5c628c-003c-4f99-a497-883ec93463aa" class=""><strong>UI设计达人</strong>点击获取大厂UI设计规范及组件库、样机、作品集等UI设计资源。[ UI设计达人 ] 日常分享UI设计精选文章、设计灵感案例、UI设计趋势等。2篇原创内容公众号</h2><p id="79db6d88-58f2-424d-a19c-1158452f23c5" class="">年少时，经常听到身边的同事聊一些名词概念，羡慕之余犹豫羞于提问，导致我经常会陷入其中无法自拔，痛苦不已；过了这么多年，大多数概念都随着工作的原因慢慢被理解和消化，或逐渐消失或不再提及。但唯独，<strong>“设计系统”</strong>这个词阴魂不散，反反复复的出现在我的面前，特别是在面试这个场景下，几乎每一场都会有这个词被提到。</p><p id="7f5f2f70-2e6c-44dc-b3c5-e2702ae649ac" class="">也可能是每个候选人的认知不同，对设计系统的理解略有不同，有的朋友会认为设计系统是玄学，大话一套套的，根本没卵用；也有的朋友会把设计系统和设计规范划了等号。其实怎么理解跟输出环境有很大的关系，不同的产品在不同的阶段一定程度上对设计系统的依赖是有一定偏向性的，这就会导致设计师的认知偏差；</p><hr id="ae16654e-d798-4cb4-a656-9d204990f932"/><p id="c73949af-3fdf-4ebf-a850-9d6f0faa1bf7" class="">也源于最近做B端稍微多一些，不如今天就以toB产品为例来唠唠我认知下的设计系统是什么以及如何帮助设计落地执行的。</p><figure id="0b8816a4-b33b-4783-b11d-ba5d8131dcbb" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVSwAOGibOuaibezfILGf2YHXt4csU6gy1vPgVIYyD8tLpnPfrMmWuYgdQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVSwAOGibOuaibezfILGf2YHXt4csU6gy1vPgVIYyD8tLpnPfrMmWuYgdQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="4d024d38-1595-47a0-a763-46151da3af8c" class="">理论上来讲，<strong>设计系统分为两个大部分，一部分是指导思想，另一部分是实际产出</strong>；前者去指导后者执行，二者的关系像极了竞技运动中的教练安排的“战术”和球员场上的“执行动作”，如果用一张图来表示，大概就是这么个事：</p><figure id="c393b6ea-18ef-4879-b03b-8c0c752b9b13" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVWIWHHeoEGpyOPvzZ963ibzOkTGYLQo0alReuiaYpvRYJW14ibnpKhaGGg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVWIWHHeoEGpyOPvzZ963ibzOkTGYLQo0alReuiaYpvRYJW14ibnpKhaGGg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="04d58038-50ea-4a99-82be-2da35ce2cc00" class="">通过上面这张图不难发现其实设计规范也就仅仅是系统中的一部分而已，<strong>核心在设计语言的定义上</strong>，这是一个复杂的推理过程，需要对业务和设计同时有很深的理解，牵扯到很多虚虚实实结合的部分，我试图总结了一些平时的思考来重点说一说这几个模块。</p><p id="15d872dc-6b92-4dc6-80d8-e2aa7bcb7c36" class=""><strong>1. 语言构成</strong></p><hr id="c853977e-c43d-4c33-ad16-e20bf4490cdb"/><p id="66425d02-2352-453e-85b1-26c855fa5495" class="">需要强调的是，要设计一套“设计语言”，首先需要聚焦到“语言”这个词上，通常我们认知里的语言无非是一套沟通方式，因为我们对他习以为常，所以并没有更进一步的了解，我试图去查了下语言的来源，以及为什么世界上会出现这么多语言之类的问题，搜过出来的结果很多很复杂，但概括来说就是支撑<strong>一套语言的核心分为“语言特性”以及“语言构成”</strong>这两大部分。</p><figure id="de8d7789-65a9-4887-beec-53b228f687f5" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVHpoic1ic9taAXaGpnCLFoweWUACssRutJliagLnuXFZqfFF7lpYDtw1zw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVHpoic1ic9taAXaGpnCLFoweWUACssRutJliagLnuXFZqfFF7lpYDtw1zw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="4af8ba87-ffd0-4d01-b985-0cf735054190" class="">第一块，<strong>词汇：ta的作用是让你表达出想法</strong>，就好比如果你跟我一样English is not good的情况下，还嘚嘚瑟瑟的出国游玩，一定也经历过用“蹦单词+比划”的方式去问路、点菜吧，典型的通过word的方式传递信息。</p><figure id="dc4b80aa-329f-4209-a273-29e02dfab839" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVzNd2eJPGGKicMnZh9WhcvzbKaCN6OszSkBzAbobg458LMdeWGpZWaeQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVzNd2eJPGGKicMnZh9WhcvzbKaCN6OszSkBzAbobg458LMdeWGpZWaeQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="a005867f-7119-47a6-9228-0e98a11c35b1" class="">另一趴，<strong>语法，ta会让你更顺畅的表达出自己的想法</strong>，通过对词汇的重组和编排，信息传递的有效性被大大增加，你可以通过“主动宾”来陈述观点或表达疑问，尽可能的丰富此刻你的所思所想。就像上面的例子，按照语法规则稍微调整一下，看起来就顺畅多的多了~</p><figure id="8d7af6bf-4dc5-4a94-9320-1809b5ce4805" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVGMVzFr2yqUYMTyvWRz75s1FPuicY1gpEKrRFc2JlMZBu9iax8v8yMf8Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVGMVzFr2yqUYMTyvWRz75s1FPuicY1gpEKrRFc2JlMZBu9iax8v8yMf8Q/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="848b8102-3db0-49b0-8ad3-390123b49d01" class="">那么如果映射到设计上，显而易见，组件库对应词汇，交互流程对应语法；<strong>所以你会发现当我们不断迭代产品的时候，我们无非就是想把产品当做一件事情讲清楚罢了</strong>。</p><hr id="f2f32e8f-faf3-4c10-bfa9-ca42ce9dd0e8"/><p id="ec378bb0-aa1d-4f7c-8970-3c70eb6597ba" class="">但需要注意的是，设计师喜欢用更多的组件去表达想法这个事本无可厚非，但千万别过于执着，因为很多“组件”针对性极强，通用和复用的价值不高，这就像我们经常听到的网络词汇一样，一旦过了生命周期，这些词就像成了过眼云烟，大概率不会再有用处。所以针对这种情况（之前的文章也有提到过），我建议要在组件的分类上下功夫，建立不同类型的分类帮助你应对不同的场景，也可以有效的避免组件库的肥胖症：</p><figure id="a61b43ed-1966-4492-86b6-e1a9baeb4476" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVfdumQsJ7N9AbOypTT2AwzciaRLBK37fS8ZQD1Lb1gnSV7OcIPoiaV0LA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVfdumQsJ7N9AbOypTT2AwzciaRLBK37fS8ZQD1Lb1gnSV7OcIPoiaV0LA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="03227635-d4d1-4454-9a8e-0df965370c1d" class="">再就是当一套组件被创造出来，ta需要遵循一定的规则形成一个完整的页面，跟我们造句几乎一模一样；所以这个时候充当语法的交互流程就至关重要。现实情况下，往往交互形态是千变万化的，经常性的会因为业务场景的不同创造一些流程出来；但如果是<strong>基于语言的背景下，我们需要尽可能的抽练一些标准化的规则形成语法，我们称之为“设计模式”</strong>：</p><figure id="f52f8ac4-94f0-4338-95bc-5b08898049cc" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVKeXomz958MnkMGBib24y402QNjtfvibDIxW99jMe4GfPachDHKyzU7Wg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVKeXomz958MnkMGBib24y402QNjtfvibDIxW99jMe4GfPachDHKyzU7Wg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="0f95d35b-51f4-4198-b867-d9a732504b55" class="">这段鬼话理解起来太麻烦了，我试着翻一下大概就是：“为了避免重复造轮子，就搞了几个通用的流程，以保证产品开发流程的效能问题”，嗯，就这么个意思...</p><hr id="271d8ce8-b758-4487-9d4c-045d077a2a15"/><p id="097a5659-6c80-4cd4-862c-b2dfbf69cf1b" class="">以material design为例，官方给出了给出了很多规则，我仔细看了看，重新编组和分类了下：</p><figure id="df9554e9-1a44-4d34-906c-fd79ad7b0555" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVF1VuWN3MUJ0AJwphKuIgqNVl9pjCK1vf8oFEuUlNmEje5xUYhncjzg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVF1VuWN3MUJ0AJwphKuIgqNVl9pjCK1vf8oFEuUlNmEje5xUYhncjzg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="57bfbfae-7690-4c9e-a4e3-95520cc44662" class="">我从中挑了搜索这个比较通用的模式来简单讲下；抛开组件的“点”思维，需要我们定义的是“信息交互”的“线性”流程，我试着把其中的每个环节提炼了出来，抽练了一个流程出来：</p><figure id="7bb72978-52ca-47e7-aa47-e8bba10d47fa" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVj9crzWe0o6tWkaoGpSNtY8u31ib4h1wpj3R1c1JyAYyDOgJCVxWoo0w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVj9crzWe0o6tWkaoGpSNtY8u31ib4h1wpj3R1c1JyAYyDOgJCVxWoo0w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="d24f3270-6712-441a-8535-9e7f2fbe7408" class="">通过上图也许你会发现<strong>“模式”注重的是流程节点的体验感知</strong>（用户跟产品交互的一来一往），并注重封装成标准化方案。另外有一点，我把整个搜索的过程分为了2个个小线程——输入行为和消费行为，这是为了以后团队协作更好的理解这条模式的运作方式，以及之后的拓展，举个例子：产品经理决定加一个历史搜索（就是显示用户过往的搜索结果），这个时候设计师就可以把这个功能当做一个拓展包，直接扔到这个主干里来：</p><figure id="0bb1f04f-c9e9-4638-9ce4-304387cc38d4" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV4XKzBz4kBCb4FyZQn7A4Jic1VQeLhX6wlvqV2QDgE6WW82oSax5e4Uw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV4XKzBz4kBCb4FyZQn7A4Jic1VQeLhX6wlvqV2QDgE6WW82oSax5e4Uw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="e38b5a9f-429f-472f-b4d4-4221d3ee103d" class="">综上，<strong>模式最重要的起点和终点（可以理解成为目标和结果）</strong>，那么中间的过程就是可以被随意定制和改变的，这也是模式的灵活性。</p><hr id="12ad4846-2651-4e92-b28b-24c9f992c744"/><p id="2ff3b433-fa4f-4e10-b3bf-5c66c803844c" class="">另外，toB CRM鼻祖salesforce在自己的设计网站上公布了他们的设计模式，给出了一些特定的场景下的解决方案，不过写的相对更偏组件流程一些：</p><figure id="e3cbd520-88b1-412c-b2c7-a751408dd59e" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV9JcTiawibjmR5SAhuI1pGBE5TiafpBHJTbaBbwXlq0FwdlvU1b6CiaBW7A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV9JcTiawibjmR5SAhuI1pGBE5TiafpBHJTbaBbwXlq0FwdlvU1b6CiaBW7A/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="c1623d59-87f1-459a-8d5f-247fe336db8d" class="">总的来说呢，<strong>设计模式在互联网设计的发展上，一定程度把交互设计师的价值充分利用了</strong>，因为ta的存在，让设计系统不再是UI设计师的专属，更不是几个颜色和字号就可以被定调的，ta的作用一直都是帮助一款产品在成为优秀产品的道路上，传递出更“别具一格”且“优雅”的信息；</p><hr id="27442ab9-37e0-4b27-a076-258011233e2f"/><p id="0b566339-53b9-4bfc-8088-c943e2575188" class="">PS . 插个有的没的的小话题，一个很好玩的事，如果你细心琢磨的话，也许会发现其实组件本身也是带有一定的潜在交互，这种交互不需要你特意安插，天生就有，就好比一个按钮摆在那，在没有任何引导的情况下，正常人也知道点一点。所以映射到语言里，语法貌似并不是必要的（当然ta的存在是为了设计系统更完整，产品更好），比如这个烂大街的梗：</p><figure id="e31f1c1f-f55d-43bb-b730-64ed238c1d9d" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVVib0AYwiaMrqprL8om8Rrthp0z61fVwOfQnU0t4gj2uBWdJz4co4tSOA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVVib0AYwiaMrqprL8om8Rrthp0z61fVwOfQnU0t4gj2uBWdJz4co4tSOA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="078b6f22-1289-4659-85ec-59f7171c5422" class="">这种现象是著名的<strong>“贝叶斯理论”</strong>，利用相关信息总结出未知信息，也就是说我们的大脑是可以通过残缺的信息来补足未知的信息的，人类的大脑真的是奇奇妙妙啊~</p><p id="bd1755db-e211-4d96-8631-df7b4ac61aae" class=""><strong>2. 语言特性</strong></p><hr id="1cdce60c-8ff3-46a2-96f6-1ee7b9dc3d94"/><p id="7bf60421-797b-4534-837a-356d71d2a956" class="">相比构成，特性这个就好理解多了，相当于设计原则这类的，我们需要通过一定的规则约束对语言有一个明确的指向；比如现代汉语就具备适应性、开放性两大特征。</p><figure id="138a73f6-f99a-4162-b722-ffb53cf39f7b" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVWbaqeqaJdudtibbr9VTgQt5UiaTtGhhfyUMGcicKBZdTkqAkP8sZhbTSA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVWbaqeqaJdudtibbr9VTgQt5UiaTtGhhfyUMGcicKBZdTkqAkP8sZhbTSA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="44e8437f-fa7a-46cb-b5b8-dd72ebaef1a6" class="">同样的，设计系统在被不断使用和执行的路上需要有明确的引导，一方面帮助现有产品应对迭代的需求，另一方面保证组件、模式的不断扩容满足各种适应性场景，与之匹配的就是“设计原则”了。</p><hr id="88d56c13-b37d-48bf-be5e-f750ffc52ec3"/><p id="00d31464-704c-4ef4-8e71-dd261e2b7a7d" class="">但不得不说，作为面试官我个人不是很喜欢作品集里描述设计原则的时候就3个词：“简洁”“高效”“清晰”。并不是讨厌这三个词，而是当我追问候选人为什么是这三个的时候，我得到的回复基本是Material Design（或其他大厂的设计系统）就是这么写的亦或是其他很苍白的回答，这无疑是暴露了对设计系统的认知残缺，是一个非常掉分的互动过程。其实，当google、IBM、salesforce在对外宣讲他们的设计原则的时候，也许就只有两个字“清晰”，但背后或许有非常多的思考，甚至超乎你我的想象。</p><p id="852352fe-7a86-4c3b-bbd4-a77fee55b01f" class="">但...异乎寻常的是，AntDesign 的设计原则写的很&quot;深奥&quot;，凭我的功力真的看不出背后的东西，也不知道如何指导设计（也许他们是在探索设计哲学吧哈哈哈哈）：</p><figure id="0aad6a26-e263-4c9c-89b7-7ab7bc3f3c25" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVFLI1olmusIiah7AEgYAnsHrwhE51T2VKc87ibXs2rWa4Qu25hCoZKibPg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVFLI1olmusIiah7AEgYAnsHrwhE51T2VKc87ibXs2rWa4Qu25hCoZKibPg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="9b71d0d0-fc64-48c2-bacb-4c8576bc5168" class="">在我设计过B端产品里，我更希望尽可能的把<strong>设计原则按照不同角色视角的方式去划分</strong>，举个例子：</p><hr id="4fe2fe4c-61b5-432f-924f-43c08f1521d2"/><p id="91420b3e-f9eb-4f1c-b33a-763bde7f99e3" class="">假设现在我们正在为一款工具类SaaS系统做设计（0-1阶段），这个时候最好确定一个方向来综合考虑业务诉求、产品诉求、设计诉求和最重要的用户诉求（这基本包含了从生产到实用这条流程线上的所有角色），ta们分别承载着不同角色的不同期望，互相成就又彼此制约；所以需要从4个角色的不同角度分别提取诉求：</p><figure id="e0b174c3-3eab-4245-a593-3d675ddee458" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV61ib8MhNA6tTKp6pcf0Uyv9zDOlYPXNAIhAhd01gGMLMZmGIzL6ibBfA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV61ib8MhNA6tTKp6pcf0Uyv9zDOlYPXNAIhAhd01gGMLMZmGIzL6ibBfA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="300ada60-aa22-4499-af64-d69621e9c1b2" class="">当我们对上述各方诉求梳理清楚后，首先<strong>要精准的概括和整理这些内容的权重和占比</strong>（需要注意的是，虽然允许多个原则存在，但也要有一定的侧重和比例，这种做法在顺畅的环节上不会有所建树，但在多个原则冲突的情况下为了保全大局，顺应占比最大的原则是相对稳妥的选择，一定程度上可以帮助设计师规避掉不必要的纠结或撕逼的过程）；再然后基于当下的情况产出相应的原则，形成整套设计系统的王炸：</p><figure id="a747415d-00bd-48d9-b106-a0d0bdb4b96b" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVMDpktqFYUU6EjYMlTFsbp3BBX7sPPXpuaoRAONE9GnQdq7rE60WS7w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVMDpktqFYUU6EjYMlTFsbp3BBX7sPPXpuaoRAONE9GnQdq7rE60WS7w/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="ab9a2afe-0233-4d26-a617-67ff6fbe1961" class="">但在实际操作中，高度整合后的设计原则虽然指明了方向，但缺失了可衡量性，这就会导致“认知偏差”的情况，因为每个人对图例中的“高效”或“灵活”理解不同，会对同一个事物有不同的理解，就跟“小马过河”这个典故一样，小松鼠觉着水很深，小马却觉着也就那样；也正是基于此，需要设计师们在此基础上拆分明确的细则，帮助整个团队建立统一认知：</p><figure id="cdde385b-5728-4a9d-8fc0-2efdc8a941e6" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVZLF5hEo2Lnnvsly3wVwQqn6xQpsmtVJibs5Ziby6kic2ibDgqqpWgsk2zw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVZLF5hEo2Lnnvsly3wVwQqn6xQpsmtVJibs5Ziby6kic2ibDgqqpWgsk2zw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="c68ad213-79fa-487e-9035-9049d8c57a95" class="">到这一步基本上设计系统就被定了调了，我们可以明确对一个设计进行评判和衡量，以“清晰”为例，我们有个B端产品里面有个表单填写的页面，需要用户提供一些个信息，前两天，团队一个设计师做了个方案是把表单新开tab，但产品觉着不够清晰，反而觉着蒙版的形式更清晰。他就很疑惑，明明信息获得了更好的展示咋就不清晰了？</p><figure id="028cb17e-5f10-4714-aba7-21da6f6e75ea" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVaQ32RpWSnSAE8a9xv3JprMobNVib457yM0LWsGiabx87OSibLcyEuaSQA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVaQ32RpWSnSAE8a9xv3JprMobNVib457yM0LWsGiabx87OSibLcyEuaSQA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="b0ccdb2a-0ea5-4fe9-8441-70bee6135442" class="">说到底，是我们在做设计定义的时候，对“清晰”的认知就是偏薄的，这个案例里面显然第一个方案对信息的展示更加充分明了，但在这个场景下“清晰”并不仅仅指的是信息呈现，产品经理希望用户透过浮层能确认当前处在哪一步（或哪个页面）也同样是一个维度；从这个case里，你会发现，定义一个原则真的不仅仅是搬运一个名词这么简单，<strong>所有的原则和特性必须遵循易于操作且合理</strong>，这样才是一条合格且优秀的原则。</p><hr id="f15d87df-37ee-4983-b6f4-4078f121692e"/><p id="72274c8f-4ecb-493a-9690-5b4081ac371f" class="">ps . Salesforce的Lightning设计系统是我最喜欢的design system之一，原因很多，其中很重要的一条是因为他们真的是<strong>把“美”作为一个很重要的原则</strong>：</p><figure id="bfe1d41e-f353-4725-a40d-65e189e4e1cc" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVyL5fHfJqvX2BvMgfwmO8blBxQOW9MIZ8iaMpJwMvx5ibYkwVzQD25huQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVyL5fHfJqvX2BvMgfwmO8blBxQOW9MIZ8iaMpJwMvx5ibYkwVzQD25huQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="72cae2d2-798a-45dc-9df3-099a7cbd73ed" class="">嗯~nice，非常符合设计师的三观，也很真实，很实在哈哈哈哈~</p><figure id="6c21d344-c17c-4b74-8988-6304a4e84a11" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV2vgINsBdJC6kPoN9qroydmLiaP4ic3rp2fj4Vc8heO8w2Zbr95VoLgRA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV2vgINsBdJC6kPoN9qroydmLiaP4ic3rp2fj4Vc8heO8w2Zbr95VoLgRA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="8a555849-14e5-4e47-93f3-364834eb9d9b" class="">唉妈...啰嗦了一大顿，终于讲到了设计规范了，作为设计系统的中枢，设计规范承接了指导思想和设计落地两者，更像一本说明书，我挑了个点重点说一下（前面费了太多口舌了，实在是没有力气再写下去了哈哈哈哈）；</p><p id="fb5c3c3c-0c73-41be-8a89-d9ea42f0a32e" class="">色彩体系的定制往往是重灾区，最常见的做法是把颜色用色块的方式一字排开，一排叫做品牌色，一排叫做辅助色，还有一排是灰度：</p><figure id="7948a76a-49aa-4a6d-b4c8-533bff40f999" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVuYS9BdHYkFsR4KfgrbVpPvmmDNLaLkZcX9uEicxQH13k3BUKeGeqjHA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVuYS9BdHYkFsR4KfgrbVpPvmmDNLaLkZcX9uEicxQH13k3BUKeGeqjHA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="aea4f9b9-6c20-48c5-906f-38c59fdc743a" class="">这种定义存在很大的风险，就跟菜谱只告诉你需要哪些食材，不告诉你配比一样，做出来的菜大概率是一塌糊涂，难以下咽。所以如果你正在建设一套团队协作级别的设计规范，务必要把“协作”当做最重要的事，用比例的方式来告诉你的队友他们应该怎么做：</p><figure id="02c0e08e-8a9a-4026-a2ae-87710ede7267" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVcG3m8dL28zicUW4CtSgrCcs6W7LfNdgJeWZTogugP8iaRxZqNQTAT5sA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVcG3m8dL28zicUW4CtSgrCcs6W7LfNdgJeWZTogugP8iaRxZqNQTAT5sA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="74206f70-d924-4d82-ad48-33523c8aa8be" class="">同理，其他的模块，比如字号，间距，图标，我都建议尽可能的<strong>“场景化”</strong>，让设计规范有一定的代入感，这样会大大提高设计的效能和品质。</p><figure id="41ca8f48-873f-4302-bc92-ef5ab23d27c6" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaViazt2llwpaicibOCX9oBQyIePGMj7LeXibJsfpibcy64umSQ19C5ta4Sibsg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaViazt2llwpaicibOCX9oBQyIePGMj7LeXibJsfpibcy64umSQ19C5ta4Sibsg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="2d5a2b6a-31d9-4ad1-9dea-343cdc555a08" class="">抛出这个问题，是因为经常在不同的场合听到<strong>“设计系统是扼杀设计师的创造力”</strong>之类的观点；我个人是很难以认同这个的，对design system的最大误解就是限制设计师的想象力。首先设计系统本身就是一个庞大且复杂的设计观集合，需要调动整个团队的想象力和创造力，最终达到一个统一共识才有可能被实施和执行；其次，创造力并不全是设计个btn或者弹窗，<strong>真正能展示创造力的是像乐高一样，通过零件（组件）拼装成各种各样的令人叹为观止的创意，那才是我理解的创造力</strong>：</p><figure id="4768c8a9-6d40-48a6-a07d-485bb98c53c2" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVSTLdYYVwg7o0AHqeqj0ztfuOauOOtE5UgTk7uKkaqhagl4Pv2GxxPw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaVSTLdYYVwg7o0AHqeqj0ztfuOauOOtE5UgTk7uKkaqhagl4Pv2GxxPw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="345512be-bc51-48ca-a0f4-3b25e411111d" class="">另外从系统性思维上讲，如果在不考虑资源的情况下，我倒是挺支持每一位设计师都自己去设计一套设计系统，因为在我们平时看来，<strong>2/3年经验的设计师和10年的设计师他们的产出物或许不会差太多，但对设计观架构的能力千差万别，前者依赖感觉和直觉素养做事，后者更靠缜密的逻辑和推理来做事</strong>；我更喜欢后者多一些，并不是因为他们讲起自己作品的时候听起来多么高大上，而是因为依据推理方法可以时刻保持输出的稳定性。</p><hr id="937588fd-7b66-44bc-b20f-2040e4c1a700"/><p id="503e8f43-44e5-4f97-8098-23015f36a029" class="">如果你了解NBA的话，你一定知道美职篮里天赋最高的运动员 - 麦迪，他有过35秒13分惊为天人之作，把心理素质和身体极限展示的淋漓尽致，但就整个职业生涯来说，并不算特别突出，对比同时代的科比来说，他的个人/团队成就都还显得差点意思；天赋不算顶级的科比通过不断的自我训练和战术研究能够保持20年的稳定输出，赢得了5个总冠军戒指，成为了我们这一代球迷心目中的“神”。</p><figure id="36a205dd-4f01-4e1b-a116-0aff905c93b1" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV0tIjre3iaCwC2fCG1eLp9aTfWbdRUXjoh6ibwCI4j3xgiacmcwNyF2tCQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV0tIjre3iaCwC2fCG1eLp9aTfWbdRUXjoh6ibwCI4j3xgiacmcwNyF2tCQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="903d81b8-5617-4cde-88be-0ddf9cdad97c" class="">我无意诋毁这两大巨星，也无意内卷，只是想说，做事，终究不能托付给“天赋”和“灵感”，勤奋和努力在一定程度上也许可以帮你飞到更高。</p><h1 id="b93b5eef-4cce-4b00-a08d-4643c65d5a81" class=""><strong>上点小福利吧 🎁</strong></h1><p id="8bae516a-7cde-48b6-8b3b-dd0e97734bd1" class="">尽管我一直坚持输出设计观点，但我发现好多朋友练就了 “一看就会，一用就废” 的日常技能，所以准备了文中提到的salesforce公司的Lightning Design System源文件，希望铁子们在学会理论的同时也能手活跟上，眼高手低不可取，眼手双高真牛B！</p><figure id="d6b3793d-a423-4ab1-91d9-d89368971c77" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV5t9aKDfdS0YnoicwAfQQDibiceKPm29gPgXOjvo5rTQFXs3YBHPhLbNsw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/SUNRfIU123iaSkI2YwxfKHp9tgM4UeAaV5t9aKDfdS0YnoicwAfQQDibiceKPm29gPgXOjvo5rTQFXs3YBHPhLbNsw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="884ba66a-aa6c-4fb0-abf9-87708508b939" class="">总结一下</p><figure id="8355a43a-4e02-4572-ad43-6c0a83ad8116" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/mflphQBJic3STjs5EXib7E8mUTyW8OOibkBv0A2RCNVdryhNX6icoDx1nzX2h4hcMVPMctYfUcqLiaquTwUnRqlJSbg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/mflphQBJic3STjs5EXib7E8mUTyW8OOibkBv0A2RCNVdryhNX6icoDx1nzX2h4hcMVPMctYfUcqLiaquTwUnRqlJSbg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="703b2c26-0314-49ed-93e2-32ab3658ddc0" class="">在各种社区我都能经常看到很多朋友问设计师该怎么进步，按我的理解可能会粗分为3步，第一步先把技法练扎实，第二步具备系统性思维可以推导复杂大型项目并合理调动资源，最后是开阔的视野能带领团队看到未来；设计系统正处在第二阶段，是一个综合性能力的体现，既包含“上层建筑”也涉及到“经济基础”，同时不分职能的推动着设计团队不断发展和进步；总的来说，还是重在日常的实践和积累，厚积才能薄发吧~</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

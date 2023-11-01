@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>互联网IP设计指南</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d0f2f12c-66df-43ec-871f-3edbefd7e113" class="page sans"><header><h1 class="page-title"><strong>互联网IP设计指南</strong></h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Owner</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a-/AAuE7mCYLgNL-U_Il_abXX0ZuWQePjPOGoT8vXJW8WBz=s100" class="icon user-icon"/>张大圣</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td></td></tr></tbody></table></header><div class="page-body"><p id="93ac4f94-8af5-4774-9b00-6f60703fd1f6" class="">近年来品牌 IP 形象几乎成了互联网企业的标配，比如有阿里动物园、京东狗、鹅厂，好像每个互联网品牌都要有一个吉祥物，那什么样的平台需要 IP 形象？需要怎么样的 IP 形象？IP 如何赋能品牌？IP 如何变现？是我们在设计 IP 的时候，经常面对的灵魂 4 连问，今天我们就来带大家一起揭开 IP 吉祥物的面纱。</p><p id="d70c5091-dbf4-4dc0-91b2-17ed43a6c07f" class="">更多<a href="https://www.uisdc.com/tag/ip%e8%ae%be%e8%ae%a1">IP设计</a>基础：</p><p id="be7ca531-172e-494c-8ffe-76c47db3b690" class=""><a href="https://www.uisdc.com/linabell-ip"><strong></strong></a><a href="https://www.uisdc.com/linabell-ip"><strong><strong>4500字干货！帮你快速掌握IP设计基础知识</strong></strong></a><a href="https://www.uisdc.com/linabell-ip">
+</a><a href="https://www.uisdc.com/linabell-ip">即使你没有听过川沙妲己，那你也一定听说过玲娜贝儿，之所以称她为川沙妲己，是因为迪士尼在上海浦东新区川沙镇，而玲娜贝尔是一只可爱又迷人的粉色小狐狸。</a></p><figure id="1faf039c-49e3-4e96-9f47-1838e5d30742" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-2-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-2-1.jpg"/></a></figure><h1 id="b05a48dc-f180-4c3b-b9f7-fa24c0763298" class="">一、什么是 IP?</h1><p id="e0f653d1-9a10-4322-9280-e21e8629f425" class=""><strong>1. IP 的定义</strong></p><p id="2d6690a8-f8a4-4af3-9526-ec165d8de68f" class="">IP 全称 Intellectual Property，译为知识产权，这是法律范畴的定义，IP 是法律对于劳动成果和知识产权的认可，电影、漫画、游戏、吉祥物本质都属于 IP 的范畴，IP 的范围很广，在文章开头讲的 IP 形象只是属于其中的一种类型。</p><figure id="db6ffbcf-0cd4-4ad9-b652-5e2138b74fe9" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-3.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-3.jpg"/></a></figure><p id="0f1c1c4f-6b5b-4de0-8c53-03d0b0a1dfc1" class=""><strong>2. IP 的五种类型</strong></p><p id="d98c66eb-c2ef-420d-bc59-160be729d585" class="">在研究市场中的 IP 类型之后，我们可以发现，市面上的 IP 主要分为以下 5 种类型：</p><figure id="d24d0818-bd0e-4a6b-b93f-983dfbd8943c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-4.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-4.jpg"/></a></figure><p id="87a44bec-1b2d-457a-bec7-25611746c8b5" class="">① 形象 IP</p><p id="6b4f8487-9d2c-448a-bd2d-acd6cf0a3f36" class="">形象 IP 主要依赖于形象展开的故事类型，比如我们前面提到的 IP 吉祥物就属于这种类型，它更多是基于某个角色形象来进行商业的变现，此形象在人们心中有着很深的印象。</p><p id="ada67197-a347-4a60-ba2e-741f8dfae9e1" class="">比如：Hello Kitty、米老鼠、唐老鸭就属于形象 IP，它们在商业模式上拥有极大的用户群，衍生产品很多，IP 本身的内容创作较少，更依赖于授权的商业模式。</p><figure id="53fa297b-d33a-4037-aaa6-d1f849af6f22" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-5.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-5.jpg"/></a></figure><p id="a1522518-c8d6-46f5-8fb2-716417ede168" class="">② 人设 IP</p><p id="69c30012-26cf-4bf6-8bf2-a543668520c2" class="">人设 IP 围绕着的是人，我们经常会听到这样的描述“某某明星人设崩塌”，也就是指的你在人们心目中塑造的人物形象，他们的故事、经历、性格、言行...组成了一个鲜活的人设。比如：雷军（小米创始人、敢于挑战苹果的中国企业家）董明珠（格力董事、做事雷厉风行、威严、严肃认真）</p><figure id="43938c50-c8c8-43aa-bc63-5c0c544508dc" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-6.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-6.jpg"/></a></figure><p id="2a7a0113-f166-466e-8502-9dd7d0eeac19" class="">③ 世界观 IP</p><p id="56346b23-cf56-436b-ba85-2649c5638e5f" class="">即世界观 IP，则更为宏大与复杂。世界观意为客观世界的设定，包含地理位置，时间，人种，宗教，建筑，艺术等等同样地，这类 IP 也有人设和故事，但内容会更关注世界观本身，IP 内容的世界观构建占比较高。比如《哈利波特》《冰与火之歌》《指环王》都是典型的世界观 IP，指环王人们很难准确的说出某个具体角色的名字，但是指环王中构建的宏伟的中土世界却是我们印象最为深刻的</p><figure id="35eae1ff-6d20-4e0d-a84f-c63aad698a09" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-7.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-7.jpg"/></a></figure><p id="3a9dbaa8-7a99-4fc5-b597-3345c3d75a26" class="">④ 故事 IP</p><p id="ab78c0ab-d021-4c97-a057-20aef575df55" class="">漫画、文学作品本质上都属于故事 IP，好的故事 IP 要么是能够打动人引起共鸣，产生启迪，具有持续产生价值的能力，比如鬼吹灯系列故事、安徒生童话、一千零一夜、格林童话...都属于故事 IP，人们会因为它的故事去购买这些纸质的书籍、音频、影像。</p><figure id="b8e927fa-f1f9-41b5-bdd0-965943c69f0f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-8.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-8.jpg"/></a></figure><p id="4fc7c3da-a63e-4870-b24a-f809fbe41696" class="">⑤ 文化 IP</p><p id="fafdc847-2581-4047-b7af-567cf5b1e2b6" class="">文化 IP，指一种文化产品之间的连接融合，是有着高辨识度、自带流量、强变现穿透能力、长变现周期的文化符号。近年来，在国家实力日益增强的背景下，年轻一代具有更强的文化自信和民族认同，传统文化不再是遥远的文化古董，而是深受年轻人喜爱的潮流语言和社交符号。年轻人对“国潮”的热情使得文博 IP 蓬勃发展，文博类 IP 频频“出圈”，前有故宫博物院文创周边供不应求，后有敦煌博物馆异域文化元素频上热搜。</p><p id="cbd79f5e-4ed5-4304-88d3-3fb9551ae7bc" class=""><a href="https://www.uisdc.com/dunhuang-aesthetics"><strong></strong></a><a href="https://www.uisdc.com/dunhuang-aesthetics"><strong><strong>《王者荣耀》是如何演绎敦煌第三季美学创意的？</strong></strong></a><a href="https://www.uisdc.com/dunhuang-aesthetics">
+</a><a href="https://www.uisdc.com/dunhuang-aesthetics">项目背景 从 2018 年初识敦煌，以标志性符号“飞天”切入，带领用户认识敦煌，到 2020 年尝试在世界观中融入壁画中的故事与情感，讲述家喻户晓的敦煌九色鹿的故事，以爱守护。</a></p><figure id="47162af6-da51-4f92-a774-a12283d3711e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-9.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-9.jpg"/></a></figure><h1 id="746bb5fc-a03a-48a1-817d-1f43acd052c2" class="">二、IP 的商业价值</h1><figure id="c32df3a1-7ec3-4081-a559-260eb0f3585b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-10.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-10.jpg"/></a></figure><p id="0cda7678-4e56-47c6-8cf4-0a315fb7295c" class=""><strong>1. 传播价值</strong></p><p id="1ae8ac87-b63c-4647-96e9-de6d28d64622" class="">互联网时代，IP 形象在品牌价值观传播中扮演的角色越来越重要。IP 形象作为一个品牌内核与价值观凝聚精炼和具象化后呈现的视觉符号，本身就可以作为品牌本身的代名词参与到品牌传播当中去。IP 在品牌传播方面具有天然的优势，一方面,IP 形象能够让用户快速建立品牌联想与品牌识别；另一方面，IP 形象是代表品牌的超级符号进行传播，其实质也是新时代下出现的虚拟的品牌代言人，它也是消费者和品牌沟通的桥梁。</p><p id="adf5e6a3-eeb5-43d8-850d-61cfd5f8a317" class=""><strong>2. 角色价值</strong></p><p id="c8735d05-68e0-4693-8c50-35a8863f95c9" class="">孙悟空大家都知道，几乎 14 亿国人都知道他，他的角色可以衍生出各种文化、影视作品，几乎他可以链接各种产品，他的角色价值就是巨大的。</p><p id="5c0c3dc4-0826-408f-b495-8b1339883d36" class=""><strong>3. 文化价值</strong></p><p id="17e1651b-8866-44d7-8f77-f4c1968c171f" class="">中国有众多文化的隗宝是值得被挖掘的，比如近些年来，故宫深挖品牌历史故事，通过年轻化的表达方式去述说故宫的文化故事，还有国潮受到新一代年轻人的追捧，这都说明文化的魅力和巨大价值。但是不管是新文化还是旧文化，都要以年轻人的方式去和他们交流，才能够让他们感受到并且喜爱。</p><p id="709acf94-74f0-46a4-84f8-1d83f1b26181" class=""><strong>4. 精神价值</strong></p><p id="a0d81d58-3f12-4c93-8f4b-c1370138c840" class="">我相信大部分的人小时候都读过安徒生童话，里面精彩的故事启迪着我们的童年，甚至影响着我们的说话做事的方式，这就是 IP 所带来独特的精神价值。</p><p id="1602fc68-2ee6-42ad-8849-306e2ebd2208" class=""><strong>5. 市场价值</strong></p><p id="0208e492-5071-4c62-a076-8f46801a7686" class="">从这份收入榜单可以看到，成功的 IP 不止在单一的产品上产生市场价值，而是全面开花，衍生到各个领域。比如漫威、哈利波特衍生的内容包括了游戏、动漫、电影、商业授权...</p><figure id="feb4421e-0375-4f1f-a485-b2168cef96a7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-11.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-11.jpg"/></a></figure><h1 id="eabb18e3-f778-4bd3-892a-076a62d17653" class="">三、IP 的 7 大设计趋势</h1><figure id="ae316724-708b-4bc5-a547-c35ecf922997" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-12.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-12.jpg"/></a></figure><p id="7b0e3636-3a23-49ae-99a7-41599c0fe518" class=""><strong>1. 品牌 IP 人格化</strong></p><p id="e23654f4-a94c-4478-99f5-af212b09bdaf" class="">IP 人格化就是通过贴近目标人群，在其所在的圈层形成共同的归属感和认同感，建立起人格化的形象。IP 人格化更加能够形成记忆，对人物故事也更加容易消化。比如熊本熊是日本非常杰出的 IP 人格化案例，熊本熊它有着人一样的职位，角色定位是熊本县的旅游局局长，它有着呆萌的人格化表情，经常不按常理出牌，是不是就像你身边的二逼朋友一样。</p><figure id="f2c4bb36-f40a-40f1-b451-b6b46da3302f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-13.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-13.jpg"/></a></figure><p id="eb2f76ca-0956-4f7c-b52e-b3e0cb11a3b1" class=""><strong>2. IP&quot;网生&quot;化</strong></p><p id="20bf28ea-bc2d-40d7-9613-7553d50540bc" class="">网生英文名称是 netlife，意为网络人生，意思是指 95-00 后的年轻人群，他们一出生就在网络大爆炸的年代。而所有的品牌都在面临着如何去和这群网生代的人群去沟通交流。比如伊利推出的 Byebye 君，其实就是在让品牌和网生代的年轻人直接对话，针对年轻人，它衍生出了很多的表情、漫画等众多的内容产品，通过这些与年轻用户进行深度的绑定。</p><figure id="90aa9301-cae3-4db7-805a-aa1cf4a4c4ad" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-14.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-14.jpg"/></a></figure><p id="be8dcbdc-915f-402f-8c2d-bd1e8182f24e" class=""><strong>3. 情绪化 IP</strong></p><p id="a4079375-ace2-4f3a-87f6-f1f6e613bce5" class="">情绪化 IP，就是利用情绪迅速绑定消费者，这种因为情感而产生的购买动机就是情感营销的结果，所以 IP 设计也需要考虑情绪，尤其是年轻人的情感化表达，好的 IP 是有强烈的情绪代入感的，比如喜茶、丧茶的走红，能够看到品牌里的情绪化表达，还比如知名白酒品牌江小白，它火出圈的表达瓶，还有瓶身那个插裤兜里潇洒年轻人的插画，都在述说了年轻人的情绪。</p><figure id="a6328fba-6bfe-4381-b65c-96177ed00972" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-15.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-15.jpg"/></a></figure><p id="7466273d-806f-4c58-bf75-8c0ba396feac" class=""><strong>4. 科技+IP</strong></p><p id="6414d937-09f7-4623-8cb0-5e9452f421a2" class="">经典的 IP 和科技的结合让其可以更加时尚的走到更广泛的年轻人身边，为传统的 IP 赋予科技的属性。比如，北京的龙泉市推出了人工智能机器人贤二和尚，贤二 IP 本身就有很广泛的内容基础，再加上科技的加持，传统和科技这 2 者的碰撞，让人们产生了浓厚的兴趣。</p><figure id="680b83e0-b5f7-4a68-865e-06e22d6dd922" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-16.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-16.jpg"/></a></figure><p id="4f43be9c-f7e8-4f94-8795-45b6a0335cca" class=""><strong>5. IP 跨界联盟</strong></p><p id="7e0104be-e3c1-4494-bf80-48f6aa705b3e" class="">现在很多的品牌都在借助 IP 进行跨界营销，寻求强强联合的品牌协同效应，以实现 1+1＞2 的的营销，跨界最重要的是要找到 IP 和品牌深层次的内涵和精神价值的对接。比如前段时间瑞幸与椰树的联名频频刷屏各大网络，一个主打椰奶的椰树，一个凭借超人气单品“生椰拿铁”大火的咖啡品牌瑞幸，两大玩椰子的品牌强强联合，推出了生椰新品；小黄车 ofo 和小黄人的联合营销，不仅能带给共享单车的情感体验，在视觉上也有高度统一，还能共享认知和共享粉丝，这样契合度高的合作才能创造社交媒体扩散效应。</p><figure id="0efedd0b-e3fd-4a46-afad-22b463b612b5" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-17.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-17.jpg"/></a></figure><p id="4f2652ea-cde0-4e73-83e3-fe4d22a24606" class=""><strong>6. 明星 IP</strong></p><p id="e2beca95-3c59-400d-b9ac-79ea861dd08f" class="">明星 IP 的次元破壁就是通过明星 IP 的次元以及虚拟形象打造，让明星本身的 IP 赋能到虚拟 IP 上，从而减少了很多的传播成本。可以看到现在很多明星都在跨界做商业，比如黄磊的黄小厨，黄渤的黄逗菌，需要提醒的是，即使有明星 IP 的赋能，但是要保持持久的生命力，内容和产品的打造才是持久的秘方。</p><figure id="b0ce5e2f-75a8-4479-8fbe-f7ea4ad1fad2" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-18.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-18.jpg"/></a></figure><p id="b0ce7755-e25c-4d09-9302-7ff45ebc6254" class=""><strong>7. 传统文化 IP</strong></p><p id="32ddf100-80bb-44d6-a604-fe9a14b50680" class="">随着花西子、故宫等文化 IP 的爆火，可以看到年轻人不再崇洋媚外，拾起的是年轻人的文化自信。这不仅仅在于年轻人的变化，还在于传统文化在以新的形态重新与年轻人进行对话。比如“中国诗词大会”“朗读者”将传统文化转化新的语境和新的表达方式，与当下的用户进行沟通。</p><figure id="912e8439-1ee6-4b67-9250-ed36966bea1f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-19.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-19.jpg"/></a></figure><h1 id="df3e965c-6b7f-4e31-8f7c-bd38723620a7" class="">四、品牌 IP 设计需要考虑的5个重点</h1><figure id="307140da-7280-4d2e-86f8-c593da3d267c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-20.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-20.jpg"/></a></figure><p id="f8bc8e62-cf4f-486d-8b35-ae61a28a5cb9" class=""><strong>1. 塑造特色</strong></p><p id="0a3d90fd-153d-4e62-b104-d5818ebbf1e1" class="">相信大家都有这样的感受，在一个班级里面最令人印象深刻的是头尾的 2 拨人，要么是学习很好的，要么是经常在课堂捣乱，调皮捣蛋的刺头，最不起眼的就是中间的那波人。这就反应着一个问题，有特点有性格的人是最令人印象深刻的，同样 IP 塑造也是一样，我们从人物的形象到性格都需要塑造独特的特色。比如小黄人大眼呆萌的胶囊造型，还有它那呆、傻、贱、萌的行为，令人印象深刻，它甚至抢了主角的光环。</p><figure id="80eb8e52-9600-415c-bab8-dd9787413075" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-21.jpg"><img style="width:600px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-21.jpg"/></a></figure><p id="02d343e7-1967-4dd8-9036-2c5a9fd4b5c6" class=""><strong>2. IP 符号化</strong></p><p id="7d11c854-4509-4ccc-861f-901185bfbdb9" class="">一个图形、一个表情、一个动作都有可能成为令人印象深刻的经典符号，因此在塑造 IP 的时候，我们应该想办法为 IP 注入鲜明的符号，总结下来有以下集中类型:</p><p id="5efa8374-e49c-4fd2-b649-374b80cedb4b" class="">第一 符号化形象，越简单的越好识别，比如天猫的猫头被应用在各种场景下，拓展性和记忆性非常强，还有米老鼠，一看轮廓就知道它是米老鼠了。</p><p id="8b6de686-f27a-4613-b425-fd44f98af779" class="">第二 颜色符号化，颜色也可以是专属的代表，比如蒂芙尼蓝，蓝色成了它专属的符号</p><p id="7c4120fd-7d46-4fb5-bffd-06f2b7601973" class="">第三 符号化动作，每一个超级 IP 都需要属于自己的动作符号，你可能记不住他的样子，但你一定能记住他的 Pose，当你看到它的 pose 和剪影，脑袋就有画面了。</p><p id="47381b6f-2197-45e3-82f1-ff15886e8b7e" class=""><strong>3. 制造冲突</strong></p><p id="ba8a1170-35b6-41b3-973a-2b44470d9efd" class="">在文化、角色、故事和细节的设定上，多制造些戏剧性的冲突可以让你的 IP 更加令人印象深刻。如果你走在大马路上，突然有一处地方吵起来了，基本上就会有很多人围观，同样在 IP 的故事情节设计是一样的。大家可以多去看看小黄人的电影《神偷奶爸》，在情节的设计上就制造了很多冲突，这个角色的塑造、冲突的制造堪称经典。</p><p id="5ef547be-79ba-4697-8755-a91dac0a85cf" class=""><strong>4. 赋予情感</strong></p><p id="7cb2dce1-83bc-4b3c-8161-bd2540808e35" class="">IP 也需要和我们的用户建立情感的链接，这样 IP 才会有持久的生命力。IP 可以通过人设和故事，激发用户的情感和内心深处的共鸣，也可以通过语言、文字和用户进行情感的互动。比如，江小白的表达瓶其实就是在诉说着年轻人的生活和故事，大部分的年轻人看到了都会有很深的情感共鸣。</p><p id="972b831a-6fdb-44d2-86cf-0dd6616670e6" class=""><strong>5. 赋予文化内涵</strong></p><p id="801d2c4a-5103-43ef-acfe-4972ffc997b3" class="">这里指的文化内涵，并不是单一的传统中式文化、国潮，因为不可能所有的产品都要走国潮的路线，而指的是广泛的文化，比如嘻哈文化、饭圈文化...文化就好像是一个社群，这里聚集了很多相同类型的人，文化的加持是走入圈子的最好方式。</p><h1 id="833ad9f3-d3dd-483b-9276-d5eda9c06b9e" class="">五、IP 设计流程</h1><p id="952035aa-e8f8-4b7b-81b5-3fd636c8ac2c" class="">IP 几乎是互联网设计师的必备技能，那么设计师如何才能产出好的设计呢，一套品牌 IP 的设计流程往往包括以下五个步骤：探索定义——创意设定——应用拓展——规范建立——升级进化。</p><figure id="4488c92a-a547-41a2-beb9-5ae441785868" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-22.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-22.jpg"/></a></figure><p id="c2118fcc-4d51-429d-be44-e66e0f7c1bd0" class=""><strong>1. 探索定义</strong></p><p id="bebb7f2e-39dd-4431-b8d8-5cb952ebebdf" class="">在 IP 设计开始之前我们需要进行详尽的调研分析，这个步骤的目标是如何传递品牌 IP 的故事理念，打动目标用户，形成情感的共鸣，所以我们要思考以下这几个问题</p><p id="244a844f-fd49-41cd-9622-a92bdff57054" class="">① 背景调研</p><p id="86fa5f72-432e-471d-9d51-cd982860769b" class="">我们设计 IP 的目标是什么？帮助品牌传播、展示企业形象、塑造单独 IP？目标用户是哪些？</p><p id="811da2cf-cde5-4cbb-b5f4-2437f0ac9da6" class="">② 文化内核、文化共识</p><p id="a3e4cb40-1343-425b-96d6-61cf95b619f8" class="">品牌 IP 文化的来源于哪里，企业文化、用户，还是其他的？</p><p id="52aa64b0-3ceb-4631-a6bc-7a0ad340332e" class="">我们希望这个能够和我们的目标消费群体形成何种共鸣？如何打动我们的用户？</p><p id="eaee1306-de18-4711-920b-e3064fabc955" class="">③ 主题故事</p><p id="227c35d2-3c83-458d-a22e-87e9546628c7" class="">IP 传递的是何种主题？</p><p id="4d8b17c8-cd57-4585-90be-6951698e5ecc" class="">④ 竞品差异</p><p id="9b48f24a-d00c-4bf4-90a7-29aeb68edb7b" class="">我们的竞品是哪些，希望 IP 塑造何种差异？</p><p id="7a7931d3-7e85-46ed-b899-1fe44ffaf0a0" class=""><strong>2. 创意设定</strong></p><p id="39535c40-18cf-4129-ba9b-5814cf4f7941" class="">角色的设定，我们可以考虑 3 个点：角色、场景、故事</p><p id="359c4afe-5b2b-4529-9013-a1ff5cc1bdb6" class="">① 角色 - 有趣、特色、呆萌、夸张</p><p id="9e672de1-04db-4ba9-b1e2-f09d2ea00029" class="">有趣、呆萌、特色、夸张，经常是我们在塑造有记忆点角色时要提起的几个关键词，你可以看看身边有特点的人是不是也都具备了这其中的几个关键词，同时在角色塑造的时候我们要考虑的几个设计要点：造型、表情、服饰、质感，这也是设计师需要具备的基本技能要求</p><p id="7c40c566-dc2a-4cb6-a118-49253a65f59f" class="">造型</p><p id="62ac1634-a82c-481f-b76e-5343aa16597f" class="">独特的造型能够令人印象深刻，比如小黄人、大白、Kwas、大眼仔都是比较成功的 IP 形象，在一众的 IP 角色中造型最为突出，所以我们在造型设计上尽可能有记忆点，这样就能够减少更多的传播成本</p><figure id="57304406-fcff-4456-a398-8eb177640253" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-23.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-23.jpg"/></a></figure><p id="bbf72777-9217-4e17-869e-ae220e55a48f" class="">表情</p><p id="13035ece-9e63-4d68-a667-5e5323930c3b" class="">一个好的角色表情能够凸显 IP 性格特征，起到画龙点睛的作用，而不是千篇一律的大眼睛、微笑。</p><figure id="4a28441f-5122-46d6-980c-903be0eea87a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-24.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-24.jpg"/></a></figure><p id="f199ed86-d3d3-4f39-befb-80ce43b170d1" class="">服饰</p><p id="7f4c53d6-bf4c-473f-beff-e4bff348c51e" class="">服饰的设计也是在 IP 设计中需要考虑的，服饰对塑造人物性格、交代人物角色、突出业务属性有着很重要的作用，比如，体现科技，用机器人的服饰；体现文化，用传统中式服饰；体现运动，用鸭舌帽、运动衣来呈现。</p><figure id="23ad231f-d6b9-4188-ba8d-497bb32ce404" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-25.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-25.jpg"/></a></figure><p id="f04f97b5-f157-45b3-bc77-9028e90eea00" class="">质感</p><p id="e3c0c826-87cd-4488-a7fb-6ab026aaa972" class="">质感对 IP 的美感起着非常重要的作用，这也是很多初级设计师在设计 IP 的时候最容易忽视的地方，很多人很难理解什么是质感，总结下来能够提升界面品质感的视觉表现就是质感，比如设计中常见的：毛玻璃、渐变、光影、3D、2.5D、金属，可以看到下面的 2 张对比图，都是文旅 IP，左边没添加质感感觉就是小学生设计出来的一样，给人粗制滥造的感觉。</p><figure id="cf4be56e-9b32-4150-b8df-5eeb1330691a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-26.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-26.jpg"/></a></figure><p id="235e056f-f38b-45c2-91f3-554d640324e7" class="">② 场景 - 让角色形象更加立体</p><p id="111dd3cd-a608-4cc4-89b8-70a295a1b3ea" class="">塑造场景的目的是为了让我们的角色在场景中进一步的刻画，也有助于用户更加立体直观的去理解人物，快速的将我们的文化理念传递给用户</p><figure id="9f9701ac-246b-44a2-9c84-4ccbd329fd9e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-27.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-27.jpg"/></a></figure><p id="a9166df9-4ed5-4f97-ae0c-98dc668c5506" class="">③ 故事 - 快速传播的密码</p><p id="21d3f995-4f5f-4978-af6b-7739c0445a1d" class="">在日常交流中，讲故事是我们快速获取信息和抓住中心点的常用方式。故事能让人们分享知识和情感，找到自己与所在群体中的位置，并理解周围的世界。</p><blockquote id="df9ce888-c2e6-436e-bf52-5beb70a5bab3" class="">在探索定义到创意设定的这 2 个阶段我们可以用这样的一个品牌 IP 探索 6 宫格系统来探索和定义我们的 IP 角色（注：这个 IP 的模型基于赤犬制造所的《品牌 IP 源设定系统》）</blockquote><figure id="0485d722-23dd-4012-b27f-d8442501361c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-28.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-28.jpg"/></a></figure><p id="1ff78759-93c5-4892-a3a3-fbe37b2e45e1" class="">接下来前段时间做的高途课堂 IP 概念改版的案例带大家了解下如何去使用这个模型：</p><p id="91dfb89f-f3f5-4faa-90fe-15614b36dee5" class="">品牌源点：科技让教育更美好，通过梳理了高途课堂的品牌人格模型中，我们看出高途课堂品牌是一个温暖、活力、充满想象力、不断探索、不断进取的形象，其中高途课堂的品牌 slogan 叫做“科技让教育更美好”，科技代表了未来，对于教育行业来说，启发孩子去探索去思考也是每个教育平台、每个老师的使命。</p><p id="b625aaa3-5d2a-4bb0-97b4-029e9db0e96e" class="">文化特征：探索未来，充满想象力，构建一个热爱学习、不断创新、勇敢探索未来世界的启发式课堂</p><p id="d97f6eac-11f4-4213-9b47-81b9f912ff7f" class="">文化共识：好的教育是启发探索，新时代的年轻父母群体，他们大多数都接受过比较好的教育，他们认为教育应该是德智体美劳全面发展</p><p id="18151de5-5a3d-477c-9c67-d5f046d456eb" class="">品牌角色：马+独角兽，途途是一只温暖、开朗的独角兽，它充满了想象力，勇于探索和发现，在它世界是对未来的憧憬，而马也有着前途似锦、马到成功的美好寓意</p><p id="a883d771-f506-4127-8c20-52603561bda4" class="">风格表达：温暖可爱，塑造一个温暖可爱的品牌 IP 形象，就像孩子身边的朋友、小宠物一样</p><p id="388bd023-ae1d-4886-abd8-eee657116c59" class="">场景故事：探索未来星球，希望能够构建一个未来的教育世界，启发我们的孩子去学习去探索，整个故事主题围绕着途途如何通过不断学习、不断思考一步步走向未来太空宇宙的故事。</p><figure id="c1b49e1b-d38c-414f-ba27-ab9a94ba124a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-29.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-29.jpg"/></a></figure><p id="480e6ff5-fe23-4e51-9a21-997eca09a3e6" class=""><strong>3. 应用拓展</strong></p><p id="d7b3f1a4-6f0b-4fb0-82fb-8bf322ff6682" class="">角色设定完了之后，就需要将品牌进行拓展应用了，品牌 IP 的拓展应用场景，我们主要可以分为这 5 种类型：品牌传播、品牌运营、产品体验、企业文化、文创内容</p><figure id="bd8eba32-c667-4380-a70d-e13a84ed7929" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-30.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-30.jpg"/></a></figure><p id="d28572b2-ab35-4b3c-a4fb-cc4f64a3edcc" class=""><strong>4. 规范建立</strong></p><p id="b25e66bc-4744-4df1-99d5-037dc4ec3f1a" class="">建立 IP 规范的有 2 个目的，一是让 IP 的应用能够保持统一规范，二是提升效率，在互联网的设计团队经常会将 IP 进行素材库和组件库的建立，比如顺丰的设计团队对新改版的 IP 常用的动作、表情、服饰，都搭建了规范的素材库，方便日常运营的随时取用。</p><figure id="fbf4f5b8-d930-4c60-b021-1c3bd6d68858" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-31.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-31.jpg"/></a></figure><p id="6d047a7b-394e-4f8a-b734-c2f7d7631c0a" class=""><a href="https://www.uisdc.com/sf-ip-design"><strong></strong></a><a href="https://www.uisdc.com/sf-ip-design"><strong><strong>实战复盘！「顺丰速运」运营版 IP 形象设计总结</strong></strong></a><a href="https://www.uisdc.com/sf-ip-design">
+</a><a href="https://www.uisdc.com/sf-ip-design">顺丰速运运营版 IP 形象主要服务于顺丰速运线上运营业务，于 2020 年 11 月创作完成，并在 2021 年 9 月经由中国版权保护中心审核完成版权登记。</a></p><p id="48abb263-c7db-4e3a-a56b-2a018c572c6b" class=""><strong>5. 升级进化</strong></p><p id="647c230d-3aff-4347-af4e-3668d88a28c1" class="">IP 的设计不是一成不变的，我们需要在市场、企业业务的调整、用户的反馈...中进行不断的变化，来适应市场和消费者的变化，比如 QQ 的企鹅、米老鼠都是经过了数次的变化才有了今天的样子。</p><figure id="be276480-0ef5-4da8-9021-51a6f52a4d70" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-32.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2022/11/uisdc-ip-20221117-32.jpg"/></a></figure><p id="d51680c2-5653-4670-ac19-6d1b794df9c4" class="">相关文章推荐：</p><p id="af1abb57-648e-404d-94f8-3ae3fc111b2d" class=""><a href="https://www.uisdc.com/qidian-ip"><strong></strong></a><a href="https://www.uisdc.com/qidian-ip"><strong><strong>大厂实战案例！起点读书品牌 IP 设计复盘</strong></strong></a><a href="https://www.uisdc.com/qidian-ip">
+</a><a href="https://www.uisdc.com/qidian-ip">阅文集团是一家数字阅读为基础，IP 培育与开发为核心的综合性文化产业集团，作为腾讯新文创生态的一环，旗下囊括起点读书、QQ 阅读、新丽传媒等业界知名品牌。</a></p><p id="800d9bbb-e658-4681-a9b9-ce8cc8701c42" class=""><a href="https://www.uisdc.com/alibaba-ip-design"><strong></strong></a><a href="https://www.uisdc.com/alibaba-ip-design"><strong><strong>如何设计富有生命感的产品IP形象？收下阿里的实战经验（上）</strong></strong></a><a href="https://www.uisdc.com/alibaba-ip-design">
+</a><a href="https://www.uisdc.com/alibaba-ip-design">导言 原研哉在对小米的品牌设计升级中融入了东方哲学的思考，认为“科技越是进化，就越接近生命的形态”，并提出了“ALIVE 生命感设计”的概念，由此推导出了最适合体现“生命感”要素和性质的理想图形，引发了业界的关注与讨论。</a></p><p id="b49663ac-be41-4ffe-979e-5b1444cf7044" class=""><a href="https://www.uisdc.com/fortune-penguin-ip-design"><strong></strong></a><a href="https://www.uisdc.com/fortune-penguin-ip-design"><strong><strong>大厂案例！腾讯理财通品牌 IP 形象「招财企鹅」设计流程完整复盘</strong></strong></a><a href="https://www.uisdc.com/fortune-penguin-ip-design">
+</a><a href="https://www.uisdc.com/fortune-penguin-ip-design">前言 近年来随着盲盒、手办几近疯狂地在消费领域流行起来，IP 形象在品牌设计中的重要性也被各家品牌提上日程。</a></p><p id="8d15b9ba-fd30-4282-b3b9-43d696090596" class=""><strong>参考文献</strong></p><p id="dfb6ada8-6681-4c85-b3aa-29964ab19e46" class="">[1] IP 设计全流程 <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2Fjg0wQInV5wecl2m4Bnfguw">https://mp.weixin.qq.com/s/jg0wQInV5wecl2m4Bnfguw</a></p><p id="d84f717b-7357-4f1a-8269-054ecd28a558" class="">[2] 腾讯设计师分享：“奇怪”的 IP 形象是怎么创作出来的 <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F121555614">https://zhuanlan.zhihu.com/p/121555614</a></p><p id="96d6c4f4-1a2c-4514-9aa5-a825662d3591" class="">[3] 2019 - 2020 设计趋势 · IP 形象篇 <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FmPZNfSz0QydW77fpE43KCQ">https://mp.weixin.qq.com/s/mPZNfSz0QydW77fpE43KCQ</a></p><p id="8cfadec3-c323-4501-b95a-d32b4e0778dd" class="">[4] IP 建设：角色设计与世界观构建 <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fm.gameinstitute.qq.com%2Findex.php%2Fknowledge%2F100141">https://m.gameinstitute.qq.com/index.php/knowledge/100141</a></p><p id="aa1d0ff1-5af9-404f-ac68-0a2a92609009" class="">[5] 品牌 IP 设计思考：4 个要点、3 个落地项目、1 个流程 <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fwww.socialmarketings.com%2Farticldetails%2F4902">https://www.socialmarketings.com/articldetails/4902</a></p><p id="7fea4548-b180-46fb-988b-3930a42e8137" class="">[6] 凤凰吉象品牌 IP 设计-打造东方文化 IP 新物种 <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fwww.zcool.com.cn%2Fwork%2FZNDgxODEzMDQ%3D.html">https://www.zcool.com.cn/work/ZNDgxODEzMDQ=.html</a></p><p id="5773074c-24e2-4242-9b06-cbeb115dbfa7" class="">文内出现的商标及图像版权属于其合法持有人，只供传递信息之用，非商务用途。如无意侵犯到您的权益，请及时联系我处理。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

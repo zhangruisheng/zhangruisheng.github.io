@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>实战案例！来看大厂是如何做品牌升级的！</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d5aa8acb-acf2-419f-be18-c8bae29f2f91" class="page sans"><header><h1 class="page-title"><strong>实战案例！来看大厂是如何做品牌升级的！</strong></h1><p class="page-description"></p></header><div class="page-body"><h1 id="2e224391-8b13-4526-a378-7ec07726d04c" class="">写在前面</h1><p id="33ebaf86-3f6a-4df1-8b29-5b163900c1c3" class=""><a href="https://www.uisdc.com/tag/%e6%b8%b8%e6%88%8f%e4%bc%98%e9%80%89">游戏优选</a>是由腾讯广告自主推出的新业务，致力于为休闲游戏开发者提供双生态和买量变现一体化的服务，帮助 App 和小游戏在双生态内获得最大量级的用户规模。</p><p id="e6a3ca37-e1a2-4c7b-bbb8-24037081ef76" class="">伴随业务的飞速发展，品牌传递和口碑建设的重要性不言而喻，设计团队启动全新<a href="https://www.uisdc.com/tag/%e5%93%81%e7%89%8c%e8%ae%be%e8%ae%a1">品牌设计</a>，对品牌的设计表达和策略进行了全面的升级。</p><h1 id="502bb3b7-1363-4d00-85aa-ddad4671916a" class="">全局思考&amp;反复推导</h1><p id="2d02211d-6350-484c-a6f6-22745b809093" class="">之前想到品牌设计，更多喜欢从标志直接开始着手。但完整的品牌设计是需要多维度的思考过程。这次我们分别从竞品分析 / 用户洞察 / 核心价值等多维度思考，重新梳理和反复推导出品牌心智，定义品牌未来的方向。</p><figure id="ab15a269-8d9d-4668-9b6a-158711254689" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-2.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-2.jpg"/></a></figure><p id="58002730-b426-4a6b-8f2b-63dc59b919aa" class=""><strong>1. 竞品分析</strong></p><p id="17b3e8c3-7b80-4c4a-9a1f-2605873e1ea7" class="">从竞品角度出发，能够帮助我们充分的取长补短，摸索出这个行业中品牌的固有特征与行业属性，主要针对国内外四个品牌分别是 is / oyhaoo / lion stuio / voodoo 进行视觉分析，最后得出有两点结论：</p><p id="75aa82a2-c099-40f9-80b1-45dbe8d222f2" class="">第一是建立差异化设计，在品牌的理念、定位和感官记忆点等维度做足差异化，能够让用户印象深刻；第二在品牌多场景、跨媒介渗透上，根据细分应用场景有所侧重的进行品牌表现，其次可采用多种形式的表现手法来适应不同媒介载体，确保品牌感的多元化传递。</p><figure id="b9d97631-052a-456a-8027-11610ead2157" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-3.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-3.jpg"/></a></figure><p id="637859ae-2753-4ea9-bf1e-50cf682dc740" class=""><strong>2. 用户洞察</strong></p><p id="8c5a8755-f49c-438e-819e-70b91dc84f33" class="">回归本源的用户洞察尤为重要，虽然新业务面向的用户主要是开发者，但不同于其它 To B 行业的开发者偏冷静和沉稳。游戏开发者更偏年轻些，是一群勇于探索，创新求变，非常热爱游戏的人，具备前瞻性思维和年轻化特征。</p><figure id="5ed31f77-7a1f-4585-a7fc-f2b58dc997ac" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-4.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-4.jpg"/></a></figure><p id="3865afc1-33b2-4b98-aef3-dd10223ab952" class=""><strong>3. 核心价值</strong></p><p id="2ce6c06f-7625-4d92-afcd-3810718a41f4" class="">游戏优选作为国内领先精品休闲游戏发行平台，为游戏开发者专业完整的覆盖生命周期解决方案，从基本的产品调优，进行游戏吸量测试，从线上到线下联合运营，进行整合营销，从而让休闲游戏实现规模化增长和变现。</p><figure id="a1970d79-71da-4908-9f21-d4660e38237a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-5.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-5.jpg"/></a></figure><p id="8c53f3b5-8b47-4556-b61e-971e57d92026" class=""><strong>4. 品牌心智梳理</strong></p><p id="dfb23ee2-c32b-4080-83fd-c018902a459e" class="">通过重新梳理品牌心智，我们根据游戏优选的品牌定位，产品服务及核心价值，提炼出它的品牌个性应该是专业的、敏锐的、信赖的，具有创新精神的品牌。</p><figure id="7bb18569-7afc-4604-a3cd-d33aedaa3766" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-6-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-6-1.jpg"/></a></figure><h1 id="788d33cf-163f-4934-8cca-872fb64433de" class="">规划搭建&amp;协作实践</h1><p id="ecf4c86e-572d-44dd-802a-fdeb4b93502a" class="">通过以上在竞品、用户及品牌心智的多维度信息梳理后，设计组与产品和运营进行多次的脑暴讨论。最终收敛思路确定了游戏优选的设计关键词为快乐、共赢、有趣 ，以及推导出整体品牌设计语言应该具备娱乐感、年轻化、亲和力。</p><figure id="4f4bf67b-919f-4a90-9730-59ae450700cd" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-7-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-7-1.jpg"/></a></figure><p id="c8dc63f3-48c0-4e5b-be2f-f1be4cc04703" class=""><strong>1. 标志 - 建立超级符号</strong></p><p id="7d856a3e-52ed-4325-86ad-886a54890981" class="">根据设计关键词和设计语言的提炼，我们做了大量的方案尝试后，最后的定下的设计方案是以传递“快乐+共赢”的概念。</p><p id="e9e30f76-901d-4816-9bc2-8606bb0a4e89" class="">Logo 采用三个笑脸通过叠加方式，演变为一个抽象的图形作为品牌超级符号。寓意游戏优选平台与游戏开发者共同成长，并且不断为用户创造更多的快乐！产生无限可能！</p><figure id="31c29d57-15d6-415f-a47b-343bf44eaf92" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-8-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-8-1.jpg"/></a></figure><p id="412ab5f6-c749-41b6-ae91-9686f43f8a0a" class=""><strong>2. 色彩 - 传递娱乐感与多元化</strong></p><p id="135848a8-52c9-4942-a16e-f6e5cc6ce3bd" class="">品牌色是给用户印象最为深刻的记忆点，好的品牌色能够占领用户心智，为了避免同质化，试图最大化拉开和竞品的差异。</p><p id="9e3377ff-0ba4-4606-8a1a-355c0eb1d9d2" class="">游戏优选的品牌色彩由科技蓝+薄荷绿+活力橙三色组成，其中蓝色和橙色也契合母品牌腾讯广告的基因。这种撞色的设计不仅传递娱乐感与多元化的属性，也体现新品牌更年轻的品牌理念！</p><figure id="0e95d232-e7c7-465f-9549-84f5953aa969" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-9-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-9-1.jpg"/></a></figure><p id="25b78511-5059-4037-bb2d-8d62232be2ec" class=""><strong>3. 字体 - 方中带圆，刚中带柔</strong></p><p id="af4ba36c-940f-4381-ad56-bd3f95cac7c4" class="">字形的结构上采用了比较刚正的框架，干脆利落的同时，在转角又带有一定的弧度。方中带圆，刚中带柔，与标志形成美学上的协调统一感，同时带点俏皮感。包括整体的字重上采用比较有力量感的设计，在保证视觉稳定性的基础上，有更年轻的视觉冲击力。</p><figure id="7364c406-be11-4a13-82a3-0f6996369645" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-10-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-10-1.jpg"/></a></figure><p id="0e4bedf5-a1c5-4cf4-abfd-ff5fed210aef" class=""><strong>4. 图形 - 通过品牌 DNA 强化记忆</strong></p><p id="e94bebca-064d-4ffd-8bbd-9d79048041e0" class="">品牌图形的设计，是品牌设计中最为关键的一个部分。需要在契合品牌理念的基础上，找出最符合气质的品牌图形。也要让图形与标志风格上保持相对一致。因此游戏优选的品牌图形源自标志本身，通过多个不同的笑脸不断传递“快乐”的概念，保持品牌的延续性，越是简单的图形越有记忆点，也越容易拓展应用，让用户看到图形就能感受到游戏优选的视觉 DNA，不断强化用户的品牌心智，同时对图形进行了规范化定义和应用示例。</p><figure id="4020a8a4-ca66-4eaf-8d59-61750ce86ef4" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-11-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-11-1.jpg"/></a></figure><h1 id="e49bedd8-08a6-405b-a04c-62486c9fd706" class="">推进落地&amp;效果验证</h1><p id="8ab686fc-9104-4df8-9abd-66f4a4a18c85" class="">除了对品牌图形多角度的塑造，我们进行品牌渗透到与用户面对面的场景中。比如品牌官网、宣发海报、公众号、推广视频等多维度入手，让整体品牌形象更加立体多元。</p><figure id="6ec19c95-3c11-4812-8e0b-5b8a0ec43ca7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-12-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-12-1.jpg"/></a></figure><p id="1dc2f808-71f9-4a52-8c57-4b38aee105dd" class=""><strong>1. 官网 - 以轻和透呈现品牌亲和力</strong></p><p id="4ff09f33-efd2-4a92-bf54-193935e4d0de" class="">由于新品牌目前还需要借助母品牌背书，所以官网采用专题页形式嵌入腾讯广告主官网，等后期业务成熟再独立出来。因此我们尝试以轻量化和通透感呈现品牌的亲和力，让用户进入官网后即刻形成品牌印象。</p><p id="b221f231-27e4-4553-aca1-ad6a17cb0bda" class="">在跟主官网保持统一的架构基础上，整体设计风格融入品牌基调，通过 Slogan 传达游戏优选的核心价值，头部主视觉利用不同休闲游戏种类+增长曲线，加上采用微动效形式，彰显品牌质感的同时也突出“爆款”的概念！</p><figure id="e1177a15-940c-41c2-9185-c31dbda39c6e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-13-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-13-1.jpg"/></a></figure><p id="8749fa94-3ba2-4525-818e-904e49cb3ad2" class="">包括在画面的整体构成中，采用了一些轻透的质感样式，结合整体的品牌图形语言，让画面轻盈丰富，用色上也更加鲜亮些，形成自己的图形体系，针对移动端官网也以响应式的方式进行适配。</p><figure id="92dbb522-13b8-40aa-a3d5-c92cc30af710" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-14-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-14-1.jpg"/></a></figure><p id="6ee26178-ff61-4ac2-86b2-27e7eb25e5e4" class=""><strong>2. 应用延展</strong></p><p id="de6dcb19-e9f3-4dd8-82f0-6723dfd36aed" class="">考虑市场对外运营活动也越来越多，线下线上对宣发海报也融入品牌图形来保证一致性，通过制定不同场景的应用样式，不断的强调视觉符号的记忆点，传递品牌概念。</p><figure id="652a2f59-8492-4469-b46c-9ed86507a9fe" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-15.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2021/04/uisdc-gr-20210425-15.jpg"/></a></figure><p id="c0314482-f304-4fc5-88e2-434c25c36f9a" class="">通过设计规范，高质高效的指导供应商完成宣发的年度精选游戏视频，这是属于游戏优选的首次对外传播物料，取得了不错的市场反馈。</p><h1 id="8bbd0688-8dfd-4659-9865-076c9163bb6e" class="">思考总结</h1><p id="c0377153-6777-4079-abb1-463fd845565a" class="">目前游戏优选品牌基础已经建立起来，从前期多维度分析定义出品牌核心理念（娱乐感、年轻化、亲和力），到通过不同场景及接触点进行渗透（品牌识别、官网设计、各种品牌应用延伸），线上线下多维度的传达统一的品牌理念。并且不断沉淀更加完善的品牌资产。</p><p id="71abcea2-c4de-4a2f-916e-79b27f2c88b3" class="">新品牌投入到市场是否能起到有效传播还需要时间的验证，我们希望通过品牌形象的精心塑造，用视觉手段将品牌故事更好的传达给用户。设计团队将不断细化后续的品牌输出以及完善设计规范，多维度助力业务的高速发展！</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>设计价值观</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="aa75f3af-e625-401c-bd80-3f203e7f4ddd" class="page sans"><header><h1 class="page-title">设计价值观</h1><p class="page-description"></p></header><div class="page-body"><h1 id="4be75052-b841-46a0-90dc-ba394560345c" class=""><strong>设计价值观的意义是什么？</strong></h1><h2 id="5b95842b-6cbe-4b04-8fb5-d07e8c221522" class=""><strong>对用户而言，这四个价值观有什么价值？</strong></h2><p id="3ac11d75-f25b-4dad-adeb-269c7e8a8fbd" class="">有个句子，在网上很有名，叫“喜欢一个人，始于颜值，陷于才华，忠于人品”，出自吴桂君的现代诗《喜欢一个人》。</p><p id="83700d88-1aa1-4ca3-bf85-ae690eb72a72" class="">按照个人粗浅的理解，觉得：好的感情，始于同类，陷于同行，忠于同路。</p><p id="67a402d9-9bef-434c-b2bc-cb679d2f6beb" class="">扯远了，回到今天的主题。关于四个价值观对用户的价值，个人的理解是：</p><p id="78645e26-0ec3-41d9-810f-e94eb85662ac" class=""><strong>始于周到，陷于品质，迷于惊喜，忠于善意</strong>。</p><figure id="cb0c30ef-aef3-4df0-97f9-85e95ed5bb33" class="image"><a href="http://image.woshipm.com/wp-files/2019/12/4rEoOwnXZcfaJduiiGMu.png"><img src="http://image.woshipm.com/wp-files/2019/12/4rEoOwnXZcfaJduiiGMu.png"/></a></figure><h3 id="f56feb7f-3273-4204-95c5-0806b59a5d1c" class=""><strong>1 始于周到</strong></h3><p id="253b6aee-cae8-42f7-9a6e-3f105e7d87f8" class="">最近看上了两本书，因绝版等原因，主流市场上已经买不到，所以就去孔夫子旧书网买了二手书。也因此有了一段不太愉快的购物经历。</p><p id="d3c879b6-cf4f-4dc2-8380-dcf163b831fa" class="">因为是第一次买二手书、第一次用孔夫子旧书网，所以，虽然大部分书的详情页写着还剩一本，但是一开始，强迫症的笔者还是去和卖家确认了一下是否有货。</p><p id="da418056-d30b-427d-aa79-008394f232b0" class="">除了是否有货和价格，买二手书时，个人还关注这四点情况：新旧程度、书的照片、发货时间，物流时间。</p><p id="af44fc1e-23e1-4474-9682-f5b6b9721816" class="">以上四点，个人一般先去书的详情页和店铺详情页找。如果找不到，才会发消息问卖家。</p><p id="e6e31ef9-cdec-49be-a5f9-6f1eb06ef52b" class="">笔者有过不少平台的网购经历，包含了大大小小的卖家，知道并非所有卖家都如天猫上的专职客服那般热情：张口叫个亲，闭口叫个亲亲。</p><p id="86c16a5d-a080-4ef2-9b2d-aa30c495b881" class="">但是礼貌和周到，也是个人对所有卖家的一个基本期待。</p><p id="4aff1f01-c87f-4838-9c20-5b3fdd87bbf9" class="">两本书，问了有 5 家店铺，其中有 4 家都没有对笔者开头的“你好”或“您好”报以礼貌回复。</p><p id="fc62d2f9-f269-46db-90d5-730c71c1faec" class="">卖家的这种态度，使得笔者在后来询问的时候，有时候还会加上“请问”俩字。</p><p id="bd092e47-a20e-44ad-8654-abdb3fccd38f" class="">不过，笔者从这 4 家得到的回复，都是诸如“有的”、“是的”、“没有”和“三天”这样简洁的答案，而且清一色没有诸如“还有别的问题吗？”之类的下文。</p><p id="fd6a8f82-d755-4149-82d2-625091ce653d" class="">有点尴尬的是，有一家在笔者问到第三个问题时，直接没再回复。</p><p id="cbb28586-4140-4f5f-9a1e-d168273c602e" class="">于是后面，笔者最多问两个问题，就不再往下问了。</p><p id="7cad72b4-ccc2-47b8-9cfb-92f9c92a85ca" class="">这时候，笔者就想起巴菲特说过的一句话，“和坏人打交道，做成一笔好生意，这样的事，我从来没见到过。”。</p><p id="11e9b909-25e0-4562-89c3-4d86e8032fc3" class="">顺便说一句，笔者最后下单的两家店铺，都是没有发消息问卖家。因为笔者关心的几样内容，在他们的店铺里都能找到，而且店铺评价不错。</p><p id="89d353e3-fee2-4ed3-b25a-541aa6d7f865" class="">我们在用 App 或网站时，偶尔也会碰到类似情况，比如缺少必要的提示、提醒、解释，或用起来不够方便等。</p><p id="efb7a0b4-5dfd-4aa8-b11b-9ad002b46d00" class="">笔者在创业公司待过，这方面的经历和感触比较多。不过，个别大厂的产品，也同样存在不足。</p><p id="6b1738f4-a817-4c1e-ba3a-110ac097adb9" class="">比如网易号的文章编辑页面，底部只有“保存草稿“的按钮，而没有”保存“按钮。点”保存草稿“，会保存内容、然后关闭编辑页面、并回到文章列表页面。</p><figure id="c2daff00-0bc6-4b76-b5dc-4ba30de77199" class="image"><a href="http://image.woshipm.com/wp-files/2019/12/wdkG6ikYAuzI2lXjXDUi.png"><img src="http://image.woshipm.com/wp-files/2019/12/wdkG6ikYAuzI2lXjXDUi.png"/></a></figure><p id="4be0117b-3ff3-4692-9e6d-8b626659c372" class="">在这个页面，用户最想要的，必然包含“保存”功能。</p><p id="9255aed3-2004-45d0-862d-37c3fb10be8d" class="">因为当输入大量内容后、或对格式进行编辑后、或对文章进行修改后，正文里没有任何“保存与否”的提示。为了避免刚才的劳动白白浪费，用户是非常希望先“保存”一下的。</p><p id="7d834556-9140-4901-8d35-87743e291859" class="">另外，保存完内容，继续留在当前页面编辑文章，这个需求，也是广泛存在的。目前的设计，没有满足这个需求。</p><p id="bbef24fc-5ca2-4249-8d86-3b3be411b152" class="">还有，“保存草稿”这个功能，是不是也可以自动完成，会更方便些。</p><p id="332e7984-0a49-4673-a462-5af3e28ddcd8" class="">“保存”和“存草稿”这俩功能，对自媒体平台来说，用户经常用到，所以是非常核心的设计。如此核心的设计，还如此不周到，就很难赢得用户的好感与信心。</p><h3 id="c423af31-0243-443d-a163-2137cb9239fd" class=""><strong>2 陷于品质</strong></h3><p id="6669b8db-5e6e-41a2-8ded-1c762cdda245" class="">大学时代，文科生的笔者，第一次接触 Photoshop。</p><p id="e465f87e-bbdf-4f94-9056-816152409982" class="">那时，身边部分同学在用它：画个海报，P 个图，诸如此类。笔者没这方面的需求，但是求知欲加上好奇心，所以也想学一学。</p><p id="2272eb0b-35f3-4fea-bd45-13d5b4c9c0c9" class="">Photoshop 很难上手，需要教程。所以笔者去了学校的图书馆。</p><p id="de1bf5e0-61a0-4a95-afee-4e33be6810ee" class="">但是，当笔者发现，大部分 Photoshop 的教程书，都比两块砖头加起来还厚、基本都有 20 来个章节时，笔者求知的火苗就被浇灭了。只是觉得：Photoshop，惹不起，惹不起。</p><p id="6860893b-b97b-4928-a088-b031374efe5a" class="">直到后来毕业，笔者要做 UI 设计师，不得不再次面对 Photoshop。</p><p id="570dc91c-2f6f-496b-ae08-f8360301ce89" class="">这一次，笔者去查阅了不少视频教程，依然感觉 Photoshop 是惹不起的。因为大部分视频教程也是花费巨大的篇幅在讲 Photoshop 的各个工具。</p><p id="cf03bc85-bdb7-468f-9d5b-10eb6ee7680d" class="">笔者索性直接跳过学习软件这个环节，而是跟着网上的教程，硬着头皮，直接画起了超写实图标。</p><p id="8890f7ed-b51a-4da6-9ae5-2c87eed67657" class="">就这样，笔者学会了 Photoshop 的基本用法。久而久之，也可以非常熟练的用它来做 UI 设计了。</p><p id="bf27315a-02f8-4153-bb9d-1462c94f021c" class="">没过多久，Sketch 就慢慢进入了大家的视野。笔者在用过 Sketch 之后，就再也没有用 Photoshop 做过 UI 设计了。</p><p id="6de1690a-1a3d-4877-9b3c-8239e83bf9bb" class="">之前换工作的时候，还有点担心新同事会用 Photoshop，最后发现大家清一色都在用 Sketch。现在的大环境，除非是没有其它选择，否则用 Photoshop 做 UI 设计的，恐怕是少之又少。</p><p id="74df9124-fc86-4b98-bf31-cb0e01ffe572" class="">笔者也见过一些非设计类的同事，比如运营同事，会用 Sketch 做一些简单的设计。甚至见过一些产品经理和工程师，拿 Sketch 来画原型。</p><p id="9a86bd27-598e-4393-a533-965065c8ea42" class="">原因无它，就是因为 Sketch 的设计，更简单、更智能、更轻量、更容易上手。几乎不用怎么学，或者只是简单的学一下，就可以上手了，所以大家都爱用。</p><h3 id="7926a8f7-0eff-4450-83c1-1bf79420b219" class=""><strong>3 迷于惊喜</strong></h3><p id="5a3f5483-bcf1-48e0-be6d-b2a5910f5b6f" class="">前段时间，笔者买了一台天猫精灵。</p><p id="61e858dc-386b-4fee-80fc-814b6948efb8" class="">为了让读小学的外甥和外甥女体验下，笔者把这个智能音响拿到了姐姐家。</p><p id="f463ccb9-8f02-4a3c-977c-a08c63a029a8" class="">结果被小外甥玩的不亦乐乎，直呼太好玩了，舅舅你把它送给我吧。</p><p id="15d7d1ef-71a9-4759-81e2-bd4c7376a029" class="">其实小外甥也不知道怎么玩，他只是觉得这是一个比较智能的音响，就尝试和天猫精灵各种对话，比如：明天天气怎么样，放一首歌，放一首《外婆的澎湖湾》，梯形的面积怎么算，Can you speak English， 关掉吧，等等。</p><p id="1decdc55-746d-4cdb-aac1-244f9d470596" class="">相比上网去查，语音交互的即时反馈或者较为聪明的反馈，确实带给他很大的乐趣和惊喜。</p><p id="d86acb87-dd67-4374-aaa6-0316024c0a37" class="">然后他就守着这个天猫精灵，乐此不疲的玩，写作业的时候都用来放歌，热乎了很多天。直到现在，还经常用。</p><h3 id="25e9d27d-602f-48e6-9dfa-f3baa9a56ed4" class=""><strong>4 忠于善意</strong></h3><p id="4f63e7fc-2092-421a-bb4b-d5c76d80e113" class="">最近在自学自由泳，主要途径是上 B 站看视频。再具体一点，是通过搜索和历史记录来找到这些教学视频。</p><p id="4a348cbc-8942-4c6c-a712-7b337a4358ca" class="">刷抖音和快手的时候，几乎用不上搜索。</p><p id="e4aa5269-dc43-4e81-a8f9-9ac14c003510" class="">去腾讯视频和爱奇艺看影视节目时，有时候会用上搜索和历史记录。</p><p id="51e3c46c-a923-43bb-b21b-9eb7eb39550e" class="">但是在 B 站，如果没有搜索和历史记录，于我而言，这个网站就几乎没法用。</p><p id="ce7dc2c5-2747-4661-872d-8239810e238b" class="">个人觉得，B 站的交互设计，算不上优秀。整体而言，就是不够简洁，内容又多又满。</p><p id="a5f190e6-974c-46b1-a8be-361bca966567" class="">拿网站来说，最顶部的一栏塞的满满当当。再往下有两行密密麻麻的频道，频道两侧还放了两类不同维度的导航或者频道，显得也不够干净利索。</p><figure id="3e6b9a2b-5318-4d4a-868a-95443d7b6a3d" class="image"><a href="http://image.woshipm.com/wp-files/2019/12/qxmH2jlpB2hn9VzvgdcX.jpg"><img src="http://image.woshipm.com/wp-files/2019/12/qxmH2jlpB2hn9VzvgdcX.jpg"/></a></figure><p id="caad6dfd-9af0-4156-aa77-ffe1ea8469f0" class="">因为笔者基本不是二次元、游戏、直播、鬼畜等领域的用户，所以顶部导航里的绝大部分内容，几乎都用不上。</p><p id="03893843-4759-4415-8780-109241dd4718" class="">另外，正是因为 B 站的内容又多又满，所以有时候，也会给人一种眼花缭乱和透不过气的感觉。</p><p id="f04a262b-63b7-4d4e-a8bb-f135fa5a2bff" class="">但这些，并不能阻挡笔者用 B 站、以及对 B 站的喜欢。</p><p id="a4eee07a-fc9b-4ad8-b908-e8279ee83894" class="">很多人都知道，在用户心中，B 站拥有不错的美誉度和忠诚度。这些从网友的帖子和评论中，以及媒体的文章中，也很容易找到。</p><p id="9a6499e7-ec69-4045-9811-e6463ffe79f0" class="">据 B 站官网显示，用户日均使用 B 站时长为 75 分钟，正式会员第 12 个月留存率超过 80%。所谓正式会员，就是通过答题测试，可以发弹幕和评论的会员。</p><p id="8d7e9397-1f31-4edf-842f-f744e0f55a64" class="">关于高粘性的原因，B 站官方的解释是活跃和具有亲和力的社区氛围。根据个人的使用经历，对“亲和力”的理解就是友好和欢乐的弹幕、评论氛围。</p><p id="43150880-a3af-4440-ac40-32330ef08713" class="">B 站之所以能维持友好、欢乐的社区氛围，很大程度上，得益于转正答题测试。在 B 站煞费苦心准备的 100 道题目中，有相当一部分是关于弹幕礼仪的。</p><p id="a16dd72c-4071-491c-9658-b689fe190b86" class="">比如：以下哪种弹幕用词会比较适宜，不会使人不愉快（<strong>C</strong>）</p><p id="f44b7038-5440-4d28-8087-4010368124b1" class="">A. 你咬我呀</p><p id="a9c9157f-359e-4a93-90c3-310b324ae894" class="">B. 我就是小学生</p><p id="5db7c191-5f9c-4ced-a003-535eab26c1a9" class=""><strong>C. 2333</strong></p><p id="c1f47649-89c3-4d50-b3a3-ca65c3f2f37f" class="">D. 你来打我呀</p><p id="ee27066b-49bd-4795-abd8-c68eb97e80bf" class="">实际上，B 站的弹幕礼仪非常严格。严格来讲，像刷屏、发“前排签到”这类无意义弹幕的，以及剧透行为，都不符合弹幕礼仪。</p><p id="cefca2ff-bb57-47a0-bc86-67534a4fec3d" class="">要按这个严格标准，笔者是见过一些不符合礼仪的弹幕。但是像挑衅、嘲讽、谩骂、攻击等充满戾气的弹幕，则几乎没有碰到过。</p><p id="05e4ff39-45c5-44f0-87b6-a2d51a3de7cc" class="">B 站正是通过答题测试的方式，来向用户传播关于弹幕礼仪的知识，从而引导用户的善意，最终发出友好的弹幕。</p><h2 id="9e0bd3f9-84aa-4689-814d-6b21b752cb37" class=""><strong>结语</strong></h2><p id="71ccd18c-ebba-4d09-9b2a-b86c46160d30" class="">交互设计，对用户而言，是始于周到、陷于品质、迷于惊喜、忠于善意。</p><p id="ee1db780-e029-4aba-bc0f-cfc8034607f6" class="">4 个价值观都很重要。</p><p id="70935398-22fd-4095-8c3f-d5a5574d48dc" class="">其中，周到是基石，不作恶是底线。</p><p id="33464ae5-646b-45d5-a872-2c0ad2a3ba2d" class="">在此基础上，落地的价值观越多，创造的用户价值就越多。用户价值越多，最终能够产生的商业价值，也会越多。</p><p id="acb47562-bb6b-4980-9633-4187b08813bd" class="">最后，借《道德经》的一句话来结束本文：夫唯不争，故天下莫能与之争。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

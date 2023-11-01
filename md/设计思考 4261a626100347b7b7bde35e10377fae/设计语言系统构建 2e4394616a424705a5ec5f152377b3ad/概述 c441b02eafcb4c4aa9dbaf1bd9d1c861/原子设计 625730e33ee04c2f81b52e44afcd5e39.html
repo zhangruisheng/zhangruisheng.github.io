@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>原子设计</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="625730e3-3ee0-4c2f-81b5-2e44afcd5e39" class="page sans"><header><h1 class="page-title">原子设计</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Created</th><td><time>@June 16, 2021 3:11 PM</time></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedBy"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 10.4229C6.05176 10.4229 4.54785 11.1133 3.83008 11.9131C2.90039 10.9082 2.33301 9.55469 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 9.55469 13.1064 10.9082 12.1699 11.9131C11.4521 11.1133 9.94824 10.4229 8 10.4229ZM8 9.30176C9.32617 9.30859 10.3516 8.18066 10.3516 6.71094C10.3516 5.33008 9.31934 4.18164 8 4.18164C6.6875 4.18164 5.6416 5.33008 5.64844 6.71094C5.65527 8.18066 6.68066 9.28809 8 9.30176Z"></path></svg></span>Added by</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a-/AAuE7mCYLgNL-U_Il_abXX0ZuWQePjPOGoT8vXJW8WBz=s100" class="icon user-icon"/>张大圣</span></td></tr></tbody></table></header><div class="page-body"><p id="8436c601-e761-4f13-87b4-902c9121130a" class="">「我们不设计页面，我们设计构成元素的系统。」——Stephen Hay</p><figure id="2b89d1d1-3366-4b1d-a2ad-010e6742a375" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-1.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-1.jpg"/></a></figure><h1 id="67c765ab-e036-475a-b28e-0fff69bf757e" class="">原子设计前言介绍</h1><p id="0865474e-8d68-42cf-a2a5-9e5aa757bc9b" class="">原子设计理论并不是什么高大上的规则。</p><p id="8135856f-b922-43e8-bc42-41f419a0a00d" class="">随着网页设计的持续发展，我们认识到开发设计系统（design system）的重要性，它最早就是为了让网页设计师更容易理解网页的构成，后来才延伸到UI设计当中。</p><figure id="d7997161-c91d-4837-af7e-6ff79ad71efb" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-2.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-2.jpg"/></a></figure><p id="b840c98e-80de-4f46-bb68-6e6e13f14960" class="">简单来说，当公司的业务产品逐渐扩大时，我们需要制定一套完整的设计系统，提升设计和开发的协作效率，统一所有设计师的输出物。 开始设计系统的制定时，大部分设计师可能都会先去网上找到大厂现成的设计系统，当拿到他们的成品的时候，会把自己的产品进行拆解和借鉴，这的确能快速解决问题，但是如果不理解其中的组织规则和逻辑，只是借鉴他们现成的设计系统，只能了解个大概，知其然而不知其所以然。因此，原子设计理论的出现就是为了帮助我们去搭建设计系统，这套理论已经逐渐被国外一些大厂应用于创建统一和富有层次的设计系统。</p><figure id="000f30cf-ed5b-44bf-87e1-69e09b90ce67" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-3.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-3.jpg"/></a></figure><p id="ca640c18-c7fd-48f7-a796-0c35461acdd9" class="">原子是所有事物的基本构成物质。每一个化学元素都具有不同的性质，并且它们一旦被分解就会失去其意义。</p><p id="2cf64185-e796-4dcd-8914-b3642e6311d1" class="">分子是由两个或两个以上的原子通过化学键结合在一起的。这些原子的组合具有自己独特的性质，并且相较于原子来说，更具实际意义和可操作性。</p><p id="6040d5b1-34d3-46d9-995e-846d5638ed01" class="">有机体是由分子有机地组合在一起的。这些相对复杂的结构可以从单细胞生物一直到像人类这样难以置信的复杂生物体。</p><figure id="0cef2927-b164-4aee-a5e9-3a5a6ce770ad" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-4.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-4.jpg"/></a></figure><p id="88bce1ca-6639-4b2f-b0f9-8287615f7aaa" class="">宇宙中的物质都可以被分解成为原子元素。</p><p id="a1b3fc79-45f8-4815-a7bb-d7e609d6d554" class="">碰巧的是，我们的界面就是由一些基本的元素组成的。Josh Duck的「HTML元素周期表」完美阐述了我们所有的网站、APP、企业内部网、hoobadyboops等等是如何由相同的HTML元素组成的。</p><figure id="f6ce37da-5bac-4df9-9b5e-9d1ee780677e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-5.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-5.jpg"/></a></figure><p id="f99da434-e01b-4d28-bdc2-9aebe9dc3cfc" class="">△Josh Duck的「HTML元素周期表」</p><p id="5a8566ea-ef8e-4031-ae45-2a103587b896" class="">接下来和大家细聊一下什么是原子设计；原子设计到底好在哪里；为什么要有设计系统；以及该如何利用原子理论创建自己的项目组件库。</p><h1 id="fb7072b5-b905-4abf-aeec-d97cb7a8b9f2" class="">什么是原子设计</h1><p id="c98e16b3-43a6-4dbd-a04d-6665455e740a" class="">原子设计（Atomic Design）理念最早是由国外网页设计师Brad Frost提出的，他从化学元素周期表中得到启发，发现原子结合在一起，可以形成分子，进一步形成组织，从科学的角度来讲，在宇宙中的所有事物都是由一组有序的原子组成。</p><p id="f8df3ac5-b938-4403-a1b7-5b1db9f83e32" class="">Brad将这个概念应用到界面设计中，仔细观察后我们不难发现，界面其实就是由一些基本的元素组成，文字，颜色和图标等都是一个个原子。</p><figure id="430824b7-6f6d-4132-bc5d-7a8383558166" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-6.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-6.jpg"/></a></figure><p id="082083e5-d061-476b-a339-3a521c27d21e" class="">通过原子设计，我们可以把界面看作是一个连贯的整体，同时也是一些元素的集合，每个元素都不尽相同，互相结合产生更多层次和结构，模块之间相互统一。说到底，原子设计其实是一种设计方法论，它由原子、分子、组织、模块和页面共同协作，由此创作出统一和富有层次的设计系统。</p><p id="fd5adc2e-c4ed-4bd2-9ef3-a1a720682c41" class=""><strong>小总结：</strong></p><p id="55ead56e-b675-4574-b3e0-ebb3950024a4" class="">简单来说：原子结合在一起，形成分子，进一步结合形成的生物体。原子理论意味着在已知宇宙中的所有事物都可以分解为一组有限的原子元素。</p><h1 id="ff8f2214-1e83-432f-af0e-e5f3efaa1e46" class="">原子设计的5个层面</h1><p id="e577f89c-a2e8-43b9-a2a0-f3be8e27b359" class="">原子设计是一种方法，由五个不同的阶段一起工作，以更慎重和更具层次的方式创建界面设计系统。从而创造出更有效的用户界面系统的一种设计方法。</p><p id="947ad15a-8b68-485c-836e-7f8a1ba2ff71" class="">它的五个不同阶段是：</p><ul id="84933ecd-dce6-4a28-a7f0-1e2414349277" class="bulleted-list"><li style="list-style-type:disc">原子(Atoms)：为页面构成的基本元素，例如标签、输入框、文字、颜色等；</li></ul><ul id="c487c78c-1f19-40b6-bf81-5f7152ccc01e" class="bulleted-list"><li style="list-style-type:disc">分子(Molecules)：由原子构成的简单UI元素，例如按钮；</li></ul><ul id="2d177a8d-c080-4912-8a92-63b46eb49e62" class="bulleted-list"><li style="list-style-type:disc">组织(Organisms)：相对分子而言，较为复杂的构成物，由原子及分子所组成；</li></ul><ul id="98dfbc78-d988-4248-9e1d-5b5ba18654de" class="bulleted-list"><li style="list-style-type:disc">模板(Templates)：以页面为基础的架构，将以上元素进行排版；</li></ul><ul id="656d2e76-f599-41b6-a800-d5bde5213540" class="bulleted-list"><li style="list-style-type:disc">页面(Pages)：将实际内容（图片、文章等）放置在特定模板内；</li></ul><figure id="e7652198-725e-4ef3-bbf7-d43aa98f88cf" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-7.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-7.jpg"/></a></figure><p id="22b4544d-6ebd-494a-9be9-d9e2b9b5b9bb" class="">原子设计不是一个线性的过程， 它更像是一个心理模型，来帮助我们把用户界面看作是一个连贯的整体，同时也是一些元素的集合。这五个阶段的每一个阶段都会在我们的界面设计系统层级中扮演重要角色。下面，让我们更深入的了解每一个阶段哦～</p><p id="441efc44-4429-45c1-adbd-2c58fa0deb6d" class=""><strong>1. 原子</strong></p><p id="b7aa85f3-2a3f-45d7-8209-0e377cd0f5b5" class="">如果原子是物质的基础组成部分，那么我们用户界面的「原子」就是那些构成我们用户界面的基本构件了 。在界面中以「元素」的形式存在，例如：颜色、文字、图标、分割线等。</p><figure id="624ae81e-79fd-4a76-a3de-257a864d74d7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-8.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-8.jpg"/></a></figure><p id="9b800268-6292-40b5-8e30-96e42b6ae695" class="">在团队开始新项目时，为了保证各个页面具有统一的设计风格，我们会制定一套简易的视觉规范，在关键的设计元素上，各个设计师达成一致，这样就能很大程度保证不同页面的风格统一，并在这个基础上去探索更有创新意义的<a href="https://www.uisdc.com/tag/%e8%ae%be%e8%ae%a1%e6%96%b9%e6%a1%88">设计方案</a>。</p><figure id="92c20827-1af4-4b2a-96d3-49d5aecf949d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-9.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-9.jpg"/></a></figure><p id="356f97ae-a09f-47a3-b471-805573d51e12" class="">在模式库中，原子一目了然地展示了所有的基本样式，当你回来继续开发和维护你的设计系统时，这是一份很有用的设计参考指南。</p><p id="fcaec678-e964-42f7-81a4-1aa42e585aa9" class=""><strong>2. 分子</strong></p><p id="d9bacbed-fd5c-4726-a4b9-74c7a3fc4b21" class="">分子是原子组合建立的元素，两个原子即可组成一个分子。</p><p id="7ab50031-fd28-42ee-a624-cbfa188dd6f2" class="">在界面中，分子就像是一个由UI元素组成的相对简单的组织。例如，搜索框里的文字和图标共同打造一了个搜索表单分子。</p><figure id="b3776194-8399-4fbe-85c0-e7d3ed6b28c8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-10.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-10.jpg"/></a></figure><p id="451a7efe-8612-4a46-a8bc-251c4f114db5" class="">以按钮为例，它的组成元素包含了文字、色块、图标和栅格。合并后，这些抽象的原子从毫无关联到又一个共同的目的，图标和文字互相配合传达意义，颜色定义了按钮的特性，栅格为按钮定义了一个尺寸和规范。</p><figure id="5f612c14-f567-4c39-9706-7ee3c8b72f4a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-11.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-11.jpg"/></a></figure><p id="99e22611-e7c7-423b-84b4-4fe381602c88" class="">将单个元素组装为简单的功能组是我们一直以来构建用户界面的方式，可帮助UI设计人员和开发人员坚持单一职责原则，这种方式简单且复用性高，可以保证界面具有良好的可用性。</p><p id="4df71595-7816-43cf-944b-c07e55de8368" class="">以界面设计中的表单为例，表单是一个非常常见的设计元素，一个表单分子是由文字、图标和线条原子组成。这些原子合并后，得到的是一个可以应用在任何信息展示或者功能入口的组合。</p><figure id="6c4ebf49-c6dd-4aaa-a88f-274f8892e8f1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-12.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-12.jpg"/></a></figure><p id="dbfd6c01-c77b-40b8-b47b-a7e124253e5c" class=""><strong>3. 组织</strong></p><p id="1bef83f1-3a2d-4a8f-8b3d-533750c5f6f5" class="">组织是由分子或原子或其它有机体组成的相对复杂的UI部分 。这些组织组成了界面的不同部分。</p><p id="7e6782eb-9ceb-4142-8102-e8fddd0c4264" class="">通过结合分子和原子，我们可以构建更复杂和可扩展性的模块，这个称之为组织，其实也可以称之为组件，这些组件组成了界面的不同部分。同样以表单为例，一个表单我们可以通过数量的组合，以及间距的调整，元素的增减，在界面中表达不同的场景和含义。从建立分子到建立更精细的组件，这为设计师和开发人员提供了重要的内容构建思路。</p><figure id="0f8e0089-f8b0-4803-9348-86349ffa3f05" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-13.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-13.jpg"/></a></figure><p id="0ba75d08-4b50-495b-958d-450b2a41c66d" class="">组件在解放设计师生产力方面有着重要的作用，我们可以把界面中常见的组件进行分类整理，如搜索、表单、图片和卡片等，这些常用组件基本能满足日常的设计需求。以Aribnb为例，他们主要分为3类：卡片、表单和内容。每个标签内容的设计形式尽量都保持统一，因此负责不同内容模块的设计师只要选择同一个组件就能完成页面的设计。在短时间内就可以完成页面超多的复杂项目，极大的提升了团队的设计效率。</p><figure id="ab5f9927-ad33-459c-b785-095debd52c3d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-14.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-14.jpg"/></a></figure><p id="fa477bf4-23ff-453b-87b0-fe11ca2bb957" class="">在网页端最典型的例子就是网站导航，搜索表单，我们几乎访问的每个网站都会看到这些类型的组件。</p><figure id="bf64b127-b88f-421e-bb69-cba009441b55" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-15.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-15.jpg"/></a></figure><p id="73af5b58-24e2-410f-b9cb-28b40acfea5b" class=""><strong>4. 模板</strong></p><p id="d9c38633-b14d-4f00-9cde-61a6538fdc2b" class="">原子，分子和组织的这种语言有助于我们有意识地构造设计系统的组件。但是，最终我们必须采用一个更适合描述我们最终产出的语言，这样才好汇报给老板、客户和同事，简单来说就是说人话。</p><figure id="53191fbf-c171-489c-98c7-2d9d8e40f494" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-16.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-16.jpg"/></a></figure><p id="44fc1fbb-ed98-4a50-8bf3-a4b038d1504e" class="">模版的本质就是线框图，在这一步我们基本可以看到一个产品的形态。我们可以不断调整组件和分子组合在一起的效果来尝试不同的方案，找到一个相对合适的方案。模版的意义就在于可以专注于页面的内容结构布局，而不是页面的最终内容，此时模版内容是随时可以调整的，尝试不同的方案，在多个模版中进行对比，在这个阶段改动和沟通保证了最低成本。因此，模版在设计系统承载的作用就是保证设计方案在原型阶段的多样性。</p><figure id="950aa8a6-0e3e-4e37-a88d-1b49020cc263" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-17.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-17.jpg"/></a></figure><p id="052d7716-b98c-4c82-a6e7-cfcdfce03e27" class="">模板是页面级别的对象，它将组件放置在布局中，并显示设计的底层内容结构。在设计一个有效的设计系统时，必须在布局的环境中展示组件的外观和功能，以证明这些部件组成了一个功能良好的整体。</p><figure id="4f287d61-8e2f-4397-8bf0-585030994979" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-18.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-18.jpg"/></a></figure><p id="5125de3f-583f-4111-b363-0c21985deb11" class="">模板的另一个重要特征是它们专注于页面的底层内容结构，而不是页面的最终内容。设计系统必须考虑内容的动态性质，因此，把例如标题和文字段落的图像大小和字符长度此类组件的重要属性说清楚是很有帮助的。</p><p id="6c94bdb1-4960-45da-9744-b0b761a43f21" class=""><strong>5. 页面</strong></p><p id="965f39cf-3791-40c6-bc5b-bc5358e1c7ba" class="">页面是模板的具体实例，填充了真实的内容（图片、文字等）后形成页面，也就是常说的「视觉稿」，将占位符替换为有代表性的真实内容，使设计系统有了生命。在模版的基础上进行优化和完善就形成了页面最终的视觉方案。</p><figure id="32b57b6f-1156-46db-bfde-7d1633e69a3d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-19.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-19.jpg"/></a></figure><p id="a3b341d5-7c08-44fb-85dd-3ffdc63a811d" class="">页面阶段是原子设计中最具体的阶段，由于一些众所周知的原因这个阶段非常重要。别忘了，这可是用户在访问你的界面时会实际看到和交互的内容。</p><p id="5907b985-1d39-42df-9348-21736d57da7a" class="">除了演示用户所看到的最终界面之外， 页面对于测试底层设计系统的有效性是必不可少的 。在页面阶段，我们可以看到当将真实内容应用于设计系统时，所有这些模式如何运作。所有的一切看起来都很棒吗？如果答案是否定的，那么我们可以回过头去修改我们的分子、生物体和模板，以更好地满足我们内容的需求。</p><figure id="fc586417-4460-4dc5-8e88-db7d13e176cd" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-20.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-20.jpg"/></a></figure><p id="e1765c45-3e62-48a7-b516-625597ceb8ef" class="">页面还提供了一个表达模板变量的地方，这对建立强大而可靠的设计系统至关重要。以下是模板变量的几个例子：</p><p id="5b1e63c9-03d1-4d86-bf38-5feb0be9a4e2" class="">用户在其购物车中有一个商品，另一个用户在其购物车中有十个商品。</p><p id="eade1c68-f269-45f8-af7d-4e732bd3e265" class="">网页APP的仪表板通常显示最近的活动，但是该部分对于首次使用的用户是禁用的。</p><p id="bd74397f-e29d-449d-b703-a62a93b224c3" class="">一篇文章标题可能是40个字符长，而另一篇文章标题可能是100个字符长。</p><p id="21074853-dfcb-4592-b62e-28cd1bc91224" class="">在所有这些例子中，底层的模板是相同的，但用户界面将会随着内容的动态性质而改变。这些变化直接影响了底层分子，有机体和模板的构建方式。因此，创建解释这些变量的页面有助于我们建立更具弹性的设计系统。</p><figure id="2af5b5af-0288-4674-a111-781fa3b5a9ad" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-21.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-21.jpg"/></a></figure><p id="1cd93856-339a-48ed-8094-00a2faf606b7" class="">这就是原子设计！这五个不同的阶段同时协同工作，以产生有效的用户界面设计系统。</p><p id="3d05d6d2-e7ff-487a-8e7a-4376dad83d02" class=""><strong>小总结：</strong></p><ul id="18a320cd-cb0b-491b-90a8-2df1dad2c0e6" class="bulleted-list"><li style="list-style-type:disc">原子是最基础的UI元素，并且是可以用作界面的元素构建块；</li></ul><ul id="093fb858-0ec6-4672-85ab-b00d457561a1" class="bulleted-list"><li style="list-style-type:disc">分子是用于形成相对简单的UI组件的原子集合；</li></ul><ul id="0d0582e0-1267-4346-b3ca-97a8a104e735" class="bulleted-list"><li style="list-style-type:disc">组织是形成界面各个部分的相对复杂的部件；</li></ul><ul id="303e7675-1253-40ee-9db2-23074d716804" class="bulleted-list"><li style="list-style-type:disc">模板将组件放置在布局中，并演示设计的底层内容结构；</li></ul><ul id="6df272c9-d072-4fb4-a379-a15c91fa3a56" class="bulleted-list"><li style="list-style-type:disc">页面将真实内容应用于模板，设计出视觉稿，并最终成为开发落地的依据；</li></ul><h1 id="85f5f91f-ad61-49bf-8b52-4723501d299f" class="">为何要用原子设计作为理论指导</h1><p id="ac152359-a56a-4fc2-8dc3-d18d5fb52203" class="">原子设计为制作设计系统提供了清晰的方法。客户和团队成员通过实际的设计流程与步骤，能更好的去理解设计系统的概念。原子设计使我们能够从抽象的设计中过渡到具体的设计中来，因此我们可以对一个设计系统进行一致性和可伸缩性等类似特性的控制。</p><figure id="90a0664e-c8f0-42a9-849e-d0197980dc14" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-22.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-22.jpg"/></a></figure><p id="ba63c746-d78d-429e-8bd6-8c81c4fd7a13" class="">通过模块化的设计系统调动组件，可以使我们开发新的产品时，从开始就可以对产品进行严格的把控与一定程度上的控制，进而规避了事后风险。开发之前不确定好系统模块化，毫无逻辑的去开发，开发到一半发现功能与需求对不上等问题逐渐产生，会导致产品的延期、人员成本的浪费、资金成本的增加，产品的迭代率的下降、进而影响市场先机与市场占有率。</p><figure id="de819c82-9cde-44aa-bbe4-eb571997153d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-23.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-23.jpg"/></a></figure><p id="9b107411-4c90-49a9-a58d-03de8a0d2b48" class="">原子化设计与原来的样式库设计思路不一样，原子化设计从抽象到具象，从元素到组件，让设计师从底层开始思考，对整个设计会有更清晰的理解。同时也能让设计更加统一，在新增组件的时候更谨慎。</p><p id="7116edaa-c13b-4e39-9234-6cb1821ee6c5" class="">原子设计的原理可以最大程度保证任何一个设计组件的构成与开发构建组件一一对应。同时应用原子设计的设计软件（e.g., Sketch, Figma)可以给新设计师足够的自由满足需求变通，并且可以保证同一个设计组件的更新会覆盖到任何一个使用这个组件的设计中。</p><figure id="9c8e8efb-1bc0-41bd-88e0-4fd992ff2a81" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-24.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-24.jpg"/></a></figure><p id="6cbd7c16-df5a-41d0-9fa2-26810c1ada78" class="">原子设计为我们提供了一些关键的见解，帮助我们创建更有效、更深思熟虑的UI设计系统。</p><p id="a37b9ab2-94c0-4c83-8db2-b09077093e4d" class="">那么</p><h1 id="0756f171-70a8-4622-92ab-10d80f711ede" class="">如何创建设计系统</h1><p id="6c8a9bf7-e562-4888-931a-1205b59d7392" class="">如果产品规模小只需要1、2个设计师，大概率是前期不需要大费周章搞一个需要开发配合的设计系统。可以只利用Sketch或者Figma做一个像贴纸一样的设计组件库。但是功能多了怎么办，公司来新人了，当新设计师产出后就会发现与原设计师设计的风格不一样，慢慢发现整体设计风格不统一了，只靠一个简单的组件库很难能满足新功能需求，新功能贴纸上没有设计或者设计需要变通，又或者是新设计师忙着交工忘记检查自己新组件和已有组件的异同。</p><figure id="4f39eafe-8115-40db-a8bd-a8a8af7b6a41" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-25.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-25.jpg"/></a></figure><p id="b22df0c5-2166-4189-8084-6330a0c602bb" class="">这时候就会需要一个设计师领头去重新整理设计系统，走查发现同一个正文所用的十几个不同字号，又或者是十几个透明度不同的灰黑色字体，所有组件跟现有上线产品对比整理好后一并交给开发，开发再一一整理代码库。</p><figure id="8a87f2aa-c8b6-427e-b95f-6a4970ebab0a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-26.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-26.jpg"/></a></figure><p id="8238e008-f6b0-4094-a2d0-8137cddea8a1" class="">设计系统（Design Systems）对于很多年轻设计师可能十个新名词，但是设计规范和组件等我们应该还是有一定认知的。在设计的过程中，我们会被其影响。在我们日常所使用的App产品中，如Apple、Google、Airbnb、Uber、滴滴等，他们的产品体验非常流畅，用户使用产品时能够高效地满足需求，在其良好的体验背后都有着一套强大的设计系统做支撑。</p><p id="56947553-22e8-4fd0-a975-9bcc6be3eec2" class="">为什么需要设计系统</p><p id="49f06517-d7cd-4211-b5b3-8fb6c1ddefd0" class="">团队协作，体验一致。以滴滴为例，虽然只是一个简单的打车应用，但是其旗下的业务却很多，快出、出租车、顺风车等，每个业务都由不同的团队和设计师负责。可以想象如果没有设计系统，任由各模块设计师自由发挥，风格各异，出来的结果可想而知。而有了设计系统的帮助，就会感觉界面风格非常统一，感觉是出自同一个设计师之手，可见其设计系统的功劳不小。</p><figure id="eb9468ce-423b-4e57-a802-b94011e30ea5" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-27.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-27.jpg"/></a></figure><p id="9f073c41-546c-4c96-93a5-2bb9e67d6f93" class="">系统的管理多样性。在设计过程中，我们会发现过程中，我们会发现每个业务的形态都是基于不同的场景，因为场景的多样性，在表现上就会催生出不同的样式。如果每个业务都用一种样式表达，久而久之当业务增长过快时，我们现有的设计模式就会难以满足。Airbnb的设计方式就是非常值得参考的一个案例，从最开始是提供民宿，到后来新增的餐馆服务，你会发现房源和餐馆都用了同一套图文信息结构，只是在内容的细节上有一些不同。这样可以降低设计的难度。设计师不用为每个场景思考一个设计模式而烦恼。同时，用户在浏览不同场景的内同时，在相互切换中也不会产生为违和感，一切都是很自然的操作。</p><figure id="ee659850-2a0a-4e83-9623-eadc2923defe" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-28.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-28.jpg"/></a></figure><p id="0cf76d38-19f0-4822-bf93-6ae9013cbb9a" class="">帮助产品成长，避免一次性设计。互联网产品的成长模式是一种渐进式迭代，在产品初期的主要诉求是快速上线，等到产品上线获取一定的用户，证明它可以活下去时再逐步完善，增加更多的功能。每一次的迭代都是站在我们之前的思考之上，每一次的优化都会让我们的设计更进一步，这是我们期望达到的结果。</p><figure id="3979e009-f97f-48d6-b534-fce7d7c2f167" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-29.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-29.jpg"/></a></figure><p id="0f6f6bed-a329-47fd-a0c1-7e9e3b957097" class="">以Uber为例，新版本继承了黑色按钮的设计，并和地图进行了结合，地图的配色和旧版本相比也变得生动了，这种改变并不是一蹴而就，而是建立在原有版本之上。</p><figure id="e876a37e-d675-47ea-aa51-996b6fb50ed8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-30.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-30.jpg"/></a></figure><ul id="b1da903b-6eb3-4306-98ac-563be63c6ad2" class="bulleted-list"><li style="list-style-type:disc">一致性（Consistency）：由于分解界面成单一元素，不论在哪一个页面，UI元素的互动性是相同的，例如颜色变化、字体的排序、以及反馈。不但让使用者体验相同，在视觉上更为和谐。</li></ul><ul id="b233680d-213a-4e3c-a227-41b8ba8f6651" class="bulleted-list"><li style="list-style-type:disc">效率（Efficiency）：由于建立了组件库，一旦要更改某一个元素，可以马上施行、应用。</li></ul><ul id="9afa9808-f270-4456-baf2-cdee16e70a04" class="bulleted-list"><li style="list-style-type:disc">跨部门的共通语言（Collaboration）：不仅方便设计师思考页面的和谐性，也可以让工程师、测试检验清楚页面的逻辑架构及变化，减少不必要的来回沟通</li></ul><p id="677d3856-86e2-4238-a7a8-2c03173bbab7" class="">在此，顺便浅谈下设计系统。</p><p id="73763e83-9664-4dfa-9974-ff8d2c103e54" class="">通常，设计系统包含的内容由<a href="https://www.uisdc.com/tag/%e8%ae%be%e8%ae%a1%e5%8e%9f%e5%88%99">设计原则</a>、设计语言和组件库，这是一个整体的概念。</p><figure id="93a21b44-31b9-4ccf-9bb4-4263bbc3a5ba" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-31.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-31.jpg"/></a></figure><p id="8bb33c13-ed71-428d-956e-b111a27c7299" class=""><strong>1. 设计原则</strong></p><p id="c26c593b-c9f2-45dd-8cba-9f914e73585d" class="">设计原则是一个产品的核心设计理念，设计的本质就是解决问题，在制定设计原则时要建立在这个中心思想之上。这些问题也许是一个业务形态，例如打车的场景，也许是一个设计形式，如表单。设计形式又很多，我们应该如何选择呢？相对合理的方法就是建立一个规则，所有的问题和形式都想这个规则靠拢，减少不确定性，这就是设计原则的出发点。因此我们可以理解为，设计原则就是一系列的规则，是我们设计过程中要遵循的中心思想。</p><p id="91b34c49-ae19-425d-aed0-21174eefe48b" class="">例如：苹果把审美作为第一要素存在于设计原则中，它的产品往往也是品味的代名词，看看它的设计原则就知道了：</p><ul id="355dac51-ebc5-4bcd-a5b2-f2b5e2b8491a" class="bulleted-list"><li style="list-style-type:disc">审美的完整性</li></ul><ul id="9601f0a4-8f64-40c9-8c14-4e128696f04c" class="bulleted-list"><li style="list-style-type:disc">一致性</li></ul><ul id="b2bf86a7-84d7-4d48-b1b4-7ce363149a47" class="bulleted-list"><li style="list-style-type:disc">直接操作</li></ul><ul id="25435f67-543c-4024-81f0-3c27b96d8964" class="bulleted-list"><li style="list-style-type:disc">即使的反馈</li></ul><ul id="1ad5a8f8-b186-4f7f-8b3f-dd779aa73ad4" class="bulleted-list"><li style="list-style-type:disc">隐喻</li></ul><ul id="8b2e3c72-1d53-4805-bf33-0b1676e9a3e4" class="bulleted-list"><li style="list-style-type:disc">用户可控</li></ul><figure id="fb38e5f5-1b1f-4b62-bb4d-8b60419cc14d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-32.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-32.jpg"/></a></figure><p id="111c8a90-8184-430a-952f-c5e2dba3497a" class="">△ 官网：<a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fdeveloper.apple.com%2Fdesign%2F">https://developer.apple.com/design/</a></p><p id="597fc05b-f04d-4fc2-9488-8fe93ee2b743" class="">再来看看Material Design，Google对其定义是一个完整统一的系统，结合了理论、资源和工具的数字体验产品，相比而言它的设计原则就是更加独特，这是它的设计原则：</p><ul id="9014f376-4830-48ca-bb65-008eddf0fb9d" class="bulleted-list"><li style="list-style-type:disc">材料是一种隐喻</li></ul><ul id="e04f2995-bacf-4a03-9dfc-3d66bc5c9820" class="bulleted-list"><li style="list-style-type:disc">大胆/图形/强调/</li></ul><ul id="2d19d30d-9655-4a2e-9b4d-2011b803992a" class="bulleted-list"><li style="list-style-type:disc">运动赋予意义</li></ul><ul id="4cb07d10-a01a-4bee-8e38-6d9a8ed2f6ba" class="bulleted-list"><li style="list-style-type:disc">灵活的基础</li></ul><ul id="e63ef63f-3890-41e5-a0b6-b8446b5602e2" class="bulleted-list"><li style="list-style-type:disc">跨平台</li></ul><figure id="d327cec7-8f06-4586-9683-7d7524e9d3bb" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-33.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-33.jpg"/></a></figure><p id="fcf625df-8c66-4298-a9b0-96ba625de696" class="">△ 官网：<a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fmaterial.io%2Fdesign">https://material.io/design</a></p><p id="a379907b-6c32-47c7-b648-455ec51e6077" class="">由此可以看出，和iOS相比，Material Design的设计原则更加的抽象，因为他拥有一个独特的设计世界观，用还原的方法和物理方法呈现出它的本质，通过抽象的视觉卡片传递出设计的目的和原则。</p><p id="18da8b0e-8efc-4ccf-8907-1d2316fcd8e1" class=""><strong>2. 设计语言</strong></p><p id="71023a2b-023c-4fde-b576-ed8d0339dbae" class="">在建立设计原则后，下一步就是制定一套设计语言规范，设计规范是设计系统的表现层，面向的对象是团队设计师和开发者，他能帮助设计师的设计输出保持风格统一。同样也能帮助开发者高度还原设计。非常有利于设计师和开发者的协作。这套规范包含的有：字体、颜色、图标和栅格。</p><figure id="4a5a5cb9-4ace-450b-98f6-3988b3677fe5" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-34.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-34.jpg"/></a></figure><p id="49cb3d25-d6f7-4609-a11a-ca23e132527a" class=""><strong>3. 组件化设计</strong></p><p id="3463f428-11ee-40f7-8237-69dec76baff2" class="">组件化设计主要作用有两点，一是保证多人协作效率，组件化设计可以快速完成一个简单页面的设计，提升设计效率；二是保持产品体验的统一性。同时，组件化设计环节在设计系统中是一个相对重要的工作，需要有一个全局观，要有较强的设计水平和沟通协作能力，这样，组件化的落地才会得到很好的推进。</p><h1 id="aac68f6c-91ef-4cb1-9217-522ac2ba0b4e" class="">那些以原子理论构建的设计系统</h1><p id="c958ee33-7444-4ac5-8ebe-afa49a2d0e38" class="">在多屏时代，我们时时刻刻都在设计产品界面，需适配多系统，其中很重要的一点是如何在多系统之间保持体验一致性，很多人想到的就是规范，要想做一套严谨逻辑好，灵活的设计规范，那么原子设计可以帮助我们来很好的实现它，它在构建设计系统中算是比较科学的一种方法，国外很多设计团队都在使用这样的设计方法。比如以下这几个团队：</p><p id="1e620ecb-062f-45d2-a3c3-15727374f6aa" class=""><strong>1. Airbnb</strong></p><p id="a2bd87a0-5e5e-4d2d-8078-dc78852ce87d" class="">Airbnb设计副总裁Alex Schleifer在IXDC2017国际体验设计大会上分享了这一创新React Sketch app 管理设计系统， 这是为Airbnb的设计系统而设计的，其实就是个实时更新的代码数据库，可以实时查询sketch数据、代码，也可以下载图标、设计模块，所有工程师、设计师都可以免费下载。</p><figure id="ba9dadc3-659e-4c28-90ec-5465289e21d9" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-35.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-35.jpg"/></a></figure><p id="31f4de92-235e-4bfc-bc23-dfde05e55c41" class="">△ 官网：<a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fairbnb.design%2Fevents%2Fwhen-we-use-systems%2F">https://airbnb.design/events/when-we-use-systems/</a></p><p id="5e6ca99a-a482-44f3-b3b8-c0ee7eedc607" class=""><strong>2. Frames</strong></p><p id="c2c53e56-1f35-4c44-8652-ffb4ad1c0f76" class="">Frames 使用了精致的组件和先进技术，并结合 Sketch 构建了强大的 Web 设计系统，同样能满足修改原子，全局同步更新的功能，支持响应式布局。提供了近百个网页模板，可以非常迅速地完成效果图制作。</p><figure id="2acd666e-3d19-45a3-909e-9e3337e4ef47" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-36.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-36.jpg"/></a></figure><p id="bbb2cd0d-74b1-4fed-a997-db99caeeb397" class="">△ 官网：<a href="https://link.uisdc.com/?redirect=http%3A%2F%2Fframesforsketch.com">http://framesforsketch.com</a></p><p id="018709d9-a377-4923-8ae9-5fe2925080af" class=""><strong>3. Nested Symbols</strong></p><p id="bab084db-907c-4ed0-b17e-9f3643a2325c" class="">这是一套免费的设计系统，它将按钮、输入框、下拉菜单、通知等控件，都制作成了嵌套符号，方便自定义和编辑。</p><figure id="85f8c2ed-43a8-4ba2-889d-374889a0f51d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-37.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-37.jpg"/></a></figure><p id="83b04350-5608-4cad-9f70-31232fe77732" class="">△ 官网：<a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fwww.janlosert.com%2F">https://www.janlosert.com/</a></p><h1 id="ee7d3fd6-f546-433d-ba9f-958af6828ccf" class="">如何利用原子理论创建自己的组件库</h1><p id="763ed17c-edfb-4523-b13a-0f501fd7f389" class="">原子设计理论最大的价值，就是为设计体系/组件库的构建提供思路和方法，如果你不满足于市场上现有的设计系统，我们还可以自己创建。因此我们首先要为产品设计出一个独特的视觉语言作为起点。这个视觉语言一定要有力度、易于扩展，必须能在所有地方奏效！</p><p id="c15f2d8e-4a8b-411d-934f-075cbbcb2df9" class="">接下来就以 Sketch Library 功能来实现组件库的创建。</p><p id="b44fba22-e569-45b9-a67f-f10f49c324e5" class=""><strong>第一步：定义颜色（color）</strong></p><p id="5213a8b5-a0c9-4122-8d11-ab8aaa5e11d2" class="">将颜色添加 Main、Text、Status 等一级分类，例如：Color/Status；再添加二级分类，例如：Color/Status/Success 等，命名需使用「 / 」 符号区分层级结构。定义好颜色和命名后，将每个颜色转换成 Symbol，便可统一调用。</p><figure id="9dc49a48-1c9e-4e11-af01-6df0569388df" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-38.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-38.jpg"/></a></figure><p id="66d0f4f9-1543-455f-b510-6669565d6861" class=""><strong>第二步：定义字体（font）</strong></p><p id="a7895c1b-a4cb-4294-8cd1-f83e034261e1" class="">根据设计规范，将不同字号的文字样式罗列出来，例如：Title 1、Body、Body2 等，按照「样式名称/颜色/对齐方式」的层级结构，将文字赋予 Text Style，整理出所有的字体样式。</p><figure id="ff713778-00bf-4109-917f-ec4191adfe78" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-39.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-39.jpg"/></a></figure><p id="99ee32b6-7fcb-4d61-8082-5e528cb4091b" class=""><strong>第三步：定义图标（</strong><a href="https://www.uisdc.com/tag/icon"><strong>icon</strong></a><strong>）</strong></p><p id="af2fe9b7-a6b1-4a19-8817-78d7207f45ec" class="">将图标放置在 24*24px 大小画板内，从定义好的颜色系统中选择合适的 Symbol，这样替换图标颜色时直接选定义好的颜色就可以了。在属性面板中锁定尺寸（size）大小，并把调整尺寸（Resizing） 设为上下左右同时吸附，以确保图标在使用时可以等比缩放。</p><figure id="9f927087-7d2e-48bd-86b9-c5c7a088f3f8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-40.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-40.jpg"/></a></figure><p id="048b5e84-7ce3-42ff-aa91-8196fc53f7e9" class=""><strong>第四步：加入其他元素（Elements）</strong></p><p id="d378643b-4374-4f1d-b26d-44971bf13b1f" class="">根据以上对原子的定义和命名方式，依次完成对其他原子、分子和组织的定义，例如：按钮、表单、空状态等，整个过程都是通过 Symbol 的不断嵌套，最终实现组件库的创建。</p><figure id="ee7e4adf-c39b-46ec-8459-ea8ebcd9cb97" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-41.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-41.jpg"/></a></figure><p id="efe47112-54be-400d-912b-0dac2cfe8d74" class=""><strong>第五步：加入组件库</strong></p><p id="75bbffb8-cb81-4a54-95a1-fb7dc70706ba" class="">使用快捷键「cmd+, 」打开 Preferences 面板，选择「Libraries」（组件库）标签，点击「Add Library」（添加组件库）按钮添加刚才的 Sketch 文件，完成后就可以从其他的 Sketch 文件中，对此库里的元素进行调用了。</p><figure id="b47adbcc-098c-4ddb-bfd5-51d43a02eeae" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-42.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-42.jpg"/></a></figure><h1 id="47f79c52-e6e7-4e16-9295-79dc9b3e7d6c" class="">原子理论总结</h1><p id="cc46b3da-2f3f-4f1d-8f12-c5698b5b0e34" class="">写在最后，原子设计是一套具有科学严谨的创建设计系统的方法论，是一个构建UI系统的心理模型。</p><figure id="5697a067-9953-4aad-8ffc-c2096439bb4a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-43.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-43.jpg"/></a></figure><p id="b35f54aa-d43e-4b89-b515-51b2b3ba5729" class="">原子设计使我们可以将我们的界面UI细分为原子元素，并通过这些元素组合在一起形成最终的界面。</p><p id="5c1c7f37-58d2-4971-8056-0c164eb8eca4" class="">原子作为整个理论最基础的元素，当我们改变其中的原子时，整个体系都会发生变化。原子的设计概念和sketch中的「符号」有异曲同工之妙，当我们改变其中一个元素时，其他所有包含这个元素的页面都会发生变化，可以保证整个系统的一致性和层次感。原子设计为界面元素提供了应用规则和组织原理，这套方法论对于设计系统建立、团队协作、产品迭代都具有非常重要的指导意义。</p><h1 id="fc20268d-f995-4b69-b7be-4e68fcdc0330" class="">扩展阅读</h1><p id="be36a567-7ad5-4277-a6c3-c1d3de635e9d" class="">经常有同学问ios设计规范，安卓设计规范在哪看这类问题，最后，来推荐一些大平台的设计网站，上文出现过的下面就不重复了。我们耳熟能详的优秀设计都是来自于这些世界顶级互联网公司，说真的，审美这东西还真是人家说了算～</p><p id="cdd76115-c263-4b96-925f-df407c88235f" class="">反正看看又不要钱，都去康康呗～</p><p id="4adcc925-eb4f-4fae-9284-509aedcdb1db" class=""><strong>1. Google Design</strong></p><p id="c069a198-6b42-4e57-aaad-1e524388e39c" class="">谷歌设计中心，它非常全面的展示了谷歌的设计工作和概念。包括Material Design在内的所有关于设计、体验、产品等互联网领域的探索。</p><figure id="bf4ebaeb-eb51-4069-9c1b-bc5726175bf4" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-44.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-44.jpg"/></a></figure><p id="1ab68048-652d-489d-8943-2ba99e45569c" class="">△ 网址：<a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fdesign.google%2F">https://design.google/</a></p><p id="211a7eac-9d39-4041-96ce-2ae015cb673f" class=""><strong>2. Fluent Design</strong></p><p id="6a64383f-3b44-4524-a7e9-528e11942fd7" class="">微软基于Windows10的设计语言，包括人机界面布局、控件、样式及资源下载。</p><figure id="5f4bc9a1-b542-4356-b8fa-7748049fa8ab" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-45.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-45.jpg"/></a></figure><p id="b172f149-a955-4fe5-93b8-0adad06f36f6" class="">△ 网址：<a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fwww.microsoft.com%2Fdesign%2Ffluent%2F%23%2F">https://www.microsoft.com/design/fluent/#/</a></p><p id="70f950a6-ef1f-40bc-acdc-76a3a06087ab" class=""><strong>3. IBM Design Language</strong></p><p id="f346073f-c6b8-4e24-8c17-5f2e32d0e93b" class="">IBM设计语言是伟大设计的代名词，他将人们的需求转化成精心打造的产品。在这里可以学习IBM设计团队一用户为中心设计的新思维方式。</p><figure id="4720d61c-3607-4ebd-b081-6a7495f70933" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-46.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-46.jpg"/></a></figure><p id="df9413f6-5ce9-4bd9-827a-3cf1b67bfe63" class="">△ 网址：<a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fwww.ibm.com%2Fdesign%2F">https://www.ibm.com/design/</a></p><p id="d704aeb1-de6a-4e24-a34e-e8dc368338ea" class=""><strong>4. Facebook Design</strong></p><p id="d0599f1d-7ad4-4db7-b6d7-e1bd229d32e4" class="">脸书设计官网，在国内，我们常常看到脸书的设计文章被翻成中文为中国设计师所学习</p><figure id="9c86fa0d-31c2-4680-bfff-976d58e4b068" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-47.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-47.jpg"/></a></figure><p id="9286a58a-63de-4cb7-80a3-59023ae9cf13" class="">△ 网址：<a href="https://link.uisdc.com/?redirect=https%3A%2F%2Ffacebook.design%2F">https://facebook.design/</a></p><p id="79e365c8-1a5a-457f-8415-9d291c8add34" class=""><strong>5. Uber Design</strong></p><p id="ea56f58e-a0ab-4a55-b40f-7d09244e3175" class="">作为全球第一家即使打车应用，优步其超前的设计理念和优秀的用户体验成为同类产品竞相模仿的对象。</p><figure id="61f9bd88-4010-4f8f-ad42-dda3c1c10a26" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-48.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-48.jpg"/></a></figure><p id="a30b4c3e-441e-4945-971e-3e71505f222e" class="">△ 网址：<a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fwww.uber.deign.com%2F">https://www.uber.deign.com/</a></p><p id="d799dc31-9cc6-4c53-9cf3-a1291351ee4c" class=""><strong>6. Ant Design</strong></p><p id="02525327-7d80-4f24-a5af-6582c67af63d" class="">蚂蚁金服设计平台是阿里旗下子公司，基于蚂蚁金服生态系统的跨设计与开发的体验解决方案。</p><figure id="b3e2bb8c-5a55-4b29-8b2f-817ccb002b7e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-49.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-yz-20200903-49.jpg"/></a></figure><p id="a3c18cad-2651-4955-83cf-e642f5531490" class="">△ 网址：<a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fdesign.alipay.com%2F">https://design.alipay.com/</a></p><p id="968e49f0-bc99-4597-897e-5584aa4da70a" class="">更多原子设计精简理论：</p><p id="236f21bb-96c0-4b75-b1a1-e2396b738386" class=""><a href="https://www.uisdc.com/atomic-design-theory"><strong></strong></a><a href="https://www.uisdc.com/atomic-design-theory"><strong><strong>今年很火的原子设计理论，帮你做了一份全面的精华总结！</strong></strong></a><a href="https://www.uisdc.com/atomic-design-theory">
+</a><a href="https://www.uisdc.com/atomic-design-theory">近年来，Style Guide 逐渐发展衍变为 Design System，基于一套架构严谨、规则统一的框架体系，产品表现层面的设计可以逐渐实现模块化运作，从而大大提高设计效率。 而 Atomic Design（原子设计）是构建 Design System 的核心指导理论。</a><a href="https://www.uisdc.com/atomic-design-theory">阅读文章 </a><a href="https://www.uisdc.com/atomic-design-theory">&gt;&gt;</a></p><p id="1161e5b8-82d9-43fa-8162-3019ebb5ed14" class=""><strong>参考资料</strong></p><ul id="4f952e9e-d841-4ae8-9a03-af3c4657eeee" class="bulleted-list"><li style="list-style-type:disc">《原子设计》官网</li></ul><ul id="9b67f668-a28f-472d-a40b-0c8f8bf5ff10" class="bulleted-list"><li style="list-style-type:disc">Airbnb 设计规范</li></ul><ul id="e13a5e5d-0c5f-4078-8fd0-508a521d6509" class="bulleted-list"><li style="list-style-type:disc">Apple 设计规范</li></ul><ul id="0da11818-a94a-490e-ab60-8a1801b12e3a" class="bulleted-list"><li style="list-style-type:disc">Material Design设计规范</li></ul><ul id="542ddd14-da7a-4fcc-9891-f4a1852a0c20" class="bulleted-list"><li style="list-style-type:disc">Google及其他</li></ul><p id="f48e31a9-04ae-43b2-b8be-7c0d939090d4" class="">欢迎关注作者微信公众号：「印迹时光」</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

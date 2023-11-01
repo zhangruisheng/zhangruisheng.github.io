@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>格式塔原理</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="73baf34d-d6a3-4c1e-b4b1-1dafec69ea23" class="page sans"><header><h1 class="page-title">格式塔原理</h1><p class="page-description"></p></header><div class="page-body"><p id="4d12f293-f014-4327-9a78-288139e10f40" class="">
+</p><p id="af531136-a7d6-4da1-877a-a4b371ae5267" class="">好的<a href="https://www.uisdc.com/tag/%e8%ae%be%e8%ae%a1%e5%b8%88">设计师</a>理解心理学在视觉感知中的强大作用。当别人的目光与你的设计创作相遇时，会发生什么？他们对你分享的信息有什么反应？</p><p id="23906f8d-be85-4629-9dec-a666456ef3f6" class="">目录：</p><figure id="11d3ce12-5d2e-44a1-b302-d270b238c56e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-1.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-1.jpg"/></a></figure><h1 id="e6ce01de-3412-444e-8af9-ca8be1cf8007" class="">格式塔原理概述</h1><p id="f18b7082-cbb5-400f-85a7-65dbbbb8bbd7" class=""><strong>1. 前言</strong></p><p id="728c12a5-c8cf-4562-8aed-41e0e8a77685" class="">举一个场景化的栗子，大家平时逛街的时候能记住哪些广告呢？ 我们虽然每天看到那么多的信息，但是真正记住的却不多。还有当我们看到复杂的事物的时候，心里会涌现不舒服的奇怪感受，有时候这种感受没有办法用语言来描述。那么为什么会有这些感受呢？</p><figure id="dcd6e01d-f85a-44bc-b663-743b894c9679" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-2.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-2.jpg"/></a></figure><p id="c6adf0ac-d158-4ace-88e6-8837b871d91e" class="">其实道理很简单，我们做的东西是给人用的。人是动物不是一台机器，人的认知和记忆能力是有限的。视觉设计和心理是相互联系的，并且可以相互影响。格式塔原则可以帮助我们理解和控制这些联系。</p><p id="e7ae3919-c2bc-4d1c-9acc-f6afbe44cca8" class="">今天就给大家科普下格式塔原则到底是什么？在设计中如何运用？是如何影响到我们的生活学习的？本文会结合大量案例分析讲解，无论你是<a href="https://www.uisdc.com/tag/%e5%b9%b3%e9%9d%a2%e8%ae%be%e8%ae%a1%e5%b8%88">平面设计师</a>，UI设计师，插画师，设计小白还是路人，一篇文章让格式塔帮你做出更好的设计！</p><figure id="7e0873f2-4d22-4297-b620-788857d5969f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-3.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-3.jpg"/></a></figure><p id="2caae6de-9337-4bd2-abc7-125a7540cd82" class=""><strong>2. 什么是格式塔原理</strong></p><p id="00eeec26-5c65-4de0-bfc5-bbf5581049b6" class="">格式塔学习理论可谓是现代认知主义学习理论的先驱，自1912年由韦特海墨（Ｍ，Wetheimer）提出后，在德国得到迅速发展。</p><figure id="fc265980-1367-4358-b871-f5e6d8d18458" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-4.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-4.jpg"/></a></figure><p id="dc09c880-f4b6-4f06-bfe3-8ad5fc9be00b" class="">1910，这位心理学家乘坐火车度假旅行。当火车经过一个铁路道口的时候，他发现道口闪烁的灯竟然像马戏团表演时剧院帐篷上环绕的灯光，令他产生了光在运动的错觉。（而我们坐火车永远就只会遇到熊孩子和熊孩子）然后他赶紧下火车买了一个西洋镜，来测试自己的想法。</p><figure id="5a18c294-43df-460e-8b2e-ec0eee2c5be0" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-47.gif"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-47.gif"/></a></figure><p id="dd9fe286-3022-49cb-86f0-e980cc843bf6" class="">他将一张图片放在西洋镜内部并通过狭缝观看时，一系列静止图像看起来像是动图。接着他用简单的抽象线条制作不同的画条，通过改变这些元素来研究导致错觉的原因。似动(Apparent Movement)实验成为格式塔心理学的起点。</p><figure id="17eeab66-6a92-4f65-bcf7-19580ff056a7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-6.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-6.jpg"/></a></figure><p id="98606cc5-28e6-48b2-9e39-0d55073ce381" class=""><strong>3. 解决什么问题</strong></p><p id="1d6775c1-2b8f-4fca-a82b-0b45ff02223d" class="">他们认为思维是整体的、有意义的知觉，而不是联结起来的表象的简单集合；主张学习是在于构成一种完形，是改变一个完形为另一完形。我们的视觉系统自动对视觉输入构建结构，并在神经系统层面上感知形状、图形和物体，而不是只看到互不相连的边、线和区域。所谓格式塔，是德语Gestalt的译音，意即「完形」或「形状」；他们认为学习的过程不是试尝错误的过程，而是顿悟的过程，即结合当前整个情境对问题的突然解决。再通俗一点就是人是怎样认知和记忆所看到的事物。</p><h1 id="997bb66a-f706-475e-9601-9cd54cc50843" class="">格式塔实验研究</h1><p id="a17a143f-ca8c-456c-82b1-25eb7c74784f" class="">主要包括以下三方面的实验研究:</p><p id="8fcd8406-976c-4ac9-9903-9e8915585891" class=""><strong>1. 似动现象</strong></p><p id="df7050ba-b203-49a3-9231-ee1ae58f5fc7" class="">似动现象是形成格式塔心理学的基础。是指两个相距不远、相继出现的视觉刺激物，呈现的时间间隔如果在1/10秒到1/30秒之间，那么我们看到的不是两个物体，而是一个物体在移动。</p><p id="eba88153-4b0e-4e2d-8563-c9e8993f7fa0" class="">例如，我们看到灯光从一处向另一处移动，事实上是这只灯熄了，那只灯同时亮了。这种现象正是不能把整体分解成部分的证据。这种现象的组成部分是一些独立的灯在一开一关，但组成一个整体后，给人造成这些灯在动的假象。</p><p id="8883af7c-9b29-4097-b98c-b25d11f86bf9" class="">后来，格式塔心理学把重点放在整体系统上，在这个系统中，各个部分是以一种能动的方式相互联系在一起的，也就是说，仅根据各分离的部分，无法推断出这个整体。所以人们把它称为「格式塔或完形心理学」。</p><figure id="a513ae0f-b5e1-45cb-a121-3c7f52619567" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-7.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-7.jpg"/></a></figure><p id="b129f6cb-e5fe-40ca-a86a-a64ab318bf38" class="">A：这张螺旋图是静态还是动态的？盯着漩涡看一会，你就会感觉到它在转动。</p><p id="a164f4e6-005d-4fad-8dd2-844467448b93" class="">B：你数数看有几个黑点？当你的眼睛离开那个白点时，就出现白的负象，即黑。当你重新把视点 集中在原来的白点上时，它又变成白色的了。因此，当你的眼睛不断地 在移动的时候，那些黑白点 (正负像) 也就在不断地变化。</p><p id="275bc65b-5a1f-4cda-81f7-31532ca04665" class="">C：你看是水平线还是不规则的斜线？事实上所有的横线都是水平的，不信你拿尺子比一下。</p><p id="4f90d4e7-1aec-4d17-a7c0-5876176da5f2" class=""><strong>2. 整体与部分</strong></p><p id="98b6a8fc-0e63-4d0b-961d-9b7cecb68c27" class="">看起来格式塔心理学是把重点放在整体上，但这并不意味着他们不承认分离性。事实上，格式塔也可以是指一个分离的整体。</p><p id="6a5a899a-fa5d-4906-9455-53cdf04134e5" class="">研究认为，一个人的知觉场始终被分成图形与背景两部分。「图形」是一个格式塔，是突出的实体，是我们知觉到的事物；「背景」则是尚未分化的、衬托图形的东西。知觉帮助我们把图形从背景中分离出来。图形与背景的对比越大，图形的轮廓越明显，则图形越容易被发觉。</p><figure id="e5165431-109e-411b-b4dd-f812df859d21" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-8.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-8.jpg"/></a></figure><p id="d1b8fd51-44c2-476d-8023-f5a3271ada3d" class="">上图A：这幅美食节广告中，酒瓶是被战略性地放置，以创造一个叉子的错觉。黑色酒瓶是图形，白色叉子是背景；在另一种情况下，黑色酒瓶是背景，白色叉子是图形。</p><p id="c22cc400-eb49-4d14-b0d5-c92fa0d0ad9e" class="">B：一黑一白两只天鹅，白天鹅和黑天鹅可以互充图形与背景的关系。</p><p id="f60b85ec-69cb-471d-81c3-b21a046d1d03" class="">C：这幅海报中，小女孩和气球是被战略性的放置，以创造一个字母「R」的错觉。这两个角色同样可以在图形和背景中互换。</p><p id="c0802aff-604a-42f2-97ed-026de4322fd5" class=""><strong>3. 顿悟实验</strong></p><p id="4f12d743-078e-4e0a-955b-28040d689766" class="">W·科勒在一次实验中用绳子把一只香蕉悬挂在笼子的顶棚上。笼子里只有惟一的一只木箱可以使用。6只黑猩猩看到香蕉时跳跃起来竭力想抓住香蕉，但是徒劳。有一只名叫苏尔坦的黑猩猩马上停止了这些白费力气的努力，开始从各个方向打量箱子。忽然它停在箱子前面，抓起它并径直朝目标走去。它把木箱迅速放到地上，爬上箱子，从木箱上面使劲跳起，终于抓住了香蕉。</p><p id="b37a508f-fb82-41c0-8eed-5bdc7d4b008f" class="">W·科勒还对这组黑猩猩使用其他工具进行了观察，如利用木棍去获取放在笼子外面的水果。这些黑猩猩甚至能够将两根短棍连接起来做成一根长棍。同样，它们还能把两三个箱子叠放在一起，再爬到放在最上面的箱子顶上，借助一根木棍去获取香蕉。</p><figure id="f5725c2b-8faf-4ef9-95ed-cf19ee4d8c49" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-9.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-9.jpg"/></a></figure><p id="139396eb-ad31-4049-841d-4e633cb122f5" class="">苛勒通过对黑猩猩进行的许多实验，提出了顿悟理论。他认为问题的解决不是由于尝试错误，而是由于顿悟。所谓顿悟，就是内在地把握情境的关系性，并依此改变整个情境。</p><p id="5a84ac7c-2534-4035-9386-75da9d371683" class="">或许正如一些批评家所指出的那样，顿悟不是一种独立的学习过程或学习形式，而是学习达到一定程度的表现或者结果。一定的经验积累，是产生顿悟的前提。</p><h1 id="3812ad41-1aa8-4bd0-bcd6-729266c12670" class="">影响记忆的三个因素</h1><p id="e4db26c6-53ba-4b5d-9cf1-4e3416e098cb" class="">沃尔夫实验时要求实验体观看样本图形并记住它们，然后在不同的时间里根据记忆把它们画出来。结果发现实验体在不同的间隔时间画出来的图像都有不同。有时再现的图画比原来的图画更简单更有规则，有时原来图画中显著的细节在再现时被更加突出了。还有的比原来的图像更像某些别的我们都很熟悉的图案了。沃尔夫把这三种记忆规律称之为格式塔三大记忆律：「水平化」、「尖锐化」、「常态化」。</p><figure id="a4b923b3-cf2c-4149-8614-2de88a89729a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-10.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-10.jpg"/></a></figure><p id="8507181e-9d5d-48f8-8e41-e39238dd5999" class="">△上面这两个品牌logo哪个才是正确的？</p><p id="148abbd1-9fb8-4e8c-bd2a-3807a02935cb" class=""><strong>1. 水平化leveling</strong></p><p id="ed573c34-4fb3-4a2a-aac3-d8668a0e7b1e" class="">水平化是指在记忆中我们趋向于减少知觉图形小的不规则部分使其对称；或趋向于减少知觉图形中的具体细节。</p><p id="fd2b6026-6738-48a6-be76-94d8ba47b890" class=""><strong>2. 尖锐化sharpening</strong></p><p id="f783acd3-d68c-4996-a0d6-aff05ec47696" class="">尖锐化是在记忆中与水平化过程伴随而行的。尖锐化是指在记忆中，人们往往强调知觉图形的某些特征而忽视其它具体细节的过程。在有些心理学家看来，人类记忆的特征之一，就是客体中最明显的特征在再现过程中往往被夸大了。</p><p id="af249a9a-76b5-4f59-8c96-485c6d8eaae4" class=""><strong>3. 常态化normalizing</strong></p><p id="09dd4923-f728-4632-9024-98f8e2b3fbc4" class="">常态化是指人们在记忆中，往往根据自己已有的记忆痕迹对知觉图形加以修改，即一般会趋向于按照自己认为它似乎应该是什么样子来加以修改的。</p><h1 id="3bf9bad9-c71d-46e1-b04e-a4ff323e19d9" class="">格式塔原理在设计中的应用</h1><p id="ab1c9c60-57f8-41a5-a5f9-8cd602c43d7b" class="">格式塔的七个基本原则：</p><ul id="2611b8ce-6e02-471b-a2a5-c50b8d2c5805" class="bulleted-list"><li style="list-style-type:disc">接近性原则</li></ul><ul id="a3ec3b56-143d-43eb-8948-28b7b61a422f" class="bulleted-list"><li style="list-style-type:disc">相似性原则</li></ul><ul id="6783d8c6-1b32-419e-a042-2fa352100848" class="bulleted-list"><li style="list-style-type:disc">连续性原则</li></ul><ul id="81a802bb-8caf-4200-b553-a5051c9fc6c1" class="bulleted-list"><li style="list-style-type:disc">闭合性原则</li></ul><ul id="58124403-0fa3-4d0c-b481-da2f2aabd7d9" class="bulleted-list"><li style="list-style-type:disc">主体/背景原则</li></ul><ul id="21dc9049-6b2b-46d1-a69c-08f3cfe93b67" class="bulleted-list"><li style="list-style-type:disc">简单对称性原则</li></ul><ul id="01ddaaab-9ff4-4410-8670-1e01cd3efd90" class="bulleted-list"><li style="list-style-type:disc">共同命运原则</li></ul><p id="88866884-7f62-4cb0-b9d4-6220201fe848" class="">开始之前要先知道格式塔原理的核心是什么</p><figure id="bd6b9843-8585-4b2b-99d0-e4303ca64088" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-11.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-11.jpg"/></a></figure><p id="7e805c61-197f-4b3a-8f8b-663e3b10aa52" class=""><strong>1. 接近性原则 law of proximity</strong></p><p id="8eee6b44-fce1-4b01-b586-b5e3c95dd7f3" class="">人们对知觉场中客体的知觉，是根据它们各部分彼此接近或邻近的程度而组合在一起的。两个元素越是接近，组合在一起的可能性就越大。说明它们之间关系更强。但是接近也是有对比的，在复杂的设计中，我们要一边考虑它们之间内部的逻辑关系一边来<a href="https://www.uisdc.com/tag/%e6%8e%92%e7%89%88">排版</a>。</p><figure id="f0c71d59-5ac0-4480-9aa6-b5dff0c7aee2" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-12.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-12.jpg"/></a></figure><p id="2e666f89-5eb4-4a27-95ab-74c682ca1f7d" class="">△同样都是12个圆形，你会把左图的12个圆形当成一个整体；右边那幅图，上面4个圆和下面8个圆距离较远，所以你会把上面4个圆当成一个整体，下面8个圆当成另外一个整体。</p><p id="9ac8d3f0-77f8-41a3-ab73-7809a1d8645c" class="">需要注意的是，接近性比重较大，把上图的圆形改变形状，甚至添加颜色，人们也会把相近的一组当成一个整体：</p><figure id="065f2937-adc1-4b16-ba19-662a0fb9bb72" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-13.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-13.jpg"/></a></figure><p id="e3b86ffa-28e5-47bf-b2aa-855d28adae04" class="">举个例子接近性原则在实际产品中的应用：</p><figure id="83ace695-62b2-43ab-8df6-db028465c693" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-14.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-14.jpg"/></a></figure><p id="e0317ff7-83cd-4dc3-848c-b0d87509123a" class="">△App Store：板块之间的大间距把页面信息分割成各种不同栏目，距离更近的信息暗示了他们有内在的逻辑关系</p><figure id="4852b27f-a8db-43fa-bfdb-46bd83be672c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-15.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-15.jpg"/></a></figure><p id="b9f2dc9d-8823-4cfa-be04-00bf3f18fe1b" class="">△站酷：设计师模块，每个设计师信息组之间有足够大的留白，即使去掉分割线，用户也会清晰分清每一组的边界</p><p id="31e09eee-fd98-4990-a5b7-4273b682986d" class="">tips：在界面设计中常用的设计方法就是划分固定的位置区域，比如导航栏，内容区，操作栏。还有就是通过距离远近来进行信息归类，同类信息接近，不同信息远离。</p><figure id="d0515e1e-38e7-4c23-aec1-472b7156d61e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-16.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-16.jpg"/></a></figure><p id="d8550e84-946f-46a9-ad79-7e9a2fdb9ba7" class=""><strong>2. 相似性原则 law of similarity</strong></p><p id="3689992a-93ac-4c83-80b7-2d3d6fcb3e8d" class="">人们在感知时，会对那些相似的项目，只要不被接近因素干扰，会倾向于把它们联合在一起。换言之，相似的部分在知觉中会形成若干组。</p><p id="ac9d173a-fe7e-477e-9f01-400e5da2d031" class="">例如，我们在小组辩论中，往往几个人争着发言，但我们仍然能从嘈杂的声音中听出某个人的讲话，这是因为这个人讲话的音质始终有相似性的缘故。如果他讲话的音质经常在变化，那就很难从噪音声中分辨出他的话来。</p><p id="86ca8cbc-f34b-4a5b-a90e-44850d84ea0a" class="">人们会把那些明显具有共同特性（如形状、大小、共同运动、方向、颜色等）的事物当成一个整体。与不具有相似视觉特征的元素相比，具有相似视觉特征的元素被认为更加相关。</p><figure id="7e2435ff-f98b-40b0-95a2-6564f1f7b5eb" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-17.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-17.jpg"/></a></figure><p id="088a01fe-c5dc-458c-b343-91a622d58570" class="">举个例子相似性原则在实际产品中的应用：</p><figure id="25c75785-094e-4862-94cf-11143cb0368c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-18.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-18.jpg"/></a></figure><p id="956ca968-1858-432b-836c-0f222d0289b9" class="">△bilibili：上图全部频道页面，我们在浏览时，会从心理上默认，把频道头像、介绍和订阅按钮自动归为一类。类似外形的单元会被我们人脑默认为同一属类</p><figure id="bfaf1dd3-7c01-465f-adcf-f058a3f8f0a7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-19.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-19.jpg"/></a></figure><p id="2d8d616a-1921-4c53-9a66-ea5eaff44044" class=""><strong>3. 连续性原则 law of continuity</strong></p><p id="ff547d10-14da-4821-b62e-c28359712cc8" class="">在知觉过程中人们往往倾向于使知觉对象的直线继续成为直线，使曲线继续成为曲线，也就是视觉的惯性。利用连续律我们可以让用户操作界面时不经过思考就点击一个固定的位置。</p><p id="a2dbc6bf-1046-4a6b-9268-ed095725a85b" class="">我们倾向于完整地连接一个图形，而不是观察残缺的线条或形状。这种知觉上的结束，称之为闭合。如果局部形象过于陌生或者简略，则不会产生整体闭合联想。</p><p id="c1105b6b-36fb-4c6e-a66a-c61bbe208454" class="">人的视觉有追随一个方向的延续，以便把元素联接在一起，使它们看来是连续向着特定的方向。</p><figure id="a1316e29-1c1e-4fc3-b07c-3158307c52a3" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-20.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-20.jpg"/></a></figure><p id="6f5ee4fd-0d9a-4baf-b099-3e92871a9c86" class="">△左图我们不会认为是两个残缺的圆，而是两个相交的圆；中间的IBM商标我们之所以能看出来是 IBM，就是因为我们在视觉上看到的不是离散的线条，而是连续的图形；右图我们会看到是向两个方向连续的曲线。</p><p id="ba775b3b-3456-474d-93f2-021c8e17d54e" class="">举个例子连续性原则在实际产品中的应用：</p><figure id="53ba95ab-8a9b-47f9-9bfa-35e677485bde" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-21.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-21.jpg"/></a></figure><p id="180856d6-f0ea-4679-9828-0543ff1a67d2" class="">△股市：每天的股市数据构成走势图，视觉上会跟随曲线方向知道由左向右去看走势</p><figure id="a13e476b-4506-4e01-ac18-db12da2346f0" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-22.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-22.jpg"/></a></figure><p id="fa106990-199a-40b6-8bbf-d0e227e74705" class=""><strong>4. 闭合性原则 law of closure</strong></p><p id="51190cf3-155f-44b4-a86d-79f1c622f869" class="">人们在观察熟悉的视觉形象时，会把不完整的局部形象当作一个整体的形象来感知，这种知觉上的结束，称之为闭合。如果局部形象过于陌生或者简略，则不会产生整体闭合联想。</p><p id="f10be418-14aa-406d-85bf-6a7ce0ade705" class="">闭合是一种完成某种图形(完形)的行动。就算没有外形的约束，我们也会自动把图形脑补完全。比如半个形状或者有缺口的形状我们不会认为是一条线或各种零碎的图形，而是一个完整的形状。闭合是指一种完形的认知规律。</p><figure id="9679bf05-7e28-48d7-9fef-0da9bffe2846" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-23.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-23.jpg"/></a></figure><p id="1461696e-6db1-4187-8a7e-f9d923150e91" class="">举个例子 闭合性原则在实际产品中的应用：</p><figure id="22ac68ce-65d4-4ba0-9bfc-544b64318031" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-24.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-24.jpg"/></a></figure><p id="81d8d4c1-4539-4cd1-95d4-0b9f42bf3cf9" class="">△Apple Music：我们常见的页面横滑组件就运用了闭合律原则，通常在界面右侧露出一半（或少部分）内容，来提示用户右边还隐藏着更多内容</p><figure id="af16d762-66e4-497f-abd9-433368e2ae67" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-25.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-25.jpg"/></a></figure><p id="f08c80c7-c0cb-4a2e-8257-5e3f01563a1f" class=""><strong>5. 主体/背景原则</strong></p><p id="54a1da38-02e7-4109-a969-80e1e5827aea" class="">主体指的是在界面当中占据我们主要注意力的所有元素，其余的元素在此时均成为背景。当主体与背景重叠时，人的视觉更加倾向于将小的物体视为主体，大的物体视为背景，所以我们可以通过大小与图的关系，将我们希望传递的不同层次的内容进行展示。</p><p id="7378c39c-bfd5-456d-894b-ff7441848213" class="">当小图形重叠大图形之上，我们的视觉会倾向于将小图形归为主体，大色块为背景，这就是格式塔中的主体与背景原则。</p><figure id="a97b2b08-b3ce-41df-95e5-e449db44674e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-26.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-26.jpg"/></a></figure><p id="b17dc249-2850-4c2e-87be-28d6ab86e8b8" class="">举个例子主体/背景原则在实际产品中的应用：</p><figure id="aece8d36-d793-480d-97e9-512fed0023a7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-27.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-27.jpg"/></a></figure><p id="d6e45d0b-3b66-4c10-9f87-694974cd32f5" class="">△豆瓣FM：在白色背景上有非常突出的主体：歌曲封面、歌名、进度条、播放/暂停、收藏等，歌曲播放时，进度条有非常明显的进度变化，切换歌曲时，封面的前后错层，这些都与背景有非常鲜明的对比</p><figure id="ae01020b-d190-480c-a720-d9d1c16dd568" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-28.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-28.jpg"/></a></figure><p id="c5c7440f-9ceb-40a1-9ab0-ed6e4e86f248" class=""><strong>6. 简单对称性原则 Simple principle</strong></p><p id="b07a027c-10b3-4463-bbaa-c8642d88c45c" class="">在观察事物过程中，我们第一印象更倾向于简单而且对称的图形，这就是格式塔的简化对称性原则。</p><p id="43a9f654-849d-4ad4-a995-1714edc4e109" class="">具有对称、规则、平滑的简单图形特征的各部分趋于组成整体。对称的元素往往被认为是归属在一起的，而不管它们之间的距离，都给我们一种牢固和有序的感觉。</p><figure id="19e8adc9-84af-4b90-859e-65351e919dae" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-29.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-29.jpg"/></a></figure><p id="65fb2396-1c73-4b6e-b828-a9778b94831d" class="">人的眼睛喜欢在复杂的形状中找到简单而有序的对象，当我们在一个设计中看到复杂的物体时，眼睛更愿意将它们转换为单一统一形状，并尝试从这些形状中移除无关的细节来简化这些物体。</p><p id="75a60a9c-19bd-4bff-ae30-ca215a074656" class="">对称的构图是令人满意的，但它们也会变得有点沉闷。在对称的设计中加入不对称的元素可以在给人留下印象的同时吸引注意力。</p><p id="8e8ac39d-7184-4510-9e3e-1e4dd1a44c14" class="">举个例子简单对称原则在实际产品中的应用：</p><figure id="16ce87f4-353d-4d5e-b6bd-320b9b02405f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-30.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-30.jpg"/></a></figure><p id="ccd3401d-b144-4a33-b6f9-753d911e739b" class="">△Pinterest：左右布局的瀑布流就是格式塔的简化对称性的体现，用户在浏览的的过程中有效减轻了阅读压力。特别适合这种以图片流为主的产品，能大大提高浏览效率。</p><figure id="7c892a5a-b743-4721-af49-4251a94dab43" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-31.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-31.jpg"/></a></figure><p id="b579e0e0-2b5b-426f-aef1-5e8741e874b7" class=""><strong>7. 共同命运原则 Common destiny</strong></p><p id="fbe3985d-36fc-4bb1-9db8-62ff0bbafa6e" class="">无论元素之间的距离有多远，或者它们看起来有多不同，如果它们一起运动或变化，它们都被认为是相关的。这里的共同命运针对的是运动的物体。与接近性原理和相似性原理相像，都与我们的视觉系统会有着给对象进行分组来感知事物的倾向相关，但是一起运动的物体会被感知为属于同一组或是彼此相关这样的一种视觉现象，这就是格式塔中的共同命运原则。</p><figure id="69ed4125-52f1-4990-82f5-eaf1489be8f1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-32.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-32.jpg"/></a></figure><p id="78a2c60f-9ac0-4dac-b4b1-b99110f31995" class="">△向同一方向移动的元素，我们在处理的过程当中，会默认把它们归为一类。</p><p id="3817ec02-de07-4d87-88ac-84ec8fe5379a" class="">举个例子 共同命运原则在实际产品中的应用：</p><figure id="2eef3297-e8b3-4a37-8c9c-6226f86e8ece" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-33.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-33.jpg"/></a></figure><p id="5de9d4c8-0e31-4310-947d-e45ed1222553" class="">△ios桌面：iPhone删除应用时候，所有图标都一起晃动起来（意思瑟瑟发抖，不要删我不要删我！），左上角都有一个删除的按钮，要么删除，要么保留，这就是共同命运原则。</p><figure id="2b657e50-7a15-4405-a594-cc268cc316e0" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-34.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-34.jpg"/></a></figure><p id="5e506eda-e5a0-41ae-9724-ca546030e44e" class="">事实上，以上7条原则只是格式塔心理学中的一小部分而已，比如还有：</p><p id="007371e1-6b15-4ddb-bfd1-f753c497a20c" class=""><strong>成员特性律</strong></p><p id="647823ef-b97d-4c59-8716-ff97b9a1037f" class="">一个整体中的个别部分并不具有固定的特性，个别部分的特性是从它与其他部分的关系中显现出来的。</p><figure id="6439855c-1024-4705-8ad2-e7804e01f503" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-35.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-35.jpg"/></a></figure><p id="23ae3cd3-cf2b-4a35-84ea-f6c868e0ec9b" class="">如果我们有很多同样的按钮，如何让某个更重要的按钮突出但是仍然让用户感知还是按钮呢？那就要用到成员特性律了。成员特性律赋予了集体中某一个元素特殊的一些刺激元素从而突出它。</p><p id="930f8e6d-6107-41c5-b35a-aa0db73ed874" class="">△ 独特的外形暗示了它与别的元素有不同的功能</p><p id="f9786b74-69dd-4876-bdf4-3329535ab3ab" class="">举个例子 成员特性原则在实际产品中的应用：</p><figure id="e03aa0f0-71e1-4622-b860-edae07712d29" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-36.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-36.jpg"/></a></figure><p id="9a386ce0-786e-4ae9-b05c-d85f8d42da7c" class="">△淘宝：商品详情页有两个重要的操作按钮：加入购物车、立即购买。为了促使用户尽快购买，给「立即购买」更重的红色以突出它的独特性</p><h1 id="39ab2c90-83d0-4577-a182-9312b2baa0e9" class="">格式塔学习理论的基本观点</h1><p id="325e1924-d98c-4ce2-b302-03a853fc68c3" class=""><strong>1. 认知重组</strong></p><p id="50540881-45a0-4baf-86fc-e17eac5761ab" class="">格式塔心理学认为，通过学习，会在头脑中留下记忆痕迹，这些痕迹不是孤立的要素，而是一个有组织的整体，即完形。因此，学习主要不是加进新痕迹或减去旧痕迹的问题，而是要使一种完形改变成另一种完形。一个人学习的过程，通常是从一种混沌的模糊状态，转变成一种有意义的、有结构的状态，这就是知觉重组的过程。</p><p id="81517c04-f4e6-44ad-9643-b71543cc1ed9" class=""><strong>2. 顿悟学习</strong></p><p id="a9a173a6-a9f3-445d-b560-668568be57e5" class="">顿悟学习可以避免多余的试误，同时又有助于迁移。格式塔心理学家认为，通过对问题情境的内在性质有所顿悟的方式来解决问题，就可以避免与这一问题情境不相干的大量随机的、盲目的行动，而且有利于把学习所得迁移到新的问题情境中去。顿悟学习的核心是要把握事物的本质，而不是无关紧要的细节。</p><figure id="4eb37522-25da-4de2-9e7f-84213136a741" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-37.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-37.jpg"/></a></figure><p id="e60887e7-a333-45c9-8358-89ec51d009a7" class=""><strong>3. 遗忘曲线</strong></p><p id="f027d29f-e133-4784-8566-4ab813c870c6" class="">真正的学习是不会遗忘的。通过顿悟习得的内容，一旦掌握后，永远也不会遗忘。顿悟将成为我们知识技能中永久的部分。用现代认知信息加工心理学的术语来说，顿悟的内容是进入了长时记忆将永远保留在学习者的头脑中。</p><figure id="19749be9-df6e-493e-a6d5-ee8cb1fdd8fa" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-38.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-38.jpg"/></a></figure><p id="8aa3952c-9bff-46cd-a5e4-30f25156d823" class="">△有人在一项实验中，把149162536496481写在一张卡片上，要一组被试看15秒钟，然后试图回忆它。这是一项相当困难的任务。在一般情况下，除了记住其中少数几个数字外，没有人能全部记住。但在给另一组被试看这张卡片之前，告诉他们在试图记住它以前，先想一下这些数字为什么这样排列，是否有规律可循。结果不少被试都觉察到，这些数原是用1到9的平方排列起来的。这样一来，回忆这些数字就毫无困难，哪怕是在几周或几个月之后也能轻易做到。</p><p id="8e3658c6-3aa9-4e14-b04b-073337fa656c" class=""><strong>4. 学习奖励</strong></p><p id="22daef0e-271b-40c6-8ea1-07b88f6a972d" class="">格式塔心理学家认为，真正的学习常常会伴随着一种兴奋感。例如，一些人对智力拼图、字迷填空玩得津津有味。也因此有人抨击滥用各种外部奖励，诸如使用糖果、好分数、五角星或金钱之类的东西来驱动学习。对于教育工作者来说，不加区分地使用奖励物，可能会使学生分心，不把心思用在学习上，而只关心能得到什么奖励上，从而不可能达到对问题情境有顿悟的理解。</p><figure id="8bf7bf87-7481-4328-86d8-074eb46ad802" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-39.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-39.jpg"/></a></figure><p id="c24ae4d5-de75-4049-a801-04f0aa2d3fd7" class=""><strong>5. 顿悟说对错误说的批判</strong></p><p id="2653c604-6398-4474-aba4-3d5989ad048f" class="">还记得第二部分对猩猩的实验吗，实验表明猩猩在行动之前，已经领会到了自己的动作为什么进行，怎样去进行以及最终的结果为何，在苛勒看来，猩猩对问题的解决并非是一种盲目尝试错误的过程，而是处于对问题产生了顿悟。</p><figure id="2cbf4e61-28ef-4134-bbec-cd9cd78d9410" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-40.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-40.jpg"/></a></figure><p id="51b10389-a2f4-486a-b106-f5e0a456c9cd" class="">在格式塔心理学家看来，学习是一种智慧行为，是一种顿悟过程，需要有理解、领会与思维等认识活动的参与，并且它是一种突现、速变、飞跃的过程。顿悟学习特点可归纳如下：问题解决前尚有一个困惑或沉静的时期，表现得迟疑不决，有长时间停顿；从问题解决前到问题解决之间的过渡不是一种渐变的过程，而是一种突发性的质变过程；在问题解决阶段，行为操作是一个顺利的不间断的过程，形成一个连续的完整体，很少有错误的行为；由顿悟获得的问题解决方法能在记忆中保持较长的时间；由顿悟而掌握的学习原则有利于适应新的情境，解决新的问题。</p><p id="e024ddf8-1d36-49ea-8ef4-e7b57cdba005" class=""><strong>6. 创造性思维</strong></p><p id="5d2c6f43-c22b-46d2-919b-1fdc5f92f50c" class="">韦特默认为要想创造性地解决问题必须让整体支配部分。即使在必要的关注问题的细节时，也决不能忽视问题的整体。必须把细节放在问题的整体中，把它们与整体结构联系起来加以考虑。这是一种自上而下、由整体到部分的思维。他认为要使人们顺利地解决问题，必须把问题的整个情境呈现出来，使之能对问题有个完全概观，决不能像桑代克那样，有意地把解决问题的方法和途径藏起来，迫使被试不得不去盲目试误。学习贵在打破旧有知识和模式的束缚，争取在对问题领域的基础上产生顿悟，掌据解决问题的原则，做到触类旁通、举一反三，促进智力水平的提高。</p><figure id="e35eff17-d1ff-4cbb-ab5e-cfcc95919b55" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-41.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-41.jpg"/></a></figure><h1 id="76620964-4f19-4170-b07a-307084a6e9dc" class="">格式塔学习理论的分支</h1><p id="bb85b255-d4a7-4674-94ad-1d98fe859960" class=""><strong>1. 勒温的基本观点</strong></p><p id="6d07352b-6d4d-4692-9977-4a192cfbe511" class="">传统的格式塔心理学在探讨学习的问题时，认为学习者「渴望达到某些目的」是理所当然的，因而他们关注的是通过知觉重组达到目的的途径；而勒温则把注意力集中在「渴望」和「目的」本身上，并把它们与个性联系起来研究。勒温由此而形成的理论体系，主要不是一种学习理论，而是一种描述系统。</p><figure id="e58cf023-02c2-49e1-ad22-20a8282002a3" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-42.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-42.jpg"/></a></figure><p id="9df09702-fb4b-42a3-9e09-d1f83bf3a8ba" class=""><strong>2. 勒温论学习</strong></p><p id="f55e5167-453b-4935-a2d3-d16d42f5782e" class="">勒温的基本观点是社会心理学方面的，尤其是关于个体的动机。从某种角度来看，这弥补了格式塔学习理论的不足。勒温认为，用场论来研究学习的问题，需要注意以下几个方面：</p><p id="2641b9ee-5ea8-40ec-84e5-6b262cea9cbd" class="">要使用构成法(Constructive method)，而不是用分类法或分析法。这就是说，要用心理学中最基本的几个构成来探讨学习的问题。这些基本构成就是生活空间，心理环境、诱发力和约束力等。</p><p id="ed76a8f4-9807-4ded-b14e-30a5363b4904" class="">要对行为作动态分析，要了解作为行为之基础的各种力(forces)。他把行为变化看作是各种心理力量的结果。</p><p id="4c686d47-e4fa-470f-a07c-db218fbd2d77" class="">要从心理的角度来分析学习者当时的生活空间和心理世界，而不能像行为主义者那样用客观的物理主义者的术语来界定刺激。</p><p id="58c039ac-6d7b-4b42-9879-e58e464e6366" class="">要从整体情境分析入手，而不能只是从刺激情境中抽取一两个孤立的要素。因为不从整体上考虑问题，是不可能作出正确判断的。</p><figure id="1654b315-cc43-4280-8662-9c5b885f7992" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-43.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-43.jpg"/></a></figure><p id="0aaa4a60-64e1-47a8-8007-04aad02535e8" class="">行为是行为发生时场的函数。勒温认为行为取决于有机体以往的经验和强化史，这是形而上学的。因为过去的事情现在并不存在，所以不可能直接影响现在的行为。虽说过去的心理场是现在的心理场的来源，但影响现在行为的，毕竟是现在的心理场。</p><p id="a4057e4d-002a-44dc-bc06-6ff2ae396bab" class="">在研究学习时，至少必须区别这样四种变化：第一，作为认知结构(即知识)变化的学习；第二，作为动机变化的学习；第三，作为群体属性和意识形态变化的学习；第四，作为身体肌肉随意控制发生变化的学习。在勒温看来，学习理论要探讨的，主要是学习者认知结构和动机的变化。</p><p id="ea73c3e8-3c15-48c3-ab6c-d6e01fee7ce5" class=""><strong>3. 评论</strong></p><p id="69d779bd-b7fc-4aea-baea-81684e0960ef" class="">勒温在格式塔心理学的框架结构内引进「场」、「生活空间」、「拓扑学」和「向量」等概念，另辟蹊径，从而丰富和发展了传统的格塔理论。尽管他研究的重心放在社会心理学方面，但他对行为、问题和动机等方面探讨，在当时是很有新意的。</p><h1 id="7e7b88d5-ebd7-438b-8477-db401fe91d03" class="">格式塔原理的贡献与局限性</h1><h3 id="e055a5ac-1f81-47d6-96f9-308778346952" class="">1. 贡献</h3><p id="a83e0e91-bfcb-4fc4-8457-5c6bbd3ba187" class=""><strong>对元素主义的反击具有进步意义</strong></p><p id="cb61ae38-de84-42a5-8277-c798ff7e40f1" class="">格式塔学派用大量的事实证明了冯特元素主义理论的漏洞百出，并大胆地冲破了元素主义的束缚，积极而有成效地进行了大量的探索，并取得了一系列引人注目的成果，这对促进心理学事业的繁荣和发展是大有脾益的。</p><p id="c4372119-7cb7-483f-b7d9-5dd13a6988d7" class=""><strong>格式塔学派引发了知觉心理学的革新</strong></p><p id="428abb4e-1de2-4a8f-a099-0cf1ebc46a8f" class="">由于格式塔学派在知觉领域做了大量有目共睹的研究，使得经验论、联想论、官能主义的传统方法逐渐让位于先验论、整体论和突创论。知觉心理学也由感觉心理学的附庸变成一个独立的分支，并在短时期内就取得了一系列突破。</p><p id="0a82f9ee-e342-4ff2-8c6a-56d205e6af4e" class=""><strong>格式塔学派的学习理论独具特色</strong></p><p id="641007b3-897c-4702-899c-cfaf93bfdadc" class="">格式塔学派的顿悟说及对迁移、创造性思维的研究，冲击了联结主义和行为主义的框框，不论在理论创建还是在教育实践中都具有独到的价值和意义。顿悟说也成为西方学习理论中最重要的理论之一。</p><figure id="ec00a7ae-950c-40fa-88db-a5ec915f10ab" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-44.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-44.jpg"/></a></figure><p id="d2fb2c7f-8d98-4615-adfa-acd5c0e5474a" class=""><strong>对人本主义心理学影响较大</strong></p><p id="bf8c9ca0-094f-47fd-87af-61a94f597ae9" class="">人本主义心理学的创建人马斯洛（就是提出人生7个层次的需求理论的那位）曾在他老师的惠特海默指导下，研究整体论，从而积累下了研究人的经验；同时期的对人的心理事件或整体研究。主张存在分析的心理学，这些都表明了格式塔学派的潜在影响。</p><p id="691c8fa9-c59f-455b-80a6-a24a9542856e" class=""><strong>对现代认知心理学的产生起了推动作用</strong></p><p id="b5351ea5-fae9-4f78-8146-119c96200f36" class="">格式塔学派研究的那些认知过程及心理过程成了现代认知心理学的基本观点，正如罗伯特逊指出，认知心理学实际上是一种新格式塔现象。</p><h3 id="04df0866-949f-4e89-90e8-a4bd8952622b" class="">2. 局限性</h3><p id="4e741e8c-bcf5-48b9-94e7-c3a92714f4ba" class="">过分强调顿悟，而全面否定尝试错误，犯了以偏概全的偏激性错误。</p><p id="c02ab751-b2d8-453a-a92f-ed071090c928" class="">顿悟似乎是一个神秘的概念，它的心理活动机制没有揭示清楚。还不能说是一个完善的理论解释。</p><p id="1f6d2e51-3ee4-4faf-b2ac-d20965dc0e95" class="">顿悟说还缺乏对其他与学习有关问题的研究。而且研究的主要是动物的经验学习，还不能很好地解释人类的所有直接经验学习，如技能的习得等。</p><p id="69bdfae5-645d-49b9-907f-a17431974580" class="">其理论观点和术语含糊不清。格式塔学派不加分析地采用了一些物理学的概念和数理术语，观点模棱两可，概念不确切，给人的感觉是理论主张过于晦涩深奥，神秘莫测。</p><figure id="87372c19-6e75-4a28-ad80-faaa62524e20" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-45.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-45.jpg"/></a></figure><p id="8acddabd-9bd2-44b5-8ce8-c84e8fa50385" class="">对其他学派的批评过于苛刻，他们只批评其他学派的缺陷，却没有提出更好的改进措施，且自身的理论建设和主张又并不明确和高明多少。原来每个行业都有一条鄙视链的存在啊。</p><p id="7d34958f-7dc0-425a-82ad-447abcfef4f3" class="">格式塔学派的实验不够严谨，过分依赖现象学的方法，缺乏信度和效度，就水平而言，并不比他们所批评的其他学派好多少。</p><h1 id="8bf453cf-8836-4a29-bb42-003f6e7d131d" class="">总结</h1><p id="7e634078-84a9-4510-8833-6a73d3d167ca" class="">我们把原理归类、总结的目的有两个：一个是自我检查，我们在构思设计的过程中往往会多于专注视觉效果的创作而忽略最基本的原理，比如在设计之前进行完整的设计构思；设计过程中检查自己的设计作品，避免低级错误导致反复改稿，比如信息不对齐，布局杂乱等；再就是设计完成之后对需求方有理有据的陈述。第二个是在深入理解的前提下做设计时能够举一反三。</p><p id="dbeda80f-cb70-4f66-84c7-2f3a9fb9e598" class="">用户界面设计并不全是关于漂亮的像素和完美的图形。它主要是关于沟通、性能和便利性。格式塔原则总是帮助我们实现这些目标，为用户创造愉快的体验，为企业创造巨大的成功。</p><figure id="cb2be0a5-b04b-4aca-b825-9525fb98cac7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-46.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/08/uisdc-gh-20200829-46.jpg"/></a></figure><p id="b9b9fad4-27a1-4865-8a68-d9f0d4e123e3" class="">通过例子可以发现，这7项法则并不是独立存在的，它们之间具有高度的关联性，是相辅相成的关系，我们需要跟进不同的需求类型和用户场景，运用这些基本法则打出组合拳，使你的设计方案更有依据。在做产品或者设计的时候一定要考虑人的认知与记忆的因素，这是与生俱来的天性，人们的审美对简单与和谐具有基本的要求。我们只有更好的利用视觉空间设计作品，减少设计的复杂性，尽量保持格式塔原则的完整，用户才能更好更容易地理解使用我们的产品。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

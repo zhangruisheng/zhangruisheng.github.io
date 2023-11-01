@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>定性研究</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8d3a26a0-6208-43bb-9805-3faefde97f41" class="page sans"><header><h1 class="page-title">定性研究</h1><p class="page-description"></p></header><div class="page-body"><h1 id="a3377a76-e355-49f8-bdf0-c4db17dc388e" class=""><strong>定量研究提供数字数据和可测量数据，而定性方法基于研究人员对数据的解释，它涵盖任何类型的研究，其结果采用观察、对话访谈、开放式问卷、焦点小组、评论、想法和感受。</strong></h1><h1 id="d1f0b2a1-d895-49fa-b9a0-88c6f4cd392b" class=""><strong>定性研究</strong></h1><p id="0069e513-1ce2-4997-9213-51d511036dbc" class="">定性研究就是观察人们并与他们讨论他们使用软件或硬件的方式和原因。对于好的定性研究，您将需要采用不同的方法、不同的数据源，通常有多个团队可以与您比较您的观察和发现。</p><figure id="e378da5a-37f8-4859-959b-e557f6e22dd8" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/4m0PRMQiagZZr5dW9fPsuq/cbd6f9b93ac9357ff3e0ce7c50d37921/1.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/4m0PRMQiagZZr5dW9fPsuq/cbd6f9b93ac9357ff3e0ce7c50d37921/1.jpg"/></a></figure><h1 id="4572dd05-3a4a-495a-a916-c36e7f44e5c5" class=""><strong>人类行为和用户体验</strong></h1><p id="3530a227-e5ab-4a30-9bcd-4c0b97b5bf45" class="">具有心理学、人种学、人类学背景的人是优秀的定性研究人员，通常是这些研究团队的主要人物。您对人类行为随时间、不同环境和文化的了解越多，您就越能了解用户的行为。了解更多信息：</p><p id="f9510842-c4f6-4843-a7a9-25631459b1a3" class=""><em>“行为”，罗伯特·萨波尔斯基</em></p><figure id="88acbea0-3dbe-4ad7-a19a-0705e6493cb9" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/28jCsFrdvDLnakYrjQzHvB/56b6c3fc924b325692d4d7db35aad890/2.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/28jCsFrdvDLnakYrjQzHvB/56b6c3fc924b325692d4d7db35aad890/2.jpg"/></a></figure><h1 id="2263571c-f33c-492e-8b9b-34dd05ca36ee" class=""><strong>定性研究方法</strong></h1><p id="6ea09156-b288-4cb0-938f-1b6765e7bf25" class="">让我们来讨论一些定性研究方法吧！</p><h1 id="c6e0f591-84b2-4d17-8431-f9d8955c5e4c" class=""><strong>个人面试</strong></h1><p id="36ff3e6d-c527-4ec8-aee2-c8e91dd42c4f" class="">个人访谈可以亲自进行、通过电话或视频通话进行。</p><figure id="a3ef5594-4dba-4536-91f9-e790e4da7238" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5eFwHX7onJEkxjtbMYmBpo/028cbee72e16b78082410425c4522dbf/3.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5eFwHX7onJEkxjtbMYmBpo/028cbee72e16b78082410425c4522dbf/3.jpg"/></a></figure><h1 id="308d9734-df55-4841-8d00-a0c63623e213" class=""><strong>专门小组</strong></h1><p id="5605f721-b884-429f-8179-9aa867a6d8b2" class="">焦点小组可以面对面和在线进行。目的是了解用户对产品/服务的想法和感受，同时测试和探索新产品或旧产品、新功能等。</p><figure id="ec7866b6-7b6a-48eb-a71a-3a95851342bc" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6dG7LSRuyDGLi9eILAdO82/f775fcad337c00c378c30822e09cbe1a/4.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6dG7LSRuyDGLi9eILAdO82/f775fcad337c00c378c30822e09cbe1a/4.jpg"/></a></figure><h1 id="50be12dc-5854-4f38-a872-772997f62764" class=""><strong>面对面观察“购物”</strong></h1><p id="88be3b15-424e-4a93-8fd6-63216d04b4cb" class="">观察消费者对店内产品的反应，让我们有机会了解客户的购物行为，而不仅仅是他们在书面调查、日记、采访中所声称的。您可以从这本书中了解更多信息：</p><p id="86c390cd-8960-4604-abab-efd94d0bf15c" class=""><em>“思考，快与慢”，丹尼尔·卡尼曼 (Daniel Kahneman)</em></p><figure id="c2bc917f-4fa1-4cd3-a56b-a6e3b9a5f9be" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/lgyZdDRhHLq4bTIOQK7p1/29a260495e22553b7402f5a5d923263d/5.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/lgyZdDRhHLq4bTIOQK7p1/29a260495e22553b7402f5a5d923263d/5.jpg"/></a></figure><h1 id="89f28bae-9840-427a-aa76-c3683ce4c479" class=""><strong>家庭视频、日志和日记</strong></h1><p id="688f78f0-a9f6-49ec-ad6b-88a27428a50f" class=""><strong>家庭视频</strong>：让您可以观察用户在日常生活中如何在他们的环境中与您的产品互动。</p><p id="24ca45ba-011b-4e4d-821b-a83b8bb4bd70" class=""><strong>日记和日记</strong></p><p id="52525fa4-f74f-4b97-9494-e99e9d6e05d9" class="">：潜在用户或老用户保留日记/日记，记录他们在短期或长期内使用您的产品的体验。这可以通过写作、自录音频或视频来完成。</p><figure id="c8784395-faf8-4b92-b139-4bdd28b4b1e2" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2hMxo56auTdtWteOv1y20m/dba9fc3647d1f16c13aca2a391a47de6/6.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2hMxo56auTdtWteOv1y20m/dba9fc3647d1f16c13aca2a391a47de6/6.jpg"/></a></figure><h1 id="36eb092e-0864-4d8b-b850-bc6efc78ac14" class=""><strong>练习：打开卡片分类</strong></h1><p id="cda6ce7a-5e09-4eb0-9c8a-259f8b0f4bb0" class="">你可以自己做这个练习，也可以和朋友一起做。</p><p id="0ab73902-4b34-473a-9ffb-b017c36fb73f" class="">我们将为在线技术电子商务网站进行此练习</p><figure id="1cb63402-3bf1-468e-92ee-0a942b6a29a1" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/MuBiHHa5ZUlD4ZbvcSkdu/eb4a7b7f7b49ea6c4d7ee770865534aa/7.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/MuBiHHa5ZUlD4ZbvcSkdu/eb4a7b7f7b49ea6c4d7ee770865534aa/7.jpg"/></a></figure><p id="db35d6eb-0dad-4c64-a619-d4451993a805" class="">您可以使用在线工具进行此练习，或在便签或任何纸上写下所有内容。</p><figure id="6edcda43-6137-4b52-9023-f47c18949640" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/33mg3od5XTkdd9tbw8RFTa/7687b2dc1895cdc57420a59346a3cf7d/8.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/33mg3od5XTkdd9tbw8RFTa/7687b2dc1895cdc57420a59346a3cf7d/8.jpg"/></a></figure><p id="0e8e787f-3999-4f43-99ed-ecc786f42bf1" class="">我正在使用</p><p id="0d3eb7c0-32a8-46df-91f7-84144a680039" class=""><a href="https://www.optimalworkshop.com/"><strong>https://www.optimalworkshop.com</strong></a></p><p id="cbe92a29-0ee5-4ed8-833e-e3750a58b87f" class="">来构建卡片分类练习。它也有免费试用版，所以请检查一下。</p><figure id="37074954-0e8f-438c-b94a-a2868c5e0fed" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/7dEpFAdTxVGH520N0sDSjr/3bf3e59f3bc48d1c0f86ae747be7efc5/9.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/7dEpFAdTxVGH520N0sDSjr/3bf3e59f3bc48d1c0f86ae747be7efc5/9.jpg"/></a></figure><p id="df52674c-3b04-427b-a4dc-5b7286d91446" class="">我们使用的是开放式卡片分类法，而不是封闭式卡片分类法。意思是，我们将让参与者决定将哪些卡片放在一起，并为他们组成的每个组提出名称。</p><figure id="35bb5260-36a9-497b-bf1e-28ade31df550" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/7pqvTLBKugWugP6P6f9Ydo/4c24cb2549440399d7b166896afa9d36/10.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/7pqvTLBKugWugP6P6f9Ydo/4c24cb2549440399d7b166896afa9d36/10.jpg"/></a></figure><p id="5b994a7d-a087-4dfe-ad59-632fd366f034" class="">我们有 20 张卡片，它们必须以对我们有意义的方式进行分组，这样我们才能最好地组织我们的网站菜单。</p><figure id="ae74f4a4-f949-4b8c-9825-21cbed76b63d" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6BjciN2cqwdf7FBityEOxS/cf7f82f9119c175c8f0ae8fb10b248d2/11.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6BjciN2cqwdf7FBityEOxS/cf7f82f9119c175c8f0ae8fb10b248d2/11.jpg"/></a></figure><p id="66563412-1df8-44b9-ac97-8607de03b317" class="">一旦我们将卡片分组，我们需要想出最能描述每个组的名称。</p><figure id="55761bd8-40b1-47ef-83a3-d5cfb9c009a2" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6UgBwT7N7Rg6a3tyvnxhH7/feb3c1cb663ec24d70d8e3a4e5da2416/12.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6UgBwT7N7Rg6a3tyvnxhH7/feb3c1cb663ec24d70d8e3a4e5da2416/12.jpg"/></a></figure><p id="171c2c19-86eb-407d-95af-ec95cacb62a2" class="">如果您与朋友一起工作，则可以通过共享链接将练习发送给他们</p><p id="e8f74501-3862-4915-b1fd-e731ac299358" class="">研究 &gt; 招聘 &gt; 复制链接并与参与者分享。</p><figure id="0446e652-8deb-4b97-bad5-a66c42c584df" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6KQ28U7dbOek8sIazUEiDG/ab8a032bf12841e83c5c77a9a5e2d6ff/13.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6KQ28U7dbOek8sIazUEiDG/ab8a032bf12841e83c5c77a9a5e2d6ff/13.jpg"/></a></figure><p id="1c606bc2-d15a-4628-88b0-c1d37edacb46" class="">一旦他们点击/打开链接，他们就会在这里结束，他们可以开始测试。如果需要，您还可以编辑此欢迎文本。自己浏览选项并了解更多信息。</p><figure id="a8b97f65-cc64-4f1b-938e-4e142ddbc91a" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6gDYHg3i1Az2p9zVszAdLa/c71ed56363cdf8d4c3e3dbb94bed806f/14.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6gDYHg3i1Az2p9zVszAdLa/c71ed56363cdf8d4c3e3dbb94bed806f/14.jpg"/></a></figure><p id="440a6a3d-56cf-4726-9ab8-c48979a52883" class="">一旦他们完成并提交练习，您就可以访问学习仪表板中的所有数据。</p><figure id="b26d12a1-0a46-45bd-b13c-f9b5b445aece" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/7KSjswuykyzjS6MCLZnsQX/f50315d8188b1c47f79283155fcc67cb/15.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/7KSjswuykyzjS6MCLZnsQX/f50315d8188b1c47f79283155fcc67cb/15.jpg"/></a></figure><p id="5ef234fd-5280-4e30-8c69-334b9332fd63" class="">与至少 2-5 人一起进行卡片分类练习是一种很好的做法，尤其是来自您的目标用户。如果这不可能访问目标用户，与朋友或随机用户一起练习，它仍然是一个加分项。</p><h1 id="7890551e-f72b-4c61-9a9f-88b63f5b0fda" class=""><strong>结论</strong></h1><p id="b967aff8-a417-455d-961b-ef3a6295c8a9" class="">定性研究通常会提供新的有价值的发现，为企业提供巨大的增长机会。此外，如果做得好，它可以帮助企业从一开始就构建成功的产品，避免市场上的重大失败。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
