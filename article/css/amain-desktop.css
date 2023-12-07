@@ -369,7 +369,7 @@
     .information {
         position: fixed;
         z-index: 10000;
-        margin-top: 180px;
+        margin-top: 150px;
         left: 0px;
         padding: 0px 10px;
         width: 22%;
@@ -382,7 +382,8 @@
     .applogo {
         position: relative;
         width: 100%;
-        height: 86px;
+        height: auto;
+        margin-bottom: 20px;
         float: left;
         text-align: left;
 

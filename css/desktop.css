@@ -90,7 +90,7 @@
         background-color: #FF4444;
         display: block;
     height: 4px;
-    margin-top: 1px;
+    margin: 24px 0px;
     }
 
 }
@@ -2268,7 +2268,7 @@
         position: relative;
         float: left;
         width: auto;
-        padding: 0 12px;
+        padding: 6px 12px;
         background: var(--color-00);
         color: var(--color-ff);
         font-size: 16px;
@@ -2277,6 +2277,7 @@
         margin-bottom: 20px;
         margin-right: 12px;
         margin-top: 20px;
+        border-radius: 6px;
 
     }
 
@@ -3181,6 +3182,13 @@
         width: 100%;
         /* min-width: 340px; */
     }
+    .wa {
+        position: relative;
+        float: left;
+        width: auto;
+        /* min-width: 340px; */
+    }
+
 
     .h100 {
 
