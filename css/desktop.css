@@ -941,6 +941,7 @@
     .work-card-ui {
         margin-bottom: 0px;
         width: 32%;
+        border: 1.5px solid rgba(0, 0, 0, 0.2);
     }
 
     .work-card-app {
@@ -988,6 +989,7 @@
         margin-bottom: 20px;
         min-height: 40px;
         margin-top: 10px;
+        margin-left: 10px;
 
 
     }
@@ -3207,7 +3209,9 @@
     .mb20 {
         margin-bottom: 20px;
     }
-
+.stroke{
+    border: 1.5px solid rgba(0, 0, 0, 0.2);
+}
 
     /* img */
     .dazzle-imgs {
