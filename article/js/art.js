@@ -23,7 +23,7 @@ $(function () {
     var d5 = "rgba(0, 0, 0, .25)";
     var l5 = "rgba(255, 255, 255, .25)";
 
-    if (new Date().getHours() > 8 || new Date().getHours() < 6) {
+    if (new Date().getHours() > 18 || new Date().getHours() < 6) {
         document.documentElement.style.setProperty('--color-ff', dark);
         document.documentElement.style.setProperty('--color-00', light);
         document.documentElement.style.setProperty('--color-oa', oadark);

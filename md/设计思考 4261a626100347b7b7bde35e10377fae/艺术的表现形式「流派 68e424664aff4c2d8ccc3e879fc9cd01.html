@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>艺术的表现形式「流派</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="68e42466-4aff-4c2d-8ccc-3e879fc9cd01" class="page sans"><header><h1 class="page-title">艺术的表现形式「流派</h1><p class="page-description"></p></header><div class="page-body"><p id="c48bbe97-c72d-4287-97aa-81765f34e909" class="">
+</p><p id="3df26413-8904-4c99-826d-33ebd7aeebd1" class="">大家好，我是美丫姐前段时间，一个表情包在网络上疯狂传播就是这只名叫mur的猫，想知道它来历的宝宝戳这里。</p><figure id="08475cd4-a591-4461-ae84-cbdf96e692e7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bc-20200406-54.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bc-20200406-54.jpg"/></a></figure><p id="23d131c8-c317-4c2b-8af8-115db02b3348" class="">不仅各色以它为基础的表情包疯狂传播，刷屏微博，还有大佬以它为基础出了各种「奇怪」的教程，有光影知识科普</p><figure id="68af75ca-3d53-478d-a331-81f156ccfee3" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-1.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-1.jpg"/></a></figure><figure id="a59b267c-5b2a-4490-8864-c5c449a6774b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-2.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-2.jpg"/></a></figure><p id="d5023fc7-adf7-49b9-a674-46804ef16939" class="">还有构图小技巧等等</p><figure id="7e57773f-adc5-4473-ae0c-4e63c6006b35" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-3.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-3.jpg"/></a></figure><p id="acaf8adf-eb29-4448-b5a6-1977bb897864" class="">于是，好学如我也决定以此为基础出一期简单易懂的艺术流派科普，用14张「表情包」带你了解14种常见的艺术流派。</p><figure id="6c801f4b-0796-4925-bd24-1ea3e34b5723" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-4.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-4.jpg"/></a></figure><p id="dc1424f7-4264-4eb5-9b40-928828929c8f" class="">接下来，大家就跟着美丫姐一起探索艺术世界吧！</p><h1 id="27c09fb2-6a8e-45be-a807-c65160cf057a" class="">新艺术派</h1><p id="51be40ca-2805-4645-bb2c-844a9c6365bf" class="">新艺术派最主要的特点有倡导自然风格，装饰突出表示曲线；装饰上受日本江户时期的装饰风格；还有浮世绘风格影响，画面整体给人古典的观感。</p><figure id="752be4f0-c757-4f6b-8cac-667a9a51d90d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-5.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-5.jpg"/></a></figure><p id="0eb1114b-2cb8-45e3-b944-8e2830bf3b2c" class="">新艺术派也称新艺术运动是1880年代发源于法国，延续长达10余年且影响面特别广的形式主义运动，普法战争后，不少独立国家想跻身世界民族之林打入国际市场，于是就需要一种新的艺术表现形式，新艺术运动就此诞生。较为广为人知的画家是法国新艺术运动代表人物：阿尔丰斯·穆夏</p><figure id="5aebca8f-7a2d-4ba0-aae1-3f8de0223702" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-6.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-6.jpg"/></a></figure><p id="583d735f-b868-4b53-b6e9-6489d3522404" class="">他出生在摩洛维亚一个宗教家庭童年时的他是教堂唱诗班成员，由于教堂中保存着巴洛克风格艺术品让年幼的穆夏为之惊叹，并决心要成为一个画家。早年，他靠人资助在艺术学院学习，但某天资助他的伯爵突然中断资助导致他一度穷困潦倒，吃不起饭看不起病，直到一个女演员邀请他绘制戏剧海报，在海报广泛传播后才让他在巴黎家喻户晓。</p><figure id="a8a3306e-ab62-4c96-b16f-f596dbfa475f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-7.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-7.jpg"/></a></figure><p id="19d591eb-544f-4551-9d3b-becc9d17b390" class="">他画中植物纹样的使用、灵活的曲线运用，还有对细节的把控和华丽的装饰手法，在整个欧洲设计界大受好评，不少人效仿，推动了法国新艺术运动平面设计领域的发展。</p><figure id="279792c1-e7b9-46cd-bc55-2ed38764aa3d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-8.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-8.jpg"/></a></figure><h1 id="8d010811-483a-42e7-aa6d-77da0b8a2d46" class="">表现主义</h1><p id="b37bc793-303a-4539-a73e-33b1826e862a" class="">表现主义绘画着重描绘内心情感，从而忽视对绘画对象形象的还原绘制，因此很多表现主义作品所描绘的场景，都有扭曲、线条感、偏抽象的特点。</p><figure id="883ddcd4-2e49-4f8e-9943-390cd10716b3" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-9.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-9.jpg"/></a></figure><p id="c1a0717c-80d8-49c6-82e9-781b2e63dbcd" class="">表现主义最早出现于1901年画家朱力安，在画展上将自己一组油画命名为「表现主义」，来让自己的作品与印象派和自然派区分开来，到了1911年《暴风》杂志刊登文章，首次用「表现主义」称呼柏林先锋派画家，挪威画家爱德华·蒙克被誉为表现主义运动之父</p><figure id="07ed5f41-dc89-414f-8dbf-4080ebac6731" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-10.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-10.jpg"/></a></figure><p id="7f29460c-d9e2-44b5-a3b3-80febd34671b" class="">他的画作带有强烈悲伤压抑的情绪，他的绘画手法对20世纪德国表现主义的成长有很大的推动作用，他的绘画风格很大一部分来自他的成长经历，他的父亲患有精神病，在他幼年时一直向他灌输了对地域的恐惧，年幼时母亲和姐姐的死亡，妹妹患精神病，这些都影响了他日后作品的主基调。</p><figure id="8469fbe1-3d8b-43f1-8e98-de824901611d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-11.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-11.jpg"/></a></figure><p id="c9ede7cf-8f49-4434-a6ab-4629df00d0ca" class="">△ 蒙克代表作品是《呐喊》</p><h1 id="12b5f673-f2f2-4c23-af31-0bc4c45c089e" class="">立体主义</h1><p id="5ef1b1c3-22fd-44f4-acf8-576f402aab7c" class="">立体主义的画面最大特点是将一切物体破坏、肢解，然后再全部分割成几何切面重新组合，甚至把物体不同面组合在一个平面上，用二维平面展现三维形态。</p><figure id="a6e53a9b-a943-44c8-8327-5d448e9f268b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-12.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-12.jpg"/></a></figure><p id="4d82e23b-d223-4111-acb4-c31370aaaa62" class="">立体主义又称作立方主义1907年左右由毕加索和乔治布拉克在法国建立，立体主义这个名称出于偶然，当时乔治布拉克在画廊展出自己的作品《埃斯塔克的房子》</p><figure id="4a30483e-b386-450d-a13d-1408d4ec9875" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-13.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-13.jpg"/></a></figure><p id="a3e0328b-9ea9-4808-9d71-d0ebd1de0e7d" class="">某评论家在杂志上评论：「布拉克将每件事都还原成了立方体」，于是这种特殊画风便由此得名对立体主义影响较大的画家是毕加索，他出生于西班牙从小就很有艺术天赋</p><figure id="e0892259-6185-4c5d-b885-a5063a134ad8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-14.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-14.jpg"/></a></figure><p id="2abe478a-ad80-40d7-9386-72759e5ee7c3" class="">1900-1903年是毕加索的人生低潮时段，他在此期间的画作被成为「蓝色时期」，那时由于他目击人民贫穷困苦，好朋友自杀，所以作品大多以忧郁的蓝色为主</p><figure id="e3bbfab7-59a2-48d9-8d6e-8969d8b409f4" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-15.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-15.jpg"/></a></figure><p id="fe02e6b3-5234-4010-be18-1e0eb6dbb7a2" class="">到了1904年，他邂逅菲尔南德·奥里威尔，迁居巴黎，蓝色时期到此结束，进入了「玫瑰红时期」红色出现在他的画布上。</p><figure id="e679b887-a8c8-46ce-af7e-8ebf25e7c013" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-16.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-16.jpg"/></a></figure><p id="27c5be30-cbc2-4e2b-8b2e-b59cd316ebba" class="">1905年下半年，他与菲尔南德关系破裂，开始探索新的艺术形式；1906年他结识野兽派创始人马蒂斯，成为了他从玫瑰红时期进入立体主义的契机。这副《亚维农的少女》是他艺术生涯转折点，这种做画方法在当时十分前卫，是第一幅被认为有立体主义元素的画</p><figure id="8822aa3b-3ff7-4f9c-9b10-660bd47ced45" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-17.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-17.jpg"/></a></figure><p id="0756e134-9ed6-4888-8715-39fe2a6cf21b" class="">自立体派之后各种新绘画观念纷纷引入，很多艺术家认为绘画应该描绘现代都市生活，于是现代主义绘画慢慢成为画坛主流趋势，在此之后达达主义、抽象主义、波普风格等，相继走上艺术史舞台</p><h1 id="f9ec7b17-5adb-4c28-9bc7-1fa29a1b7106" class="">野兽主义</h1><p id="20da8450-6513-4256-886f-0d30c82c423f" class="">它最显著的特点就是色彩浓重鲜艳，绘画笔触粗矿，画面效果强烈</p><figure id="138b128d-1c8a-45c3-9029-185e56e5a35d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-18.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-18.jpg"/></a></figure><p id="a15119b0-4932-4935-8ba5-66b396262ba8" class="">野兽派是1908年左右在法国盛行的画派，当时一群画家在展厅中展出作品某记者在充满刺眼配色画作中央看到一樽文艺复兴时期风格铜像于是惊呼道：「这是多纳泰多被关在野兽笼中！」多纳泰多：文艺复兴时期公认第一雕刻大师，于是当这句话在杂志登出时雕塑周围那些醒目的画作就被大家定义为「野兽主义」，代表画家是亨利·马蒂斯</p><figure id="253734c0-eab6-44c9-a0c8-d88f0917311d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-19.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-19.jpg"/></a></figure><p id="015257b5-39b7-4369-8ab2-eba192afdf61" class="">他出生于法国北部富裕家庭，最初从事法律相关工作，在21岁时由于生病住院，他妈妈送他一套画具让他打发时间，从此他就对绘画一发不可收拾（画不好就要回家继承家产系列），还曾因购买喜欢画家的画负债累累，野兽主义虽到1908年后就逐渐沉寂。但它的意义在让欧洲从传统的用色中释放出来，让色彩不再依附任何自然形态</p><figure id="10d2a300-258d-4ded-973f-9b66f507719a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-20.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-20.jpg"/></a></figure><p id="5b160103-94ba-4bc2-bcc2-ce50b7700024" class="">△ 马蒂斯代表作品《生命的喜悦》</p><h1 id="b2987735-751f-4a2d-a065-37ca0bf79a94" class="">未来主义</h1><p id="ee0f8621-c3e5-4334-ae95-8ec1a650557c" class="">其美学主张和立体主义还有表现主义的感觉有些许相似，但未来主义更注重力量感和速度感物体在画布中互相重叠、穿插、变化。</p><figure id="eaa7d7ae-e52a-4bef-b59a-7ab316e63c08" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-21.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-21.jpg"/></a></figure><p id="8dd5e5e0-3b88-4a55-8bef-0d94dfe6825d" class="">未来主义诞生要追溯到1909年2月意大利诗人马里奈缔发表《未来主义的创立和宣言》，他强调近代工业改变人们物质生活方式，人的精神生活也必须改变，未来主义随之诞生随后在1911-1915年广泛流行于意大利。</p><p id="f2f24697-15c3-4123-a1e3-052ea8ef1bdc" class="">未来主义号召全盘否定传统艺术的价值，认为人类文化遗产与现有文化都是腐朽且与现时代精神不相融合，号召创建和机器时代合拍的现代艺术，比较有代表性的画家是贾科莫·巴拉。</p><figure id="29c58b45-7e48-47b2-a5e2-27102805c163" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-22.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-22.jpg"/></a></figure><p id="b1f411a4-c9c8-4eda-adb1-785e725a445d" class="">1901年他定居罗马，受马里奈缔影响；1910年与意大利其它艺术家联名发表《未来主义绘画技法宣言》，号召以美术为武器，摧毁旧社会和文化秩序</p><figure id="b04f7bdb-dfcd-403c-99f0-f7690791fd42" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-23.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-23.jpg"/></a></figure><p id="4df584dd-80a6-4969-94ef-2065b5aee1fc" class="">△ 贾科莫·巴拉《系着皮带的狗》</p><h1 id="f87bcc46-5c48-4766-88ba-e50b5c404449" class="">达达主义</h1><p id="e4c5197c-e782-4e4b-9b48-37b57cf02489" class="">「达达」意为糊涂、无所谓作品都有着很显著的特征：无意义，各种各样不合逻辑的现成事物交织拼贴在一起，就像这样子。</p><figure id="de30fa24-5512-4673-ba89-87e9c4f462dc" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-24.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-24.jpg"/></a></figure><p id="61910ae4-fdc8-4b5e-8970-0c4b2c395a87" class="">这是因为达达主义兴起于一战期间1916年前后战争导致民不聊生，一群艺术家和反战人士为表达自己对资产阶级与一战的绝望，就创立了这种「反美学」的流派</p><p id="dc7c2b26-e114-49a6-8875-37fe61b3927c" class="">艺术家们用这些荒诞的作品，表达自己在战争极端环境下对未来的迷茫马塞尔·杜尚是纽约达达主义的核心人物，生于法国，1955年加入美国国籍。</p><figure id="ed24eda0-8a19-4488-ad71-2fe4cb5777d1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-25.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-25.jpg"/></a></figure><p id="cba9cac3-555a-4434-b852-4226b016c2fb" class="">其较为广为人知的作品就是《泉》</p><figure id="5a4b728d-35cf-488d-881e-88b13b87c8ee" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-26.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-26.jpg"/></a></figure><p id="f4182bd4-6a86-46fb-a4a8-3962b982718b" class="">杜尚直接从商店购买了小便池，在上面签上销售商的名字作为艺术品参加美国现代艺术大展达达主义荒诞、用现成品这一特色，在这件「艺术品」中表达得淋漓尽致</p><p id="73ffb28e-00b2-4460-acff-05346d2db6db" class="">这件事之后杜尚如法炮制用各种现成品制作所谓艺术，由此戏弄那些追捧他的人。</p><figure id="049f279a-a2ed-404f-a1f4-27be0a90a1f6" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-27.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-27.jpg"/></a></figure><p id="d307013c-1001-485c-829b-8f24f934bc40" class="">或许就像万物皆可supreme一样在那个年代，万物皆可达达。杜尚的骚操作也把艺术从神坛上「拉下」让艺术更加贴近生活。这点，在之后波普艺术中也得到继承值得一提的是，杜尚起初是为了逃避兵役，才装模作样去学版画，却没想到弄巧成拙成为了改变西方艺术史的大佬</p><h1 id="2f2bff04-f60a-4942-90f7-6263209a7c2c" class="">至上主义</h1><p id="1a12783d-0f8e-46d6-873d-744b02872b5c" class="">至上主义画作最显著特点是画家常用三角形、正方形等几何作画，摆脱情感色彩，寻找纯粹艺术至上主义否认绘画中的各种主题、物体。</p><figure id="921115f5-d8f7-4216-ad8a-a5e72d740b92" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-28.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-28.jpg"/></a></figure><p id="1b8a077a-0591-4593-9d06-d27fa2879581" class="">至上主义是俄罗斯抽象绘画主要流派，1917年前后，西方艺术的流派交错起伏，加上俄国十月革命爆发，人民推翻旧制度的心十分急切，进一步加快俄国前卫艺术流派的诞生</p><p id="73b5970d-a010-42cb-8bbb-bcd7fc762bd4" class="">其中，艺术家马列维奇所强调的至上主义，即至上主义是艺术中绝对真理，它将取代任何存在过的流派的反传统观点，得到了政府的认可，促使至上主义创立。</p><figure id="e6e0ccba-85f4-475e-a863-75a740e31c17" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-29.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-29.jpg"/></a></figure><p id="353477fd-c97a-407f-be7a-92f85b4a5035" class="">马列维奇出生在一个糖厂工人家庭，在乡镇生活，求学之路非常坎坷，十几岁时一群来乡装饰教堂的美术家，让他对绘画产生了兴趣，随后进入了基辅美术专科学校学习后又因父亲工作原因搬家中断学习</p><p id="94be6d2f-a8af-4968-81ce-f7573df322a8" class="">随后在新城市找了一份制图工作认识一群热爱美术的年轻人组成美术社团，但小地方并不能满足他对美术的追求，于是在1904年奔赴莫斯科学习正规美术，但连考三年都没进入自己的梦想学府，但好在他还是留下了不少，流传后世的经典作品，比如这幅《至上主义的构图》</p><figure id="e77e5514-e617-4340-a36f-cb47351f4550" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-30.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-30.jpg"/></a></figure><h1 id="f4dfb1be-94c2-4805-9148-dc0a901299b2" class="">构成主义</h1><p id="19225412-0cb7-4135-a878-a8602eb66cb6" class="">构成主义在创作手法上接收了立体主义中拼接手法同时也吸收几何抽象的概念</p><figure id="bdec9ae7-afbb-4aba-84d3-a1e33680bdf8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-31.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-31.jpg"/></a></figure><p id="8560930a-63c9-4b8d-a5b4-bd3e55446c2e" class="">构成主义艺术和建筑思潮兴起于俄国十月革命时期，在一战后，俄国经济濒临崩溃列宁在1917年领导了十月革命，在1918年带领国家退出一战建立世界上第一个由苏维埃政权领导的社会主义国家新政权发展经济同时对设计和教育，给予了极大的支持。这样的大环境就给了信奉文化革命的构成主义在艺术、建筑学，还有平面设计领域的实践机会，比较有代表性的艺术家是艺术家罗钦科，有人曾说过，没有他就没有现代设计。</p><figure id="28b10e9b-97b6-4901-b34c-a7f247fe5040" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-32.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-32.jpg"/></a></figure><p id="c4be9298-fdad-43d3-8c24-5315087284a2" class="">他1981年出生于圣彼得堡由于父亲是戏剧道具师，他从小就接触艺术，为他以后的艺术生涯奠定了基石，他极其喜欢用蒙太奇手法制作插图，把不同画面拼贴剪辑在一起</p><figure id="63186053-6b4a-43ce-8774-0005acb56c23" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-33.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-33.jpg"/></a></figure><figure id="e064539c-ef86-4662-a331-3e02edf06689" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-34.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-34.jpg"/></a></figure><p id="ba45ed15-c3d4-4951-94c1-8f59989ba18a" class="">△ 罗钦科的海报设计</p><h1 id="258db335-2e40-4e95-afa6-ba917ea3cd92" class="">风格派</h1><p id="dfb85829-ec97-4af2-a0cf-14140e226422" class="">风格派绘画宗旨是完全拒绝使用具象元素，主张用几何图形表达画面及画家情感</p><figure id="61914972-ba9d-43e9-8d59-c2e6203e3d3b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-35.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-35.jpg"/></a></figure><p id="00569500-7b35-4a51-aa14-c8c5b1475318" class="">风格派形成于一战期间的荷兰，在1917年前后一些接受野兽、立体和未来主义，等现代观念启发的荷兰艺术家们，开始在荷兰探索前卫艺术发展之路，并取得不凡成就，从而形成风格派</p><p id="16dc2e89-d00e-4285-8e51-f7eb285139a7" class="">蒙德里安是风格派幕后艺术家，与非具象绘画创始人之一</p><figure id="f521df49-e7d2-4b6e-83d4-08bc6489aa01" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-36.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-36.jpg"/></a></figure><p id="0573d237-fe23-4253-bced-06d74fcd73cf" class="">他出生于荷兰，父亲是一位热衷美术的小学校长，这让他从小就能接触美术，8岁的蒙德里安立志要当艺术家。但家人觉得艺术家不稳定。在他向家人承诺要考美术教师资格证。确保能赚钱养家糊口后。家人才让答应他学习绘画。这剧情怎么这么熟悉。难道古今中外全世界父母都这样吗。但他之后并没有当过老师</p><p id="acf74e9a-9f49-465a-b37e-a022680bfeba" class="">在1911年他见识到立体主义后。感受到极大震撼，随后前往巴黎研究立体派，给之后风格派的成立打下了基础，风格派代表作品是他的《红、黄、蓝的构成》</p><figure id="a47825e8-bb9a-43ae-996c-9df59c8a2398" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-37.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-37.jpg"/></a></figure><h1 id="058fae2d-edb2-43ab-8eb3-3a27cb1793e5" class="">超现实主义</h1><p id="0fc81d7c-dc46-4459-a101-d525d638c9e7" class="">超现实主义的特征是神秘、怪诞、魔幻画中场景就像梦境和现实的交织</p><figure id="2956e6c3-41d6-4a9c-b4f9-a1b208788fbb" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-38.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-38.jpg"/></a></figure><p id="bb833071-205c-425a-8ebe-674415e393da" class="">第一次世界大战结束之后（一战于1918年11月11日结束），参战各国伤痕累累，整个欧洲经济萧条人民生活困苦，这种形势下，艺术家开始逃避现实，追求不存在的梦幻世界，由此超现实主义应运而生，比较有代表性的画家是萨尔瓦多·达利。</p><figure id="17285847-959f-46e5-84c1-3ff815ec1bbf" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-39.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-39.jpg"/></a></figure><p id="94d8afc2-ce4e-40ad-ad54-fefc26a74621" class="">达利1904年出生于西班牙，在1925年巴塞罗那个人作品展中，还有1928年匹兹堡国际展览会上，他所展出的《The Basket of Bread》等作品让他赢得国际声誉</p><figure id="eef77695-828c-4763-9d68-beb890dcd877" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-53.jpeg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-53.jpeg"/></a></figure><p id="b34ce3e4-be74-49ad-80bc-500bc8b53599" class="">次年他就在巴黎举办了个人展，同年，加入了超现实主义流派，成为超现实主义运动领导人，留下许多魔幻的超现实主义画作，他的作品《记忆的永恒》 广为人知</p><figure id="45a8ac7f-b081-4a82-9117-c32a2dc6d636" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-40.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-40.jpg"/></a></figure><h1 id="5394d4a7-c728-4106-bfcf-386c3e21a46c" class="">抽象派</h1><p id="5fd24bc2-bc3b-4f02-b8bc-e3e1b3cf0e27" class="">抽象绘画一般会将具象物体简化以模糊的形、线条还有色彩展现画作美感</p><figure id="55894538-599e-40c5-8b76-7ad4664c6af3" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-41.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-41.jpg"/></a></figure><p id="90c50f74-3ef5-4353-bb65-179ce9bb9f3e" class="">大家日常所提到的抽象派绘画，其实并非一直特定流派而是泛指20世纪想要脱离写实绘画风格，而产生的另一种画派风格。荷兰风格派的蒙德里安，至上主义的马列维奇，都是抽象风格的代表性人物。</p><h1 id="b1d06764-b6a5-479a-9153-2f5cebad8bd2" class="">行动派绘画</h1><p id="283231bc-e7e5-428f-bfdd-bc951c6d49e2" class="">行动派绘画属于抽象画的一种即把画布平铺在地面，用带有孔的盒子或画笔把颜料滴溅在画布上，作画十分随意，被称作「滴画法」</p><figure id="fac3e8bf-a4a9-407a-b763-89a1184980cf" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-42.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-42.jpg"/></a></figure><p id="54e361db-3172-4f9f-bc4e-ea82d7aa3fd3" class="">行动派起源于美国画家杰克逊·波洛克，他被公认是美国绘画摆脱欧洲标准使美国在国际艺坛建立领导地位的功臣。</p><figure id="038473ec-5825-44ea-a039-e2df7685f419" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-43.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-43.jpg"/></a></figure><p id="a663a175-dc14-4960-82f7-3e874255c7a9" class="">他1929年就学纽约艺术学生联盟，1943年开始转向抽象艺术，1947年就开始使用「滴画法」作画，他最贵的作品《1948年第5号》，以人民币9亿价格被人买下收藏。</p><figure id="7721608b-2499-4c9f-b91a-2fbd704bb783" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-44.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-44.jpg"/></a></figure><h1 id="655cb5c9-a29a-4328-8df6-ea8bc87838f4" class="">波普艺术</h1><p id="ea618f2b-5c4a-4c59-ac9c-34c435316b85" class="">波普艺术最显著的特点是将连环画、快餐及印有商标的包装，诸如此类的大众艺术进行放大复制通常还伴有鲜艳色彩，就比如这样</p><figure id="db04bc84-29f6-421a-9932-103cd3a346fe" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-45.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-45.jpg"/></a></figure><p id="c1af927d-9696-4cce-9bad-b5ad195c6420" class="">波普艺术最早起源于英国1956年，艺术家理查德·汉密顿，在画展上展出的一副拼贴画《是什么使今日家庭如此不同且吸引人？》</p><figure id="693cf106-b64b-49d9-8907-3ff49bc6eefb" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-46.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-46.jpg"/></a></figure><p id="d0a2f282-b785-4eb6-87ea-ec46ef3fc53a" class="">男人手上拿着的巨大棒棒糖上写着pop，该词来自于英文的「popular」译为波普作者理查德·汉密顿将它定义为流行、廉价，面向大众且可批量复制的艺术，于是这种作品中大量运用商品招贴、电影广告，报刊图片拼帖组合的形式就此形成了波普艺术</p><p id="73f59cc7-fc0c-482c-b62e-6b3aab07c432" class="">而说到波普艺术，不得不提起。对其影响最大艺术家安迪沃霍尔</p><figure id="20704997-6dd0-4ad4-94ad-f91d0b0bd1dd" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-47.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-47.jpg"/></a></figure><p id="dbb8e47e-d0b9-4458-9d08-ba14bdc83c33" class="">他生长于美国一个贫民窟中，儿时体弱多病常躺在家中，致使他很自卑。还好他母亲给了他十足关爱，不时给他找些杂志和漫画解闷。还鼓励他学习绘画，为他的成就打下基础</p><p id="97a86ea8-62e0-418d-ab6c-6b98cf4483ad" class="">1952年24岁的他聘请一组工作团队。想要做出颠覆传统的概念创作。大量复制当代名人面孔将现场的商品包装成艺术品，成就了波普艺术两幅不朽之作《玛丽莲梦露》</p><figure id="a59fdcea-c92f-4da1-9edd-9f2a686844b6" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-48.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-48.jpg"/></a></figure><p id="04223b55-83c3-4109-9561-e2e9b4077e3a" class="">还有《金宝汤罐头》</p><figure id="ff649ea8-a93f-42ab-8057-2d900ecc1029" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-49.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-49.jpg"/></a></figure><h1 id="eec5fc81-4b1f-4b34-8f7f-5a72b93b1d5d" class="">极简主义</h1><p id="9fb150b1-bdf5-46a1-a834-1a1985820f3d" class="">极简主义理念是降低艺术家自身情感表现以抽象、几何元素构建画面是现代化艺术中简化倾向巅峰</p><figure id="751ad028-6d9f-45cc-8bdb-8e3965d6c799" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-50.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-50.jpg"/></a></figure><p id="ba36e7df-82cf-4ea4-8e4a-a9494489fe43" class="">是1960年出现于美国纽约的一种非写实绘画和雕刻风格在绘画领域较有代表性的艺术家是约瑟夫·阿尔伯斯</p><figure id="f56c54d8-fcf3-40ec-8224-a42157199e8a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-51.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-51.jpg"/></a></figure><p id="93cd334e-111f-42b5-ba44-1fb8e971d8b5" class="">德裔美国画家，1920年就读于包豪斯设计学校，1933年成为首批赴美教室之一，之后任教于耶鲁大学。他最著名的作品是：《正方形的礼赞》系列</p><figure id="f9746d56-3a21-48f3-85fe-18d263ca1644" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-52.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/04/uisdc-bq-20200406-52.jpg"/></a></figure><p id="4b919f9a-94ec-4abc-a80d-dbd536bc6585" class="">好了，以上就是今天的14种艺术流派科普。</p><p id="efdb35b3-b178-4ece-afbe-b787c8af40e6" class="">欢迎同学们关注最充满智（dou）慧（bi）的设计账号：</p><figure id="b5191fa2-6d6c-4f71-aa3a-359d96fe9118" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2017/08/nycmgwxqr-1.gif"><img src="https://image.uisdc.com/wp-content/uploads/2017/08/nycmgwxqr-1.gif"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

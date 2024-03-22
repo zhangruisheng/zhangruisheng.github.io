@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>设计方法丨主流人机交互设计模型</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="348c520b-e398-4e20-b98a-1feb4b52c002" class="page sans"><header><h1 class="page-title">设计方法丨主流人机交互设计模型</h1></header><div class="page-body"><p id="5b93f3be-82b2-4fe8-a044-61fbe08d3296" class="">众所周知，人机交互是一门集调研，构思，设计和测试为一体的学科。作为一门覆盖多领域的多学科，包括并不限于心理学，行为学，编程，工程，设计，调研，和工商管理，现代人机交互的核心已经不再是从技术层面去解决问题， 而是侧重于以多个视角去挖掘问题的本质并思考问题背后的价值。也因此，人机交互学术界一直以来都试图寻找一种思考模式，或者理论模型，去将复杂的思考流程提炼出来。</p><figure id="afa749ce-0f7c-4415-b151-5dc5932a6188" class="image"><a href="%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E4%B8%A8%E4%B8%BB%E6%B5%81%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%20348c520be3984e20b98a1feb4b52c002/Untitled.png"><img style="width:2520px" src="%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E4%B8%A8%E4%B8%BB%E6%B5%81%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%20348c520be3984e20b98a1feb4b52c002/Untitled.png"/></a></figure><p id="02ec95ed-f63b-4391-bed8-5953a36d3adf" class="">01</p><h1 id="cebd1b98-da84-40f5-a1bb-728a3d086b80" class="">主流交互模型</h1><p id="186e90fa-a816-4534-8605-4cc49a4725db" class="">近三十年来，人机交互领域的方法论可谓百花齐放，尽管许多知名研究机构与院校都发布了不同的设计模型与流程图，但是其内核终究大致相同（寻找问题——定义问题——设计——测试）。</p><p id="a00668c2-e1a7-44ef-92b7-eb0786981c13" class="">以下是近年来国际最主流的七种人机交互设计模型：</p><p id="28ad68fd-1eea-40a1-8615-9c4529891253" class=""><strong>1. 尼尔森诺曼集团设计流程</strong> （Nielsen Norman Group）</p><p id="0dc51f93-9eee-446f-adf3-9e3fe046d44d" class=""><strong>2. 斯坦福大学设计学院设计流程</strong>（Stanford Design Thinking Process）</p><p id="f9337c48-52a8-4013-b90e-5417b8fd9506" class=""><strong>3. 《情景化设计:为生活而设计》 中的设计流程</strong> （Contextual Design: Design for Life）</p><p id="ddc659bf-e2c1-4695-89c3-8ef1f0576137" class=""><strong>4. IBM环形设计模型</strong> （IBM Loop Model）</p><p id="b0467fd7-715a-41ce-bff3-9bca0906aac2" class=""><strong>5. 英国设计协会双钻石设计模型</strong>（Design Council Double Diamond）</p><p id="f3a21488-5169-4b7d-b297-061b691ad75b" class=""><strong>6. LUMA 学院设计流程</strong>（LUMA Institute Design process）</p><p id="7d079f1d-d7a2-420a-ba44-42b1a569621e" class=""><strong>7. Dubberly Design Office 桥型设计模型</strong>（Analysis-Synthesis Bridge Model）</p><p id="d24b9186-de89-4fba-87ef-9dffe0fbb926" class="">其中，前6种应该都是大家相对熟悉的，我们在文末也附上了官方链接供大家探索。今天这篇文章我们将简要的带大家了解列表中最后一个也是最有特色的一个人机交互模型：桥型模型（Analysis-Synthesis Bridge Model）。</p><p id="82b3f015-2615-4575-aa2d-db3b4751bcc0" class="">02</p><h1 id="88c0115d-5ff7-405b-91e4-d9ba1b706d09" class="">桥型交互模型</h1><figure id="63a446f0-700f-4013-bab7-8f9762ea8749" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/Cvghpcs4uFZg3xTxxCamyqT3Fi4FPHLGhdD7ikTugcJ.png"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/Cvghpcs4uFZg3xTxxCamyqT3Fi4FPHLGhdD7ikTugcJ.png"/></a></figure><p id="9253b353-74e4-418d-a662-a361f4f28501" class="">桥型模型是美国 Dubberly Design Office发表的设计流程图（Analysis-Synthesis Bridge Model），对于不清楚的读者，此公司的创始人Hugh Dubberly 曾发布超五十篇人机交互领域的研究型文章，在多个知名设计协会挂名，并被录入美国 ACM 的 SIGCHI Academy， 成为公认对人机交互领域做出最杰出贡献的人之一。Dubberly 也曾在多个美国知名大学任职，因此，此模型也是多数国际人机交互学科的公认理论。</p><p id="783336e4-dc51-4a93-8ff9-026e5baa676a" class="">尽管相较于其他的流程图，这个流程图较为抽象，但是其所用的多维度分类却相对明了的阐释了设计的本质。如图所示，桥型模型的x轴分为现在和未来，y轴分为具象和抽象，以此来定义设计的状态。同时也加入了动词“形容”，“分析”，“研究”，“制作”去定义设计中的操作。在这个桥型设计流程中，设计师从左下角到右下角的过程代表从现象走向抽象再从抽象走向产品的过程，与此同时也代表着从今天走向明天，或者说从问题的现在态走向解决问题后的未来态。</p><h1 id="cc44be2c-5d5a-4947-b967-373441a0406f" class="">现在态</h1><p id="03fb0480-8ef8-40d1-8d98-432b664ff48d" class="">起点从左下角开始，（what “is”）代表着问题本身，而左上角的（model of what “is”） 代表问题的抽象模型或者问题的本质。这两个阶段代表着设计中的调研阶段（Researching）。此时的设计师应该通过“形容具象的现象”（左下角格子 Describe+Concrete）即收集信息来拓宽对问题的了解然后再进行“分析抽象的模型”（左上角格子Interpret+Abstract）去制作问题模型来更清晰的看到现象的本质和规律。</p><p id="bddd9452-fb5d-4543-a8a8-0d47c9dd24b6" class=""><strong>在这个阶段，“世界并不清楚他想要什么样的设计”—— Paola Antonelli</strong></p><p id="45474f74-907b-40db-9b8d-eda6e12a53cb" class="">在开始阶段之所以要抽象出问题模型，是因为作为设计师不能单纯的听从人们的诉求。当生活中出现一个问题时，生活中人们往往不太清楚自己烦恼的本质是什么，要么他们只看到了问题的表面，要么他们被太多因素混淆了。因此在这个阶段，设计师的责任就是去分析问题存在的环境与原因，并且以人为中心的角度去分析表象下人们的真正需求。也是因此，避免以技术为中心的分析（machine-centered-research）而选择以人为中心的研究（human-centered-research）才是交互设计师应有的职责。</p><p id="a3bcf00f-7b1c-4dca-ba1a-3f53e9614665" class="">在做以人为中心的研究时，收集和分析信息时避免内隐偏见（unconcious bias）是非常重要的。这里指由于生长在固定社会和文化下的而无意识带有的偏见，比如身体健全的人忘记考虑残疾人的需求，或者经常用电子产品的人下意识认为一些复杂操作很常规。在设计里，歧视不止包括在搜集用户信息时忽略了个别群体，同时也包括设计师本身所带的特定视角。一个成功的设计纵然应该满足大多数人的需求，但是一个向善的设计也不应该忽视特殊群体的情况。这里不得不提到，虽然现如今很多设计往往依靠大数据来进行设计，但是大数据本身就代表着忽略少部分群体的需求，导致少数群体的歧视愈发严重，甚至一度威胁到一些小众的题材。因此在调研时考虑到人种，年龄，经济情况，教育程度，是否残疾，和对科技的熟悉度可以更严谨的分析不同视角下问题的影响。</p><p id="7cf89e4f-0a53-41e7-aee9-65ae1823e1bf" class="">左下角常用的用户研究方法有情景调查（contextual inquiry），利益相关者逻辑图（stakeholder map)，和参与型研究(Participatory Research)等等。左上角常用的分析方式有带入虚拟人格（persona）和流程图（journey mapping）等等。</p><h1 id="b3307913-29da-4068-81a4-44d97b484ce5" class="">未来态</h1><p id="43ee3fc5-9a12-4ad5-bebf-d3e27750258f" class="">右侧的两个阶段则代表问题的未来态或者设计原型态（prototyping）。右上角的 （model of what &quot;could be&quot;)代表问题的未来的可能性，也就是一般说的设计和构思部分，而右下角的（what “could be”）就是将这些未来的可能性做出来，从概念化为产品。</p><p id="d165ce01-07bc-4ea4-99fb-d84a4b5300ca" class="">然而如何从右上角的抽象模型到右下角具体设计呢？在这里便需要了解一个大致的设计信息层级。</p><figure id="1db172a1-a6a9-4e9c-8014-6a3884f74e3e" class="image"><a href="%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E4%B8%A8%E4%B8%BB%E6%B5%81%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%20348c520be3984e20b98a1feb4b52c002/Untitled%201.png"><img style="width:1600px" src="%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%E4%B8%A8%E4%B8%BB%E6%B5%81%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%20348c520be3984e20b98a1feb4b52c002/Untitled%201.png"/></a></figure><p id="d2722cd7-5ae7-4e43-b9de-275db132d3f2" class="">如图所示，一个设计的是由多层结构组成的，从抽象到具象分为五个阶段，策略（Strategy），内容（Scope），结构（Structure），框架（Skeleton），视觉（Surface）。一个严谨的设计应该是从下而上发展的（从深层的策略到浅层视觉），并且每次在考虑深层的策略时应该避免浅层的干扰。这是因为浅层只是策略的表现的方式，而深层策略才是决定产品核心价值的关键。决定策略（Strategy）时应该直接依据模型左上角“问题的本质”来决定要设立什么样的产品目标。只有策略定了，才能确定这个产品的内容与受众群体。假如目标是让盲人点餐，那么内容有可能就是在这个页面提供特殊的菜单形式和电话快捷键。而假如目标是让人听音乐，那么内容可能就是提供音乐推荐与保存。而在结构方面，确立内容后只需要一个完善的逻辑，比如用户的具体使用流程是什么，就可以快速具现这个产品的结构。最后，框架和视觉阶段则更多只是一种表现手法的选择。无论最终选择如何设计，只要保证框架和视觉元素在整个产品中保持一致并且符合产品定位即可。</p><p id="b9ad5d9a-b1db-45c0-a936-4b411a7cb9c3" class="">从策略到视觉的过程也就是模型中从右上角到右下角的过程。每个设计师的目标都应该是以具象的产品实现相对抽象的策略。而要想让视觉和策略紧密联系，就应该尽可能在每一步的过度时都考虑到前后步骤的衔接是否逻辑通顺，避免层与层之间脱节的现象发生。尽管在现实中，层与层之间的分隔往往没有这么清楚，但是这种分层的设计逻辑可以作为一个有用的构思框架，让设计师在发散思维的时候不偏离目标。</p><figure id="c6f8f9b4-8ace-4f19-b8f9-e57866cf40d5" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/2VFpKqinpE1I05LtyZBxAf4UjBE8xWta97IPu5CzoJ8.png"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/2VFpKqinpE1I05LtyZBxAf4UjBE8xWta97IPu5CzoJ8.png"/></a></figure><p id="43a28165-d212-42b8-a124-8959247eb07b" class="">而最后即便到了右下角的产品产出，一个完整的设计流程也不算结束。一个成功的设计总是需要多个设计迭代的。尽管在每一个一个迭代中，右下角可能是最终产出，但是在一个完整设计流程里，右下角还应该连接左下角，将已经完成的设计再一次进行分析和测试并总结出优缺点，再进行下一轮的设计。</p><p id="0bf6a3e9-5cc1-4ab7-89ba-c7746ad4699a" class="">在右上角的设计部分中经常使用的方法有故事模版（story boarding），纸质低保真模版（paper prototyping），和以人为中心设计（human centered design）等等。</p><p id="37220231-3761-4295-b96f-e4b45abb1f83" class="">总而言之，桥型模型作为国际人机交互院校最常用的模型，从多个角度描述了从一个问题从研究到解决的过程。我们可以看得出，设计从来都不是一个随性而为的过程。从左侧的无偏见而系统的分析问题到右侧的遵循结构进行设计，设计师都应该在一个严谨的框架下进行思考和设计，这样才能做到有针对性的解决问题。在这里也希望大家能多多关注各类人机交互设计理念并从中获取灵感亦或找到适合自己的设计流程。</p><p id="dd50be7e-3fc3-443e-afe5-3a3586de171e" class=""><strong>03</strong></p><h1 id="a4fbc048-b262-459c-9afb-013ad9854c34" class="">其他设计模型</h1><p id="0eba6305-185c-4370-aeca-686433584d20" class="">下面是六种其他主流国际人机交互模型和官方链接供大家探索：</p><p id="ed472272-2129-4d7d-bf37-b85a92d46ef0" class=""><strong>1. 尼尔森诺曼集团设计流程 （Nielsen Norman Group）</strong></p><p id="dc8df66d-f97d-4fb8-b0b7-a1aab0cefe5d" class="">研究问题领域（discover），探索不同可能（explore），测试设计（test)，和倾听反馈(listen)</p><figure id="611c5b9f-6f1b-4d46-92db-f8c65ba34fba" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/GdnIbnaSxWA26FW2lvCl4Tb2JArgXvidDdVq2vYqvK6.png"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/GdnIbnaSxWA26FW2lvCl4Tb2JArgXvidDdVq2vYqvK6.png"/></a></figure><p id="8202f4eb-13be-4098-8926-df107ef0a831" class="">官网链接： <a href="https://web.stanford.edu/~mshanks/MichaelShanks/files/509554.pdf">https://web.stanford.edu/~mshanks/MichaelShanks/files/509554.pdf</a></p><p id="d3a7a488-f125-4a0b-a26f-aac51f8bffec" class=""><strong>2. 斯坦福大学设计学院设计流程（Stanford Design Thinking Process）</strong></p><p id="d13912ed-872e-4ea9-9483-ab5bd8a99b6d" class="">抽离问题(empathize)，定义问题(define)，寻找灵感(ideate)，制作原型(prototype)，测试成品(test)。</p><figure id="9d04562f-f17c-4b0a-a57d-d9fe65836559" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/Vlcxg443pyeVC2Ny1KgNtZ3t3Z4SGt7cQUOY6rSL5H3.png"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/Vlcxg443pyeVC2Ny1KgNtZ3t3Z4SGt7cQUOY6rSL5H3.png"/></a></figure><p id="b62243d0-4077-4019-be30-035aa40b492f" class="">官网链接： <a href="https://web.stanford.edu/~mshanks/MichaelShanks/files/509554.pdf">https://web.stanford.edu/~mshanks/MichaelShanks/files/509554.pdf</a></p><p id="2513c60b-ebe2-48a5-8ad1-d5e7fdf80f68" class=""><strong>3. 《情景化设计:为生活而设计》 中的设计流程 （Contextual Design: Design for Life）</strong></p><p id="fb211841-c137-40de-97ae-fb4a3fff3ae5" class="">理解问题(understand)，发明未来(invent)，情景话设计(design)，制作原型(validate)，和开发产品(develop)。</p><figure id="738944b6-7460-415b-863b-3c0f278047f3" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/vMYvn5jRitYnXpt0KQKWR3a1zMcmqtxH6guwWKjL8e6.png"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/vMYvn5jRitYnXpt0KQKWR3a1zMcmqtxH6guwWKjL8e6.png"/></a></figure><p id="2d86917d-029e-428c-9a0c-2be32290eb2f" class="">书本链接：<a href="https://www.goodreads.com/book/show/33805307-contextual-design">https://www.goodreads.com/book/show/33805307-contextual-design</a></p><p id="46e5660f-bc50-42cb-911b-2ba4b422d899" class=""><strong>4. IBM环形设计模型 （IBM Loop Model）</strong></p><p id="2ce486a5-20d6-4eb6-b142-a09b189ca812" class="">观察(observe)，反思反馈(reflect)，和制作（make）。</p><figure id="a477c8f6-c718-4589-aef0-96033b4bab75" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/bgUnJW2lCIjR1cf11aQY2uRPJglq6wCWPhLKdafOKnm.png"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/bgUnJW2lCIjR1cf11aQY2uRPJglq6wCWPhLKdafOKnm.png"/></a></figure><p id="71001743-9a17-4b59-8c23-7433045b7a3d" class="">官网链接： <a href="https://www.ibm.com/design/thinking/page/framework/loop">https://www.ibm.com/design/thinking/page/framework/loop</a></p><p id="f2e938bf-0854-42ec-8757-0c9137735509" class=""><strong>5. 英国设计协会双钻石设计模型（Design Council Double Diamond Model）</strong></p><p id="a8a83fb6-a235-4ba6-89d9-f76e10c24dcc" class="">发现(discover)，定义(define)，制作(develop)，传递(deliver)。</p><figure id="87ff1217-30af-451c-a415-63c10ed3a971" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/iHfW7LLnrRzKGryGErSeb7OEdMTmCYHUWh7W6QULEYn.png"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/iHfW7LLnrRzKGryGErSeb7OEdMTmCYHUWh7W6QULEYn.png"/></a></figure><p id="516e3123-c716-44fd-9f41-8efc63cba777" class="">官网链接： <a href="https://www.designcouncil.org.uk/news-opinion/what-framework-innovation-design-councils-evolved-double-diamond">https://www.designcouncil.org.uk/news-opinion/what-framework-innovation-design-councils-evolved-double-diamond</a></p><p id="92dd82fc-4e62-42f4-a18e-e3e002bc8dd7" class=""><strong>6. LUMA 学院设计流程（LUMA Institute Design process）</strong></p><p id="c933ed64-eb8a-4546-b252-5cf99feaff99" class="">看(looking)，理解(understanding)，制作(making)。</p><figure id="49faf611-d691-4e88-841d-3c2b74e0ca3d" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/cKFhhJYE2DsvvPUD8XctZBke4KExj3zhf4orbngT15F.png"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/cKFhhJYE2DsvvPUD8XctZBke4KExj3zhf4orbngT15F.png"/></a></figure><p id="8661949e-4878-408b-a2cd-d876223924e5" class="">官网链接： <a href="https://www.luma-institute.com/about-luma/luma-system/">https://www.luma-institute.com/about-luma/luma-system/</a></p><p id="7cebbf75-c99c-4c7b-a0e7-bd39b213fd02" class="">04</p><h1 id="20a5f7cb-f901-423e-adcd-3aa70f0fbb97" class="">结语</h1><p id="e0bf4f70-8cfb-4c8f-92e4-75cde006b0f1" class="">以上就是本篇的全部内容了，希望大家读完后能对国际主流人机交互领域多了一些了解或者从中获取一些启发。感兴趣的读者们也可以通过点击介绍中的链接直接去官网获取更详细设计理念的介绍。</p><p id="48cb82a1-f8bc-464c-9350-3167c48044ed" class="">以上若是有没提到的主流国际设计理念也欢迎大家在评论区下方补充与讨论哦～</p></div></article></body></html>

@@ -1,0 +1,671 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>作品集</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9b0bba94-19da-4ec5-9b14-7ffa6c09a259" class="page sans"><header><h1 class="page-title">作品集</h1></header><div class="page-body"><p id="e5afea46-c701-4691-89cf-5c257e98becd" class="">
+</p><h2 id="9d76231b-5865-4a22-a032-81eeb868790c" class=""><a href="https://www.zhihu.com/question/25031068/answer/1206475731"><strong>如何做好一个作品集，排版怎么样才能吸引人？</strong></a></h2><p id="8cc08d35-df9f-458d-9d30-99f7b2d5c737" class=""><a href="https://www.zhihu.com/people/simschen"><strong>陈允信</strong></a></p><p id="604a3b5c-352c-4057-8ca1-94bea00dde85" class="">视觉调研／品牌设计</p><p id="0cac835c-cf3d-4262-ac20-78f7ce1d5b3a" class="">1,486 人赞同了该回答</p><figure id="4ea92012-c375-4f5b-a3d8-1bc6377c7830" class="image"><a href="https://pic1.zhimg.com/v2-8f138f16f9b6459192ea715a23517670_720w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/v2-8f138f16f9b6459192ea715a23517670_720w.jpg?source=3af55fa1"/></a></figure><p id="25e9dc49-ea17-422b-b888-98198e4c0a84" class="">
+</p><figure id="d1bdaa78-5353-4b47-93b3-62134eccc2dd" class="image"><a href="https://pic2.zhimg.com/80/v2-e5eae6d23a830d1cbe83c24cd4ff3b0d_1440w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/80/v2-e5eae6d23a830d1cbe83c24cd4ff3b0d_1440w.jpg?source=3af55fa1"/></a></figure><p id="a3939506-c95a-418f-b8fa-cb3532041314" class=""><strong>作品集是设计师的另一张脸</strong>，应聘时，优秀的作品集比头衔，学历，工作年限都来得有效。</p><p id="313e4c0a-e5de-4994-9e2f-a9b2ed09635a" class=""><strong>作品集也是一场没见面的设计提案</strong>，这个提案决定是否约见面试，要知道，我们每次是一两百份作品集筛选的数量，在每份作品集上停留的时间非常少，好的作品集本身也是一个作品，能引起面试官的兴趣。而有几种作品集我是绝对不会打开的：</p><figure id="37488862-bc81-457d-8a4e-b75d339c79f4" class="image"><a href="https://pic2.zhimg.com/v2-3e1796acaa2ceb257fbf40484eaf72d9_720w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/v2-3e1796acaa2ceb257fbf40484eaf72d9_720w.jpg?source=3af55fa1"/></a></figure><figure id="a7b2fc31-4762-4fe6-8317-6683c532454c" class="image"><a href="https://pica.zhimg.com/80/v2-d31a8bf805ad56cc54075ef57ae6d7b9_1440w.jpg?source=3af55fa1"><img src="https://pica.zhimg.com/80/v2-d31a8bf805ad56cc54075ef57ae6d7b9_1440w.jpg?source=3af55fa1"/></a></figure><figure id="ef99e197-520f-46cd-9e10-d46e7ffebf59" class="image"><a href="https://pic2.zhimg.com/80/v2-e34c5ef6da593c7417f1ece107c5344a_1440w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/80/v2-e34c5ef6da593c7417f1ece107c5344a_1440w.jpg?source=3af55fa1"/></a></figure><figure id="38ab0ff0-d2b2-4958-bcc3-22e68a9e61c0" class="image"><a href="https://pic1.zhimg.com/80/v2-68e88c01a04767baf57ba1ad8dae196a_1440w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/80/v2-68e88c01a04767baf57ba1ad8dae196a_1440w.jpg?source=3af55fa1"/></a></figure><figure id="000b737a-cb49-4cbf-92be-b8d213e96f22" class="image"><a href="https://pic2.zhimg.com/80/v2-4667afcbeeaefe67ffd0b9fb15d88789_1440w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/80/v2-4667afcbeeaefe67ffd0b9fb15d88789_1440w.jpg?source=3af55fa1"/></a></figure><p id="372342f8-cd6b-4b66-9fbd-9bb9281906e7" class=""><strong>那究竟什么是好的作品集？</strong></p><p id="35b2bace-aef1-4e22-aa85-a2f3cdf4df4e" class="">比起花哨的装饰性的视觉，能够让我清晰快速了解你的作品集逻辑才是最重要的。一般来说作品集逻辑混乱的设计师往往逻辑能力比较差，如果连自己都没办法用设计讲清楚，又怎么能帮助客户解决问题？</p><p id="b40b7fd6-acf5-4c44-bb85-6275307e993b" class="">接下来我就会帮助大家理清作品集的逻辑，从流程、方法和技巧几个方面入手，配合案例讲解。</p><figure id="5f19cf8e-cf43-4ac7-a8d1-e1ecd76a8742" class="image"><a href="https://pic1.zhimg.com/80/v2-e08ae1b9ee85864c1ec05d4d145d9925_1440w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/80/v2-e08ae1b9ee85864c1ec05d4d145d9925_1440w.jpg?source=3af55fa1"/></a></figure><figure id="89fdfbb0-1ff7-4c38-845b-4a7ab243e0d7" class="image"><a href="https://pic1.zhimg.com/80/v2-6ead8fa075ad24544b9c66f6a09309db_1440w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/80/v2-6ead8fa075ad24544b9c66f6a09309db_1440w.jpg?source=3af55fa1"/></a></figure><figure id="4eff655d-9871-421c-9961-28f2b5ad2377" class="image"><a href="https://pic1.zhimg.com/80/v2-e4a1b49ae38fb67435cc77d1965386e5_1440w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/80/v2-e4a1b49ae38fb67435cc77d1965386e5_1440w.jpg?source=3af55fa1"/></a></figure><p id="a702cd09-7ed9-48e2-b1f0-85991209a408" class=""><strong>开始设计前先摆正心态，作品集本身也是一个作品</strong>，它会直接暴露你的版面设计能力，所以需要用心对待。</p><figure id="434fb89a-ed0d-48bd-8b4e-3c6f25698902" class="image"><a href="https://pic2.zhimg.com/80/v2-b3ec336c04db81a4c2639fe7bea47b3a_1440w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/80/v2-b3ec336c04db81a4c2639fe7bea47b3a_1440w.jpg?source=3af55fa1"/></a></figure><p id="e3fae836-df07-47c2-b536-b6ea7c83e3ba" class=""><strong>第一步是筛选作品。</strong>开始前别急着动手，先盘点以往所有的设计作品，<strong>结合自己的就职方向来选择自己的作品类型的权重比例</strong>。</p><figure id="918192b1-7ffe-47d5-9bbb-f6bfea045b52" class="image"><a href="https://pic2.zhimg.com/80/v2-cdd76d2b5b2a4a1c2899313220a4d06d_1440w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/80/v2-cdd76d2b5b2a4a1c2899313220a4d06d_1440w.jpg?source=3af55fa1"/></a></figure><p id="eeeaa3e3-fd82-4d9b-999a-3447c2d60a42" class="">比如你要投品牌设计公司，那就得针对性放60%-70%左右品牌类的作品，平面海报，字体类，3D类为辅。如果招聘的品牌设计公司，而你的作品里全是单独的字体设计，也会让面试官觉得你是不懂品牌的字体设计师。</p><figure id="16ae80ed-0248-46c3-b81b-b5234365bf16" class="image"><a href="https://pic2.zhimg.com/80/v2-bfd9b628ed087239812d175b47fc8399_1440w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/80/v2-bfd9b628ed087239812d175b47fc8399_1440w.jpg?source=3af55fa1"/></a></figure><p id="341816fe-fd36-45d0-9286-0b30a13ee81e" class=""><strong>选好作品之后是整理目录，目录是一个作品集的逻辑框架，</strong>帮自己也帮面试官理清逻辑。这一步，我们将挑选出来的作品分类，记住，优秀作品放在前列，挑2-3个作品来展现你的能力，尽量多的呈现：创意，思考过程和设计呈现。</p><figure id="3d075276-4765-4f51-a49b-16ac6c6238e9" class="image"><a href="https://pic3.zhimg.com/80/v2-91ed3aa47574460aa0c76fb0b524f3bc_1440w.jpg?source=3af55fa1"><img src="https://pic3.zhimg.com/80/v2-91ed3aa47574460aa0c76fb0b524f3bc_1440w.jpg?source=3af55fa1"/></a></figure><figure id="6a7b3420-9f62-4d15-b5ab-c24d14007072" class="image"><a href="https://pica.zhimg.com/80/v2-21e7b1a3859e9ed98a1364bedd5ebd6e_1440w.jpg?source=3af55fa1"><img src="https://pica.zhimg.com/80/v2-21e7b1a3859e9ed98a1364bedd5ebd6e_1440w.jpg?source=3af55fa1"/></a></figure><p id="6fd65ab2-6e0b-4c67-a01f-5674f1e1d3e5" class=""><strong>第二步确定风格。</strong>风格协调统一的作品集就是好印象的开始，如果作品集有主题会更加分。推荐大家用<strong>情绪板来调研并确定设计风格</strong>。这个情绪板之前的文章有专门介绍过。</p><figure id="b92366db-659d-4018-a91f-f6fbfcc0772f" class="image"><a href="https://pic2.zhimg.com/80/v2-170a590e3e68820560bd5f2cd753c286_1440w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/80/v2-170a590e3e68820560bd5f2cd753c286_1440w.jpg?source=3af55fa1"/></a></figure><p id="8b8ce9d8-36bc-4ffd-bfe3-d4d0931aed3d" class="">例如，我的研究生书籍设计就是用“食物”做为主题概念。有主题的好处是能快速抓人眼球。我自己的原则就是：<strong>没想好，就别动手。</strong></p><figure id="4d4e7e37-b3f8-40f9-be1a-f0ad68ca9877" class="image"><a href="https://pica.zhimg.com/80/v2-c6f2c3a79f3a42114ae96b9231971dec_1440w.jpg?source=3af55fa1"><img src="https://pica.zhimg.com/80/v2-c6f2c3a79f3a42114ae96b9231971dec_1440w.jpg?source=3af55fa1"/></a></figure><figure id="199412cd-9159-4fe1-b5ff-12111f8a246a" class="image"><a href="https://pic2.zhimg.com/v2-d3c5f37844b9251aa66bc6bf614f46bb_720w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/v2-d3c5f37844b9251aa66bc6bf614f46bb_720w.jpg?source=3af55fa1"/></a></figure><p id="e1c1a684-8c27-44f0-80c2-510604414c1f" class="">根据上一步确定的风格，我们开始着手设计。作品集的基本内容就是<strong>封面-目录-作品分割页-作品页</strong>。设计封面，目录，分割页，这三部分是奠定是作品集风格的主要页面，一定要跟紧风格。</p><figure id="1bf13c24-7167-49ea-907c-fd494bb87aa9" class="image"><a href="https://pic2.zhimg.com/80/v2-e0a07ec8e6a369467c94336692c66e5f_1440w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/80/v2-e0a07ec8e6a369467c94336692c66e5f_1440w.jpg?source=3af55fa1"/></a></figure><figure id="9b864182-4c85-4152-b2fc-750b75719130" class="image"><a href="https://pic3.zhimg.com/80/v2-1d9add9878c64e9f31c6353dcf0c7ed4_1440w.jpg?source=3af55fa1"><img src="https://pic3.zhimg.com/80/v2-1d9add9878c64e9f31c6353dcf0c7ed4_1440w.jpg?source=3af55fa1"/></a></figure><p id="3cc4ff35-d42d-4d68-8404-507e42bee55f" class="">目录和作品分隔页是我很喜欢用来发挥平面版式的地方，因为它很容易出效果。</p><figure id="79b2bd89-69d4-41cc-89e2-280fe9e284e9" class="image"><a href="https://pica.zhimg.com/80/v2-e8e969dafe2969650c9742f11f18de43_1440w.jpg?source=3af55fa1"><img src="https://pica.zhimg.com/80/v2-e8e969dafe2969650c9742f11f18de43_1440w.jpg?source=3af55fa1"/></a></figure><p id="83e36b92-3293-4a2c-952a-33f2878ec1b4" class="">作品集的尺寸比例，我个人更倾向用横版16:9或4:3，适合电脑屏幕查阅皆可，竖版的阅读体验不够好。</p><figure id="4b680e74-7c1f-40e8-b2e6-fbc3dd06f2ea" class="image"><a href="https://pica.zhimg.com/80/v2-49d6124c92cfbdabc5a130978c74bb15_1440w.jpg?source=3af55fa1"><img src="https://pica.zhimg.com/80/v2-49d6124c92cfbdabc5a130978c74bb15_1440w.jpg?source=3af55fa1"/></a></figure><figure id="158d5b1c-bcd9-455a-acea-e0f25c079364" class="image"><a href="https://pic1.zhimg.com/80/v2-54ce32b196a50fe90ed9d9e8a1f4e25a_1440w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/80/v2-54ce32b196a50fe90ed9d9e8a1f4e25a_1440w.jpg?source=3af55fa1"/></a></figure><figure id="94829ae2-0eed-412d-b452-b6e0871c1133" class="image"><a href="https://pic3.zhimg.com/80/v2-7a3507cf6af652ffc957c5de71f5b7ef_1440w.jpg?source=3af55fa1"><img src="https://pic3.zhimg.com/80/v2-7a3507cf6af652ffc957c5de71f5b7ef_1440w.jpg?source=3af55fa1"/></a></figure><figure id="a4d8144e-24a8-4b4a-9e61-62cd5f22e70c" class="image"><a href="https://pic2.zhimg.com/v2-4803c10ad53159f4854d604a581decd0_720w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/v2-4803c10ad53159f4854d604a581decd0_720w.jpg?source=3af55fa1"/></a></figure><p id="751028f9-4a1f-41fb-b6de-2711dccfa28a" class=""><strong>开始设计内页前，要定好内页的规范，作品集才能看起来统一整体:</strong></p><p id="ca0d10e3-3d22-4527-9eb9-a44b5f5721e0" class="">A.四周留白的区域大小；B.选择好标题字体，标题字颜色；C.选择正文字体，正文字体颜色；D.内页背景建议使用白色或浅色系；E. 作品图片编排；F. 点缀元素；</p><figure id="e50b7fd4-dc1a-4b2c-bfbe-955ecfcf2ff4" class="image"><a href="https://pica.zhimg.com/80/v2-fcac85d26e00aaac09ccfd37a66f24b7_1440w.jpg?source=3af55fa1"><img src="https://pica.zhimg.com/80/v2-fcac85d26e00aaac09ccfd37a66f24b7_1440w.jpg?source=3af55fa1"/></a></figure><p id="b2ad44ff-d688-4392-a0d9-74f507bbed2b" class="">版式规划确定好之后，就可以开始内页编排，这也是作品集的难点之一，这里我总结了一些不同情况下的排版思路供大家参考。</p><figure id="6d405bdf-2985-4518-8074-920b2b914bfa" class="image"><a href="https://pic1.zhimg.com/80/v2-bcf2bf9ef761d00e3a7fdcee439de326_1440w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/80/v2-bcf2bf9ef761d00e3a7fdcee439de326_1440w.jpg?source=3af55fa1"/></a></figure><figure id="7b663e7d-cb29-4994-ad41-aa7da1ed5f6c" class="image"><a href="https://pic3.zhimg.com/v2-26815c28691de779ba273ae5a44dd590_720w.jpg?source=3af55fa1"><img src="https://pic3.zhimg.com/v2-26815c28691de779ba273ae5a44dd590_720w.jpg?source=3af55fa1"/></a></figure><figure id="40fd006d-243f-49ab-b483-c8509ce581d0" class="image"><a href="https://pic2.zhimg.com/v2-078b44cf82cacb51d730856d62499b11_720w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/v2-078b44cf82cacb51d730856d62499b11_720w.jpg?source=3af55fa1"/></a></figure><figure id="abdc65c5-ba1c-411a-b018-98666d074c70" class="image"><a href="https://pic2.zhimg.com/80/v2-d549da6c3f3fdd8e23ab524f6d33457b_1440w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/80/v2-d549da6c3f3fdd8e23ab524f6d33457b_1440w.jpg?source=3af55fa1"/></a></figure><figure id="276ed1ca-8ccf-40f6-9336-076b7bfff649" class="image"><a href="https://pic1.zhimg.com/v2-7ca1d9066cc96bf7bd5ae51fe008c6b0_720w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/v2-7ca1d9066cc96bf7bd5ae51fe008c6b0_720w.jpg?source=3af55fa1"/></a></figure><figure id="bbf87772-25b3-4ec6-8905-a595adbeb541" class="image"><a href="https://pic2.zhimg.com/v2-5302e03654954c3125f779419d2004ee_720w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/v2-5302e03654954c3125f779419d2004ee_720w.jpg?source=3af55fa1"/></a></figure><figure id="4bd611ba-1850-4b4a-ad79-14b633259456" class="image"><a href="https://pica.zhimg.com/80/v2-766b64bf53e159ae1e4521397cc55479_1440w.jpg?source=3af55fa1"><img src="https://pica.zhimg.com/80/v2-766b64bf53e159ae1e4521397cc55479_1440w.jpg?source=3af55fa1"/></a></figure><figure id="5a884c41-861d-4344-a426-e1f9e8491b7c" class="image"><a href="https://pic1.zhimg.com/v2-ed17f49739726ece2f88be12fb5cfd8b_720w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/v2-ed17f49739726ece2f88be12fb5cfd8b_720w.jpg?source=3af55fa1"/></a></figure><figure id="2df7b515-7d0d-414e-8c05-a634ea87dfcb" class="image"><a href="https://pic3.zhimg.com/v2-98841e8993f0e1955618a75bb9b2fa1d_720w.jpg?source=3af55fa1"><img src="https://pic3.zhimg.com/v2-98841e8993f0e1955618a75bb9b2fa1d_720w.jpg?source=3af55fa1"/></a></figure><p id="8f6ecae6-13af-4519-8476-eed9351126b1" class="">排版样式不宜过多，2-3个灵活应用即可。避免审美疲劳，也不至于太过跳跃。</p><figure id="c157baf8-2ddf-46ac-b0fe-212f4b1f2db4" class="image"><a href="https://pica.zhimg.com/80/v2-bda230d4385796eca4e7d1c528117744_1440w.jpg?source=3af55fa1"><img src="https://pica.zhimg.com/80/v2-bda230d4385796eca4e7d1c528117744_1440w.jpg?source=3af55fa1"/></a></figure><figure id="56528d12-c811-44db-9a7e-12eb937d362d" class="image"><a href="https://pic1.zhimg.com/80/v2-8f0f151d9af7b990f3a4fb07aba904d2_1440w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/80/v2-8f0f151d9af7b990f3a4fb07aba904d2_1440w.jpg?source=3af55fa1"/></a></figure><figure id="0a063ecb-f202-4aec-bd01-d06953c79203" class="image"><a href="https://pica.zhimg.com/80/v2-a769e9cc3e0c8221e0a06bdfd5bb57ec_1440w.jpg?source=3af55fa1"><img src="https://pica.zhimg.com/80/v2-a769e9cc3e0c8221e0a06bdfd5bb57ec_1440w.jpg?source=3af55fa1"/></a></figure><p id="7e04b4c3-805b-48b6-b3f8-8aa5d7dc62b4" class="">除了通常的作品以外，增加一些重点展示作品也是很有必要的。可以让面试官看到你作作品的完整思路，是展示能力的好机会。<strong>从创意初期的思考过程，项目分析，手稿，平面设计稿，再到终稿的完整展示。</strong></p><figure id="bf21f0c7-d8d9-4bff-9c65-7f93082fab94" class="image"><a href="https://pic2.zhimg.com/v2-a2d4fd5a832184953ec80e4279be0297_720w.jpg?source=3af55fa1"><img src="https://pic2.zhimg.com/v2-a2d4fd5a832184953ec80e4279be0297_720w.jpg?source=3af55fa1"/></a></figure><figure id="e6f22fff-c1dd-4c18-8feb-3b689beb60b9" class="image"><a href="https://pica.zhimg.com/80/v2-cb46c3820c1e3971f9f58f856c42af27_1440w.jpg?source=3af55fa1"><img src="https://pica.zhimg.com/80/v2-cb46c3820c1e3971f9f58f856c42af27_1440w.jpg?source=3af55fa1"/></a></figure><figure id="a2c30acc-09d1-4058-9c05-5af43a7cf266" class="image"><a href="https://pic3.zhimg.com/80/v2-6ca01b4fc49a5db6d7b622cdec803419_1440w.jpg?source=3af55fa1"><img src="https://pic3.zhimg.com/80/v2-6ca01b4fc49a5db6d7b622cdec803419_1440w.jpg?source=3af55fa1"/></a></figure><figure id="28514b92-8266-42ad-bb9b-0c7348567776" class="image"><a href="https://pic1.zhimg.com/80/v2-245f15ed53bb7bf315bcaacb347ae87c_1440w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/80/v2-245f15ed53bb7bf315bcaacb347ae87c_1440w.jpg?source=3af55fa1"/></a></figure><figure id="8f07c293-2a54-4346-8b37-06a7576ebd68" class="image"><a href="https://pic1.zhimg.com/80/v2-7429fb346426306087274c709608ef8b_1440w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/80/v2-7429fb346426306087274c709608ef8b_1440w.jpg?source=3af55fa1"/></a></figure><p id="1a11b277-ce85-4bdc-9a8d-8a8572a818ff" class="">这部分的目的是展示自己较为全面的能力，将设计过程图表信息化设计，是有效提高作品集专业度的方法。</p><p id="d256bc09-3075-44ce-97a7-f6937779acb0" class=""><strong>优秀作品的页数一般控制在4-5p，常规作品1-2p即可。</strong></p><figure id="dfcf63cb-9a2b-4648-a3bf-c30d227ffe0f" class="image"><a href="https://pic1.zhimg.com/80/v2-cafa27bf4b35b115f005f62a63910225_1440w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/80/v2-cafa27bf4b35b115f005f62a63910225_1440w.jpg?source=3af55fa1"/></a></figure><figure id="e4d45b77-632c-4165-9c48-1a2cb10c6dbb" class="image"><a href="https://pic3.zhimg.com/v2-fc1349b49937969ce88a6f40a135889d_720w.jpg?source=3af55fa1"><img src="https://pic3.zhimg.com/v2-fc1349b49937969ce88a6f40a135889d_720w.jpg?source=3af55fa1"/></a></figure><p id="1233af95-1420-4ec8-be4c-d5dc13724e1d" class=""><strong>重要的事情说三遍，一定要校对！</strong>检查错别字，整体风格是否统一，重点作品展示是否清晰，联系方式等重点信息是否遗漏等待。</p><figure id="27468035-fa21-4553-a1c3-4ba4784e61c4" class="image"><a href="https://pic1.zhimg.com/80/v2-31706b170be1a3231c3699a612e358e9_1440w.jpg?source=3af55fa1"><img src="https://pic1.zhimg.com/80/v2-31706b170be1a3231c3699a612e358e9_1440w.jpg?source=3af55fa1"/></a></figure><p id="5ca89f59-bc69-4f06-ab02-e390883b717c" class="">最后是文件输出这里也是盲区，很多人会忽略的地方。</p><p id="64da044c-d081-4c5e-9d2b-0b1f0fe83363" class="">➊<strong>作品集的命名要清晰。</strong></p><p id="9edc6c83-6023-4463-855d-f648be1d8d0d" class="">最直接的就是姓名加作品集：小明的作品集；有些会特别要求加上职位和工作地点，如果非常明确面试岗位也可以加上：小明-品牌设计师-作品集。</p><p id="dffa389c-2a67-4882-95a3-6b58d57f60c3" class="">➋<strong>作品集篇幅要控制。</strong></p><p id="c971076a-a765-458f-97f7-9091ad2b2974" class="">作品集应该尽可能展示自己，但是也别太多，言多必失，内容太多也更容易暴露问题，所以一定要精简。<strong>30p-40p左右最好。</strong></p><p id="e67b0984-bbd2-43d2-b233-ef7a4de860bf" class="">➌ <strong>文件格式PDF最佳。</strong></p><p id="896f6dcd-f179-405c-aac9-e5f2c813a050" class="">长图、PPT、网页都会有各种各样的麻烦和问题，通常PDF的体验是最好的。建议大家不要玩花，直接清爽的一个PDF文件就好了。</p><p id="e5829129-9cc2-4141-b0d8-d9a432bcd244" class="">同时要注意文件大小，控制在30m以下，避免公司下载出问题，也避免给公司造成较大的文件保存压力；</p><p id="ca6321ba-7b97-4667-a2c1-c74b53a5c84f" class="">➍<strong>因地制宜</strong></p><p id="3a878c16-bf1b-4e21-b1ed-fb672fcbeaa8" class="">如有特别心仪公司，强烈建议根据其公司的要求编排专属的作品集，通过率一定会提高，毕竟你如果用心准备，面试官多少都会感受到的。</p><p id="8e260a29-38d1-498f-9310-0564ae32ca99" class=""><strong>选择公司就像谈恋爱一样，双方价值观符合是双方一起共事的前提。设计师们要有努力打磨好作品的心，机会是留给有准备的人的，别等机会突然出现，你也只能傻傻看着，加油吧！</strong></p></div></article></body></html>

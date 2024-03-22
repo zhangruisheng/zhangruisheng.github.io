@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>用户体验设计师</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="272d95e6-3531-465b-8c0c-2395a7f0b020" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🎰</span></div><h1 class="page-title">用户体验设计师</h1><p class="page-description"></p></header><div class="page-body"><p id="a5c6679a-8d88-49af-af0b-89ef91b417dc" class="">在互联网领域，用户体验逐渐成为一个炙手可热的关键词，用户体验设计师也逐渐成为产品开发设计团队重要的成员。可以说，这是一个用户体验为王的时代，人人都在谈论用户体验并发表着见解。本文作者通过回顾过去几年的交互设计师生涯，透过成长的时间轴，看过去到现在，望未来，我想尝试用自己不同阶段不同的成长，和大家一起谈谈用户体验设计师成长这个事情。</p><p id="42174491-c4b9-486c-affc-2e9ede00463f" class="">
+</p><figure id="3494871d-dc2e-4a71-96fe-0930582e1ae4" class="image"><a href="https://cdn-isux.qq.com/upload/detail/FolKrpD8D3DtKzed1eyQpAv4VTKQRSlmMNhPxpX5l2C.png"><img src="https://cdn-isux.qq.com/upload/detail/FolKrpD8D3DtKzed1eyQpAv4VTKQRSlmMNhPxpX5l2C.png"/></a></figure><p id="ca651cb3-3391-42f8-ace6-656e7f137b2d" class="">现如今，在互联网领域，用户体验逐渐成为一个炙手可热的关键词，用户体验设计师也逐渐成为产品开发设计团队重要的成员。可以说，这是一个用户体验为王的时代，人人都在谈论用户体验并发表着见解。随着各种体验大会层出不穷，经常听到或浏览到业界各种设计大牛前辈从各个角度阐述用户体验、谈论用户体验设计师，比如产品设计流程、设计方法论、设计思维、设计工具、数据化设计、游戏化设计、社交产品设计、智能产品设计等。作为一个初学者时，很多时候听到或浏览到此类分享，都会感叹下好厉害，然后就没有然后了；后来随着实践经历和思考，会逐渐的辨别哪些内容是真正的好内容，从中汲取养分，并且不断的总结思考成长。</p><figure id="f034e67c-130f-41e7-bcfe-5094a6c8f3a5" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/9CScC8o13fLt2dSBukrhzjOxJUuBfFgf2BsmoVxyimY.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/9CScC8o13fLt2dSBukrhzjOxJUuBfFgf2BsmoVxyimY.jpeg"/></a></figure><p id="3a3b0046-bac4-4767-a934-03a97095096b" class="">认识我的人觉得我很擅长做总结，但其实很多时候我都是被动的去沉淀总结，比如晋级答辩，在总结的过程中不断再次深入思考，升华自己的思维。就比如今天想和大家分享的主题《过去的未来：成为用户体验设计师未完结》，就是因为有朋友知道我和小伙伴出了本书《用户体验设计指南》，邀请我去他俩公司做个设计分享，当时我想“如果是我，我会想听什么呢？”。市面上不缺方法论、不缺案例，但是我没有见到很好的关于设计师成长的内容，所以我回顾过去几年的交互设计师生涯，重新打开硬盘里面几年前做的设计稿和总结，然后很开心看到自己的成长。<strong>透过成长的时间轴，看过去到现在，望未来，我想尝试用自己不同阶段不同的成长，和大家一起谈谈用户体验设计师成长这个事情。</strong></p><p id="d867b897-db22-4936-a4e5-ba7183fc9dd2" class="">16年时候，特赞范老师让我看过一篇文章叫《鸟与青蛙》，是数学家戴森应邀为美国数学会爱因斯坦讲座所起草的一篇演讲稿。讲述了数学世界中，有些数学家是鸟，有些是青蛙。鸟翱翔在高高的天空，俯瞰延伸至遥远地平线的广袤的数学远景。他们喜欢那些统一我们思想、并将不同领域的诸多问题整合起来的概念。青蛙生活在天空下的泥地里，只看到周围生长的花儿。他们乐于探索特定问题的细节，一次只解决一个问题。而正是因为鸟和青蛙的共存，一起推进了数学世界的不断发展。这篇文章我时不时会拿出来思考，<strong>通过鸟的视野“课堂知识、书本知识、前辈学习”和青蛙的实践“设计练习、设计实践、沉淀总结”，到今天成为一个用户体验设计师，并在未来不断探索。可以说这个过程经历了4个阶段：设计执行者、设计思考者、形成设计思维、不断跨界探索。</strong></p><figure id="9cd23c82-12da-4bd2-a080-dde6b7e5a8ec" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/P22qUElt7igVzCokRyRbqzJt9jqkryxMJ9iyn0DU7sV.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/P22qUElt7igVzCokRyRbqzJt9jqkryxMJ9iyn0DU7sV.jpeg"/></a></figure><figure id="e870ded2-42dc-4e47-ac06-a6850f020fb3" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/8QETrBUnRFBoLmWUiFwVeF6O6VO0oJ9fIhB1D8fTj6w.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/8QETrBUnRFBoLmWUiFwVeF6O6VO0oJ9fIhB1D8fTj6w.jpeg"/></a></figure><figure id="bd8419f9-2106-45ae-995b-ae79ad2436dc" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/tr4ILdbglk2KniL0U1pDtfwAlVYY2DAUDNYh0zpVuP6.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/tr4ILdbglk2KniL0U1pDtfwAlVYY2DAUDNYh0zpVuP6.jpeg"/></a></figure><h1 id="ad5df414-6152-49a0-863d-c9bfdb9390ee" class="">设计执行者阶段</h1><p id="e4ea6074-a8e1-4ea0-8620-1d095a068d15" class="">成长的第1阶段，作为设计执行者，这是初学者角色，开启设计大门，在点状思考中学习进化。主要是理解设计方法、流程、原则、挖掘用户场景任务等，并输出好的设计稿。举个例子，一般作为新人进入公司时，尤其是设计团队比较成熟时，其产品设计流程相对完善，基本都是“研究洞察-概念设计（包含交互视觉）-详细设计（包含交互视觉）-开发支撑”，如同每个设计新鲜人，这时的我如同一个海绵，在流程化的项目路径中，快速实践，一步一步学习成长。</p><figure id="1d62b40d-2d69-4be4-a0c2-ed5e7b77ed1c" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/Rk7ahY7MaYYsC04cO4qjLBUYrg42ykh2l7ToqydnnLv.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/Rk7ahY7MaYYsC04cO4qjLBUYrg42ykh2l7ToqydnnLv.jpeg"/></a></figure><p id="734a5aef-1295-4a0e-a887-ada18bcd2cd1" class="">思维层面开始学会对一个问题进行更深入思考，比如拆掉思维的墙，跳出思维的固有模式，从为了分析而分析的固有思路，开始基于前期研究-设定设计关注点-从而有了分析维度-最后总结分析结果；思维层面的第2个变化，就是更有全局观了，开始学会全面、整体的思考问题，比如之前一直都觉得前辈说的生态圈属于一个高大上概念，也和很多人一样觉得这是一种包装出来的东西，直到和前辈一起做项目，深入其中才深刻认识到前辈考虑问题更上层更全局，只有真正从全局整体去思考企业思考项目，你才能更好的规划处一个产品闭环循环系统，从而多维度构建出属于这个产品的生态圈。</p><figure id="6a9d431b-e464-4118-b215-d045f94b3061" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/jGNejKu6yjfGeLreQrR5QGARn7JicpkKsmhyTmhKkTj.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/jGNejKu6yjfGeLreQrR5QGARn7JicpkKsmhyTmhKkTj.jpeg"/></a></figure><figure id="1ee3f587-e547-40d3-bc8a-d9fa84706b01" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/qkauR9uKaoxLQs9kYNeYDr7J4ziFMCoXk7GwRZnPw5x.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/qkauR9uKaoxLQs9kYNeYDr7J4ziFMCoXk7GwRZnPw5x.jpeg"/></a></figure><figure id="f98a6e43-2712-42c9-a575-c622d136b35f" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/x4swp7QznMjf4eD1y9TneVSNkzZWTh8mbMuqF4HwKEz.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/x4swp7QznMjf4eD1y9TneVSNkzZWTh8mbMuqF4HwKEz.jpeg"/></a></figure><figure id="341b82bb-2c3c-4dd1-969b-af10ad41f847" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/OvW58L3Q8vEMX3LlSAXMI5CRaQQayt6vLO6KQ163qrC.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/OvW58L3Q8vEMX3LlSAXMI5CRaQQayt6vLO6KQ163qrC.jpeg"/></a></figure><figure id="90084840-15e1-49f5-8a30-545b666897e5" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/39tuHq15WhUWS1pOejoTRFCdIhQT6QfMYwYZ2EVg0HD.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/39tuHq15WhUWS1pOejoTRFCdIhQT6QfMYwYZ2EVg0HD.jpeg"/></a></figure><p id="3e252af5-5719-4daf-8a18-c533d82495e4" class=""><strong>设计实践上，</strong>深入产品的业务逻辑，全面了解设计过程，探究产品功能模块间的关联性；同时要学会对解决方案的多手准备，即在设计方案时候，自我纠结，思考多种方式，这样才可能在沟通中时刻都有备份方案。</p><figure id="a2aaba5d-c056-4fdf-be63-e90ae015b799" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/BvwoKl9UEmyHgm65TAUymcAzbRJyU9k17Ah1v3unybK.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/BvwoKl9UEmyHgm65TAUymcAzbRJyU9k17Ah1v3unybK.jpeg"/></a></figure><figure id="e5256e72-ed7f-4297-94cd-ac281ebaf3a9" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/zELpbsm9ADWCKIpGDJDhfo12eY96CJ5hqWhoLxVYg2U.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/zELpbsm9ADWCKIpGDJDhfo12eY96CJ5hqWhoLxVYg2U.jpeg"/></a></figure><p id="dbf16044-4008-4c07-b7fe-3f9f057bb2ed" class="">总的来讲，设计执行者阶段主要就是点状思考不断学习进化，那时候最大的愿望就是“想让别人认可这个方案的思路和灵魂，认可我这个交互设计师”。态度上要有自驱力和主动性，善于倾听和多问为什么；专业上要学会查资料，向身边人和前辈学习，多反思总结。</p><figure id="0af2e67e-943c-45e2-b125-f4e1ac5154c6" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/SvznNjMf3kuFDKahgAvJQZvVSszSixazDqLefDzOFbi.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/SvznNjMf3kuFDKahgAvJQZvVSszSixazDqLefDzOFbi.jpeg"/></a></figure><h1 id="ee3564b8-6c96-4a30-a7d3-e77f01e718f1" class="">设计思考者阶段</h1><p id="6f137d55-6838-4290-a746-07270311cc74" class="">成长的第2阶段，作为设计思考者，在设计执行者基础上进一步成长 “独立承担 参与协同” &amp; “积淀成长，独当一面”。在这个阶段，公司里面设计师（尤其是BAT等大公司）通常需要独立面对2种类型的项目：常规产品迭代项目、由设计主导并发起项目（一般高阶设计师发起）。</p><p id="cf1b99c5-4fef-4aec-8ad2-714c7bcacc18" class=""><strong>常规迭代项目</strong></p><p id="c6a9f824-bdd9-407e-9e9e-f1eaeae01889" class="">对于常规迭代项目，设计师（交互设计、视觉设计）其实处于产品开发的中间环节，这也是大部分设计师处于的阶段，这个过程主要做的就是承接并沟通产品需求，并根据产品需求输出交互产出物，再开交互评审会确认设计稿。这种传统串行流程模式，其实存在着以下2个大问题：</p><ul id="0c62e7ec-b6e2-4fa1-baf2-d5e85050abbf" class="bulleted-list"><li style="list-style-type:disc">需求质量不可控，过于依赖上游需求质量，一旦出现问题将影响整体项目进度，甚至影响用户体验。</li></ul><ul id="c33ffc35-86e8-4ea3-80b5-420ee77fdba1" class="bulleted-list"><li style="list-style-type:disc">设计师容易坐井观天，对整体把控不足，设计工作也很容易沦为工业流水线工作，其创意也容易受局限</li></ul><figure id="1199f4ad-3357-4acb-9033-c6cc15d420cb" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/jkyXsf2D01E7NkriBJJ2DsD6BfHcTikaHews85vP4mm.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/jkyXsf2D01E7NkriBJJ2DsD6BfHcTikaHews85vP4mm.jpeg"/></a></figure><figure id="802d5cbd-6b43-4c3c-878c-0945224f49ed" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/WjNM9wbdZYL1ggY29fuoXJpslftnPnOyKBDidiTiaBs.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/WjNM9wbdZYL1ggY29fuoXJpslftnPnOyKBDidiTiaBs.jpeg"/></a></figure><p id="faacda69-cfe4-4dc1-9975-00b81495f5af" class="">基于这两大问题，当时我们团队主动求变，在串行模式下，将设计前置，覆盖整个产品设计开发全程，设计师的全流程加入，得到了各个角色的认可，设计师也在团队中建立充分的话语权，从而更加凸显设计价值。</p><figure id="922a3b75-d1d7-47a3-a5e8-a87e26ba93b3" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/qIGTNVr3S99UuXJFYXtueucmeAFvximLRm6Dy6TlHti.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/qIGTNVr3S99UuXJFYXtueucmeAFvximLRm6Dy6TlHti.jpeg"/></a></figure><p id="a7eff826-6589-42c7-b80e-f71d58e8b5ec" class="">在这个过程中，我们也看到设计师的优势和所面对挑战。设计师的优势在于更擅长从用户视角解读需求，与产品、商业诉求形成互补关系；其次设计师解决问题的能力多维度，擅长运用各种方式表达，如图表、插画等；而与此对应面临的挑战，就在于其更加系统化产品设计思维、多元视野和技能等，其沟通、项目管理等通用能力需要继续提升等。</p><figure id="14b4ff14-4ba3-4ffb-8f90-9944d1d4d250" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/xeul2cD6RJayiuUkvyreDoeZmvrZgumSngIf2f9Duq5.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/xeul2cD6RJayiuUkvyreDoeZmvrZgumSngIf2f9Duq5.jpeg"/></a></figure><p id="7a6d9c33-fcb7-49a1-b774-03a77e004ca3" class=""><strong>设计主导并发起项目</strong></p><p id="310a28f6-edf4-40d8-8662-89c45b068af0" class="">而对于设计主导并发起的项目，则是设计师通过合适的方法去发现、分析、解决问题的过程，设计师主导并发起的项目整体来讲分为2大阶段：专业解决方案和落地推动方案，在这个过程中通过发现问题，给出专业的解决方案，联动其他各角色一起推动解决方案落地。比如通过设计走查、实践workshop、用户访谈等方法系统走查产品问题，并汇总整合不同类型问题；其次评估问题，将问题依据严重程度评分-不是真正的问题（0）、表面形性问题（1）、次级问题（2）、重要问题（3）、灾难性问题（4）。最后就是基于问题优先级拆分落地排期，分期将问题不断解决优化。</p><figure id="38dccd50-1952-4ebc-837c-6d08eeb571e4" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/9jgqDvTARcFVSrbV5wcisjHha4TO4B7q4YkHiB3bsaI.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/9jgqDvTARcFVSrbV5wcisjHha4TO4B7q4YkHiB3bsaI.jpeg"/></a></figure><figure id="561b5d90-82d8-4f4a-83a5-44de27e777c3" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/RtAqaO6USN6c1MkNHzoaVskcuowafyQiyOY2zehnvuv.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/RtAqaO6USN6c1MkNHzoaVskcuowafyQiyOY2zehnvuv.jpeg"/></a></figure><figure id="79b60681-0169-4e71-8343-ca006e0a00f1" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/HrN2nBG9LxxN9QDdxSJPRxaK5nHwLFXFIoMvB9jyrX2.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/HrN2nBG9LxxN9QDdxSJPRxaK5nHwLFXFIoMvB9jyrX2.jpeg"/></a></figure><figure id="1f20d6a0-f2a1-497f-a3db-d9c2dc67fe50" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/e7MYJ6iIJxCITFXtVQeHLMpncrjG08qUAkrrU2AzuWr.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/e7MYJ6iIJxCITFXtVQeHLMpncrjG08qUAkrrU2AzuWr.jpeg"/></a></figure><figure id="4795396b-895a-426e-a2a2-4cbc30fcdbee" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/zUEZowj31pbz479BopyzKaklNQQEGXgFAepzmDdkeKe.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/zUEZowj31pbz479BopyzKaklNQQEGXgFAepzmDdkeKe.jpeg"/></a></figure><p id="79b96d4e-c5d9-465b-a20c-63f4c4c28144" class="">这个过程主要就是三个维度的思考转变：</p><ul id="60c7c84a-b2c2-485a-b533-4bbc4c352f5b" class="bulleted-list"><li style="list-style-type:disc"><strong>技能层面，</strong>从单一技能到多面技能，视野需要更加多元化，这样才能更好的发现问题，并推动项目落地。</li></ul><ul id="1384d361-09de-4d37-bcde-cd3999d91ff9" class="bulleted-list"><li style="list-style-type:disc"><strong> 思维层面，</strong>从单纯艺术思维到产品思维，更加系统化思考，才能更好的平衡用户和商业诉求，更好的联动各个角色。</li></ul><ul id="4e2c6df1-0334-4ca6-b691-7ae33ee9c723" class="bulleted-list"><li style="list-style-type:disc"><strong>心态层面，</strong>从被动接受到主动推动，学会更加主动学习，才能更加积极的向前进。</li></ul><figure id="7fa3bd7d-422b-42ed-a3e9-0be8eb062c46" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/dyMvpruXdW42fUmGoF4wBSqnNonRLufQZHJqfhi46gD.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/dyMvpruXdW42fUmGoF4wBSqnNonRLufQZHJqfhi46gD.jpeg"/></a></figure><p id="64c25b16-b729-4ff3-959d-47daee5a15b6" class=""><strong>形成设计思维阶段</strong></p><p id="629f6d8c-2c62-479a-b70e-0523bea6d852" class="">成长的第3阶段，基于设计思考者，进一步认知设计的本质，形成自己的设计思维体系。开始尝试给设计做个定义：“设计就是从已知探索未知的过程，是一个不断解决问题的过程”。</p><figure id="4f8d8e04-6f06-49d3-b6aa-6f34ced64961" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/Jbr8UDtuWdmiUSoAhGn9ctvcMMC5lEkHXGQfvUO5q1W.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/Jbr8UDtuWdmiUSoAhGn9ctvcMMC5lEkHXGQfvUO5q1W.jpeg"/></a></figure><p id="d4398f14-b357-4f95-8446-d8f30bed96f3" class="">具体来讲，就是从发现问题/机会点后，通过“How”等各种方法手段去解决问题/机会点的整个过程。</p><figure id="ddc8df1a-af66-42b5-8725-99ea8fd5d979" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/gOjKn4DEgbjitjzEeMzu04b1CkWpYCxkkFzIkxUlJ9B.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/gOjKn4DEgbjitjzEeMzu04b1CkWpYCxkkFzIkxUlJ9B.jpeg"/></a></figure><p id="59df4bce-5c58-49c5-be57-7074978f4c7a" class="">而解决问题/机会点的各种方法手段“How”就至关重要，在寻求“How”的过程中，受到MIT媒体实验室教授Neri Oxman文章《Design and Science - Krebs Cycle of Creativity》一文启发，Neri Oxman在《Design and Science - Krebs Cycle of Creativity》中提出的类似克雷布斯循环的创造力的克氏循环（KCC），创造性的将人类的创造力四种模式-科学、工程、设计和艺术，形成创意循环的地图假设并进行了相应解读，阐释了学科之间不再是割裂离散的孤岛这一命题。感兴趣的小伙伴可以使用传送门：</p><p id="665671eb-fd78-44f9-891a-1fe5fd9b8dab" class="">英文版原文《Age of Entanglement》：https://jods.mitpress.mit.edu/pub/ageofentanglement</p><p id="2f3023ff-d0a9-4a61-b97e-fa202cec75ff" class="">中文翻译版《【设计读本】媒体实验室教授Neri Oxman文章《纠缠时代》，揭示创意循环在科学、工程、设计与艺术中深层关系》：https://zhuanlan.zhihu.com/p/27951549</p><figure id="f075e5eb-6d09-4ee6-b44c-81819925ab82" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/Wj7ZxmMo8NoCGSGEt41TNvGiQM1YcufUAy3GE1Buq84.png"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/Wj7ZxmMo8NoCGSGEt41TNvGiQM1YcufUAy3GE1Buq84.png"/></a></figure><p id="5bc42183-7574-44b9-83f4-f8be78361276" class="">区别于“点对点”的解决问题，为了从更高角度更好的解决问题，类比克雷布斯循环和创造力的克氏循环（KCC），将“发现-解决”问题/机会点这一过程整体系统化，尝试提出系统性解决问题之 &lt; 思考-行动 &gt; 模型-Krebs Cycle of Design。</p><p id="f43c9d06-f0d8-429a-a9ba-3ddda4db3481" class="">系统性解决问题之 &lt; 思考-行动 &gt; 模型主要包含以下8个阶段，并且每一个阶段都是上一个阶段的自然转化：</p><p id="4bd3102c-e67a-4262-9a32-4d3fdf0bca7c" class="">1. 提出产品需求/机会点</p><p id="89baba2e-0032-442a-81dc-9bb587e77852" class="">2. 基于产品需求/机会点，从点触发，通过系统性思考，全面的思考分析</p><p id="a390b008-c5c4-4b72-9fb7-cf103d478b0f" class="">3. 基于系统性思考，判断需求/机会点在系统中是否有价值</p><p id="cbd05046-2cbc-4564-9931-675e4a625395" class="">4. 判断有价值后，继续深入挖掘更多的问题/机会点</p><p id="30bf13ce-70f7-49af-8d35-6e1cf5410f0a" class="">5. 综合判断挖掘真正的问题/机会点</p><p id="9e3ac598-351b-4ad1-92fb-a6a40f52ac41" class="">6. 确定真正的问题/机会点后，针对性的进行解决行动</p><p id="b34cf497-9e68-4daa-8a9a-02b293a651e6" class="">7. 阶段性的解决行动后，就向构建一个更好的产品迈出了一小步</p><p id="24848abb-683d-484b-a013-ac2e0cc9cc53" class="">8. 构建更好的产品后，为了产品后续更好发展，进入新一轮的迭代进化思考</p><p id="56aa35a9-876c-4009-aaca-87974a480ad5" class="">迭代进化思考后，就开始了新一轮的系统性解决问题，构建越来越好的产品和更加美好的体验。</p><figure id="2c55b19f-ec84-476b-8510-ec31dccc2811" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/a36bD9KTWaVXeVdpO4GACnU7A6MLrryVgIuNpPhc5e5.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/a36bD9KTWaVXeVdpO4GACnU7A6MLrryVgIuNpPhc5e5.jpeg"/></a></figure><p id="0bca2205-2426-4095-940f-b64632f51fd3" class="">而有了系统化解决问题&lt;思考-行动&gt;模型，在具体解决行动时，主要以用户为中心，尝试“如何做设计的亮点深挖四部曲”，主要有以下4个阶段：定义产品需求-明确产品目标-探索用户趣味表达心智模型-定义具体的解决策略。</p><figure id="c9e3194f-7443-499e-bbba-c614a68c0d4a" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/wIKUuszJWTJFpwb6B1nMdeQcssrh7sV3eOqO1Xv8TX4.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/wIKUuszJWTJFpwb6B1nMdeQcssrh7sV3eOqO1Xv8TX4.jpeg"/></a></figure><p id="27b81c8f-c778-4e45-9d3c-e8919e1ef564" class="">总的来讲，系统化解决问题&lt;思考-行动&gt;模型可以你“找对事 &amp; 做对事”，而以用户为中心的“如何做设计的亮点深挖四部曲”具体化做对事的过程，两者相辅相成，合力打造更美好的产品体验。</p><figure id="ae2d9b01-8315-4f84-8c60-37dff8301693" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/QeFUfq2vMBUndy6VGIVYrhgymactERd9sjBEjYECjzn.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/QeFUfq2vMBUndy6VGIVYrhgymactERd9sjBEjYECjzn.jpeg"/></a></figure><p id="0b09ad6b-9955-4dc6-b4c2-e51312a486a7" class="">想更加全面了解如何在项目过程中实践系统性解决问题&lt;思考-行动&gt;模型，可以查看《用户体验设计指南》一书2.13章节，通过2.13章节-项目实战：从已知探索未知，你可以全面了解2C社交产品如何实践&lt;思考-行动&gt;模型；与此同时通过2.14商业数据产品设计实战，你可以了解2B大数据商业产品设计思路。</p><h1 id="40e9b4d4-dc4b-40c3-9330-d8f1996dfe79" class="">跨界&amp;探索</h1><p id="9559f433-10f6-4341-836b-b278b652347f" class="">成长的第4阶段，逐步形成设计思维的同时，不断保持好奇心，尝试跨界探索无限可能。</p><p id="58445062-b539-4084-ab68-4b5bda043dd8" class="">我跨出的第1步，就是尝试了解了屏幕之外的智能音箱产品，在尝试过程中，更加深刻认识设计本质，比如很多人都好奇“未来的人机交互会是什么样呢？”，其实无论是PC时代、移动时代、还是现在在逐步步入的人工智能时代，本质上就是用户和不同终端产品（电脑、手机、机器人、音箱等）通过不同通道不同交互方式进行输入输出的过程；并且随着技术进步，输入通道会越来越多样，可视化图形界面不再是唯一，甚至不再是核心；与此同时感知通道和信息表达媒介都比较单一的可视化图形用户体验，也正在发展为感知通道和信息表达媒介都比较丰富的，且多种模式、多种形态交织连接在一起的多模态用户体验。</p><p id="86f470b3-a596-4bb2-9f35-f38be9160ce6" class="">如同建筑设计师一样，仍旧以用户为中心，基于用户的所处场景，充分结合当前机器和设备智能化，从人体感官的视、听、味、嗅、触感五感入手，进行多模态体验设计。比如，基于多通道信息输入（如语音输入、人脸识别、动作追踪等），通过将多模态信息融合（基于语音、情感、动作等进行机器对话管理），实现机器设备多模态的虚拟人表达，从而逐步实现人机自然交互体验。</p><figure id="a1462765-717a-4441-a929-affd92abbd07" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/e8NHr5gJT3Yttw39pMYcyTx8TAGXLnozpd2gVAKmbnl.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/e8NHr5gJT3Yttw39pMYcyTx8TAGXLnozpd2gVAKmbnl.jpeg"/></a></figure><figure id="21ed6030-5f5b-4cea-b6fe-3411ab2cea46" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/dIGAE9KEfPwRKzpi1x3wtHbXbQdKOugHYCObqLTNZh9.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/dIGAE9KEfPwRKzpi1x3wtHbXbQdKOugHYCObqLTNZh9.jpeg"/></a></figure><figure id="997fac6e-402e-460a-9927-6fcc2168c0fb" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/kHM1NWjfxJfkzkwxl2YzU6SVd2WyGkMcEmdSrRhEyxB.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/kHM1NWjfxJfkzkwxl2YzU6SVd2WyGkMcEmdSrRhEyxB.jpeg"/></a></figure><figure id="7266fe68-6fca-4a30-8f64-a3ea6263bd01" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/lAOEAlfwzBY8OA7mRXgl3CUaBDmhmnPYzfGsLC1TxQT.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/lAOEAlfwzBY8OA7mRXgl3CUaBDmhmnPYzfGsLC1TxQT.jpeg"/></a></figure><figure id="c673d986-92ce-4d20-8d34-e64c6ea8af08" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/HPW11jM20LqQpDI4OsG31QAzbHdoJfQgndwQ8zvy7rf.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/HPW11jM20LqQpDI4OsG31QAzbHdoJfQgndwQ8zvy7rf.jpeg"/></a></figure><p id="0e8a788a-9816-4072-bf72-60df9fcc2895" class="">而对于未来人工智能时代的逐渐来临，越来越多的人工智能设计工具逐渐被使用，很多设计师也会惶恐自己是不是会被替代。在这里我想用范老师的一段话共勉：</p><p id="f106ca8e-b5f9-48b4-aa8e-48ca5d4c87c8" class="">“我一直希望在设计和人工智能的讨论中避免使用“替代”，隐含代表一种对于人类创造的威胁。也许更合适的方式去描述是“脑机比”（即人脑与机器的比例）。对于很多工作，也许机器的成分会越来越大，所以人脑的成分会越来越小，因此脑机比无限小，人类的价值无限小；反之，另一些工作，即时机器的成分变大，人脑也在变大，甚至机器的成分越大，会促进人脑的进化和释放。我想设计肯定属于后者。设计的工作不追求确定性，而反而是受益于不确定性。因此，设计的人工智能并不一定要获得合适的答案，而可以创造不确定，进而对设计师形成启发。人创造的瓶颈是人自身的经验、逻辑和方法，人工智能可否帮我们超越我们的经验或者逻辑方法，从而让人的创造进一步释放呢”</p><p id="a29a00b0-c362-4549-b044-e77686b1e26b" class="">这段话我时不时会拿出来思考，每次都会有不一样的理解，偶尔会期待在未来真正的人工智能时代，我会成为什么样的设计师？</p><figure id="20685bb9-5d1d-49fc-bafb-ca8948aa703b" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/x2CCJxmmxOLayn1e8QlpRNnnqB8K3dFbjbTS9L1yppP.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/x2CCJxmmxOLayn1e8QlpRNnnqB8K3dFbjbTS9L1yppP.jpeg"/></a></figure><p id="65aadadd-cf97-4690-a4bf-9fda3e342740" class=""><strong>其实所谓跨界，重点在“跨”，我自己给它做了个解读：走出自己的舒适区，在不同行业不同领域里面折腾一下。</strong>正如一位前辈说过，如果你是设计师，你既可以设计APP，一定也可以设计椅子的，比如有的设计师是个很厉害的摄影师，有的摄影师私下是个很厉害的音乐人，还有的是综艺奇才等。</p><figure id="662b5618-0995-4e7d-b209-92cbcc2cac3a" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/NgMxXaKun6gHKJVew82xBQwpHczVpXCparH8tuwSv0E.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/NgMxXaKun6gHKJVew82xBQwpHczVpXCparH8tuwSv0E.jpeg"/></a></figure><p id="4de38287-2cfb-43ba-a574-365a3905a713" class="">最后以曾经听前辈的一个分享观点作为结尾“你有什么样的态度，就有什么样的能力，从而就有什么样的影响力”，希望每一个从事用户体验的设计师，都可以初心不变，不断思考进化，成为用户体验设计师后继续探索未完结，发现更大的世界更多的可能性。</p><figure id="b7153318-8a7b-40a5-b6c3-a3d5225ae245" class="image"><a href="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/xnOjHmYAztvHsWhf5KklsbQCxGXg97avDgWD20rtlLW.jpeg"><img src="https://isuxdesign-1251263993.file.myqcloud.com/upload/detail/xnOjHmYAztvHsWhf5KklsbQCxGXg97avDgWD20rtlLW.jpeg"/></a></figure><p id="1a86935c-ee65-4118-a487-61ef70cce6ea" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

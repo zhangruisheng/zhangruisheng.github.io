@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>创造出色体验设计的顶级方法</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0a4f1762-5601-4109-b3d5-5c500d2879d3" class="page sans"><header><h1 class="page-title">创造出色体验设计的顶级方法</h1><p class="page-description"></p></header><div class="page-body"><h1 id="e2f6d787-8633-4bd1-aee9-2d62540494b7" class=""><strong>有很多事情需要考虑，但我认为学习一些成为优秀 UX 设计师的顶级技能是一种很好的做法。</strong></h1><h1 id="73f9fec5-ea39-4835-aec5-b8e03ce257a5" class=""><strong>1.观察世界</strong></h1><p id="8fe48d3d-26dc-4254-a8d9-2ada3c077d1d" class="">观察和研究世界：探索不同人和事物的有趣世界的全模式是一项很好的技能。学习如何注意小事情，看到重复的东西是一个好的用户体验者技能集的加分项。</p><figure id="7d6cda43-9002-47ed-a797-f9eccbd4a329" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/7zJ94jq3Oq52dUDiFEDjVA/028c3f8e9d29775ef964568203a1b72a/1.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/7zJ94jq3Oq52dUDiFEDjVA/028c3f8e9d29775ef964568203a1b72a/1.jpg"/></a></figure><h1 id="aa1fd639-71d7-4e9e-8d46-b31ae00223d1" class=""><strong>2. 沟通</strong></h1><p id="d4da21bd-ed53-43e6-916a-310537311ed5" class="">善于沟通：知道如何清楚地表达想法和概念，善用言语和肢体语言，能够读懂他人的感受和反馈是一项了不起的技能。</p><figure id="f8c9291a-ea03-4d4d-8825-0125e84edad1" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/63U8sC5lKtvab0ces0DQpi/bd35d0edd72626cd38508a4aac12aa3f/2.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/63U8sC5lKtvab0ces0DQpi/bd35d0edd72626cd38508a4aac12aa3f/2.jpg"/></a></figure><h1 id="ea5831f9-1e8d-4ac0-a918-49e67727d5f5" class=""><strong>3. 解决问题</strong></h1><p id="10e66e0c-d8ef-4fd9-bd43-0d23d540d839" class="">为人解决问题：第一，以人为本。一个优秀的用户体验设计师寻求解决人们的问题，并明白其余的都会随之而来。业务，收入，快乐的利益相关者。</p><figure id="f8e0bf04-5739-4a31-9bd0-5fcd60787bdf" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/665PlDOXhw54zRCYJHQ8Mu/6bbe0fff785252f72e8c55146a24afe4/3.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/665PlDOXhw54zRCYJHQ8Mu/6bbe0fff785252f72e8c55146a24afe4/3.jpg"/></a></figure><h1 id="149345a0-e4f0-4af8-a87f-7181bbf0fff7" class=""><strong>4. 了解原理</strong></h1><p id="41233ac8-9c55-4dec-95c0-0cfe388098c1" class="">知道设计原则和模式：设计有很多规则和最佳实践。学习这些将帮助您提高构建伟大项目的成功率。</p><figure id="12abeca1-fae1-44cf-b88e-26676c785add" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5FGHswJFl05e863cEyXA2P/a80addcb6e6b71e8bdecddd21c62c0e7/4.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5FGHswJFl05e863cEyXA2P/a80addcb6e6b71e8bdecddd21c62c0e7/4.jpg"/></a></figure><h1 id="a1f0b951-9349-427d-8c64-39502edcffdb" class=""><strong>5. 有同理心</strong></h1><p id="f22501c6-fc07-4981-8adc-5d5c905989f7" class="">有同理心：“假”的同理心与真正的同理心一样好。同情他人并不一定意味着感受一切，但大多数时候它是关于了解人们的问题和需求。它是关于试图摆脱舒适区，以提供帮助并改善人们的生活。</p><figure id="5364dd06-d253-4586-8c55-c9468223aa7e" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/1Wfkx8aRQG695Dw6x6Jppb/f353dfa1a1af3ab1af4c068d3783d647/5.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/1Wfkx8aRQG695Dw6x6Jppb/f353dfa1a1af3ab1af4c068d3783d647/5.jpg"/></a></figure><h1 id="1ad73bff-494e-4f3a-9386-e8fd7f7e719e" class=""><strong>6. 假设验证</strong></h1><p id="1966e515-657c-4e99-b668-5ae67a1841fe" class="">验证假设：清楚你想测试什么，以及为什么。同时解释你为什么选择一种方法而不是其他方法，目的是什么？</p><figure id="bd307716-617c-4321-870f-74aa81256bba" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6iSeoZS02Tagcv3h6iqooV/f043a879bc4104f9af4d3ce1ba785888/6.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6iSeoZS02Tagcv3h6iqooV/f043a879bc4104f9af4d3ce1ba785888/6.jpg"/></a></figure><h1 id="79903271-5dac-4c87-bfef-3bc0d90c4f0b" class=""><strong>7. 知道优先事项</strong></h1><p id="6025d853-0bc1-4661-b876-7eabecc441a9" class="">知道如何确定优先级：这是一项非常重要的技能。人们通常会在四处游荡和解决错误的问题或优先考虑对大局影响很小的事情上浪费大量时间和金钱。</p><figure id="9d243769-f36c-4fda-ad15-5adca62998fe" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5KK4KRIvDd7l7LvzSvhGMw/be624dff1be7b7f980b186ceb753187c/7.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5KK4KRIvDd7l7LvzSvhGMw/be624dff1be7b7f980b186ceb753187c/7.jpg"/></a></figure><h1 id="36b0ca03-d41f-45f8-a124-99e966ed9755" class=""><strong>练习：观察世界</strong></h1><p id="d49b1646-4daf-46fa-89d6-b7360e810da9" class="">在本练习中，让我们玩一个有趣的游戏并观察您家中任何人的行为。密切注意他们的所作所为，如果有任何重复的话。我和我的伴侣住在一起，我注意到过去一周发生了一件新事，我们家里到处都是发带。</p><figure id="efda5d34-9f0b-430d-8b19-d910550ecd01" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2F7Zm1v404HZAlnqSC3lJb/8b6ce4cf7ceca434693c463c43e6456c/8.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2F7Zm1v404HZAlnqSC3lJb/8b6ce4cf7ceca434693c463c43e6456c/8.jpg"/></a></figure><p id="74c60099-0720-4707-a609-7ac8588194bb" class="">我开始收集更多的“证据”。</p><figure id="a72c06fe-3114-4422-a7b2-50957d3b5355" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/3VHFd8l8taKo7acU9Rm458/450a0609e7f0ff3481a709766ad17f28/9.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/3VHFd8l8taKo7acU9Rm458/450a0609e7f0ff3481a709766ad17f28/9.jpg"/></a></figure><p id="8949ddfb-4c39-4554-965b-ee1310f27e88" class="">然后我去问她为什么她总是在家里留下发带？“因为我去参加团队会议的时候总是把头发解开。”</p><figure id="b4c8573d-d91d-4746-9741-d95312398478" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/42dcpdEadCne22ZFLCnHO4/3f71fa1615083a75bdf40cd993cbfe90/10.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/42dcpdEadCne22ZFLCnHO4/3f71fa1615083a75bdf40cd993cbfe90/10.jpg"/></a></figure><p id="50bc8ed6-be68-4891-aa1f-5ff580436a80" class="">是的，但有些事情已经改变了。这是新的行为。为什么？这在以前没有发生过。所以我开始分析其中一个发带。我观察到松紧带很硬，不能很好地伸展。我记得她以前总是把发带系在手腕上。我把它放在我的手上，它只是挤压我的手。</p><figure id="8b8ca7e7-4936-4bbb-b2f5-97fafda41fed" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/4Rx5XRSx39lKarBc6QHAKu/bf98ec1973abf72e3f45e8d01dccf5fb/11.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/4Rx5XRSx39lKarBc6QHAKu/bf98ec1973abf72e3f45e8d01dccf5fb/11.jpg"/></a></figure><p id="542391d6-bf90-4140-a281-95c6467b839e" class="">我去拿了另一条我在屋子里从未见过的发带，把它系在手腕上。很舒服。</p><figure id="c0f3c599-494a-48ce-aa8d-fe146faa84d5" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2crr66WHAFk2idMDZdFisZ/6d3ec935f67f184827787eabd535fe6f/12.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2crr66WHAFk2idMDZdFisZ/6d3ec935f67f184827787eabd535fe6f/12.jpg"/></a></figure><p id="03b9819b-3a8b-483e-97f8-e6abd8bbcba4" class="">我再次去找我的伴侣，问她为什么不把新的戴在手腕上。她告诉我他们太紧了。她之前不能告诉我这些，因为我没有问正确的问题，她甚至不知道她的行为。</p><figure id="2a11ad35-fa92-4c40-9b3f-e0b978e73b2d" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/3V2hNVtKqA5UsrQgVeh8t0/078c3beb24f23896491404d9bc571f8c/13.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/3V2hNVtKqA5UsrQgVeh8t0/078c3beb24f23896491404d9bc571f8c/13.jpg"/></a></figure><p id="5ec8e22d-3e94-4f48-91ff-1c98dd862372" class="">你可以用任何东西来做这个，这是一个很好的练习，可以帮助你训练你的注意力和观察力。这将帮助您围绕人们的需求开发产品，并更多地了解人们如何做事以及如何使用事物。</p><figure id="80c971de-3326-447e-a73c-5a97ad2001d1" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/eSJxP58iImZeI8fjd6p8B/b4fd6990a481ab6f696302a78bfde0c4/14.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/eSJxP58iImZeI8fjd6p8B/b4fd6990a481ab6f696302a78bfde0c4/14.jpg"/></a></figure><h1 id="5db9a089-dacb-41cc-9420-3a14b68302bb" class=""><strong>结论</strong></h1><p id="de66a1f2-d46a-4479-95df-7476de0c7d4e" class="">无论您在 UX 之旅中拥有什么顶级技能，如果您对它充满热情并热爱它，就足以让您在该领域变得出色。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,8 +1,9 @@
 /*字体引用*/
 @import url("../webfonts/coltrane_regular_demo/stylesheet.css");
 @import "../sass/utilities/_all.css";
-@import "../sass/grid/columns.css"; 
-@import "../sass/helpers/spacing.css"; 
+@import "../sass/grid/columns.css";
+@import "../sass/helpers/spacing.css";
+
 /* 移动端*/
 @media screen and (max-width:900px) {
 
@@ -101,54 +102,12 @@
     }
 
 
-/* 
-    h1 {
-        letter-spacing: 0px;
-        font-weight: 600;
-        font-size: 26px;
-        font-family: "coltrane regular demo";
-        line-height: 46px;
-    }
 
-    h2 {
-        font-weight: 400;
-        font-size: 16px;
-    }
-
-    h3 {
-        margin-bottom: 12px;
-        letter-spacing: 1px;
-        font-weight: 600;
-        font-size: 16px;
-    }
-
-    h4 {
-        font-weight: 500;
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    h5 {
-        font-weight: 600;
-        font-size: 12px;
-        margin-top: 8px;
-        line-height: 20px;
-    }
-
-    h6 {
-        margin-top: 6px;
-        margin-bottom: 12px;
-        width: 100%;
-        font-weight: 600;
-        font-size: 12px;
-        font-family: STSongti-SC-Regular, STSongti-SC;
-        opacity: 0.5;
-    } */
     h1xl {
         letter-spacing: 0px;
         font-weight: 400;
         font-size: 80px;
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
         line-height: 80px;
     }
 
@@ -157,15 +116,15 @@
         font-weight: 400;
         font-size: 52px;
         /* font-size: 22px; */
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
         line-height: 52px;
     }
 
     h2 {
         font-weight: 500;
-        font-size: 44px;
+        font-size: 32px;
         margin-bottom: 12px;
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
         line-height: 44px;
     }
 
@@ -173,7 +132,7 @@
         margin-bottom: 12px;
         letter-spacing: 1px;
         font-weight: 500;
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
         font-size: 32px;
         line-height: 32px;
     }
@@ -183,15 +142,18 @@
         font-weight: 400;
         font-size: 20px;
         line-height: 30px;
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
     }
 
     h5 {
+
         margin-top: 8px;
         font-weight: 400;
         font-size: 14px;
         line-height: 20px;
-        font-family: "coltrane regular demo";
+        /* font-family: "coltrane regular demo"; */
+        width: auto;
+
     }
 
     h6 {
@@ -212,7 +174,9 @@
         letter-spacing: 0px;
         font-weight: 400;
         font-size: 15px;
-        line-height: 20px;
+
+        line-height: 200%;
+        width: 100%;
     }
 
     p1 {
@@ -231,8 +195,23 @@
     a {
         text-decoration: none;
         /*去掉下划线*/
-    
+
     }
+
+    .o3 {
+        opacity: 0.3;
+    }
+
+    .o5 {
+        opacity: 0.5;
+    }
+
+    .o7 {
+        opacity: 0.7;
+    }
+
+
+
 
 
     html body {
@@ -248,26 +227,49 @@
         position: relative;
         overflow: hidden;
         margin: 0;
-        padding: 80px 0 0 0;
-        width: 98%;
+        padding: 70px 0 0 0;
+        width: 100%;
         height: auto;
-        margin-left: 1%;
+        margin-left: 0%;
+
 
 
     }
 
+    .monknew {
+        position: relative;
+        float: left;
+        top: 0px;
+        margin-bottom: 60px;
+        margin-left: 0%;
+        width: 100%;
+        height: auto;
+        z-index: 99;
+        padding: 0;
+    }
 
     /* logo/导航*/
 
+
+    .logom {
+        position: fixed;
+        top: 16px;
+        left: 50%;
+        margin-left: -20px;
+        width: 40px;
+        height: 40px;
+        z-index: 999999;
+
+    }
 
     .logo {
         position: fixed;
         top: 16px;
         left: 3%;
+        /* margin-left: -20px; */
         width: 40px;
         height: 40px;
-        z-index: 99999;
-
+        z-index: 999999;
     }
 
 
@@ -311,6 +313,8 @@
         z-index: 99999;
         width: auto;
         height: 100%;
+        font-size: 24px;
+
     }
 
 
@@ -331,7 +335,7 @@
     .menu-open ul {
         position: absolute;
         left: 0px;
-        bottom: 20%;
+        bottom: 25%;
         height: auto;
         width: 100%;
     }
@@ -339,7 +343,7 @@
     .menu-open li {
         float: left;
         width: 100%;
-        height: 36px;
+        height: 42px;
         list-style-type: none;
         text-align: center;
 
@@ -416,7 +420,7 @@
     .menu-iii-x {
         position: relative;
         bottom: -88%;
-        
+
         left: 50%;
         margin-left: -15px;
     }
@@ -491,22 +495,64 @@
 
         margin-top: 60px;
     }
+
     .home {
-        width: 98%;
-        margin-left: 1%;
+        width: 100%;
+        margin-left: 3%;
         height: auto;
         overflow: hidden;
         margin-bottom: 100px;
         text-align: left;
     }
-    .home-w {
-        width: 98%;
-        margin-left: 1%;
+
+    .home-aigc {
+        width: 94%;
+        margin-left: 3%;
         height: auto;
         overflow: hidden;
         margin-bottom: 100px;
+        text-align: left;
     }
-    .old3  {
+
+    .home-100-t180 {
+
+        position: relative;
+        float: left;
+        width: 94%;
+        left: 3%;
+        margin-top: 8px;
+        margin-bottom: 20px;
+
+    }
+
+    .home-m-94 {
+        position: relative;
+        float: left;
+
+        width: 94%;
+        left: 3%;
+    }
+
+    .home-99 {
+
+        position: relative;
+        float: left;
+
+        width: 100%;
+        left: 0%;
+
+    }
+
+    .home-85 {
+
+        position: relative;
+        float: left;
+        width: 100%;
+        left: 0%;
+
+    }
+
+    .old3 {
         position: relative;
         width: 94%;
         margin-left: 3%;
@@ -517,7 +563,7 @@
 
     .page {
         position: relative;
-        width: 100%;
+        width: 103%;
         background: var(--color-ff);
         margin-left: 0%;
     }
@@ -529,9 +575,9 @@
         float: left;
         width: 100%;
         height: auto;
-        background: var(--color-ff);
+        /* background: var(--color-ff); */
         overflow: hidden;
-        margin-top: 60px;
+        margin-top: 0px;
     }
 
     .home-holder {
@@ -543,7 +589,7 @@
     .home-title {
         position: relative;
         z-index: 999;
-        float: right;
+        float: left;
         margin: 0;
         width: 100%;
         height: auto;
@@ -551,20 +597,15 @@
         text-align: left;
     }
 
-    /* .home h3 {
-        font-size: 16px;
-        font-family: "coltrane regular demo";
-        opacity: 1;
-        font-weight: 800;
+    .home-title h4 {
+        font-size: 12px;
     }
 
-    .home-l h3 {
-
-        text-align: right;
-        font-size: 16px;
-        opacity: 1;
-        font-family: "coltrane regular demo";
-    } */
+    .home-title h5 {
+        position: relative;
+        float: left;
+        width: auto;
+    }
 
     .animate {
         opacity: 1;
@@ -579,7 +620,7 @@
         float: left;
         width: 100%;
         height: auto;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
 
     .home-item-holder-new {
@@ -630,6 +671,7 @@
         letter-spacing: 1px;
         font-weight: 500;
         margin-bottom: 12px;
+        width: 100%;
     }
 
     .entry-date {
@@ -728,7 +770,7 @@
         color: #fff;
     }
 
-    .works {
+    .home-c {
         position: relative;
         width: 100%;
         height: auto;
@@ -768,7 +810,7 @@
         text-align: left;
         font-size: 14px;
         margin-bottom: 10px;
-        
+
     }
 
     .cover {
@@ -790,11 +832,11 @@
         position: relative;
         float: right;
         width: 100%;
-       opacity: 0.1;
+        opacity: 0.1;
         background: var(--color-00);
         height: 1px;
         margin-bottom: 20px;
-      
+
         margin-top: 20px;
     }
 
@@ -900,7 +942,7 @@
         width: 100%;
         text-align: left;
         margin-bottom: 80px;
-        
+
     }
 
 
@@ -956,6 +998,7 @@
         width: 56px;
         height: 56px;
         float: left;
+        text-align: center;
     }
 
     .appbox h5 {
@@ -964,12 +1007,15 @@
         align-self: center;
         align-items: center;
     }
-    .lab-t{
+
+    .lab-t {
         position: relative;
         float: left;
         margin-left: 12px;
-       
+        margin-bottom: 24px;
+
     }
+
     .tag-new {
         position: relative;
         float: left;
@@ -1048,8 +1094,8 @@
         justify-content: flex-start;
         align-items: flex-start;
         align-content: flex-start;
-       padding-top: 20px;
-      
+        padding-top: 20px;
+
     }
 
     .linkmember {
@@ -1084,9 +1130,9 @@
     .linkmember-designer {
         position: relative;
         overflow: hidden;
-        margin: 0 2% 16px 0;
-        width: 47.85%;
-        max-height: 280px;
+        margin: 0 2% 12px 0;
+        width: 48%;
+        /* max-height: 280px; */
         border-radius: 4px;
         background-color: var(--color-oa);
         text-align: center;
@@ -1115,7 +1161,7 @@
         align-items: stretch;
 
         align-content: flex-start;
-padding-top: 20px;
+        padding-top: 20px;
 
     }
 
@@ -1152,7 +1198,24 @@ padding-top: 20px;
         background-position-x: center;
         background-position-y: center;
     }
-
+    .cardlogo {
+        position: relative;
+        float: left;
+        margin: 0px 0px 0px 0px;
+        width: 100%;
+        height: 150px;
+        -webkit-background-size: auto 100%;
+        -moz-background-size: auto 100%;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        /*
+        -webkit-box-shadow: 0px 4px 5px #EFEFF3;
+        -moz-box-shadow: 0px 4px 5px #EFEFF3;
+        box-shadow: 0px 4px 5px #EFEFF3;
+*/
+    }
     .linklogo-f {
         position: relative;
         float: left;
@@ -1456,12 +1519,6 @@ padding-top: 20px;
         z-index: 99;
     }
 
-    .monknew {
-        margin-left: 2%;
-        width: 96%;
-        height: auto;
-        z-index: 99;
-    }
 
     .about {
         position: relative;
@@ -1475,16 +1532,19 @@ padding-top: 20px;
     }
 
     .about-t {
+        position: relative;
+        float: left;
+        width: 100%;
         padding: 0px;
         margin-bottom: 16px;
         text-align: left;
     }
-    
+
 
     .about-tt {
         position: relative;
         padding: 0px;
-       
+
         font-size: 18px;
         font-weight: 400;
     }
@@ -1621,6 +1681,7 @@ padding-top: 20px;
     .red {
         color: #FF4444;
         opacity: 1;
+        background-color: #FF4444;
     }
 
     .linksh4 {
@@ -1650,17 +1711,18 @@ padding-top: 20px;
     .new-home {
         position: relative;
         width: 100%;
-      
+
         background: var(--color-ff);
         margin-bottom: 16px;
     }
 
     .new-t {
         font-family: "coltrane regular demo";
-        margin: 32px 0 10px 0;
+        margin: 12px 0 10px 0;
         opacity: 1;
         padding: 0px;
-        float:left;
+        float: left;
+        width: 100%;
     }
 
     .new-t h3 {
@@ -1669,8 +1731,9 @@ padding-top: 20px;
     }
 
     .new-tt {
+        width: 100%;
         font-size: 14px;
-        margin: 6px 0px;
+        margin: 0px 0px 24px 0px;
         text-align: left;
 
     }
@@ -1681,6 +1744,8 @@ padding-top: 20px;
         width: 100%;
         height: auto;
         padding: 8px 0;
+        border-top: 0.5px solid;
+        margin-top: 30px;
         /*        background: var(--color-oa);*/
     }
 
@@ -1702,7 +1767,7 @@ padding-top: 20px;
         font-size: 12px;
         height: 100%;
         text-align: center;
-        
+
     }
 
     .about-i {
@@ -2056,7 +2121,7 @@ padding-top: 20px;
     .filered {
         position: relative;
         float: left;
-        margin-right: 10px;
+        margin-left: 0px;
         padding: 0 6px;
         background: #FE4A4B;
         color: #fff;
@@ -2069,7 +2134,7 @@ padding-top: 20px;
     .filered2 {
         position: relative;
         float: left;
-        margin-left: 10px;
+        margin-left: 0px;
         padding: 0 6px;
         background: #186D62;
         color: #fff;
@@ -2078,18 +2143,26 @@ padding-top: 20px;
         /*        text-align: right;*/
 
     }
+
     /* show */
     .share {
         position: relative;
-        
+
         float: left;
         margin-left: 2%;
         width: 96%;
         padding-top: 10px;
-       
+
 
     }
-    .share-title{
+
+    .share-i {
+        position: absolute;
+        width: 100%;
+        height: 900px;
+    }
+
+    .share-title {
         position: relative;
         width: 100%;
         text-align: left;
@@ -2097,17 +2170,19 @@ padding-top: 20px;
         padding-top: 20px;
 
     }
-    .share-title-h1{
+
+    .share-title-h1 {
         position: relative;
         float: left;
         width: 100%;
         text-align: left;
-        font-family: "logo","coltrane regular demo";
+        font-family: "logo", "coltrane regular demo";
         font-size: 60px;
         font-weight: 400;
 
     }
-    title-l{
+
+    title-l {
         position: relative;
         font-size: 100px;
         color: #FF4444;
@@ -2117,8 +2192,16 @@ padding-top: 20px;
         width: 20%;
         width: 100%;
     }
-    title-r{
+
+    .title-r {
         position: relative;
+        font-family: "coltrane regular demo";
+        /* font-family: sans-serif; */
+        font-weight: 400;
+        float: left;
+        width: 100%;
+        text-align: left;
+        /* position: relative;
         font-size: 30px;
      
         line-height: 200px;
@@ -2126,8 +2209,9 @@ padding-top: 20px;
         float: right;
         width: 70%;
         text-align: right;
-        line-height: 50px;
+        line-height: 50px; */
     }
+
     .title-l {
         position: relative;
         font-family: "coltrane regular demo";
@@ -2136,17 +2220,19 @@ padding-top: 20px;
         float: left;
         width: 100%;
         text-align: left;
-        min-height: 20px;
+        /* min-height: 20px; */
         /* font-size: 16px; */
-        margin-bottom: 10px;
-        margin-top: 20px;
+        /* margin-bottom: 10px;
+        margin-top: 20px; */
 
     }
+
+
     .look2 {
         position: relative;
         float: left;
         width: auto;
-        padding: 0 12px;
+        padding: 0px 12px;
         background: var(--color-00);
         color: var(--color-ff);
         font-size: 16px;
@@ -2159,11 +2245,11 @@ padding-top: 20px;
 
     /*尾部信息*/
     .footer {
-        z-index: 10;
+        z-index: 1000000;
         position: fixed;
         bottom: 0px;
         border: 0px;
-        height: 200px;
+        height: 40px;
     }
 
     .figma {
@@ -2181,30 +2267,264 @@ padding-top: 20px;
         margin-bottom: 60px;
         margin-top: 30px;
         opacity: 0.5;
-       
+
     }
-    line4{
+
+    line4 {
         position: relative;
         float: right;
         width: 100%;
         background: var(--color-00);
         height: 4px;
         margin-bottom: 20px;
-        
+
         opacity: 1;
     }
+
     .right {
         float: left;
         text-align: left;
-       
+
 
     }
-    
+
     .left {
         float: left;
         text-align: left;
-     
+
 
     }
 
+    .mb20 {
+
+        margin-bottom: 20px;
+    }
+
+    #carousel {
+
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 600px;
+        float: left;
+        overflow: hidden;
+        margin-top: -80px;
+
+        /* margin-left: 50%;
+        transform: translateX(-50%); */
+        /* margin-left: 13%;
+       margin-top: -22.5%; */
+        /* text-align: center; */
+    }
+
+    #carousel li {
+        position: absolute;
+        opacity: 0;
+        max-height: 580px;
+        height: 100%;
+        text-align: center;
+        transition: opacity 1s;
+        text-align: center;
+
+
+    }
+
+    /** || General Styles */
+
+
+    #carousel img {
+        position: relative;
+        display: block;
+        height: 100%;
+
+        max-height: 580px;
+
+        /* top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%); */
+        /* width: 10%; */
+        /* margin-left: 0%; */
+        /* text-align: center; */
+        /* height: 100%; */
+        /* object-fit:fill; */
+        /* max-width: 900px;
+        height: auto;
+        margin: auto; */
+        /* left: 50%;
+        top: 50%; */
+
+        /* transform: translateY(-50%); */
+        /* margin-top: 50%;*/
+        /* margin-top: 25%;
+        transform: translateX(20%)
+        
+        translateY(-50%); */
+
+
+    }
+
+
+
+
+
+    .nav-all {
+        position: relative;
+        float: left;
+        margin-top: 0px;
+        width: 100%;
+        left: 0%;
+        height: 98px;
+        /* padding: 0px 12px 0px -12px; */
+        background: var(--color-ff);
+        z-index: 9;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: space-around;
+        display: none;
+        z-index: 99999999;
+    }
+
+    .nav-top {
+        position: fixed;
+        float: right;
+        /* margin-top: 60px; */
+        width: 96%;
+        right: 2%;
+        height: auto;
+        bottom: 50px;
+        /* padding: 0px 12px 0px -12px; */
+        /* background: var(--color-ff); */
+        z-index: 999;
+        /* display: grid;
+        place-items: center; */
+    }
+
+    .nav-top-ul {
+
+        position: relative;
+
+        /* width: auto; */
+
+        /* height: 100%; */
+        margin-top: 0px;
+        margin-right: 12px;
+        display: flex;
+        /* flex-wrap: wrap ;
+        flex-direction: row-reverse; */
+        /* flex-flow: row-reverse wrap-reverse; */
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+        /* justify-content: center; */
+        /* flex-wrap: wrap; */
+
+        /* display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: space-around; */
+    }
+
+    .nav-top-li {
+        position: relative;
+        /* float: right; */
+        /* width: 100%; */
+        /* margin-right: 40px; */
+        width: auto;
+        border-style: solid;
+        border-width: 1.5px;
+        padding: 0px 12px 0px 12px;
+        height: auto;
+        border-radius: 20px;
+        background: var(--color-ff);
+        margin-top: 4px;
+        float: left;
+        text-align: left;
+        margin-right: 6px;
+        height: 32px;
+        margin-bottom: 6px;
+        /* width: 20%; */
+    }
+    
+
+    .monkey {
+        position: relative;
+        transform: rotateZ(90deg);
+        height: 200%;
+        width: 200%;
+        top: 50%;
+    }
+
+
+
+    .menu a span,
+    .menu-open a span {
+        display: none;
+    }
+
+    .menu a:hover span,
+    .menu-open a:hover span {
+        display: block;
+    }
+
+    .menu a span1,
+    .menu-open a span1 {
+        display: block;
+    }
+
+    .menu a:hover span1,
+    .menu-open a:hover span1 {
+        display: none;
+    }
+
+
+
+
+    /* .border{
+        border: 0.5px solid var(--color-00);
+        padding: 0;
+        margin: 0;
+    } */
+
+    .home-works {
+        position: relative;
+        float: left;
+        width: 94%;
+    }
+
+    .w100 {
+        position: relative;
+        float: left;
+        width: 100%;
+        min-width: 640px;
+        margin: 0;
+    }
+
+    /* img */
+    .dazzle-imgs {
+        position: relative;
+        float: left;
+        display: flex;
+        width: 104%;
+        height: 320px;
+
+
+        /* 纵向拖动 */
+        cursor: pointer;
+        overflow: scroll;
+
+    }
+
+    .dazzle-img {
+        position: relative;
+        cursor: pointer;
+        float: left;
+        height: 100%;
+        margin-right: 30px;
+
+        pointer-events: none;
+    }
+}
 }

@@ -1,0 +1,670 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>改进微信实时定位功能，让在街上使用更高效、更安全</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="412a6283-3106-4513-97d5-dbbe61d7715a" class="page sans"><header><h1 class="page-title">改进微信实时定位功能，让在街上使用更高效、更安全</h1></header><div class="page-body"><h1 id="9e5a1e96-7195-462f-85ad-0c9243962fbc" class=""><a href="https://www.behance.net/gallery/111225405/WeChat-Real-Time-Navigation-A-UX-Case-Study?tracking_source=search_projects_published_date%7Cwechat">https://www.behance.net/gallery/111225405/WeChat-Real-Time-Navigation-A-UX-Case-Study?tracking_source=search_projects_published_date|wechat</a></h1><figure id="e4c41df6-5c1f-4f3e-b5c4-859c0972e13a" class="image"><a href="https://mir-s3-cdn-cf.behance.net/project_modules/1400/41b288111225405.5ffdf3430221d.jpg"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/41b288111225405.5ffdf3430221d.jpg"/></a></figure><h1 id="dcb3fa7a-9dc9-4dd1-b979-ec1afb34d82f" class="">概述</h1><p id="0f9d3e0d-24eb-4339-9bae-646f3938d4da" class="">在撰写本案例研究时，我搬到中国一个美丽的城市厦门已经一年多了。作为一个新的国家和一个新的城镇，我在使用Amaps（中文版谷歌地图）时经常会走更长的路线或错误的方向。所以我更喜欢使用微信实时定位功能，在我与朋友见面时被监控。在微信上使用此功能时，我经常会因为路线较长或到达目的地的时间较长而感到烦恼，并且很烦人。我决定研究一下这件事，并建立一个逐向导航解决方案来帮助解决这个问题。</p><h1 id="d03dff26-94a2-476c-8a1d-e58db127352f" class="">我的角色</h1><p id="63277b58-e501-4831-986d-5ab30601cbac" class="">我自己完成了整个项目，并得到了朋友的帮助以获取见解。</p><p id="5eb498c8-beda-4262-8bab-37f3e5dcc9bc" class="">我的角色包括：</p><ul id="67ca66c1-2d4a-43ba-a813-72be5752d340" class="bulleted-list"><li style="list-style-type:disc">研究</li></ul><ul id="aeed6e21-a2ad-4e9a-b2ee-0deb1d803a07" class="bulleted-list"><li style="list-style-type:disc">采访</li></ul><ul id="64fc54bd-dede-4e48-879f-819a0c56460e" class="bulleted-list"><li style="list-style-type:disc">构思</li></ul><ul id="e009cefa-2672-4761-8ddb-64e4df0f37ce" class="bulleted-list"><li style="list-style-type:disc">线框图</li></ul><ul id="800f5957-cb4d-49a9-81de-d789a8134b69" class="bulleted-list"><li style="list-style-type:disc">视觉解决方案</li></ul><ul id="973aca01-5381-417c-9aea-eb709af677d8" class="bulleted-list"><li style="list-style-type:disc">原型制作</li></ul><p id="a3d694ed-15fc-4dba-b78d-1e40bf955c6b" class="">在研究中，我遵循<strong>设计思维过程</strong>为最终用户找到最佳解决方案。</p><h1 id="1aa3c6df-baa5-4fd3-9b1a-b5b5a50dbffd" class="">感同身受</h1><h1 id="36c39971-010f-4cfa-bab3-b9273c7d9456" class="">面试</h1><p id="38a2eb1b-f3f9-498a-82c9-9d4b3917daad" class="">尽管我确定了痛点，但我想与重要的一群人一起验证问题，以了解他们是否面临类似的问题。因此，我创建了一份问卷，询问我的朋友在使用该功能时的体验。我能够从 36 个人那里获得见解并发现以下数据-</p><p id="4b754564-2c3a-4886-9a02-e8880393af57" class=""><em>76% 的人确认他们经常使用此功能，23% 的人偶尔使用过，11% 的人之前从未使用过此功能。</em></p><p id="2eff3264-7c29-4668-b546-2f3b8c593d6d" class="">这一见解证实了我并不是唯一面临这种不便的人。</p><h1 id="7c1c7f79-bb6a-4ef1-ab16-707be14b5a67" class="">在线研究</h1><p id="bb5632d8-664b-4afc-a0f9-0b8b9dd69042" class="">我深入研究了许多文章并阅读了许多与实时位置共享相关的论坛以及人们使用此功能的不同方式。我发现它在日常生活中帮助了许多人，并让他们了解家人和朋友的下落，发现导航和见面都很容易。</p><h1 id="703e42bc-f391-41e7-bb0d-3a8d3b62e727" class="">定义</h1><p id="04a75502-bd6a-4947-a8a9-e61f27ecce8f" class="">从我对实时位置共享的研究和采访中，我了解到：</p><ul id="698e57f3-eecd-4755-9b3b-10b343f46b55" class="bulleted-list"><li style="list-style-type:disc">位置共享有时是处理迷路的绝佳方式。它允许您通过数字存在与那个人在一起。这是一种俏皮、有趣和友好的联系方式。</li></ul><ul id="08ac21df-beb7-4a68-90e0-49ccfa4e4fe2" class="bulleted-list"><li style="list-style-type:disc">更有趣的是，情侣们使用位置共享来解决他们在某一天的行踪的争论，或者在拥挤的节日中互相追踪。</li></ul><ul id="29faae93-7a42-410f-b379-a780a5eedb15" class="bulleted-list"><li style="list-style-type:disc">父母跟踪他们的孩子并留意他们的安全。另一方面，孩子们在分享位置时，会担心被不断监视。</li></ul><p id="3f6dbdbd-6413-4eeb-9f68-0d0ef8557c4d" class=""><strong>问题陈述</strong></p><p id="e33f3182-85f2-4022-987c-839d677cca4d" class="">在深入了解在各种其他应用程序上使用位置共享的用户之后，我想专注于我的解决方案将围绕的问题陈述。经过大量的头脑风暴和 HMW，我决定了这个问题陈述：</p><p id="b276825e-166b-44f4-af8c-0f72b77ffdf2" class=""><strong>我们如何为用户提供安全高效的导航系统？</strong></p><h1 id="f47a8c5d-0ea7-47cb-86af-ebdd2d2e1b31" class="">构思</h1><p id="d1b46e36-641d-42fe-a67a-1596ca83ef92" class="">该解决方案的主要接触点是在街道上使用时需要高效的导航辅助和安全作为优先事项。以及重新查看界面以获得更好的启发式方法。</p><p id="d5de24f1-bec9-430d-ab5a-bb707df12e06" class=""><strong>效率</strong></p><p id="c6a9ae8d-8930-4daf-b01f-ab3feb56eeed" class="">为了使导航高效并节省用户时间，我决定使用 <strong>Turn-by-turn Navigation</strong>。我 选择使用现有的<strong>“保持通话”</strong>选项来提供更好的帮助，并 在屏幕上添加了一个<strong>带有显示音频消息</strong>的 <strong>轻推，</strong>如果用户 10 秒没有查看它或者他/她选择通过滑动忽略它它在右边。</p><p id="b182659d-d694-4401-92fa-11a2eecca244" class="">在通常的导航案例中，我决定添加 <strong>指南针功能</strong> 来帮助用户跟随指南针的方向。</p><h1 id="76a2afe4-6d9f-4360-a679-b0ccdc236183" class="">安全</h1><p id="97e97b43-8462-4c09-ba88-128b2115d099" class="">为了提高在街道上使用时的安全性，常亮显示是一项有用的显示功能。它将帮助用户在需要时浏览它，如果他/她走错了路，智能手机中的错误方向振动将通知用户。</p><h1 id="925dd866-1e79-41bd-b117-1ab924b2ba9c" class="">启发式评估</h1><p id="fe7c2f52-7495-4ec9-b471-bdc627adb62d" class="">在评估时，我观察到使用的图标语言不清晰，与用户的视觉语言不匹配。需要 <strong>重新审视图标语言</strong> 并找到与现实世界相匹配的正确视觉风格。</p><p id="b1923201-c33c-4205-9f82-833e38d0e6c4" class=""><strong>线框</strong></p><p id="c81f3e1c-dd66-4e67-ae2c-690a649efb50" class="">为了进一步实现我的想法，我尝试实施所有计划的功能和提议的设计解决方案。</p><figure id="9b103378-c7b5-407b-a85f-4dbe841cf47d" class="image"><a href="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9d0ecf111225405.5ffdf343013bd.jpg"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9d0ecf111225405.5ffdf343013bd.jpg"/></a></figure><h1 id="523460c9-6f6c-4346-8f53-70ed1106e65d" class="">视觉解决方案</h1><h1 id="3e9e72b3-1462-469b-bb9f-2d878a3e3a44" class="">实时定位功能</h1><p id="7f773c76-7f88-42f6-ab90-1071d1ca5cdb" class="">实时位置功能与发送位置选项一起位于位置功能下。这是一个 3 步过程，在按下实时位置时，用户共享他/她各自的实时位置，另一个用户接受它加入共享。</p><figure id="12358c0a-d4ba-447a-84d5-81c7a7013717" class="image"><a href="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6d1f9c111225405.5ffdf343019ee.jpg"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6d1f9c111225405.5ffdf343019ee.jpg"/></a></figure><p id="6cee784f-1edf-4690-afda-3a622716e11b" class=""><strong>牛逼</strong><strong><strong>
+</strong></strong><strong><strong>瓮通过转动导航</strong></strong></p><p id="c53ebb70-3fcf-490d-89dd-ca0343e2686d" class="">让用户可以选择逐向导航或指南针非常重要。在选择逐向导航选项时，用户接受协助并且有必要让他们感到舒适。导航辅助将在转弯时通过<strong>语音命令</strong>指导用户，否则保持沉默。在错误转弯的情况下，用户会体验到轻推和振动，以通知用户看屏幕并走上正确的道路。</p><figure id="f4272730-2fe7-4090-b202-bdc875202b72" class="image"><a href="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1ba977111225405.60065518f207c.jpg"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/1ba977111225405.60065518f207c.jpg"/></a></figure><p id="c916d189-3a44-4ad6-b663-7b1adecab35e" class=""><strong>等着说话</strong></p><p id="eadaa098-cfb9-4ff2-bb04-ed507b2fc8e9" class="">按住通话按钮位于屏幕中央舒适位置。它使用户能够向需要特殊帮助的其他用户发送即时音频消息。必须包含人工辅助，因为我们人类认为它比系统辅助更准确。使用户不会因为系统故障而感到迷茫，其他用户可以立即前来救援。它在<strong>驾驶或骑自行车时</strong>也是一个方便的功能，因为它很容易进入并且不需要太多的注意力远离道路。</p><figure id="93839f55-0244-4014-8bef-dbbe38237fd0" class="image"><a href="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/e2d6b8111225405.60065518f3372.jpg"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/e2d6b8111225405.60065518f3372.jpg"/></a></figure><h1 id="da2bb679-5be3-4a1a-a2c5-ef4b6e9e1e0d" class="">接收音频信息</h1><p id="0f762add-e9d7-4f6a-b25c-fd5080722790" class="">当其他用户说话时，她/他不确定用户是否听过，或者在少数情况下，听的用户因为她/他的屏幕关闭而错过了它。有必要<strong>通知</strong>用户并在屏幕上有足够的时间直到它消失。当用户收到音频消息时，它会弹出并保持可见<strong>10 秒，</strong>直到它消失或用户选择向右滑动并忽略它。为音频消息添加<strong>点击播放</strong>的决定是为了确保用户不会丢失它，因为在这些情况下，每条消息都至关重要。</p><figure id="ebacbafc-ca38-44ae-ba61-b58cfea83b8d" class="image"><a href="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/08c6e9111225405.60065518f175e.jpg"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/08c6e9111225405.60065518f175e.jpg"/></a></figure><p id="12b11487-e0c1-4641-add6-6b2a18d73ee6" class=""><strong>始终显示</strong></p><p id="a5acb5d2-6972-42c5-a998-150f0b1b08f7" class="">此共享功能的广泛使用是在街道上，用户安全是最重要的。请记住，永远在线的显示器是该功能最合适的补充。用户可以随时跟踪街道上的导航，不需要每次都解锁设备，从而将大量注意力从街道上移开。对于那些在开车或骑自行车时在街上使用它的人来说，这将是一个救命的选择，如果不小心，发生事故的几率很高。</p><figure id="8f40cee3-cb68-4a12-a033-4e0595fab3eb" class="image"><a href="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9b3874111225405.60065518f263b.jpg"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9b3874111225405.60065518f263b.jpg"/></a></figure><h1 id="f88a1e04-fed3-4fa0-b0fa-fe52cac0c177" class="">其他屏幕</h1><p id="fa4de4c8-97e7-46ed-85b7-1db9b43449ab" class="">右上角的最小化选项允许用户在导航在后台运行时聊天，以便用户在导航时轻松聊天。</p><p id="6b3186db-a1e6-4a0b-9528-163b04f9151b" class="">用户结束导航可以使用左上角的图标或者系统自动通知用户到达位置结束分享。</p><h1 id="57eb4703-4f62-428b-9293-76875ce4cc8d" class="">启发式改进</h1><h1 id="3f382f02-a634-453f-843e-fa9c3c2add81" class="">拇指区</h1><p id="401dfdac-c63f-4689-8fbd-adff93770631" class="">微信实时定位功能原来的界面看起来是遵循基本规则的，所以我觉得没有必要重新调整布局。牢记拇指区域，我将逐向导航保留在可到达区域，使用户更容易。</p><figure id="18d746d1-2895-401a-beb7-3281fef1b9b1" class="image"><a href="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f2cc17111225405.60065518f2dca.jpg"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/f2cc17111225405.60065518f2dca.jpg"/></a></figure><h1 id="90f2c34d-ee77-4d31-9368-00901a2ab61b" class="">图标设计</h1><p id="66a30ea2-66e6-4d84-b02b-ce6c217977a0" class="">在<strong>保持通话将</strong> <strong>图标 </strong>和<strong>位置的目标</strong>显得扑朔迷离，需要在图标设计的改变，为用户快速了解该接口。</p><p id="3cee6565-f105-4d12-8933-8f23f47b4ec9" class="">我制作了与聊天部分中的通话<strong>保持图标</strong>样式类似的通话<strong>保持图标</strong>样式，以便用户了解并知道确切的用法。</p><p id="4b975b7a-02c2-425d-94d7-8a83e20a9026" class="">定位目标图标看起来像一个导航图标，与一般的图标样式不匹配，按钮样式为方形，与其他图标的<strong>圆形按钮样式</strong>不同。为了使它具有相关性，我遵循并用其他应用程序中使用的图标类型替换它。为了统一的按钮样式，我使按钮类似于其他按钮样式的圆形。</p><figure id="edb15767-3a1d-421a-9d67-0347a949a374" class="image"><a href="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ec70af111225405.60065518f100b.jpg"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ec70af111225405.60065518f100b.jpg"/></a></figure><h1 id="99531eaf-fe12-4b68-9eab-fa3b71676192" class="">关键挑战</h1><p id="a6a7d29e-eca2-457e-91cf-58b805d2ee08" class="">最大的挑战是在构思阶段建立一个更安全的功能以在街道上使用并且不需要太多用户关注。对其他用户帮助的需求也很重要，因为它需要快速倾听并且不应该立即消失。</p><h1 id="8028e1df-6720-4254-8405-41b3bac794f5" class="">我学到了什么？</h1><p id="dc1e1c5d-e53a-4ddf-aef2-262e090fd80d" class="">这个项目很有趣。采访经常使用此功能的用户并了解不同用户如何使用位置共享非常有见地。在工作时，我还意识到使用<strong>精细</strong>导航的最佳和最安全的设备是<strong>智能手表</strong>。为智能手表设计解决方案可能是移动设备导航时最安全、最有用的替代方案。</p><h1 id="ee889400-8237-42cc-bbb7-9eba2f216eee" class="">感谢您的阅读。</h1><p id="62d03466-aee3-499d-8f25-d3c981aeb7c9" class="">如果您想阅读更详细的案例研究，</p><p id="3f0152ae-c431-4a51-8472-8ede69888ece" class="">阅读我的<a href="https://tarunp.medium.com/wechat-navigation-a-ux-case-study-794d1ad0d453">中等案例研究</a> 或<a href="https://www.notion.so/How-to-navigate-safely-on-the-streets-54561ca7d8e945caa9a312fadfe36377">概念案例研究</a></p><h1 id="360672d8-ad30-4dc7-aeed-fce512281a03" class="">微信实时导航-一个用户体验案例研究</h1></div></article></body></html>

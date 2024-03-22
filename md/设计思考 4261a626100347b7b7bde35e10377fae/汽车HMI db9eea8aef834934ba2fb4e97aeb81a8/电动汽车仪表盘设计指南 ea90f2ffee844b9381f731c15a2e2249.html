@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>电动汽车仪表盘设计指南</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ea90f2ff-ee84-4b93-81f7-31c15a2e2249" class="page sans"><header><h1 class="page-title"><strong><strong>电动汽车仪表盘设计指南</strong></strong></h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Owner</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a-/AAuE7mCYLgNL-U_Il_abXX0ZuWQePjPOGoT8vXJW8WBz=s100" class="icon user-icon"/>张大圣</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td></td></tr></tbody></table></header><div class="page-body"><p id="9db1d731-1fa5-4213-8fe3-7ebbbe77700e" class="">当一辆电动汽车驶来时，人们最先注意到的可能是它那极具未来感的外观设计。但是，对于乘客来说，车内的仪表盘设计同样也是他们最先接触到的部分。在这个数字化时代，电动汽车的仪表盘设计也越来越成为了车辆设计的亮点之一。那么，让我们一起去看看电动汽车<a href="https://www.uisdc.com/tag/%e4%bb%aa%e8%a1%a8%e7%9b%98%e8%ae%be%e8%ae%a1">仪表盘设计</a>是如何在美学和实用性之间找到平衡，并为乘客提供愉悦的视觉体验的吧！</p><p id="6bb533dc-ba81-4cb1-bf06-2abcb7cf74ce" class="">
+</p><figure id="0ec8e219-ffdc-4769-bda7-01aadd51af34" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-2.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-2.jpg"/></a></figure><figure id="8f570c6e-6e2f-41ab-8013-68bce44b19a1" class="image"><a href="%E7%94%B5%E5%8A%A8%E6%B1%BD%E8%BD%A6%E4%BB%AA%E8%A1%A8%E7%9B%98%E8%AE%BE%E8%AE%A1%E6%8C%87%E5%8D%97%20ea90f2ffee844b9381f731c15a2e2249/ysbanner-202300411-4-1.jpg"><img style="width:1000px" src="%E7%94%B5%E5%8A%A8%E6%B1%BD%E8%BD%A6%E4%BB%AA%E8%A1%A8%E7%9B%98%E8%AE%BE%E8%AE%A1%E6%8C%87%E5%8D%97%20ea90f2ffee844b9381f731c15a2e2249/ysbanner-202300411-4-1.jpg"/></a></figure><h1 id="22fc6013-4ad4-48c5-b7bd-c3ab529e39be" class="">一、汽车仪表盘的进化</h1><p id="3b97f43d-0279-42d0-8eed-3921aee03d36" class="">仪表盘是任何车辆的重要组成部分，因为它为驾驶员显示重要信息。仪表盘在整个历史中经历了重大变化。早期的汽车，仪表盘只有速度表、油量表、机油压力表，而现在，现代的仪表盘有各种指示和显示。在接下来的内容中，我们将探索汽车仪表盘的发展历史。</p><figure id="6a89b60c-1782-499c-9557-ce39e121d75a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-3.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-3.jpg"/></a></figure><p id="9f0020e7-d372-453e-a865-68a2d4d6fc0d" class=""><strong>1. 机械式仪表</strong></p><p id="2bd23e99-5cad-48c0-8a58-1fb2d2cfe994" class="">最早的汽车有一个带有机械仪表的仪表盘，这些仪表很基本，而且通常不可靠。机械仪表显示速度、油位等基本信息。这些仪器使用简单，易于阅读。它们也易于维护和修理，这使它们成为早期汽车的理想选择。</p><figure id="18824f79-07d7-4b4f-835a-23c87f09eb98" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-4.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-4.jpg"/></a></figure><p id="9065f8d4-8166-4bda-aa9d-d07fb8f18cb7" class=""><strong>2. 电气化仪表</strong></p><p id="98146ce9-d24d-49cc-a268-19cde8d9196d" class="">随着电力的发明，仪表盘发生了重大变化。机械仪器换成了新的电动仪器，更加准确可靠。这些仪表使用电信号显示速度、燃油油位和发动机温度等信息。由于先进的背光技术，它们也更易于阅读。</p><figure id="10c302c2-03d8-438b-a3a5-3d33bcdfe039" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-5.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-5.jpg"/></a></figure><p id="144ddf39-acec-42bd-9ae6-8340ff80f62c" class=""><strong>3. 全液晶仪表</strong></p><p id="53cc6b88-da8c-4451-bb57-c04e16851dda" class="">随着技术的进步，第一款全液晶仪表盘问世。在 20 世纪 80 年代，数字仪表盘开始流行。这些仪表盘使用 LCD 技术显示数字信息，其中包括速度计、里程表、燃油油位和各种警告灯。这些数字显示器更易于阅读，并且允许在更小的区域中显示更多信息。</p><figure id="3ae8d295-8cdf-430f-9052-311a4ade6f7f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-6.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-6.jpg"/></a></figure><p id="5ae2ea2e-a10a-4f2b-960a-1efce076fe59" class=""><strong>4. HUD 仪表</strong></p><p id="f5bca2bd-d92b-443e-a5a9-68dceea1be52" class="">仪器平视显示器的概念最初是在战斗机中引入的。然而，这项技术很快就适用于汽车。HUD 仪器将有关汽车速度、燃油油位和其他重要数据的重要信息投射到挡风玻璃上。HUD 的概念因其提供的附加安全性而变得流行，因为驾驶员不必将视线从道路上移开以查看基本信息。</p><figure id="2fb67a1c-5f87-408d-af9a-05960eae1488" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-7.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-7.jpg"/></a></figure><p id="201fae25-3b4b-4d9c-b9b8-99b0466c6555" class=""><strong>5. 未来的仪表</strong></p><p id="fa2733c7-d856-4626-8c7c-c16b422f2d6a" class="">仪表盘将继续发展，随着电动汽车和自动驾驶汽车的日益普及，我们与汽车互动的方式也将发生变化。未来的一项发展是在仪表盘中集成物联网 (IoT)。这项技术将允许司机使用他们的智能手机控制和监控他们的汽车。另一个未来的发展是增强现实的使用。该技术将全息图像和动画投射到汽车内部以显示重要数据，使驾驶体验更加直观。</p><figure id="b37f109f-a66a-4349-9ab9-e03532c67ae9" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-8.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-8.jpg"/></a></figure><p id="49dd4722-ced8-4cbc-b8cc-ecf7874518bc" class="">总之，仪表盘在整个历史上经历了重大变化，从基本的机械仪表到先进的 LCD 和 HUD 仪表。随着技术的不断进步，仪表盘也会不断发展，我们很可能会在未来看到令人振奋的发展。</p><h1 id="fcdb6aa5-0c59-4ae5-963f-53be4ff5264e" class="">二、汽车仪表盘交互体验 6 要素</h1><p id="29cef46f-dad7-4bfc-9711-b42f1a624d07" class="">汽车仪表盘是车辆的重要组成部分，可为驾驶员提供关键信息，例如速度、燃油油位、温度和警告信号。随着汽车变得越来越先进，仪表盘界面也在不断发展，变得更加复杂和互动。设计有效的汽车仪表盘交互体验对于提高驾驶员的安全性、舒适性和便利性至关重要。那么，在设计汽车仪表盘交互体验设计的时候我们需要考虑哪些方面的要素呢？</p><figure id="fea01cad-6612-4ca4-833e-b6c47f763a2f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-9.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-9.jpg"/></a></figure><p id="81767b62-59c4-4179-8b98-735214bb56a8" class=""><strong>1. 可见性和可读性</strong></p><p id="e021dc6d-4b50-44c8-afab-9e2f3ba16db0" class="">仪表盘的主要功能是显示基本信息，而且必须清晰易读。在不同的照明条件下，例如明亮的阳光或夜间驾驶，信息必须清晰可见且易于阅读。还必须仔细选择字体大小和文本颜色，以确保驾驶员一眼就能阅读。</p><p id="32b9a86a-a46c-40b5-86cc-ccd56d7abc1b" class="">例如，大众汽车的数字驾驶舱系统采用全数字仪表盘，允许驾驶员根据自己的喜好自定义显示。大屏幕尺寸、高分辨率图形和可定制的布局有助于驾驶员快速阅读信息，更容易将注意力集中在道路上。</p><figure id="19fd998b-0a11-49c7-a9a2-8193fa64ac8d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-10.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-10.jpg"/></a></figure><p id="fc43d312-f1cb-4f6e-aa32-75d4b16e4c6c" class=""><strong>2. 清晰的功能层级</strong></p><p id="a34e2316-24b3-441b-88f1-b31018da933b" class="">仪表盘必须提供驾驶员可以快速轻松访问的基本功能和特性。仪表盘控制界面必须直观、简单，使驾驶员无需将视线从道路上移开或双手从方向盘上移开即可使用。</p><p id="0ad9ecc5-cc75-44a3-bd58-e1ad5a5fc506" class="">例如，蔚来汽车体验设计团队对 NIO OS Aspen 3.0 升级的时候，对仪表盘的信息进行了重新的划分，让界面直观且易于使用，具有逻辑菜单和功能，确保驾驶员可以快速访问控件，同时将注意力集中在道路上。</p><figure id="71bed942-7874-456d-9bd0-dc20953598fe" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-11.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-11.jpg"/></a></figure><p id="f213936b-6b21-47fe-a837-2d9b1a849582" class=""><strong>3. 与用户互动</strong></p><p id="06302b04-f19d-42df-967b-b558e6341c23" class="">交互性是设计有效的汽车仪表盘交互体验的另一个关键要素。仪表盘必须响应驾驶员的需求，并且旨在帮助驾驶员更好地控制车辆。</p><p id="a966bb01-a013-405a-b76c-a9312060c620" class="">例如，蔚来汽车 NOMI 是一项智能车载系统，由中国新能源汽车制造商蔚来汽车开发。NOMI 使用语音识别和人工智能技术，可以控制车辆功能，例如调节温度，更改音乐源，<a href="https://www.uisdc.com/tag/%e5%af%bc%e8%88%aa">导航</a>等等。此外，NOMI 还有可爱的表情和声音，可以与驾驶员或乘客互动</p><figure id="f1560310-60d4-4b8d-8ccd-7505031a22fe" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-12.gif"><img style="width:600px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-12.gif"/></a></figure><p id="5e459347-765c-4b6c-887e-1feb3925b2a8" class="">蔚来汽车情感化的 nomi</p><p id="ee555e88-a3ef-4b85-8d14-9b77718b979c" class=""><strong>4. 以用户为中心的设计</strong></p><p id="6df32e12-f287-482f-af1f-23c6fda1a6a7" class="">汽车仪表盘设计必须关注用户的喜好、驾驶风格和习惯。显示器、按钮和控件的布局和位置必须易于使用，并优先考虑驾驶员最常用的功能。</p><p id="b29232f9-51e8-45aa-b4c4-68c9a2fc01d7" class="">例如，许多现代汽车具有不同的驾驶模式，例如经济模式、运动模式和越野模式等。驾驶人员可以选择他们喜欢的模式，以适应不同的驾驶条件和情况。此外，有些汽车仪表盘还可以存储不同的驾驶人员个性化的设置，例如座椅位置、音响音量等等。这些设置可以通过车辆钥匙或者我的车主账户等方式自动识别驾驶人员身份，以便车辆为他们切换自定义的驾驶模式和设置。</p><figure id="78b2188c-6bf9-4c5d-99b1-b5c268ee9413" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-13.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-13.jpg"/></a></figure><p id="ca0dcb88-6e0e-4a62-b19e-7b4f12bcfa98" class=""><strong>5. 尊崇设计美学</strong></p><p id="b67c6956-6404-4e71-8fc4-595a3eb0d6c7" class="">仪表盘是汽车内饰的核心，它应该看起来很吸引人并且与汽车的整体风格相匹配。设计不仅要赏心悦目，还要实用，界面易于导航。</p><p id="cec643b6-4d21-4a10-82a8-46bafe1ee41a" class="">例如，宝马汽车车机系统的采用了钻石水晶的设计语言，凸显豪华车的尊贵感和品质感。</p><figure id="75aed89d-1195-453c-a13c-a8874520071d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-14.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-14.jpg"/></a></figure><p id="ef9affb6-1dba-42f3-af35-fdd7a8795e7c" class=""><strong>6. 安全性是第一要务</strong></p><p id="d3918edc-e5af-4058-961a-65e65657db43" class="">最后，汽车仪表盘设计必须将安全放在首位，确保界面不会分散驾驶员的注意力，不会危及驾驶员或乘客的安全。</p><p id="a639c149-2b30-4b84-86c2-4722b1efcd6c" class="">例如，斯巴鲁 EyeSight 系统提供了一套安全功能，可帮助驾驶员避免发生事故。该系统包括自适应巡航控制、自动紧急制动和车道偏离警告，所有这些都显示在仪表盘显示屏上，方便驾驶员访问。</p><p id="0f669ffa-94be-4d5e-8754-605908e3019f" class="">小结：设计有效的汽车仪表盘交互体验对于提高驾驶员的安全性、舒适性和便利性至关重要。通过优先考虑上面列出的元素，制造商可以创建优先考虑驾驶员需求和偏好的仪表盘体验，从而增强整体驾驶体验。</p><h1 id="2e35334f-f0ad-4e47-a11e-59142576ebe5" class="">三、HMI 仪表盘的信息架构</h1><p id="214fa4ea-88d7-4e54-a2f7-541819e49905" class="">电动汽车在我们的道路上越来越普遍，汽车制造商也在不断升级技术以提供更好的驾驶体验。任何车辆的关键要素之一是它的仪表盘，它可以在司机行驶时通知他们重要信息。但是，仪表盘信息可能会非常多，并且某些数据可能不如其他数据重要。在这种情况下，重要的是将电动汽车仪表盘信息分解为分层类别，以确定哪些信息是必不可少的，哪些信息不太重要。</p><h3 id="417c2061-902d-4655-86b4-c6d01db21b37" class="">1. 从显示角度划分</h3><p id="bd5a29a3-93e5-48e2-bcd0-b1b75d518d95" class="">仪表信息可以分为：常显、临时</p><p id="17211c85-469f-44e5-b137-9c86b8d7e176" class="">常显信息：车速、车辆信息、电量&amp;续航里程、档位、时间、温度...；</p><p id="8a360961-3e51-463b-ae5b-97ccc2dee2d0" class="">临时信息：报警指示灯、车辆基本信息、菜单、主动安全信息（车道偏离、前方车距、左右方来车等）</p><p id="75638c1b-074d-4157-b380-4a54a8aee43c" class="">临时信息又分为：主动与被动。主动信息，可以理解为提示报警信息需要驾驶员主动去操作，提示界面才消失，为强提醒；被动信息，不需要驾驶员去操作，它过几秒（可设置）自动消失</p><figure id="5d6e5564-e9d8-4376-9979-a4a8fce33ad3" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-15.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-15.jpg"/></a></figure><h3 id="b575d2f8-422a-4172-a0b5-5a473ec45128" class="">2. 从信息重要程度划分</h3><figure id="1ab8e505-1aba-4213-a568-5dd9371b26c5" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-16.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-16.jpg"/></a></figure><p id="14a83657-b1e4-4f66-897d-b44d51cccee9" class=""><strong>A 类信息</strong></p><p id="9a985c70-333b-404a-8fcc-596e3fc9f302" class="">此类别包括仪表盘上最关键的信息。电池状态和续航里程是驾驶员需要实时了解的最重要信息，以确保自身和他人的安全。速度和导航及地图是另外两个基本功能，可以帮助驾驶员安全导航并避免事故。</p><p id="d0dcabdc-591c-452b-83e2-d80405c7c748" class="">速度：速度是驾驶安全的另一个重要方面，电动汽车应始终在仪表盘上以大字体显示汽车的速度。</p><p id="6f53ea02-a231-46e0-a5b5-cbaf8ced305b" class="">导航路况：内置导航在现代汽车中变得越来越重要，它是一项至关重要的安全功能。司机需要清楚地了解他们在哪里以及如何到达他们要去的地方。</p><p id="36fdb416-8453-4949-8862-8bd4aa8268a4" class="">电池和续航里程：任何电动汽车驾驶员需要的最重要信息是电池状态——剩余电量和估计的剩余续航里程。此信息应高度可见，并在级别降得太低时发出警报。</p><p id="dd7413c9-3ba9-4d16-895f-f930350fd49c" class="">警告信息：此类别包括提醒驾驶员注意需要注意的潜在危险或故障的警告信息，但这类信息虽然重要，但是不会经常出现，比如：</p><ol type="1" id="82ed47de-2613-4b7d-b303-a2568d65c9fd" class="numbered-list" start="1"><li>电池和充电警报：应显示与车辆电池和充电状态相关的警告消息，例如电池电量不足或充电错误。</li></ol><ol type="1" id="e371026b-9bd6-4921-82cb-5e4538b62fff" class="numbered-list" start="2"><li>故障警报：车辆驱动系统或关键部件的任何故障警报——例如制动、转向或悬架问题——都应优先于所有其他信息。</li></ol><ol type="1" id="6919b0eb-febc-4b85-8bb8-7785462f2d8c" class="numbered-list" start="3"><li>其他警报：仪表盘应显示其他相关警报，例如与安全使用驾驶辅助系统相关的警报、安全带警告或轮胎压力监测系统警报。</li></ol><figure id="e6c94f83-86db-4e35-9f87-10dbb99a2007" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-17.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-17.jpg"/></a></figure><p id="fa6ebd45-f61d-496d-b336-efc54ac5fcc1" class=""><strong>B 类信息</strong></p><p id="168580b8-cf47-4065-bc4b-3da7e7a5c29a" class="">第二类具有比 A 类稍微不重要的项目。必须显示充电站的充电状态和位置、驾驶员辅助系统及其各自的指示灯，以实现安全高效的驾驶。</p><p id="65ea33cd-9fc1-4aa0-a8bb-229ea3ab2464" class="">ADAS(驾驶辅助系统)：自适应巡航控制、车道偏离警告和盲点监控等自动驾驶系统正变得越来越普遍，对确保安全驾驶至关重要。它们应该包含在仪表盘中，并清楚地指示它们何时处于活动状态或不活动状态。</p><p id="587d0ad7-09c4-497e-bcea-6c236cd3e9b3" class="">来电通讯：电动汽车来电通讯功能可以提高用户在驾驶过程中的安全性，因为他们可以在驾驶过程中接听电话或发送短信，而不必担心分散注意力或迷路。此外，该功能还可以帮助用户避免在停车时接听电话，从而减少交通事故的风险。</p><p id="7a3dc8d7-55f4-4710-9f7c-ffd220b026e6" class="">车况信息：通过实时监控电动汽车的车况信息，用户可以了解电动汽车的健康状况，及时发现并处理潜在的问题，从而提高电动汽车的使用寿命和性能。同时，车况信息也可以为用户提供更准确的续航里程估计，帮助用户更有效地规划行车路线和节省燃油成本</p><p id="d866cc62-1a77-43a0-8eee-c76d505edd77" class="">档位信息：电动汽车通常使用“P”、“R”、“N”、“D”四个档位来控制车辆的运行状态，P 档通常用于停车状态，R 档通常用于倒车状，N 档通常用于静止状态，D 档通常用于行驶状态</p><figure id="0e93333d-724e-4bb5-92b0-e458bdd5a29d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-18.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-18.jpg"/></a></figure><p id="1ead0242-9108-4c49-a919-b5682c3c8f1b" class=""><strong>C 类信息</strong></p><p id="a23d5f26-ece0-4cfb-8fc2-91f75050fce8" class="">仪表盘中最不重要的信息属于此类，但仍会影响驾驶体验。气候控制对电动汽车至关重要，音频和娱乐选项可以提高乘客在乘车过程中的舒适度。用于调整前灯、后视镜或雨刷器的车辆设置对于无缝驾驶体验至关重要。</p><p id="8e95a44e-59a7-4712-9089-61fb1d463520" class="">娱乐系统：音频系统和娱乐选项虽然对安全驾驶来说并不重要，但可以极大地提升驾驶体验。音量、歌曲选择，甚至手机同步等选项都应该可以在仪表盘上轻松访问。</p><p id="ea6e0de9-76f7-4205-882a-10a0a70fe511" class="">气候信息：与传统的汽油动力汽车相比，电动汽车通常需要更多地关注气候控制。驾驶员应该能够使用仪表盘调节温度和气流。</p><p id="e95b7b75-5e8b-43db-a636-4a42218d82b4" class="">其他：仪表盘还通常会显示时间、驾驶模式、车辆设置等信息，车辆设置信息例如车灯、雨刷和后视镜等。这些可以通过信息娱乐系统访问，但它们也应该显示在仪表盘上，以便在驾驶时轻松访问。</p><figure id="f6337fa0-3659-4677-b0e1-1d562da992a5" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-19.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-19.jpg"/></a></figure><p id="50270d5c-bc87-4c6e-88aa-cba1d4dbd6e1" class="">小结：电动汽车具有许多优势，包括环境效益和改善的驾驶体验。仪表盘必须满足驾驶员的需求，同时提供优先考虑驾驶员和乘客安全的基本信息。正如我们在此处介绍的那样，将信息分类为分层结构可以确保驾驶员能够访问关键信息，而不会分心或让他们超载。</p><h1 id="f35ea744-dddb-46f0-a924-c0f1fccb0580" class="">四、HMI 仪表盘的布局形式</h1><p id="bad9cb53-d541-4a5b-81e0-6b09ebc5842c" class=""><strong>1. 主流电动汽车品牌仪表布局对比分析</strong></p><p id="897dcb00-19aa-417a-9a11-b4e42e67ec88" class="">对比几家国内知名新能源汽车品牌，我们会发现仪表的布局形式基本上是左中右的信息布局形式，而且中间内容是重点区域基本上是给到了 ADAS（辅助驾驶系统）信息区。左右 2 侧的信息基本上可以通过方向盘的按键进行自定义。</p><figure id="5550a66d-f17e-4af9-a8ed-2a1e59d6b0be" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-20.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-20.jpg"/></a></figure><figure id="a7610fb2-a1dd-4eab-a752-4c086a1725d5" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-21.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-21.jpg"/></a></figure><figure id="6afb3d1f-3cb2-43ac-b002-4043dcb13894" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-22.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-22.jpg"/></a></figure><figure id="3b7a094a-7de4-4287-805d-b5a91dbb2102" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-23.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-23.jpg"/></a></figure><p id="6ca23470-634b-41f7-8658-8e904cb1fe48" class=""><strong>2. 其他特殊形式的仪表盘布局</strong></p><p id="b2303537-11ef-400d-be18-1ff305957f14" class="">特斯拉 model s、model y 将仪表盘信息集中到了中控屏上左侧区域的位置，对于驾驶员来说，还要时不时斜视查看中控上的信息，这在驾驶过程中是比较危险的</p><figure id="24b4528f-45a3-422f-97aa-a855b2c68e35" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-24.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-24.jpg"/></a></figure><p id="b95539bc-4313-42b3-a2bd-560f42f96c7e" class="">极氪的仪表盘是一个比较特殊的造型，在一众新能源车里面是比较有特点的，但是仪表盘的辅助驾驶功能还有很大提升空间，续航和功率也采用了和燃油车相似的可视化图形设计。</p><figure id="624ae37f-82e5-4bcb-9788-f14daa6e4503" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-25.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-25.jpg"/></a></figure><p id="539b5c15-7d5e-4ca3-ab25-b92bb60a8128" class="">路特斯在被吉利收购之后推出的纯电豪华品牌路特斯 eletre 的仪表盘和副驾驶位置都是是一条极窄的显示屏，看起来非常的运动和时尚，但是缺憾就是显示的内容有限，仪表盘很难很好的显示智能辅助驾驶信息</p><figure id="0d68e43e-dce1-40f2-87ff-6924d5ad4813" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-26.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-26.jpg"/></a></figure><p id="d8e71b81-d0b1-48f8-8440-f4df40f276c5" class=""><strong>3. 仪表布局需要注意的细节</strong></p><p id="5669416f-5812-48a3-b3e4-fdcc19650f04" class="">避免方向盘的遮挡：设计汽车仪表盘时的关键挑战之一是避免遮挡驾驶员对道路或方向盘的视线。设计良好的仪表盘的定位方式应能提供清晰的道路视野，同时为驾驶员提供信息。为避免遮挡方向盘，设计人员应确保中央显示屏抬高，并将控件和按钮放置在触手可及但不在驾驶员视线范围内的位置。</p><figure id="74306245-8a50-4b9e-acb7-4e8341b5c6db" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-27.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-27.jpg"/></a></figure><h1 id="46018809-a3fa-4c81-86b1-687dd5252b01" class="">五、HMI 仪表盘的设计趋势</h1><p id="a390cfad-938c-4521-9c2a-4db41ac52aa7" class=""><strong>1. 数字驾驶舱</strong></p><p id="a58a2948-0f1d-4594-9adf-6e2d88d94928" class="">在汽车仪表盘中使用数字屏幕是一种快速增长的趋势。数字屏幕为驾驶员提供更多信息，使用起来更直观。它们可以显示一切，从车速到 GPS 导航信息、媒体播放信息，甚至车辆诊断信息。数字屏幕还可以定制不同的主题和颜色，以符合驾驶员的个人喜好。</p><p id="fe8ec897-92f1-4425-99ec-b841184a0154" class=""><strong>2. 极简主义</strong></p><p id="8846ea00-7b03-46d4-bed4-01c7cb6e4f37" class="">极简主义是一种强调简单性和功能性的设计趋势。许多汽车制造商在他们的仪表盘设计中采用这种方法，移除多余的按钮、旋钮和开关，以打造更简洁、更流线型的外观。这减少了驾驶员分心并提高了驾驶时的安全性。</p><p id="307df8ed-3b2c-487b-93e7-03363ca9d2ff" class=""><strong>3. 与智能手机集成</strong></p><p id="aae3e293-059e-45ca-a0cd-65fa9a326da6" class="">随着智能手机成为日常生活不可或缺的一部分，汽车制造商正在将智能手机功能整合到他们的仪表盘中，以允许驾驶员直接从仪表盘访问他们的音乐、消息和导航系统等功能。语音控制系统的集成也越来越受欢迎，驾驶员无需将手离开方向盘即可与信息娱乐系统和导航系统进行交互。</p><figure id="e68154b7-b33e-466b-a3a8-a291c89809bc" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-28.gif"><img style="width:690px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-28.gif"/></a></figure><p id="b48e9d5e-86df-47f9-ba49-e78f011a9471" class="">flyme auto 手机与车机的无缝操作体验</p><p id="0c855a68-d6f7-4f5b-b5f2-67ce1be10d38" class=""><strong>4. 个性化</strong></p><p id="b0baa5ff-5e1c-47cb-b107-4fe24c194a9d" class="">定制仪表盘以适应驾驶员个人喜好的能力是一项很有价值的功能。汽车制造商正在引入情绪体验、可编程快捷方式和不同的显示主题等功能，以允许驾驶员个性化设置他们的仪表盘体验。</p><figure id="48d1ec0f-562d-41ac-a1f5-673e13dd1832" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-29.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-29.jpg"/></a></figure><figure id="d95f09d8-57b9-443e-b3b1-bf42ccf017f1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-30.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-30.jpg"/></a></figure><p id="40d6af66-4533-4fa8-820b-1b9d014d0eb9" class="">智己汽车提供的个性化主题（油画&amp;水墨）</p><figure id="3a8e020c-b991-426c-ad8f-c2ea62ad778e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-31.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-31.gif"/></a></figure><p id="29f75b4a-c0f1-4c04-8446-0b497c63f775" class="">不同驾驶模式的切换</p><p id="bfdf8f56-0df6-41e9-ac73-2bd5d40452da" class=""><strong>5. 安全性</strong></p><p id="ef0d73b3-231f-40bc-ae48-d8e359716d2e" class="">一如既往，安全性是汽车制造商在设计汽车仪表盘时的首要任务。显示器和控件的设计易于阅读和使用，平视显示器等功能以及车道保持辅助和自动紧急制动等驾驶员辅助功能在当今汽车中变得越来越普遍。</p><p id="3534fe7d-161f-4076-be74-4bf48e9b0e7c" class=""><strong>6. 增强现实</strong></p><p id="31fd1940-a06c-4f56-93ad-4f4c8eea9e54" class="">增强现实技术正逐渐进入现代汽车仪表盘。它可用于显示实时信息并提升整体驾驶体验。例如，增强现实平视显示器可以在汽车的挡风玻璃上投射导航方向和其他重要信息。</p><p id="0af83793-afae-4822-abf2-676f69f96d71" class=""><strong>7. 高级驾驶员辅助系统 (ADAS)</strong></p><p id="51230c88-cc81-4c02-991a-7a17144c2aa7" class="">仪表盘旨在显示与 ADAS 功能相关的信息，例如车道偏离警告、盲点监控和自适应巡航控制。这些系统为司机提供实时反馈，并通过警告他们潜在的危险来帮助防止事故发生。</p><figure id="124b9dbe-2650-425a-9072-656c369c161d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-32.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-32.gif"/></a></figure><p id="c36c4f6c-1032-476d-aa56-c54a2e75d042" class="">蔚来汽车仪表盘的 ADAS 界面</p><p id="7b6aa623-9113-48ae-a2cb-c6648dce93ad" class=""><strong>8. 多功能</strong></p><p id="f711614b-2bae-49ee-9623-4e9b3a9f7f67" class="">汽车仪表盘不仅限于显示驾驶信息，还可以作为乘客的娱乐中心。现代仪表盘通常包括触摸屏显示器、媒体播放器和智能手机集成等功能，以提供更身临其境的车内体验。</p><p id="558f830b-1332-47b2-aaf3-d7a1ea752064" class=""><strong>9. 更细节的交互体验</strong></p><p id="f3296fb9-2d80-4a2a-b17a-0b11b5e62009" class="">越来越多的汽车品牌关注细微的细节体验，比如蔚来汽车的仪表盘汽车仪表盘会随着汽车车灯和尾灯状态，显示在仪表盘的汽车模型上；仪表盘沉浸式的体验，让用户感受环境的变化；通过微动效，让用户感知汽车状态的变化。</p><figure id="35053bf3-6121-49b8-add8-fb83ffe4df83" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-33.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-33.gif"/></a></figure><p id="82953144-7ccd-4fa2-a40b-d3b25fc04fe2" class="">微动效，让用户感知汽车状态的变化</p><p id="85a6d50e-3dd1-4a9b-9fd1-3c7c79b2783d" class="">总而言之，汽车仪表盘正在发生重大变化，重点是为驾驶员创造更加精简和个性化的体验，同时将安全放在首位。数字屏幕、极简主义、智能手机集成、个性化和安全性都是塑造汽车仪表盘设计未来的主要趋势。</p><h1 id="e328ef88-4870-4e2d-9350-c46fb379d436" class="">六、HMI 仪表盘视觉设计的方法</h1><p id="063b788a-aff9-4d06-be34-d64643269e90" class=""><strong>1. 三个考虑的要点</strong></p><p id="60f3c837-4bc9-45b4-8832-835ad1c485ff" class="">当我们设计仪表的时候要考虑的几个点分别是：空间透视；仪表的表头形态；不同模式仪表的形态变化</p><p id="54db98bf-dd78-412e-b876-1cf520111405" class="">区别于扁平化的设计，仪表的设计经常会采用空间纵深感比较强的设计方式，它能够和我们的驾驶空间透视场景保持统一，同时也能够让界面层次更加富有变化</p><p id="987e4267-0c88-452b-b787-901326991d7e" class="">大部分的汽车都会设置运动模式、舒适模式、经济模式，当不同的模式我们可以考虑设计仪表不同形态变化，让用户更容易感知模式的变化</p><figure id="7a38d565-b970-484e-862b-988a7d11eb8b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-34.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-34.jpg"/></a></figure><p id="b7a1a982-f0bf-4b9b-92d1-49e4452228e0" class=""><strong>2. 三个方向寻找设计灵感</strong></p><p id="e926a534-89e9-4772-855f-415eebb116a1" class="">仪表的功能一般要体现车速、转速、减速、用电功耗、档位、油量变化等功能，在造型设计上，我们主要可以从 3 个方式去寻找设计灵感</p><ol type="1" id="efb212cc-4b9e-4540-8eff-802f7043383b" class="numbered-list" start="1"><li>通过契合产品特点的工业、建筑造型设计来寻找设计的灵感；</li></ol><ol type="1" id="99590f98-696a-4d0f-a9be-8c3a0f89ef00" class="numbered-list" start="2"><li>通过汽车造型的设计语言（车头前脸、尾灯、内饰、车身线条）来寻找设计的方向；</li></ol><ol type="1" id="91a3f53e-6d35-4de9-a0de-fe98b177f314" class="numbered-list" start="3"><li>从品牌调性来探索 HMI 的设计灵感</li></ol><figure id="5f623756-115a-48d1-8b98-95ec61488205" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-35.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-35.jpg"/></a></figure><h1 id="788b548f-d4c7-4ec5-a318-dc8a7da33492" class="">七、HMI 仪表盘视觉设计原则</h1><p id="34575cb3-89ed-4a72-92f9-0260b0f18546" class=""><strong>1. 色彩</strong></p><p id="3f5e8264-8b71-4a27-8668-cbd00d002cad" class="">车机系统色彩原则是为了在汽车内饰设计中，为乘客提供舒适、安全、高效的使用体验而制定的一些原则。以下是几个车机系统色彩原则:</p><p id="26cfe4bc-1353-496d-b590-12c235075a27" class="">易读性：车机系统的色彩应该清晰易读，特别是在夜间或低光环境下。使用高对比度的颜色组合，例如黑色和白色，可以提高文字和图形的可读性。由于驾驶环境的复杂光线条件，需要满足在不同照明条件（日间/夜间/暗光/眩光）下的可读性，对比度需满足以下条件：文本与底图对比度建议大于 7：1（至少 4.5：1）。背景推荐使用深色，避免大面积使用纯白色，过度吸引用户注意。过高的对比度导致视觉疲劳和阅读效率的降低。深色模式下背景与文本或图形的对比度建议不大于 18：1。注：下图来自 <a href="https://link.uisdc.com/?redirect=https%3A%2F%2Fcolor.review%2F">https://color.review/</a> ，可在此链接查阅色彩对比度关系 。</p><figure id="ad9eb987-483f-4a20-9c26-9aa85ec25ff4" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-36.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-36.jpg"/></a></figure><p id="f128c48b-bb93-4044-818b-65408949d530" class="">安全性：车机系统的色彩应该能够引起乘客的注意，并且应该易于区分不同的功能。例如，红色和黄色通常被认为是高优先级的颜色，可以使用它们来强调关键的操作或信息。</p><figure id="9dd02fcf-db40-44e9-b1c1-a7ea45f04ccf" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-37.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-37.jpg"/></a></figure><p id="2aacc3b0-f0fb-4eb6-807a-b285bcecc3de" class=""><strong>2. 图标</strong></p><p id="58142bd9-109d-4f39-861b-9d201bb72123" class="">在车载系统中，车机系统图标的设计大小通常与车辆的配置和品牌有关。一些车辆可能使用较小的图标，而其他车辆则使用更大的图标。根据百度 IDX 驾驶体验中心，在对于《车载 HMI 界面效果客观指标实验报告》在基于视距为 50cm，计算出最小图标为 9mm 推荐使用 12mm。这个时候我们设计师会问了，设计稿是以像素为单位的，那图标换算成像素是多大呢，因为各家厂商的屏幕分辨率不一样，计算出的结果也是不一样，根据我自身设计的经验，通常在 1 倍图的情况下，我们可以将最小图标尺寸控制在 44px~48px 左右就可以了</p><figure id="28434cf5-1ca9-4156-8c9c-cd2440a108cc" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-38.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-38.jpg"/></a></figure><p id="e18dc57a-773e-4dac-abee-1df73a294636" class="">仪表中还有另外一类占比比较多的就是法规类的图标，这些图标都有着严格的国家标准，我们在设计的时候也要充分考虑进来。</p><figure id="8b20381a-fef0-4aad-9b35-ee14bcde6a29" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-39.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-39.jpg"/></a></figure><p id="aaf8377b-d197-4694-b47d-aac7e579a201" class=""><strong>3. 字体</strong></p><p id="c35d770d-73f2-415e-8f63-6a28276fedf6" class="">在汽车车机系统中，字体大小对于视觉效果和用户体验非常重要，车机系统字体设计规范需要考虑到可读性、风格、粗细、大小、颜色、特殊字符和可访问性等方面，以确保字体易于使用和易于识别，在对比百度&amp;华为车机系统规范中对于字体大小的规范，我们可以总结出：标题字一般在（36~56px），正文字体大小在（24~36px），同时在字号选择的时候，我们尽量采用 4 倍数的规则来规范字号。</p><figure id="d002cc08-439c-45f2-91a4-f76bd49f8d62" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-40.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-40.jpg"/></a></figure><p id="9c5f1b44-dd3d-4b8a-b5ca-7737b58acd74" class="">百度 Apollo 车机系统字号规范</p><figure id="946e6925-11f9-4deb-929d-35c862b0d052" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-41.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-41.jpg"/></a></figure><figure id="935008e3-6057-4ce9-8c0f-2cc67860871b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-42.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-bp-20230409-42.jpg"/></a></figure><p id="0064cb6f-b49c-4581-aa25-55e81d595e5f" class="">华为车机系统字号规范</p><p id="44069020-0932-42c7-a32f-508457442010" class="">最后，电动汽车仪表盘设计是电动汽车设计中不可或缺的一部分，其设计要点是简洁明了、可视化、智能化和节能环保，未来仪表盘设计也将朝着数字化、集成化的方向发展。未来，电动汽车的仪表盘将会创造出更加理想的驾驶环境，为驾驶者提供更加安全和舒适的驾驶体验。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

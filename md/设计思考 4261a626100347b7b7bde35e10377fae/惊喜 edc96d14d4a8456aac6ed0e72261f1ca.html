@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>惊喜</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="edc96d14-d4a8-456a-ac6e-d0e72261f1ca" class="page sans"><header><h1 class="page-title">惊喜</h1><p class="page-description"></p></header><div class="page-body"><blockquote id="bf3a375c-c40a-47eb-ae44-1a3d71d00582" class="">交互设计的惊喜就是超出用户预期，让用户开心。设计中有趣味性的是小惊喜，能引领未来潮流的，则是大惊喜。时刻保持好奇心、追求卓越和独立思考，做出有惊喜的交互设计。</blockquote><figure id="b7fdc932-ce7d-4351-8b00-0c8f4c93636a" class="image"><a href="http://image.woshipm.com/wp-files/2020/01/wpL0Hbrx9IKGl8QCzLVy.jpg"><img src="http://image.woshipm.com/wp-files/2020/01/wpL0Hbrx9IKGl8QCzLVy.jpg"/></a></figure><p id="8d2aa287-cf9e-449e-b0b0-c78dead36c8a" class="">上一篇，探讨了如何做到品质。这一篇，探讨下如何做到惊喜。一家之言，未必全面，甚至未必正确。欢迎交流探讨。</p><h2 id="29fbd7a6-defc-4d3b-8991-b342775e6c7f" class=""><strong>01 交互设计的惊喜，是什么？</strong></h2><p id="e62fdd85-a800-4801-8ebd-c0fd910a86ca" class="">之前的文章，有简单定义过交互设计的“惊喜”，即为：超出用户预期，并让用户开心。</p><p id="56df2ed4-995e-470f-a669-3bb00e0f75bf" class="">具体而言有两类，分别是：小惊喜、大惊喜。</p><h3 id="00542fba-7baa-4e1c-b4ae-2dffc2ecb776" class=""><strong>1. 小惊喜</strong></h3><p id="3ce43e01-e00b-40fc-bfc9-f64ee72e21a7" class="">所谓小惊喜，是指一些颇具<strong>趣味性或人文属性</strong>的交互设计小细节。</p><figure id="ea1742a2-9182-4fff-b94c-3b4dfc38a484" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/Iy93fg8kQusZxhgs5Sja.png"><img src="http://image.woshipm.com/wp-files/2020/02/Iy93fg8kQusZxhgs5Sja.png"/></a></figure><p id="ffb76335-e9f0-411a-96a3-04f84538fb8c" class="">先说趣味性。常见的有两类，第一类是比较<strong>好玩的动效</strong>，第二类是一些<strong>小功能</strong>。第二类有时也会包含第一类。</p><p id="184723d6-5aa2-4205-9f22-d83c6e91bde6" class="">动效这块，大家比较熟悉的，有 iPhone 上删除应用前图标的抖动，仿佛是吓的发抖，也可能是在摇头求饶；还有移动端登录 B 站、输入密码时，动画人物的捂眼捂脸动作。</p><figure id="d3b5cf9f-4cab-45fd-939a-22bd6a26898d" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/QGyi62kNplbIMYcuhaTX.png"><img src="http://image.woshipm.com/wp-files/2020/02/QGyi62kNplbIMYcuhaTX.png"/></a></figure><p id="171d8de9-5b03-4ed2-a2a9-4cc2dfcc3cf5" class="">B 站登录页面</p><p id="d17be3d4-116b-48de-88d2-a093a9464fdf" class="">小功能这块，也可以分成两类。一类是<strong>隐藏的小功能</strong>，一类是<strong>有趣的小功能</strong>。</p><figure id="cdd61abe-db9e-4ee3-b704-098e717bd608" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/qKRgJuPqU3pZ16RCVaOr.png"><img src="http://image.woshipm.com/wp-files/2020/02/qKRgJuPqU3pZ16RCVaOr.png"/></a></figure><p id="a6be59a8-2bec-4f45-aa0f-ac72d49eb613" class="">很多隐藏功能，头几次用的时候，多少会有一些惊喜之感。</p><p id="606d04ca-46ca-4670-8416-3254f8d9f2e5" class="">比如在订阅号消息列表页，某个公众号你已经几个月没看过，对它失去了兴趣和信任。这时，尝试长按这个公众号的头像或名称，会呼出一个包含“删除消息”和“取关”功能的弹窗。</p><figure id="a44b22ec-a858-49b7-9f40-9dd0afd4507c" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/rL3vlKvsoU1Ozo6FBVj3.png"><img src="http://image.woshipm.com/wp-files/2020/02/rL3vlKvsoU1Ozo6FBVj3.png"/></a></figure><p id="a31aa41f-6169-4745-9592-14ad0857970e" class="">订阅号消息列表</p><p id="398a951c-aba6-43b3-a7c0-b2231878b072" class="">还有些隐藏功能，既能让用户觉得惊喜和方便，又能引发用户思考。这种思考，可能会让用户感叹设计之妙，也可能也会给用户一种猜对谜语的欣喜之感。</p><p id="5299c481-4cfc-420c-9ab8-4cb8c63cefe7" class="">比如用墨刀的时候，尝试按数字键 1，会呼出“内置组件”这个使用频率非常高的功能，会让人觉得墨刀很聪明。</p><p id="f7f7bfbc-eb7e-46ca-bf34-f3a33d19fb67" class="">如果再仔细看一下，会发现，“内置组件”的缩略图标，和其他 4 个诸如“我的组件”、“图标”等功能的缩略图标，并成一列。这 5 个缩略图标的排列顺序（上到下），和它们快捷键（”、”键和数字键1、2、3、4）的排列顺序（左到右），是完全一致的。不得不说，这是一个简单又巧妙的设计。</p><figure id="4afa9c04-003d-4f94-9cf8-4dc7c8c13fc1" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/PV0tr4Nab4SnJdZFZwxz.png"><img src="http://image.woshipm.com/wp-files/2020/02/PV0tr4Nab4SnJdZFZwxz.png"/></a></figure><p id="ef4dd00e-f34b-4ad1-aee0-a37b4d7fbc41" class="">再比如朋友圈里，某个不熟的好友每天都发集赞的小广告，搞的我们不胜其烦。长按其头像，会呼出设置权限（屏蔽等）的功能。</p><p id="fa027207-0762-4b2d-b9c1-33f54b6e7090" class="">有意思的是，长按好友名字，则不会呼出这个功能。要知道点击头像或名字是都能进入好友主页的；另外刚才那个例子，长按公众号头像或名字，也都能呼出取关的弹窗。</p><p id="fdb689f1-f7ce-47cf-8caf-18e371fa368a" class="">个人的理解，生活中，我们用力长按一个人，通常是表达强烈不满，比如打架时。比起长按名字，长按头像更像是长按真人，所以也更能表达我们的不满。</p><figure id="530a6e57-56cf-4345-b6bf-6832abf2bc5d" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/Ag8N65Ktg1tBZPp427Eo.png"><img src="http://image.woshipm.com/wp-files/2020/02/Ag8N65Ktg1tBZPp427Eo.png"/></a></figure><p id="d2cca2df-f722-494a-851d-dd36ca7eda44" class="">说完隐藏的小功能，再说下有趣的小功能。比如微信聊天里的扔骰子、石头剪刀布，微信给朋友发生日快乐后漫天飘落的蛋糕，拍照软件里的贴纸，等等。</p><p id="2377ea27-2ca7-4a63-a21c-8c0e1225ef97" class="">最后说下带有人文属性的交互设计小细节。常见的有如下类型：<strong>帮助弱势、关照情绪、表达情感、保护隐私。</strong></p><figure id="64c42460-721f-4e84-8dcb-47008f2ef029" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/HUhdmqLWJqmCsMlQgcpS.png"><img src="http://image.woshipm.com/wp-files/2020/02/HUhdmqLWJqmCsMlQgcpS.png"/></a></figure><p id="4fe3f682-534f-4030-ab5b-1fa22d95164a" class=""><strong>帮助弱势</strong>这块，比如 iPhone 的辅助功能，里面有针对视力障碍的放大镜功能、有针对不识字群体的旁白功能。</p><p id="8d928d40-255c-4f65-87c7-88f1a5e2f6a6" class=""><strong>关照情绪</strong>这块，很重要的一点，就是避免引起用户的负面情绪。比如微信的删好友是单方面删除，被删时我们很难察觉到，而且微信也不会通知我们。个人觉得，微信之所以不通知我们，其中一点，就是不给我们添堵。类似的还有，微信消息没有“已读”功能，这就大大减轻了接收者的回复压力。</p><p id="b9e48f2b-cbcf-4c3a-a6ca-b502b5ead8c6" class=""><strong>表达情感</strong>这块，比较为人所知的例子，5 月 20 号这天，微信红包的限额，从 200 元升到了 520 元。还有一个例子，在微信聊天里发一个“ohh”，长按并点翻译，结果也是一个惊喜。</p><p id="6a0c8da0-50e6-418a-a132-cf0dbb19d8f2" class=""><strong>保护隐私</strong>这块，比如借助 iPhone 的“引导式访问”功能，可以让小朋友只能访问你的某个视频应用来看动画片。再比如别人用你电脑的时候，如果你不想让对方看到你的微信，就可以通过手机微信来锁定或退出电脑版微信。</p><h3 id="c066d819-2cc0-448f-8740-3ed48bf3fcc3" class=""><strong>2. 大惊喜</strong></h3><p id="8ba07d1c-c383-4138-a3cc-7c82d46af471" class="">所谓大惊喜，是指那些<strong>系统性大创新，并且能够引领潮流、代表未来的交互设计</strong>。通常而言，这些大惊喜，最开始给用户的感觉，就是酷。</p><p id="ad177a59-6234-4efc-bd2b-f9ff7ef698a8" class="">iPhone 就是典型例子之一 。</p><p id="056e85e3-1bd9-40d0-9205-477a9385add2" class="">2007 年的初代 iPhone，带来了当时的大屏幕：3.5 寸屏幕，以及纯触摸屏，和极为灵敏的触控体验。</p><p id="f66e6358-890a-47c5-99d1-00b97b30313f" class="">2011 年，Siri 同 iPhone 4S 一起问世，为我们带来了语音交互。如今，在 100 元就能买到品牌类智能音响的情况下，依靠语音交互的智能音响也在慢慢走入寻常百姓家。</p><p id="915bfafc-08ac-4731-984e-7da12683d31b" class="">也许后乔布斯时代的 iPhone 创新不如以前，但不可否认的是，时至今日，iPhone 依然在引领潮流，在给我们大惊喜。比如这几年流行的手机无线充电和以 AirPods 为代表的极简的无线耳机。</p><p id="25e3c9cf-256a-475a-90ef-07ceb2cff5ae" class="">以上是比较广为人知的交互设计，还有一些不太为人所知的设计。比如在家里网购一条床单，但是不知道床的尺寸，家里又没有尺子。这时，打开 iPhone 里的测距仪这款 App，就可以量出床的尺寸，会不会觉得有点酷。</p><figure id="99246c92-9916-4b08-b7d8-d977a0aea292" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/9w0kYuUQKnicnh1Vpq6u.png"><img src="http://image.woshipm.com/wp-files/2020/02/9w0kYuUQKnicnh1Vpq6u.png"/></a></figure><p id="3d6fdb6a-96b3-48ac-a90e-fcc47ae00397" class="">测距仪 App</p><p id="9a9a8201-81ab-405a-841a-71bf843b38a2" class="">微信在引领潮流方面也有一些建树，比如极大的普及了二维码和扫一扫。小程序作为一种体验接近原生 App、同时又不用下载的产品，也正在引领新一轮的潮流。</p><p id="b3db27e4-185b-4d37-975b-684668c7fa38" class="">还有一个比较酷的功能，就是以图搜图。笔者最早用过百度和谷歌的相关功能，主要是在电脑上搜索相似的图片，使用频率极低。</p><p id="0df3ac5b-8787-4dff-af8a-7295cee11b3e" class="">假设一个场景，比如在路上看到一个陌生人的外套很好看，但又不好意思上前问，就可以拿起手机，利用淘宝的拍立淘功能，拍张照就能马上看到相同或相似的商品。</p><p id="ab71fa8a-0891-4115-bb20-ab7ad39f8096" class="">如果淘宝上没有搜到类似商品，还可以用微信的扫一扫识物。和拍立淘相比，区别之处有两点。第一，不用拍，直接能识别，不过通常得等 1-3 秒；第二，识物结果里面，除了商品，可能还会有百科词条和资讯。</p><h2 id="6525ae73-4bac-4475-9939-d8031bf642aa" class=""><strong>02 交互设计：如何做到惊喜？</strong></h2><p id="ec7d1384-4922-46ea-a188-474130f2986f" class="">个人觉得，有 4 个要点：既要有好奇心，又要有卓越心；既要天马行空，又要保持自然。</p><p id="6c6eb350-662d-4c48-942a-bf5c9d6ac3f0" class="">听起来可能有点乱，且听笔者一一道来。</p><figure id="ba7addc9-f73b-4de4-86e8-1dafe88abc77" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/imClwxFSUmdPt6ctFmWP.png"><img src="http://image.woshipm.com/wp-files/2020/02/imClwxFSUmdPt6ctFmWP.png"/></a></figure><h3 id="70b3ff02-a453-447e-b524-9d0d2226d8eb" class=""><strong>1. 保持好奇心</strong></h3><p id="743cc68d-eafb-4200-bf20-9e0772be6138" class="">笔者观察身边读小学的小孩，发现，当大人聊天时，特别是谈正事时，小孩特别喜欢坐在旁边听，而且听的很认真。小孩有时也会说两句，或是问问题，或是发表自己的看法。</p><p id="6f4b3b63-4cc9-4f6d-a8f6-7387955ef39c" class="">看得出来，小孩对成年人的世界，怀有极大的好奇心。实际上，不止于成年人的世界，小孩对周遭世界都有比较强烈的好奇心。</p><p id="726c0690-56a2-4f82-87db-fa28b5676430" class="">整体而言，成年人对周遭世界的好奇心，远不如小孩。我们互联网从业者也不例外。</p><p id="5a425783-9b27-4e93-aeab-eba5a947fbfc" class="">好奇心和交互设计，有什么关系？</p><p id="230f201d-8ce2-42e5-b096-1b74a9e583a2" class="">交互设计，某种程度上，也是一种创作。好的创作，一定来自生活。这就需要我们去观察生活。</p><p id="c489a176-12ce-4467-93f9-44d9b0138fb0" class="">观察生活，非常重要的一点，就是好奇心，对周遭人、事、物要有足够的好奇心。</p><p id="d8b624e3-140a-4e6c-8b17-4a5028896c38" class="">比如上文提到的例子，在 iPhone 上删除应用前，应用图标会抖。这种抖是一种趣味隐喻，既可以理解成吓的发抖，也可以理解成摇头求生。如果对生活没有足够的好奇心，是很难留意到这种生活细节，并把它们作为一种隐喻运用到交互设计中的。</p><p id="fe6ce625-6fc4-4c95-b4fc-22633f5e9773" class="">以上是关于好奇心，还有一种特质，也是在小孩身上表现突出，同时也和本文主题有关，那就是：童趣。</p><p id="13128a15-de31-449c-a2d0-f6c120a5aed1" class="">还是上文的例子，在 B 站 App 上输入登录密码时，动画人物会捂眼睛。这个设计，可能不会打动所有用户，但至少一部分用户会觉得比较有趣。如果我们内心没有一点童趣，可能也会觉得，这个设计，没啥意思。</p><p id="0e40c2eb-6e3e-401a-9430-63e1b0a2a47a" class="">玩是人的天性，对于比较好玩的交互设计，大部分人是比较容易产生共鸣的。实际上，据笔者观察，我们大部分从业者是有童趣的。我们比较缺的，是好奇心。</p><p id="680ec5ab-1e49-4bb7-b65d-a189a7867f82" class="">那么，怎样判断自己是否拥有足够的好奇心，其标志是什么？</p><p id="d463b8d0-f617-418b-abb4-593cd0069b4c" class="">个人观点，有两个标志。第一，是对与个人利益无关的生活小事的关注，远多于对个人利益本身的关注。第二，观察和思考，远多于评价和自大；追本和溯源，远多于偏见和傲慢。</p><p id="c4ceba40-8e46-4674-a41f-27a04599ce5c" class="">为什么会提到个人利益？</p><p id="c295473a-91da-4ac4-92b7-847e95590234" class="">因为，通常而言，个人利益，尤其是短期利益(比如少花时间设计和修改原型)，往往会和用户体验存在一个此消彼长的关系。</p><p id="06d766ff-4bde-4019-81c2-74916259611b" class="">如果过于关注个人利益，不仅很难照顾到用户体验，甚至会伤害用户体验。至于给用户带来惊喜，就更无从谈起了。</p><p id="ab45787a-2411-4b76-9128-6839903ca0ff" class="">回到现实当中。在时代洪流面前，好奇心的两个标志，显得很难，该如何实现？</p><p id="8adf2373-15ec-4452-85fc-4791a974ac91" class="">关键在于找到背后的源动力。这个源动力，在笔者看来，有两点，分别是：求知若渴、淡泊宁静。</p><figure id="a4592db7-9ab6-4a06-8872-7b661cf66f23" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/3s2kVOTbRSQtl97wxG9d.png"><img src="http://image.woshipm.com/wp-files/2020/02/3s2kVOTbRSQtl97wxG9d.png"/></a></figure><p id="926bd0b8-bc23-4c2a-a7c1-cd93249477ef" class=""><strong>求知若渴</strong>，可以源源不断的驱动我们去观察、去思考万事万物的规律和联系。</p><p id="eaab3a1e-0462-443e-92e0-f110e973bbc0" class=""><strong>淡泊宁静</strong>，正如诸葛亮在《诫子书》中所说，“非淡泊无以明志，非宁静无以致远”。人的心力和精力终归是有限的，如果我们沉迷名利、物欲、享乐，就难有兴趣和精力去琢磨万事万物了。</p><p id="3fe5c094-5d4a-4be6-a64c-b0f4498482f3" class="">所以，只要找回自己童年的那种求知若渴，同时修身养性到淡泊宁静，这份好奇心，就会回来。</p><h3 id="e6c8d5f4-f2b4-4ac5-9160-885837d5d1be" class=""><strong>2. 巧妙融合</strong></h3><p id="a45ae3e3-d6c5-431b-b374-a89f996a3b6f" class="">某种程度上，很多带给我们惊喜的交互设计，都是一种巧妙融合。</p><p id="73c35cfe-bb46-4a30-86ac-0f41980d6869" class="">笔者把这种巧妙融合，初步分成了三类，分别是：<strong>简单融合、直接融合、委婉融合</strong>。</p><figure id="72707aee-a6c1-4ad0-b424-174689a242a0" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/zedpkPZVM4cbLtW7g5cy.png"><img src="http://image.woshipm.com/wp-files/2020/02/zedpkPZVM4cbLtW7g5cy.png"/></a></figure><p id="f34b2935-9826-4688-8ff9-9336d266bc2a" class=""><strong>简单融合</strong>，最常见的就是隐藏功能。<strong>把一个较为简单的操作动作，比如长按、双击、下拉、左滑等，和一个合适的功能，融合在一起</strong>。用电脑时我们常说的快捷键，也属于这一类。</p><p id="3fc02bdc-973a-418d-88ad-9db9f24c850d" class="">通常而言，操作对应什么功能，讲究的是合适，并无固定章法束缚。比如在微信朋友圈，发表文字的功能可以靠长按（相机图标）唤起，设置权限的功能也可以靠长按（好友头像）唤起。所以，简单融合这块，可供我们发挥的空间很大。</p><p id="03fd9220-8ff7-43f1-bc62-b4cac03ca08e" class="">另外，简单融合最常见的形式——隐藏功能，既实现了界面的简洁，又带来了一定惊喜。</p><p id="3cb58458-ae93-4858-b766-ce2c7ded9280" class="">简单融合，既简单，又实用。建议大家充分开发这一块。</p><p id="14a6ccdd-1416-466b-af89-f6699b0b0c8e" class=""><strong>直接融合</strong>，是指<strong>将生活中的趣味性，直接搬到软件中，搬到交互设计中。</strong>比如微信聊天中的扔骰子、石头剪刀布，以及漂流瓶、抽奖等。</p><p id="c0abb388-6d2d-4a3e-a62e-04630dc6ad86" class="">这一类融合，有点像商场里的电玩城，虽然我们不会经常去玩，但确实比较好玩。</p><p id="be4ce9b4-795e-4137-af7a-5297237fa092" class=""><strong>委婉融合</strong>，是指<strong>用明喻或隐喻的手法，将生活中微不足道的一些细节，移植到交互设计中。</strong></p><p id="8aea88bd-0ea3-4d66-a0d4-00c35ec7b1fd" class="">这种移植，有时是直白的。比如 Mac 上打开应用时，其图标会在 dock 栏里有规律的弹跳，这会让我们联想到皮球的弹跳。</p><p id="b7e2e4af-8362-47b4-b508-39899b183639" class="">这种移植，有时是隐晦的。比如 iPhone 上删除应用前，其图标会抖。这种抖，是害怕还是求饶，任凭我们想象。</p><p id="5e175e12-5e5c-47e8-9d40-191d1b9fddb5" class="">这种移植，有时是无声的。比如在朋友圈，要想呼出隐藏的设置权限功能，只能长按头像，长按名字则不行。这个设计，不乏想象空间。如果不尝试长按名字，则不会发现这个细节。</p><p id="05e28d88-cb9a-4cc2-aa60-fc4b442849a0" class="">委婉融合，有时会带一些趣味性。更为重要的是，它能够引发我们的思考和想象，所以是一种很出彩的融合。这种融合，也会赋予交互设计，一种禅的味道。</p><p id="18828c3f-fb29-4751-b1df-385a45a07f84" class="">整体而言，笔者非常推荐委婉融合。</p><h3 id="c7ec1778-96c9-4b22-b320-32d7c0eb1bf8" class=""><strong>3. 追求卓越</strong></h3><p id="80301c8f-dead-4a25-9afe-c0584a31ea05" class="">如果目标是小惊喜，则保持好奇心、并做到巧妙融合，基本足矣。</p><p id="96876f0c-5e96-4e25-a246-d16aa24390e7" class="">如果目标是大惊喜，则需要雄心壮志，需要舍我其谁，需要追求卓越。</p><p id="f55e83a4-60ff-41dd-a9d0-420c03d7b8d7" class="">日常工作中，可能会有这样的对话。“这个动效/功能，实现不了”。</p><p id="fabe2f32-2e5b-4e5a-a99f-1f504c812f70" class="">大惊喜里的几个例子，比如初代 iPhone 的触控体验，iPhone 里的测距仪，微信的扫一扫识物。这种设计，意味着要修一条最好的长城，背后往往有很多技术难题要攻克，有很多脏活累活要做。</p><p id="8928d1d5-2141-4168-8be8-94a0c672237f" class="">如果团队文化就是做出最优秀的交互设计，那么，“实现不了”这句话，估计就听不到了。取而代之的，可能是：“还在研究中”，“下个大版本能上”。</p><h3 id="e3609180-2500-470f-abbd-a2a11ef87b1e" class=""><strong>4. 自然而然</strong></h3><p id="2e6d95ec-b365-4e2f-b566-e91055497a5c" class="">提到惊喜，还有一款值得研究和学习的产品，那就是锤子手机的 Smartisan OS。</p><p id="a74d8943-de7c-45eb-abcd-127b088067b0" class="">个人观点，在小惊喜方面，Smartisan OS 颇有建树。在大惊喜方面，Smartisan OS 也进行了一些值得学习的探索。</p><p id="21739871-392f-4551-92e8-529f6750955a" class="">先说小惊喜，比如华丽而细腻的桌面翻页动画，比如四指横划桌面可以切换桌面背景。还有一些贴心的小功能，比如静音可以设置时间，比如方便的长截屏。</p><figure id="dbebd1b3-854f-4384-96df-b80081b38f2c" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/Mdkm6rSMdoKcVIFlPnXO.png"><img src="http://image.woshipm.com/wp-files/2020/02/Mdkm6rSMdoKcVIFlPnXO.png"/></a></figure><p id="2beb1df4-314c-4a29-8066-df268dd74304" class="">静音可设置时间</p><figure id="149757f6-40f5-4949-9c01-a639bcbf4101" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/BWUe0XuwEXVkV9huaszr.png"><img src="http://image.woshipm.com/wp-files/2020/02/BWUe0XuwEXVkV9huaszr.png"/></a></figure><p id="c4e4b8f2-3a6e-4bba-acc4-54ac628e64d2" class="">长截屏</p><p id="ed349045-b569-4b37-9e7a-89890ce366ea" class="">再说大惊喜。2016 年 10 月发布的一步和大爆炸，是比较大比较系统的功能，在当时也很新。锤子公司也一直有宣传这两个功能。所以相对而言，这两个功能是 Smartisan OS 的大惊喜。</p><p id="37977ed0-ab78-4176-9828-76bf37557a9e" class="">笔者的备用机是锤子手机，身边也有朋友在用锤子手机。以一步为例，这个功能，笔者体验过很多次。但平常很少用，身边朋友的情况也类似。</p><figure id="3704863c-9abb-4ae1-9e63-a6d3807602a1" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/b1G9mdiOSjn5DAjs62UB.png"><img src="http://image.woshipm.com/wp-files/2020/02/b1G9mdiOSjn5DAjs62UB.png"/></a></figure><p id="f7bfdccf-5f5a-4413-a46c-d0898ed8517c" class="">一步</p><p id="e3c81a20-759a-40d6-8ba5-38ac48c56ac6" class="">根据使用情况和主观感受，个人觉得，一步这个大惊喜，还存在进步空间，主要有两个方面。</p><p id="e793b753-ac7a-4675-836b-62821ebe9189" class=""><strong>第一，宏观层面。</strong>一步作为新生事物，好比一颗新种子。种子破土而出时，是一颗嫩芽，而不是一棵大树。新生的一步功能繁多，犹如一棵破土而出的大树，一方面有违自然规律，另一面因为功能繁多，很多用户无法一下子看懂，看不懂可能就不想用了。</p><p id="257b489d-702f-4df2-beff-f30eb0a111b6" class=""><strong>第二，微观层面。</strong>一步这棵新大树，结了很多不同的果子，比如拖拽图片到其他应用、切换后台应用、展示最近图片/文件等。这些果子，是用户真正需要的吗？这个是要存疑的。</p><p id="235d07df-12a6-4ffc-8f28-0a0104475903" class="">比如拖拽图片到朋友圈就能发朋友圈这个设计。通常而言，我们发到朋友圈的图片都是精挑细选的，会占用一定量的时间，比如旅游或聚会结束后发的照片。一步解决的是效率问题。发朋友圈的时候，少点几下这种效率问题，优先级是比较靠后的，我们没那么在乎。</p><p id="07c16ad8-118a-4356-8f11-0765459b3a8d" class="">还有拖拽图片/文件这个交互动作，大家通常在电脑上用的比较多，在手机上是没有这个习惯的，实际上应用场景也少。在手机上，大家一般只习惯拖拽应用图标。</p><p id="00a5a30c-3ac3-41eb-8a37-81fd599499b0" class="">还有切换后台应用这块，大家第一个想到的，一定是系统自带的，已经用惯了。而且唤起速度比一步快，点击面积也比一步大。</p><p id="6f772a57-6dbb-4be9-938b-b1e75ef042b5" class="">总的来说，微观层面上，比较缺让大家能马上想到一步的功能点。</p><p id="8b353278-2d10-4ef1-b395-b7f86a565b7e" class="">最后，总结一下。对于领先时代、引领潮流的交互设计，需要做到自然。</p><p id="4929aa46-0747-4e03-8f6b-3ed6ab29f54f" class="">具体而言，就是，大惊喜是一种系统性的大功能，好比一棵大树。这棵大树，最好有一个从种子到果子的生长过程，这样最自然，生命力也会最旺盛。</p><p id="aa6b7d6c-dccc-4e64-8c12-38536db83395" class="">因为，从破土而出的嫩芽阶段，就可以通过用户反馈和数据来检验，这种嫩芽，是不是真的对用户有价值。如果价值不大或没有价值，还可以再调整。如果长成大树结满果子，再去调整，就很难了。</p><h2 id="2f49b552-2228-43d6-aa8a-faa74dab168f" class=""><strong>结语</strong></h2><p id="59ddb71f-88f9-4edf-af39-07016a9f1d80" class="">交互设计小细节，如果有一定的趣味性或人文属性，则是小惊喜。</p><p id="90b610a1-61ac-41e4-9c78-f4b22670977f" class="">系统性工程的交互设计，如果最初感觉很酷，而且能引领潮流、代表未来，则是大惊喜。</p><p id="e460b2b3-ccc3-4d2f-975c-9d167756ef7b" class="">始终保持孩童身上那种非功利的好奇心，用心观察并思考生活中的小事，将生活小事和交互设计巧妙融合起来。</p><p id="f53ea73a-5d38-4b51-9e2a-a5abfbfffa18" class="">以上两点，可以帮我们做出小惊喜类的交互设计。</p><p id="24751dd7-6d8b-4bd0-84a8-4a4c211c68ea" class="">追求卓越，独立思考，做最酷最好的交互设计；酷是结果也好，是目标也好，都不是最重要的。最重要的是，避免刻意和心切。</p><p id="757c6bd6-4db4-45df-b8cb-c4eec77a7785" class="">酝酿大惊喜，犹如培养一个新生的孩子，需要投入极大耐心和精力，需要让孩子自然成长。没有家长会教半岁的孩子唱歌、把 3 岁的孩子送到高中念书。</p><p id="b424e692-f34b-435d-b61a-1c47dde9b3ac" class="">再加上以上两点，可以帮我们做出大惊喜类的交互设计。</p><p id="92d93cf8-c801-47d4-961f-69b6cdffe88a" class="">最后，用爱因斯坦的一句话来共勉：<strong>想象力比知识更重要。</strong></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

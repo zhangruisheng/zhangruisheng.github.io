@@ -1,0 +1,670 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>字体设计基础</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="229b79ee-a475-492a-b517-e878f3727b46" class="page sans"><header><h1 class="page-title">字体设计基础</h1></header><div class="page-body"><p id="39ae559d-ca50-44d5-8649-7ac2a53af668" class="">
+</p><h1 id="899988c2-f3b3-471a-a24b-b19fa2211304" class=""><strong>这可能是最完整的字体设计基础知识</strong></h1><p id="f6dc858f-bfc5-4869-8c8b-2892fd222959" class="">2018年05月28日 15:41 <a href="http://k.sina.cn/article_2630646082_9ccc7942027009g75.html">photoshop资源库</a>作者：photoshop资源库</p><p id="c6198b08-4170-40e2-b01b-997ef1cbdddd" class=""><a href="https://www.notion.sojavascript:;">缩小字体</a><a href="https://www.notion.sojavascript:;">放大字体</a><a href="https://www.notion.sojavascript:;">收藏</a><a href="http://service.weibo.com/share/share.php?url=http%3A%2F%2Fk.sina.cn%2Farticle_2630646082_9ccc7942027009g75.html%3Ffrom&amp;title=%E8%BF%99%E5%8F%AF%E8%83%BD%E6%98%AF%E6%9C%80%E5%AE%8C%E6%95%B4%E7%9A%84%E5%AD%97%E4%BD%93%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86&amp;pic=">微博</a><a href="https://www.notion.sojavascript:;">微信</a><a href="https://www.notion.sojavascript:;">分享</a><strong></strong></p><p id="0c489adf-2876-4010-b53c-83cc87700f12" class="">原文地址：https://www.zcool.com.cn/article/ZNjI5NjU2.html</p><p id="0a9ecf51-45be-4c9c-aa7f-b03667f2931b" class="">作者: 钱浩Hawking</p><figure id="052287e8-3e79-4718-ac08-fd35f6c78910" class="image"><a href="http://n.sinaimg.cn/sinacn15/445/w800h445/20180528/1707-hcaquev5408640.jpg"><img src="http://n.sinaimg.cn/sinacn15/445/w800h445/20180528/1707-hcaquev5408640.jpg"/></a></figure><p id="5b596813-5d66-4190-b03a-eaf184d13889" class="">近些年，字体设计越来越多火热，很多小伙伴急于求成跳过了汉字基础知识的学习，直接上手做起了字体设计，很多基础性的错误越来越常见。这也是我写这篇文章的初衷吧，希望对初学者能有所帮助~</p><figure id="c7431793-96ac-4cfe-8b99-9c4bc4a67591" class="image"><a href="http://n.sinaimg.cn/sinacn15/576/w976h1200/20180525/55e7-haysviy7510192.jpg"><img src="http://n.sinaimg.cn/sinacn15/576/w976h1200/20180525/55e7-haysviy7510192.jpg"/></a></figure><p id="d8024859-3deb-4717-8429-3d220f3bf838" class=""><strong>汉字的发展简史</strong></p><p id="5f1f8df8-4978-42b3-9552-c725ce2b3c18" class="">通过图文的形式直观的了解下汉字的发展史</p><figure id="ab857454-5d72-4ba0-a6d1-ec5cd083623c" class="image"><a href="http://n.sinaimg.cn/sinacn15/296/w800h296/20180528/85b5-hcaquev5408924.jpg"><img src="http://n.sinaimg.cn/sinacn15/296/w800h296/20180528/85b5-hcaquev5408924.jpg"/></a></figure><p id="0a9795b0-ca11-4f8e-b491-71fda8449014" class=""><strong>字体基本笔划</strong></p><p id="e02dc2d7-e6c6-45a5-9108-2fc1d97b200f" class="">宋体字作为示范例子</p><figure id="c371c1c7-8bd3-494e-8e0c-38c25afc8d4c" class="image"><a href="http://n.sinaimg.cn/sinacn15/474/w800h474/20180528/5ef4-hcaquev5409022.jpg"><img src="http://n.sinaimg.cn/sinacn15/474/w800h474/20180528/5ef4-hcaquev5409022.jpg"/></a></figure><p id="b6e222b7-8e55-42ba-97ae-71606adad991" class=""><strong>字体基本常识</strong></p><p id="6fd60f16-895f-4aa2-a36b-9eff4e5f123f" class="">以“井”字为例如下图</p><figure id="97a5c864-65d9-4b8b-b95c-d84f23d78c21" class="image"><a href="http://n.sinaimg.cn/sinacn15/379/w800h379/20180528/8117-hcaquev5409151.jpg"><img src="http://n.sinaimg.cn/sinacn15/379/w800h379/20180528/8117-hcaquev5409151.jpg"/></a></figure><p id="9eae1d60-c210-4554-a1f0-088dad5023da" class=""><strong>永字八法</strong></p><p id="d3e51f66-efa8-43df-908f-c0239dd96fa5" class="">所谓“永字八法”，传说是僧智永将王羲之兰亭序里的第一个字“永”的情态分为侧、啄、磔（zhé）、努、勒、策、掠、趯（yuè）最基本的笔划动作，作为学习书法的实例。因此永字八法可以作为初学书法结构的标准，尤其在汉字的字体设计中，可用来研究各种文字的构成，从而制作出美好的字态。</p><figure id="f774582d-26d2-48a9-99a4-79ebf7854ea5" class="image"><a href="http://n.sinaimg.cn/sinacn15/363/w800h363/20180528/2ab7-hcaquev5409262.jpg"><img src="http://n.sinaimg.cn/sinacn15/363/w800h363/20180528/2ab7-hcaquev5409262.jpg"/></a></figure><p id="f23a652f-c01b-4faf-a99f-4eb054c7d709" class=""><strong>字体间架结构</strong></p><p id="08d03565-3888-4f9c-9e75-c7a73eb1b36b" class="">汉字的种类众多，笔划有多也有少，空间的排布就尤为重要！</p><p id="d51ef5dd-42c9-41b1-a110-60efe9844ce9" class="">字体的间架结构可分为两类：</p><p id="46922b12-f3ae-418f-8861-73ae2bf62796" class=""><strong>独体字</strong></p><figure id="b3f75216-dcfc-4491-91ba-faa8ea7530b2" class="image"><a href="http://n.sinaimg.cn/sinacn15/308/w800h308/20180528/4fd4-hcaquev5409365.jpg"><img src="http://n.sinaimg.cn/sinacn15/308/w800h308/20180528/4fd4-hcaquev5409365.jpg"/></a></figure><p id="c0bd3f91-5918-4bf7-8ce6-c5717e758b5b" class=""><strong>合体字</strong></p><figure id="04d796ee-6bce-4480-8d45-1e578458c942" class="image"><a href="http://n.sinaimg.cn/sinacn15/759/w800h759/20180528/4f38-hcaquev5409468.jpg"><img src="http://n.sinaimg.cn/sinacn15/759/w800h759/20180528/4f38-hcaquev5409468.jpg"/></a></figure><p id="628c96bf-4b84-469a-b30d-44b596cb6d2c" class=""><strong>字形的错视</strong></p><p id="e2a1e97f-ee95-4926-8835-8b923efc528c" class="">视觉心理是很奇妙的，因而为我们所运用，然而，文字中笔划的粗细、长短、方向、位置等会产生不和谐不平衡的现象，因此要做一些细微的调整。</p><p id="f5994889-24a6-4459-94fb-f36c8244fa2f" class=""><strong>A. 线粗细的错视</strong></p><p id="078350ac-e9e6-43c3-9151-298db3f5603b" class="">左侧为横竖两个笔划，他们是等宽的两笔，仔细观察可以发现在视觉上横画要比竖画宽一些。所以，为了达到视觉上的等宽，工字的竖画要加宽一些。</p><figure id="aa9025a6-e5ba-40a8-b8f2-2f54be182994" class="image"><a href="http://n.sinaimg.cn/sinacn15/192/w800h192/20180528/7cf1-hcaquev5409638.jpg"><img src="http://n.sinaimg.cn/sinacn15/192/w800h192/20180528/7cf1-hcaquev5409638.jpg"/></a></figure><p id="c9e263a6-9812-436e-8af5-43db51d7af56" class=""><strong>B.正方形的错视</strong></p><p id="3ef66657-31b4-4876-ab87-6f4070c9d545" class="">通常做一个正方形的字，会将字面框定位正方形，但是做出来的字在视觉上却是长方形的。所以、想要做成正方形的字、字面框要将正方形压扁一点。</p><figure id="dc6d8220-68db-424d-8f28-e4ff952ce3b7" class="image"><a href="http://n.sinaimg.cn/sinacn15/349/w800h349/20180528/bea0-hcaquev5409750.jpg"><img src="http://n.sinaimg.cn/sinacn15/349/w800h349/20180528/bea0-hcaquev5409750.jpg"/></a></figure><p id="97320fbb-9b97-4617-aecd-0c9d690bde8e" class=""><strong>C.垂直分割线的错视</strong></p><p id="683909f4-25a8-40e2-8ed8-cc44dfcf9cc6" class="">两条粗细、长短相同的线段，垂直平分为T字形，其中被分割的线段，在视觉上要显得短一些。所以，要将竖线缩短一些。（例如：上、下字形）</p><figure id="0ace8dd6-8904-425f-ab7d-05105b7c0378" class="image"><a href="http://n.sinaimg.cn/sinacn15/367/w800h367/20180528/0212-hcaquev5409812.jpg"><img src="http://n.sinaimg.cn/sinacn15/367/w800h367/20180528/0212-hcaquev5409812.jpg"/></a></figure><p id="d745e537-69d1-4d06-8805-fddfd83f80a9" class=""><strong>D.水平线被二等分的错视</strong></p><p id="3f718704-7134-49e6-90b1-1c5164f941ac" class="">一条线段被二等分后，在视觉上左侧要比右侧长一些。所以，为了达到视觉上的等分，分割点要左移一些。（例如：十、大字形）垂直线的二等分也是同样的道理。</p><figure id="c8c40608-de6c-4419-9469-6e98f6db71f1" class="image"><a href="http://n.sinaimg.cn/sinacn15/54/w800h54/20180528/14ef-hcaquev5409945.jpg"><img src="http://n.sinaimg.cn/sinacn15/54/w800h54/20180528/14ef-hcaquev5409945.jpg"/></a></figure><p id="9f306a16-aa4b-4d95-a838-afe402ab4959" class=""><strong>E.横竖线的错视</strong></p><p id="0e2ffeff-a0ef-40c2-abeb-b8ab955c2956" class="">下列两组线条，一横一竖，所形成的正方形是一样大小的，但是，在视觉上横线一组显得瘦高，竖线一组则显得扁矮。这也是为什么“王” “川”会这样调整的原因。</p><figure id="8d681cba-7e74-461d-81e5-002d1b40fefe" class="image"><a href="http://n.sinaimg.cn/sinacn15/353/w800h353/20180528/11e0-hcaquev5409996.jpg"><img src="http://n.sinaimg.cn/sinacn15/353/w800h353/20180528/11e0-hcaquev5409996.jpg"/></a></figure><p id="4b62f945-f5a6-49a0-96b8-5fbbab724c03" class=""><strong>字形的大小调整</strong></p><p id="19651909-7ddd-4c79-9c12-b6a40b394a19" class="">汉字的字形众多，但有些字形在视觉上会产生大小的变化，因此，要对症下药。</p><p id="f21bf2e5-3211-4d18-94e1-dd288e14ed9f" class=""><strong>下图为未作调整的字形简图</strong></p><figure id="3a5c477f-20dc-4ca2-8525-9a98abc3bee2" class="image"><a href="http://n.sinaimg.cn/sinacn15/552/w800h552/20180528/08fa-hcaquev5410056.jpg"><img src="http://n.sinaimg.cn/sinacn15/552/w800h552/20180528/08fa-hcaquev5410056.jpg"/></a></figure><p id="d593abc7-4854-4d96-a51d-a818c24ceb55" class=""><strong>调整后的字形简图</strong></p><figure id="74c9b94d-7272-4380-8056-70bd984b4815" class="image"><a href="http://n.sinaimg.cn/sinacn15/547/w800h547/20180528/71dd-hcaquev5410116.jpg"><img src="http://n.sinaimg.cn/sinacn15/547/w800h547/20180528/71dd-hcaquev5410116.jpg"/></a></figure><p id="49ed1a7c-f59f-48b6-b9fb-3e0b788db7a4" class=""><strong>实例如下</strong></p><figure id="a19128d2-15a8-40cb-8534-8cd8035434e2" class="image"><a href="http://n.sinaimg.cn/sinacn15/283/w800h1083/20180528/d3a7-hcaquev5410296.jpg"><img src="http://n.sinaimg.cn/sinacn15/283/w800h1083/20180528/d3a7-hcaquev5410296.jpg"/></a></figure><p id="36ef5a01-0599-4898-b433-cfbd947dc543" class=""><strong>笔划粗细的调整</strong></p><p id="2c5dd86f-c5e4-4bdb-a51b-f919b6ba2788" class="">我们设计字体时都要在相同的字格中进行，无论笔划的多少都要写在格中，为了达到黑白空间的平衡。那么，就有了笔划粗细问题和布白的问题。</p><p id="8ec49c4a-8397-4613-9648-dc2efee22f43" class=""><strong>字形粗细处理原则：</strong></p><p id="1737c219-c2ae-45a5-84f8-85c1f6b25acc" class=""><strong>A. 横细竖粗</strong></p><p id="75876a72-9edb-45d5-86c7-67b5f0b814f7" class=""><strong>上文视错中详细介绍了原因，在视觉习惯上要求横细竖粗。</strong></p><p id="a66ab80d-c91f-4adb-a6e0-c755c2430522" class=""><strong>B.主粗副细</strong></p><p id="a34d903d-bab9-472b-888f-2ec5bf3b378a" class=""><strong>多笔划的字切记平均等粗，应主次分明，主笔粗，副笔细。</strong></p><figure id="c775abaf-8ccb-46f4-8c12-ff1fb501db9d" class="image"><a href="http://n.sinaimg.cn/sinacn15/227/w800h227/20180528/220d-hcaquev5410653.jpg"><img src="http://n.sinaimg.cn/sinacn15/227/w800h227/20180528/220d-hcaquev5410653.jpg"/></a></figure><p id="14141981-e8a3-48cf-8b53-fabdbf73be66" class=""><strong>C.外粗内细</strong></p><p id="35f4e1f6-81b4-457f-9af0-d9cf67d2d789" class="">内包的字一般都是以外粗内细的方法来处理，围笔划的粗细，要保持在基础笔划的黑度。与三结合多笔划的字中间要减细。</p><figure id="8a7d525c-1540-4168-969a-da1b6509e016" class="image"><a href="http://n.sinaimg.cn/sinacn15/241/w800h241/20180528/ec12-hcaquev5410727.jpg"><img src="http://n.sinaimg.cn/sinacn15/241/w800h241/20180528/ec12-hcaquev5410727.jpg"/></a></figure><p id="0d0f8339-c198-435b-bead-267e0157ade1" class=""><strong>D.疏粗密细</strong></p><p id="e7b5fe4c-c824-47e1-8e8f-50b07a224633" class="">对疏密不均匀的组合结构字，需疏粗密细的做加减法，要密不拥挤，疏不薄感。</p><figure id="6840208f-4005-420d-9fd1-3b6d7521651b" class="image"><a href="http://n.sinaimg.cn/sinacn15/359/w800h359/20180528/92fb-hcaquev5410802.jpg"><img src="http://n.sinaimg.cn/sinacn15/359/w800h359/20180528/92fb-hcaquev5410802.jpg"/></a></figure><figure id="7d6a08c5-c64b-4455-94c3-aef6962fda82" class="image"><a href="http://n.sinaimg.cn/sinacn15/744/w800h744/20180528/91b1-hcaquev5410874.jpg"><img src="http://n.sinaimg.cn/sinacn15/744/w800h744/20180528/91b1-hcaquev5410874.jpg"/></a></figure><p id="a99e9392-6348-48d0-b5ab-81eb2277ce8a" class=""><strong>E.交叉减细</strong></p><p id="a961b195-ae63-4fbd-8a49-56da2b0a7e80" class="">凡横竖撇捺交叉的字，交叉点会显得特别黑，需做减细的处理</p><figure id="98f1446e-8360-4e4c-b2ef-42ea3d23311f" class="image"><a href="http://n.sinaimg.cn/sinacn15/369/w800h369/20180528/486b-hcaquev5410981.jpg"><img src="http://n.sinaimg.cn/sinacn15/369/w800h369/20180528/486b-hcaquev5410981.jpg"/></a></figure><p id="366f9914-3894-4ae3-a3bd-3b8e0f2edc3e" class=""><strong>重心的调整</strong></p><p id="7be969f0-51ef-40cf-88d9-85d37eff485e" class="">提到重心就要引出与其相对应的名词，叫做中心。中心指的是字幅框几何中心的交点，它是实际存在的点，我们在设计字的时候通常以中心来调整字重心的位置，而不是将二者混为一谈。（如下图）</p><figure id="5040b5e8-a94c-4ff2-ab0e-412232585446" class="image"><a href="http://n.sinaimg.cn/sinacn15/196/w800h196/20180528/d434-hcaquev5411056.jpg"><img src="http://n.sinaimg.cn/sinacn15/196/w800h196/20180528/d434-hcaquev5411056.jpg"/></a></figure><p id="3ad49606-dfb8-49c5-819f-8b6d62fe6f17" class="">通常重心要比中心略高些，在设计字体时，不同的重心又会赋予字形不同的性格。重心高的字有轻、瘦、雅的感觉，重心低的字有稳、厚、拙的印象。</p><figure id="5b10bc18-619f-4e76-9e7f-f2f3ce7e6503" class="image"><a href="http://n.sinaimg.cn/sinacn15/204/w800h204/20180528/c8fd-hcaquev5411174.jpg"><img src="http://n.sinaimg.cn/sinacn15/204/w800h204/20180528/c8fd-hcaquev5411174.jpg"/></a></figure><p id="6bef9e64-d3b0-46e5-94c1-ec6df8f181ed" class="">下图实例，提醒大家设计字体时重心要保持平稳，不要忽高忽低。</p><figure id="ef87227e-2eea-43be-8e25-6277ba12d075" class="image"><a href="http://n.sinaimg.cn/sinacn15/367/w800h367/20180528/dbee-hcaquev5411219.jpg"><img src="http://n.sinaimg.cn/sinacn15/367/w800h367/20180528/dbee-hcaquev5411219.jpg"/></a></figure><p id="b4f48fb5-d4fd-4be0-bf0c-6260526172e5" class=""><strong>第二中心线</strong></p><p id="0808f592-7553-482a-9070-c5860f8d5431" class="">谢培元在1962年从实际工作当中归纳总结的。任何形声组合字或复合结构的字都是可以找到两条中心线，这两条中心线可以帮助我们在设计时快速的确定部件的位置。形旁和声旁这两个部件的中心距离越大，字面就越大，反之，字面就越小。这是掌控形声组合字或复合结构字大小的一个有效工具。</p><figure id="d3dcf55b-3de6-4cb0-8e11-d2b52b917fb3" class="image"><a href="http://n.sinaimg.cn/sinacn15/410/w800h410/20180528/f2ff-hcaquev5411311.jpg"><img src="http://n.sinaimg.cn/sinacn15/410/w800h410/20180528/f2ff-hcaquev5411311.jpg"/></a></figure><p id="e89736a0-9f1f-49c8-8674-dda931136c25" class=""><strong>通用字形</strong></p><p id="ed063550-ad78-4bb4-93a3-d8251f699491" class="">“通用字形”这个概念是在迟同斌（开心老头）老师的书中提及的，它的特点如下图所示</p><figure id="dd6a6220-2517-481e-952d-2f32a6dfedaa" class="image"><a href="http://n.sinaimg.cn/sinacn15/257/w800h257/20180528/ead5-hcaquev5411389.jpg"><img src="http://n.sinaimg.cn/sinacn15/257/w800h257/20180528/ead5-hcaquev5411389.jpg"/></a></figure><p id="6970da90-88cf-45f1-b88e-bbd36819df58" class="">其实原理就是将笔划外空间缩小从而放大中宫，那么中宫指的是汉字笔划围成的空间，下图以九宫格的形式展示出中宫大的好处，A要比B舒展些，B显得紧凑些，随着从大到小的变化，舒展和紧凑的感觉会增加。</p><figure id="e6bc14a5-f7c3-4b88-961f-5a8971781009" class="image"><a href="http://n.sinaimg.cn/sinacn15/309/w800h309/20180528/1f47-hcaquev5411458.jpg"><img src="http://n.sinaimg.cn/sinacn15/309/w800h309/20180528/1f47-hcaquev5411458.jpg"/></a></figure><p id="84980ce7-cb0a-416a-95d3-942172a76a81" class="">近些年这种字形越来越常见，设计师也频繁使用这种字形，字体公司也不断推出这种结构的字体，虽然他们在体饰上各不相同，但结构原理都是相同的。</p><figure id="7b8565c8-a81f-48a8-a6da-c8f9cbce5853" class="image"><a href="http://n.sinaimg.cn/sinacn15/181/w800h181/20180528/0435-hcaquev5411572.jpg"><img src="http://n.sinaimg.cn/sinacn15/181/w800h181/20180528/0435-hcaquev5411572.jpg"/></a></figure><p id="6680806f-e53f-4db1-80f7-1f763cf6755d" class=""><strong>从临摹到创造</strong></p><p id="be2b3776-d169-495d-aba4-e7a2a2c0cddd" class="">大家都知道人类是世界上最善于模仿的动物，人类的最初知识，也是从模仿中得来的，我们可以说吗模拟是求知，因此，学习字体设计也唯有从临摹入手了。例如日本这个国家，就是一个非常善于学习、临摹的国家，他们的文字、茶艺都是学习咱们国家的，尤其是字体设计中的宋体类（日本称之为明朝体），可以说起源于中国兴盛于日本，可见学习、临摹的重要性。有些跑偏了...咱们回到正题。</p><p id="9fd28157-cc4e-495b-9830-67cfff836a6a" class=""><strong>通用字形学习方法</strong></p><p id="4c53f24b-bdb6-4055-b896-b97506c383f7" class="">通用字形只需要掌握结构骨架就可以，体饰可以加入自己的想法。</p><figure id="cc77d136-7d39-4229-a9c6-944cf3b4798a" class="image"><a href="http://n.sinaimg.cn/sinacn15/131/w800h131/20180528/6795-hcaquev5411688.jpg"><img src="http://n.sinaimg.cn/sinacn15/131/w800h131/20180528/6795-hcaquev5411688.jpg"/></a></figure><p id="af009811-844b-411a-bf49-0c5b97447afe" class=""><strong>宋体字与黑体字学习方法</strong></p><p id="573d156b-138d-40be-a0a3-6d24449c0291" class="">使用日本森泽字体公司原稿网格从画骨架、勾轮廓、填黒的方式临摹宋体字，这种网格的优势在于很好的定位笔划的位置，而且临摹宋体字既能对宋体字的结构与笔划特征深入理解，又能对曲线的弹性与调整方法有所理解。（下图宋体字为小塚宋体等宽）</p><figure id="f4a555f8-9c55-4f10-8838-cdbba471ff7f" class="image"><a href="http://n.sinaimg.cn/sinacn15/704/w800h704/20180528/2113-hcaquev5411803.jpg"><img src="http://n.sinaimg.cn/sinacn15/704/w800h704/20180528/2113-hcaquev5411803.jpg"/></a></figure><p id="5a990c9e-7a62-47c4-bf1d-48b629cb00c1" class="">根据笔划结构整理出下面的临摹字样，供大家临摹使用。</p><figure id="9bdcdaca-578b-4ac8-af80-df7cfc986e27" class="image"><a href="http://n.sinaimg.cn/sinacn15/359/w800h1159/20180528/5924-hcaquev5411865.jpg"><img src="http://n.sinaimg.cn/sinacn15/359/w800h1159/20180528/5924-hcaquev5411865.jpg"/></a></figure><p id="58cf803a-ceb1-4ff0-b551-0e7b72c848c8" class="">下图为森泽字体公司的黑体草稿</p><figure id="e8fab26a-f1aa-4f20-8739-bdd3b4e30681" class="image"><a href="http://n.sinaimg.cn/sinacn15/481/w800h481/20180528/a3bf-hcaquev5412379.jpg"><img src="http://n.sinaimg.cn/sinacn15/481/w800h481/20180528/a3bf-hcaquev5412379.jpg"/></a></figure><p id="f8432181-a143-434e-928b-73eba055655f" class=""><strong>字库字体细节赏析</strong></p><p id="8d6fa3db-a13e-417d-ad0d-e13bc0430489" class="">细节决定了字体的优美与否（下图为方正兰亭圆体）</p><figure id="657168b7-12ad-4401-96e1-6a73ccfb26ed" class="image"><a href="http://n.sinaimg.cn/sinacn15/574/w800h574/20180528/4c54-hcaquev5412434.jpg"><img src="http://n.sinaimg.cn/sinacn15/574/w800h574/20180528/4c54-hcaquev5412434.jpg"/></a></figure><figure id="ccab1a03-4ba1-431e-868c-8f2386a5fa05" class="image"><a href="http://n.sinaimg.cn/sinacn15/495/w800h495/20180528/0664-hcaquev5412499.jpg"><img src="http://n.sinaimg.cn/sinacn15/495/w800h495/20180528/0664-hcaquev5412499.jpg"/></a></figure><figure id="428e17b2-91dd-4d5b-a709-1f559967533a" class="image"><a href="http://n.sinaimg.cn/sinacn15/383/w800h383/20180528/e3ae-hcaquev5412569.jpg"><img src="http://n.sinaimg.cn/sinacn15/383/w800h383/20180528/e3ae-hcaquev5412569.jpg"/></a></figure><figure id="e620f015-5985-4e89-a7e1-e5ac6f771f84" class="image"><a href="http://n.sinaimg.cn/sinacn15/489/w800h489/20180528/6914-hcaquev5412648.jpg"><img src="http://n.sinaimg.cn/sinacn15/489/w800h489/20180528/6914-hcaquev5412648.jpg"/></a></figure><figure id="64353e45-80cd-4303-8178-c766e4293ac0" class="image"><a href="http://n.sinaimg.cn/sinacn15/452/w800h452/20180528/dc97-hcaquev5412733.jpg"><img src="http://n.sinaimg.cn/sinacn15/452/w800h452/20180528/dc97-hcaquev5412733.jpg"/></a></figure><p id="d2d08a8b-33b1-4bdf-a36c-fcf19eaa892a" class="">啰嗦了这么多，大伙应该对字体有了重新的认识了吗？基础性的问题再出现，应该不难发现了吧？下图的几组字体的问题，你看出来了吗？（下图案例是在网上找的，就没有做署名哈）</p><figure id="a48cd1bf-2356-480c-9914-e0e41b45b3f5" class="image"><a href="http://n.sinaimg.cn/sinacn15/424/w800h424/20180528/5fa9-hcaquev5412787.jpg"><img src="http://n.sinaimg.cn/sinacn15/424/w800h424/20180528/5fa9-hcaquev5412787.jpg"/></a></figure><p id="fcfacc3b-6c99-4f84-ab02-ba5c49a8acf2" class="">_ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ _注：参考：<strong>《文字造形》- 魏朝宏 著</strong></p><p id="1ac13fea-32e6-45e9-a206-8a6f136647d5" class=""><strong>《中国字体设计人：一字一生》- 廖洁连 著</strong></p><p id="84d85d47-8fc9-4538-80bd-2e9708a74ec9" class=""><strong>《治字百方》- 左佐 著</strong><strong>《设计师的自我修养》- 左佐 著</strong></p><p id="71e76958-4ada-4952-b136-f1a406b88f6e" class=""><strong>《字体设计定位于通用字形》- 迟同斌（笔名：开心老头）著</strong><strong>方正字体设计PPT - 黄学钧 著</strong></p><p id="9307dd53-ad16-49df-9f79-c4b7b224f21b" class=""><strong>更多的设计、修图咨询及找资源，上资源库！微信公共帐号：PS-zyk</strong></p></div></article></body></html>

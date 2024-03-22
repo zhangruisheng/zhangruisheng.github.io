@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>3、交互流程设计</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e65a5cd5-ab3a-488a-9845-f9f63bb1286f" class="page sans"><header><h1 class="page-title">3、交互<strong>流程设计</strong></h1><p class="page-description"></p></header><div class="page-body"><p id="69cdb284-ff7a-412b-aef2-648b216c9852" class="">
+</p><h1 id="e1637654-0c9c-4cb1-b018-4e7cf1621003" class=""><strong>交互设计笔记（下）：流程设计</strong></h1><figure id="078221ca-9f93-4550-bac3-85d2d5b273e6" class="image"><a href="http://image.woshipm.com/wp-files/2018/09/A9yjehemVfAdqheG6tLb.jpg!/both/72x72"><img src="http://image.woshipm.com/wp-files/2018/09/A9yjehemVfAdqheG6tLb.jpg!/both/72x72"/></a></figure><p id="67422d4c-8222-4d2c-a58c-cd623e43b83a" class=""><a href="http://www.woshipm.com/u/716231">设计笔记库</a>关注作者</p><p id="916a6fe7-821b-4240-b2f3-22e5137e882a" class="">2020-02-24</p><p id="5a68cac6-a986-4b46-b4c4-21a3ade639aa" class="">2 评论1.2万 浏览96 收藏9 分钟</p><p id="92d3cafb-58d1-4c96-9343-6b383c2af3c5" class=""><a href="http://996.pm/zaJmd">九大用户体验研究方法论，告别臆测用户想法，让你迅速明确用户真实需求，精准迭代产品！了解一下 &gt;&gt;</a></p><p id="0c7f35f2-6a2e-4cf2-969f-32e54230fed3" class="">释放双眼，带上耳机，听听看~！</p><p id="279a676e-d5da-4927-aa2d-f3c90300fe0b" class="">00:00</p><p id="37d4a29d-55d9-44f8-ae16-9889c76960c3" class="">00:00</p><blockquote id="8350b41a-0e33-4dbe-832b-b012376f9702" class="">优秀的流程设计不仅能帮助用户更好的完成任务，还能帮助设计师更充分的思考错误，本文从定义出发，深入浅出地阐述流程设计的步骤及交互原型的画法。</blockquote><figure id="14c61f26-e18f-4f5f-b215-c852fccd7294" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/sFKuDq8oxrpMug0y3JbQ.jpg"><img src="http://image.woshipm.com/wp-files/2020/02/sFKuDq8oxrpMug0y3JbQ.jpg"/></a></figure><h2 id="4a2468d7-26e6-488a-a457-a6f5259abe93" class=""><strong>1. 流程设计是什么</strong></h2><p id="30b58cbe-c2ff-420f-b04c-6920a91df953" class=""><strong>流程设计既要兼顾业务需求，也要兼顾用户需求，是以不干扰用户使用流程的方式完成业务需求。</strong></p><p id="41efa784-5ec2-4b33-a00c-50c778cdace1" class="">交互设计师输出的虽然是页面，但实际是设计用户完成任务的方式。页面流程图展示的是页面之间的跳转关系，明确用户当前的所处状态，及下一步的操作。用户通过某种流程完成任务，举个简单的例子，支付宝转账主要流程如图所示，这是最简单且正常情况下的流程。</p><figure id="fc108fcb-fa43-4a93-9552-51b8615d90bf" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/xPku0FVZm4ryOkPnDvcA.png"><img src="http://image.woshipm.com/wp-files/2020/02/xPku0FVZm4ryOkPnDvcA.png"/></a></figure><h2 id="93c257d6-e1dc-4897-b146-352c07e7a872" class=""><strong>2. 流程设计怎么做</strong></h2><h3 id="768e5f7f-bc17-4702-96d5-d0315b3b1d91" class=""><strong>2.1 理解业务需求，明确核心功能主线</strong></h3><p id="52ce1371-f7be-4676-af4b-8c9661122ef5" class="">工作中，交互设计师接到需求后，首先要进行需求分析，充分理解业务需求和功能逻辑，根据业务流程梳理出主要的页面流程。此时需要考虑业务目标是什么，受到哪些技术限制，输出的设计才能被公司和用户接受。</p><h3 id="4ef44e93-12ac-4c23-b928-3483c8ec4d6c" class=""><strong>2.2 细化场景，寻找所有接触点</strong></h3><p id="b80bf990-6d66-4ca5-9e7f-4ee200274ca7" class="">任务与流程是一对多的关系，用户完成同一个任务可能通过不同的流程。所以需要找到用户完成任务时的所有接触点。接触点是用户和产品发生交互的关键点，比如用户点击了转账按钮，就是一个接触点。</p><p id="a0ec931c-ad89-4092-9a37-779656c5c42c" class=""><strong>接触点</strong>来自于用户场景（基于用户模型、经验，用户调研的体验故事）。设计师要拥有用户场景的构思能力，根据用户画像，思考所有可能出现的场景。或者基于自己的经验创建之前不存在的场景，在脑子里模拟出来并把它记录下来。</p><figure id="c3f3068a-45a1-4f58-b51d-8dfae7849035" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/N8brvk1flWLOPO3VL7VY.png"><img src="http://image.woshipm.com/wp-files/2020/02/N8brvk1flWLOPO3VL7VY.png"/></a></figure><p id="c01740bf-b257-46de-8809-6309fb266ff7" class="">在用户场景中，通过接触点的模式找出用户看到的信息和所做的事情。</p><p id="f68676ff-db3b-40b0-9be9-f97b176c3803" class="">如图所示为转账流程中的接触点。用户完成转账这一任务，可能经过不同的流程，如点击首页转账按钮/ 朋友页面手指向下滑动，可以触发找人转账的提示 / 聊天界面输入数字也可以触发给对方转账的提示等等。</p><p id="76967271-a4a0-4aa2-95d0-ed577ff1739d" class=""><strong>注意：</strong></p><ul id="a1ca4599-ade4-49a6-ad92-c1e507499ea5" class="bulleted-list"><li style="list-style-type:disc">Tip1: 合并同类项，为了完成流程设计，需要构建的用户场景有多个，但有些接触点是重复的；</li></ul><ul id="5e72fc35-b0b9-40c5-b07a-621ad8d310da" class="bulleted-list"><li style="list-style-type:disc">Tip2: 顾及头尾，考虑第一个和最后一个接触点，因为他们是最容易被遗漏的接触点；</li></ul><h3 id="fbaf417f-f5fe-4f14-8164-efd34e241496" class=""><strong>2.3 梳理接触点，制作流程图</strong></h3><p id="681dc4e2-7dbd-436a-9205-58d447d05674" class="">接触点指用户做了某件事或看到某个信息，梳理接触点有以下三种模式：</p><ul id="db38734c-7ff3-4544-bcfa-84cdcd9c07c2" class="bulleted-list"><li style="list-style-type:disc">模式一：做事-看信息-做事 是最舒服的模式，能对用户起到良好的引导作用；</li></ul><ul id="015bf7dd-314c-4843-8662-5e709890212e" class="bulleted-list"><li style="list-style-type:disc">模式二：做事-做事 用于用户经验足以支撑的场景下，如输入账号-输入密码</li></ul><ul id="4144eb46-b27a-4aff-a269-b1b72080a44f" class="bulleted-list"><li style="list-style-type:disc">模式三：看信息-看信息 用于信息量大，需要用户理解的场景；如看淘宝促销活动大致流程-具体参与规则</li></ul><p id="13130904-638d-4423-9856-9f578b4f9323" class="">利用三种模式将接触点串联起来，明确每个页面的核心元素，理清页面之间的逻辑关系，也就是页面的来源和去处。</p><figure id="dc2d4fb5-d8d5-43b8-a0d3-c886ae4316a0" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/llFscW7TQeArhr3rfdVo.png"><img src="http://image.woshipm.com/wp-files/2020/02/llFscW7TQeArhr3rfdVo.png"/></a></figure><p id="344be602-90a2-4aa9-958f-9cc660f8deea" class="">一个转账流程如图所示，由于用户场景不同，流程会出现分支，所以梳理接触点时考虑清楚，哪些是需要判断的关键节点，将接触点串联起来。</p><p id="100b6c45-8139-40d4-bd4a-47a4eb906564" class="">简言之，流程设计就是在理解业务需求的基础上，构思用户使用一个功能或完成一个任务的场景，找到所有接触点，再对接触点进行梳理，考虑各种状态，将接触点串联起来，完成页面流程图的设计。</p><h2 id="9c411cde-36e1-4bfb-a425-cb268bd9a4e1" class=""><strong>3. 如何根据流程设计交互原型</strong></h2><p id="f5eff3c2-027f-4e56-b8ca-515d1e1fe24b" class="">在交互稿上体现用户操作流程，通过触发点的虚拟表示和箭头，把页面横向串联起来，展示用户一步一步完成任务会发生怎样的页面跳转和操作行为。如图所示，通过红色点击区和箭头展示用户的操作步骤。</p><figure id="9e03926d-a04c-472c-b41b-f2421a89208b" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/Kq3dTlH7cO2LAKbOG6BP.png"><img src="http://image.woshipm.com/wp-files/2020/02/Kq3dTlH7cO2LAKbOG6BP.png"/></a></figure><p id="9351f867-5a45-4753-8a0e-985e4105f1f2" class=""><strong>注意：</strong></p><ul id="924d3dd1-9a15-4835-a828-b80f37f980d5" class="bulleted-list"><li style="list-style-type:disc">Tip1：如果流程出现分支时，不要制作在一个页面中，这样会使交互稿的可读性变低，更好的做法是体现在站点对图上，通过站点地图拆分子流程。保证每个页面是一条流程走到底的，遇到较长流程分支时可以建立跳转，链接到子页面。</li></ul><figure id="0ddbcb61-e9c4-4f4f-9f1f-aeae6a5314fd" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/GKl2C5Ok9xd7iq2LqSj6.png"><img src="http://image.woshipm.com/wp-files/2020/02/GKl2C5Ok9xd7iq2LqSj6.png"/></a></figure><ul id="26230ed6-827a-43e0-8e7f-59464ea0bf85" class="bulleted-list"><li style="list-style-type:disc">Tip2：注意前后页面的关联性和一致性，如当前页面的button和下一页面的title要一致。</li></ul><ul id="b1eaed8e-7df6-4498-91f7-f5724740e487" class="bulleted-list"><li style="list-style-type:disc">Tip3：完成交互稿后，对照接触点流程检查一遍交互，确认每个接触点的过度是自然的。提供完成一个接触点所需要的全部信息。</li></ul><h2 id="993396eb-7588-4010-89a0-d15dff938e11" class=""><strong>4. 处理异常流程</strong></h2><p id="a27d36da-b077-4ae5-87b6-483a62844867" class="">为了保证流程设计的全面性，需要预判用户或系统可能出现的错误。</p><p id="f586b748-5dd8-40d1-a99e-ac0f983b1f17" class="">交互稿中，异常页面位于正常页面的下方，横向是正常流程，纵向是异常流程补充，需要开发和测试注意的，处理这个页面的一些异常情况。</p><p id="fe5ac8c9-7cd8-4a50-a474-b076e38164c8" class=""><strong>必须考虑的异常流程：</strong></p><ol type="1" id="a61b74cc-6908-4d7a-bf78-4b16b865b693" class="numbered-list" start="1"><li>用户网络故障/服务器资源不足时，不要造成不可挽回的损失，设置自动保存机制；</li></ol><ol type="1" id="8a82fe5e-37c0-4052-a777-1918fe80b6e3" class="numbered-list" start="2"><li>预判用户可能出现的错误（错误的点击），对于造成重大损失的按钮，提供二次确认的对话框；</li></ol><p id="43ade52a-fdff-47d9-9237-7bc24ee81030" class=""><strong>处理异常流程的方式：Toast和Alert</strong></p><figure id="658661ff-9bf9-4229-8f66-2c64f75b3d69" class="image"><a href="http://image.woshipm.com/wp-files/2020/02/cQYAmPyX9QRKwRqyIcID.png"><img src="http://image.woshipm.com/wp-files/2020/02/cQYAmPyX9QRKwRqyIcID.png"/></a></figure><ul id="c0c98df1-eea4-48a8-80f2-78865200388a" class="bulleted-list"><li style="list-style-type:disc"><strong>Toast：</strong>提示文字少，出现2秒左右会自动消失。用于轻提示，马上可以重试的；</li></ul><ul id="c5e746ac-9243-4a72-9611-fc66730f6426" class="bulleted-list"><li style="list-style-type:disc"><strong>Alert：</strong>提示文字较多，有按钮，需要用户确认。用于业务的确认，当业务逻辑比较复杂时，用户的操作存在违规或者造成重大损失，用Alert提示。</li></ul><h2 id="ed66e1b9-3ca5-4485-bc4a-b8b1e00eff57" class=""><strong>5. 总结</strong></h2><p id="e5178f47-7cb1-4f48-ac6c-79c4e5ca17c6" class="">中篇所讲的信息架构关注产品的全局性，考虑将多条流程整合在一起；本篇流程设计关注每一条流程的合理性，帮助用户更好更快的完成任务。</p><p id="47dea068-45b9-4750-b9fb-c01ea8291627" class="">流程设计步骤可归纳为：</p><ol type="1" id="294d0795-3f1c-48db-96dd-e2d9dc3c0e6e" class="numbered-list" start="1"><li>理解业务需求，明确核心功能主线；</li></ol><ol type="1" id="d3588896-f578-48cc-b476-66bcb765cb72" class="numbered-list" start="2"><li>细化场景，寻找所有接触点；</li></ol><ol type="1" id="6570a4da-2611-473f-99cf-6a0a846fa26c" class="numbered-list" start="3"><li>梳理接触点，制作流程图；</li></ol><p id="d1b04a7f-be2e-417f-9203-bc1569f6b5d4" class="">然后根据流程图设计交互稿，注重流程设计的全面性，思考异常流程的处理。</p><h3 id="84a775aa-4c49-4a5e-b67d-2bd9c1e9e15e" class=""><strong>相关阅读</strong></h3><p id="cb8547de-16ab-4050-b695-71d2c3cd8949" class=""><a href="http://www.woshipm.com/ucd/1477690.html">交互设计笔记（上）：设计需求分析</a></p><p id="12921f53-b9c4-432b-a07b-ba7c9c0a00c1" class=""><a href="http://www.woshipm.com/ucd/2404006.html">交互设计笔记（中）：信息架构设计</a></p><p id="2ef4dd92-afb2-4123-9a55-e22dc2ffe398" class="">本文由 @产品负一岁 原创发布于人人都是产品经理。未经许可，禁止转载</p><p id="96324614-a323-4ba2-a501-cab3ae88e14b" class="">题图来自Unsplash，基于CC0协议</p><p id="b8ca43e0-fb48-4449-8616-d31e8e50e85e" class="">给作者打赏，鼓励TA抓紧创作！</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

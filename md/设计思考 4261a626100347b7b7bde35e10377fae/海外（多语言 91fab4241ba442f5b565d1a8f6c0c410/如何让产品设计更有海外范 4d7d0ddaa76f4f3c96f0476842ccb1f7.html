@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>如何让产品设计更有海外范</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4d7d0dda-a76f-4f3c-96f0-476842ccb1f7" class="page sans"><header><h1 class="page-title"><strong>如何让产品设计更有海外范</strong></h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-person"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesPerson"><path d="M10.9536 7.90088C12.217 7.90088 13.2559 6.79468 13.2559 5.38525C13.2559 4.01514 12.2114 2.92017 10.9536 2.92017C9.70142 2.92017 8.65137 4.02637 8.65698 5.39087C8.6626 6.79468 9.69019 7.90088 10.9536 7.90088ZM4.4231 8.03003C5.52368 8.03003 6.42212 7.05859 6.42212 5.83447C6.42212 4.63843 5.51245 3.68945 4.4231 3.68945C3.33374 3.68945 2.41846 4.64966 2.41846 5.84009C2.42407 7.05859 3.32251 8.03003 4.4231 8.03003ZM1.37964 13.168H5.49561C4.87231 12.292 5.43384 10.6074 6.78711 9.51807C6.18628 9.14746 5.37769 8.87231 4.4231 8.87231C1.95239 8.87231 0.262207 10.6917 0.262207 12.1628C0.262207 12.7974 0.548584 13.168 1.37964 13.168ZM7.50024 13.168H14.407C15.4009 13.168 15.7322 12.8423 15.7322 12.2864C15.7322 10.8489 13.8679 8.88354 10.9536 8.88354C8.04492 8.88354 6.17505 10.8489 6.17505 12.2864C6.17505 12.8423 6.50635 13.168 7.50024 13.168Z"></path></svg></span>Owner</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a-/AAuE7mCYLgNL-U_Il_abXX0ZuWQePjPOGoT8vXJW8WBz=s100" class="icon user-icon"/>张大圣</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td></td></tr></tbody></table></header><div class="page-body"><p id="0670aac3-3042-4ea1-ac19-14999073697d" class=""><a href="https://mp.weixin.qq.com/s/USYmwLFJEMl6dnihCklfjA">https://mp.weixin.qq.com/s/USYmwLFJEMl6dnihCklfjA</a></p><figure id="16d73d65-6726-4d25-b772-4adac1391489" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBDhdXiaSBqQicFYBefPicCVzC4Hh0ficymD8c37oSxChBW7rJcPicEhbLAxw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBDhdXiaSBqQicFYBefPicCVzC4Hh0ficymD8c37oSxChBW7rJcPicEhbLAxw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="63d04240-db51-4853-8e85-181434134985" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmpicLsBHFd1ntULpuzneXLMicO5snibib5GmiabnKn3EI5Y7c3pR3lRYUOEu3zTwYt8Ykd64U8GdXxEJeibw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmpicLsBHFd1ntULpuzneXLMicO5snibib5GmiabnKn3EI5Y7c3pR3lRYUOEu3zTwYt8Ykd64U8GdXxEJeibw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="cf00eefe-54d1-44b4-a7d5-f95d344fde7f" class="">我用一句话把Google翻译整懵了，这句话对于汉语母语者很好理解，但是Google翻译却搞不懂在说啥。这个翻译案例侧面反映了国内外用户在语言表达和思维习惯上的巨大差异，这些差异最终也体现在界面的设计上。我们来扒一扒这个问题，看看差异根源在哪，要怎么做才能让产品设计更有“海外范”。</p><figure id="db417500-f234-467b-a603-321b2ba8bc98" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBRK61aX1p8YEYWI6EykLYfx3WSOx3yo5p8lLdsct9AXXGNuZnY5Vkjw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBRK61aX1p8YEYWI6EykLYfx3WSOx3yo5p8lLdsct9AXXGNuZnY5Vkjw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="934f7f6f-5a48-4f05-b031-630b3a9ae8ba" class="">在大家的印象中，海外的应用大多简单直接，和国内应用调性迥异。很多资料从不同层面来分析这种差异，大多是从国内用户视角出发，这次尝试从海外用户的视角切入，看看是否会有不同的发现。</p><figure id="849812f5-3710-437b-97f5-111795ad08f1" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmpicLsBHFd1ntULpuzneXLMicO2XuH9kFnSMYflvCNria2u4EpkyVYC8Ho6IdJ6Jwnef7lzfwXW3HrkicQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmpicLsBHFd1ntULpuzneXLMicO2XuH9kFnSMYflvCNria2u4EpkyVYC8Ho6IdJ6Jwnef7lzfwXW3HrkicQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="fa128b6e-a92d-4fd2-9382-1d6c63197ae6" class="">从Quora的诸多提问可以看出，正如很多国内用户疑惑为什么Google的网站那么简单，海外用户也同样纳闷中文界面为啥这么复杂，基于这些困惑，一些海外用户也尝试给出了他们的观点。如下图</p><figure id="d2e14e17-46dd-4e81-8eb4-1c69fb96fd2b" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBCrA0k3IbTeMOHg4tib1QIZRLzJOpEeFG4ymdN2mF4M6nMWpYMicVEHKg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBCrA0k3IbTeMOHg4tib1QIZRLzJOpEeFG4ymdN2mF4M6nMWpYMicVEHKg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="64c985a9-9d07-46fe-bb3c-46a4ff93880f" class="">通过这些回答可以发现，海外用户对此也有不同的想法。有的认为亚洲很落后（发达国家的优越感？），有的则认为因为中文比英文高级，还有人觉得亚洲人有特殊的超能力。当人也有一些熟悉中国的海外设计师从教育环境、思维习惯、亲身体验等多个维度去分析这种差异。</p><p id="00c821e6-3005-47f5-9ce8-ac37290cf93a" class="">结合查阅到的各种资料和观点，我把整体的差异根源归因成隐形和显性两个部分：</p><p id="5184acb5-3373-4bc0-ba6a-bae8a964094f" class=""><strong>1、隐形差异：文化环境差异</strong></p><p id="ad5b98a9-60e9-4593-89ef-7d23b06beb2b" class=""><strong>2、显性差异：文字排版差异</strong></p><p id="1550c8a9-92fa-48d6-b149-36ad5470089d" class="">下面就从这两个方面来进行深入的溯源研究。</p><hr id="ce1f1dc5-38d2-4d46-a35a-7923ee864d15"/><p id="b706c54e-be08-4210-873e-58eaa640727b" class="">这里贴上Quora的原贴，感兴趣的话可以从原贴看更多完整回答。</p><p id="1167d27b-613f-4720-b4c8-703f677e99b4" class=""><em>Why do many mainstream Chinese websites have so much visual noise?</em></p><p id="d01deab9-5105-4616-9f09-538d4ba0984d" class=""><em>https://www.quora.com/Why-do-many-mainstream-Chinese-websites-have-so-much-visual-noise</em></p><p id="b7593a9d-75a4-440d-8a38-42de0bce85f3" class=""><em>Why are Chinese apps far more complex than their foreign peers? Does this imply that there is no universal principle for UI/UX design, and that the guidelines may vary from culture to culture?</em></p><p id="857d9d9b-cb89-4b90-9936-53de8d5daebe" class=""><em>https://www.quora.com/Why-are-Chinese-apps-far-more-complex-than-their-foreign-peers-Does-this-imply-that-there-is-no-universal-principle-for-UI-UX-design-and-that-the-guidelines-may-vary-from-culture-to-culture</em></p><p id="32968725-792c-4f41-b2e1-618deee87963" class=""><em>Why are Chinese websites and software interfaces always complicated, and English-language websites, like Google, LinkedIn, and Twitter much simpler?</em></p><p id="0f93873f-b6e2-4809-8d9d-e4cc4fd166fa" class=""><em>https://www.quora.com/Why-are-Chinese-websites-and-software-interfaces-always-complicated-and-English-language-websites-like-Google-LinkedIn-and-Twitter-much-simpler?q=why%20Chinese%20web</em></p><p id="93c62369-1c3a-4bda-a646-ae2102ebebd8" class=""><em>Why Is Chinese Web Design So Bad?</em></p><p id="c263f8c8-3954-4e3f-89a3-4a3fb8abb520" class=""><em>https://blog.teamtreehouse.com/why-is-chinese-web-design-so-bad</em></p><figure id="2998bfcb-74cc-4ff1-933a-91c08c39fdd4" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/VG2o0cawmp9DYe5q37uiastRBrHibxMCXB5e2b06eqicAdNeBrDdb3Ovz1QYxNM5543cJWZU6gofYJeCRLgQNjNkA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/VG2o0cawmp9DYe5q37uiastRBrHibxMCXB5e2b06eqicAdNeBrDdb3Ovz1QYxNM5543cJWZU6gofYJeCRLgQNjNkA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><h1 id="bfd17721-ae87-4a86-8866-98eec0f4fd90" class="">1.隐形原因：文化环境差异</h1><p id="87562b69-abec-4f75-9e1a-5448f676d3ff" class="">之所以把它叫做隐形差异，是因为这些差异的影响不直接表现在具体的界面细节，而是从产品理念、思维习惯、语言环境等方面影响产品的设计思路。具体是以下三个部分：</p><h3 id="a8f7ec5c-7310-4ce0-9da1-7f3ecc1cd69d" class="">1.1-产品理念不同</h3><figure id="eb8a6bf5-fb9d-4877-899d-068b9b8fb5c0" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBAwZNSNCe3MJ4SW4EicgAau5ZMSgc3wiaW9Ql62vHufibiaNj1z6IrgaSzw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBAwZNSNCe3MJ4SW4EicgAau5ZMSgc3wiaW9Ql62vHufibiaNj1z6IrgaSzw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="b73f9f8f-dfb2-4c97-9f83-a1bb264903c4" class="">通过上诉对比可以看出，Google的整体界面都是围绕“搜索”这一核心功能来展开的，没有其他多余的信息，把搜索功能做到的简单直接。而百度则打造了一个聚合的平台，在这里它不仅是一个搜索工具，还可以满足网盘、理财、生活娱乐等多个维度的诉求。两者相比，Google是搜索这个特定的功能，而百度则是承载搜索和生活相关功能的平台。产品理念的不同，导致两个都是从搜索功能切入的产品，在最终呈现上差异巨大。</p><h3 id="ba7002e4-97c8-4dbe-9f3d-16271fa4eeb9" class="">1.2-受教育方式不同</h3><figure id="4a5200f1-77ab-4431-8076-80f1a5f79176" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXB1PUS54METm1Pv3Q1K4WhGqQUOAbxHhicGuD2NEkPuiamgpoNCK0sceBA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXB1PUS54METm1Pv3Q1K4WhGqQUOAbxHhicGuD2NEkPuiamgpoNCK0sceBA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="dc885496-78f3-4e5f-9873-919de1f84959" class="">因为接受到的教育方式不同，导致思维习惯的差异。国内的用户在浏览信息时，会进入一种数据采集模式（Data Acquisition Mode），这种模式更容易接受和记忆繁多的信息数据，而西方人更擅长理解步骤加动手操作，在面对铺面而来的大量信息时遍难以招架。这种差异让海外用户对于功能明确，内容聚焦的产品接受度更高，对于大而全的产品则不太适应。</p><h3 id="20178230-f9ff-4d42-a644-9a0053d8ee65" class="">1.3-信息内化能力不同</h3><figure id="c97c6647-f045-445a-a93a-76e031f63129" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBctxSl2EQGJ6eWeAMpbXJ1mVZNSATicSlhFF77lB9al4zyooyz8NGXJQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBctxSl2EQGJ6eWeAMpbXJ1mVZNSATicSlhFF77lB9al4zyooyz8NGXJQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="5ad01266-1c65-4044-a788-06af5a160d37" class="">汉字传递的信息熵值比英文更高，这个差异让从小以汉字为母语的人对压缩度高的信息有着快速内化的能力。但是高信息密度的内容对西方用户来说很难适应，这也影响到界面的设计思路，简洁直接的内容更符合欧美用户的语言习惯。</p><hr id="41c6b854-9718-4e30-a297-f680b97022fb"/><p id="e01d764a-5f11-4377-a36e-fa6ba78d96ee" class=""><em>相关链接：</em></p><p id="dae4c613-0bfa-44d0-ba4f-4fa2f4e009a4" class=""><em>中文是最有效率的语言吗？-- 信息熵简谈</em></p><p id="de3d491d-f33d-42be-aea0-c210331c813c" class=""><em>https://zhuanlan.zhihu.com/p/89958871</em></p><p id="38bd78ea-e82e-402e-919c-2fa5460e5f78" class=""><em>哪种语言最适合微博？</em></p><p id="4782976b-2c91-4ce2-8507-763282bcdf67" class=""><em>https://www.economist.com/international/2012/03/31/twtr</em></p><p id="c7925f29-18bf-4d12-81f2-cb609b1ea4fb" class=""><em>世界上信息熵最大的语言是汉语吗？</em></p><p id="cb94af14-e52d-4857-bc9f-562387f66493" class=""><em>https://www.zhihu.com/question/37998688</em></p><hr id="8f800189-2343-488b-9ff7-7a14d23693de"/><h1 id="f9f88821-68dc-4b8f-bea3-eea17029e5f1" class="">2.显性原因：文字排版差异</h1><p id="464c51b4-0359-42fd-a530-9279ab7b3c57" class="">相比隐形原因，显性原因是直接影响到界面排版和设计细节的具体内容，包括以下四个部分：</p><h3 id="0a254fd9-65c7-41ba-8f07-6e3162201168" class="">2.1-文字字形差异</h3><h3 id="77f9f1bf-f243-466a-87da-d00f6577b65b" class=""></h3><figure id="d3f9c105-e7b2-4aec-af6d-7cd258dceba9" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBZn6OoaxzWhUV2ZCKCBRicmjKvibeDqicCmzwmksvRYYJdHu6hlwMB5FEA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBZn6OoaxzWhUV2ZCKCBRicmjKvibeDqicCmzwmksvRYYJdHu6hlwMB5FEA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="d390dad1-a4de-4b50-916c-6a2f09e8078d" class="">a.汉字是在田字格中书写的文字，早期为竖向排列，这让汉字逐渐形成四周都有边距的方格子形态，体积感很强。英文则是横向排列的，只需考虑左右边距，整体横向拓展，体积感知上会弱一些。基于这个差异，排版时会感觉同等字号的英文比中文要小一些。</p><figure id="1a618492-04d2-45c8-a847-bc3b1c52f152" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBfbHibUFQ0wGibAZPO4KIWcnrE32ia80wIquv22PuFib7yjTaCq47HdvxWA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBfbHibUFQ0wGibAZPO4KIWcnrE32ia80wIquv22PuFib7yjTaCq47HdvxWA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="36277a98-7589-4329-afae-09bdc9166542" class="">b.上图是一个比较极端的例子，复杂字形的汉字在字号偏小的时候笔画粘连严重，导致辨识度大幅下降，而英文字形较为简单，小字号依然能保持不错的识别度。</p><p id="a323ff07-3b9d-4492-9ffe-28c9643c9e2f" class="">基于上面两个特性并结合实际案例，可以发现在英文界面的排版中，字号的使用区间比中文要大一些，即标题使用的字号可以更大，标签或辅助文字使用的字号可以更小。</p><h3 id="758de740-d5d7-4229-bdf2-9937ac6cc541" class="">2.2-断句方式</h3><figure id="4ee56504-6306-4940-9a13-c9f5b22e512f" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBurjaR3Pcibt1DFdqPibvmGttMFkcrqUF0q2RQtUeXP8l0ALPcDljDEmg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBurjaR3Pcibt1DFdqPibvmGttMFkcrqUF0q2RQtUeXP8l0ALPcDljDEmg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="4061f82e-9202-4df2-9925-cc6af61922b6" class="">中文是方格子，体积固定为块状，而英文是横向拓展的，每个词语的长度不固定。这让英文文本的右侧形成错落的空白，导致空间利用率降低，信息占用高度变多，但错落的留白也让界面显的不那么“满”了。</p><h3 id="a0f2587d-6acf-487e-bc1a-d3f471c23841" class="">2.3-大写和斜体使用</h3><h3 id="90ac46b7-cd73-4275-8719-93b27e39c21f" class=""></h3><figure id="40c59304-0872-4864-9036-7c457ee3a21c" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBQlBlPMpFAyKMs5GG71zy0RhEjLMMgCcfqDgOk2hKiaTSxMKoMZ7nFLg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBQlBlPMpFAyKMs5GG71zy0RhEjLMMgCcfqDgOk2hKiaTSxMKoMZ7nFLg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="b23ef755-86d6-4ad0-a3e5-9e91c16b392f" class="">汉字没有大写和斜体（汉字的斜体是软件扭曲字形实现的）的形态，而英文则常常使用大写和斜体进行排版上的区分</p><p id="4a422d9a-d2ca-4c08-a8bd-59ded7dc8eba" class=""><strong>大写：</strong></p><p id="f030ee9f-2bd3-423b-aa5e-640297349f11" class="">a-在排版中大写常常被用于重点强调，比如重要新闻的标题，引导按钮的文案。</p><p id="3cbfda27-54d8-4efc-9a24-7c96f7f14c0c" class="">b-大写表示一种语气的体现，在一段文字中单独使用大写的文字，就像提高了语气声调。</p><p id="6acebdff-fa44-45e4-b018-acb6c31b3836" class="">c-在一些小字号的标签中也经常使用大写字母，因为大写字母的辨识度高于小写，可以帮助用户更好的识别。</p><p id="08123679-22c5-4f35-b905-8ee7d3256855" class=""><strong>斜体：</strong></p><p id="ea5ea6c0-777c-40c6-bc93-03f3248035a1" class="">在图片注释、外链信息引用、电影书籍名称等场景常常使用斜体区分。斜体也可以用作强调的表示。</p><p id="1aaf4f8f-c906-4965-968c-8dfcb78aa869" class="">斜体一般性用法：</p><p id="752f60cf-6355-4124-873d-7d7ad02c5859" class="">http://www.xueshutang.com/yingyu/23620.html</p><p id="9f0f1085-4135-4813-b5e1-ff3840c39047" class="">英文大写和斜体的使用让界面节奏更多变，层次更分明。</p><h3 id="7fea0a75-af51-457c-8463-25ff2186fcf1" class="">2.4-字体和字重选择</h3><h3 id="35f5beb9-a4b0-4e33-a9b1-60918df6193c" class=""></h3><figure id="39a78f82-59de-47ae-8a31-e2aef297be86" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXByD5yTpfjt7abnppvCeK9MeUqiaW1DpqImtz0vibeY7MfjRd6alJxYwXA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXByD5yTpfjt7abnppvCeK9MeUqiaW1DpqImtz0vibeY7MfjRd6alJxYwXA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="3b0b3bc6-2597-444d-886b-1b9e8588097c" class="">英文字体的字重梯度一般比中文字体要多，在英文资讯类界面中，通常用利用字重差来强化标题与正文的层级感。另外在主流资讯类APP（ESPN、NBC News等）中可以发现，标题和正文也经常利用非衬线体与衬线体搭配的方式来强化层级区分。相较来说，国内的同类资讯APP更多使用统一字体，字重差也会小一些。</p><figure id="86ae24a3-3020-470f-885a-80740545b33a" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBVZTLvSVjkdngBic3uibkdJuVulTZewP2LjtKZrw6EnEkarVtIMbR938Q/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:563px" src="https://mmbiz.qpic.cn/mmbiz_png/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBVZTLvSVjkdngBic3uibkdJuVulTZewP2LjtKZrw6EnEkarVtIMbR938Q/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="c6072b24-a508-4c36-8686-aa5e2d53bac4" class="">在溯源研究之后，我找了一些具体产品来研究这些差异在界面中实际的体现。基于现有业务需求，选择了资讯和体育两类产品，资讯类选择了欧美受众比较广的BBC News、CNN、NBC News。体育类选择了较知名的ESPN、CBS Sports以及电竞类的Riot Esoprts。</p><figure id="d8ef18a3-a51a-4c7c-828e-560f9cf37500" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBUDqicAiapFibLpRicibLyZMTGdZdVeMQgkZ8tmr69TdMoN9fmETYddqMINA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBUDqicAiapFibLpRicibLyZMTGdZdVeMQgkZ8tmr69TdMoN9fmETYddqMINA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="0591691d-c982-480d-83ba-4ec20f56fa4d" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBRB3mZ6CRBPUbgkpyqWkicnTXpdxtYQNmOHIauu4q8v3dA4mdiag2JPxQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBRB3mZ6CRBPUbgkpyqWkicnTXpdxtYQNmOHIauu4q8v3dA4mdiag2JPxQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="cd061589-86c4-4d31-b3ce-aa76e67f62fc" class="">通过对这些界面的文字梯度、间距梯度、交互结构等维度进行分析提炼后，发现它们在设计上的一些共性，整理后得到了以下七个可以让界面更具“海外范”的建议。具体如下。</p><h3 id="81a76420-d877-4f6b-9020-9401d0f8c24b" class="">建议一：聚焦核心内容，减少信息密度</h3><figure id="fa486281-1f31-4849-98f1-1c92ed5b7207" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBEPB5rYh030kSMnfibCEicVSLCyLr0VxACSJfibO1JRwhPexlT746iaM1LA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBEPB5rYh030kSMnfibCEicVSLCyLr0VxACSJfibO1JRwhPexlT746iaM1LA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="bfb5f0d1-736d-4d09-86b6-0fb472f0c4bf" class="">这些产品的单页信息量相较国内应用都更少一些，所以在海外产品的设计上可以尽量保持信息精简，内容聚焦，转变内容呈现的思路，海外用户可以接受更多的滑屏，但是难以忍受单屏爆满的信息。</p><h3 id="7ea19a45-26ef-4b20-9929-bcf2e3ff09ca" class="">建议二：避免横向多个信息排布</h3><h3 id="589085e3-6346-4861-817c-4a0db04caddc" class=""></h3><figure id="fe2f5c9c-9677-4934-ab61-2d33fdb29b9e" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBia8PAqBn8BTnCCBUuT91QfEaQ74BfJ9aTlQgMyUuhHCRmcibolNUibhoA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBia8PAqBn8BTnCCBUuT91QfEaQ74BfJ9aTlQgMyUuhHCRmcibolNUibhoA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="29150a74-eb55-4c3e-bcf2-f5731d7b0b3e" class="">为英文（多语言同理）预留更多的空间，避免横向多个信息内容。在按钮的设计上也要避免拥挤，可以单独设置区域更大的按钮，避免横向出现并列的文字按钮，这对手掌相对较大的欧洲用户也更友好。</p><h3 id="cb7cbb36-4a6e-4c27-ac1f-67cfce98487f" class="">建议三：使用更大的字号区间</h3><figure id="8c4a06e1-cb7d-4234-9eac-f2737b3d8907" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBkrSkBdzpHUQ4sH5pQpgbibDVGJ7RyCjhaxZjkaIfGo9rf8ClFSsicA0A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBkrSkBdzpHUQ4sH5pQpgbibDVGJ7RyCjhaxZjkaIfGo9rf8ClFSsicA0A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="52901455-cf09-4c1b-8446-36b96351fa8b" class="">头部标题会使用更大的字体：这些应用在头部标题的文字基本都使用了超过30px（1倍尺寸）的字号，中文应用较少会使用这么大的字号。汉字因为是方块状且笔画较多，字号过大会略显沉闷拥挤，而英文字形结构简单，加上单词长短不一形成的错落留白，就避免了这个问题。</p><p id="c4a55564-3628-45cf-a00a-6bdd0f172dbe" class="">辅助信息使用更小的字体：同样因为汉字笔画结构较复杂，文字过小导致笔画黏连，导致辨识度降低；而英文的简单字形让较小的字号仍能保持其识别度。所以可以发现这些应用在辅助文字的字号上都使用了更小的字号（10-11px）</p><h3 id="5a5b5a5a-a289-40e2-87b7-6a4ac123c28b" class="">建议四：利用英文的字重梯度</h3><figure id="cd590c2e-f9cb-4751-8120-e8a05fdeac5e" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBNexIRsic8zmVU1aDLXMKcolyRxZ52EaeLCPIvmpIqCjcRLiahH95GQhQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBNexIRsic8zmVU1aDLXMKcolyRxZ52EaeLCPIvmpIqCjcRLiahH95GQhQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="58168840-ba4c-4df0-8bb5-e0ef2e1659a0" class="">在标题或重要文字上，可以利用英文丰富的字重梯度，尝试更大的字重来加强信息层级的对比。</p><h3 id="2a5e38d3-de0d-4d24-a181-f3bad75d509b" class="">建议五：利用英文大写</h3><figure id="b488b797-8c55-4eef-8948-cb78bf1b259e" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBMC1xFSxNaw8ibicSaXV8O3ib3bcVM29egOtGQRODk9wUZQg76iatWFlEsA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBMC1xFSxNaw8ibicSaXV8O3ib3bcVM29egOtGQRODk9wUZQg76iatWFlEsA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="2e902721-aff8-48ef-8c4a-47ad44fa0630" class="">按钮和部分重要标题建议使用大写，作为语气和引导的强调。在一些小字号的标签中，同样可以使用大写来增加文字的辨识度。</p><h3 id="8dbc8772-03ac-41c8-81de-c27ad247dab8" class="">建议六：标题正文可以尝试区分字体</h3><p id="a8b4bd08-097d-4142-bde3-3eb67455df43" class="">资讯类的产品，可以尝试在标题正文中使用不同的字体（衬线体结合非衬线体），强化层级区分的同时，也能增添海外传统媒体的味道。</p><figure id="e589dc6c-4527-4c3d-bb2f-013857be32e1" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBaI8eibiaLr1VWyG6kCEvuMHxWjPicGqnD377QPfeHchwZ1MxtMia7hAZrQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBaI8eibiaLr1VWyG6kCEvuMHxWjPicGqnD377QPfeHchwZ1MxtMia7hAZrQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><h3 id="e8bb2830-2c53-47a7-94fa-0874f42f76b7" class="">建议七：预留更大的间距</h3><p id="2810fe8d-24cf-421c-b1ba-193fa6902d4f" class="">在多个信息排列时，通常预留更大的上下间距，一方面考虑到英文换行需要预留一定的内容高度，另一方面充足的间距留白也可以避免信息密度过大。</p><figure id="fb7a4649-90c5-4dff-9f61-2c604f22d0e8" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBxrT3oqnksQTTurZrgq5Zc63KDVnXouoRejaQQTibib5qudvFibXOwe8NA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_jpg/VG2o0cawmp9DYe5q37uiastRBrHibxMCXBxrT3oqnksQTTurZrgq5Zc63KDVnXouoRejaQQTibib5qudvFibXOwe8NA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="1d9f2e76-eea9-4554-b5d6-42a4f0789c17" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/VG2o0cawmp9DYe5q37uiastRBrHibxMCXB0Tq7A1c7pibzP3EbgiczOrV5Brz7pP93JLoJOFoQlaqbVGywsWQicrEYQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img src="https://mmbiz.qpic.cn/mmbiz_png/VG2o0cawmp9DYe5q37uiastRBrHibxMCXB0Tq7A1c7pibzP3EbgiczOrV5Brz7pP93JLoJOFoQlaqbVGywsWQicrEYQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="ee1b00e2-40cb-474f-9072-a9547bb9ca3d" class="">在国内外差异的问题上，我理解中西方的互联网设计走向不同的发展路线，就像汉字和英语，也会相互影响产生一些舶来词汇，但它们没有高下或对错，只是面对不同的用户和市场，并在各自的环境土壤结出因地制宜的果实。对于要做设计出海的我们来说，则需要代入海外用户的视角，让自己的思路率先“出海”，才能让产品设计越来越符合“海外”的味道。</p><p id="461ecc69-1105-4745-8c0e-aecc0d05bae5" class="">出海之路任重道远，希望大家可以多多交流指教，让我们一起在出海设计的航路上走的更稳更远~</p><p id="3fe4b8dc-bd6d-47fe-8bcb-e45075e360eb" class="">撰文：wilbur</p><p id="2c4136e6-7435-464c-80f9-5cbe0cbb9c20" class="">主创团队：P&amp;PDesign</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

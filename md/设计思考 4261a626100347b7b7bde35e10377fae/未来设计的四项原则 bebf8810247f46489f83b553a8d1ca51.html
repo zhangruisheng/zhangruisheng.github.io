@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>未来设计的四项原则</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="bebf8810-247f-4648-9f83-b553a8d1ca51" class="page sans"><header><h1 class="page-title">未来设计的四项原则</h1><p class="page-description"></p></header><div class="page-body"><h1 id="8363149d-426b-4f5f-922c-8462caebde64" class=""></h1><figure id="f81b81b5-f702-4811-8b6c-6f91ea69ceac" class="image"><a href="https://miro.medium.com/fit/c/96/96/1*QxJBzpwHk44170qJ4bu7Ng.png"><img src="https://miro.medium.com/fit/c/96/96/1*QxJBzpwHk44170qJ4bu7Ng.png"/></a></figure><p id="d503b3f8-0dc7-41f3-ae65-57e44911c161" class=""><a href="https://medium.com/@MicrosoftDesign?source=post_page-----78922340cece--------------------------------">微软设计</a></p><p id="fca67f34-fbcb-4578-b77e-c00f4a945a4f" class="">跟随</p><p id="575ad2f9-2826-49b2-860d-434791117b61" class=""><a href="https://medium.com/microsoft-design/four-principles-for-the-future-of-design-78922340cece?source=post_page-----78922340cece--------------------------------">10 月 22 日</a> · 7分钟阅读</p><p id="4935a5e1-021b-4cb5-8405-ae6d55fb61da" class=""><em>Fluent Design System 如何帮助我们共同进步和成长</em></p><p id="30ef7250-4baf-4360-a51d-9a29008e3fdf" class="">作者：<a href="https://medium.com/@jebost">詹妮弗·博斯特</a>和安娜·格雷戈里</p><figure id="cb4e59ef-9711-400e-81b3-889cbc7cb786" class="image"><a href="https://miro.medium.com/max/5000/1*Pw_Fko81DSP18BuokqsvNw.png"><img src="https://miro.medium.com/max/5000/1*Pw_Fko81DSP18BuokqsvNw.png"/></a></figure><p id="72dd9b1e-5136-45ee-8d90-e90293ca1837" class="">去年，我们来自 Microsoft 的一群人聚在一起应对一个棘手的挑战。</p><p id="4323195d-32c1-4c5f-bab7-3c9b0851d08a" class="">我们需要发展我们的设计原则——这些概念阐明了我们的共同愿景并影响设计范围，从设计系统到设计审查再到设计记分卡。</p><p id="160bb39d-115c-42a7-be29-6d95227224d0" class="">为了提供更一致的优质体验，我们需要重新思考我们的共同愿景，并承认它是如何随着我们周围世界的变化而变化的。</p><h1 id="4bf754b6-f11f-4b0a-9a9e-53b65f1db1df" class=""><em>在设计中失去我们的价值观就像失去我们的宗教。</em></h1><p id="61067306-1824-4379-8513-cfaf19036ef6" class="">我们在四年多前制定了我们的工作设计原则——产品设计的一生。它们反映了围绕（当时）最新最好的 Windows 操作系统设计语言的观点。当他们很酷时很酷，就像我们的父母一样，他们与我们不再生活的世界交谈。</p><p id="203675bc-70d8-41a4-9cf9-3f13e7cca6f2" class="">如今，Fluent 是我们面向 Web、iOS、Android<em>和</em>Windows的开源跨平台设计系统。</p><p id="4df30e9c-85fe-40a6-a45e-4d13aa6f9c1f" class="">当设计原则变得不那么重要时，我们如何重新聚焦我们的愿景？在设计中失去我们的价值观就像失去我们的宗教。</p><figure id="0cae5791-2c58-4c41-b83e-d337f2d4a122" class="image"><a href="https://miro.medium.com/max/60/1*jOtSqb6zEmgQhjpCMoRA4w.png?q=20"><img src="https://miro.medium.com/max/60/1*jOtSqb6zEmgQhjpCMoRA4w.png?q=20"/></a></figure><figure id="90ecd063-67b1-49b9-bc42-60fc0fb3b112" class="image"><a href="https://miro.medium.com/max/1400/1*jOtSqb6zEmgQhjpCMoRA4w.png"><img src="https://miro.medium.com/max/1400/1*jOtSqb6zEmgQhjpCMoRA4w.png"/></a></figure><h1 id="9251b285-d7ae-43fe-b5c9-3a84e24a97dd" class=""><strong>回顾过去，展望未来</strong></h1><p id="a76ea7e0-d6ce-447f-9980-91fe8e15a41a" class="">首先，我们挖掘了我们用来在整个公司做出设计决策的所有基本元素。</p><p id="ea559f4d-82d4-4eea-896e-2a068499c135" class="">我们从一开始就带着我们的使命——让地球上的每个人和每个组织都能取得更大的成就。直到今天，这一信息仍然存在并推动着我们所做的一切。</p><p id="eae33538-bcc7-4dfe-bcdb-55644aaed1bf" class="">然后，我们研究了我们的品牌原则，这些原则推动了广告、营销、Microsoft 商店和其他创意工作。</p><p id="6e597731-b9d4-4027-ad02-8143b0655216" class="">把事情简单化</p><p id="9f0245e6-1c13-4e63-9a74-d533f41f9c27" class="">个性化</p><p id="3e6bec3c-971c-400d-ab56-e4a8f882ce6c" class="">普遍认为</p><p id="9bc1179b-7789-4036-9be2-d250b0ef471f" class="">创造愉悦</p><p id="9c81d98c-9fcc-4331-93be-a333ecba712b" class="">细节很重要</p><p id="02972931-0f0b-4435-a918-770b6de9ac94" class="">是的，仍然相关。</p><p id="28e3dd9e-a37b-4b00-b6c6-af8f58af737a" class="">我们还查看了我们的品牌声音——清脆清晰、温暖而轻松，随时准备伸出援手。这仍然让人感觉既现代又常青。</p><p id="19a140d2-e0af-4a9d-8668-6e6d2eacaba9" class="">我们的问题——我们越来越棘手的问题——是，如果我们不知道“它”是什么，我们如何支持产品团队像微软一样设计？我们需要设计师在设计中使用相同的语言，并在设计评审中力求保持一致。我们相信设计系统支持的进化原则可以做到这一点。</p><figure id="80dd3b16-9064-499b-8cd9-fdace0681523" class="image"><a href="https://miro.medium.com/max/60/1*X3uLUE1w8GijiTUXh8ubkA.png?q=20"><img src="https://miro.medium.com/max/60/1*X3uLUE1w8GijiTUXh8ubkA.png?q=20"/></a></figure><figure id="cf356228-13c6-4ffb-a9bc-c885d3568fee" class="image"><a href="https://miro.medium.com/max/1400/1*X3uLUE1w8GijiTUXh8ubkA.png"><img src="https://miro.medium.com/max/1400/1*X3uLUE1w8GijiTUXh8ubkA.png"/></a></figure><h1 id="f5291c88-5102-44d3-b594-e5cfb2a83e33" class=""><strong>流畅的产品设计原则</strong></h1><p id="2129f324-7fb7-4f14-9b3b-eced16b2ffc7" class="">新原则将尊重我们的传统，开创我们的未来，并从 Microsoft 的集体设计声音中涌现。由设计师，为设计师。因此，我们由世界各地的设计师组成了我们的原则团队，每位设计师都有自己的一套考虑因素。</p><p id="44428f73-e6ed-4835-9d0a-3be6e6b765f5" class="">这些考虑范围从竞争分析到规则与原则的问题，从发布新功能的压力到文化转变、包容性、信任和道德。所有这些观点与我们的使命、品牌原则和声音相结合，都反映在我们不断发展的 Fluent 设计原则中。</p><p id="52e57e28-8fc4-4a7c-bbfb-fbb6b8def38b" class="">我们达成了四个不同的原则，在尊重我们的设计传统的同时欢迎未来。</p><p id="db092b35-6a75-484a-afec-bf78982e0139" class="">在每个平台上都很自然</p><p id="99b13119-f229-4ac6-b812-71be381aa69f" class="">专为专注而打造</p><p id="10c422a8-d41b-47bd-b57d-6018a2020267" class="">我为人人人人为我</p><p id="6340f72b-0249-4854-9022-02086c88808b" class="">毫无疑问的微软</p><p id="4c9e88fa-4e27-42f2-b0ef-cb049b73ca46" class="">让我们仔细看看。</p><p id="8c863f4b-d37e-4848-b1b3-8f1e9e2d8c7c" class=""><strong>在每个平台上都很自然</strong></p><p id="04095c61-ffd5-4ccf-a7f6-d0723135443c" class="">你想知道该怎么做。您的体验应该适应您所使用的设备，并且应该建立在熟悉的基础上，针对您已经了解的内容进行设计。</p><p id="f24c29d5-8b28-412b-b947-51b9277c7b2c" class="">适应不同屏幕尺寸并了解其所在平台的布局使体验感觉自然。它还允许我们在 80% 的时间内重用原生平台组件和模式，将我们的精力集中在签名体验上。</p><p id="6b4de2cd-8782-4025-b558-cc57f58b9cff" class=""><strong>专为专注而打造</strong></p><p id="3842c439-5b2f-4367-a522-1486edb28441" class="">你想留在潮流中。你的经历应该激发行动，引导你前进，简单而无缝。</p><p id="ed010617-b6fd-4820-9892-50c42272ea64" class="">当技术进行交流和发挥作用时，它使人们能够按照自己的意愿做他们想做的事。我们的产品不应该成为障碍。更少的视觉混乱和噪音让人们保持专注、冷静和自信。</p><p id="88b51b41-7149-4f72-8bc1-97265d3b0c6a" class=""><strong>一应俱全，一应俱全</strong>——您想被包括在内。你的经历应该考虑、学习和反映一系列的观点和能力，以造福所有人。</p><p id="114a64fc-50d1-4f13-aec6-89a9752bb652" class="">在设计过程的早期，让具有各种能力和观点的各种人参与进来并向他们学习，可以提供更好的解决方案。它开辟了新的可能性，并帮助我们通过约束更有创意地思考。因为当你被包括在内时，你会觉得自己是属于你的。</p><p id="cf7c7a74-66eb-40a0-b233-87d7eef81bb2" class=""><strong>毫无疑问的微软</strong>——你想知道你在寻找什么。您的体验应该像一个微软。一个时刻，一种产品，一次一种体验。</p><p id="841c1ee1-47b8-4fc0-b9d9-edb5da9a124f" class="">我们将精力集中在将我们的产品连接在一起并赋予它们独特的 Microsoft 感觉的标志性体验上。从颜色到声音，从插图到图标，这些标志性体验提高了品牌认知度和熟悉度。</p><figure id="9b8e9d29-3531-4722-b257-b82f3af679da" class="image"><a href="https://miro.medium.com/max/60/1*t00hJpoGVf1xP3Z1fwDmGw.png?q=20"><img src="https://miro.medium.com/max/60/1*t00hJpoGVf1xP3Z1fwDmGw.png?q=20"/></a></figure><figure id="b37efa52-9e37-448f-bc4d-798f74cc3d98" class="image"><a href="https://miro.medium.com/max/1400/1*t00hJpoGVf1xP3Z1fwDmGw.png"><img src="https://miro.medium.com/max/1400/1*t00hJpoGVf1xP3Z1fwDmGw.png"/></a></figure><p id="54694382-8340-473a-ba3c-5ec288753d7c" class="">原则如何在实践中发挥作用</p><p id="d207f27d-e86e-4699-90bd-07c666180370" class="">设计原则看似简单。真正的诀窍是将它们转化为行动。团队可以通过多种方式使用我们的新原则来帮助指导产品和功能设计对话。这些包括：</p><ul id="bd474ef9-e9fa-40b1-aff1-b0b1c7d9c442" class="bulleted-list"><li style="list-style-type:disc">使用共享语言进行产品设计开发</li></ul><ul id="0938ef9a-5078-48b8-bec2-a3ef247d5b5a" class="bulleted-list"><li style="list-style-type:disc">使用共享语言进行设计评论</li></ul><ul id="ce97cbf9-1786-4fac-84fd-22d03737eacd" class="bulleted-list"><li style="list-style-type:disc">确定 Fluent 记分卡以衡量新想法、功能和产品如何满足新原则</li></ul><ul id="2812ce04-c0de-4e5d-b82a-18139de3a230" class="bulleted-list"><li style="list-style-type:disc">将设计原则纳入我们所有的设计活动：在全体会议、设计审查、设计手册，甚至入职培训中</li></ul><p id="c3871b8b-385c-499b-a0b7-6f31f2b0f56b" class="">以下是这些新原则在我们的产品和体验中也出现（有时是出乎意料的）的几种方式。</p><p id="b1c11cc0-8d52-4b2e-8f7f-5e0e6ce79c5c" class=""><strong>MyAnalytics 中的焦点计划</strong></p><p id="7c0aa18e-ba05-43fe-868c-407a8979e751" class="">会议、电子邮件和聊天是完成工作所必需的，但它们通常让我们在工作日几乎没有时间进行不间断的个人工作。有些人报告说，他们一天中有 80% 以上的时间都在与同事合作，研究表明，查看一封电子邮件后可能需要 20 多分钟才能重新集中注意力。MyAnalytics 中的专注计划通过每天最多安排四个小时来帮助您为最重要的工作安排固定时间。是的，MyAnalytics 确实是专为专注而构建的。</p><figure id="647f33ed-6a2a-480b-b035-8f09074e7acd" class="image"><a href="https://miro.medium.com/max/60/1*g7JK7kFLrWrr6hUsP2c0Mg.png?q=20"><img src="https://miro.medium.com/max/60/1*g7JK7kFLrWrr6hUsP2c0Mg.png?q=20"/></a></figure><figure id="4eed2b7e-7372-4635-8ad1-8619addeb221" class="image"><a href="https://miro.medium.com/max/1400/1*g7JK7kFLrWrr6hUsP2c0Mg.png"><img src="https://miro.medium.com/max/1400/1*g7JK7kFLrWrr6hUsP2c0Mg.png"/></a></figure><p id="3bb34e29-3def-4d50-b515-dc19dd8369bd" class=""><strong>新的调度程序应用程序和语音功能体验</strong></p><p id="ca9dee74-c5d8-44b9-93b4-32abac7aee2a" class="">作为产品设计师，我们非常了解可访问性最佳实践和指南——解决视力、听力和运动功能限制的技术解决方案。毕竟，我们公司的使命是让地球上的每个人和组织都能取得更大的成就。</p><p id="ea275694-b583-4803-9c07-36c828b7a497" class="">我们确保我们的产品符合这些准则——这是我们的职责。但是，当我们扩展我们的思维以意识到我们在生活中的某个时刻都会遇到限制时，我们就可以开始以新的方式思考可访问性。例如，您可能在眼科检查后摔断了胳膊或散了眼睛。你与世界互动的方式发生了变化；你的经历发生了变化。</p><p id="801e490d-3082-4a70-9867-65e6b9fabcdf" class="">当您不再将可访问性视为满足特定人群的需求时，就会出现令人兴奋的可能性。我为人人人人为我。这激发了我们在 Outlook Mobile 中最新的语音功能体验，您可以在<a href="https://www.microsoft.com/en-us/videoplayer/embed/RWF89g">此视频中</a>查看。</p><p id="ccb272c4-2dcd-41b9-801d-7b0143468a68" class=""><strong>更新了插图样式</strong></p><p id="66f627ff-427a-47bc-aa01-ecbf4a2ab27c" class="">由于概括、无意识的偏见和刻板印象，以积极、公平的方式描绘人物和描绘他们的肖像充其量是具有挑战性的，而在最坏的情况下则是有害的。我们从客户那里听说并了解到，当他们看到看起来不像他们的角色插图时，他们会感到被排斥。当插图看起来太像他们时，他们会感到奇怪。为了更好地与我们的包容性设计价值观保持一致，我们正在远离人物的通用插图。相反，我们将通过隐喻、抽象和说明性对象来形象化我们的讲故事。</p><p id="7af03b11-3797-4a69-9917-7a8f20e08248" class=""><strong>包容性语言指导</strong></p><p id="d2436181-19a6-40f2-a693-68915cbfa34e" class="">随着我们越来越适应世界各地的社会不公，我们学到了很多东西。就像我们的插图样式更新一样，我们不断学习如何成为更好的沟通者和更好的人。</p><p id="e63c1a92-5c7c-4717-83f6-689a1e9bb3ed" class="">我们更新了我们的 Microsoft 写作风格指南，其中包含关于使用历史偏见和分裂语言的新指南，并且我们最近发布了美国语言学会的<a href="http://www.linguisticsociety.org/content/guidelines-inclusive-language">包容性语言指南</a>。对我们的样式指南的更新也使我们的 Microsoft Office 客户可以使用这些更改。Microsoft Word 可以通过检查您的写作是否存在性别偏见、年龄偏见等来帮助确保专业交流中的语言具有包容性。</p><figure id="75b77267-d300-4867-907f-28225cdfdd66" class="image"><a href="https://miro.medium.com/max/60/1*sGLGMO0ic_5dxcJP4khxKA.png?q=20"><img src="https://miro.medium.com/max/60/1*sGLGMO0ic_5dxcJP4khxKA.png?q=20"/></a></figure><figure id="d9d34ad8-096c-466e-b4a2-c90a6026c044" class="image"><a href="https://miro.medium.com/max/1400/1*sGLGMO0ic_5dxcJP4khxKA.png"><img src="https://miro.medium.com/max/1400/1*sGLGMO0ic_5dxcJP4khxKA.png"/></a></figure><h1 id="50d6fb91-e82a-47d3-8fe3-6cf67ac26604" class=""><strong>这是一种进化</strong></h1><p id="0b1bd53d-2a30-437a-b5d7-1eddbe6f4b5f" class="">行动中的设计原则可以以许多明显的和不太明显的方式浮出水面——深度、广度和细微差别。它们基于我们对客户如何驾驭世界的深刻理解，并从我们对什么使所有人能够取得更大成就的信念中成长。</p><p id="819c83d0-fb23-404c-9a1f-e0e6cc2e4a30" class="">原则还反映了创造它们的文化，这意味着它们将随着时间的推移而不断发展。保持共同的设计愿景是一段旅程，我们相信这些新原则可以指导我们未来几年的产品体验。</p><p id="a7ffac15-328c-4e03-9285-f30026646c8e" class=""><em>一群了不起的产品设计师齐聚一堂，共同实现了这一目标。</em><em>特别感谢 Benedikt Lehnert、Cassie Klingler、Christina Koehn、Colin Day、Jason Kilpatrick、Jason Blackheart、Joe Hallock、Kate Spengler、Mark Swift、Miles Fitzgerald、Nando Costa、Sang In Lee、Simone Magurno、Taili Feng、Thad Scott、Timothy阿楚巴和王一蕾。</em></p><p id="7344798d-f163-434c-9599-8743948f5e7a" class=""><em>我们崇拜你。</em></p><p id="7e4a560d-649a-4bdc-937b-9dbc219ae672" class=""><strong>有兴趣使用 Fluent 设计系统吗？</strong><strong>查看我们</strong><a href="https://careers.microsoft.com/i/us/en/search-results?keywords=%23mds"><strong>当前的空缺职位</strong></a><strong>。</strong></p><p id="bedcff82-7911-4c7f-86ac-a0fccd429a6b" class=""><em>要随时了解 Microsoft Design，请在</em><a href="http://www.twitter.com/microsoftdesign"><em>Twitter</em></a><em>和</em><a href="http://www.instagram.com/microsoft.design"><em>Instagram 上</em></a><em>关注我们</em><em>，或加入我们的</em><a href="http://insider.windows.com/"><em>Windows</em></a><em>或</em><a href="https://insider.office.com/"><em>Office</em></a><em> Insider 计划。</em><em>如果您有兴趣在 Microsoft 与我们合作，请前往</em><a href="http://aka.ms/designcareers"><em>aka.ms/DesignCareers</em></a><em>。</em></p><h2 id="e4993ea1-6fbc-4531-9c5c-2eedd90eeb4c" class=""><strong>微软设计</strong></h2><p id="94533115-d5c3-4e0c-ba4d-842fb60dd345" class="">来自 Microsoft 思想家和修补匠的故事</p><p id="0509f2aa-08e0-4f47-b3b0-14768e0a57fb" class="">跟随</p><p id="c9925362-5358-4d30-bbba-52ee35999969" class="">538</p><p id="9d953066-10c7-4044-9a08-343b999e52d4" class="">4</p><ul id="1102eec5-3da7-457c-802d-39a0c8762150" class="bulleted-list"><li style="list-style-type:disc"></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

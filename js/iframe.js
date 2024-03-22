@@ -7,19 +7,23 @@ close1.onclick = function () {
     "use strict";
     document.getElementById("menu").setAttribute("class", "menu");
     document.getElementById("zzhao").setAttribute("class", "zzzhao");
+    document.getElementById("logo").setAttribute("class", "logo");
+
 };
 
 open1.onclick = function () {
     "use strict";
     document.getElementById("menu").setAttribute("class", "menu-open");
     document.getElementById("zzhao").setAttribute("class", "zzhao");
+    document.getElementById("logo").setAttribute("class", "logom");
+
 
 };
 
 (function () {
     var light = "#fff";
     var dark = "#000";
-    if (new Date().getHours() > 8 || new Date().getHours() < 6) {
+    if (new Date().getHours() > 18 || new Date().getHours() < 6) {
 
         document.documentElement.style.setProperty('--color-ff', dark);
         document.documentElement.style.setProperty('--color-00', light);

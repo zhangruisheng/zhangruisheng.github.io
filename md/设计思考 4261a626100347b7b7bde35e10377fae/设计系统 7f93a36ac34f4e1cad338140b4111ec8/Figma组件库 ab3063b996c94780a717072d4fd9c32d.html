@@ -1,0 +1,680 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Figma组件库</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ab3063b9-96c9-4780-a717-072d4fd9c32d" class="page sans"><header><h1 class="page-title">Figma组件库</h1><p class="page-description"></p></header><div class="page-body"><p id="85cbb896-8124-496b-9d5e-20e22dedda89" class=""><strong>用四大章节，帮你10分钟学会 Figma 组件库的搭建和使用 </strong><strong> </strong><em><strong>收藏</strong></em><strong>
+</strong><strong>2022/08/01 推荐： </strong><a href="https://www.uisdc.com/u/18877/publish/post"><strong>波波BobbyHe</strong></a><strong>阅读 2.0w点赞 18</strong><a href="https://www.uisdc.com/construction-of-component-library#post_comment"><strong>评论有奖</strong></a><strong> 阅读本文需 19 分钟</strong></p><ul id="6b3265e8-967c-4f7c-bd4d-173d57d02b7b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.uisdc.com/">首页</a></li></ul><ul id="feed15c4-98f9-4a3c-86a0-db466300c637" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.uisdc.com/archives">设计文章</a></li></ul><ul id="170b63d9-c9aa-4aaf-a778-4ccf328368e3" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.uisdc.com/category/uiicon">UI</a></li></ul><ul id="0ec20bee-b3a1-4d4a-84ff-fd98bfb1e9d5" class="bulleted-list"><li style="list-style-type:disc">详情</li></ul><figure id="bcad59c5-2bc0-4606-8dce-04f3ad0070d2" class="image"><a href="Figma%E7%BB%84%E4%BB%B6%E5%BA%93%20ab3063b996c94780a717072d4fd9c32d/Untitled.png"><img style="width:1200px" src="Figma%E7%BB%84%E4%BB%B6%E5%BA%93%20ab3063b996c94780a717072d4fd9c32d/Untitled.png"/></a></figure><h1 id="3adbac2c-07c0-4193-9639-62d19538a794" class="">背景</h1><p id="7a533a13-ea8d-4a14-9cea-0c163ba45917" class=""><strong>1. 为什么需要 </strong><a href="https://www.uisdc.com/tag/figma"><strong>Figma</strong></a><strong> </strong><a href="https://www.uisdc.com/tag/%e7%bb%84%e4%bb%b6%e5%ba%93"><strong>组件库</strong></a></p><p id="bdeed65c-b931-449f-af17-7713fbe40ac3" class="">当我们在做设计稿的时候，例如做一个按钮，如果没有做成可复用的组件，那后面在其他模块要用到按钮的地方可能又需要重新画，会有很多的重复劳动。又或是另一种场景，我们需要把按钮的尺寸或颜色统一调整，可能需要一个一个去改，很容易改错或者疏忽。</p><p id="bb4aa906-2c9d-461e-8248-acf47024c8ab" class="">总之，一次性设计是使设计师沦为做图机器的罪魁祸首。如果我们提前搭建好可复用的组件模板，就可以达到复用的目的，而且可以一键批量修改，从而解放生产力，把更多的时间精力投入到业务需求的深入思考中。</p><figure id="ea554903-660e-4523-9a35-51957e054243" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-2.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-2.jpg"/></a></figure><p id="ba157745-fd34-46f6-afdd-ba7608d16a83" class=""><strong>2. Figma 组件库在设计体系中的定位</strong></p><p id="741275b9-5f33-4ec6-960c-8047038b3ad8" class="">设计体系（Design System，也可以叫设计系统）是可复用组件的集合，由清晰的标准引导，通过机制化的组织流程和具象的指南与工具加以整合，以帮助开发者（设计、研发等）高效且一致地创建大量的应用，并且动态地确保用户体验的一致性。</p><figure id="ab0beeba-a74a-4a2f-88af-d072606edd68" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-3.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-3.jpg"/></a></figure><p id="ae1e810d-7a4d-4699-a809-2300e3bb3234" class="">需要指出的是，设计体系不只是组件库，不只是样式指南。当你浏览上面这些案例内容的时候，你固然会看到组件库和样式指南，但更值得关注的是它们陈述的设计目的、设计理念、设计原则、设计模式、设计与工程同步的方法等等。</p><p id="bf982bb1-9e08-4308-bed8-191a8e1760ec" class="">Figma 团队做了一个专门以设计体系为题的网刊，域名为 designsystems.com。该网站有大量围绕设计体系的文章、教程及代码库。</p><p id="508988e9-c782-43ce-82b2-7adcdb1340b4" class="">总的来讲，Figma 组件库是设计系统中的一部分，是沉淀设计规范的设计资产。作为连接设计师和设计师、设计师和开发的桥梁，组件库首先应该是灵活易用的；其次，组件库是需要跟随产品不断进化的，这就要求它是容易被维护的，否则它就会落后于产品迭代，直至逐渐被遗弃。</p><figure id="d5359c7f-6f0c-4c1e-ba89-c41c956852cd" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-4.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-4.jpg"/></a></figure><p id="df782450-7873-4a3c-a17b-c28926e5b5e6" class="">相关教程；</p><p id="9e364acf-9574-4747-825f-d5a866c600b6" class=""><a href="https://www.uisdc.com/figma-building-a-component-library"><strong></strong></a><a href="https://www.uisdc.com/figma-building-a-component-library"><strong><strong>6000字干货！如何用 Figma 搭建系统组件库？</strong></strong></a><a href="https://www.uisdc.com/figma-building-a-component-library">
+</a><a href="https://www.uisdc.com/figma-building-a-component-library">组件库是一个强大的提效工具，对于设计师和开发来说有了统一的标准，输出的效率也会大大提高。</a><a href="https://www.uisdc.com/figma-building-a-component-library">阅读文章 </a><a href="https://www.uisdc.com/figma-building-a-component-library"><em>&gt;</em></a></p><h1 id="7d9166f5-15f8-494d-81a7-8de73a243df8" class="">Figma 组件库如何助力设计提效</h1><p id="4cdb69d8-a204-47aa-9545-31bbabc0e11b" class=""><strong>1. 线上调用、实时同步</strong></p><p id="5f027039-6f5c-464d-8bb0-53587aa70d72" class="">跨团队使用组件库(样式、组件)、实时更新、组件库的主题颜色一键切换、组件可以增加提示语等功能，所有的调用方式都是线上的，不需要任何本地文件的传输。如果组件库有更新，只需要 Review 之后 Update 即可实时同步。</p><p id="725bfe7a-f009-4a6a-8177-39ee08df58f3" class=""><strong>2. 多人协作、共创共建</strong></p><p id="59b203b4-0a10-4912-a21f-b3d9d59f0daf" class="">Figma 组件库可以有多个设计师共同创建，大家只需要约束好相应的组件层级嵌套规范，每个人可以负责自己所属的模块，分别更新、分别发布。</p><p id="87778aa5-2c26-4743-baa8-0ae713afafed" class=""><strong>3. 灵活拼装、自由组合</strong></p><p id="08f9cfcc-4baa-4a44-a67d-e881de3f273c" class="">Figma 组件库有非常高的自定义拼装能力，不解除组件的基础上也能够改变一些颜色、圆角、布局间距等。对于一些特殊的业务场景，也能将基础组件拆分开进行组合。</p><figure id="7cbc1217-f762-424c-bf29-bac9e4f88213" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-2.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-2.jpg"/></a></figure><h1 id="aba4b75e-c604-402d-ae25-9a7581cfcbd4" class="">Figma 组件库搭建经验分享</h1><p id="06778011-d0ea-4fd0-b464-982e941a29b3" class=""><strong>1. 原子设计理论</strong></p><p id="9c890803-f723-48ca-a3bb-98e4a8f66aec" class="">提到组件库，不得不提到原子构建理论。Atomic Design(原子设计)是构建 Design System 的核心指导理论。化学中，所有的物体都是由原子构成，原子组合构成分子，分子组合构成有机物，最终形成了宇宙万物。</p><p id="7e242057-8efe-4a41-9c80-d790e704e14b" class="">2013 年 Brad Forst 将此理论运用在界面设计中，形成一套设计系统，包含 5 个层面：原子、分子、组织、模板、页面。那么对应设计系统来说，我们的颜色、字体、图标以及按钮、标签等都会对应到相应的原子和分子，通过组件之间的搭配组合，最终构成页面。</p><p id="1b646f70-9599-4aec-9291-bf14325ba654" class=""><a href="https://www.uisdc.com/atomic-design"><strong></strong></a><a href="https://www.uisdc.com/atomic-design"><strong><strong>这篇文章帮你轻松入门「原子设计」方法论！</strong></strong></a><a href="https://www.uisdc.com/atomic-design">
+</a><a href="https://www.uisdc.com/atomic-design">大家好，我是 Clippp。</a><a href="https://www.uisdc.com/atomic-design">阅读文章 </a><a href="https://www.uisdc.com/atomic-design"><em>&gt;</em></a></p><figure id="67f334ff-70a6-46ac-a04e-17ab46c1545e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-6.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-6.jpg"/></a></figure><p id="0f255074-c3c6-421b-890f-e9e6831f33e8" class=""><strong>2. Foundation 全局基础样式</strong></p><p id="8bb12db6-3fb2-40a8-8edc-8dba847b9ea8" class="">在设计系统中，基础样式可以理解为构成设计稿最基础的「原子」。如果你的设计稿中全部都使用共享样式，当后续需要调整时，只需要调整样式库即可，设计稿会跟着变化，而不需要一个个调整；样式库还可以通过 Design Token 来映射到前端代码中，以提高最终开发的还原度。</p><figure id="2b644bdb-1657-4c0e-a2d8-6a95068f29c0" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-7.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-7.jpg"/></a></figure><p id="c90e4140-31aa-4f5d-a112-25f885bf30c0" class="">样式是 Figma 中的一些可以复用的模式，目前支持四种：</p><p id="f93e57dc-75fb-446d-ab17-d467e26aa24b" class="">颜色样式（Color）</p><p id="0e9cc6cc-a7a2-4bfd-830f-745a03da4b42" class="">颜色样式可以用于填充颜色、描边颜色、文字颜色。是页面整体风格表现的重要基本元素，它可以建立品牌的识别性，梳理页面的视觉层级关系，突出内容并平衡其他视觉元素。建议大家可以按照功能和属性将颜色进行分组命名，比如，比如品牌色、成功色、警告色等，并将默认、悬浮、点击、禁用等颜色放在一组，方便团队其他设计师使用。</p><figure id="4f764af2-64a6-458f-b5e2-4e6cca8253ee" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-8.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-8.jpg"/></a></figure><p id="f327decd-aa3d-4eee-ac8f-8643d1adbe7a" class="">文本样式（Text）</p><p id="29a3da36-e17d-44f4-a62e-f465defdcec2" class="">文本样式中包括：字号、字重、行高和字距等。需要注意的是不要单纯的将名称命名为 T1、T2 等纯符号性的名称，可以在后面加上适当的语义化描述，比如一级标题、常规正文等文案，同时也可以在描述里添加对应的使用说明，这样当鼠标悬浮在这个样式上，会给用户带来提示性的预览。这种办法同样适用于颜色、阴影等全局样式，会更加方便大家调用且能够很好的解除新用户的使用疑虑。</p><figure id="c8e31f2d-1c28-4f69-b408-c0005313b452" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-9.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-9.jpg"/></a></figure><p id="35f00bec-6775-4f7f-84f8-f02b0957048e" class="">效果样式（Effect）</p><p id="a0a667a1-d3a4-4553-9d26-d0be895e658b" class="">效果样式包括：外阴影、内阴影、模糊、背景模糊等。阴影值应该遵循现实物理世界中物体的特性。因此在阴影的设定上采用了三层阴影的表达方式，让阴影更加柔和，更符合真实光源下的物体状态。物体的高度直接影响阴影，离地面越高阴影越大，模糊值越高，反之相反。</p><figure id="da735be6-5b84-4e4a-871e-e12242b967b8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-10.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-10.jpg"/></a></figure><p id="baf25e19-d002-45e6-8cde-00175315b4bf" class="">布局栅格（Layout Grid）</p><p id="78a766b0-aaf4-4958-99a3-7c92e42eeee3" class="">横向和纵向布局参考。可以通过栅格样式来制定全局的尺寸和间距规范，尤其是用在响应式网页的设计当中，可以通过栅格来做出一些适配效果。</p><figure id="1fd2d213-a5c5-4a3d-8da5-b5f46287d6f1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-11.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-11.jpg"/></a></figure><p id="0bea585c-46f6-435b-8502-a1f2348dff52" class=""><strong>3.  创建样式</strong></p><p id="dfe5efeb-cffb-43cd-9b14-81e35ff717dd" class="">在 Figma 中创建四种样式（颜色 Color、文本 Text、效果 Effects、栅格 Layout Grid）的操作类似。</p><p id="6ddd4dfc-6882-4e66-ade8-6f12e3015be0" class="">这里以颜色为例，选中一个图层，Fill 填充颜色之后，点击右边的四个点图标，在弹出的 Color Styles 颜色样式面板中点击加号，然后再填写样式的命名就能创建了。这里补充一下命名中使用斜杠“/”可以给样式进行分组。</p><figure id="9c22a234-30f6-4d66-b5f3-ed918b18b88d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-12.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-12.jpg"/></a></figure><p id="8a8b3fa8-b3fd-40d9-a429-f332c72f895a" class=""><strong>4. 批量创建样式</strong></p><p id="b8f247fd-35b3-45fb-a06d-07c1257eb649" class="">如果想一次性创建多个颜色样式，可以将所有的颜色通过矩形平铺出来之后，按下快捷键 Cmd+R，来批量更改好图层命名。</p><figure id="35296151-fae4-40d0-b106-ed95e11e0225" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-13.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-13.jpg"/></a></figure><p id="9d6df878-6926-4ae1-b89e-45bb132ff75a" class="">然后再通过插件「Styler-Generate Styles」就能一键批量创建样式，解放双手。</p><figure id="e5d9c740-2d0e-4f54-b3bc-65c3691451d0" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-14.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-14.jpg"/></a></figure><p id="5e4c8ecf-7621-4cc1-a35a-7e011decb52c" class="">以上是以颜色样式距离，其他的文字样式、效果样式的创建方法也是同理。</p><p id="f7796920-e0cd-4101-8135-63c6eef8b575" class="">样式命名</p><p id="2c812b3e-8db9-4a39-97e2-3904b0858a99" class="">样式命名对于共享样式库的显示顺序十分重要，你可以通过斜线分隔命名的方式来给它们归类。比如说你可以设置一系列的警告颜色，都以 error/ 开头，再设置一组排版文字的颜色，都以 Text/ 开头，这样它们就会被自动归类，方便你在使用时查找。一般有以下几种分类依据：</p><ul id="f1e462a2-796a-41ff-a577-7c05200bf216" class="bulleted-list"><li style="list-style-type:disc">按色调分类</li></ul><ul id="0e83b1ab-5fe1-49eb-b2c3-00a5b245ef02" class="bulleted-list"><li style="list-style-type:disc">按主题分类</li></ul><ul id="c76d7db9-4d48-4e33-8180-5a4b2795e4d3" class="bulleted-list"><li style="list-style-type:disc">按场景分类</li></ul><figure id="8161a245-6232-4ee0-9b99-b23bc4f5c19c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-15.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-15.jpg"/></a></figure><p id="2ec51203-d3ea-4129-8562-a71084951919" class="">样式描述</p><p id="afdcaec4-cf08-4279-9ebf-4c12b5ef53b0" class="">给样式添加描述和给组件添加描述作用一致，描述信息可以帮助你判断哪里该用哪种样式，保持团队风格统一。另外补充一下，描述也是可以被检索到的，例如可以尝试名称用英文和前端对齐，描述用中文方便英文不好的同时协作。</p><figure id="8e8ff56f-0cd8-4433-b07b-a97e71f2a237" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-16.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-16.jpg"/></a></figure><p id="bb86d849-87cf-4d46-b413-484040cde199" class=""><strong>5. 组件类型</strong></p><p id="5ae8eedc-4669-485e-b23d-6bab7afb2122" class="">主组件（Main component）</p><p id="94f2b05e-807e-4c5f-af42-09397c1c1fde" class="">在左边图层列表内显示为紫色的，图标为四个菱形组成的图形。它作为主组件，它的变化会实时同步到它所有的实例组件中，有时也称之为父组件。</p><p id="f87f6da1-8a08-479d-bbd7-9a631959a03a" class="">实例组件（Instance）</p><p id="d0eab353-2e7f-4c3c-b589-d92968c42e2e" class="">对着主组件接着按下 Cmd D 复制的元素，它们在左侧图层列表内显示为紫色的空心菱形。它们作为主组件的引用，会自动同步主组件的各个属性变动。一个主组件可以有多个实例组件，有时我们也称其为子组件。实例组件有以下特点：</p><p id="9db71cdd-ed64-4b30-9a02-31291a18f46d" class="">可以修改很多属性，比如背景色、文字内容、布局间距等，修改的属性不会再跟着主组件同步；</p><p id="1a862c80-ca2a-4768-b657-06301af16b6b" class="">图层结构不可以改动，也不可以删除图层，按删除键不会删除而是隐藏图层；内部图层尺寸不可以改，但是实例组件整体的尺寸可以更改。</p><p id="956ef56e-25ab-4d3e-922d-601223e1874f" class="">实例的编辑可以逆向覆盖。只要在实例替换面板中点选 Push overrides to main component，即可将当前的实例属性同步给母版及所有的实例。</p><figure id="9b35f3fd-90e0-484c-a17f-1cead32bb4d1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-17.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-17.jpg"/></a></figure><p id="67165e1d-2f40-4462-8c68-93b8cda96b3b" class=""><strong>6. 组件嵌套</strong></p><p id="8560423b-0158-46b4-b53d-f0443dd822b9" class="">组件的嵌套，类似原子理论中「分子组合成组织」的过程。它所对应的元素往往是一些较为复杂的控件、卡片等。比如我们上面做的按钮组件，将它的实例结合图标、文案编为一个结果页 Frame，再将 Frame 组件化即可完成一个组件的嵌套。</p><figure id="3bd63b80-036c-4c20-a2c3-f5f85c0fa21d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-18.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-18.jpg"/></a></figure><p id="f94c975a-e26f-453f-af6f-8a427b3c27f5" class=""><strong>7. 组件集（Variants）</strong></p><p id="fb0347d6-d1ee-4597-872d-762d249ababd" class="">当我们有很多相近的组件时，可以把它们做成一个组件集（也称变体）。这样在引用时就不用从一堆相似组件中寻找了，只需要切换不同的多组件属性即可。例如按钮可以按照类型（Type）和状态（State）共四种。</p><figure id="2bb5c7dd-d40e-42e4-bbb3-a74670beeac2" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-19.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-19.jpg"/></a></figure><p id="482a8fc3-b3a9-44fe-90e9-41687797bcae" class="">属性切换</p><p id="04f7913c-ac06-4bec-8a98-bf0369d22fb7" class="">那么，我们就可以把它创建为一个有两个维度属性的变体，此时可以通过组合 Type 和 State 属性来切换四种状态。其中 Type 和 State 称为属性名，后面的选项（比如 Default、Hover）称为属性值。</p><figure id="c5574914-7040-4e7c-a860-62ac98c00be5" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-20.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-20.jpg"/></a></figure><p id="af9f44ca-9291-41df-89f7-74dfa2fc1203" class="">创建组件集</p><p id="edeb2903-6c8f-45af-b045-c141181f68b0" class="">创建组件集有两种方式。一是选中多个主组件，在右侧就会出现组合为变体组件集（Combine as variants）选项，点击之后这些主组件就会被一个组件集（紫色虚线的 Frame）装起来，在组件调用面板也变成了一个组件；二是选中没有做成组件对普通图层，点击上方的 Create component set 也能创建组件集。默认会调用左上第一个属性的组件。</p><figure id="cea01a87-1ac6-426e-b390-a1cfbf9261f8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-21.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-21.jpg"/></a></figure><p id="dd3631ac-81f5-4a4b-90e2-9c2941bf4fb8" class="">组件集命名</p><p id="f1629c33-2ea3-42e0-b3d2-a44c9e2e2cc1" class="">创建组件集的时候 Figma 会自动根据组件名称中斜线（/）分割的值来生成属性列表，所以在创建之前推荐先按照一定规则命名。如下图，我们按照 Button/Type/State 的格式给每个按钮命名，Figma 会自动提取出所有可能的属性，生成右侧的属性值列表。</p><figure id="8978556c-5d14-4f79-b3e1-bc92c3ea127c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-22.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-22.jpg"/></a></figure><p id="8a70c887-9caf-4acf-9b84-91868c3028ce" class="">属性和值</p><p id="acb21d22-5eeb-4f89-9469-fa16d9c89455" class="">按照上图命名的四个按钮组合为变体组件集之后，在右侧会显示自动分好类的属性值，不过我们还需要手动更改一下属性名，也就是把 Property 1 改为 State，把 Property 2 改为 Type。</p><figure id="d85d19c3-9c98-48e9-9539-529182e586c1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-23.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-23.jpg"/></a></figure><p id="f01ef1b8-ea10-46b7-9b99-12f865f5b023" class="">组件调用</p><p id="97ca4394-3dd9-4b54-b5be-ce28d87501b2" class="">此时按下 Shift+I 打开组件调用面板，可以看到四个按钮组件在这里只显示为一个按钮。拖拽一个实例组件到画布中，我们就可以在右边通过选择属性来切换不同的按钮变体了。</p><figure id="327f75c1-b38f-43c7-b5e8-470fd1f3e5b4" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-24.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-24.jpg"/></a></figure><p id="54382253-4232-421b-88d6-1bbcc177be01" class="">属性值顺序调整</p><p id="f1d0d98a-b554-4007-a45a-786aa1a557ff" class="">这里右侧的属性名和属性值的显示顺序可以在变体组件集的面板中调整。从组件调用面板拖拽出来的实例组件，各项属性值都默认选第一个，所以我们一般会把使用频率比较大的属性值排在第一位。</p><figure id="4fd3ef3d-0122-4584-89f5-3418c460f0cd" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-25.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-25.jpg"/></a></figure><p id="7ee6dd47-5fb9-4414-9477-52e9fe41a66b" class="">组件属性- Boolean Property</p><p id="510edf40-0673-4539-b4a8-3550b1a63bd7" class="">上述实例组件右侧面板中的属性选择都是下拉菜单的形式，如果我们的组件是现实隐藏，例如图标左侧是否带图标，可以通过组件属性的现实隐藏来实现。选中图标，点击右侧面板 Layer 右边的箭头，修改默认值为 True 或 False。</p><figure id="8d8f1438-0e12-4a4e-9d4d-74c644abe35e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-26.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-26.jpg"/></a></figure><p id="95164375-df3b-441a-b04e-8585818e9db1" class="">后面在调用的时候，就能通过开关的形式来切换是否现实图标，同时组件集内部的数量也并不会增加，可以节省内存消耗。</p><figure id="4aee8e2f-2ae6-4b96-bede-29386c369eef" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-27.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-27.jpg"/></a></figure><p id="3d2353dd-c513-41a5-a8bd-984e72a09c26" class=""><strong>组件集内增加组件</strong></p><p id="436e0ac5-cb8b-49b4-b1ad-8415076c426b" class="">我们可以直接在变体组件集里面添加新的组件，选中变体组件集之后在右下角出现一个紫色的加号，点击它可以添加变体组件。</p><figure id="a0dda374-0656-4e4c-a48e-3b74397c8b0b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-28.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-28.jpg"/></a></figure><p id="14ec0226-8e0b-4824-8e62-e79446ef9bca" class=""><strong>组件集属性冲突</strong></p><p id="e2524a29-f88d-4b60-89f9-2c5650296c92" class="">假设我们要添加一个禁用状态的主按钮。点击添加变体，此时虚线框中会复制出一个按钮，我们把它的背景色修改。可以看到，选中变体组件集时在右侧会出现属性冲突的提示。因为这个新添加的变体组件属性也会被复制过来，和已有的组件属性一样，就有了冲突。</p><figure id="b504a441-8726-4a53-8164-71f9f13061c8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-29.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-29.jpg"/></a></figure><p id="8bc4c387-33cf-41e9-a138-453ae9db9f2b" class="">这里发生冲突的是它的 State 属性，它也是 Default，我们把它更改为 Disable，属性冲突的提示就消失了。</p><figure id="c8409ab9-ebd8-4d8a-9680-1d0cfbf6e196" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-30.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-30.jpg"/></a></figure><p id="0700a19a-4112-422a-88ec-2af30234eb7d" class=""><strong>组件集内增加属性名</strong></p><p id="e68ebcbc-632f-4957-bc66-09bc175e6d88" class="">当需要增加属性类型的维度时，可以点击 Properties 右侧的加号按钮，创建新的 Variant，创建好之后相当于多了一个新的属性名，便可以将每个组件设置对应属性名的属性值。</p><figure id="69d59c7f-88fd-400f-92af-88802fd2a9e4" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-31.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-31.jpg"/></a></figure><p id="640f8330-0bbe-4618-ae4b-2fc48b32bfde" class="">注意事项</p><p id="7996ff25-85c2-4877-88d4-8f39dbcd48f6" class="">变体可以帮我们避免大海捞针式的选择，将组件切换简化为少量属性组合，但是在创建和使用变体时养成一些好的习惯可以帮我们更好的利用它。</p><p id="73941c96-43e5-4dd2-bdda-aa3d22214347" class="">并不是任何组件都适合组合在一起成为变体，我们一般把同一组件的不同状态组合为变体；</p><p id="b3f85e51-a005-4e3b-bdf1-12f29aa33f27" class="">切换变体的时候也相当于替换组件，所以我们要确保一个变体组件集内的各个组件结构和命名一致，这样在切换的时候已修改的属性才会被保留；</p><figure id="0f3daf7d-1858-41d1-bf63-0fdc5f24bffe" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-32.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-32.jpg"/></a></figure><p id="cd9d167c-f94b-4dad-bcc9-8bcd46234439" class="">如果需要解除变体组件集，可以直接将组件从虚线框内拖拽出来，全部拖拽出来这个组件集虚线框就会消失；</p><p id="b26cda4a-dc3c-4d70-9739-80f6c962e097" class="">组件集也是一个 Frame，不过是一个特殊的 Frame，这个紫色虚线框是可以修改的，你还可以给它添加自动布局属性来自动排布里面的组件变体；</p><p id="7a05333c-ac5d-4d3a-97ac-ff9f55c68356" class="">使用 Config 2022 更新的组件属性中的新功能，例如 Boolean Property、Swap Instance Property，可以一定程度上减少组建集内部的组件数量，避免巨型变体组件集，如果 一个变体组件集内有几千个组件，可能会消耗大量内存，导致操作 Figma 卡顿。</p><p id="571a4a75-012e-458a-a296-47d2b91982a8" class=""><a href="https://www.uisdc.com/config-2022"><strong></strong></a><a href="https://www.uisdc.com/config-2022"><strong><strong>Config 2022 落幕！这15项新功能让 Figma 更简单好用了</strong></strong></a><a href="https://www.uisdc.com/config-2022">
+</a><a href="https://www.uisdc.com/config-2022">大家好，我是和你们聊设计的花生~ 2022 年 Config 已于 2022 年 5 月 10 日-11 日在旧金山举行，这场由 Figma 召开的线上设计大会，邀请了来自全球 20 多个国家的 100 多位相关行业从业者发表演讲，与全球用户交流分享设计经验和最新的理念。</a><a href="https://www.uisdc.com/config-2022">阅读文章 </a><a href="https://www.uisdc.com/config-2022"><em>&gt;</em></a></p><figure id="881a1542-1e4e-43c8-b719-b0b06b8daa1d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-33.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-33.jpg"/></a></figure><h1 id="d7e2c43a-279e-4d61-93ae-8a044fcebfe0" class="">Figma 组件库的发布、更新和使用</h1><p id="f24fc49a-90b1-4ee8-a449-0e20379aa9a4" class="">组件库制定的意义，就是让团队每一位成员都能用到最新的组件，提升效率、保证一致输出。那么接下来就讲一下如何在 Figma 中发布、更新和适用组件库</p><p id="9e3f88ba-456c-47fd-ba54-26490b66e0e7" class=""><strong>1. 发布组件库</strong></p><p id="7b047467-ec7e-418e-95ce-a41224c00d5b" class="">Asset 点击 Team library 按钮（书本图标）；</p><p id="f8e8daf0-8af6-4849-925c-9e1f8f59d28d" class="">Library 面板上，点 Publish；</p><p id="0d4da00d-0661-4e23-ab47-cdccfab06cc2" class="">二次确认面板，再次点击 Publish 即可发布成功；</p><figure id="06ee0cb6-1c66-4eb2-9791-8ee8ff282515" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-34.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-34.jpg"/></a></figure><p id="c89215ef-cd34-42db-8c79-52b6608840bb" class=""><strong>2. 发布频率</strong></p><p id="d790dba9-b9ef-4aa8-81d5-d6d8efbdb495" class="">当组件库发生变动，维护者发布后使用者在文件中会收到通知，来决定是否同步更新到设计稿。如果维护者频繁发布，使用者也会频繁收到通知，所以最好将更新发布固定在一定频率，比如每天下午六点发布一次，这样使用者只需要每天早上更新一次就可以了。</p><p id="810cb6c9-2800-4ac0-8cd2-cd8419535b9d" class=""><strong>3. 私有组件 Private components</strong></p><p id="aebe2de3-62e4-4ac7-9012-510a45c09815" class="">当组件库中有一些临时或者很少复用的组件，可以给这些临时组件的命名前加上 _ 或者 .，也就是英文符号下划线或点。在发布组件库的时候，Figma 会自动隐藏这些私有组件，这样你在构建组件库的时候可以遵循原子化方法，同时发布出去给其他设计师使用的组件库也很简洁，不会有一些临时组件。</p><figure id="bf3a899e-d0a8-4a7d-9f5d-9c916a12b09c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-35.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-35.jpg"/></a></figure><p id="1aee0c4b-9904-4c1b-89fe-cc355fc136f5" class=""><strong>4. 复用组件库</strong></p><p id="c01b1194-7a1e-4423-9224-4a8cb566ded9" class="">创完了组件库，团队成员的复用步骤如下：在 Tteam library 开启想生效的组件库，开启后在 Assets 中就可以找到组件库对应的组件然后复用，可以通过分组形势查找，也可以通过关键词模糊搜索。</p><figure id="1c2fdb36-7fc8-4a47-84f9-4cd7c958b1b5" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-36.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-36.jpg"/></a></figure><p id="424d4e48-323d-4f01-873d-2fedf21e37c4" class=""><strong>5. 更新组件库</strong></p><p id="e8410dbb-0a7a-407f-8dd0-a6ba3e16e16e" class="">组件库也可以理解成是设计团队的一个小的产品，也是需要不断更新迭代的，当我们的组件库有更新内容的时候，可以和发布组件时进行同样的操作，点击 Assets 面板中的 Team Library 按钮，就能将在组件库中修改的内容发布更新至云端。</p><figure id="86d08ec5-0557-4c3e-a3dd-feda73960678" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-37.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-37.jpg"/></a></figure><p id="a451d415-f90a-41cb-99a4-7fe3cbbfb55b" class=""><strong>6. 同步云端组件库</strong></p><p id="709fcbb8-9416-4312-bb71-1966fc01ac65" class="">当原组件库发生变化，Figma 右下方回弹出一个提示框，点击 Review 进行查看，可以预览所有在本文件中用到的组件库中的组件的更新的情况，确认之后点击更新，即可将变化同步到所有用到此组件库的文件。通过这种更新同步组件库的方式，便能够达到一键修改，全剧替换的便捷操作。</p><figure id="0b4b7f6f-30bc-463d-afd1-c424de915d21" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-38.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-38.jpg"/></a></figure><p id="3c38d00d-5fa2-417e-959e-b7397727c6ce" class=""><strong>7. 复制组件的注意事项</strong></p><p id="9e3848fe-2216-49d3-9eba-fc64ce4de363" class="">组件通过复制粘贴来复用只适用于两种情况：对于同文件下完全适用；对于跨文件的情况，组件只有在作为组件库发布后才可以跨文件粘贴复用（，否则，复制粘贴的方式只能直接拷贝母版，无法以实例的状态拷贝！</p><p id="7945bb26-69a5-4fa7-b44d-6d70e9c75f67" class="">比如上面做好的 Button 组件，同文件复制粘贴没有问题。但对于跨文件复用的场景，如果跳过发布，由文件 A 直接拷贝到文件 B，拷贝后显示的就是没有正确复用的 Main component 状态；只有在 Libraries 发布后，拷贝到文件 B 时才显示为被复用的实例状态。</p><figure id="42bacc56-6345-467d-a4bd-ae293fe75eef" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-39.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-39.jpg"/></a></figure><p id="29eb7757-2e2c-4029-8882-e0b666c5778f" class=""><strong>8. 组件的替换</strong></p><p id="f3f4d0b6-a7ac-485e-88aa-e9f5b15b8b11" class="">组件的替换主要有两种形式，一种是组件与组件的切换，点击右侧面板组件名称的下拉选择器，例如从按钮切换到复选框，属于两个完全不同的组件切换；另一种是组件集内组建属性的切换，在组件属性的选择其中切换即可，例如按钮内部的各种状态切换。</p><figure id="12c1824c-51db-4f56-8129-b11843dc70f1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-40.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2022/07/uisdc-zk-20220730-40.jpg"/></a></figure><h1 id="ee979f1f-45d6-49b7-adc0-b86c11828012" class="">结语</h1><p id="2707fbda-a3d6-4eae-b1be-78702341370a" class="">Figma 组件库是一个强大的提效工具，也是设计系统中很重要的一部分。作为连接设计师和设计师、设计师和开发的桥梁，有了统一的标准后，输出出的效率也会大大提高，对于团队来说能很好的提升产品的品牌感和体验。另外组件库是需要跟随产品不断进化的，这就要求它是容易被维护的，需要梳理清楚它的使用者是谁，要把 Figma 组件库当作一个设计团队的产品来维护和升级，方便使用对象的查找、复用和理解。</p><p id="2f2bbf68-af47-4fc1-be85-810261508fea" class="">由于时间和篇幅有限，关于 Figma 组件库介绍中存在的疏误之处还望大家给与指正，欢迎大家一起学习和讨论。</p><p id="411025a8-c804-41a7-834e-6842f06984ce" class="">参考文献</p><ul id="2d22d214-2d86-438c-8b40-b7a960dff0d0" class="bulleted-list"><li style="list-style-type:disc">《设计体系：数字产品设计的系统化方法》</li></ul><ul id="8dafd5aa-d980-4706-968f-6dd2a1365c32" class="bulleted-list"><li style="list-style-type:disc">https://help.figma.com/hc/en-us/articles/5579474826519-Create-and-use-component-properties</li></ul><ul id="63a8b618-112a-4d38-8bfc-c7334f2ac350" class="bulleted-list"><li style="list-style-type:disc">https://help.figma.com/hc/en-us/articles/4404856784663-Swap-style-and-component-libraries</li></ul><ul id="1479a9c0-ab2e-4157-9231-2637c949521d" class="bulleted-list"><li style="list-style-type:disc">https://mp.weixin.qq.com/s/PoEk5vRRrquLOTOH3QZgIw</li></ul><p id="506b2559-6175-48c8-bcbe-a39f2d83dd9f" class="">感谢阅读，我是设计师波波 Bobby He，深耕 B 端体验设计，持续学习输出中，欢迎关注，期待与你链接～</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

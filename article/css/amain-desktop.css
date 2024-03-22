@@ -1,5 +1,12 @@
 /*字体引用*/
 @import url("/webfonts/coltrane_regular_demo/stylesheet.css");
+@import url("webfonts/coltrane_regular_demo/stylesheet.css");
+@import "../sass/utilities/_all.css";
+@import "../sass/grid/columns.css";
+@import "../sass/grid/tiles.css";
+@import "../sass/helpers/spacing.css";
+@import "../sass/layout/section.css";
+@import "../sass/elements/tag.css";
 
 @media screen and (min-width: 900px) {
 
@@ -184,6 +191,48 @@
         /*去掉下划线*/
     }
 
+    .home-100-t180 {
+        /* position: relative;
+        float: left;
+        width: 100%;
+        left: 0%;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        /* overflow: hidden; */
+        /* padding: 0 12px; */
+        /* height: auto; */
+        position: relative;
+        float: left;
+        width: 100%;
+        left: 0%;
+        /* padding: 0 12px; */
+        margin: 12px;
+        /* background: #000;
+        background: var(--color-ff); */
+    }
+
+    .home-99 {
+        /* position: relative;
+        float: left;
+        width: 100%;
+        left: 0%;
+        margin-top: 0px;
+        margin-bottom: 20px;
+        /* overflow: hidden; */
+        /* padding: 0 12px; */
+        /* height: auto; */
+        position: relative;
+        float: left;
+        width: 81%;
+        left: 17%;
+        /* padding: 0 12px; */
+        margin: 12px;
+        /* background: #000;
+        background: var(--color-ff); */
+    }
+
+
+
     .line1 {
         opacity: 1;
         float: right;
@@ -276,7 +325,7 @@
         width: 89%;
         margin-left: 16%;
         height: 100%;
-        
+
         background: var(--color-ff);
         overflow-y: scroll;
         overflow-x: hidden;
@@ -285,14 +334,12 @@
 
 
     .showxx {
-        position: fixed;
-        left: 14%;
-        z-index: 10;
-        width: 72%;
+        position:fixed;
+     width: 100%;
         height: 100%;
         background: var(--color-ff);
         overflow-y: scroll;
-        overflow-x: hidden;
+        overflow-x: scroll;
         color: var(--color-00);
     }
 
@@ -305,32 +352,42 @@
         height: 92%;
         background: var(--color-ff);
         overflow-y: scroll;
-        overflow-x: hidden;
+        overflow-x: scroll;
         color: var(--color-00);
 
     }
 
 
     .show {
-        position: relative;
-        width: 100%;
-        left: 0%;
-        margin-top: 20px;
+        position:relative;
+        left: 24%;
+        z-index: 10;
+        width: 75%;
+        top: 80px;
+        height: auto;
     }
-
     .information {
         position: fixed;
-        z-index: 10;
-        margin-top: 100px;
-        right: 10px;
-        padding: 20px 10px;
-        width: 180px;
+        z-index: 10000;
+        margin-top: 150px;
+        left: 0px;
+        padding: 0px 10px;
+        width: 22%;
         height: auto;
         /*        background: #F8F8F8;*/
-        text-align: right;
+        text-align: left;
         font-size: 12px;
-    }
 
+    }
+    .applogo {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        float: left;
+        text-align: left;
+
+    }
     /*
  svg { 
      fill: #333; 
@@ -380,8 +437,8 @@
     .button-img {
         width: 60px;
         position: relative;
-        float: right;
-        margin-left: 16px;
+        float: left;
+        margin-right: 16px;
     }
 
     .button-img img {
@@ -417,7 +474,7 @@
 */
         width: 100%;
         height: 100%;
-        
+
 
         /* 滚动顺畅*/
         scroll-behavior: smooth;
@@ -431,17 +488,17 @@
         float: left;
         margin-top: 20px;
         width: 100%;
-        
+
         height: auto;
     }
 
     .cover {
         position: relative;
         width: 100%;
-        min-width: 400px;
+        min-width: 100px;
         /* max-width: 1860px; */
-        float: right;
-        text-align: right;
+        float: left;
+        text-align: left;
         font-family: 'Serif SC', serif;
 
         font-size: 24px;
@@ -452,8 +509,8 @@
 
     .main-title {
         position: relative;
-        float: right;
-        text-align: left;
+        float: left;
+        text-align: center;
         width: 100%;
         height: auto;
         margin-bottom: 20px;
@@ -514,6 +571,7 @@
         height: auto;
         margin-left: 2%;
     }
+
     .cover1 img {
         margin-bottom: 20px;
         position: relative;
@@ -616,10 +674,10 @@
     .return {
         position: fixed;
         top: 30px;
-        right: 20px;
+        left: 20px;
         z-index: 1000;
         width: 300px;
-        text-align: right;
+        text-align: left;
     }
 
     .return-d {
@@ -630,12 +688,16 @@
 
     .return-m {
 
-        position: fixed;
-        top: 20px;
-        right: 20px;
+        position: relative;
+        /* top: 10px; */
+        left: 8px;
         z-index: 1000;
-        width: 300px;
-        text-align: right;
+        width: auto;
+        text-align: left;
+        float: left;
+        height: 36px;
+        /* display:grid;
+        place-items: center; */
     }
 
     .return a {
@@ -750,7 +812,7 @@
 */
         position: fixed;
         bottom: 60px;
-        right: 20px;
+        left: 8px;
     }
 
     .social ul {
@@ -774,10 +836,13 @@
     }
 
     .footer {
-        z-index: 99;
+        z-index: 999999;
         position: fixed;
         bottom: 0px;
         border: 0px;
+        height: 44px;
+        width: 101%;
+        left: -10px;
     }
 
     /* logo/导航*/
@@ -789,6 +854,7 @@
         z-index: 99999;
         width: auto;
         height: 100%;
+        display: none;
     }
 
     .logo {
@@ -802,7 +868,7 @@
         /* background-color: var(--color-o5); */
         /* backdrop-filter: blur(40px); */
         top: 0px;
-        left:0px;
+        left: 0px;
     }
 
 
@@ -822,19 +888,20 @@
         position: relative;
         float: left;
         margin-top: 44px;
-       
+
         z-index: 999999;
         margin-left: 12px;
         width: 120px;
-        display:none;
+        display: none;
 
     }
+
     .logo-i img {
         border-radius: 0%;
     }
 
     .logo-t {
-      
+
         position: relative;
         float: left;
         margin: 8px 0 0 12px;
@@ -906,7 +973,7 @@
 
     .active {
         opacity: 1;
-        
+
         transition: opacity 0.2s;
         /*字体描边*/
 
@@ -967,5 +1034,97 @@
         width: 100%;
 
     }
+
+    .nav-all {
+        position: relative;
+        float: left;
+        margin-top: 0px;
+        width: 100%;
+        left: 0%;
+        height: 120px;
+        /* padding: 0px 12px 0px -12px; */
+        background: var(--color-ff);
+        z-index: 999999;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: space-around;
+    }
+
+    .monkren-t {
+        font-size: 22px;
+        font-family: 微软雅黑, arial, "Hiragino Sans GB", 宋体, sans-serif;
+        font-weight: 600;
+        position: relative;
+        float: left;
+        width: auto;
+        top: 8px;
+        padding: 4px 12px;
+        height: 100%;
+        margin-top: 0px;
+
+    }
+
+    .monkren-i {
+        margin-top: 8px;
+    }
+
+    .right {
+        float: right;
+        text-align: right;
+
+    }
+   
+
+    .left {
+        float: left;
+        text-align: left;
+
+    }
+/* 线样式 */
+    .line {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 1px;
+        margin-bottom: 60px;
+        margin-top: 30px;
+        opacity: 0.05;
+    }
+
+    line2 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: .5px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        opacity: 1;
+
+    }
+
+    line4 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 3px;
+
+        opacity: 1;
+        margin-top: 4px;
+    }
+
+    .line3 {
+        position: relative;
+        float: right;
+        width: 100%;
+        background: var(--color-00);
+        height: 2px;
+        margin-bottom: 40px;
+    }
+
 
 }

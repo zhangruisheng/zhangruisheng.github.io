@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>03、什么是用户体验设计</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="dafc9b14-cfde-4bb6-a1d6-af5dd6daa1bf" class="page sans"><header><h1 class="page-title">03、什么是用户体验设计</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Property</th><td></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>说明</th><td>从研究到设计</td></tr></tbody></table></header><div class="page-body"><h1 id="0711aa9e-af63-48b5-97d6-5659e22aec8f" class=""><strong>什么是用户体验设计？</strong></h1><p id="cc840c40-74d9-43c6-96da-c9b93de86bc4" class="">从研究到设计</p><p id="c5ca09d1-6728-47b9-9bad-93ba0f22d6a0" class=""><strong>用户体验设计手册</strong></p><h1 id="e6fdaec9-b342-4c8b-b0b5-9f9bc946bace" class=""><strong>尽管我们到处都听说过 UX 设计，但我们仍然没有对 UX 设计有一个全球性的理解和定义。</strong><strong>UX 涵盖广泛的学科和技能，例如测试、研究、原型、交互、视觉效果、声音、可访问性、动画、线框图、开发用户旅程、用户流程、信息架构、站点地图等。简而言之，UX 是用户体验到的产品/服务的所有方面。</strong></h1><h1 id="7d8e0bc9-d887-4ed0-a746-6535ea9213a9" class=""><strong>UX设计师是做什么的？</strong></h1><p id="fe2fcf75-3ca9-4ebb-9447-729d6d72fbaa" class="">用户体验设计师的使命是开发完美贴合人们生活的产品，以人为本的产品，帮助用户实现目标。用户体验设计师致力于使计算机与人的交互尽可能顺畅和“人性化”。</p><figure id="2959b4f1-8610-420c-b74b-c414f7d0c70f" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/79ImYySMLvUKTba9MdWgca/540572970a1c1c48802d3c9cefca0373/1.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/79ImYySMLvUKTba9MdWgca/540572970a1c1c48802d3c9cefca0373/1.jpg"/></a></figure><h1 id="ddbb41f2-7e53-4483-8928-f6315aac7d24" class=""><strong>业务目标 </strong><del><strong>对比</strong></del><strong> 和用户目标</strong></h1><p id="7b688c35-bf61-4d63-9ef1-b6e2788b2e81" class="">UX 设计师会像考虑用户的目标一样考虑业务目标。一个优秀的用户体验设计师会尝试找到融合两者需求和目标的最佳点。这需要花费大量时间寻求解决方案并不断关注双方，并知道优先考虑什么。</p><figure id="d676cc43-84d1-44a1-bd11-f53d84b5f1e6" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/7EK5eTIFnOgc1sEhsQSGQf/1dbc016de82f23bd70d08cc8b2cf5c17/2.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/7EK5eTIFnOgc1sEhsQSGQf/1dbc016de82f23bd70d08cc8b2cf5c17/2.jpg"/></a></figure><h1 id="431de7c7-6b70-4993-837b-d341b76f1d04" class=""><strong>为什么用户体验设计现在更重要？</strong></h1><p id="4d8888df-dcb8-4b4a-8eaa-7a54ac3d2600" class="">随着我们越来越多地围绕技术和数码产品发展我们的生活，我们现在大量依赖数码产品。我们使用数字产品与家人保持联系、购买药物、检查亲人、叫出租车、在凌晨 2 点订餐，甚至投票。</p><figure id="ba72982e-956b-4396-8224-c7b244ca3f47" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/3MMykqKJGrPQ8s0xoJ8wTX/86ba09ea9163d5167fe0be492f4c86e0/3.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/3MMykqKJGrPQ8s0xoJ8wTX/86ba09ea9163d5167fe0be492f4c86e0/3.jpg"/></a></figure><h1 id="663918cd-d668-4822-96dd-d407b6a755dd" class=""><strong>数字生活</strong></h1><p id="37d214b2-950b-4c15-b555-2809b4f3b5e1" class="">我们依靠数字产品解决从小到大的问题，我们有数百万种产品可供选择。业务/产品竞争比以往任何时候都高，良好的用户体验使一切变得不同。</p><p id="2bad8929-37be-4561-b021-8538847f2868" class=""><em>书籍推荐：《关于人脸，交互设计的精髓》，Alan Cooper</em></p><figure id="704beaa7-ecb3-4fd0-aaee-bf974e8c7f48" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/7vt3pTgoUI4VWYQnoWY7cd/82884708156ce5c1d20093d3d7540f58/4.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/7vt3pTgoUI4VWYQnoWY7cd/82884708156ce5c1d20093d3d7540f58/4.jpg"/></a></figure><h1 id="a3b65d94-1d62-47dc-9779-d3f90a4565ea" class=""><strong>什么是糟糕的用户体验设计？</strong></h1><p id="8eaac275-4ba2-4ec6-a473-2adea998cf55" class="">我们希望使用产品以最简单、最快捷的方式解决我们的问题。我们不想考虑如何使用产品。我们有关于产品外观和行为方式的心理模型，我们在使用任何产品时都会应用这些模型。在<em>Don Norman 的</em>“ <em>The Design of Everyday Things”中</em>了解更多相关信息</p><p id="1ce43f63-bcaa-4cd4-bad7-26e8c038f305" class=""><em>；</em><em>“不要让我思考”，史蒂夫·克鲁格</em></p><figure id="0154a76f-0918-44f2-9a7a-2dcdc40ecce7" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5faTYcLspguZC2AsJCLSGn/5b95e9aebeb9b18b8d55d8b930f3d9a2/5.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5faTYcLspguZC2AsJCLSGn/5b95e9aebeb9b18b8d55d8b930f3d9a2/5.jpg"/></a></figure><h1 id="61d2c56d-6100-4607-a8d9-279a020753c5" class=""><strong>残酷的真相</strong></h1><p id="2a5f5139-e888-4c24-a245-10634b4dd2b3" class="">用户体验设计师需要找出这些心智模型是什么，并根据他们的发现开发经验。如果产品和数码产品很难用，如果它们扰乱人们的生活，用户就不会想要使用这些产品，这就是事实。</p><figure id="ee2dcec4-0280-4655-8734-439afb6a3a50" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/58g9soGWVDJOgQJ6aDEUvr/4b6e5d95d3189daef0db4f123ffd1dde/6.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/58g9soGWVDJOgQJ6aDEUvr/4b6e5d95d3189daef0db4f123ffd1dde/6.jpg"/></a></figure><h1 id="f9b906b0-a4d4-4ccb-823c-7ab340bfcbb2" class=""><strong>练习：好的和坏的用户体验设计</strong></h1><p id="c24c83ae-5308-404f-a3cc-ee05bb125bc0" class="">通过比较不同的设计，让我们看看什么是具有良好用户体验和糟糕用户体验的设计。让我们使用这个很酷的网站以最简单的方式来做到这一点</p><p id="bb68d4ea-9fee-41b8-91c4-d294b525b4df" class=""><a href="https://cantunsee.space/"><strong>https://cantunsee.space</strong></a></p><p id="d96425c7-f95d-4661-8b36-45f4b8f3c8c4" class="">![7]</p><figure id="c2291a89-40c0-416b-949e-0151370550a5" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/1DF8UewV02lgx7eFMcyj2z/d6ce5fbc7c45a14203dfbc6408e9c101/9.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/1DF8UewV02lgx7eFMcyj2z/d6ce5fbc7c45a14203dfbc6408e9c101/9.jpg"/></a></figure><p id="1e03a2cb-d9ba-4351-9fce-211620033923" class="">右边的设计算作“糟糕的用户体验”，因为所有的颜色不一致，文本的低对比度和对比度差，字体选择不当，对话气泡的设计不一致。</p><figure id="785327d9-a4e7-46a3-9969-5fa797a1dd69" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/4O8YsH9ZUg3hgOXliGx89R/f9d946458514020872fe4d4b4889d6a8/10.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/4O8YsH9ZUg3hgOXliGx89R/f9d946458514020872fe4d4b4889d6a8/10.jpg"/></a></figure><p id="35801712-0f03-43f2-900f-cc20bc02a13c" class="">左边的设计 👈 被认为是糟糕的用户体验，因为它的角落不一致。此外，该名称没有适当的字体粗细来创建良好的对比度。</p><figure id="a8dbfd4f-4008-4863-9dac-3817b923f485" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2j0ed675p1ZZJcWLTRasuX/766a38d591c0ea5d08a6e09b03fdf40a/11.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2j0ed675p1ZZJcWLTRasuX/766a38d591c0ea5d08a6e09b03fdf40a/11.jpg"/></a></figure><p id="892154f1-baad-491a-bc92-96822f69e74f" class="">由于“好的！”的语音气泡填充，左边的设计算作 👈 糟糕的用户体验。太大了，不会根据内部文本的大小调整其大小。</p><figure id="91155cd9-3430-4312-80dd-abb067b5cc51" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/7zV5FUmp3Ko3arTKTbkXSQ/688130c2e9dbcc7b24d90545fa26916a/12.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/7zV5FUmp3Ko3arTKTbkXSQ/688130c2e9dbcc7b24d90545fa26916a/12.jpg"/></a></figure><p id="dd259244-2bd7-43c2-8328-ac5f82329175" class="">这个对于新设计师来说可能看起来并不那么明显，左边的图像 👈 被认为是糟糕的用户体验，因为它具有破坏性的动作按钮颜色。对于“结束”某事，红色是更好的颜色选择，而蓝色将是接听电话而不是结束电话的好颜色。</p><figure id="886156c3-7901-44fa-8807-fe441889ca0a" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6962HApW9rVHzvBqTQBuBZ/f82d7aeb6bada0af03abe7292fd0dd11/13.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6962HApW9rVHzvBqTQBuBZ/f82d7aeb6bada0af03abe7292fd0dd11/13.jpg"/></a></figure><p id="150f8a95-36d5-4f1d-9d76-1d73555556a0" class="">正确的图像设计 👉 算作糟糕的用户体验，因为按钮的动作具有不同的重要性，不应引起相同程度的关注，因此它们应该具有不同的风格。在这种情况下，“邀请朋友”的动作比“跳过”更重要。</p><figure id="058ec085-ab2b-43b0-84a3-4602352f3ca5" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/4W2oxg8XL4SmoBz5X7LmZf/ea1dfff7616f30f0d5bdc20e83247707/14.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/4W2oxg8XL4SmoBz5X7LmZf/ea1dfff7616f30f0d5bdc20e83247707/14.jpg"/></a></figure><p id="411af123-ef76-45c6-a888-dc02a718b2d6" class="">右边的图像 👉 算作糟糕的用户体验，因为图标没有设计一致性。有些是填充的，有些是概述的。这会在用户的脑海中造成混乱，导致他们将某些图标误认为是活动的或非活动的。</p><h1 id="4edfec86-81cf-415c-bd0a-7f424781612e" class=""><strong>结论</strong></h1><p id="e1f0dd44-2589-40e2-a357-f019c006294e" class="">因此，下次当您阅读有关 UX 设计或有人问什么是 UX 设计时，请了解它是一个术语，涵盖从研究和设计到用户如何与产品交互等等的广泛方面。这是一个好的开始👍</p></div></article></body></html>
