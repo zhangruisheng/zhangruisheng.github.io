@@ -1340,7 +1340,7 @@
         float: left;
         width: 340px;
         height: auto;
-        transform: rotate(15deg);
+        transform: rotate(10deg);
         flex-shrink: 0;
         margin-bottom: 420px;
         margin-left: 100px;
@@ -3072,7 +3072,7 @@
         float: left;
         width: 500px;
         height: auto;
-        transform: rotate(15deg);
+        transform: rotate(10deg);
         flex-shrink: 0;
         margin-bottom: 100px;
         margin-left: 100px;
