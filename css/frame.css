@@ -323,9 +323,10 @@ img {
     .w85 {
         position: relative;
         float: left;
-        width: 82%;
+        width: 81%;
         left: 18%;
         margin-bottom: 40px;
+       margin-right: 100px;
 
     }
 
@@ -694,9 +695,10 @@ img {
     .w85 {
         position: relative;
         float: left;
-        width: 82%;
+        width: 81%;
         left: 18%;
         margin-bottom: 40px;
+         margin-right: 100px;
 
     }
 
@@ -822,9 +824,9 @@ img {
     .w85 {
         position: relative;
         float: left;
-        width: 110%;
+        width: 100%;
         left: 0%;
-
+        
     }
 
     .w60 {

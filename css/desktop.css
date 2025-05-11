@@ -1338,19 +1338,20 @@
     .about-me-img {
 
         float: left;
-        width: 340px;
+        width: 440px;
         height: auto;
-        transform: rotate(10deg);
+        transform: rotate(5deg);
         flex-shrink: 0;
-        margin-bottom: 420px;
+        margin-bottom: 20px;
         margin-left: 100px;
+        margin-top: 10px;
     }
 
     .about-xxtext {
         float: left;
         color: (--color-00);
         font-family: "Futura LT Medium";
-        font-size: 90px;
+        font-size: 100px;
         font-style: normal;
         font-weight: 700;
         line-height: 80%;
@@ -3072,19 +3073,20 @@
         float: left;
         width: 500px;
         height: auto;
-        transform: rotate(10deg);
+        transform: rotate(5deg);
         flex-shrink: 0;
-        margin-bottom: 100px;
+        margin-bottom: 20px;
         margin-left: 100px;
+        margin-top: 10px;
     }
 
     .about-xxtext {
         float: left;
         color: (--color-00);
         font-family: "Futura LT Medium";
-        font-size: 140px;
+        font-size: 100px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 500;
         line-height: 80%;
         /* 200px */
         text-transform: uppercase;
