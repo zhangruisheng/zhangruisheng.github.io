@@ -397,7 +397,7 @@ img {
         height: 36px;
         float: left;
         margin-bottom: 10px;
-        r
+        
     }
 
 
@@ -768,7 +768,7 @@ img {
         height: 36px;
         float: left;
         margin-bottom: 10px;
-        r
+        
     }
 
 }
@@ -817,8 +817,8 @@ img {
     .w100 {
         position: relative;
         float: left;
-
-        width: 96%;
+        left: 1%;
+        width: 98%;
     }
 
     .w85 {
@@ -899,7 +899,7 @@ img {
         height: 46px;
         float: left;
         margin-bottom: 10px;
-        r
+        
     }
     .work-img {
         position: relative;
