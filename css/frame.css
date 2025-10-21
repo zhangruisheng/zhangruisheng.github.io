@@ -23,11 +23,11 @@ img {
     display: block;
 }
 
-.nav-all a span1 {
+.nav-all a span1, .nav-all a .nav-cn {
     display: block;
 }
 
-.nav-all a:hover span1 {
+.nav-all a:hover span1, .nav-all a:hover .nav-cn {
     display: none;
 }
 

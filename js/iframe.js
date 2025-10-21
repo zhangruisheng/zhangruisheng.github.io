@@ -3,22 +3,29 @@ var open1 = document.getElementById("open-button");
 var close1 = document.getElementById("close-button");
 
 
-close1.onclick = function () {
-    "use strict";
-    document.getElementById("menu").setAttribute("class", "menu");
-    document.getElementById("zzhao").setAttribute("class", "zzzhao");
-    document.getElementById("logo").setAttribute("class", "logo");
+if (close1) {
+  close1.onclick = function () {
+      "use strict";
+      var menu = document.getElementById("menu");
+      var zzhao = document.getElementById("zzhao");
+      var logo = document.getElementById("logo");
+      if (menu) menu.setAttribute("class", "menu");
+      if (zzhao) zzhao.setAttribute("class", "zzzhao");
+      if (logo) logo.setAttribute("class", "logo");
+  };
+}
 
-};
-
-open1.onclick = function () {
-    "use strict";
-    document.getElementById("menu").setAttribute("class", "menu-open");
-    document.getElementById("zzhao").setAttribute("class", "zzhao");
-    document.getElementById("logo").setAttribute("class", "logom");
-
-
-};
+if (open1) {
+  open1.onclick = function () {
+      "use strict";
+      var menu = document.getElementById("menu");
+      var zzhao = document.getElementById("zzhao");
+      var logo = document.getElementById("logo");
+      if (menu) menu.setAttribute("class", "menu-open");
+      if (zzhao) zzhao.setAttribute("class", "zzhao");
+      if (logo) logo.setAttribute("class", "logom");
+  };
+}
 
 (function () {
     var light = "#fff";

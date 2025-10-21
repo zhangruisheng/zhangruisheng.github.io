@@ -1,5 +1,5 @@
 /*字体引用*/
-@import url("webfonts/coltrane_regular_demo/stylesheet.css");
+@import url("../webfonts/coltrane_regular_demo/stylesheet.css");
 /* @import "../sass/utilities/_all.css";
 @import "../sass/grid/columns.css";
 @import "../sass/grid/tiles.css";
@@ -316,13 +316,11 @@
         display: block;
     }
 
-    .menu a span1,
-    .menu-open a span1 {
+    .menu a span1, .menu-open a span1, .menu a .nav-cn, .menu-open a .nav-cn {
         display: block;
     }
 
-    .menu a:hover span1,
-    .menu-open a:hover span1 {
+    .menu a:hover span1, .menu-open a:hover span1, .menu a:hover .nav-cn, .menu-open a:hover .nav-cn {
         display: none;
     }
 
