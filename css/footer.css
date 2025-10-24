@@ -1,4 +1,5 @@
 @import url("../webfonts/coltrane_regular_demo/stylesheet.css");
+@import url("./tokens.css");
 /*自定义变量换皮*/
 /*
 :root {

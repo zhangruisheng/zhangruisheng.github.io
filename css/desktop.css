@@ -1,5 +1,6 @@
 /*字体引用*/
 @import url("../webfonts/coltrane_regular_demo/stylesheet.css");
+@import url("./tokens.css");
 /* @import "../sass/utilities/_all.css";
 @import "../sass/grid/columns.css";
 @import "../sass/grid/tiles.css";
@@ -58,7 +59,7 @@
         /* font-family: “Helvetica Neue”, "Helvetica", "Arial", "PingFang SC",
             "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei",
             "Source Han Sans CN", "sans-serif"; */
-        font-family: "Helvetica Neue", "Helvetica", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Arial", sans-serif;
+        font-family: var(--font-sans-desktop);
 
     }
 

@@ -1,3 +1,5 @@
+@import url("./tokens.css");
+
 /* 通用 */
 img:hover {
     cursor: pointer;

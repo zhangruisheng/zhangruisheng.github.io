@@ -17,42 +17,72 @@
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-    <!-- Google Analytics -->
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL"></script>
+    <!-- Google Analytics (production only) -->
     <script>
+      (function(){
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL';
+        document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
         gtag('js', new Date());
-
         gtag('config', 'G-5CXJCNBDLL');
+      })();
     </script>
     <!-- Google AdSense-->
     <script data-ad-client="ca-pub-1677892562045013" async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677892562045013"
         crossorigin="anonymous"></script>
-    <!-- 头条搜索 -->
+    <!-- 头条搜索 (production only) -->
     <script>
-        (function () {
-            var el = document.createElement("script");
-            el.src =
-                "https://sf1-scmcdn-tos.pstatp.com/goofy/ttzz/push.js?f531e7e47a28714a2f49eb52a46becb92bd082349d7801841df17436910a419abf822fac7779c3baa99751206e7b37d34f192ce1af70ac3a97bb777260beb18f";
-            el.id = "ttzz";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(el, s);
-        })(window)
+      (function () {
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var el = document.createElement("script");
+        el.src = "https://sf1-scmcdn-tos.pstatp.com/goofy/ttzz/push.js?f531e7e47a28714a2f49eb52a46becb92bd082349d7801841df17436910a419abf822fac7779c3baa99751206e7b37d34f192ce1af70ac3a97bb777260beb18f";
+        el.id = "ttzz";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(el, s);
+      })();
     </script>
-    <!-- 360 -->
+    <!-- 360 (production only) -->
     <script>
-            (function () {
-                var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
-                document.write('<script src="' + src + '" id="sozz"><\/script>');
-            })();
+      (function () {
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+      })();
     </script>
+    <!-- SEO 元信息 -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://monk.ren/article/tzgame.html">
+    <meta name="keywords" content="同桌游戏,品牌设计,设计规范,VI手册,视觉设计,MONK.REN">
+    <meta name="description" content="同桌游戏品牌设计规范与视觉体系，涵盖标志、配色与版式规范。MONK.REN 原创案例。">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="同桌游戏 品牌设计规范｜MONK.REN">
+    <meta property="og:description" content="同桌游戏品牌设计规范与视觉体系，涵盖标志、配色与版式规范。MONK.REN 原创案例。">
+    <meta property="og:url" content="https://monk.ren/article/tzgame.html">
+    <meta property="og:image" content="https://monk.ren/article/img/monkren.png">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- Schema.org -->
+    <meta itemprop="name" content="同桌游戏 品牌设计规范｜MONK.REN">
+    <meta itemprop="description" content="同桌游戏品牌设计规范与视觉体系，涵盖标志、配色与版式规范。MONK.REN 原创案例。">
+    <meta itemprop="image" content="https://monk.ren/article/img/monkren.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="同桌游戏 品牌设计规范｜MONK.REN">
+    <meta name="twitter:description" content="同桌游戏品牌设计规范与视觉体系，涵盖标志、配色与版式规范。">
+    <meta name="twitter:image" content="https://monk.ren/article/img/monkren.png">
 </head>
 
 <body>

@@ -67,40 +67,46 @@
     <link rel="stylesheet" href="css/mobile.css">
 
 
-    <!-- Google Analytics -->
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL"></script>
+    <!-- Google Analytics (production only) -->
     <script>
+      (function(){
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL';
+        document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
         gtag('js', new Date());
-
         gtag('config', 'G-5CXJCNBDLL');
+      })();
     </script>
 
     <!-- Google AdSense-->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677892562045013"
         crossorigin="anonymous"></script>
-    <!-- 头条搜索 -->
+    <!-- 头条搜索 (production only) -->
     <script>
-        (function () {
-            var el = document.createElement("script");
-            el.src =
-                "https://sf1-scmcdn-tos.pstatp.com/goofy/ttzz/push.js?f531e7e47a28714a2f49eb52a46becb92bd082349d7801841df17436910a419abf822fac7779c3baa99751206e7b37d34f192ce1af70ac3a97bb777260beb18f";
-            el.id = "ttzz";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(el, s);
-        })(window)
+      (function () {
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var el = document.createElement("script");
+        el.src = "https://sf1-scmcdn-tos.pstatp.com/goofy/ttzz/push.js?f531e7e47a28714a2f49eb52a46becb92bd082349d7801841df17436910a419abf822fac7779c3baa99751206e7b37d34f192ce1af70ac3a97bb777260beb18f";
+        el.id = "ttzz";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(el, s);
+      })();
     </script>
-    <!-- 360 -->
+    <!-- 360 (production only) -->
     <script>
-            (function () {
-                var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
-                document.write('<script src="' + src + '" id="sozz"><\/script>');
-            })();
+      (function () {
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+      })();
     </script>
 </head>
 

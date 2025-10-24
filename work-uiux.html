@@ -17,19 +17,22 @@
     <meta property="og:type" content="DESIGN" />
     <meta itemprop="name" content="MONK.REN「成为更好的设计者">
     <meta itemprop="description" content="MONK.REN,主要分享个人包括原创设计作品、用户研究、交互设计、视觉设计、品牌设计、UI开发、产品设计与市场研究等。">
-    <meta itemprop="image" content="https://www.monk.ren/images/basis/logo.png">
+    <meta itemprop="image" content="https://monk.ren/images/basis/logo.png">
 
     <!-- Facebook Open Graph -->
-    <meta property="og:url" content="https://www.monk.ren">
+    <meta property="og:url" content="https://monk.ren">
     <meta property="og:title" content="MONK.REN「成为更好的设计者">
     <meta property="og:site_name" content="MONK.REN「成为更好的设计者">
     <meta property="og:description" content="MONK.REN,主要分享个人包括原创设计作品、用户研究、交互设计、视觉设计、品牌设计、UI开发、产品设计与市场研究等。">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://www.monk.ren/images/basis/logo.png">
+    <meta property="og:image" content="https://monk.ren/images/basis/logo.png">
     <meta property="og:locale" content="zh_CN">
 
     <!-- 指定权威页面，使得搜索引擎收录更准确。 -->
-    <link rel="canonical" href="https://www.monk.ren">
+    <link rel="canonical" href="https://monk.ren">
+<link rel="alternate" href="https://monk.ren/" hreflang="zh-CN">
+<link rel="alternate" href="https://monk.ren/" hreflang="x-default">
+<meta name="robots" content="index, follow">
 
     <!-- 指定搜索引擎显示的网页快照， -->
     <meta name="description" content="MONK.REN,主要分享个人包括原创设计作品、用户研究、交互设计、视觉设计、品牌设计、UI开发、产品设计与市场研究等。">
@@ -53,39 +56,45 @@
 
 
 
-    <!-- Google Analytics -->
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL"></script>
+    <!-- Google Analytics (production only) -->
     <script>
+      (function(){
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL';
+        document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
         gtag('js', new Date());
-
         gtag('config', 'G-5CXJCNBDLL');
+      })();
     </script>
     <!-- Google AdSense-->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677892562045013"
         crossorigin="anonymous"></script>
-    <!-- 头条搜索 -->
+    <!-- 头条搜索 (production only) -->
     <script>
-        (function () {
-            var el = document.createElement("script");
-            el.src =
-                "https://sf1-scmcdn-tos.pstatp.com/goofy/ttzz/push.js?f531e7e47a28714a2f49eb52a46becb92bd082349d7801841df17436910a419abf822fac7779c3baa99751206e7b37d34f192ce1af70ac3a97bb777260beb18f";
-            el.id = "ttzz";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(el, s);
-        })(window)
+      (function () {
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var el = document.createElement("script");
+        el.src = "https://sf1-scmcdn-tos.pstatp.com/goofy/ttzz/push.js?f531e7e47a28714a2f49eb52a46becb92bd082349d7801841df17436910a419abf822fac7779c3baa99751206e7b37d34f192ce1af70ac3a97bb777260beb18f";
+        el.id = "ttzz";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(el, s);
+      })();
     </script>
-    <!-- 360 -->
+    <!-- 360 (production only) -->
     <script>
-            (function () {
-                var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
-                document.write('<script src="' + src + '" id="sozz"><\/script>');
-            })();
+      (function () {
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+      })();
     </script>
 
 
@@ -171,19 +180,24 @@
             </nav>
             <div id="nav-top" class="nav-top">
                 <ul class="nav-top-ul">
-                    <a href="#page-a" class="active">
+                    <a href="#ai" class="active">
                         <li class="nav-top-li">
-                            <h5>设计系统构建</h5>
+                            <h5>AI</h5>
                         </li>
                     </a>
-                    <a href="#page-b" class="active">
+                    <a href="#dating" class="active">
                         <li class="nav-top-li">
-                            <h5>设计探索</h5>
+                            <h5>Dating</h5>
                         </li>
                     </a>
-                    <a href="#page-c" class="active">
+                    <a href="#chat" class="active">
                         <li class="nav-top-li">
-                            <h5>UIKIT</h5>
+                            <h5>Chat</h5>
+                        </li>
+                    </a>
+                    <a href="#design-system" class="active">
+                        <li class="nav-top-li">
+                            <h5>Design System</h5>
                         </li>
                     </a>
                 </ul>
@@ -191,98 +205,64 @@
             <div class="w85">
                 <!--顶部导航-->
 
-                <div class="page" id="page-a">
+                <div class="page" id="ai">
                     <div class="w100">
-                      
+                        <h2>↘AI</h2>
+                         <h5>智能创作与 AI 相关的界面设计</h5>
                     </div>
-                    <div class="w100">
-                        <h2>↘设计系统构建</h2>
-                        <h5>热衷于设计系统的搭建，从基础元素到整体框架，精心构建一个简洁、完整、高效的设计体系，保证设计的一致性和规范性、各场景下设计的良好呈现。</h5>
-                    </div>
+                    
                     <div class="columns">
-                        <div class="column is-3 stroke">
-                            <a target="_blank"
-                                href="https://www.figma.com/design/VzVPQJDQZ0lAiv62vgQvdE/%E9%80%82%E7%94%A8%E4%BA%8E%E6%99%BA%E8%83%BD%E4%B8%96%E4%BB%A3%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F?node-id=0-1&t=UB7FezaIXY10KFOr-1">
-                                <img class="work-img" src="images/work/DesignSystem/设计系统-MRUX.jpg" width="100%" alt="">
-                              
-                                <div class="information-w">
-                                    <div class="applogo">
-                                        <img src="images/logo/logo-mruX.png" width="100%" alt="">
-                                    </div>
-                                    <div class="lab-t">
-                                        <h5>适用于智能世代的设计系统(公开  <tab-new>New</tab-new><tab>构建中</tab></h5>
-                                        <h6>Design System</h6>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-
-
-                        <div class="column is-3 stroke">
-
-                            <img class="work-img" src="images/work/DesignSystem/设计系统-TanTan.jpg" alt="">
-                            <div class="information-w">
-                                <div class="applogo">
-                                    <img src="images/logo/logo-tantan.png" width="100%" alt="">
-                                </div>
-                                <div class="lab-t">
-                                    <h5>探探·设计系统（基础样式、组件库、模块</h5>
-                                    <h6>Dating、Redesign</h6>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-                        <div class="column is-3 stroke">
-                            <a target="_blank"
-                                href="https://www.figma.com/design/ddKue82qLtFLnBbPcOaPoK/%E5%BE%AE%E4%BF%A18.0%EF%BC%8C%E4%BD%93%E9%AA%8C%E9%87%8D%E6%9E%84%E6%80%9D%E8%80%83-%E5%85%B1%E4%BA%AB%E7%89%88%E6%9C%AC?node-id=0-1&t=Mb8UD1XA5yIV0VxO-1">
-                                <img class="work-img" src="images/work/DesignSystem/设计系统-WeChat.jpg" alt="">
-                                <div class="information-w">
-                                    <div class="applogo">
-                                        <img src="images/logo/logo-wechat.png" width="100%" alt="">
-                                    </div>
-                                    <div class="lab-t">
-                                        <h5>微信8.0，新的遇见在圈内或者圈外</h5>
-                                        <h6>微信、weChat、Redesign</h6>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-
-
-
-
-                    </div>
-
-                </div>
-                <div class="page" id="page-b">
-                    <div class="w100">
-                        <h2>↘设计探索</h2>
-                        <h5>乐于投入到各种设计可能性的探索中，挖掘潜在的创新点，探索多元、富有创意的思路方向。</h5>
-                    </div>
-                    <div class="columns">
-                        <a target="_blank" href="https://www.figma.com/design/VzVPQJDQZ0lAiv62vgQvdE/%E9%80%82%E7%94%A8%E4%BA%8E%E6%99%BA%E8%83%BD%E4%B8%96%E4%BB%A3%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F(%E5%85%AC%E5%BC%80%E3%80%81%E6%9E%84%E5%BB%BA%E4%B8%AD?node-id=894-66435&t=7IsNjWB2qfgvtOEQ-1">
+                        <a href="aigc.html">
 
                             <div class="column is-3  stroke"">
 
-                                <img class=" work-img" src="images/work/DesignLab/设计探索-doubao.jpg" alt="">
+                                <img class=" work-img" src="images/work/DesignLab/设计探索-ai.jpg" alt="">
                                 <div class="information-w">
                                     <div class="applogo">
-                                        <img src="images/logo/doubao.png" width="100%" alt="">
+                                        <img src="images/logo/logo-ai.png" width="100%" alt="">
                                     </div>
                                     <div class="lab-t">
-                                        <h5>Doubao·豆包</h5>
-                                        <h6>Dating、Redesign</h6>
+                                        <h5>AI与设计</h5>
+                                        <h6>AIGC、AI、Demo</h6>
                                     </div>
                                 </div>
                             </div>
 
                         </a>
+                 
+                    
+                    
+                    
+                    
+                    
+                    
+                    </div>
+                </div>
+
+                <div class="page" id="dating">
+                    <div class="w100">
+                      
+                    </div>
+                    <div class="w100">
+                        <h2>↘Dating</h2>
+                            <h5>约会社交类项目与探索</h5>
+                    </div>
+                    <div class="columns">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <a href="article/wechat.html">
                             <div class="column is-3 stroke">
                                 <img class="work-img" src="images/work/DesignLab/设计探索-tantan.jpg" alt="">
@@ -297,7 +277,6 @@
                                 </div>
                             </div>
                         </a>
-
 
                         <a href="article/wechat.html">
 
@@ -317,6 +296,20 @@
 
                         </a>
 
+                    </div>
+
+                </div>
+                <div class="page" id="chat">
+                    <div class="w100">
+                        <h2>↘Chat</h2>
+                         <h5>即时通讯与社交平台相关设计</h5>
+                    </div>
+                    <div class="columns">
+
+
+
+
+
                         <a href="article/wechat.html">
 
                             <div class="column is-3  stroke"">
@@ -327,31 +320,15 @@
                                         <img src="images/logo/logo-wechat.png" width="100%" alt="">
                                     </div>
                                     <div class="lab-t">
-                                        <h5>探探·设计探索</h5>
-                                        <h6>Dating、Redesign</h6>
+                                        <h5>微信·设计探索</h5>
+                                        <h6>Chat、探索</h6>
                                     </div>
                                 </div>
                             </div>
 
                         </a>
                     
-                        <a href="article/wechat.html">
 
-                            <div class="column is-3  stroke"">
-
-                                <img class=" work-img" src="images/work/DesignLab/设计探索-ai.jpg" alt="">
-                                <div class="information-w">
-                                    <div class="applogo">
-                                        <img src="images/logo/logo-ai.png" width="100%" alt="">
-                                    </div>
-                                    <div class="lab-t">
-                                        <h5>探探·设计探索</h5>
-                                        <h6>Dating、Redesign</h6>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </a>
                         <a target="_blank"
                         href="https://www.figma.com/file/d9aex1LTB36tFw0L5pIMMv/Z%E4%B8%96%E4%BB%A3?node-id=0%3A768">
                         <div class="column is-3 stroke">
@@ -371,37 +348,6 @@
 
 
                         </div>
-                    </div>
-                </div>
-
-                <div class="page" id="page-c">
-                    <div class="w100">
-                        <h2>↘设计工作</h2>
-                        <h5>设计过程中，参与前期产品需求探讨，独自或与团队完成设计从创意至执行上线的整个流程。</h5>
-                    </div>
-                    
-                    <div class="columns">
-                 
-                        <a target="_blank"
-                            href="https://www.figma.com/file/d9aex1LTB36tFw0L5pIMMv/Z%E4%B8%96%E4%BB%A3?node-id=0%3A768">
-                            <div class="column stroke">
-
-                                <img class="work-img" src="images/work/DesignUI/同桌派对.jpg"   width="100%" alt="">
-
-                                <div class="information-w">
-                                    <div class="applogo">
-                                        <img src="images/work/app/Z.png" width="100%" alt="">
-                                    </div>
-                                    <div class="lab-t">
-                                        <h5>Z世代｜元宇宙虚拟社交设计概念探索</h5>
-                                        <h6>社交、元宇宙</h6>
-                                        <!-- <div class="tag-new">概念社交</div> -->
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </a>
                         <a href="article/yolo.html">
                             <div class="column stroke">
 
@@ -417,8 +363,6 @@
                                 </div>
                             </div>
                         </a>
-                    
-
                         <a href="article/tzgame.html">
                             <div class="column stroke">
 
@@ -435,9 +379,6 @@
 
                             </div>
                         </a>
-
-
-
                         <a href="article/lit.html">
                             <div class="column stroke">
 
@@ -448,26 +389,60 @@
                                     </div>
                                     <div class="lab-t">
                                         <h5>Lit 2.0 | 陌生人匿名匹配互动社交</h5>
-                                        <h6>微信、weChat、Redesign</h6>
+                                        <h6>Chat、Redesign</h6>
                                     </div>
                                 </div>
 
                             </div>
                         </a>
-                        <a href="article/lit.html">
-                            <div class="column stroke">
+                    </div>
+                </div>
 
-                                <img class="work-img" src="images/2020/006.jpg" alt="">
+                <div class="page" id="design-system">
+                    <div class="w100">
+                        <h2>↘Design System</h2>
+                        <h5>设计系统与组件库</h5>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-3 stroke">
+                            <a target="_blank"
+                                href="https://www.figma.com/design/VzVPQJDQZ0lAiv62vgQvdE/%E9%80%82%E7%94%A8%E4%BA%8E%E6%99%BA%E8%83%BD%E4%B8%96%E4%BB%A3%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F?node-id=0-1&t=UB7FezaIXY10KFOr-1">
+                                <img class="work-img" src="images/work/DesignSystem/设计系统-MRUX.jpg" width="100%" alt="">
                                 <div class="information-w">
                                     <div class="applogo">
-                                        <img src="images/logo/lit.png" width="100%" alt="">
+                                        <img src="images/logo/logo-mruX.png" width="100%" alt="">
                                     </div>
                                     <div class="lab-t">
-                                        <h5>Lit 2.0 | 陌生人匿名匹配互动社交</h5>
+                                        <h5>适用于智能世代的设计系统(公开  <tab-new>New</tab-new><tab>构建中</tab></h5>
+                                        <h6>Design System</h6>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="column is-3 stroke">
+                            <img class="work-img" src="images/work/DesignSystem/设计系统-TanTan.jpg" alt="">
+                            <div class="information-w">
+                                <div class="applogo">
+                                    <img src="images/logo/logo-tantan.png" width="100%" alt="">
+                                </div>
+                                <div class="lab-t">
+                                    <h5>探探·设计系统（基础样式、组件库、模块</h5>
+                                    <h6>Dating、Redesign</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <a target="_blank" href="https://www.figma.com/design/ddKue82qLtFLnBbPcOaPoK/%E5%BE%AE%E4%BF%A18.0%EF%BC%8C%E4%BD%93%E9%AA%8C%E9%87%8D%E6%9E%84%E6%80%9D%E8%80%83-%E5%85%B1%E4%BA%AB%E7%89%88%E6%9C%AC?node-id=0-1&t=Mb8UD1XA5yIV0VxO-1">
+                            <div class="column is-3  stroke"">
+                                <img class="work-img" src="images/work/DesignSystem/设计系统-WeChat.jpg" alt="">
+                                <div class="information-w">
+                                    <div class="applogo">
+                                        <img src="images/logo/logo-wechat.png" width="100%" alt="">
+                                    </div>
+                                    <div class="lab-t">
+                                        <h5>微信8.0，新的遇见在圈内或者圈外</h5>
                                         <h6>微信、weChat、Redesign</h6>
                                     </div>
                                 </div>
-
                             </div>
                         </a>
                     </div>

@@ -16,15 +16,18 @@
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.monk.ren" />
+    <meta property="og:url" content="https://monk.ren" />
     <meta property="og:title" content="AIGC 真实图片展示 - MONK.REN" />
     <meta property="og:site_name" content="MONK.REN" />
     <meta property="og:description" content="MONK.REN AIGC真实图片展示，展示AI生成的真实风格图片作品。" />
-    <meta property="og:image" content="https://www.monk.ren/images/basis/logo.png" />
+    <meta property="og:image" content="https://monk.ren/images/basis/logo.png" />
     <meta property="og:locale" content="zh_CN" />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.monk.ren" />
+    <link rel="canonical" href="https://monk.ren" />
+<meta name="robots" content="index, follow">
+<link rel="alternate" href="https://monk.ren/" hreflang="zh-CN">
+<link rel="alternate" href="https://monk.ren/" hreflang="x-default">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
@@ -168,15 +171,21 @@
         }
     </style>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL"></script>
+    <!-- Google Analytics (production only) -->
     <script>
+      (function(){
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL';
+        document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-        gtag("config", "G-5CXJCNBDLL");
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-5CXJCNBDLL');
+      })();
     </script>
 
     <!-- Google AdSense -->
