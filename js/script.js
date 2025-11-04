@@ -66,3 +66,25 @@ $.each( instance, function(key, value) {
   }
   
 });
+
+//菜单项点击切换
+$(document).ready(function() {
+    $('#open-button').click(function() {
+        $('nav').toggleClass('menu-open');
+    });
+    $('#close-button').click(function() {
+        $('nav').removeClass('menu-open');
+    });
+    $('.zzhao').click(function() {
+        $('nav').removeClass('menu-open');
+    });
+    
+    // 移动端子菜单切换
+    $('.menu li').has('.submenu').click(function(e) {
+        // 阻止事件冒泡，避免触发菜单项的链接跳转
+        if ($(e.target).closest('a').length === 0 || $(e.target).closest('a').parent().hasClass('submenu')) {
+            e.preventDefault();
+            $(this).toggleClass('active');
+        }
+    });
+});

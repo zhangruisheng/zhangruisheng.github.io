@@ -28,9 +28,9 @@
 
     <!-- 指定权威页面，使得搜索引擎收录更准确。 -->
     <link rel="canonical" href="https://monk.ren">
-<link rel="alternate" href="https://monk.ren/" hreflang="zh-CN">
-<link rel="alternate" href="https://monk.ren/" hreflang="x-default">
-<meta name="robots" content="index, follow">
+    <link rel="alternate" href="https://monk.ren/" hreflang="zh-CN">
+    <link rel="alternate" href="https://monk.ren/" hreflang="x-default">
+    <meta name="robots" content="index, follow">
 
     <!-- 结构化数据：个人信息与角色强调 -->
     <script type="application/ld+json">
@@ -74,34 +74,34 @@
 
     <!-- Google Analytics（仅生产环境） -->
     <script>
-    (function(){
-        var host = location.hostname;
-        var isProd = host === 'monk.ren' || host.endsWith('.monk.ren');
-        if (!isProd) return;
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL';
-        document.head.appendChild(s);
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);} 
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-5CXJCNBDLL');
-    })();
+        (function () {
+            var host = location.hostname;
+            var isProd = host === 'monk.ren' || host.endsWith('.monk.ren');
+            if (!isProd) return;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', 'G-5CXJCNBDLL');
+        })();
     </script>
 
     <!-- Google AdSense（仅生产环境） -->
     <script>
-      (function(){
-        var host = location.hostname;
-        var isProd = host === 'monk.ren' || host.endsWith('.monk.ren');
-        if (!isProd) return;
-        var s = document.createElement('script');
-        s.async = true;
-        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677892562045013';
-        s.crossOrigin = 'anonymous';
-        document.head.appendChild(s);
-      })();
+        (function () {
+            var host = location.hostname;
+            var isProd = host === 'monk.ren' || host.endsWith('.monk.ren');
+            if (!isProd) return;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677892562045013';
+            s.crossOrigin = 'anonymous';
+            document.head.appendChild(s);
+        })();
     </script>
 
     <!-- 头条搜索（仅生产环境） -->
@@ -178,30 +178,42 @@
                     <ul>
                         <li><a href="index.html" target="_top">
                                 <span class="nav-cn">ME</span><span>关于我</span>
-                            </a></li>
-                        <li><a href="work-uiux.html" target="_top">
+                            </a>
+                        </li>
+                        <li class="nav-divider"></li>
+                        <li>
+                            <a href="work-uiux.html" target="_top">
                                 <span class="nav-cn">UIUX</span> <span>界面设计</span>
-                            </a></li>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#">AI APP</a></li>
+                                <li><a href="#">Dating APP</a></li>
+                                <li><a href="#">Chat APP</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-divider"></li>
                         <li><a href="work-brand.html" target="_top">
                                 <span class="nav-cn">GRAPHIC</span> <span>图形设计</span>
                             </a></li>
-                        <li><a href="aigc.html" target="_top">
+                        <li class="nav-divider"></li>
+                        <li>
+                            <a href="aigc.html" target="_top">
                                 <span class="nav-cn">AIGC</span> <span>智能创作</span>
-                            </a></li>
-                        <li><a href="aigc-photo.html" target="_top">
-                                <span class="nav-cn">AI PHOTO</span> <span>真实图片</span>
-                            </a></li>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#">Workflow</a></li>
+                                <li><a href="#">Real Photo</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-divider"></li>
                         <li><a href="designer.html" target="_top">
                                 <span class="nav-cn">DESIGNER</span><span>设计师</span>
                             </a></li>
+                        <li class="nav-divider"></li>
                         <li><a href="new.html" target="_top">
                                 <span class="nav-cn">MOMENT</span><span>时刻</span>
                             </a></li>
                     </ul>
-                    <!-- <div class="beta">Beta</div> -->
-                    <!-- <div class="logo2">
-                    <img src="images/basis/logo2.png" width="130px" alt="logo2" />
-                </div> -->
                 </menu>
 
                 <div id="open-button" class="menu-iii">
@@ -224,7 +236,7 @@
                     <video class="about-me-img" id="myVideo">
                         <source src="/images/aboutme/zhangruisheng.mp4" type="video/mp4">
                         Your browser does not support the video tag.
-                    </video>              
+                    </video>
                 </div>
                 <div class="w40">
                     <div class="nav-top-li">
@@ -232,7 +244,7 @@
                             我呀
                         </h5>
                     </div>
-                    
+
                     <div class="w100">
 
                         <!-- <div class="about-t">
@@ -243,10 +255,10 @@
                                 嗨
                                 ！我是张大圣，一位图形和界面设计师，专注于图形视觉设计、用户界面设计、用户体验研究和品牌图形设计
                                 <br>
-                               
+
                             </p>
                         </div>
-                   
+
                         <div class="about-t">
                             <h4> X$%$^*@#$</h4>
                             <p>住在北京</p>
@@ -268,7 +280,7 @@
                             <p>喜欢咖啡</p>
                             <p>热衷于与做有意义事的人们一起工作</p>
                         </div>
-                        
+
 
                     </div>
 
@@ -476,7 +488,9 @@
                     </div>
                 </div>
                 <div class="columns">
-                    <iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="960" src="https://embed.figma.com/proto/PlXSgCtC0xRxwOAEfRWJnc/Portfolio-2025?page-id=1626%3A15300&node-id=1626-15514&viewport=884%2C477%2C0.05&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1626%3A15514&embed-host=share" allowfullscreen></iframe>
+                    <iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="960"
+                        src="https://embed.figma.com/proto/PlXSgCtC0xRxwOAEfRWJnc/Portfolio-2025?page-id=1626%3A15300&node-id=1626-15514&viewport=884%2C477%2C0.05&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1626%3A15514&embed-host=share"
+                        allowfullscreen></iframe>
 
                     <!-- <div class="column"><a href="/article/portfolio-2020.html"><img class="w100"
                                 src="images/aboutme/portfolio-2020.png" width="100%" alt="" /></a></div>
@@ -486,16 +500,15 @@
                                 width="100%" alt="" /></a></div> -->
                 </div>
                 <div class="w100">
-                    <a href="/file/zhangruisheng.pdf"
-                        target="_blank">
+                    <a href="/file/zhangruisheng.pdf" target="_blank">
                         <h4><u>PDF简历 ↘</u></h4>
                     </a>
                 </div>
-               
-            <div class="w100">
-                <line2></line2>
-           
-             
+
+                <div class="w100">
+                    <line2></line2>
+
+
                     <div class="nav-top-li">
                         <h5>
                             Contacts
@@ -505,14 +518,13 @@
                         <p>ME: 张瑞圣(北京)</p>
                         <p>电话: 185-1048-2879</p>
                         <p>微信: ruisheng</p>
-                   
-                            <p><a
-                                    href="mailto:monkren@outlook.com?subject=【MONK.REN】"><u>monkren@outlook.com↘</u></a><br>
-                            </p>
-                        
-                       
+
+                        <p><a href="mailto:monkren@outlook.com?subject=【MONK.REN】"><u>monkren@outlook.com↘</u></a><br>
+                        </p>
+
+
                         <br>
-                       
+
                         <div class="follow">
 
                             <div class="social left">
@@ -535,7 +547,8 @@
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink">
                                                 <title>uicn</title>
-                                                <g id="uicn" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g id="uicn" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
                                                     <g id="uich-2x" transform="translate(6.000000, 5.000000)"
                                                         fill="var(--color-00)" fill-rule="nonzero">
                                                         <g id="编组" transform="translate(4.000000, 6.500000)">
@@ -615,10 +628,12 @@
                                                     </path>
                                                 </g>
                                             </svg> </a></li>
-                                    <li> <svg class="wechat" width="32px" height="32px" viewBox="0 0 26 26" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <li> <svg class="wechat" width="32px" height="32px" viewBox="0 0 26 26"
+                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
                                             <title>wechat</title>
-                                            <g id="wechat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="wechat" stroke="none" stroke-width="1" fill="none"
+                                                fill-rule="evenodd">
                                                 <g id="wechat-2" transform="translate(5.000000, 7.000000)"
                                                     fill="var(--color-00)" fill-rule="nonzero">
                                                     <path
@@ -644,65 +659,65 @@
                             </div>
                             <br>
                             <br>
-    
-                        </div>
-                   
-                </div>
-    
-            </div>
-            <div class="w99">
-                <line2></line2>
-                <div class="columns">
 
-                    <div class="column">
-                        <img src="/images/basis/banner.png" width="100%" alt="me">
+                        </div>
+
                     </div>
-                    <div class="column">
+
+                </div>
+                <div class="w99">
+                    <line2></line2>
+                    <div class="columns">
+
                         <div class="column">
-                            <h6>MONK.REN</h6>
-                            <a href="/typography.html">
-                                <h5>Typography</h5>
-                            </a>
-                            <a href="/monkey.html">
-                                <h5>IP</h5>
-                            </a>
-                            <a href="/share.html">
-                                <h5>THINKING</h5>
-                            </a>
+                            <img src="/images/basis/banner.png" width="100%" alt="me">
                         </div>
                         <div class="column">
-                            <h6>TOOLS
-                            </h6>
-                            <a target="_blank" href="https://www.sketch.com/">
-                                <h5>Sketch</h5>
-                            </a>
-                            <a target="_blank" href="https://www.figma.com/@monkren">
-                                <h5>Figma</h5>
-                            </a>
-                            <a target="_blank" href="https://www.figma.com/@monkren">
-                                <h5>
-                                    VS Code</h5>
-                            </a>
+                            <div class="column">
+                                <h6>MONK.REN</h6>
+                                <a href="/typography.html">
+                                    <h5>Typography</h5>
+                                </a>
+                                <a href="/monkey.html">
+                                    <h5>IP</h5>
+                                </a>
+                                <a href="/share.html">
+                                    <h5>THINKING</h5>
+                                </a>
+                            </div>
+                            <div class="column">
+                                <h6>TOOLS
+                                </h6>
+                                <a target="_blank" href="https://www.sketch.com/">
+                                    <h5>Sketch</h5>
+                                </a>
+                                <a target="_blank" href="https://www.figma.com/@monkren">
+                                    <h5>Figma</h5>
+                                </a>
+                                <a target="_blank" href="https://www.figma.com/@monkren">
+                                    <h5>
+                                        VS Code</h5>
+                                </a>
+                            </div>
                         </div>
+                        <div class="column">
+
+                            <!-- <span class="tag is-black">广告呀</span> -->
+
+                            <!-- 一级 -->
+                            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1677892562045013"
+                                data-ad-slot="3087793882" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+
+                        </div>
+
                     </div>
-                    <div class="column">
-
-                        <!-- <span class="tag is-black">广告呀</span> -->
-
-                        <!-- 一级 -->
-                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1677892562045013"
-                            data-ad-slot="3087793882" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
-
-                    </div>
-                    
                 </div>
-            </div>
 
-      
-        </div>
+
+            </div>
     </main>
 
     <iframe class="footer" width="100%" height="36px" src="footer.html" allowfullscreen></iframe>
@@ -712,19 +727,19 @@
 <script src="js/iframe.js"></script>
 <!-- Baidu Push (production only) -->
 <script>
-  (function(){
-    var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
-    if (!isProd) { return; }
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    } else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(bp, s);
-  })();
+    (function () {
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
 </script>
 
 <script>

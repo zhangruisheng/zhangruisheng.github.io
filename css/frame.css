@@ -405,7 +405,7 @@ img {
 
 }
 
-@media screen and (min-width: 901px) and (max-width: 1699px) {
+@media screen and (min-width: 481px) and (max-width: 1699px) {
 
 
     /* 字体 */
@@ -776,7 +776,7 @@ img {
 }
 
 /* 移动端*/
-@media screen and (max-width:900px) {
+@media screen and (max-width:480px) {
 
 
     .container {

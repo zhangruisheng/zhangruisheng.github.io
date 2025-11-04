@@ -11,7 +11,7 @@
 
 
 /*桌面端*/
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 480px) {
 
     /*初始化样式*/
     * {
@@ -121,10 +121,10 @@
         overflow: visible;
     }
 
-   
-   
 
-  
+
+
+
 
     .share {
         position: relative;
@@ -265,9 +265,10 @@
         height: auto;
         text-align: left;
         /* font-style: italic; */
-        font-weight: bold;
-        font-size: 30px;
-        line-height: 30px;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 48px;
+        text-transform: uppercase;
         /* font-family: "coltrane regular demo"; */
     }
 
@@ -276,19 +277,62 @@
         position: relative;
         margin-bottom: 16px;
         width: 100%;
-        height: 22px;
+        height: auto;
         list-style-type: none;
+    }
+
+    .menu li.nav-divider,
+    .menu-open li.nav-divider {
+        height: 1px;
+        background-color: #000;
+        margin: 24px 0;
+        width: 100%;
+    }
+
+    .menu li .submenu,
+    .menu-open li .submenu {
+        display: block;
+        position: static;
+        width: 100%;
+        padding: 0;
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        z-index: 1000;
+        margin-left: 0;
+    }
+
+    .menu li .submenu a,
+    .menu-open li .submenu a {
+        display: block;
+        float: none;
+        padding: 0;
+        color: var(--color-00);
+        font-size: 30px;
+        font-weight: 500;
+        text-transform: capitalize;
+        line-height: 48px;
+        text-decoration: none;
+        -webkit-text-fill-color: var(--color-00);
+        white-space: normal;
+    }
+
+    .menu li .submenu a:hover,
+    .menu-open li .submenu a:hover {
+        font-style: normal;
+        background-color: transparent;
     }
 
     .menu a,
     .menu-open a {
         position: relative;
         z-index: 1;
-        float: left;
+        float: none;
+        display: block;
         color: var(--color-ff);
         text-decoration: none;
         font-weight: 500;
-        line-height: 20px;
+        line-height: 48px;
         /* -webkit-text-stroke: 0.4px var(--color-00); */
         /* font-family: "coltrane regular demo"; */
         -webkit-text-fill-color: var(--color-00);
@@ -317,11 +361,17 @@
         display: block;
     }
 
-    .menu a span1, .menu-open a span1, .menu a .nav-cn, .menu-open a .nav-cn {
+    .menu a span1,
+    .menu-open a span1,
+    .menu a .nav-cn,
+    .menu-open a .nav-cn {
         display: block;
     }
 
-    .menu a:hover span1, .menu-open a:hover span1, .menu a:hover .nav-cn, .menu-open a:hover .nav-cn {
+    .menu a:hover span1,
+    .menu-open a:hover span1,
+    .menu a:hover .nav-cn,
+    .menu-open a:hover .nav-cn {
         display: none;
     }
 
@@ -360,6 +410,10 @@
         left: 0;
     }
 
+    .submenu li {
+        height: 20px;
+    }
+
     /*首页*/
     /* 
     .home-r {
@@ -394,7 +448,7 @@
         left: 0%;
     }
 
- 
+
 
     .home-100-t40 {
         position: relative;
@@ -410,7 +464,7 @@
     }
 
 
-  
+
 
     .home-if {
 
@@ -435,7 +489,7 @@
         margin-bottom: 20px;
     }
 
-   
+
     .home-class {
         position: relative;
         float: right;
@@ -610,7 +664,7 @@
     .work-card {
         position: relative;
 
-       
+
         opacity: 1;
         transition-duration: 0.5s;
     }
@@ -660,8 +714,8 @@
     .work-img {
         top: 0px;
         left: 0px;
-       width: 100%;
-        
+        width: 100%;
+
     }
 
     .work-img-1 {
@@ -691,7 +745,7 @@
         min-height: 20px;
         margin-top: 10px;
         margin-left: 10px;
-        
+
 
 
     }
@@ -791,7 +845,7 @@
 
     }
 
- 
+
     .appbox h5 {
         width: 100%;
         text-align: center;
@@ -807,6 +861,7 @@
         /* height: 32px; */
 
     }
+
     tab {
         position: relative;
         /* float: left; */
@@ -821,12 +876,14 @@
         align-self: center;
         align-items: center;
     }
+
     tab-new {
         position: relative;
         /* float: left; */
         margin-left: 10px;
         padding: 2px 6px;
-        background: #00E424;;
+        background: #00E424;
+        ;
         color: var(--color-ff);
         font-size: 12px;
         height: 18px;
@@ -837,7 +894,7 @@
         border-radius: 4px;
     }
 
-   
+
 
     .md {
         position: relative;
@@ -1012,7 +1069,7 @@
         line-height: normal;
         transition: 0.5s;
         left: 10%;
-        
+
     }
 
 
@@ -1259,7 +1316,7 @@
         margin-top: 0px;
         /* margin-left: 8px; */
         float: left;
-       
+
     }
 
 
@@ -1333,7 +1390,7 @@
         width: auto;
     }
 
-  
+
     .about-me-img {
 
         float: left;
@@ -1352,11 +1409,11 @@
         font-family: "Futura LT Medium";
         font-size: 100px;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 500;
         line-height: 80%;
         /* 200px */
         text-transform: uppercase;
-       
+
         width: 100%;
 
     }
@@ -2772,13 +2829,37 @@
         opacity: 0.05;
     }
 
+    .subnav {
+        width: 100%;
+        background: #fafbfc;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 0 0 32px;
+        gap: 48px;
+        min-height: 44px;
+    }
 
+    .subnav-group {
+        display: flex;
+        gap: 24px;
+    }
 
+    .subnav a {
+        color: #666;
+        font-size: 1rem;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: background 0.2s, color 0.2s;
+    }
 
+    .subnav a:hover {
+        background: #e6f0ff;
+        color: #007aff;
+    }
 
-
-
-  
 
     .monkren-t {
         font-size: 24px;
@@ -2811,9 +2892,9 @@
         padding: 0;
         margin: 0;
     } */
- 
 
-    
+
+
 
     /* img */
     .dazzle-imgs {
@@ -2891,12 +2972,13 @@
 
 }
 
+/* 应用于所有大于1700px的屏幕 */
 @media screen and (min-width: 1700px) {
 
     /* 导航栏 */
 
 
-  
+
 
     /* 菜单栏 */
     .menu,
@@ -2923,9 +3005,10 @@
         height: auto;
         text-align: left;
         /* font-style: italic; */
-        font-weight: bold;
+        font-weight: 500;
         font-size: 40px;
-        line-height: 40px;
+        line-height: 48px;
+        text-transform: uppercase;
         /* font-family: "coltrane regular demo"; */
     }
 
@@ -2934,19 +3017,62 @@
         position: relative;
         margin-bottom: 16px;
         width: 100%;
-        height: 36px;
+        height: auto;
         list-style-type: none;
+    }
+
+    .menu li.nav-divider,
+    .menu-open li.nav-divider {
+        height: 1px;
+        background-color: #000;
+        margin: 24px 0;
+        width: 100%;
+    }
+
+    .menu li .submenu,
+    .menu-open li .submenu {
+        display: block;
+        position: static;
+        width: 100%;
+        padding: 0;
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        z-index: 1000;
+        margin-left: 0;
+    }
+
+    .menu li .submenu a,
+    .menu-open li .submenu a {
+        display: block;
+        float: none;
+        padding: 0;
+        color: var(--color-00);
+        font-size: 30px;
+        font-weight: 500;
+        text-transform: capitalize;
+        line-height: 48px;
+        text-decoration: none;
+        -webkit-text-fill-color: var(--color-00);
+        white-space: normal;
+    }
+
+    .menu li .submenu a:hover,
+    .menu-open li .submenu a:hover {
+        font-style: normal;
+        background-color: transparent;
     }
 
     .menu a,
     .menu-open a {
         position: relative;
         z-index: 1;
-        float: left;
+        float: none;
+        display: block;
         color: var(--color-ff);
         text-decoration: none;
         font-weight: 500;
-        line-height: 20px;
+        line-height: 48px;
         /* -webkit-text-stroke: 0.4px var(--color-00); */
         /* font-family: "coltrane regular demo"; */
         -webkit-text-fill-color: var(--color-00);
@@ -2959,7 +3085,6 @@
         -webkit-text-stroke: 0px var(--color-00);
         -webkit-text-fill-color: var(--color-00);
         font-style: italic;
-
 
 
 
@@ -2976,12 +3101,16 @@
     }
 
     .menu a span1,
-    .menu-open a span1 {
+    .menu-open a span1,
+    .menu a .nav-cn,
+    .menu-open a .nav-cn {
         display: block;
     }
 
     .menu a:hover span1,
-    .menu-open a:hover span1 {
+    .menu-open a:hover span1,
+    .menu a:hover .nav-cn,
+    .menu-open a:hover .nav-cn {
         display: none;
     }
 
@@ -3026,7 +3155,7 @@
 
 
 
-   
+
 
     /** || Carousel Styles */
 
@@ -3066,7 +3195,7 @@
         max-height: 1100px;
     }
 
-  
+
 
     .about-me-img {
         float: left;
@@ -3089,9 +3218,10 @@
         line-height: 80%;
         /* 200px */
         text-transform: uppercase;
-       
+
         width: 100%;
     }
+
     .monkren-t {
         font-size: 30px;
         font-family: "Helvetica Neue", Helvetica, sans-serif, "Helvetica Neue Regular", Icons;

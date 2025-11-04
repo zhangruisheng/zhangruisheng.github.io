@@ -12,7 +12,51 @@
 
     <link href="/article/css/amain-desktop.css" rel="stylesheet" type="text/css">
     <link href="/article/css/amain-mobile.css" rel="stylesheet" type="text/css">
-
+    <style>
+        /* 内容区域滚动优化样式 */
+        @media (min-width: 900px) {
+          html, body { height: auto !important; overflow-x: hidden; }
+          .showxx { position: relative !important; height: auto !important; overflow: visible !important; }
+          .main { overflow: visible !important; height: auto !important; }
+          .content, .content-w, .introduction { min-width: 0 !important; max-width: 100%; }
+          /* 侧边栏使用粘性定位，随页面滚动但保持在视口中 */
+          .information { position: sticky !important; top: 140px !important; z-index: 10 !important; width: 22% !important; height: fit-content; }
+          /* 内容区域使用标准文档流对齐 */
+          .show { position: relative !important; left: 0 !important; margin-left: 24% !important; width: 76% !important; top: 0 !important; }
+        }
+        @media (max-width: 899.98px) {
+          html, body { height: auto !important; overflow-x: hidden; }
+          .showxx { position: relative !important; height: auto !important; overflow: visible !important; }
+          .information { position: relative !important; width: 100% !important; margin-top: 0 !important; z-index: 1 !important; }
+          .show { position: relative !important; left: 0 !important; width: 100% !important; margin-left: 0 !important; top: 0 !important; }
+          .main { overflow: visible !important; height: auto !important; }
+          .content, .content-w, .introduction { min-width: 0 !important; max-width: 100%; }
+        }
+        /* 全局滚动条样式优化 */
+        ::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #888;
+          border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
+        /* 确保图片卡片在小屏幕上正确显示 */
+        .work-card-app {
+          transition: all 0.3s ease;
+        }
+        .work-card-app img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+        }
+      </style>
 
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
@@ -177,59 +221,8 @@
                 <h5>产品、UIUX，UI、REDESIGN
                 </h5>
             </div>
-            <div class="information-n">
-                <div class="file">
-                    <h3>源文件查看</h3>
-                    <hr class="line1">
-                    <div class="information-n">
-    
-                        <div class="button-img">
-                            <h6>Figma</h6>
-                            <a href="https://www.figma.com/file/q5n7lLVhW8IDFovJ9HZtEi/Wechat-Apps-Library?node-id=0%3A1 "
-                                target="_blank">
-                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="60" height="60" fill="var(--color-00)" />
-                                    <path
-                                        d="M23.3744 50.9297C27.14 50.9297 30.1961 47.8736 30.1961 44.108V37.2864H23.3744C19.6088 37.2864 16.5527 40.3425 16.5527 44.108C16.5527 47.8736 19.6088 50.9297 23.3744 50.9297Z"
-                                        stroke="var(--color-ff)" stroke-width="3" />
-                                    <path
-                                        d="M16.5527 30.465C16.5527 26.6994 19.6088 23.6433 23.3744 23.6433H30.1961V37.2867H23.3744C19.6088 37.2867 16.5527 34.2305 16.5527 30.465Z"
-                                        stroke="var(--color-ff)" stroke-width="3" />
-                                    <path
-                                        d="M16.5527 16.8217C16.5527 13.0561 19.6088 10 23.3744 10H30.1961V23.6433H23.3744C19.6088 23.6433 16.5527 20.5872 16.5527 16.8217Z"
-                                        stroke="var(--color-ff)" stroke-width="3" />
-                                    <path
-                                        d="M30.1978 10H37.0194C40.785 10 43.8411 13.0561 43.8411 16.8217C43.8411 20.5872 40.785 23.6433 37.0194 23.6433H30.1978V10Z"
-                                        stroke="var(--color-ff)" stroke-width="3" />
-                                    <path
-                                        d="M43.8411 30.465C43.8411 34.2305 40.785 37.2867 37.0194 37.2867C33.2539 37.2867 30.1978 34.2305 30.1978 30.465C30.1978 26.6994 33.2539 23.6433 37.0194 23.6433C40.785 23.6433 43.8411 26.6994 43.8411 30.465Z"
-                                        stroke="var(--color-ff)" stroke-width="3" />
-                                </svg>
-    
-                            </a>
-                        </div>
-                        <div class="button-img">
-                            <h6>Sketch</h6>
-                            <a href="https://www.sketch.com/s/vM0Db " target="_blank">
-                                <svg width="60" height="60" viewBox="0 0 60 60" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="60" height="60" fill="var(--color-00)" />
-                                    <path d="M40.9838 11H19.0162L7 25.2857L30 51L53 25.2857L40.9838 11Z"
-                                        stroke="var(--color-ff)" stroke-width="3" stroke-linejoin="round" />
-                                    <path d="M8 25.5H52" stroke="var(--color-ff)" stroke-width="3"
-                                        stroke-linejoin="round" />
-                                    <path d="M19 11L30 50L41 11" stroke="var(--color-ff)" stroke-width="3"
-                                        stroke-linejoin="round" />
-                                </svg>
-    
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-    
+            <!-- Removed '源文件查看' file module -->
+
         </div>
         <!-- <div class="return">
             <div class="return-d"> <a href="../home.html">HOME</a> ｜<a href="../show.html">ALL PROJECTS</a> </div>
@@ -297,123 +290,452 @@
 
                     <div class="main-title">
                         <div class="title">
-                            COVER
+                            Screens
                         </div>
-                        <div class="cover">
-
-                            <img src="img/wechat/001.png" alt="" />
-
-                            <img src="img/wechat/002.png" alt="" />
-                            <img src="img/wechat/003.png" alt="" />
-                            <img src="img/wechat/004.png" alt="" />
-                            <img src="img/wechat/005-01.png" alt="" />
-                            <img src="img/wechat/005-02.png" alt="" />
-                            <img src="img/wechat/005-03.png" alt="" />
-                            <img src="img/wechat/005-04.png" alt="" />
-                            <img src="img/wechat/005-05.png" alt="" />
-                            <img src="img/wechat/005-06.png" " alt="" />
-                            <img src=" img/wechat/005-07.png" alt="" />
-
-                        </div>
-                    </div>
-                    <div class="line"></div>
-
-
-                    <div class="main-title">
-                        <div class="title">
-                            Content
-                        </div>
-
-                        <div class="cover">
-                            <img src="img/wechat/007.png" width="100%" alt="" />
-                            <img src="img/wechat/008.png" width="100%" alt="" />
-                            <img src="img/wechat/008-1.png" width="100%" alt="" />
-                            <img src="img/wechat/009.png" width="100%" alt="" />
-                            <img src="img/wechat/010.png" width="100%" alt="" />
-                            <img src="img/wechat/012.png" width="100%" alt="" />
-                            <img src="img/wechat/013-01.png" width="100%" alt="" />
-                            <img src="img/wechat/013-02.png" width="100%" alt="" />
-                            <img src="img/wechat/013-03.png" width="100%" alt="" />
-                            <img src="img/wechat/013-04.png" width="100%" alt="" />
-                            <img src="img/wechat/013-05.png" width="100%" alt="" />
-                            <img src="img/wechat/013-06.png" width="100%" alt="" />
-                            <img src="img/wechat/013-07.png" width="100%" alt="" />
-                            <img src="img/wechat/013-08.png" width="100%" alt="" />
-                            <img src="img/wechat/013-09.png" width="100%" alt="" />
-                            <img src="img/wechat/013-10.png" width="100%" alt="" />
-                            <img src="img/wechat/013-11.png" width="100%" alt="" />
-                            <img src="img/wechat/013-12.png" width="100%" alt="" />
-                            <img src="img/wechat/014.png" width="100%" alt="" />
-                            <img src="img/wechat/014-01.png" width="100%" alt="" />
-                            <img src="img/wechat/014-02.png" width="100%" alt="" />
-                            <img src="img/wechat/015.png" width="100%" alt="" />
-                            <img src="img/wechat/015-01.png" width="100%" alt="" />
-                            <img src="img/wechat/015-02.png" width="100%" alt="" />
-                            <img src="img/wechat/015-03.png" width="100%" alt="" />
-                            <img src="img/wechat/016.png" width="100%" alt="" />
-                            <img src="img/wechat/016-01.png" width="100%" alt="" />
-                            <img src="img/wechat/016-02.png" width="100%" alt="" />
-                            <img src="img/wechat/016-03.png" width="100%" alt="" />
-                            <img src="img/wechat/017.png" width="100%" alt="" />
-
-                        </div>
-                        <!--
+                        <div class="content">
+                            <div class="columns is-desktop is-multiline">
+                                <div class="column is-full" id="screen-filters">
+                                    <span class="tag" data-filter="All" role="button">All</span>
+                                    <span class="tag" data-filter="Chats" role="button">Chats</span>
+                                    <span class="tag" data-filter="Contacts" role="button">Contacts</span>
+                                    <span class="tag" data-filter="Discover" role="button">Discover</span>
+                                    <span class="tag" data-filter="Me" role="button">Me</span>
+                                    <span class="tag" data-filter="Settings" role="button">Settings</span>
+                                    <input type="text" id="screen-search" class="search-input" placeholder="搜索 Screens（按标题）" aria-label="搜索 Screens">
+                                    <button type="button" id="delete-selected" class="btn-danger">删除选中</button>
+                                    <span class="help-text">按住 Alt 再点击卡片可选择</span>
+                                </div>
+                            </div>
+                            <!-- Removed Figma embed iframe in Screens section -->
+                            <style>
+                                 #screen-filters { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+                                 #screen-filters .tag { cursor:pointer; }
+                                 #screen-filters .tag.active { background:#000; color:#fff; }
+                                 #screen-filters .search-input { flex: 1 1 220px; max-width: 320px; padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; }
+                                 #screen-filters .btn-danger { padding: 8px 12px; border: 1px solid #ff4d4f; background: #fff0f0; color: #d9363e; border-radius: 6px; font-size: 14px; cursor: pointer; }
+                                 #screen-filters .btn-danger:hover { background: #ffdada; }
+                                 #screen-filters .help-text { color:#888; font-size:12px; }
+                                 @media (max-width: 768px) {
+                                     #screen-filters .search-input { flex-basis: 100%; max-width: 100%; }
+                                 }
+                                 .content-h iframe { height: 70vh; min-height: 560px; }
+                                 .work-card-app.selected { outline: 2px solid #ff4d4f; outline-offset: -2px; }
+                             </style>
                             <div class="content-w">
-
-                                <div class="work-card-app">
-                                    <img class="work-img" src="../images/work/doing/0.png" alt="">
-                                </div>
-                                <div class="work-card-app">
-                                    <img class="work-img" src="../images/work/doing/1%E3%80%81%E4%BC%9A%E8%AF%9D%E5%88%97%E8%A1%A8@2x.png" alt="">
-                                </div>
-                                <div class="work-card-app">
-                                    <img class="work-img" src="../images/work/doing/1%E3%80%81%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BC%9A%E8%AF%9D%E5%88%97%E8%A1%A8@2x.png" alt="">
-                                </div>
-                                <div class="work-card-app">
-                                    <img class="work-img" src="../images/work/doing/2%E3%80%81%E4%BC%9A%E8%AF%9D%E8%AF%A6%E6%83%85@2x.png" alt="">
-
-                                </div>
-                                <div class="work-card-app">
-                                    <img class="work-img" src="../images/work/doing/3%E3%80%81%E6%9B%B4%E5%A4%9A@2x.png" alt="">
-                                </div>
-                                <div class="work-card-app">
-                                    <img class="work-img" src="../images/work/doing/4%E3%80%81%E5%BA%95%E9%83%A8%E4%BA%A4%E4%BA%92%E3%80%8C1%E3%80%81%E8%AF%AD%E9%9F%B3%E3%80%8C1%E3%80%81%E8%AF%AD%E9%9F%B3%E6%AD%A3%E5%9C%A8%E8%BE%93%E5%85%A5@2x.png" alt="">
-
-                                </div>
-                                <div class="work-card-app">
-                                    <img class="work-img" src="../images/work/doing/5%E3%80%81%E6%9B%B4%E5%A4%9A%E3%80%8C1@2x.png" alt="">
-
-                                </div>
-
+                                <!-- Chats -->
+                                <div class="work-card-app" data-category="Chats"><a href="/images/wechat/1、会话/1、好友会话/1、会话列表06.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/1、会话/1、好友会话/1、会话列表06.png" alt="微信 会话列表" /></a></div>
+                                <div class="work-card-app" data-category="Chats"><a href="/images/wechat/1、会话/1、好友会话/1、会话列表-置顶07.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/1、会话/1、好友会话/1、会话列表-置顶07.png" alt="微信 会话列表 置顶" /></a></div>
+                                <div class="work-card-app" data-category="Chats"><a href="/images/wechat/1、会话/1、好友会话/2、会话详情09.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/1、会话/1、好友会话/2、会话详情09.png" alt="微信 会话详情" /></a></div>
+                                <div class="work-card-app" data-category="Chats"><a href="/images/wechat/1、会话/2、群聊会话/1、群组会话列表71.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/1、会话/2、群聊会话/1、群组会话列表71.png" alt="群组 会话列表" /></a></div>
+                                <div class="work-card-app" data-category="Chats"><a href="/images/wechat/1、会话/2、群聊会话/2、群组会话详情72.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/1、会话/2、群聊会话/2、群组会话详情72.png" alt="群组 会话详情" /></a></div>
+                                <div class="work-card-app" data-category="Chats"><a href="/images/wechat/1、会话/3、公众号会话/4、公众号主页78.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/1、会话/3、公众号会话/4、公众号主页78.png" alt="公众号 主页" /></a></div>
+                                <div class="work-card-app" data-category="Chats"><a href="/images/wechat/1、会话/3、公众号会话/5、公众号菜单79.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/1、会话/3、公众号会话/5、公众号菜单79.png" alt="公众号 菜单" /></a></div>
+                                <div class="work-card-app" data-category="Chats"><a href="/images/wechat/1、会话/3、公众号会话/5、推文详情80.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/1、会话/3、公众号会话/5、推文详情80.png" alt="公众号 推文详情" /></a></div>
+                                <div class="work-card-app" data-category="Chats"><a href="/images/wechat/1、会话/5、更多「1101.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/1、会话/5、更多「1101.png" alt="微信 更多" /></a></div>
+                                <div class="work-card-app" data-category="Chats"><a href="/images/wechat/1、会话/6、搜索/2、82.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/1、会话/6、搜索/2、82.png" alt="微信 搜索" /></a></div>
+                                <!-- Contacts -->
+                                <div class="work-card-app" data-category="Contacts"><a href="/images/wechat/2、通讯录页/0、125.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/2、通讯录页/0、125.png" alt="通讯录 页" /></a></div>
+                                <div class="work-card-app" data-category="Contacts"><a href="/images/wechat/2、通讯录页/1、新朋友126.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/2、通讯录页/1、新朋友126.png" alt="通讯录 新朋友" /></a></div>
+                                <div class="work-card-app" data-category="Contacts"><a href="/images/wechat/2、通讯录页/3、群聊133.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/2、通讯录页/3、群聊133.png" alt="通讯录 群聊" /></a></div>
+                                <div class="work-card-app" data-category="Contacts"><a href="/images/wechat/2、通讯录页/5、公众号135.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/2、通讯录页/5、公众号135.png" alt="通讯录 公众号" /></a></div>
+                                <!-- Discover -->
+                                <div class="work-card-app" data-category="Discover"><a href="/images/wechat/3、朋友圈/1、朋友圈/1、feed137.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/3、朋友圈/1、朋友圈/1、feed137.png" alt="朋友圈 feed" /></a></div>
+                                <div class="work-card-app" data-category="Discover"><a href="/images/wechat/3、朋友圈/1、朋友圈/1、feed-查看大图142.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/3、朋友圈/1、朋友圈/1、feed-查看大图142.png" alt="朋友圈 大图" /></a></div>
+                                <div class="work-card-app" data-category="Discover"><a href="/images/wechat/3、朋友圈/3、视频号/02145.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/3、朋友圈/3、视频号/02145.png" alt="视频号 02" /></a></div>
+                                <div class="work-card-app" data-category="Discover"><a href="/images/wechat/3、朋友圈/3、视频号/08关注151.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/3、朋友圈/3、视频号/08关注151.png" alt="视频号 关注" /></a></div>
+                                <div class="work-card-app" data-category="Discover"><a href="/images/wechat/3、朋友圈/4、闪拍/02158.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/3、朋友圈/4、闪拍/02158.png" alt="闪拍 02" /></a></div>
+                                <div class="work-card-app" data-category="Discover"><a href="/images/wechat/3、朋友圈/4、闪拍/备份170.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/3、朋友圈/4、闪拍/备份170.png" alt="闪拍 备份" /></a></div>
+                                <!-- Me -->
+                                <div class="work-card-app" data-category="Me"><a href="/images/wechat/4、我的页/1、我的/1、支付176.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/4、我的页/1、我的/1、支付176.png" alt="我的 支付" /></a></div>
+                                <div class="work-card-app" data-category="Me"><a href="/images/wechat/4、我的页/1、我的/2、钱包/178.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/4、我的页/1、我的/2、钱包/178.png" alt="我的 钱包 178" /></a></div>
+                                <div class="work-card-app" data-category="Me"><a href="/images/wechat/4、我的页/1、我的/2、钱包/181.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/4、我的页/1、我的/2、钱包/181.png" alt="我的 钱包 181" /></a></div>
+                                <div class="work-card-app" data-category="Me"><a href="/images/wechat/4、我的页/1、我的/3、卡包/183.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/4、我的页/1、我的/3、卡包/183.png" alt="我的 卡包 183" /></a></div>
+                                <div class="work-card-app" data-category="Me"><a href="/images/wechat/4、我的页/1、我的/5、运动/1、190.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/4、我的页/1、我的/5、运动/1、190.png" alt="我的 运动 190" /></a></div>
+                                <div class="work-card-app" data-category="Me"><a href="/images/wechat/4、我的页/1、我的-我的状态173.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/4、我的页/1、我的-我的状态173.png" alt="我的 状态 173" /></a></div>
+                                <div class="work-card-app" data-category="Me"><a href="/images/wechat/4、我的页/6、听一听/正在播放113.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/4、我的页/6、听一听/正在播放113.png" alt="听一听 正在播放" /></a></div>
+                                <!-- All -->
+                                <div class="work-card-app" data-category="All"><a href="/images/wechat/0、启动/1、/02.png" target="_blank"><img loading="lazy" class="work-img" src="/images/wechat/0、启动/1、/02.png" alt="启动页 02" /></a></div>
                             </div>
-                            <div class="content">
-                                <h5>“UI套件中显示的照片仅用于演示。”</h5>
-                            </div>
--->
+                            <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const filterTags = document.querySelectorAll('#screen-filters .tag');
+                                const searchInput = document.getElementById('screen-search');
+                                const deleteBtn = document.getElementById('delete-selected');
+                                let cards = Array.from(document.querySelectorAll('.content-w .work-card-app'));
+ 
+                                let currentCategory = 'All';
+                                let currentQuery = '';
+ 
+                                function normalize(str){ return (str || '').toLowerCase(); }
+ 
+                                function applyFilters(){
+                                    const q = normalize(currentQuery);
+                                    cards.forEach(card => {
+                                        const cat = card.dataset.category || 'All';
+                                        const img = card.querySelector('img');
+                                        const title = normalize(img?.alt || '');
+                                        const matchCat = (currentCategory === 'All' || cat === currentCategory);
+                                        const matchQuery = (!q || title.includes(q));
+                                        card.style.display = (matchCat && matchQuery) ? '' : 'none';
+                                    });
+                                    filterTags.forEach(t => t.classList.toggle('active', t.dataset.filter === currentCategory));
+                                }
+ 
+                                // Category click
+                                filterTags.forEach(t => t.addEventListener('click', () => {
+                                    currentCategory = t.dataset.filter;
+                                    applyFilters();
+                                }));
+ 
+                                // Search input
+                                if (searchInput) {
+                                    searchInput.addEventListener('input', (e) => {
+                                        currentQuery = e.target.value;
+                                        applyFilters();
+                                    });
+                                }
+ 
+                                // Alt-click to select cards
+                                cards.forEach(card => {
+                                    card.addEventListener('click', (e) => {
+                                        if (e.altKey) {
+                                            e.preventDefault();
+                                            card.classList.toggle('selected');
+                                        }
+                                    });
+                                });
+ 
+                                // Delete selected cards
+                                if (deleteBtn) {
+                                    deleteBtn.addEventListener('click', () => {
+                                        document.querySelectorAll('.work-card-app.selected').forEach(card => card.remove());
+                                        cards = Array.from(document.querySelectorAll('.content-w .work-card-app'));
+                                        applyFilters();
+                                    });
+                                }
+ 
+                                applyFilters();
+                            });
+                            </script>
+                        </div>
                     </div>
 
 
 
                     <div class="line"></div>
-                    <div class="main-title">
-                        <div class="content-h">
-                            <iframe src="https://www.sketch.com/embed/s/a11e5e52-4636-414c-9276-ccfbddae57c9"
-                                frameborder="0"
-                                sandbox="allow-scripts allow-popups allow-top-navigation-by-user-activation allow-forms allow-same-origin"
-                                allowfullscreen="" loading="lazy"
-                                style="position: relative; left: 0px; top: 0px; width: 100%; height: 800px; border-top-left-radius: 1px; border-top-right-radius: 1px; border-bottom-right-radius: 1px; border-bottom-left-radius: 1px; pointer-events: auto; background-color: rgb(247, 246, 245);">
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="main-title">
-                        <div class="content-h">
-                            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="800px"
-                                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fq5n7lLVhW8IDFovJ9HZtEi%2FWechat-Apps-Library%3Fnode-id%3D0%253A1"
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
+                    <!-- Removed Sketch embed iframe -->
+                    <!-- Removed secondary Figma embed iframe -->
                     <div class="line"></div>
+
+                    <!-- UI Elements Section -->
+                    <div class="main-title" id="ui-elements">
+                        <div class="title">UI Elements</div>
+                        <div class="content-w">
+                            <div class="work-card-app" data-category="UI">
+                                <a href="/images/uikit/微信.png" target="_blank">
+                                    <img loading="lazy" class="work-img" src="/images/uikit/微信.png" alt="UI Kit 微信" />
+                                </a>
+                            </div>
+                            <div class="work-card-app" data-category="UI">
+                                <a href="/images/uikit/归档.zip" target="_blank">
+                                    <img loading="lazy" class="work-img" src="/images/work/app/wechat.png" alt="UI Kit 归档（ZIP）" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flows Section -->
+                    <div class="main-title" id="flows">
+                        <div class="title">Flows</div>
+                        <div class="content">
+                            <div class="flow-grid">
+                                <!-- Chats · 好友会话 -->
+                                <div class="flow-card" data-category="Chats">
+                                    <h5>Chats · 好友会话</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/1、会话列表06.png" target="_blank">会话列表</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/1、会话列表-置顶07.png" target="_blank">会话列表（置顶）</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/2、会话详情09.png" target="_blank">会话详情</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/2、会话详情10.png" target="_blank">会话详情（更多）</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「1、语音「1、语音正在输入11.png" target="_blank">语音正在输入</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「1、语音「2、取消12.png" target="_blank">语音取消</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「1、语音「3、转文字输入13.png" target="_blank">转文字输入</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「1、语音「4、转文字发送14.png" target="_blank">转文字发送</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「2、表情「116.png" target="_blank">表情面板</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「3、更多「00、交互入口19.png" target="_blank">更多 · 交互入口</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「3、更多「01、图片『2、预览22.png" target="_blank">图片预览</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「3、更多「03、视频聊天「0、发起入口40.png" target="_blank">视频聊天发起</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「3、更多「03、视频聊天「2、接听41.png" target="_blank">视频聊天接听</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「3、更多「05、红包「2、发红包52.png" target="_blank">发红包</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「3、更多「05、红包「6、支付成功56.png" target="_blank">支付成功</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「3、更多「05、红包「9、拆开红包59.png" target="_blank">拆开红包</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「3、更多「07、位置「2、发送当前位置64.png" target="_blank">发送位置</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「3、更多「07、位置「7、开始导航69.png" target="_blank">开始导航</a></li>
+                                    </ol>
+                                </div>
+                                <!-- Chats · 群聊会话 -->
+                                <div class="flow-card" data-category="Chats">
+                                    <h5>Chats · 群聊会话</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/1、会话/2、群聊会话/1、群组会话列表71.png" target="_blank">群组会话列表</a></li>
+                                        <li><a href="/images/wechat/1、会话/2、群聊会话/2、群组会话详情72.png" target="_blank">群组会话详情</a></li>
+                                        <li><a href="/images/wechat/1、会话/2、群聊会话/3、更多73.png" target="_blank">更多</a></li>
+                                    </ol>
+                                </div>
+                                <!-- Chats · 公众号会话 -->
+                                <div class="flow-card" data-category="Chats">
+                                    <h5>Chats · 公众号会话</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/1、会话/3、公众号会话/1、公众号会话列表75.png" target="_blank">公众号会话列表</a></li>
+                                        <li><a href="/images/wechat/1、会话/3、公众号会话/2、公众号会话详情「176.png" target="_blank">公众号会话详情</a></li>
+                                        <li><a href="/images/wechat/1、会话/3、公众号会话/4、公众号主页78.png" target="_blank">公众号主页</a></li>
+                                        <li><a href="/images/wechat/1、会话/3、公众号会话/5、公众号菜单79.png" target="_blank">公众号菜单</a></li>
+                                        <li><a href="/images/wechat/1、会话/3、公众号会话/5、推文详情80.png" target="_blank">推文详情</a></li>
+                                    </ol>
+                                </div>
+                                <!-- Chats · 搜索 -->
+                                <div class="flow-card" data-category="Chats">
+                                    <h5>Chats · 搜索</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/1、会话/6、搜索/2、82.png" target="_blank">搜索-02</a></li>
+                                        <li><a href="/images/wechat/1、会话/6、搜索/3、83.png" target="_blank">搜索-03</a></li>
+                                        <li><a href="/images/wechat/1、会话/6、搜索/4、84.png" target="_blank">搜索-04</a></li>
+                                    </ol>
+                                </div>
+                                <!-- Chats · 待机状态 -->
+                                <div class="flow-card" data-category="Chats">
+                                    <h5>Chats · 待机状态</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/1、会话/7、待机状态/1、「mac登录86.png" target="_blank">Mac 登录</a></li>
+                                        <li><a href="/images/wechat/1、会话/7、待机状态/4、正在播放102.png" target="_blank">正在播放</a></li>
+                                    </ol>
+                                </div>
+                                <!-- Contacts -->
+                                <div class="flow-card" data-category="Contacts">
+                                    <h5>Contacts · 通讯录</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/2、通讯录页/0、125.png" target="_blank">通讯录页</a></li>
+                                        <li><a href="/images/wechat/2、通讯录页/1、新朋友126.png" target="_blank">新朋友</a></li>
+                                        <li><a href="/images/wechat/2、通讯录页/1、新朋友「2、雷达加好友128.png" target="_blank">雷达加好友</a></li>
+                                        <li><a href="/images/wechat/2、通讯录页/3、群聊133.png" target="_blank">群聊</a></li>
+                                        <li><a href="/images/wechat/2、通讯录页/4、标签134.png" target="_blank">标签</a></li>
+                                        <li><a href="/images/wechat/2、通讯录页/5、公众号135.png" target="_blank">公众号</a></li>
+                                    </ol>
+                                </div>
+                                <!-- Discover · 朋友圈 -->
+                                <div class="flow-card" data-category="Discover">
+                                    <h5>Discover · 朋友圈</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/3、朋友圈/1、朋友圈/1、feed137.png" target="_blank">朋友圈 Feed</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/1、朋友圈/1、feed-查看大图142.png" target="_blank">查看大图</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/1、朋友圈/2、选择发布类型「2、发布图文动态143.png" target="_blank">发布图文动态</a></li>
+                                    </ol>
+                                </div>
+                                <!-- Channels · 视频号 -->
+                                <div class="flow-card" data-category="Channels">
+                                    <h5>Channels · 视频号</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/3、朋友圈/3、视频号/02145.png" target="_blank">视频号 02</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/3、视频号/07150.png" target="_blank">视频号 07</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/3、视频号/08关注151.png" target="_blank">关注</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/3、视频号/09我的152.png" target="_blank">我的</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/3、视频号/10发布153.png" target="_blank">发布</a></li>
+                                    </ol>
+                                </div>
+                                <!-- FlashSnap · 闪拍 -->
+                                <div class="flow-card" data-category="FlashSnap">
+                                    <h5>FlashSnap · 闪拍</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/3、朋友圈/4、闪拍/02158.png" target="_blank">闪拍 02</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/4、闪拍/05161.png" target="_blank">闪拍 05</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/4、闪拍/08164.png" target="_blank">闪拍 08</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/4、闪拍/13169.png" target="_blank">闪拍 13</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/4、闪拍/备份170.png" target="_blank">备份</a></li>
+                                    </ol>
+                                </div>
+                                <!-- Me · 我的页 -->
+                                <div class="flow-card" data-category="Me">
+                                    <h5>Me · 我的/支付/钱包/卡包/运动</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/4、我的页/1、我的/1、支付176.png" target="_blank">支付</a></li>
+                                        <li><a href="/images/wechat/4、我的页/1、我的/2、钱包/178.png" target="_blank">钱包</a></li>
+                                        <li><a href="/images/wechat/4、我的页/1、我的/3、卡包/183.png" target="_blank">卡包</a></li>
+                                        <li><a href="/images/wechat/4、我的页/1、我的/5、运动/1、190.png" target="_blank">运动</a></li>
+                                        <li><a href="/images/wechat/4、我的页/1、我的-我的状态173.png" target="_blank">我的状态</a></li>
+                                    </ol>
+                                </div>
+                                <!-- Me · 听一听 -->
+                                <div class="flow-card" data-category="Me">
+                                    <h5>Me · 听一听</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/4、我的页/6、听一听/1、103.png" target="_blank">听一听 103</a></li>
+                                        <li><a href="/images/wechat/4、我的页/6、听一听/2、111.png" target="_blank">听一听 111</a></li>
+                                        <li><a href="/images/wechat/4、我的页/6、听一听/正在播放113.png" target="_blank">正在播放 113</a></li>
+                                        <li><a href="/images/wechat/4、我的页/6、听一听/正在播放114.png" target="_blank">正在播放 114</a></li>
+                                    </ol>
+                                </div>
+                                <!-- Shopping · 购物 -->
+                                <div class="flow-card" data-category="Me">
+                                    <h5>Shopping · 购物</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/4、我的页/7、购物/1、首页202.png" target="_blank">首页</a></li>
+                                        <li><a href="/images/wechat/4、我的页/7、购物/1、首页-分类203.png" target="_blank">首页-分类</a></li>
+                                        <li><a href="/images/wechat/4、我的页/7、购物/2、搜索207.png" target="_blank">搜索</a></li>
+                                        <li><a href="/images/wechat/4、我的页/7、购物/3、购物车208.png" target="_blank">购物车</a></li>
+                                        <li><a href="/images/wechat/4、我的页/7、购物/5、我的213.png" target="_blank">我的</a></li>
+                                    </ol>
+                                </div>
+                                <!-- Startup -->
+                                <div class="flow-card" data-category="Startup">
+                                    <h5>Startup · 启动</h5>
+                                    <ol class="flow-steps">
+                                        <li><a href="/images/wechat/0、启动/1、/02.png" target="_blank">启动页</a></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flow Tree Section -->
+                    <div class="main-title" id="flow-tree">
+                        <div class="title">Flow Tree</div>
+                        <div class="content">
+                            <div class="flow-tree">
+                                <details open>
+                                    <summary>Chats</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/1、会话列表06.png" target="_blank">好友会话 · 会话列表</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/2、会话详情09.png" target="_blank">好友会话 · 会话详情</a></li>
+                                        <li><a href="/images/wechat/1、会话/1、好友会话/4、底部交互「3、更多「00、交互入口19.png" target="_blank">好友会话 · 更多入口</a></li>
+                                        <li><a href="/images/wechat/1、会话/2、群聊会话/1、群组会话列表71.png" target="_blank">群聊会话 · 列表</a></li>
+                                        <li><a href="/images/wechat/1、会话/2、群聊会话/2、群组会话详情72.png" target="_blank">群聊会话 · 详情</a></li>
+                                        <li><a href="/images/wechat/1、会话/3、公众号会话/1、公众号会话列表75.png" target="_blank">公众号会话 · 列表</a></li>
+                                        <li><a href="/images/wechat/1、会话/3、公众号会话/4、公众号主页78.png" target="_blank">公众号主页</a></li>
+                                        <li><a href="/images/wechat/1、会话/6、搜索/2、82.png" target="_blank">搜索 · 82</a></li>
+                                        <li><a href="/images/wechat/1、会话/7、待机状态/4、正在播放102.png" target="_blank">待机状态 · 正在播放</a></li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Contacts</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/2、通讯录页/0、125.png" target="_blank">通讯录页</a></li>
+                                        <li><a href="/images/wechat/2、通讯录页/1、新朋友126.png" target="_blank">新朋友</a></li>
+                                        <li><a href="/images/wechat/2、通讯录页/1、新朋友「4、扫一扫130.png" target="_blank">扫一扫</a></li>
+                                        <li><a href="/images/wechat/2、通讯录页/3、群聊133.png" target="_blank">群聊</a></li>
+                                        <li><a href="/images/wechat/2、通讯录页/4、标签134.png" target="_blank">标签</a></li>
+                                        <li><a href="/images/wechat/2、通讯录页/5、公众号135.png" target="_blank">公众号</a></li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Discover</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/3、朋友圈/1、朋友圈/1、feed137.png" target="_blank">朋友圈 Feed</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/1、朋友圈/1、feed-查看大图142.png" target="_blank">查看大图</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/1、朋友圈/2、选择发布类型「2、发布图文动态143.png" target="_blank">发布图文动态</a></li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Channels（视频号）</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/3、朋友圈/3、视频号/02145.png" target="_blank">视频号 02</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/3、视频号/07150.png" target="_blank">视频号 07</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/3、视频号/08关注151.png" target="_blank">关注</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/3、视频号/09我的152.png" target="_blank">我的</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/3、视频号/10发布153.png" target="_blank">发布</a></li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>FlashSnap（闪拍）</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/3、朋友圈/4、闪拍/02158.png" target="_blank">闪拍 02</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/4、闪拍/05161.png" target="_blank">闪拍 05</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/4、闪拍/08164.png" target="_blank">闪拍 08</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/4、闪拍/13169.png" target="_blank">闪拍 13</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/4、闪拍/备份170.png" target="_blank">备份</a></li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Me</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/4、我的页/1、我的/1、支付176.png" target="_blank">支付</a></li>
+                                        <li><a href="/images/wechat/4、我的页/1、我的/2、钱包/178.png" target="_blank">钱包</a></li>
+                                        <li><a href="/images/wechat/4、我的页/1、我的/3、卡包/183.png" target="_blank">卡包</a></li>
+                                        <li><a href="/images/wechat/4、我的页/1、我的/5、运动/1、190.png" target="_blank">运动</a></li>
+                                        <li><a href="/images/wechat/4、我的页/6、听一听/正在播放113.png" target="_blank">听一听 · 正在播放</a></li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Shopping（购物）</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/4、我的页/7、购物/1、首页202.png" target="_blank">首页</a></li>
+                                        <li><a href="/images/wechat/4、我的页/7、购物/1、首页-分类203.png" target="_blank">首页-分类</a></li>
+                                        <li><a href="/images/wechat/4、我的页/7、购物/2、搜索207.png" target="_blank">搜索</a></li>
+                                        <li><a href="/images/wechat/4、我的页/7、购物/3、购物车208.png" target="_blank">购物车</a></li>
+                                        <li><a href="/images/wechat/4、我的页/7、购物/5、我的213.png" target="_blank">我的</a></li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Startup</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/0、启动/1、/02.png" target="_blank">启动页</a></li>
+                                    </ul>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Contacts</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/2、通讯录页.png" target="_blank">通讯录页</a></li>
+                                        <li><a href="/images/wechat/1、会话/3、公众号会话/4、公众号主页.png" target="_blank">公众号主页</a></li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Discover</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/3、朋友圈/1、朋友圈/1、feed.png" target="_blank">朋友圈 Feed</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/1、朋友圈/查看大图.png" target="_blank">查看大图</a></li>
+                                        <li><a href="/images/wechat/3、朋友圈/4、闪拍/01.png" target="_blank">闪拍</a></li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Channels（视频号）</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/3、朋友圈/3、视频号/08关注.png" target="_blank">关注</a></li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Me</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/4、我的页/1、我的.png" target="_blank">我的</a></li>
+                                        <li><a href="/images/wechat/4、我的页/1、我的/2、钱包.png" target="_blank">钱包</a></li>
+                                        <li><a href="/images/wechat/4、我的页/6、听一听/正在播放113.png" target="_blank">听一听</a></li>
+                                    </ul>
+                                </details>
+                                <details>
+                                    <summary>Startup</summary>
+                                    <ul>
+                                        <li><a href="/images/wechat/0、启动/1、/02.png" target="_blank">启动页</a></li>
+                                    </ul>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <style>
+                        .flow-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap:16px; }
+                        .flow-card { border:1px solid #eee; border-radius:10px; padding:12px; background:#fff; }
+                        .flow-card h5 { margin:0 0 8px; font-size:16px; }
+                        .flow-steps { margin:0; padding-left:18px; }
+                        .flow-steps li { margin:4px 0; }
+                        .flow-steps a { color:inherit; text-decoration:none; }
+                        .flow-card:hover { box-shadow:0 4px 16px rgba(0,0,0,0.06); }
+                        .flow-tree details { margin:8px 0; }
+                        .flow-tree summary { cursor:pointer; font-weight:600; }
+                        .flow-tree ul { margin:6px 0 6px 18px; }
+                    </style>
 
 
                     <div class="main-title">
