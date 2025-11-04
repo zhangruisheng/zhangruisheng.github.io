@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>设计思维</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4494b478-47aa-44dc-83fd-a8229e6776a6" class="page sans"><header><h1 class="page-title">设计思维</h1></header><div class="page-body"><h3 id="82a6eab7-4449-4357-894c-051e7e3dcfe3" class=""><strong>关于设计思维（On Design Thinking）</strong><a href="https://www.zhihu.com/people/xin-hai-lin"><strong>ConanXin</strong></a>设计师16 人赞同了该文章</h3><p id="28f071e9-b65d-4141-82d8-4049ada22c14" class="">盖恩斯维尔（Gainesville）是佛罗里达州中北部的一座中型城市。它属于亚热带气候，城市很美：街道两旁种满了黑栎、香枫等，建筑上爬满了西班牙苔藓。这个城市也很穷。该市13.4万居民中，近34%生活在联邦贫困线以下——是全国平均水平的两倍多——57%的人难以满足基本需求。盖恩斯维尔的佛罗里达大学每年招收五万多名学生，但是毕业生在完成学位后往往会离开这个城市。他们去了佛罗里达的其他地方，或者去了机会似乎更大的其他州。</p><p id="084af2c1-d29d-4388-bfb5-008f05b3db77" class="">2013年，盖恩斯维尔选举了艾德·布拉迪（Ed Braddy）做市长，他承诺要改变经济前景。布拉迪说，盖恩斯维尔需要成为“对新企业和人才更具竞争力的地方”。他相信，更大的“竞争力”将刺激经济活动，让毕业生留在城里，并建立起<strong>理查德·佛罗里达（Richard Florida）</strong>所说的“创意阶层”（creative class）。为了实现这一愿景，布拉迪和盖恩斯维尔市委员会任命了<strong>蓝丝带经济竞争力委员会（Blue Ribbon Committee on Economic Competitiveness）</strong>。委员会成员前往硅谷，参观了传奇的帕洛阿尔托咨询公司IDEO。在与IDEO公司的领导交谈之后，他们聘请了该公司来设计盖恩斯维尔的变形（metamorphosis）。</p><p id="be993fca-76ac-49e4-ba1e-9d3bf9f13b3d" class="">IDEO不是麦肯锡或德勤那样的管理咨询公司。这是一家设计咨询公司——<strong>它认为“设计”不仅是构想实体和数字产品的学科，也是改造服务和机构的学科</strong>。在2015年末的八个多星期里，一组IDEO设计师接管了盖恩斯维尔市中心的一个店面，在那里他们采访了数百名城市居民。他们设计并测试了市政问题的解决方案。最后，与蓝丝带委员会合作，IDEO团队发布了一份报告。其目的是解决布拉迪市长诊断出的新企业和人才缺乏“竞争力”的问题。</p><p id="f3c5c0c2-6a0d-435d-b42c-cce759ae150b" class="">IDEO的盖恩斯维尔蓝丝带报告是一份乐观的文件。它的首页使用了去饱和的颜色：灰黄色、暗橙色、柔和的棕色。但是，当报告揭示了它的解决方案时，它的颜色突然活跃起来。“今天，世界靠理念运转，”一个标题宣布。“我们有一个。我们认为这是一个非常好的选择。”这个想法是让盖恩斯维尔成为“世界上最以民为本的城市”。</p><p id="55242640-d93e-4c79-acf4-d3ca3da9406c" class="">如何使一个城市<strong>“以民为本”（citizen-centered）</strong>？IDEO的报告为盖恩斯维尔提出了九项修改。首先是品牌重塑：采用新的标识、标语和视觉风格。另一个是创建一个“行动部门”（Department of Doing），一个帮助人们在盖恩斯维尔创业或发展业务的办公室。最后，报告称，这个城市应该变得更加注重设计。应该培养城市员工的“设计思维”：运用设计方法解决问题。<strong>它应该用设计思维研讨会取代城市委员会的小组委员会，并把政策问题框定为设计问题。</strong></p><p id="5a485682-fb7e-4e88-8327-5e0a1b7c2ccf" class="">盖恩斯维尔市委员会接受了蓝丝带报告。媒体也是。<strong>2016年，快公司发表了一篇题为“一座佛罗里达的城市如何通过用户体验设计来重塑自己”（</strong><a href="https://link.zhihu.com/?target=https%3A//www.fastcompany.com/3065107/how-one-florida-city-is-reinventing-itself-with-ux-design"><strong>How One Florida City Is Reinventing Itself With UX Design</strong></a><strong>）的长篇专题文章。</strong></p><p id="bb4261f2-cce1-40d6-a2bd-ccc2fd500e9c" class="">在该报告发布后，市政委员们选择了蓝丝带委员会的主任安东尼·莱昂斯（Anthony Lyons）担任城市经理，他曾与IDEO密切合作。莱昂斯先是临时负责，然后是长期负责，负责一千多名城市雇员和普通基金预算。他获得了实现IDEO建议所需的资源。</p><hr id="cbe845af-b97f-4672-b71c-5a77e84efd16"/><p id="532bb8d9-fbef-4882-a6f7-15599a629a03" class="">设计是一个几乎包含无限含义的护身符。设计是时装设计、城市设计以及平面设计和产品设计；它也是分析设计（生物学）、面向对象设计（计算机科学）、智能设计（神创论）等。其中一些用途似乎没有什么共同之处。然而，设计确实围绕着某些想法（ideas）：意图、规划、美学、方法、职业（vocation）。<strong>这些想法共同形成了一个产生意义的社会系统，定义了知识的边界以及文化和经济价值的位置。</strong>换句话说，设计和与之相关的想法构成了一个话语。</p><p id="730e0bdb-8351-4466-9bee-ffc5e3031607" class="">也就是说：它们是历史性的。即使在英语中，设计也不总是意味着它现在的含义。直到19世纪末，人们还用这个词来指代大多数视觉艺术。但后来，这种说法改变了。20世纪初，设计开始指现有产品的视觉造型。然后，随着现代主义思想在二战前的欧洲传播以及美国人接受了“工业设计”的理念，设计开始不仅指造型产品，也指构思和规划其功能。就在那时，设计开始有了意义，正如史蒂夫·乔布斯（Steve Jobs）后来说的那样，<strong>设计“不仅仅是外观和感觉”（not just what it looks like and feels like），还有“它是如何工作的”（how it works）。</strong></p><p id="933d531d-6ee5-46c7-b333-6a0a4189bf05" class="">设计现在意味着更广泛的东西。大约在第二次世界大战期间，设计开始意味着制造“解决问题”的东西。随着20世纪中期全球社会运动的影响和数字技术的兴起，它开始意味着制造“以人为本”的东西。最近，设计根本不需要制造东西。它可以只是一种思维方式。</p><p id="ca7ff225-618f-4e7b-8f10-dae1405200f6" class="">在所有这些发展中，设计作为一种广泛适用的思维方式的思想——“设计思维”的思想——可能是最有影响力的。更宽泛的“设计”范畴随处可见——广告、电视、播客和博客。但是“设计思维”也已经到达了权力的殿堂。你可以在公司、政府和大学的上层找到它。它组织和协调管理人员和精英的决策。正如罗伯特·萨顿（Robert Sutton）所说，在斯坦福大学的设计学院（Stanford’s d.school），<strong>“设计思维”经常被视为“一种宗教，而不是激发创造力的一套实践”（more like a religion than a set of practices for sparking creativity）。</strong>所以<strong>设计是什么</strong>？</p><hr id="06c06a09-217e-4ac8-a4c7-27cd51db6737"/><p id="e5eaad5f-22c2-4974-b25a-e5ef80e5715f" class="">这个问题对我来说很紧迫，主要是因为我一直试图和设计专业的学生讨论“设计思维”。我是一名交互设计师。我在一家为企业客户制作数字工具的工作室工作。我还教授一门关于数字设计和设计研究的研究生课程。我试着教授一些实用技能——面试、素描、线框图、原型设计、可用性测试——以及一些理论。但是最近似乎也有必要讨论一下“设计思维”，因为我的学生被要求在工作面试中讨论它，然后在他们的工作中进行讨论。</p><p id="b891c437-6893-46f6-8324-b886043f025c" class="">我所说的“设计思维”是指：<strong>使用一套特定的设计方法来解决传统上不属于设计范畴的问题（using a particular set of design methods to solve problems that traditionally have fallen outside the purview of design）</strong>。我给我的学生们展示了设计师们所说的<strong>“六边形图”</strong>，这是出自斯坦福设计学院（d.school）的一个无处不在的形象，旨在代表设计思维的五个步骤。它由五个六边形组成，分别是：<strong>“移情”（Empathize）、“定义”（Define）、“概念”（Ideate）、“原型”（Prototype）和“测试”（Test）</strong>。这个想法是，设计思维包括倾听和移情，然后用你听到的来定义你想要解决的问题。然后提出想法，将这些想法制作成原型，并测试这些原型，看它们是否有效。</p><p id="398a0ab6-0f04-4142-b508-d1170636409d" class="">这是一个简单易懂的图表。我的学生将设计思维视为一种易于理解的解决问题的方法。他们也很乐观。他们读到，设计思维已经应用于教育、卫生、政府和企业文化转型等各个领域。设计思考者更容易被雇佣，更有用，更有价值。突然间，一切都成了设计思维的问题：产后抑郁症、判决中的种族歧视、不可持续的增长。</p><p id="516d4967-8cd0-462b-968e-eb43d8a1a4a3" class=""><strong>对于一个拿着锤子的人来说，一切都像钉子。</strong>但是我的学生不傻；他们很聪明。他们发现了一些东西。在他们居住的世界里，“更好的设计”（Better by design）是一种感觉的主导结构。</p><hr id="6f7aa279-10dc-4e22-a8c7-c6b791018f51"/><p id="91b3316c-0a65-40b8-8454-bba266c85e75" class="">自20世纪30年代以来，设计一直是美国的一种职业。当消费者购买力在大萧条期间崩溃时，制造商们拥抱“工业设计”，希望在消费品中注入艺术元素能吸引更多的人购买。1946年，设计师们在现代艺术博物馆召开了<strong>“工业设计会议，一个新的职业”（Conference on Industrial Design, A New Profession）</strong>，讨论他们的新工艺可能采用的标准、誓言和教育要求。</p><p id="eee4d79b-0c25-450c-857f-a38936b639a1" class="">但是设计思维本身的故事——以及<strong>设计如何作为一个“漂浮的能指” （floating signifier）达到它的神化，脱离任何一个对象、媒介或输出</strong>——始于第二次世界大战。随着战争开始，美国的工业设计师们纷纷进入政府部门工作。他们为参谋长联席会议设计了各种各样的东西，从液体推进剂火箭到成型胶合板夹板，再到一对战略室和一个巨大的旋转地球仪。他们让他们的合作者——科学家、数学家、工程师以及工业、学术界和政府中的其他人——认识到，<strong>设计师是跨领域的聪明解决方案的全能架构师</strong>。</p><p id="c1fe4f17-a0a0-49e2-935a-1b49ee62109a" class="">战后，随着他们的合作者重新回到各自的行业，设计的影响范围也随之扩大——正如这个词的含义一样。工业设计师得到了更多的工作。平面设计被认为是一门独立的艺术。更普遍的“设计会议”出现了——会议的重点不是单一的分支学科（工业设计、时装设计、建筑），而是对新设计理念的统一实践。由<strong>沃尔特·佩普克（Walter Paepcke）</strong>和<strong>赫伯特·拜耳（Herbert Bayer）</strong>在1951年创立的<strong>亚斯本国际设计大会（Aspen International Design Conference）</strong>就是一个很好的例子。美国集装箱公司（Container Corporation of America）总裁佩普克（Paepcke）认为，美国正处于一个“新时代”，<strong>“设计师及其顾问的影响力渗透到整个组织”</strong>。亚斯本会议变成了一年一度的盛会，出席会议的有著名的建筑师、工业和平面设计师，以及格洛丽亚·斯坦恩（Gloria Steinem）、C.赖特·米尔斯（C. Wright Mills）、罗伯特·劳森伯格（Robert Rauschenberg）、约翰·凯奇（John Cage）、苏珊·桑塔格（Susan Sontag）和格温多林·布鲁克斯（Gwendolyn Brooks）。“设计”已经不仅仅是一系列职业，而是一个广泛相关的关注领域。</p><p id="b65b57d4-82cf-4774-ab75-085db1ae8f3e" class=""><strong>拓宽设计范围是建立“设计思维”的第一步，这种思维依赖于广阔的空间。下一步是提高自我意识，认识到这种新的能力意味着什么。</strong>在战后的二十年里，美国和英国的知识分子开始质疑什么是设计。这个词是什么意思？什么算设计，什么不算？设计与其他思维和认知方式有何不同？仅仅是规划吗？专业规划师的规划，还是像每个人每天做的那样规划？</p><blockquote id="e4487350-78c4-44f6-a2b2-913595a4ddf5" class="">设计是各种各样的批评声音围绕着一个未知的领域来讨论一个问题，直到它自己形成或没有形成某种解决方案。（Design was a multiplicity of critical voices batting a problem around unknown terrain until it formed itself, or not, into some kind of resolution.）</blockquote><p id="894e35fe-37a0-4eef-81e2-679b6fa0781e" class="">20世纪中期的系统科学家<strong>C.西丘奇曼（C. West Churchman）</strong>是设计的新自我意识的助产士。西丘奇曼在费城接受教友派教育，拥有宾夕法尼亚大学哲学博士学位，1939年作为助理教授加入该系。他的博士研究集中在逻辑学的一个分支——命题演算（propositional calculus）。当美国准备参战时，西丘奇曼在费城法兰克福兵工厂的美国军械实验室找到了一份更具体、更实用的工作。法兰克福兵工厂是一个巨大的、协调的、现代化的地方，拥有士兵和平民的劳动力。其目的是设计、制造和测试弹药。西丘奇曼成为了数学部门的负责人，在那里他解决了统计质量控制的问题。他还设计了测试军火库的小型武器弹药的实验方法。</p><p id="87f77551-c3fc-4ed3-b527-ea00d3abb4b2" class="">战争结束后，西丘奇曼离开了法兰克福兵工厂，但他再也没有回到完全抽象的学术工作。相反，他转向了运筹学的新领域：应用科学方法进行决策的研究，尤其是企业和其他机构的决策。他开始对设计感兴趣。具体地说，<strong>他研究了可能改善人类状况的社会制度的设计。</strong>他想知道是否每个人都在设计——每个人都在计划未来，不是吗？——或者设计是否应该被视为一门专门学科。</p><p id="c10b78c4-5357-4cb9-94c5-50f35fb97033" class="">1958年，西丘奇曼成为加州大学伯克利分校工商管理学院的教授。在伯克利，西丘奇曼开始了每周一次的教员和学生研讨会，在崭新的巴罗斯大厅举行，致力于理解设计和设计方法。同事们称之为<strong>“西丘奇曼研讨会”</strong>。一位与会者后来回忆说，它的前提是<strong>“设计是一种几乎每个人都在实践的活动，至少在某些时候是这样，对于人们如何进行设计可能会有一些可归纳的观察结果”</strong>。</p><p id="bde568a7-0ff1-4d20-a00d-81071f5e0a0e" class="">人们如何进行设计？1962年，第一次设计方法会议在伦敦召开，西丘奇曼和他的同事们对这个问题越来越感兴趣。在会议和“西丘奇曼研讨会”上，人们的情绪都很乐观。1964年，伯克利的建筑师和设计理论家<strong>克里斯托弗·亚历山大（Christopher Alexander）</strong>出版了一本小书<strong>《形式综合论》（Notes on the Synthesis of Form）</strong>，该书认为，由于设计问题很复杂，应该通过简化来解决。亚历山大写道，设计既不神秘也不直观。它更像数学：正如数学家在计算一个五十位数的七次方根时所做的那样，设计师应该简单地把一个问题写下来，并将其分解成更小的问题。然后这些问题可以被重新组织成集合、子集和模式，它们指向正确的解决方案。</p><p id="35412676-7614-4a2b-8616-32bd9cbc6b5b" class="">那是60年代早期：这种天真自信的高峰期。亚历山大、西丘奇曼和他们的“方法论专家”同行们—— 设计师约翰·克里斯·琼斯（John Chris Jones）；工程师和设计研究员布鲁斯·阿彻（L. Bruce Archer）；经济学家、心理学家和政治学家赫伯特·西蒙（Herbert Simon） —都认为设计过程可以被完全编目、描述和合理化。（西蒙后来获得了诺贝尔经济学奖，他认为所有的设计都是解决问题的，可以被复制成计算机程序。）</p><p id="197f7b36-72b0-4072-8bb7-a1490dc6e881" class="">然后<strong>霍斯特·里特（Horst Rittel）</strong>走进了“西丘奇曼研讨会”。里特生于1930年，在柏林长大，他是从一所起源于包豪斯的德国设计学院——乌尔姆造型学院——来到伯克利的，这是一所国际知名的学院，当时其教师因严重的政治分歧而分裂。他总是穿着西装。和大多数研讨会成员一样，他也经历过第二次世界大战。但他从另一面看到了。他对战后转向理性方法有不同的理解。</p><p id="5868cda0-2b26-4d48-b471-530c09fac237" class="">里特也从根本上对人们为什么以及如何设计感兴趣。但这就是他与小组其他成员的共同点。与其他研讨会成员不同，里特对使任何人的设计或计划过程合理化，或使之成为一种方法，都不乐观。</p><p id="d969d6cd-b2d1-4678-bdb0-40ba724137cd" class="">1967年，里特在“西丘奇曼研讨会”上朗读的论文主要不是关于设计方法，而是关于设计问题：里特认为，从贫困到污水管道的需要，这些问题应该是设计的范围。里特将这类问题置于20世纪60年代正在展开的历史背景中，正如他所写，<strong>“美国生活方式”的单一概念是“让步”，个人有理由质疑专业阶层代表他们做出决定的权力。</strong></p><p id="3625cdd8-f77c-46ad-be37-ea9da96ded92" class="">里特说，把这些问题联系在一起的，<strong>首先是实际问题总是不确定的。</strong>换句话说，<strong>很难说你对问题的诊断是否正确，因为如果你挖得更深—— 为什么会出现这个问题？ ——你总能找到比你所说的更根本的原因。</strong>这些问题也没有正确或错误的答案，只有更好或更差的解决方案。事实上，它们不像数学问题。没有对解决方案的权威测试，也没有证据。更多的努力不一定会带来更好的结果。</p><p id="7f602f54-491f-4b1c-8707-b8dc7e9695ea" class="">这些问题还有其他不像数学的地方。里特和他的同事<strong>梅尔文·韦伯（Melvin M. Webber）</strong>在将里特的报告作为论文发表时写道，他们有着内在的高风险。任何实现的解决方案都会留下无法消除的“痕迹”。他们写道：“人们不可能建造一条高速公路来观察它是如何工作的，然后在不令人满意的表现之后很容易地修正它，大型公共工程实际上是不可逆转的，它们产生的后果有很长的半衰期。”设计师没有“犯错的权利”，因为这些问题很重要。</p><p id="502fca1a-a6c3-46bc-a618-dc3c840d85ac" class="">里特称之为“邪恶的问题”。他们是“邪恶的”，不是因为他们不道德或邪恶，而是因为他们是恶意的、不可救药的和冷酷的。确实有一些简单的问题没有上升到这个水平。但是“既然相对容易的问题已经解决了”，那些值得设计师花时间的问题是最坏的。异质社会生活中最棘手的问题，需要设计师的高度专注。</p><p id="513ffa05-8cae-4694-a36d-837562cd55fe" class="">对里特来说，设计问题的邪恶意味着它们永远不可能通过一个单一的解决过程来解决。不可能有一种“方法”。比如说，教科书倾向于将工程工作分解成“阶段”：“收集信息”、“合成信息并等待创造性的飞跃”，等等。但是对于邪恶的问题，里特写道，“这种方案行不通”。理解这个问题需要理解它的背景。<strong>在开始制定解决方案之前，不可能收集全部信息。没有什么是线性或一致的；设计师们没有，也不可能那样想。</strong>如果有任何对设计过程的描述，那就是作为一个参数。设计是各种各样的批评声音围绕着一个未知的领域来讨论一个问题，直到它自己形成或没有形成某种解决方案。</p><p id="bd7488f4-8a0f-41e6-a68b-0ab117daf39e" class="">里特认为，这种方法是一件奇妙的事情。他后来写道，这意味着一种“令人敬畏的认知自由”，没有算法的保护，也没有有效性的规则。“生活在认知自由中并不容易，”他写道，因此<strong>设计师们经常寻找sachzwang ——实际的约束，内在的必然性，“一种‘从事实中推导出应当（ought）’的方法”。</strong>但他们不应该。没有方法上的限制，设计有异质性的空间。它有出其不意的能力。“没有什么必须保持现状，”里特写道，“或者看起来是这样”。</p><p id="b39faacb-d754-4844-ad3e-a71f6a12f8fd" class="">对于那些一直致力于识别和系统化一种真正的设计方法的里特的同行来说，这种认知上的自由尤其难以忍受。里特毫不妥协、严谨、冷静的学术拒绝声音，加上20世纪60年代无可救药的政治和社会冲突，帮助他们结束了理性主义计划。<strong>约翰·克里斯·琼斯（John Chris Jones）</strong>于1962年在伦敦联合举办了第一次设计方法会议，用他的话说，现在“反对设计方法”。 克里斯托弗·亚历山大（Christopher Alexander）否定了他自己的方法论工作，包括《形式综合论》。“我想说，忘掉它吧，”他在1971年写道，“忘掉一切吧”。</p><p id="cfc8f8b5-6d34-42a8-af85-821db80e51d3" class="">里特把眼光放得很高。设计应该解决文明面临的最困难的问题。在帮助他的同行们接受这个观点的过程中，他已经开始，尽管是悄无声息地，扩展设计的论述范围。与此同时，他认为每个设计师都应该以不同的方式来处理这个庞大的项目。正是因为问题复杂，没有一种方法可以做到。</p><p id="40dca6e1-2452-4d34-bec6-f464f33b1edc" class="">1971年，在里特和韦伯的完整文章发表之前，奥地利裔美国设计师<strong>维克多·帕帕内克（Victor Papanek）</strong>出版了一本书，开始将这些主张推向公共话语中去。<strong>《为真实的世界设计》（Design for the Real World）</strong>一书如今被其出版商称为“世界上阅读人数最多的设计书籍之一”，该书告诫设计师只解决复杂的问题：比如说生态灾难，而不是“大众休闲和虚假时尚”。<strong>帕帕内克也认为，试图从设计中提取可复制的方法——开发“规则、分类法、分类和过程设计系统”——是愚蠢之举。</strong></p><p id="31fd9ce0-d927-445b-9cd8-524c2d721f05" class="">宽敞（capaciousness）导致了自我意识。现在，自我意识产生了一种共识，即能力排除了任何一种方法。1987年，<strong>彼得·罗(Peter Rowe) </strong>发表了一篇关于设计师的人种学研究，名为<strong>“设计思维”(Design Thinking)</strong>。但罗对观察到的证据的研究得出了结论，正如里特和帕帕内克所争论的，事实上，根本就没有所谓的“设计思维”。“相反，”罗写道，“有许多不同的决策风格，每一种都有各自的怪癖和共同特征的表现。” <strong>设计没有固定的方法，这已成为司空见惯的事。更有趣的问题是如何观察和协商分歧的扩散。</strong></p><hr id="f0e9627e-b15b-4a6e-b49a-38f6ced584e0"/><p id="49cc67c7-12e2-461a-8d26-2f48b2e5d3bb" class="">1978年，来自俄亥俄州的27岁电气工程师<strong>大卫·凯利（David Kelley）</strong>在斯坦福大学完成了产品设计硕士学位，并与一位同学一起创办了一家设计工作室。他们在帕洛阿尔托的一家服装店上面开了店，并从研究生院雇佣了四个朋友。以前的教授开始把客户送过来。当有人把凯利介绍给史蒂夫·乔布斯，乔布斯请他为新的苹果丽萨电脑（Apple Lisa）设计鼠标时，凯利取得了突破。凯利想知道什么是“鼠标”。他用一个黄油碟和一个滚球制成了第一个原型。“我们会问，”他回忆道，“你应该用指尖滑动鼠标，还是像滑动一块肥皂那样滑动鼠标？”该公司设计的机制仍在使用。1991年，凯利设计公司——他的联合创始人已经离职——与<strong>比尔·莫格里奇（Bill Moggridge）</strong>和视觉设计师<strong>迈克·纳托尔（Mike Nuttall）</strong>拥有的公司合并。比尔·莫格里奇设计了第一台笔记本电脑。经过全公司的竞争，他们给新公司取名为IDEO：一个词片，凯利后来回忆道，这引起了一定程度的共鸣，因为它听起来像理念（idea）和意识形态（ideology）。</p><p id="efe799a7-e7a0-443f-8a5d-0060516113fd" class="">IDEO出生在新硅谷。它的成员是工业设计师：在设计物理产品时兼顾美观和功能的人。他们也是<strong>“交互设计师”（interaction designers）</strong>——这个词是莫格里奇自己发明的——他们利用“人为因素”这门新科学来设计人与机器接口之间的交互。考虑到他们在工业、交互设计以及工程方面的专业知识，他们很有可能在设计一些硅谷和朋友们刚刚发现他们需要的东西时找到工作。到21世纪初，该公司已经开发了数千种产品，其中大多数连接了物理世界和数字世界。据报道，其收入高达数千万英镑，并在慕尼黑、东京和米兰开设了新的工作室。</p><p id="841f72b3-418e-425b-a716-b86cc66b76e6" class="">当互联网泡沫破灭时，收入下降。IDEO严重依赖互联网初创企业客户，更依赖于客户对未来的信心。该怎么办？2003年，大卫·凯利顿悟了：为什么不重塑他们已经做过的事情呢？为什么要成为“设计新椅子或汽车的人”，凯利后来向“快公司”杂志回忆到——或者，实际上，一个软件接口——什么时候他才能成为“方法论专家”？突然，凯利说，“这一切都有意义了”。<strong>他们将不再把IDEO的方法称为“设计”。相反，他们会称之为“设计思维”。</strong></p><blockquote id="e51008a6-915a-4523-a37f-541e05ef9203" class="">它是为服务经济而设计的：难忘的，可销售的，可重复的、明显通用，并且在细节上有点模糊。（It was design for a service economy: memorable, saleable, repeatable, apparently universal, and slightly vague in the details.）</blockquote><p id="aaea0e92-22ff-4759-8e6f-9f2eab8b4644" class="">“我不是一个喜欢用词的人，”凯利指出，“但在我的一生中，这是用词或标签创造的最强大的时刻。” 凯利不熟悉早期的设计师和设计理论家对方法学和方法论专业知识的失望。但他知道自己的底线，也知道自己的市场。</p><p id="868c9c42-ce69-4935-9eaf-6d098efac63e" class="">无论是教授还是企业的“思想领袖”都告诉我，如果你想在生活中大获全胜，你应该创造一个令人难忘的习语。设计思维被证明是一个令人难忘的习语。是“设计思维”（design thinking），使得IDEO成为世界上最著名的设计公司。这给了大卫·凯利在斯坦福开办d.school的影响力。正是这种意识形态促使世界各地成千上万的人加入OpenIDEO社区，在30个城市组织志愿者分会，围绕IDEO构想的“设计思维挑战”组织活动。这也助长了IDEO似乎掌控着设计世界的怪异魔力。“我已经做了将近20年的专业设计师，”颇受尊敬的前谷歌风险投资（Google Ventures）的设计师杰克·纳普（Jake Knapp）最近写道，“一直以来，我都痴迷于IDEO。里面发生了什么？它是如何工作的？”几年前，我在IDEO位于马萨诸塞州的剑桥工作室参加了几次会议，作为一名当时雄心勃勃的设计师，我感到自豪和敬畏。这太荒谬了：IDEO只是另一家跨国公司。但这是一家跨国公司，其小众品牌和营销，在“设计思维”的成功资助下，它们获得了如此惊人的成功，以至于看起来就像直接的魔法。</p><p id="55f402f5-f71e-4fe4-85ea-7bc3b62e7410" class="">设计思维的支持者并没有很清楚地定义它。“简而言之，”IDEO首席执行官蒂姆·布朗（Tim Brown）在2008年的《哈佛商业评论》中写道，“这是一门运用设计师的感性和方法，将人们的需求与技术上可行和可行的商业策略相匹配，从而转化为客户价值和市场机会。”当然，这并不像人们所希望的那样“简单”。</p><p id="2ca8a11b-5182-4957-8cfd-e5bf4862395e" class="">但是设计思维在实践中的故事已经足够清楚了。医疗保健机构凯萨医疗（Kaiser Permanente）聘请IDEO来解决凯萨护士轮班时丢失重要病人信息的问题。通过一系列的研讨会，参与者大概理解护士的经历，定义问题，设想可能的解决方案，制作原型并进行测试，IDEO和凯萨定义了一个新的轮班过程：为了防止重要信息的丢失，护士会在病人面前传递这些信息。</p><p id="bc1f20bf-f156-4b86-bf0b-c6c0109f3f9f" class="">另一个例子是：2006年，哥伦比亚国防部接洽了一家位于波哥大的广告公司Lowe-SSP3，试图说服哥伦比亚革命武装力量（FARC）的游击队员解散。该机构遵循六边形方法。他们对前游击队员进行了深入访谈（“移情”）。他们发现战斗人员在动员时最怀念的是他们的家人。然后，该机构制定了原型，并在2010年发起了一场名为“圣诞节行动”的运动。十棵巨大的丛林树，每棵树都靠近一个游击队据点，树上挂着两千盏动作感应的圣诞彩灯和横幅，上面写着“如果圣诞节能来到丛林，你就能回家。解散吧。在圣诞节，一切皆有可能。” 这场运动——以及在接下来的三年里发起的一系列行动——被认为是促使许多游击队解散的原因。（其他因素当然也推动了这一趋势。）</p><p id="fb7c7417-e154-4a04-925c-6a80fc825725" class="">那么，成为一个设计思考者，就是把医院轮班和游击战视为设计问题。要看到“设计”，无论这个词可能意味着什么，几乎适用于任何事情。但是，即使“设计思维”使“设计”变得更加广阔，它也抛弃了60年代继<strong>霍斯特·里特（Horst Rittel）</strong>之后的设计师对“方法论”的自觉怀疑。设计思维无疑是一个配方、一个公式、一个五步程序。凯萨和哥伦比亚的故事是一个明确而整齐的线性过程，一个从一个彩色六边形到下一个六边形的旅行。</p><p id="00fa9996-cca2-4e66-8257-aa877ef7e432" class="">它是为服务经济而设计的：难忘的，可销售的，可重复的、明显通用，并且在细节上有点模糊。霍斯特·里特（Horst Rittel）曾令人信服地描述过试图定义或合理化设计“方式”的愚蠢；IDEO的设计思维模板将这种“方式”带了回来。</p><p id="a9762e69-a18e-4dc6-be24-fc1f4514704d" class="">所以在21世纪初的美国，设计再次成为一种不仅仅是方法，而是一种通用的方法——一种看起来有点神奇的方法。它适用于一切，任何人都可以做到。“与流行观点相反，”布朗在2008年《哈佛商业评论》的一篇文章中写道，“你不需要怪异的鞋子或黑色高领毛衣就能成为一名设计思考者。”事实上，你不需要成为一名设计师。你所需要的只是一套设计师的素质—— 同理心，“整体性思维”，乐观，实验主义，合作的天性——还有那张色彩鲜艳的五步地图。</p><p id="c90792d0-ef40-4990-baef-7ac84f8b412e" class="">在前几年，IDEO会给每个人上一门自己定进度的视频课程来学习设计思维。（现在的课程是“创新洞察”[Insights for Innovation]：在线学习五周，499美元。）斯坦福大学d.school已经开始提供高管教育“设计思维训练营”（这四天要花差不多12，600美元。）《纽约时报》的一位专栏作家评论道：“设计过程可以有效地应用于传统环境之外的想法，引发了一场活动的爆发，从利用设计作为智力探索的媒介，到为无家可归和失业等严重的社会问题设计巧妙的解决方案。”与此同时，《高等教育纪事报》（Chronicle of Higher Education）的标题问道:“设计思维是新的文科吗？”（Is ‘Design Thinking’ the New Liberal Arts?）</p><hr id="d02add0a-4557-4b1e-92a8-2ba1a8394e07"/><p id="148871c1-b550-463d-850f-83caf344c6e2" class="">在盖恩斯维尔，城市经理安东尼·莱昂斯（Anthony Lyons）花了三年时间进行设计驱动型的转型。五十名城市雇员接受了设计思维的培训。这座城市开设了新的“行动部门”（Department of Doing）。这个城市的网站得到了彻底的改造。在当地一家品牌机构的帮助下，盖恩斯维尔更换了它的标识和品牌。</p><p id="6fb865df-80ac-43d4-8623-7e831f51c57d" class="">还有其他的成功。安东尼·莱昂斯（Anthony Lyons）的举措加强了该市与佛罗里达大学的关系，该大学于2017年与莱昂斯正式合作，使盖恩斯维尔成为“新的美国城市”。</p><p id="c4b44a0e-c9f6-4aa0-861e-c79a6c7eb303" class="">但也有阻力。2017年6月，盖恩斯维尔的两名助理城市经理之一保罗·福克斯（Paul Folkers）在没有任何警告的情况下辞职。一周之内，莱昂斯就用马里兰州蒙哥马利县（Montgomery County）的前首席创新官丹·霍夫曼（Dan Hoffman）取代了他。同一个月，当地的全国有色人种协进会（NAACP）代表城市雇员对莱昂斯提起诉讼，指控莱昂斯“解雇了合格的专业公共行政人员，因为他们质疑他的行为，根据他的说法，他们按照他的意愿为他服务。”起诉书称，他强迫员工辞职，不提拔合格的城市员工，还雇人——许多人是“千禧一代”——来自城市之外，经验不如盖恩斯维尔内部的申请者。同样辞职的人力资源总监谢丽尔·麦克布莱德（Cheryl McBride）向该市的平等机会办公室提交了一份重叠的投诉。</p><p id="b83fa00c-41fa-474d-b422-f37e5d02671b" class="">市政府对全国有色人种协进会的投诉进行了回应，对盖恩斯维尔的雇佣行为进行了调查。调查没有发现莱昂斯创造了一个充满敌意的工作环境。然而，调查确实发现，莱昂斯的团队在各种招聘活动中回避或违反了盖恩斯维尔的政策。但更多的人离开了。</p><p id="eaf872ec-46ad-4f73-ab88-cc5903decc87" class="">盖恩斯维尔是美国最贫穷的城市之一，也是收入和资源分配最不公平的城市之一。占城市人口22%的黑人居民主要居住在东盖恩斯维尔，据居民反映，那里的杂货店供应严重不足，交通工具不足，街道照明也很差。盖恩斯维尔黑人居民的家庭收入平均为26,561美元，仅占非西班牙裔白人家庭收入中位数的50%多一点。黑人居民的高中毕业率比白人居民低18%。黑人居民的失业率几乎是白人居民的2.5倍。</p><p id="2803b7ce-95bb-44c5-b62a-c19a54339270" class="">莱昂斯和IDEO的设计驱动项目旨在解决所谓的“竞争力”不足的问题。如前所述，这个问题——以及盖恩斯维尔为解决这个问题而做出的改变，包括漂亮的形象设计、更好的网络资源，以及被称为“行动部门”（Department of Doing）的新办公室——与盖恩斯维尔的许多穷人和黑人居民的经历充其量只能有一种微妙的关系。尽管这些计划的目的是在总体上促进盖恩斯维尔的经济，但它们并没有创造出负担得起的住房，或者提高高中毕业率。他们没有提到那些认为“竞争力”是个遥远问题的人。他们似乎把盖恩斯维尔的许多东西都抛在了后面。</p><p id="6bf1e35a-2174-4633-a138-6948566b8deb" class="">莱昂斯的辞职标志着盖恩斯维尔设计实验的结束。市长向莱昂斯作公开告别时哽咽了；盖恩斯维尔社区重建机构的负责人称赞莱昂斯的“大胆”想法。其他人则不那么信服。<strong>“盖恩斯维尔不是硅谷的创业公司，”一位居民告诉佛罗里达大学的报纸Alligator。&quot;在杂志上看起来漂亮并不是真正成功的标志。&quot;</strong></p><hr id="bf2ddf5b-2bd5-4b9f-bd0e-15c41ac021de"/><p id="908e84b3-f168-4767-a238-bb88111801d7" class="">我不认为盖恩斯维尔的设计实验对这座城市造成了不可挽回的损害。我确实认为它承诺的比它能够实现的要多得多。霍斯特·里特（Horst Rittel）提醒我们，在大多数问题（“竞争力”）的背后，隐藏着更糟糕的问题。“设计思维”无法解决导致盖恩斯维尔不平等的邪恶问题：贫困、收入差距、结构性种族主义、环境不公、不受监管的市场资本主义。你面对邪恶的问题是通过与它们斗争，而不是通过解决它们。</p><p id="c1e9c2df-3ec1-40c5-9659-d03b478c48cb" class="">霍斯特·里特（Horst Rittel）认为，事实上，设计可以包含所有这些：这可能意味着，在一个真正复杂的问题上，一个人要努力以诚实和协作的方式解决问题。任何人都可以参加这样的战斗。但是没有一种方法可以达到目的，也不能保证它会成功。</p><p id="6dbb8940-a5d4-4c60-bec2-e458a44fc6c8" class="">这就是设计思维让我担心的地方：这是一个巨大而诱人的承诺。早些时候，英美人流行设计 ——对工业设计的热爱始于大萧条时期——但其主张和结果都相对温和。这种最近流行的设计思维似乎更阴险（insidious），<strong>因为它承诺了更多。它承诺了一个创造性的和愉快的摆脱困难的方法，一个通过便利贴到创新解决方案的跳跃。</strong></p><p id="e36083bc-a7f9-453a-8a17-514a072db38a" class="">还有一个问题。通过拥抱“设计思维”，我们将设计归结为一种高级认识论：一种比旧的、地方的、蓝领的、市政的、工会的和习惯的方式更好的认知方式和“解决”方式。</p><p id="6f09ee9b-0258-4a65-9787-1236be452a88" class="">正如大萧条使工业设计成为美国制造业困境的解决方案一样，2000年至2002年的互联网泡沫破裂和2008年的经济衰退，以及它们的长尾效应，促成了对设计的新拥抱和对设计想象管辖权的新拓展。这一次的具体担忧是，每个人都将面临知识经济。</p><p id="b3f75226-d56a-4095-894d-51bb84ea7001" class="">但是设计不是魔法。要解决一个邪恶的问题，就得找到它的根源——而要找到根源，没有六边形图。停止“竞争力不足”， 你得到的是一个非常简洁的解决方案，因为它没有触及导致盖恩斯维尔经济停滞的深层原因。</p><p id="2ed97d21-84d5-409b-9395-56d36307407d" class="">对于如何分配资源，如何安排社会生活，如何伸张正义，还没有共识。设计，真正的设计，是承认那些分歧——然后倾听自己的方式，并推动自己的方式，到一个新的地方。里特认为，这种来自不同立场的战斗可能真的很邪恶，但与其用乐观来掩盖犹豫不决，不如战斗。他说得有道理。<strong>设计可能是一个优雅的包装，但它并不总是让事情变好。</strong></p></div></article></body></html>

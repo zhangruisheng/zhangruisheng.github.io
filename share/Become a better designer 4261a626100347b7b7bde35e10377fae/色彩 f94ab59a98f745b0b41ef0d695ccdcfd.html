@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>色彩</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f94ab59a-98f7-45b0-b41e-f0d695ccdcfd" class="page sans"><header><h1 class="page-title">色彩</h1></header><div class="page-body"><ol type="1" id="cd22267d-b8b8-4aec-9213-662a1dc8ff00" class="numbered-list" start="1"><li><a href="https://image3.slideserve.com/5811079/slide1-l.jpg"><strong>色彩基本原理</strong></a></li></ol><ol type="1" id="4655bfa8-c958-42d8-bfbf-fd4895d30bfe" class="numbered-list" start="2"><li><a href="https://image3.slideserve.com/5811079/slide2-l.jpg"><strong>色彩基本上分为两大类：</strong></a><a href="https://image3.slideserve.com/5811079/slide2-l.jpg"><strong>明度(VALUE)─就是就是指色彩的明暗度。</strong></a><a href="https://image3.slideserve.com/5811079/slide2-l.jpg"><strong>彩度(CHROMA)─就是指颜色的饱和强弱的程度。</strong></a><a href="https://image3.slideserve.com/5811079/slide2-l.jpg"><strong>无彩色白、灰、黑为无彩色。</strong></a><a href="https://image3.slideserve.com/5811079/slide2-l.jpg"><strong>但是可以细分其明暗度。</strong></a><a href="https://image3.slideserve.com/5811079/slide2-l.jpg"><strong>白色明度最高，黑色明度最低。</strong></a><a href="https://image3.slideserve.com/5811079/slide2-l.jpg"><strong>色彩光线不为物体吸收，而反射出来的颜色，就是我们眼睛所看到的色彩。</strong></a><a href="https://image3.slideserve.com/5811079/slide2-l.jpg"><strong>像是左图，蓝色不为吸收，因此呈现出来的就是蓝色。</strong></a><a href="https://image3.slideserve.com/5811079/slide2-l.jpg"><strong>黑色是当所有颜色全部被吸收进去，无反射。</strong></a><a href="https://image3.slideserve.com/5811079/slide2-l.jpg"><strong>白色则相反。</strong></a></li></ol><ol type="1" id="6228547d-65b5-4d47-abfe-82a6042ee5cd" class="numbered-list" start="3"><li><a href="https://image3.slideserve.com/5811079/slide3-l.jpg"><strong>色相(Hue)─ </strong></a><a href="https://image3.slideserve.com/5811079/slide3-l.jpg"><strong>我们所熟知的红，黄、绿等颜色。</strong></a><a href="https://image3.slideserve.com/5811079/slide3-l.jpg"><strong>基本上，色相的定义必须有统一性，如此才不会造成混淆。</strong></a><a href="https://image3.slideserve.com/5811079/slide3-l.jpg"><strong>然而，当今色彩已经发展出数千种，颜色的称呼，除了传统的颜色之外，新色彩的称呼更是「因地制宜」。</strong></a><a href="https://image3.slideserve.com/5811079/slide3-l.jpg"><strong>我们看到一只黑色的小狗，叫它小黑狗，深褐色的衣服我们就称之为咖啡色的衣服，或是其他许多自己创造的名称。</strong></a><a href="https://image3.slideserve.com/5811079/slide3-l.jpg"><strong>然而为了方便使用，纷纷出现各种不同的表色法─曼色尔表色法(Munsell Color System)、奥斯华德表色法(Ostwald System)、日本PCCS表色法(实用配色体系)等。</strong></a><a href="https://image3.slideserve.com/5811079/slide3-l.jpg"><strong>色相名称练习-1</strong></a></li></ol><ol type="1" id="136b818a-e1a0-4261-8bf4-ffe2983ec11b" class="numbered-list" start="4"><li><a href="https://image3.slideserve.com/5811079/slide4-l.jpg"><strong>1 植物：玫瑰色、菖蒲、枫叶色、绿 </strong></a><a href="https://image3.slideserve.com/5811079/slide4-l.jpg"><strong>2 动物：老鼠色、孔雀绿、珊瑚色、象牙白、肉色。</strong></a><a href="https://image3.slideserve.com/5811079/slide4-l.jpg"><strong>3 矿物：琥珀色。</strong></a><a href="https://image3.slideserve.com/5811079/slide4-l.jpg"><strong>4 自然景象：天蓝色、昏黄、月光色。</strong></a><a href="https://image3.slideserve.com/5811079/slide4-l.jpg"><strong>5 社会现象：普鲁士蓝、洋红、印度红、土耳其青、古典色。</strong></a><a href="https://image3.slideserve.com/5811079/slide4-l.jpg"><strong>6 流行现象：牛仔裤色、巧克力。</strong></a><a href="https://image3.slideserve.com/5811079/slide4-l.jpg"><strong>色相名称请问还有哪些色彩的名称是依据以上原则？</strong></a><a href="https://image3.slideserve.com/5811079/slide4-l.jpg"><strong>请就以上提示逐一列出范例</strong></a></li></ol><ol type="1" id="3fb5426c-5a3a-4532-84ad-471fb7da9198" class="numbered-list" start="5"><li><a href="https://image3.slideserve.com/5811079/slide9-l.jpg"><strong>就是就是指色彩的明暗度，也就是指等于光线的折射度。</strong></a><a href="https://image3.slideserve.com/5811079/slide9-l.jpg"><strong>就是就是指色彩的明暗度，也就是指等于光线的折射度。</strong></a><a href="https://image3.slideserve.com/5811079/slide9-l.jpg"><strong>当颜色白色成份较多时则明度高，黑色成份时即明度变低。</strong></a><a href="https://image3.slideserve.com/5811079/slide9-l.jpg"><strong>在无彩色中，明度最高与最低分别为白色与黑色。</strong></a><a href="https://image3.slideserve.com/5811079/slide9-l.jpg"><strong>在有彩色中，黄色明度最高，紫色明度最低。</strong></a><a href="https://image3.slideserve.com/5811079/slide9-l.jpg"><strong>明度(value)</strong></a></li></ol><ol type="1" id="ed6c69ba-0bda-4075-9c59-efec493c909f" class="numbered-list" start="6"><li><a href="https://image3.slideserve.com/5811079/slide10-l.jpg"><strong>找图片</strong></a></li></ol><ol type="1" id="2314324d-f84d-4afe-90ad-ed85311b59fc" class="numbered-list" start="7"><li><a href="https://image3.slideserve.com/5811079/slide11-l.jpg"><strong>彩度及色相的鲜艳度。</strong></a><a href="https://image3.slideserve.com/5811079/slide11-l.jpg"><strong>色彩的纯度或饱和程度。</strong></a><a href="https://image3.slideserve.com/5811079/slide11-l.jpg"><strong>彩度越高，颜色越纯。</strong></a><a href="https://image3.slideserve.com/5811079/slide11-l.jpg"><strong>因此三原色为高彩度。</strong></a><a href="https://image3.slideserve.com/5811079/slide11-l.jpg"><strong>当加入白色或黑色时，则色彩纯度改变，即彩度变低。</strong></a><a href="https://image3.slideserve.com/5811079/slide11-l.jpg"><strong>同样的颜色也会有浓淡之别，所以同样是红色一样会有深红或浅红之分，这是由于色彩的强弱才会有这样的感觉。</strong></a><a href="https://image3.slideserve.com/5811079/slide11-l.jpg"><strong>颜色中彩度最高的就是〔纯色〕。</strong></a><a href="https://image3.slideserve.com/5811079/slide11-l.jpg"><strong>红色的饱和程度最高，也就是彩度最高。</strong></a><a href="https://image3.slideserve.com/5811079/slide11-l.jpg"><strong>而色彩中彩度最低的则是无彩色。</strong></a><a href="https://image3.slideserve.com/5811079/slide11-l.jpg"><strong>彩度(Chroma) 如红色加黑色(暗色)： 明度变低，彩度变低如红色加白色(明色)： 明度变高，彩度变低混合的值数越高，其彩度越低</strong></a></li></ol><ol type="1" id="e92aa78b-7dd8-438b-a0a2-8b1cf9989c5b" class="numbered-list" start="8"><li><a href="https://image3.slideserve.com/5811079/slide12-l.jpg"><strong>红玫瑰</strong></a></li></ol><ol type="1" id="f0d16ca5-f28f-4e12-ae21-035bc7edb5ad" class="numbered-list" start="9"><li><a href="https://image3.slideserve.com/5811079/slide13-l.jpg"><strong>高彩度，高明度之运用：</strong></a><a href="https://image3.slideserve.com/5811079/slide13-l.jpg"><strong>然而，高彩度，高明度虽然亮眼，但是使用上必须非常小心。</strong></a><a href="https://image3.slideserve.com/5811079/slide13-l.jpg"><strong>请问什么情况之下避免使用高彩度，高明度？</strong></a><a href="https://image3.slideserve.com/5811079/slide13-l.jpg"><strong>彩度(Chroma) 亮丽的色彩容易使视觉感到疲惫！</strong></a><a href="https://image3.slideserve.com/5811079/slide13-l.jpg"><strong>当你希望让观赏者持续地观看时展示厅网页大量文字叙述请同学找出高彩度与高明度的环境， 并说明是否得宜。</strong></a></li></ol><ol type="1" id="1a181a47-9b4d-41ce-82ba-d6090ed31326" class="numbered-list" start="10"><li><a href="https://image3.slideserve.com/5811079/slide14-l.jpg"><strong>高明高彩</strong></a></li></ol><ol type="1" id="553fa025-006b-49d3-8c49-3967f0adc143" class="numbered-list" start="11"><li><a href="https://image3.slideserve.com/5811079/slide15-l.jpg"><strong>高明度、高彩度（给人亮丽、兴奋的感觉）</strong></a></li></ol><ol type="1" id="8aef2f86-641d-44aa-8e06-2de5484f6372" class="numbered-list" start="12"><li><a href="https://image3.slideserve.com/5811079/slide17-l.jpg"><strong>高明度、高彩度（给人亮丽、兴奋的感觉）</strong></a></li></ol><ol type="1" id="1d0f825b-935e-42d3-abde-567c5b9d46d9" class="numbered-list" start="13"><li><a href="https://image3.slideserve.com/5811079/slide18-l.jpg"><strong>低明低彩</strong></a></li></ol><ol type="1" id="60d6bbc5-9bed-47a6-af3a-348f7ce0d87f" class="numbered-list" start="14"><li><a href="https://image3.slideserve.com/5811079/slide19-l.jpg"><strong>低明度、低彩度（给人稳重、保守、拘谨、传统、优越、洗链)</strong></a></li></ol><ol type="1" id="7a903ce4-6c28-4c6a-870c-2837b6ad10b9" class="numbered-list" start="15"><li><a href="https://image3.slideserve.com/5811079/slide20-l.jpg"><strong>低明度、低彩度（给人稳重、保守、拘谨、传统、优越、洗链)</strong></a></li></ol><ol type="1" id="a4e8b3be-d4b8-40ad-b3a6-64e4bdbd4774" class="numbered-list" start="16"><li><a href="https://image3.slideserve.com/5811079/slide21-l.jpg"><strong>高明低彩</strong></a></li></ol><ol type="1" id="518b8495-c95f-4ca7-9d1f-a97eef709213" class="numbered-list" start="17"><li><a href="https://image3.slideserve.com/5811079/slide22-l.jpg"><strong>睡衣多使用高明度、低彩度的颜色，可使人感觉柔和、身心放松。</strong></a><a href="https://image3.slideserve.com/5811079/slide22-l.jpg"><strong>睡衣多使用高明度、低彩度的颜色，可使人感觉柔和、身心放松。</strong></a><a href="https://image3.slideserve.com/5811079/slide22-l.jpg"><strong>婴儿房与婴儿用具多为高明度、低彩度，以营造温馨的环境。</strong></a><a href="https://image3.slideserve.com/5811079/slide22-l.jpg"><strong>高明度、低彩度（给人柔和的感觉）</strong></a></li></ol><ol type="1" id="3406589c-2597-4e11-9496-42933b17be65" class="numbered-list" start="18"><li><a href="https://image3.slideserve.com/5811079/slide23-l.jpg"><strong>高明度、低彩度（给人柔和的感觉）</strong></a></li></ol><ol type="1" id="f9506c35-024e-4fe0-8ae1-64972e486c20" class="numbered-list" start="19"><li><a href="https://image3.slideserve.com/5811079/slide24-l.jpg"><strong>低明高彩</strong></a></li></ol><ol type="1" id="ad91f2c7-fe9e-43ba-95ec-109fe100eadd" class="numbered-list" start="20"><li><a href="https://image3.slideserve.com/5811079/slide25-l.jpg"><strong>低明度、高彩度(奢华气派、性感、美味的、民俗风的、狂野的)</strong></a></li></ol><ol type="1" id="2041b2fb-1752-4672-b51d-5086f7da5e59" class="numbered-list" start="21"><li><a href="https://image3.slideserve.com/5811079/slide26-l.jpg"><strong>低明度、高彩度(奢华气派、性感、美味的、民俗风的、狂野的)</strong></a></li></ol><ol type="1" id="29d8a2df-5260-4e1c-8d39-10ead1149a8e" class="numbered-list" start="22"><li><a href="https://image3.slideserve.com/5811079/slide27-l.jpg"><strong>三原色光 </strong></a><a href="https://image3.slideserve.com/5811079/slide27-l.jpg"><strong>一般称为红、绿、蓝。</strong></a><a href="https://image3.slideserve.com/5811079/slide27-l.jpg"><strong>色光混合又称「正混合」，混合后明度提高• 色光三原色若以等量的比例相加时，可获得白色光。</strong></a><a href="https://image3.slideserve.com/5811079/slide27-l.jpg"><strong>基本上这三种光线可以经由混色产生各种颜色就如同电视上的色彩即是用此三色混色而产生的色感。</strong></a><a href="https://image3.slideserve.com/5811079/slide27-l.jpg"><strong>R+GY 黄色G+B C- 蓝绿色B+RM 红紫色</strong></a></li></ol><ol type="1" id="4834ca8c-f807-41b8-8089-8402d690dc00" class="numbered-list" start="23"><li><a href="https://image3.slideserve.com/5811079/slide28-l.jpg"><strong>色料三原色：红、黄、蓝 </strong></a><a href="https://image3.slideserve.com/5811079/slide28-l.jpg"><strong>红加黄等于橙，红加蓝等于紫，蓝加黄等于绿红、黄、蓝称之为原色(第一次色) 橙、紫、绿称之为间色(第二次色) 由这两个颜色再继续混下去的颜色称作混色(第三次色)。</strong></a><a href="https://image3.slideserve.com/5811079/slide28-l.jpg"><strong>色料三原色洋红(MAGENTA) 蓝绿(CYAN) 黄(YELLOW)</strong></a></li></ol><ol type="1" id="8d8928ee-9f6b-4b23-ac6c-fb9cd49778a2" class="numbered-list" start="24"><li><a href="https://image3.slideserve.com/5811079/slide29-l.jpg"><strong>并置混合 </strong></a><a href="https://image3.slideserve.com/5811079/slide29-l.jpg"><strong>常见的并置混合如：电视之映像、绘画之点描法、织物之设计、彩色印刷之网点等。</strong></a><a href="https://image3.slideserve.com/5811079/slide29-l.jpg"><strong>彩色电视的映像管：红、绿、蓝在萤光幕上以线条形式作规则的排列，以构成画面。</strong></a><a href="https://image3.slideserve.com/5811079/slide29-l.jpg"><strong>彩色印刷：将色彩分为：洋红、黄、青、黑四个分色版，每个分色版再经由过网点的处理，形成密布小点的网版，套印四色后，使得到具有四色的小点，由这些小点的并置混合，便可看到如同原稿的色彩。</strong></a><a href="https://image3.slideserve.com/5811079/slide29-l.jpg"><strong>绘画点描法： 新印象派的秀拉Georges Seurat) 1859-1891 ，曾经追随莫内习画，并且以印象派的精神发展出「点描画」整个画面皆由小小的色点所组成，展现出令人惊讶的色彩过度效果。</strong></a><a href="https://image3.slideserve.com/5811079/slide29-l.jpg"><strong>西奈克亦为点描画的重要代表(Paul Signac) 1863-1935其作品较秀拉自由奔放。</strong></a></li></ol><ol type="1" id="edcc3835-a6d1-480c-9703-72ecdd7389dc" class="numbered-list" start="25"><li><a href="https://image3.slideserve.com/5811079/slide30-l.jpg"><strong>当然，点描的运用不是从新印象派才开始的，早在五、六世纪的时候，镶嵌画已经非常成熟地运用在教堂的装饰中。</strong></a><a href="https://image3.slideserve.com/5811079/slide30-l.jpg"><strong>当然，点描的运用不是从新印象派才开始的，早在五、六世纪的时候，镶嵌画已经非常成熟地运用在教堂的装饰中。</strong></a><a href="https://image3.slideserve.com/5811079/slide30-l.jpg"><strong>镶嵌画为中世纪重要的艺术表现方式，运用各种矿石与珠宝所镶嵌而成的教堂内部显得十分金碧辉煌，为拜占庭教堂增添了几许富丽的色彩。</strong></a><a href="https://image3.slideserve.com/5811079/slide30-l.jpg"><strong>圣维太利(S.Vitale) 526-547</strong></a></li></ol><ol type="1" id="4a50bce9-6a20-4d74-92fa-929209ff4eeb" class="numbered-list" start="26"><li><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>所谓的色立体是由色彩三属性，利用立体的方式来表示色彩的全体组织．</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>色立体中由于明度与彩度的关系而发展出来的面，称为色相面．</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>色立体是有助于认识色彩的作用．</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>常见的色立体外貌。</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>所谓的色立体是由色彩三属性，利用立体的方式来表示色彩的全体组织．</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>色立体中由于明度与彩度的关系而发展出来的面，称为色相面．</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>色立体是有助于认识色彩的作用．</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>常见的色立体外貌。</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>色立体基本上有以下几种特色： 中心轴为明度显示器，亦即越上层明度越高，越下层明度越低。</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>最外围为色相，连结周围与中心的水平线上，有彩度阶段。</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>色彩越靠外侧，彩度越高。</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>色彩越上层，明度越高。</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>色相、明度、彩度是色彩的基本三个属性。</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>色立体有助于我们对于整个色彩的了解。</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>有关色彩的系统很多，较著名的有曼色尔(Munsell １０色相)) ，奥斯华德(Ostwlad24色相)与日本色研24色相)等。</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>色立体Color solid 由美国画家曼色尔建立。</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>1929年由曼色尔色彩公司出版标准色票。</strong></a><a href="https://image3.slideserve.com/5811079/slide31-l.jpg"><strong>1943年经由修正「修正曼色尔色表体系」即为我们现在一般所使用的色票标准版。</strong></a></li></ol><ol type="1" id="4a30aebd-7f43-402f-88cf-57c9df46b4a3" class="numbered-list" start="27"><li><a href="https://image3.slideserve.com/5811079/slide32-l.jpg"><strong>曼色尔体系的色相，共分成10色相，再细分为100。</strong></a><a href="https://image3.slideserve.com/5811079/slide32-l.jpg"><strong>曼色尔体系的色相，共分成10色相，再细分为100。</strong></a><a href="https://image3.slideserve.com/5811079/slide32-l.jpg"><strong>先用红(R)，黄(Y)，绿(G)，青(B)，紫(P)。</strong></a><a href="https://image3.slideserve.com/5811079/slide32-l.jpg"><strong>然后在他们之间再插入中间色：橙(YR)、绿黄(GY)、蓝绿(BG)、紫蓝(PB)、红紫(RP)。</strong></a><a href="https://image3.slideserve.com/5811079/slide32-l.jpg"><strong>如此就成了十个颜色。</strong></a><a href="https://image3.slideserve.com/5811079/slide32-l.jpg"><strong>每个色相再分为十种。</strong></a><a href="https://image3.slideserve.com/5811079/slide32-l.jpg"><strong>此十个颜色所组成之环状我们称之为色相环(Color Circle)。</strong></a><a href="https://image3.slideserve.com/5811079/slide32-l.jpg"><strong>以数值记之则为1R,2R或1Y,2Y等。</strong></a><a href="https://image3.slideserve.com/5811079/slide32-l.jpg"><strong>各个色相的代表位于数值5，因此在色票上若看见5R,5YR,5Y,5PB等一共10色则表示为其基本色相。</strong></a><a href="https://image3.slideserve.com/5811079/slide32-l.jpg"><strong>曼色尔体系</strong></a></li></ol><ol type="1" id="3133dd51-e728-409b-a47f-838a4dcf53ea" class="numbered-list" start="28"><li><a href="https://image3.slideserve.com/5811079/slide33-l.jpg"><strong>色相(HUE)</strong></a></li></ol><ol type="1" id="429a48bc-3430-4e6b-b7f2-8b731e4af072" class="numbered-list" start="29"><li><a href="https://image3.slideserve.com/5811079/slide34-l.jpg"><strong>曼色尔体系</strong></a></li></ol><ol type="1" id="d216919f-0562-42bb-ae76-80371ca7acf4" class="numbered-list" start="30"><li><a href="https://image3.slideserve.com/5811079/slide35-l.jpg"><strong>曼色尔体系 </strong></a><a href="https://image3.slideserve.com/5811079/slide35-l.jpg"><strong>数值记号为10/,9/,8/。</strong></a></li></ol><ol type="1" id="b5b59032-05c3-47c8-b9e2-809d0756896b" class="numbered-list" start="31"><li><a href="https://image3.slideserve.com/5811079/slide36-l.jpg"><strong>9 </strong></a><a href="https://image3.slideserve.com/5811079/slide36-l.jpg"><strong>然而，值得注意的是，其色调没有改变。</strong></a><a href="https://image3.slideserve.com/5811079/slide36-l.jpg"><strong>若以黄色为例，则目前我们所看到的皆为黄色系。</strong></a><a href="https://image3.slideserve.com/5811079/slide36-l.jpg"><strong>1</strong></a></li></ol><ol type="1" id="ea569791-2985-4988-b039-a433853860bd" class="numbered-list" start="32"><li><a href="https://image3.slideserve.com/5811079/slide37-l.jpg"><strong>无彩色的彩度为0，依次增加至纯色为止。</strong></a><a href="https://image3.slideserve.com/5811079/slide37-l.jpg"><strong>红色的彩度，可分为15级(/15)，像其他彩度原本不高的绿可分8级(/8)，高彩度的黄色甚至可以分到20。</strong></a><a href="https://image3.slideserve.com/5811079/slide37-l.jpg"><strong>在纯色中依次加入由黑白色所混合而成的灰色系列(明灰色、暗灰色)。</strong></a><a href="https://image3.slideserve.com/5811079/slide37-l.jpg"><strong>纯灰色所形成的中间彩度其颜色非常柔和。</strong></a><a href="https://image3.slideserve.com/5811079/slide37-l.jpg"><strong>由于不刺激眼睛，视觉上有舒适的感觉，因此广受喜爱。</strong></a><a href="https://image3.slideserve.com/5811079/slide37-l.jpg"><strong>经常看到的粉彩瓷，日系的产品也多有粉彩的感觉。</strong></a><a href="https://image3.slideserve.com/5811079/slide37-l.jpg"><strong>一般来说彩度分为低彩度、中彩度、高彩度。</strong></a><a href="https://image3.slideserve.com/5811079/slide37-l.jpg"><strong>彩度对比基本上不似明暗对比来得明显。</strong></a><a href="https://image3.slideserve.com/5811079/slide37-l.jpg"><strong>越接近明度轴彩度越低。</strong></a><a href="https://image3.slideserve.com/5811079/slide37-l.jpg"><strong>曼色尔体系-彩度(数字) 中彩度</strong></a></li></ol><ol type="1" id="b2e0449d-2859-4db5-9cf6-b21e2920dc32" class="numbered-list" start="33"><li><a href="https://image3.slideserve.com/5811079/slide39-l.jpg"><strong>Munsell Solid</strong></a></li></ol><ol type="1" id="d4b86ad5-7063-45ec-afda-630d0f5d9b70" class="numbered-list" start="34"><li><a href="https://image3.slideserve.com/5811079/pccs-practical-color-ordinate-system-l.jpg"><strong>PCCS（Practical Color-ordinate System）</strong></a><a href="https://image3.slideserve.com/5811079/pccs-practical-color-ordinate-system-l.jpg"><strong>而日本的教育部于1951年根据日本色彩研究所发行的标准色票「色彩之标准」，制定教学体系与色票，完成之早期色彩体系就叫做「日本色研表色系」。</strong></a><a href="https://image3.slideserve.com/5811079/pccs-practical-color-ordinate-system-l.jpg"><strong>而后于1965年，日本色彩研究所发表的「实用色彩配色体系」(简称为PCCS)，撷取奥斯华德与修正曼赛尔表色系的优点，是为「日本色研配色体系」(PCCS)。</strong></a></li></ol><ol type="1" id="b35625eb-e7c6-4e5d-a36c-af0b0184917a" class="numbered-list" start="35"><li><a href="https://image3.slideserve.com/5811079/slide41-l.jpg"><strong>色相 </strong></a><a href="https://image3.slideserve.com/5811079/slide41-l.jpg"><strong>在其24色的色相环上互为补色关系，故又称：补色相环。</strong></a></li></ol><ol type="1" id="2e9a1380-1ec7-4cd2-ba62-2450717aab15" class="numbered-list" start="36"><li><a href="https://image3.slideserve.com/5811079/slide42-l.jpg"><strong>PCCS的明度阶段分为9阶，白在最上端，黑在最下端，中间配置等感觉差的灰色7阶，整个明度阶段依序以1.5（黑）、2.5、3.5、4.5、5.5、6.5、7.5、8.5、9.5（白）等数值表示。</strong></a><a href="https://image3.slideserve.com/5811079/slide42-l.jpg"><strong>PCCS的明度阶段分为9阶，白在最上端，黑在最下端，中间配置等感觉差的灰色7阶，整个明度阶段依序以1.5（黑）、2.5、3.5、4.5、5.5、6.5、7.5、8.5、9.5（白）等数值表示。</strong></a><a href="https://image3.slideserve.com/5811079/slide42-l.jpg"><strong>明度</strong></a></li></ol><ol type="1" id="61781198-a91a-4fc6-9642-e314c081e6bb" class="numbered-list" start="37"><li><a href="https://image3.slideserve.com/5811079/slide43-l.jpg"><strong>彩度阶段与明度一样，分为9阶，从无彩色到有彩色分别以1S（最低）、2S、3S、4S、5S、6S、7S、8S、9S（最高）。</strong></a><a href="https://image3.slideserve.com/5811079/slide43-l.jpg"><strong>彩度阶段与明度一样，分为9阶，从无彩色到有彩色分别以1S（最低）、2S、3S、4S、5S、6S、7S、8S、9S（最高）。</strong></a><a href="https://image3.slideserve.com/5811079/slide43-l.jpg"><strong>彩度</strong></a></li></ol><ol type="1" id="0995a2c7-8a4c-46e8-a0eb-895cc5347737" class="numbered-list" start="38"><li><a href="https://image3.slideserve.com/5811079/slide44-l.jpg"><strong>PCCS的表色法是以「色相─明度─彩度」（HVC）的顺序，配列三种数值来表示，如3：Yr-4.5-6s，</strong></a><a href="https://image3.slideserve.com/5811079/slide44-l.jpg"><strong>在表示无色彩时，只需要在明度值前面加上「N」，例如N-4.5。</strong></a></li></ol><ol type="1" id="7646acf3-3da9-4d01-8b51-1ee5e6697810" class="numbered-list" start="39"><li><a href="https://image3.slideserve.com/5811079/slide45-l.jpg"><strong>色调(Tone) </strong></a><a href="https://image3.slideserve.com/5811079/slide45-l.jpg"><strong>跟我们人的脸部表情一样会随着不一样的动作而产生多种不同表情。</strong></a><a href="https://image3.slideserve.com/5811079/slide45-l.jpg"><strong>2.色调的种类： • 纯色加白色的调子有明亮色调、浅色调、淡色调…等• 纯色加黑色的调子有深色调、暗色调…等• 纯色加灰色的调子有浊色调、中间色、带灰色调…等• 无彩色的变化则是有灰色调、浅灰色调、深灰色调…等</strong></a></li></ol><ol type="1" id="a8e30eb0-4dc8-43a5-abc4-2b0c86b7907e" class="numbered-list" start="40"><li><a href="https://image3.slideserve.com/5811079/slide46-l.jpg"><strong>作业：套用三种不同色调图像，并分述说明(300字)其色调意象为何</strong></a></li></ol><ol type="1" id="37572a9e-b0c0-499b-94f3-a0271c907918" class="numbered-list" start="41"><li><a href="https://image3.slideserve.com/5811079/slide47-l.jpg"><strong>4</strong></a></li></ol><ol type="1" id="40c8c644-bc7f-4808-bedc-3c3eaa8f2dd5" class="numbered-list" start="42"><li><a href="https://image3.slideserve.com/5811079/color-image-scale-l.jpg"><strong>色彩意象指标（Color Image Scale) </strong></a><a href="https://image3.slideserve.com/5811079/color-image-scale-l.jpg"><strong>小林重顺教授毕业于广岛科技大学后，进入早稻田研究所开始色彩心理学的研究工作，1966年创办日本色彩与设计研究所(Nippon Color &amp; Design Research Institute -NCD)为色彩意象指标（Color Image Scale）的原创者。</strong></a></li></ol><ol type="1" id="8b824fcf-bc17-4d2d-a1dd-f7997f6c2e35" class="numbered-list" start="43"><li><a href="https://image3.slideserve.com/5811079/color-image-scale1-l.jpg"><strong>色彩意象指标（Color Image Scale</strong></a></li></ol><ol type="1" id="f7bedf95-f5fb-4a07-b93e-37490ca7e73e" class="numbered-list" start="44"><li><a href="https://image3.slideserve.com/5811079/color-image-scale2-l.jpg"><strong>色彩意象指标（Color Image Scale)</strong></a></li></ol><ol type="1" id="91bd3317-ebc5-4e95-9030-ed77bde6596e" class="numbered-list" start="45"><li><a href="https://image3.slideserve.com/5811079/slide51-l.jpg"><strong>伊登十二色相环 </strong></a><a href="https://image3.slideserve.com/5811079/slide51-l.jpg"><strong>约翰斯、伊登(Johannes Itten，1888~1967) 以红黄蓝作基础色相，产生出六对补色。</strong></a><a href="https://image3.slideserve.com/5811079/slide51-l.jpg"><strong>由于简易易懂，为了解色相与补色之色相环。</strong></a></li></ol><ol type="1" id="6987bdab-4bd8-4d29-8c98-3952199b1f41" class="numbered-list" start="46"><li><a href="https://image3.slideserve.com/5811079/complementary-colors-l.jpg"><strong>补色Complementary colors</strong></a></li></ol><ol type="1" id="91056011-e101-4b02-ac6d-6dfe1259e5ac" class="numbered-list" start="47"><li><a href="https://image3.slideserve.com/5811079/slide53-l.jpg"><strong>色彩的对比 </strong></a><a href="https://image3.slideserve.com/5811079/slide53-l.jpg"><strong>同样两种颜色，如互为补色，若面积很大则相互抢眼，然若面积很小，且明度、彩度降低，则可能出现相互调和的现象。</strong></a></li></ol><ol type="1" id="537dc836-19e9-4ed8-9db7-303d639e72dd" class="numbered-list" start="48"><li><a href="https://image3.slideserve.com/5811079/slide54-l.jpg"><strong>补色相邻 </strong></a><a href="https://image3.slideserve.com/5811079/slide54-l.jpg"><strong>如果希望我们在人群中显得十分显眼，则可以试试看纯度高如此的穿着。</strong></a><a href="https://image3.slideserve.com/5811079/slide54-l.jpg"><strong>如果补色运用的面积不大，其实可以增加其活泼的视觉效果。</strong></a><a href="https://image3.slideserve.com/5811079/slide54-l.jpg"><strong>但是若全身上下就是两种补色相邻，那么可能就不是很理想了。</strong></a><a href="https://image3.slideserve.com/5811079/slide54-l.jpg"><strong>当然，皮肤偏黄的东方人，如果不希望自己看起来更黄，那么就避免穿着过于饱和的紫色(纯度高),当然，纯度较低的紫色较无差别。</strong></a></li></ol><ol type="1" id="797823e8-cda6-416e-9888-772dc760539e" class="numbered-list" start="49"><li><a href="https://image3.slideserve.com/5811079/slide55-l.jpg"><strong>表现派、野兽派喜用色彩对立</strong></a></li></ol><ol type="1" id="a1c00200-e006-4668-a121-c35bc363d1ef" class="numbered-list" start="50"><li><a href="https://image3.slideserve.com/5811079/slide56-l.jpg"><strong>马蒂斯(1869-1954)</strong></a></li></ol><ol type="1" id="91039090-2762-4f99-8aaa-aa91bb5e17e3" class="numbered-list" start="51"><li><a href="https://image3.slideserve.com/5811079/slide57-l.jpg"><strong>高更《不列塔尼的风景》</strong></a></li></ol><ol type="1" id="72bb66bd-d743-4ad4-ac7e-1f4901885e0b" class="numbered-list" start="52"><li><a href="https://image3.slideserve.com/5811079/slide58-l.jpg"><strong>在商店招牌的设计或网页设计和DM的广告设计上，也常利用此种互补色对比的效果。</strong></a><a href="https://image3.slideserve.com/5811079/slide58-l.jpg"><strong>像是7-11的商店招牌，即是利用此原理吸引来往行人的注意力。</strong></a><a href="https://image3.slideserve.com/5811079/slide58-l.jpg"><strong>另外，圣诞节树上缠绕的灯泡，也是使用此原理，使红色及绿色的灯泡交替闪烁，吸引眼睛的注意。</strong></a><a href="https://image3.slideserve.com/5811079/slide58-l.jpg"><strong>在商店招牌的设计或网页设计和DM的广告设计上，也常利用此种互补色对比的效果。</strong></a><a href="https://image3.slideserve.com/5811079/slide58-l.jpg"><strong>像是7-11的商店招牌，即是利用此原理吸引来往行人的注意力。</strong></a><a href="https://image3.slideserve.com/5811079/slide58-l.jpg"><strong>另外，圣诞节树上缠绕的灯泡，也是使用此原理，使红色及绿色的灯泡交替闪烁，吸引眼睛的注意。</strong></a><a href="https://image3.slideserve.com/5811079/slide58-l.jpg"><strong>“补色平衡理论” 不过，经常使用的补色还是多以红─绿组合最受欢迎。</strong></a><a href="https://image3.slideserve.com/5811079/slide58-l.jpg"><strong>蓝─橙；紫─黄则比较少见。</strong></a></li></ol><ol type="1" id="79ab56d4-ea58-4d9c-988a-c2f2c8af582c" class="numbered-list" start="53"><li><a href="https://image3.slideserve.com/5811079/slide60-l.jpg"><strong>例如：</strong></a><a href="https://image3.slideserve.com/5811079/slide60-l.jpg"><strong>因此，在手术房中的衣服改以绿色以防止绿点的出现。</strong></a><a href="https://image3.slideserve.com/5811079/slide60-l.jpg"><strong>因此利用视觉残像的特性，可以减轻工作时视觉的负担与压力。</strong></a><a href="https://image3.slideserve.com/5811079/slide60-l.jpg"><strong>约翰斯、伊登(Johannes Itten)提出的“补色平衡理论”。</strong></a><a href="https://image3.slideserve.com/5811079/slide60-l.jpg"><strong>如果色彩构成过分暖昧而缺少生气时，那么互补色的选择是十分有效的配色方法，无论是舞台环境色彩对人物的烘托和气氛的渲染，还是商品广告及陈列等等，巧妙地运用互补色构成，是提高艺术感染力的重要手段。</strong></a><a href="https://image3.slideserve.com/5811079/slide60-l.jpg"><strong>在景观设计规划上，可利用互补色对比的作用产生视觉上的效果。</strong></a><a href="https://image3.slideserve.com/5811079/slide60-l.jpg"><strong>像是外观为红色的建筑，可在建筑周围种植绿色植物，不仅可缓和视觉上的残像作亦可增进彼此色彩的鲜明。</strong></a><a href="https://image3.slideserve.com/5811079/slide60-l.jpg"><strong>补色平衡理论</strong></a></li></ol></div></article></body></html>

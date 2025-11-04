@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>美</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ac7f05fc-2e7f-489c-bc12-f1fdc120aa11" class="page sans"><header><h1 class="page-title"><strong>美</strong></h1><p class="page-description"></p></header><div class="page-body"><p id="2659d1a3-cc18-498e-b532-ea122139e166" class="">美是什么？如何提高审美？</p><h2 id="36360665-f683-40da-ab92-f65a730dad3f" class=""><strong>美是什么？</strong></h2><p id="3adf7244-a13e-453e-9620-cbcea53463c4" class="">分别从生活、学术的角度来探讨下这个问题。</p><h3 id="2d6e1e16-7352-4e01-ac74-58cf0f486f63" class=""><strong>1. 生活中的美</strong></h3><p id="f4eb0130-e2fb-43bc-ac09-e790d69f0335" class="">生活中有两种美，分别是：<strong>自然之美、人造之美</strong>。</p><figure id="a7f00aef-0f79-4f72-8081-e8d626b57cdb" class="image"><a href="http://image.woshipm.com/wp-files/2020/04/wTM3RSkKl4NwUw75lKdx.png"><img src="http://image.woshipm.com/wp-files/2020/04/wTM3RSkKl4NwUw75lKdx.png"/></a></figure><p id="0230ad91-9772-4c4f-8c3d-6da896c2279e" class="">所谓自然之美，是指<strong>大自然的鬼斧神工</strong>，比如山川湖海之美，比如包括人在内的各种生物之美。</p><p id="746f389a-372b-4a2a-955d-e444d7a7240a" class="">所谓人造之美，是指<strong>人类发明创造的各种物质和文化之美</strong>，比如建筑、诗歌、手机、书法之美，比如 UI 设计之美。</p><p id="0eb6b055-2714-46dd-a883-3964d1d14a05" class="">针对自然之美和人造之美，人类的审美有两个特性，分别是：<strong>共性、差异性</strong>。</p><figure id="308df4d2-02cc-4218-869c-01642cc284a8" class="image"><a href="http://image.woshipm.com/wp-files/2020/04/DatQ1V6GKV77ipY1O8G8.png"><img src="http://image.woshipm.com/wp-files/2020/04/DatQ1V6GKV77ipY1O8G8.png"/></a></figure><p id="55b8d886-576c-421a-a0c6-a0bb8e3eff8b" class="">所谓审美的<strong>共性</strong>，是指人类在欣赏<strong>自然之美</strong>时，所表现出来的<strong>高度一致</strong>。</p><p id="0ae006a4-7cb9-41ff-b96f-3953ed4544af" class="">比如黄山的美是世界公认的，奥黛丽・赫本的美也是世界公认的，幼儿园里班花的美在小朋友当中也基本是公认的。</p><p id="2ab1cf5c-f326-4023-a50a-89060a9572f0" class="">相应地，所谓审美的<strong>差异性</strong>，是指人类在欣赏<strong>人造之美</strong>时，所表现出来的<strong>差异</strong>。</p><p id="fb00e560-9acf-4276-a1b6-1d45e5fbc864" class="">比如一个关注流行与时尚的单身青年，过年回家的时候，很可能会被并不关心流行与时尚的父母这样说：那啥，你姑准备给你介绍个对象……这身衣服不好看，上街买身好看的吧。</p><p id="ab06ddb3-477b-4687-97fd-a7d0dc58c440" class="">我们平常说的“审美”，更多是指人类在欣赏人造之美时所呈现出来的差异。这也是本文探讨的“审美”。</p><h3 id="b8d01703-079c-4544-9466-d0035bd854fe" class=""><strong>2. 美的来源</strong></h3><p id="4daa5891-4825-42eb-b2c5-00ad58c26e7e" class="">从学术角度来看，<strong>美来自美感</strong>。而<strong>美感与好感紧密相连</strong>。</p><p id="c4a9df51-8f58-4325-9593-c55c5ea02c1b" class=""><strong>能够满足人们主观需求的客观事物</strong>，会给人带来快乐的感觉，这种快乐的感觉就是<strong>“好感”</strong>。</p><p id="66d7cb54-35c1-4d27-96eb-80a74a38019e" class=""><strong>这种客观事物的形态特征</strong>也会给人带来快乐的感觉，这种快乐的感觉被称之为<strong>“美感”</strong>。</p><figure id="1f8033e8-290d-4597-a498-4a2cdd76beb2" class="image"><a href="http://image.woshipm.com/wp-files/2020/04/0jX011jhMoTlsOxL66jI.png"><img src="http://image.woshipm.com/wp-files/2020/04/0jX011jhMoTlsOxL66jI.png"/></a></figure><p id="65434d1e-0d3d-4a82-af2e-be621f549791" class="">比如笔者喜欢匡威经典款帆布鞋（All Star 系列），那我就会对它有好感。当我在街上或商场里看到它的时候，精神上就会产生一丝愉悦的感觉，这种愉悦的感觉就是美感，我会觉得匡威经典款帆布鞋是美的。</p><figure id="5f1d2ba6-0071-4b87-82d0-32b4c11053df" class="image"><a href="http://image.woshipm.com/wp-files/2020/04/XUGqrIzdncN9fPhJEEVo.png"><img src="http://image.woshipm.com/wp-files/2020/04/XUGqrIzdncN9fPhJEEVo.png"/></a></figure><p id="4922d78a-d864-41cf-a47f-776939bbd4d3" class="">一个喜欢奢侈品的女孩对 LV 的包包有好感，并且觉得它很美，也是类似的道理。</p><p id="f8c01d7f-6bde-4fae-9642-8cf72b05b120" class="">能够满足人们主观需求的客观事物，就是人的价值取向。通俗来讲，可以说是人们喜欢的事物。</p><p id="68a661f1-b1a7-429f-967c-630483a59fc2" class="">学术意义上的“好感”，还有一个重要的前提，就是人们感觉到自己的主观需求被客观事物满足了。也就是说，当拥有喜欢的事物时，才会产生“好感”。</p><p id="1d1af176-adec-4492-88b5-da2ec663a29a" class="">而我们平常说的“好感”，和是否拥有自己喜欢的事物没有必然联系。比如，不管我有没有买匡威经典款帆布鞋，我都会对它有“好感”。但当我买它的时候，我对它的“好感”一定会达到一个巅峰——各位想象一下自己血拼完后的心情就知道了。</p><p id="45ac5b1e-81ba-4010-bc70-45ac2f7f7103" class="">学术意义上的“美感”，则主要得益于喜欢的事物的外在形态。也就是说，当你看到自己喜欢的事物时，无须拥有它，美感和美就会产生。</p><p id="b06ab933-a454-4178-8acb-d7e3dcf3eea8" class="">所以，相对而言，<strong>“好感”偏物质化，“美感”和美偏精神化</strong>，也就是我们在上一篇所说的：美学是一种精神追求。</p><h3 id="5410812e-d10b-4ab5-9d75-7c0c9ee681e2" class=""><strong>3. 美的种类</strong></h3><p id="19fec543-23ac-41f5-9eee-e7895f65b70a" class="">学术或者美学角度的美，可以分成两类，分别是：<strong>视觉之美、精神之美</strong>。</p><figure id="071cac4b-001d-46de-99f6-aa41bcf63d82" class="image"><a href="http://image.woshipm.com/wp-files/2020/04/II1qg48p9FMRirISNWkk.png"><img src="http://image.woshipm.com/wp-files/2020/04/II1qg48p9FMRirISNWkk.png"/></a></figure><p id="00372aba-9d65-47ae-975c-9b25d5202d4e" class="">所谓<strong>视觉之美</strong>，是指<strong>外在形态之美或表现形式之美</strong>。比如企鹅胖墩墩、走起来一摇一摆的体态。</p><p id="6a999f01-8f80-4063-b5be-fd094ea8cce5" class="">所谓<strong>精神之美</strong>，是指<strong>视觉之美的精神内涵</strong>。比如企鹅胖墩墩、走起来一摇一摆的体态会让人觉得憨厚、可爱。</p><p id="4848b549-f768-4095-a663-6118ddeb2c4e" class="">再比如石墨文档的 UI 设计，我们会觉得好看，有一种中式美学在里面，让人觉得安静、优雅。这里包含安静、优雅在内的中式美学就属于精神之美，石墨文档的 UI 设计本身，则属于视觉之美。</p><figure id="b2e2dbea-bd7a-49a6-931f-b816287080fa" class="image"><a href="http://image.woshipm.com/wp-files/2020/04/E2c6u7lDs0r2uUMcEQ6h.png"><img src="http://image.woshipm.com/wp-files/2020/04/E2c6u7lDs0r2uUMcEQ6h.png"/></a></figure><p id="5cf78d4b-0f0c-4aa1-9b45-c15021c468f6" class="">朱光潜先生在《谈美》一书中提到，“美之中要有人情也要有物理，二者缺一都不能见出美。再拿欣赏古松的例子来说，松的苍翠劲直是物理，松的清风亮节是人情。”。</p><p id="591c83d1-7f70-42da-aef4-74b943d90df0" class="">“视觉之美”对应“物理”，“精神之美”对应“人情”。</p><p id="d29eceb6-06c0-4e33-b6f1-f9b5a3f6bad4" class="">乔治・桑塔耶纳先生在《美感》一书中提到，“我们可以从一切表现中区分出两相来，第一相是实际呈现的对象，包括字词、意象等具有表现力的东西。第二相是暗示出的对象，包括更深远的思想、感情或者由此唤醒的意象等被表现出的东西”。</p><p id="2897870c-0aa1-42a8-b7d2-bfc824fc1775" class="">“视觉之美”对应“第一相”，“精神之美”对应“第二相”。</p><p id="05417ad0-bf62-41e6-b318-383b06d247bf" class="">再来看下，<strong>视觉之美和精神之美之间存在怎样的关系。</strong></p><p id="9e4fbeeb-7398-4aba-ad88-52ddb38ffa23" class="">朱光潜先生的观点是，“二者缺一都不能见出美”；乔治・桑塔耶纳先生的观点是，“如果价值完全存在于第一相中，就不会有美的表现。”</p><p id="238069c2-51a7-4096-98e4-6efbe9b7c6be" class="">也就是说，视觉之美和精神之美，要么同时存在，要么同时不存在。先有视觉之美，之后引出精神之美；如果引不出精神之美，视觉之美也不会成立。</p><p id="80d54555-da56-48d6-bfe5-7e97f04fbee7" class="">人类的大脑，仿佛有一个庞大的数据库，专门用来存放关于美的精神和意识，包括但不限于上文提到的憨厚、可爱、安静、优雅等。我们姑且称之为“美学数据库”。</p><p id="47a7f6b7-bc32-4b56-a48d-e3cb26ce34e7" class="">当视觉之美映入眼帘时，大脑就会马上去这个“美学数据库”索引。当索引到对应的精神和意识时，精神之美就会马上出现，视觉之美也随即成立；当索引不到对应的精神和意识时，精神之美就不会出现，视觉之美也不会成立。</p><p id="1738b630-d185-49c1-90e5-99fff24126f1" class="">精神之美还有两样<strong>很特殊的美</strong>，那就是<strong>真和善</strong>。如果把精神之美比做一座金字塔的话，<strong>真和善既在塔底，也在塔尖</strong>。</p><figure id="0b77a087-3ca4-483c-a49b-0291f6192deb" class="image"><a href="http://image.woshipm.com/wp-files/2020/04/gR9HSAAwRkhenYg9qw4y.png"><img src="http://image.woshipm.com/wp-files/2020/04/gR9HSAAwRkhenYg9qw4y.png"/></a></figure><p id="70d78874-9323-4a00-a01b-0bf4ba669f46" class="">之所以说真和善在塔尖，是因为人类拥有高级文明，赞美真和善、追求真和善，但是真假、善恶共存于人间，要想永远保持真和善很难，要想做到至真至善更难。</p><p id="db134b2c-41f4-4c24-9f4b-388a9bf13aa2" class="">之所以说真和善也在塔底，是因为一旦在真和善上有缺陷，其它精神之美就会跟着衰减，甚至会给人一种“金玉其外，败絮其中”的感觉。而一旦在真和善上有严重缺陷，其它精神之美甚至会瞬间崩塌，个别名人因为丑闻而形象崩塌就是典型例子之一。</p><h2 id="69494bd1-9ba0-46e6-b3a0-c78c8ef5bde3" class=""><strong>结语</strong></h2><p id="d515d2a4-deb5-476c-95df-9140286050f2" class="">生活中有自然之美和人造之美。人们欣赏自然之美时，会表现出高度一致；人们欣赏人造之美时，会表现出差异。我们平常说的“审美”，更多是指这种差异。</p><p id="e7e1844a-ee74-4481-85fc-5e018e25e2e1" class="">人们会对自己喜欢的事物抱有“好感”，这些事物的外在形态会给人带来“美感”。</p><p id="f6f2f7b8-3b8c-41af-9c20-a8df2d29521b" class="">美可以分为“视觉之美”和“精神之美”。</p><p id="19d2d92c-0eb4-41b1-9416-f85755f1b16b" class="">“精神之美”出现时，“视觉之美”会随即成立；“精神之美”没有出现，“视觉之美”也不会成立。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

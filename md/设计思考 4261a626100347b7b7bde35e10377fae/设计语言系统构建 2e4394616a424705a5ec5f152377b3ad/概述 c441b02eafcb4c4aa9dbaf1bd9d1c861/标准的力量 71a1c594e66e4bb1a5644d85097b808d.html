@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>标准的力量</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="71a1c594-e66e-4bb1-a564-4d85097b808d" class="page sans"><header><h1 class="page-title">标准的力量</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Created</th><td><time>@June 16, 2021 3:10 PM</time></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedBy"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 10.4229C6.05176 10.4229 4.54785 11.1133 3.83008 11.9131C2.90039 10.9082 2.33301 9.55469 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 9.55469 13.1064 10.9082 12.1699 11.9131C11.4521 11.1133 9.94824 10.4229 8 10.4229ZM8 9.30176C9.32617 9.30859 10.3516 8.18066 10.3516 6.71094C10.3516 5.33008 9.31934 4.18164 8 4.18164C6.6875 4.18164 5.6416 5.33008 5.64844 6.71094C5.65527 8.18066 6.68066 9.28809 8 9.30176Z"></path></svg></span>Added by</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a-/AAuE7mCYLgNL-U_Il_abXX0ZuWQePjPOGoT8vXJW8WBz=s100" class="icon user-icon"/>张大圣</span></td></tr></tbody></table></header><div class="page-body"><p id="4505434a-021d-460d-9bdc-448623029a54" class="">
+</p><p id="89e8bc64-d172-4b3f-ac7e-a0866ee714f9" class="">这篇文章来自于invision出品的书籍，围绕规划、设计、构建和实现设计系统的实践经历来指导读者，其中包含了经验丰富的专家的真知灼见和一手经验。我很喜欢，也分享给大家，推荐阅读。这将会会一个系列，一共有7章，感兴趣的话，持续关注吧。</p><p id="bca79ee8-c20d-4974-828e-943a87c69bb5" class="">书籍的知识深度是设计短文无法比的，这篇文章比较长，但建议耐心看完，假期也别忘记给自己充充电。当别人都在刷剧游戏时，你在学知识，肯定赚大了~</p><p id="bb3112c6-3cd0-4083-8f01-cb94b3c74144" class="">译文：</p><p id="d1e01370-b7f3-43ac-b045-4fa602972649" class="">去开始着手设计一个设计系统往往会让人感到畏惧，有太多事情需要考虑——设计风格，怎样模块化和可适配化地进行设计，它将如何被其他团队使用，以及如何向公司的决策者推动这个想法。到底要从哪一方面开始着手设计呢？</p><p id="df32e506-843b-4fdd-8a31-79e09c64e1f6" class="">要解决大问题，可以将它分解成若干小问题。在进入设计流程之前，首先需要考虑好参加设计系统的成员以及团队的协作方式。一旦找到合适的人组建团队，你就可以开始思考系统的设计语言了，包含颜色排版，间距等等。视觉设计语言将会是UI样式库的基础——一系列能被快速组装并形成界面的组件。</p><p id="7605818c-6f9d-4a49-9f58-ae95c188af18" class="">现在我来分享下，如何开始一步一步设计你的设计系统吧。</p><h1 id="f7f9059a-7f42-4764-8e7f-2b831db7505b" class="">谁应该参与</h1><p id="05d72cf3-d9e1-4750-84ab-1f034e99d3f8" class="">在你开始设计系统的工作之前，花点时间考虑一下你需要的团队，谁需要参与。你需要的不仅仅是设计师。以下是一份清单，列举了创建一个高效的设计系统所需要的团队成员技能：</p><ul id="a35e34b2-28c4-4ffc-9856-7e0394103b79" class="bulleted-list"><li style="list-style-type:disc">定义设计系统视觉元素的设计师</li></ul><ul id="039cd3f3-2952-4bd8-9d92-6c7e10ca4877" class="bulleted-list"><li style="list-style-type:disc">创建模块化、高效代码的前端工程师</li></ul><ul id="74811564-269b-4996-9128-255e6d8cfa66" class="bulleted-list"><li style="list-style-type:disc">确保你的系统符合WCAG等标准的可用性专家</li></ul><ul id="4ce91d01-4c68-456e-82f9-2a676539423a" class="bulleted-list"><li style="list-style-type:disc">能够帮助团队确定系统声音和语调的内容策略师</li></ul><ul id="76abc9b9-46d2-41af-aa2f-512a59c056fa" class="bulleted-list"><li style="list-style-type:disc">帮助你了解客户需求的用户研究员</li></ul><ul id="b54c1cb0-b316-45be-bc84-c3ee6afb39a7" class="bulleted-list"><li style="list-style-type:disc">可以确保系统在所有设备上能快速载入的性能专家</li></ul><ul id="06392496-a612-494a-b7d6-c24157b88453" class="bulleted-list"><li style="list-style-type:disc">确保设计系统符合客户需求的产品经理</li></ul><ul id="fd3bb5b5-1365-451c-926b-25756fa426f5" class="bulleted-list"><li style="list-style-type:disc">在整个公司内领导和调整目标的领导者</li></ul><p id="92537562-4a45-4440-8071-339890bd98d1" class="">当你确保在设计系统团队中拥有上述技能的各类人才后，请确定每个领域的负责人。这些人应该能够确保决策得以推动。了解设计系统团队中支撑各自领域的成员。在强有力的领导下，拥有一支由专家组成的团队，你的下一个任务就是建立正确的团队模式来帮助你实现目标。</p><p id="9f12f0f7-6fa9-4992-ad5d-8ef9efb18c19" class=""><strong>1. 选择正确的团队模式</strong></p><p id="e2600d81-aca1-4869-9b81-36f7504974d3" class="">将人们聚集在一起合作的团队模型与创建设计系统团队一样重要，在“一个设计系统的团队模型”中，设计系统的资深人士Nathan Curtis概括了3个被许多公司使用并流行的团队模型。</p><p id="1a002397-a829-4d25-b0c6-c84e603f9598" class="">独立式团队模型：“霸主”管理设计系统。</p><figure id="23c9ccdc-8c6c-4d9a-be9d-387cc32a87b1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-1.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-1.jpg"/></a></figure><p id="f69feea1-2493-4c4c-8ec7-c463c8fa88a0" class="">△ 图1:独立式设计系统团队模型—— 1人控制一切。图片由Nathan Curtis提供。</p><p id="2239b430-7933-4d9e-af7b-679b8f335250" class="">集中式团队模型:单个团队将设计系统作为全职工作来维护。</p><figure id="e4e35714-5c57-436c-a7b5-6d09882566d8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-2.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-2.jpg"/></a></figure><p id="a3ec0b90-3252-418a-86b9-8f4e0d6be764" class="">△ 图2：集中式设计系统团队模型——一个团队管理系统。图片由Nathan Curtis提供。</p><p id="6983e01f-785b-48a0-9fc3-28de3ff603d0" class="">联合式模型:来自整个公司的团队成员聚集在一起开发系统。</p><figure id="d7cd3ccb-aeec-4b60-a6c4-4a59dfb5456c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-3.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-3.jpg"/></a></figure><p id="09c3957f-9964-4fce-a52f-bfe84d749637" class="">△ 图3：联合式设计系统团队模型——来自不同团队的人员聚集在一起管理设计系统。图片由Nathan Curtis提供。</p><p id="670ce25f-67e9-4428-848d-a9936c4248e3" class="">上述的团队模型都有相应的优势和劣势。独立式模型固然高效且响应迅速，但一个人管理的事情太多，主负责人会成为完成诸多任务的瓶颈。另一边，集中式模型可以很好的维护系统，但是这个团队与客户需求的沟通可能不如他们对用户研究的参与那么紧密。最后，联合式团队模型对来自用户需求和产品特性的需求有很好的洞察力，但这个小组可能会忙于除了构建设计系统以外的工作。</p><p id="673414eb-3193-482d-964b-fc341a2b0fa1" class="">许多团队正在从独立式的模型转向集中式或联合式的模型。正如Curtis在他的文章所提及的那样，单人管理的模式是难以扩展的，集中式或联合式团队模型通常更适用于扩展设计系统。</p><p id="6a9e1307-f1bb-4efc-bbc8-dddac39980a5" class="">为了回应柯蒂斯的文章，我写了关于Salesforce团队模型的文章。当我在Salesforce的Lightning设计系统团队任职期间，我们结合使用了集中式模型和联合式模型。在许多和Salesforce一样大的企业组织中，仅凭一个集中式的设计系统团队是不够的。由于我们涉及到非常多的关键参与者，而且还跨越了产品和平台的范围，所以需要一种更加可持续的方法。</p><figure id="a140c7dd-8745-4dfd-80f3-6fecd9435e44" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-4.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-4.jpg"/></a></figure><p id="4e23a45e-e9a3-4ac2-90c1-3e3df3bf8085" class="">△ 图4:我们在Salesforce中使用的一个混合式的设计系统团队模型——由一个核心团队和来自其他团队的成员一起来管理和维护设计系统。</p><p id="77499a9e-ecba-47b6-ab87-03b9e9f05c82" class="">尽管Lightning设计系统有一个核心团队，但Salesfore生态系统中的许多产品和功能领域也有一些核心贡献者，他们来自各个业务部门并组成工作小组，提出新的想法，并要求设计系统不断发展。用户研究员、可用性专家、<a href="https://www.uisdc.com/tag/%e4%ba%a7%e5%93%81%e8%ae%be%e8%ae%a1">产品设计</a>师和用户体验工程师与核心设计系统团队合作，共同使用并帮助建立模块、组件和整体设计系统。工程师完善所有的代码，以确保系统的性能和保证上线质量。</p><p id="7f509ca3-e6c9-4f0a-80f0-ee7872159435" class="">尽管由于主负责人可能会成为团队的瓶颈，在大多数团队中独立式模型不那么受欢迎，但在某些情况下它可以很好地发挥作用。米娜·马卡姆(Mina Markham)在为希拉里·克林顿(Hillary Clinton)开发新的宣传网站时，几乎没有时间去争取任何支援。她创建了一个名为Pantsuit的设计系统，帮助很多地方的团队加快设计和生产物料，同时保持整个竞选运动品牌的一致性。独立式模型让Markham首先关注的是速度，第二是周期，这可能与典型企业采用的做法不一样。</p><figure id="d1ed1adc-825f-47ad-be6a-a24ecdf2740c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-5.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-5.jpg"/></a></figure><p id="34c7eb94-04f4-4483-93ed-3f8a38b1108e" class="">△ 图5:Pantsuit——米娜·马卡姆(Mina Markham)创建的一个给希拉里·克林顿(Hillary Clinton)竞选运动的设计系统</p><p id="533f470f-8b5a-457e-a0a0-d6f5b181e910" class="">当你需要决定采用什么团队模型时，请考虑你的目标。如果你想团队能够快速响应需求，那么最好使用独立式团队模型，尽管以后可能需要做一些工作，以便在其他团队之间完全采用它。如果你希望团队不仅能够快速响应，并且一开始就鼓励大家都参与进来，可以考虑集中式团队模型。而为了获得最大的参与感和共享权，联合式模型是个不错的选择。在任何情况下请记住，设计系统是一个产品，所以要把它当做一个产品，而不是一个项目来做；你需要的是致力于维护和发展它的人。</p><p id="04a72293-6354-4280-9edb-0106ebe6df8b" class="">随着团队和协作模型的建立，现在是时候开始你的设计系统了。就像任何新产品一样，开启工作的第一步是与客户进行沟通。</p><p id="c44183c2-651a-4109-a768-a5b2aa2a9348" class=""><strong>2. 客户调研</strong></p><p id="5b7e689a-55b4-4b0f-b5e3-9926953b7fef" class="">与任何产品设计的过程一样，做研究是很重要的。谁会使用你的设计系统，怎么用？如果你的设计系统是为了配合其他团队的工作流程而创建的，那么它将会被频繁地使用。通过访谈用户，你可以提前锁定问题，定义有助于他人正确使用系统的原则，并将精力集中在最重要的事情上面。</p><p id="0d69e1b2-105f-4624-846a-93b7d4d386ad" class="">其中一个比较少见的调研群体是你产品开源社区的成员。这类群体会出现在为客户和合作伙伴社区提供开发者工具的组织里。如果你计划将你的设计系统开源（成为一个潜在的大项目），那么你需要与潜在的贡献者和消费者交流，以发现你的设计系统需要满足哪些需求和用例。</p><p id="5561de71-106b-4db8-bddc-213533e45a76" class="">再有就是高管、领导和管理层。了解他们的想法也很重要。你需要得到他们的支持和资助。倾听他们的要求，并将其作为可执行的目标和指标来实现。这些要求可能是更快、更好的性能，以及提高UI质量等等。</p><p id="b010808f-0618-4845-b11b-e7eb8077d0ff" class="">提示：通过实践研究，赋能构建设计规范</p><p id="610a62e1-5cb0-4bf5-82dc-201a817051e7" class="">Isaak Hayes和Donna Chan在Clarity大会上发表了题为 “用实践研究来赋能构建风格指南 “的精彩演讲。其中提出了一系列有用的技巧，可以帮助你有效地对设计系统进行研究。通过用户访谈，他们利用数据创建设计原则、度量标准和用户故事。</p><p id="77704f41-5cf8-48ea-a2fd-ba2e64e31b1f" class="">有了从客户访谈中得到的资料，我们可以开始进行整理。有两种类型的界面内容清单需要进行整理和规范。</p><ul id="6d23e889-f96e-4f91-8719-efe8f3c72129" class="bulleted-list"><li style="list-style-type:disc">视觉语言（如间距、颜色和排版）的整理，这将有助于创建一个统一的视觉语言。</li></ul><ul id="2e7bf756-436e-458e-b78f-277d5846ca68" class="bulleted-list"><li style="list-style-type:disc">每个UI元素（如按钮、卡片和排版）的清单，这将有助于创建一个UI组件库。</li></ul><p id="e039a941-aee8-4252-b548-b397d20d2427" class="">首先我们先来关注全局视觉元素的整理。</p><h1 id="2018968c-a937-4272-a1e4-3e5a942be597" class="">创建视觉元素清单</h1><p id="e5b566d7-f765-4ab2-9b7a-5e5e24572411" class="">当然，如果你正在为一个还不存在的产品启动设计系统，你可以跳过这一步，直接跳到为新产品创建视觉语言那一章。</p><h3 id="89a68acc-c018-478d-bb48-853019ae3b13" class="">1. 整理视觉元素</h3><p id="4a3ce57d-2427-47d8-98a2-207a91e4b927" class="">当我们开始整理的时候，最好查看一下CSS，对应上述视觉清单里面所有元素进行整理。使用类似CSS Stats这样的工具来看看你的产品样式表有多少规则和属性。更重要的是，它还会显示你有多少种独特的元素、字体和字号。它还有统计图，可以看到间距和大小值的数量。这是一个很好的方法，可以让你很方便地对样式进行精简。</p><blockquote id="da38f64d-e209-4a24-87fc-e0facdea429d" class="">译者注：CSS Stats工具的地址https://cssstats.com/</blockquote><figure id="f059ec28-2e03-44d6-85cb-0e462eb84390" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-6.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-6.jpg"/></a></figure><p id="e4a9e701-4976-4459-a1aa-54d936183afe" class="">△ 图6:使用CSS Stats发现Facebook有38种独特的文本颜色</p><p id="ca552373-154e-4865-a853-fb890f3cca11" class="">如果你在Sketch中整理样式规范，可以使用sketchup – style – inventory插件来整合所有颜色、文本样式和符号。它还提供了合并相似样式的能力。（彩云注：inventory这个插件原来挺好用，但作者太忙，好长时间没更新了，貌似最高只能支持到<a href="https://www.uisdc.com/tag/sketch">sketch</a>49）</p><h3 id="7ca0bc7e-6322-4a93-84b1-1e1a76b0dd75" class="">2. 创建视觉设计语言</h3><p id="613ae8da-0a34-41f4-96dd-78284eb23615" class="">必须承认，作为一个艺术院校毕业的学生，设计系统中的视觉设计语言是我最喜欢的部分。我喜欢思考色彩理论、排版和布局，这些都是任何设计系统的核心。如果将设计系统的每个组件拆开，我们会发现这些基本元素构成了它的视觉设计语言：</p><ul id="5fff3572-5291-4131-b8a6-a2bd7cddab53" class="bulleted-list"><li style="list-style-type:disc">颜色</li></ul><ul id="f022b391-057e-4f09-bb5a-f8a6999e5702" class="bulleted-list"><li style="list-style-type:disc">排版（大小、字间距、字体等）</li></ul><ul id="5a60bd66-d2b2-4510-95e7-b3cd506549b3" class="bulleted-list"><li style="list-style-type:disc">间距（边距，填充，定位坐标，边框间距）</li></ul><ul id="33ae006c-8f60-4e1a-a3c2-2e3e21042b13" class="bulleted-list"><li style="list-style-type:disc">图像（图标、插图）</li></ul><p id="c7259f71-2a8f-4f38-8fce-16d954170bc1" class="">根据需求，你还可以加入以下内容，进一步规范用户体验：</p><ul id="64992b29-164d-4e1c-a91e-3dbf3c1d8589" class="bulleted-list"><li style="list-style-type:disc">视觉形式（深度、层级、阴影、圆角、纹理）</li></ul><ul id="00d31481-4a06-4c1c-bda9-a7833733a856" class="bulleted-list"><li style="list-style-type:disc">动画</li></ul><ul id="ca774878-4b17-4d30-9d22-79a751d44126" class="bulleted-list"><li style="list-style-type:disc">声音</li></ul><p id="2225ec11-1cfe-4efd-afa5-fe7637514045" class="">以按钮这个简单的组件为例，分析这些设计元素在其中扮演的角色。一个按钮通常会包含背景颜色，文字的样式，以及间距。在文字旁边可能会有一个图标用于创建视觉提示。在边缘上的描边可以作为简单的装饰，甚至可以在边角处做圆角。最后，悬停在按钮上或点击按钮可以触发动画或声音作为反馈给用户。虽然一个按钮看似简单，但也需要通过一系列的设计决策才能让它生动地展现出来。</p><figure id="a3641547-62c0-43d1-8fdb-f321172e56de" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-7.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-7.jpg"/></a></figure><p id="7a175908-8a11-4415-9223-ae3698b7c941" class="">△ 图7：Buzzfeed Solid设计系统中的各种按钮。按钮组件应用于点击事件或链接，有以下几种类别：主要、次要、透明、反色、白色、禁用、带图标、社交分享按钮、小型按钮、带图标的小型按钮，以及可以根据自己的需要着色的自定义按钮。</p><h3 id="6630bcf5-45fa-4037-b504-869a4cdc8a9d" class="">3. 设计标签</h3><p id="fd347c08-16e4-4bee-804d-b3afc4729586" class="">在深入探讨视觉设计标准之前，我想先讨论一下设计标签。设计标签是设计系统实现原子化的基础。简单来说，设计标签是一系列样式参数被梳理和归纳后的语义化命名，用于抽象出你要管理的设计属性。由于所有设计标签都存储在同一个地方，可以更轻松地实现一致性，同时减轻管理设计系统的负担。</p><p id="6d63d055-5dba-492f-a9ad-90c5829f56f5" class="">如：SPACING_MEDIUM: 1rem</p><p id="c088091c-ab4a-4956-b0a7-70721143d24c" class="">在设计标签中，你可以存储颜色、间距、尺寸、动画时长等数据，并将其分发到各个平台。</p><figure id="77ddb470-557a-4971-98a1-14faa24a262a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-8.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-8.jpg"/></a></figure><p id="76417b2c-053f-4cfc-8f86-fa745f5d6505" class="">△ 图8:Lightning设计系统中关于圆角设计标签的例子</p><h3 id="5c66dacf-e1ab-428c-8a31-9bd6017cbc11" class="">4. 颜色</h3><p id="6a3701b0-3307-4fa7-9c76-4525be7c0142" class="">你为设计系统选择的颜色不仅仅是品牌的延伸，UI使用的颜色更多是用来传达以下信息：</p><ul id="43691dbc-1f62-4af7-bb22-f65042f9f56a" class="bulleted-list"><li style="list-style-type:disc">反馈——错误和成功的状态</li></ul><ul id="4c95fcf4-4e93-417f-bcbf-6e614a82a01e" class="bulleted-list"><li style="list-style-type:disc">信息——图表和导航元素</li></ul><ul id="d1034fda-82ad-4e1a-8024-5cf1feed182a" class="bulleted-list"><li style="list-style-type:disc">层次——通过色彩和排版显示结构和主次</li></ul><p id="57627ffc-ef69-4c1e-ae33-d3694759a59a" class="">一个设计系统中常见的颜色包括1-3种代表品牌的主色调。如果这些颜色都不能很好的作为链接和按钮的颜色，那么你最好有另外一个颜色去代替。在链接和按钮背景中使用相同的颜色是个好主意，因为这样可以让用户更容易识别可交互的元素。</p><p id="4f90936f-4b7f-4e6d-b6bb-73cbc8b0c0d0" class="">此外你还需要中性色用于UI背景和边框，通常是灰色。最后，你要有一系列如错误、警告和成功等状态的颜色。将这些颜色组合起来，看看它们在一起显示的效果如何，然后根据需要进行完善。</p><figure id="5bc1b037-642a-46dd-a614-d0d6b8461a64" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-9.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-9.jpg"/></a></figure><p id="7afcfe00-3eab-4ae0-89c6-b744e36c421d" class="">△ 图9:Carbon设计系统中的色板和对应的标签</p><p id="c6a689bf-f471-4a58-a83b-d2ce24646581" class="">较大的设计系统有时会给对象和产品添加颜色。例如，在Salesforce，我们对联系人、销售交易或组织等模块都有设计对应颜色。我们也有针对产品的颜色，如销售云、营销云、分析云等。对于你的用户，颜色能成为一个很好的导航工具。</p><figure id="ace70f1a-d8b2-4a93-ba2e-b27019c583ed" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-10.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-10.jpg"/></a></figure><p id="0eff6331-ee0e-4016-8af4-cd15de457772" class="">△ 图10：Salesforce中模块使用的颜色</p><p id="6c7203e8-aae2-40af-9b45-a7bc83dd624a" class="">为了保证产品可用性，使用颜色进行区分也会有局限性，因为色盲的人可能无法辨别某些差异。</p><p id="ca24b761-268c-4f23-b0ae-1c790c3226ed" class="">提示：检查颜色对比度</p><p id="40b618ab-b026-460e-8b53-bc72b53955bd" class="">这里有一个检查各种颜色对比度的工具供你使用，以确保所有在你产品上使用的颜色具备可用性，一定要检查背景和文字颜色搭配的对比度。</p><p id="32362b6b-2c39-4a3e-ab5e-080e3f88a113" class=""><a href="https://link.uisdc.com/?redirect=http%3A%2F%2Fwww.webaxe.org%2Fcolor-contrast-tools%2F">http://www.webaxe.org/color-contrast-tools/</a></p><p id="23d81d4b-f21d-4b49-a810-ddf69a12d021" class="">根据于你对色板精细度的要求，你可能会希望包含一系列的色阶，需要与白色混合的辅助颜色以及与黑色混合的阴影颜色。有时你可能会用其他颜色代替白色或黑色，以避免颜色变灰，比如用橙色来使黄色变暗，这样就不会出现棕色。</p><p id="3979f8e6-b22e-46c0-b84b-82175ce129be" class="">这些颜色的变化让设计师有了选择。但要注意的是，太多的选择会导致与主设计不一致的情况出现。保持色调、阴影和中性调色板的精简，以防止被滥用，同时又能保持灵活性。当你发现需要的时候，你可以随时在色板范围内增加更多的颜色。</p><figure id="b708849e-fbb5-4c1d-a8ff-2db20b7a57d4" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-11.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-11.jpg"/></a></figure><p id="1c7bdc45-234a-461a-a410-6e31f8a38a54" class="">△ 图11:Pivota的UI设计规范选择用他们的设计标签给出广泛的颜色色调和阴影。虽然我个人更倾向于给出一组精简的色值范围就足够了（如在Sass设计规范中看到的），但有些设计系统喜欢提供更多的选择。仔细考虑哪种方法更合适自身，因为你需要平衡创意自由和规范一致性等问题。</p><h3 id="2c2b9da4-f00a-43fd-9362-44101a783454" class="">5. 字体</h3><p id="7b3ae26b-4b15-4057-a973-4ab184b9c448" class=""><strong>字体和字重</strong></p><p id="89029d2c-5ea6-4532-bcba-8447cb69c153" class="">你所选择的字体会深深影响你的品牌和用户体验，所以需要选择一个易读性的系统字体。一般常见的系统字体，如Helvetica、Times New Roman或Verdana是一个很好的选择，因为用户对它们非常熟悉。一些公司更喜欢定制的网页字体去体现他们的品牌，但是用的时候需要特别注意性能问题。</p><p id="d75eea28-cd6b-44b2-9b01-bced91ec381c" class="">我工作过的大多数设计系统只包括两种字体：标题和正文都用一种字体，代码用monospace字体。有时标题还会额外多加一种字体，与正文字体相得益彰。大多数设计系统没有必要再多，除非你的系统支持多个品牌。保持数量精简的字体，不仅是排版设计的最佳实践，还可以防止过度使用网页字体带来的性能问题。</p><figure id="221e8d7b-2a68-47d1-8ae8-9a674fa7047a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-12.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-12.jpg"/></a></figure><p id="71fbdc50-b42a-471c-ac14-d3f6ff5ab91e" class="">△ 图12:谷歌Roboto字体，显示着不同的字重</p><p id="1f2fcc00-4e24-4ad9-aef5-b1335284267f" class="">现在流行使用非常细的字体，但是要注意可读性的问题。如果你想使用轻或细的字重样式，尽量在较大的字号情况下使用。</p><p id="eae4881b-be5d-4d4c-8420-2a7cf1bed46e" class=""><strong>字体比例</strong></p><p id="7dd48c17-7fb9-49b1-938b-c3717a2e1878" class="">在选择字体的大小时，需要考虑可读性。在大多数情况下，16px的字体大小相当好用。这是大多数浏览器的默认字体大小，对大多数人来说，它相当容易阅读。我喜欢使用16px，因为它符合苹果和谷歌使用的基于4为单位的指标（已经逐渐成为标准方法）。我建议将此作为你的基准，尽管我会在基于CSS的系统中使用它的相对格式，如1rem。</p><p id="31bc68c3-005c-4bfc-aefb-fa5c6c3f59d5" class="">你可以使用比例标尺为标题或其他元素提供更大或更小的字体大小。比例标尺是一组数字，其中你有一个基数，使用一个比率来生成下一个数字。你不断地将比率应用到新的数字上，从而得到下一个数字。</p><figure id="b004634d-b18b-466d-a7c0-8d8ed148523a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-13.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-13.jpg"/></a></figure><p id="245c8fdc-1608-4ee2-8da8-3d176c211f08" class="">△图13:比例标尺工具能帮助你找到合适自己的基准。它甚至提供了的Sass需要的功能，为你添加成套的设计标签。</p><p id="6cf2a6fb-577c-4d9d-820e-bbfb8febb1db" class="">当你设计字体范围时，一定要考虑到它如何应对各种屏幕尺寸以保持可读性。你不会希望你的标题在移动设备上被放得很大。而对于其他大得多的显示器，你有足够的空间来提升尺寸。常见的方法是在大屏幕上放大标题。你也可以使用视窗单位，根据屏幕大小的百分比来缩放字体。</p><figure id="5b12b8a0-cc01-467d-aed9-ea711e0d5f66" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-14.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-14.jpg"/></a></figure><p id="3ed490a5-ac7e-495a-9d68-5e8b9176e2a7" class="">专业提示：响应式排版</p><p id="2dbd142c-5439-4d99-a22b-3db397c460d3" class="">人们使用很多方法来创建响应式排版。最近比较值得一查的是带有CSS Poly Sizing的Fluid方法。Zell Liew的《响应式网页排版规则》涵盖了需要了解的基本原理和系统。</p><p id="c046780a-5636-4559-b688-e00d8c3e42d3" class=""><strong>行间距</strong></p><p id="3b107824-8acc-481d-b554-7055fb260811" class="">CSS中的行距或行高可以提升排版的可读性和美感。虽然最佳的行高会根据字体和行长的不同而有所变化，但一般的经验法则是领先于字体大小的1.4–1.5倍。W3C Web Accessibility Initiative建议使用1.5。</p><p id="aaf48ed9-f339-4661-8d2e-8b8554b4b392" class="">段落中的行距至少为半个空格，并且段落间距至少为行距的1.5倍。——Web内容无障碍指南2.0</p><p id="bd0d91d3-84f6-4600-83f8-9dfc63e29d8e" class="">这也使你行高的数值变得更有规律，但你不需要去计算它。即使在没有度量单位的情况下定义行高，浏览器也会帮你完成这些复杂的计算。对于标题的行高，根据字体将其规范化。在大多数情况下，我发现1.25或1.125的数值非常好。</p><figure id="37336330-ddc5-4c28-ae1a-d6169b7cf046" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-15.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-15.jpg"/></a></figure><p id="5760feb4-fb81-459b-bb12-613370e66037" class="">△图15: Tachyons（译者注：一款 css 框架）也用1.5作为正文，1.25作为标题。</p><h3 id="2816b984-d5cc-4f8e-af63-a1c9ab170ee0" class="">6. 间距和尺寸</h3><p id="28ecbf42-29b8-4294-902d-0f501d0ef707" class="">使用合理的间距和尺寸有利于设计系统看起来更有节奏感。这意味着你需要选择基于规范和比例的单位。通过计算比率的方式得出的间距和尺寸，使设计系统更容易维护，布局也更合理。</p><p id="c21126d6-0ffb-4270-aced-e011031de460" class="">当我设计一个Android应用的时候，我研究了谷歌的设计规范。我注意到一个规范，即元素之间使用8dp，外槽使用16dp。这让我打破了之前使用10作为基准单位的习惯，因为我发现4作为基准单位的效果更好。</p><p id="cbb412d8-eac4-4737-8de3-a2ac373fe9a8" class="">基于4的单位规范作为推荐单位越来越受欢迎，原因有很多。首先iOS和Android都使用和推荐被4整除或倍数的单位。标准的图标大小格式（大多数操作系统都在使用）往往是基于4的（16、24、32等）单位，这样它们更容易缩放。浏览器的默认字体大小通常是16。当所有的系统元素都使用了这个标准的时候，能让你的产品看起来更整齐和规范，响应式的适配效果也会更好。</p><figure id="a1234f1f-ef32-4d64-8ecd-c36cf013176d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-16.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-16.jpg"/></a></figure><p id="7650ba92-7f42-4899-8e6c-7bd2d6c33dd1" class="">△图16.谷歌的Android设计规范，学习这些规范让我成为了一个更好的移动设备设计师。</p><p id="6c331108-9622-47ca-8935-cb4fef9edd58" class="">对于水平间距，以8为基准的单位相当好用。你可以使margin和padding与字体大小相等或成比例。但对于垂直间距，我倾向于使用基于12的单位尺寸。由之前所说的1.5行高（默认字体大小为16px）计算后，得出了24这个数字。</p><p id="2b32d03d-ab3a-4cc8-aece-801f26660d56" class="">偶尔你可能不得不打破这个规则。如果你在某些元素上加了1px的描边，这个描边就会破坏原本的规范方式，所以你可能需要使用padding或margin去减去这个数量。因此请根据实际情况去打破这个规则。</p><p id="b83c4d01-a038-4dc8-addd-7dec81e4fcb2" class="">有时你希望某个元素随着页面空间放大或缩小，那么除非必要，应该尽量不设置它的宽度和高度。让元素的尺寸随着页面空间的变化进行适配，以轻松地实现响应式设计。</p><h3 id="9c742bc6-2e5b-401f-b5db-6194f9b90734" class="">7. 图片</h3><p id="b6dd83bf-2a67-4687-8020-e37bf9fe4e7e" class=""><strong>文件格式</strong></p><p id="ac3f3a38-2365-40d7-8ad3-c04569bcfdf4" class="">对于图标和插画，我发现使用矢量格式(SVG)更符合可扩展式和响应式设计的效果。偶尔你需要使用到摄影作品，那么就要用类似JPG或PNG这样的栅格化图像格式。</p><p id="32bdd5e5-7a48-42df-a960-0d3723de4357" class="">对于大多数照片、插图和图表，你可以让图像100%显示在容器内。基于页面主动适配高度，而不需要限定它，这最适合响应式布局。如果你不希望图片宽度达到全宽(例如半宽、三分之一或四分之一)，你也可以为图片设定一些预设宽度并固定好尺寸，这样图像就可以缩放到更小的屏幕。</p><p id="2faddf3c-e4ce-439e-9ff4-1f9b74e424de" class=""><strong>图标设计</strong></p><p id="20c0fa25-66cd-41ad-9954-5023ed29d8f7" class="">在绘制你的图标之前，先围绕它们提出你的设计规则。它们是填充还是描边？线条粗细是多少？它们会使用1种以上的颜色吗？它们会是什么尺寸？是否有外部包裹元素？</p><figure id="4e78ffce-6047-4d9f-b871-20242af230bc" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-17.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-17.jpg"/></a></figure><p id="a397d607-a735-4304-a122-66fd0ac2722d" class="">△ 图17: Oracle Alta 描述的图标样式规范，如透视、间距和颜色。</p><p id="f8910b6e-2235-414c-b4f0-d827a8839c47" class="">你可以为不同的图标类型设计不同的样式。例如通用和操作类的图标（如通知或设置图标）可能是单色的，而导航图标可能是多色、更有创意的。明确的准则将使你的图标保持统一和规范。</p><figure id="a267d614-1348-48fd-91ff-0b14fc1b7f5b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-18.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-18.jpg"/></a></figure><p id="32bc5229-6ace-4976-9969-b4f40a4bead3" class="">△ 图18. 苹果展示了其生态系统中的不同图标类型：应用图标、工具图标以及它使用颜色时的规范。</p><p id="10861e04-3d6a-47ef-8ba7-6fbbb067b0f2" class=""><strong>插图</strong></p><p id="1a3c2641-b3b7-4a02-a77d-d28b55fe9735" class="">插图是为你的产品增添品牌特色的好方法。你可以将其用于空状态、加载屏幕、弹窗和其他吸引用户视觉兴趣的组件。Shopify花了很大力气为其平台的所有空状态页面设计独特的插图，从而传达强烈的品牌形象。</p><figure id="5abc7bce-3036-4531-906f-bf404c09c979" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-19.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-19.jpg"/></a></figure><p id="03a7e896-c884-44bf-b1f2-f1e9b1698725" class="">△ 图19:Shopify的缺省页面<a href="https://www.uisdc.com/tag/%e6%8f%92%e7%94%bb%e8%ae%be%e8%ae%a1">插画设计</a></p><p id="b6c69c56-727a-4883-b9ea-6610c6a9182e" class="">和图标一样，插画的设计规范同样十分重要。</p><figure id="00a44da5-af45-476e-badf-378989904a37" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-20.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-20.jpg"/></a></figure><p id="72fdfff8-0f31-43a6-907e-c941144d8780" class="">△ 图20:Al Power的插图设计规范。</p><h3 id="5d3900c4-e1d0-4c8d-b7b8-1f887551740e" class="">8. 视觉形象</h3><p id="3a36ed19-1c51-4021-9a68-158fe71bf7b4" class="">视觉形象，又或者叫UI材质，与背景图像、渐变和纹理、阴影和层级、圆角和边框有关。这些视觉特质有助于强调和装饰元素，以增加视觉层次和美感。无论如何，所有的这些视觉元素都需要标准化的指导。Google出色地展示了纵深和高程如何与组件分层一起工作（图21）</p><figure id="bb128258-8c41-46e4-a78e-e45e84e47677" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-21.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-21.jpg"/></a></figure><p id="82382857-e71d-4e05-ad42-229cdb4e6942" class="">△ 图21.通过z-indexes和阴影实现的Google材质设计中的纵深示例。</p><h3 id="a5358098-1b37-4a06-bd91-3a916a0d53fb" class="">9. 动画和声音</h3><p id="4e192fc5-5cab-44eb-8c9f-e3653bfa7ffb" class="">当你定义视觉规范的时候，第一时间可能不会想到动画和声音。但动画和声音会对产品的使用体验产生很大影响。你会希望把这些也系统化，以保证一致性。我个人对这项领域并不精通，但是有一些很好的例子。</p><figure id="5ffef15f-68af-4f25-a38d-e626511834af" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-22.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-22.jpg"/></a></figure><p id="c48826b6-8e0d-4306-8a7b-3c1b42790f4b" class="">△ 图22. IBM的动画准则借鉴了他们丰富的产品和技术历史。</p><figure id="aa897341-41c1-4138-a62d-676cedd7d00d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-23.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-23.jpg"/></a></figure><p id="69ab4918-bd7a-400d-b449-11133b78d4a2" class="">△ 图23.虽然在视觉上没有特别惊艳，但Microsoft将声音API也加入到了他们开发指南里面。</p><h3 id="acd866fb-2662-46e3-948a-d5d170141820" class="">10. 创建用户界面库</h3><p id="6cc047b7-5c82-4221-b042-1b7d2388656a" class="">在我们整理视觉语言之前，我们会查看元素的视觉质量，比如颜色、间距和排版。现在我们需要对UI界面的实质部分进行整理，例如按钮，卡片，列表、表单等部分。视觉语言库关注的是视觉方法和元素在整体视觉层次下的效果，而用户界面库关注的是UI界面的实际组件。</p><p id="78958b58-d480-4fed-a777-aabb12eb06da" class="">纵观所有设计元素以及它们在设计系统中所扮演的角色。盘点产品的所有界面元素，看看你到底需要解决多少设计债务，以及哪些元素是最常用的。温馨提示，这个步骤可能会令人抓狂，因为大多数公司的UI界面里都存在着大量不一致的元素。</p><p id="193bd306-403b-45ea-bb33-d9a4a749127d" class="">创建盘点清单，只需打开企业的所有产品，截取所有按钮，表格，各种字体，图像的图片，然后将其收集在PPT或整个团队可以看到的大黑板上。</p><p id="2ac458e6-832e-4867-b9a6-f5db7f417ab4" class="">你可以通过打印输出或截图来实现。聚集你的团队成员（第二章所述）。让他们通过共享演示或动手和你一起整理这个清单。这样做的目的是收集正在使用的所有不同的组件，并对它们进行分类和合并。</p><p id="ae571118-f28a-4e28-9eca-333bbc489c03" class="">提示：设计债务</p><p id="678a54e9-fa2c-40f0-a8aa-5d8f27563e04" class="">如果你有高管或工程师对设计系统的必要性持怀疑态度，向他们展示你整理的清单，会成为有力的沟通工具。</p><p id="1f7b1e3f-9c92-46bb-b5b3-32c4d2b732ec" class="">有些人喜欢将清单的内容划分为元素，组件，模块，实用工具等。原子设计理论作为这种思路的例子，是一个很好的概念模型。但是归根结底，所有的内容基本上都不会超出这个范畴，所以你可以按上述的划分贴上标签。总的来说，我看到的大多数设计系统一般这样划分：</p><ul id="6cce6ab1-c6ac-4539-ad6e-68c41af60d83" class="bulleted-list"><li style="list-style-type:disc">元素（又称基本元素，或原子）–这些都是小的、独立的组件，如按钮和图标。</li></ul><ul id="11209a49-755c-456d-bdfe-3b612f2d0b68" class="bulleted-list"><li style="list-style-type:disc">组件（又称分子，或模块）–这些通常是由小组件组装成一个较大的组件，如搜索表单（包括一个表单输入，一个按钮，甚至还有搜索图标）。</li></ul><ul id="632fc9a9-7c92-4642-a3cf-d6c2aa099284" class="bulleted-list"><li style="list-style-type:disc">模块（又称组织）–这些是用户界面的一个区域，就像侧板导航。</li></ul><ul id="0fdb1eaa-56c0-41c7-a2c4-038b50480400" class="bulleted-list"><li style="list-style-type:disc">布局–内容在页面上的布局方式(比如头部区域，然后是侧边栏和主要内容区域，然后是页脚)</li></ul><figure id="b05bc4c1-7815-4b8a-9585-08bdf810548b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-24.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-24.jpg"/></a></figure><p id="5238a37d-a09f-49fa-b2de-05120c182e49" class="">△ 图24:在《In From Pages to Patterns : An Exercise for Everyone》一书中，Charlotte Jackson介绍了进行UI盘点的方法。</p><p id="ae7645ad-53dd-486f-99db-81f9087817ca" class="">在完成清单之后，你可以合并和删除不需要的部分（可以在电子表格里面，如果你想更直接点，甚至可以直接在代码层面进行重构）。同时记录下组件是什么，什么时候使用它。这将成为你的UI库（又叫样式库、组件库，取决于你的团队喜欢怎么称呼它）。</p><figure id="17c65c13-812e-4c1d-a6ce-e774a9ef0f20" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-25.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-25.jpg"/></a></figure><p id="f745fb57-3ec7-49ab-89cb-d9f6108dac49" class="">△ 图25:美国政府机构18F有一个我最喜欢的UI库：美国网页设计标准。</p><p id="26559dbd-c597-4415-8dce-4395a94b74d9" class="">大部分设计系统文档包含组件的名称、描述、实例和代码。除此之外可能还会展示代码、发布历史、示例等，最重要的是能够展示你的团队完成工作所需要的内容。</p><figure id="02e4697f-d62b-442d-89db-a4a42ff410cb" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-26.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/10/uisdc-cy-20201008-26.jpg"/></a></figure><p id="9c133d8e-ef84-4260-8b91-d30255ffadf8" class="">△ 图26:来自Lonely Planet的Rizao组件库</p><h1 id="d0a7494a-c9c7-4c56-83e2-6bec2c771251" class="">总结</h1><p id="b11c842c-e9bc-4394-8153-e085d0e37ee6" class="">打造一个设计系统不仅仅能帮助你团队的产品更紧跟用户体验，而且还建立了一条沟通设计和开发的桥梁。通过创建一个由设计标签定义的通用视觉语言，以及一系列在组件库中的组件和样式分类，都极大地改善设计师和开发人员之间的沟通，之后你对UI的编辑和更新都将更可控、灵活和全面。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

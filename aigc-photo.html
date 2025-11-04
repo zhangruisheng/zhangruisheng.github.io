@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>AIGC 真实图片展示 - MONK.REN</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="keywords"
+        content="AIGC,MONK,用户体验,设计,原创,创意,平面设计,UI,UI设计,网页设计,插画,动漫,摄影,字体设计,logo设计,版式设计,前端技术,视觉设计,用户研究,交互设计,品牌设计,UI开发,产品设计,UX设计" />
+    <meta name="description" content="MONK.REN AIGC真实图片展示，展示AI生成的真实风格图片作品。" />
+    <meta name="author" content="张瑞圣" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://monk.ren" />
+    <meta property="og:title" content="AIGC 真实图片展示 - MONK.REN" />
+    <meta property="og:site_name" content="MONK.REN" />
+    <meta property="og:description" content="MONK.REN AIGC真实图片展示，展示AI生成的真实风格图片作品。" />
+    <meta property="og:image" content="https://monk.ren/images/basis/logo.png" />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://monk.ren" />
+<meta name="robots" content="index, follow">
+<link rel="alternate" href="https://monk.ren/" hreflang="zh-CN">
+<link rel="alternate" href="https://monk.ren/" hreflang="x-default">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon/logo.png" />
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/frame.css" />
+    <link rel="stylesheet" href="css/desktop.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
+
+    <!-- 图片展示样式 - 采用new.html的策略 -->
+    <style>
+        /* 图片展示容器样式 */
+        .rows {
+            position: relative;
+            width: 100%;
+            columns: 4;
+            column-gap: 0px;
+            margin-bottom: 300px;
+        }
+
+        .rows .row {
+            width: 94%;
+            break-inside: avoid;
+            margin-bottom: 0px;
+        }
+
+        /* 图片容器样式 */
+        .new-i {
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .new-i img,
+        .new-i video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 0px;
+        }
+
+        /* 时间标签样式 */
+        .new-t {
+            margin-bottom: 0px;
+            float: left;
+            position: relative;
+            width: 100%;
+            margin: 12px 0 0px 0;
+        }
+
+        .new-t h4 {
+            font-size: 14px;
+            color: var(--color-00);
+            margin: 0;
+            font-weight: normal;
+        }
+
+        /* 描述文字样式 */
+        .new-tt {
+            margin: 0px 0;
+            font-size: 14px;
+            position: relative;
+            float: left;
+            margin-bottom: 40px;
+            color: var(--color-00);
+        }
+
+        .new-tt p {
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* 页面标题样式 */
+        .page-title {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            text-align: center;
+            color: var(--color-00);
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .rows {
+                columns: 2;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .rows {
+                columns: 1;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* 加载动画 */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-top: 3px solid var(--color-00);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <!-- Google Analytics (production only) -->
+    <script>
+      (function(){
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-5CXJCNBDLL');
+      })();
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677892562045013"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- 加载动画 -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- 顶部导航栏 -->
+    <nav class="nav-all">
+        <div class="monkren-t">
+            <a href="index.html" target="_top"> MONK.REN </a>
+        </div>
+        <div class="monkren-t">
+            <a href="index.html" target="_top">
+                <span class="nav-cn">Designer<br />
+                    Beijing<br />
+                    Ruisheng Zhang</span>
+                <span>
+                    I'm a Designer<br />
+                    Living in Beijing<br />
+                    Ruisheng Zhang
+                </span>
+            </a>
+        </div>
+        <a href="/index.html">
+            <div class="monkren-t">
+                <img src="favicon/logo.png" onMouseOver="this.src='favicon/pixelated.png'"
+                    onMouseOut="this.src='favicon/logo.png'" width="40px" alt="xxx" />
+            </div>
+        </a>
+    </nav>
+
+    <!-- Logo区域 -->
+    <div id="logo" class="logo">
+        <a href="/index.html">
+            <div class="logo-i">
+                <img src="favicon/logo.png" onMouseOver="this.src='favicon/pixelated.png'"
+                    onMouseOut="this.src='favicon/logo.png'" width="100%" alt="xxx" />
+            </div>
+        </a>
+    </div>
+
+    <!-- 主内容区域 -->
+    <main class="container">
+        <div class="w100">
+            <!-- 主导航菜单 -->
+            <nav class="nav">
+                <menu class="menu" id="menu">
+                    <div class="menu-iii-x" id="close-button">
+                        <img src="images/basis/menu-x.png" width="30px" alt="" />
+                    </div>
+                    <ul>
+                        <li>
+                            <a href="index.html" target="_top">
+                                <span class="nav-cn">ME</span><span>关于我</span>
+                            </a>
+                        </li>
+                        <li class="nav-divider"></li>
+                        <li>
+                            <a href="work-uiux.html" target="_top">
+                                <span class="nav-cn">UIUX</span> <span>界面设计</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#">AI APP</a></li>
+                                <li><a href="#">Dating APP</a></li>
+                                <li><a href="#">Chat APP</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-divider"></li>
+                        <li>
+                            <a href="work-brand.html" target="_top">
+                                <span class="nav-cn">GRAPHIC</span> <span>图形设计</span>
+                            </a>
+                        </li>
+                        <li class="nav-divider"></li>
+                        <li>
+                            <a href="aigc.html" target="_top">
+                                <span class="nav-cn">AIGC</span> <span>智能创作</span>
+                            </a>
+                            <ul class="submenu">
+                                <li><a href="#">Workflow</a></li>
+                                <li><a href="#">Real Photo</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="aigc-photo.html" target="_top">
+                                <span class="nav-cn">AI PHOTO</span> <span>真实图片</span>
+                            </a>
+                        </li>
+                        <li class="nav-divider"></li>
+                        <li>
+                            <a href="designer.html" target="_top">
+                                <span class="nav-cn">DESIGNER</span><span>设计师</span>
+                            </a>
+                        </li>
+                        <li class="nav-divider"></li>
+                        <li>
+                            <a href="new.html" target="_top">
+                                <span class="nav-cn">MOMENT</span><span>时刻</span>
+                            </a>
+                        </li>
+                    </ul>
+                </menu>
+
+                <div id="open-button" class="menu-iii">
+                    <img src="images/basis/menu.png" width="36px" alt="" />
+                </div>
+                <div id="zzhao" class="zhao"></div>
+            </nav>
+
+            <!-- 页面内容 -->
+            <div class="w85">
+                <div class="nav-top-li">
+                    <h5>AIGC 真实图片展示</h5>
+                </div>
+
+                <!-- 图片展示容器 - 采用new.html的布局策略 -->
+                <div class="rows" id="imageRows">
+                    <!-- 图片项目将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <iframe class="footer" width="100%" height="36px" src="footer.html" allowfullscreen></iframe>
+
+    <!-- JavaScript -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/iframe.js"></script>
+    <script>
+        // 图片数据 - 采用new.html的数据结构
+        const images = [
+            {
+                src: "images/aigc/真实/Anethereal-3643577737-15_32_57-1.png",
+                type: "image",
+                prompt:
+                    "Prompt: Ethereal Portrait A surreal portrait of a person with white textured hair and a reflective outfit, set against a dark blue background with dramatic lighting.",
+            },
+            {
+                src: "images/aigc/真实/Anethereal-3062691720-15_31_27-1.png",
+                type: "image",
+                prompt:
+                    "Prompt: Ethereal Portrait A surreal portrait of a person with white textured hair and a reflective outfit, set against a dark blue background with dramatic lighting.",
+            },
+            {
+                src: "images/aigc/真实/EtherealPo-2977692518-15_16_20-0.png",
+                type: "image",
+                prompt:
+                    "Prompt: Ethereal Portrait A surreal portrait of a person with white textured hair and a reflective outfit, set against a dark blue background with dramatic lighting.",
+            },
+            {
+                src: "images/aigc/真实/EtherealPo-2977692519-15_16_20-1.png",
+                type: "image",
+                prompt:
+                    "Prompt: Ethereal Portrait A surreal portrait of a person with white textured hair and a reflective outfit, set against a dark blue background with dramatic lighting.",
+            },
+
+            {
+                src: "images/aigc/真实/Theimageis-4107562919-14_22_22-0.png",
+                type: "image",
+                prompt: "Prompt: The image is a black-and-white photograph featuring a woman with long, wavy hair. She is wearing a sleeveless white tank top and appears to be leaning forward slightly. The background includes a window with sheer curtains, some wall decorations, and a few photographs pinned on the wall. The overall atmosphere is intimate and slightly moody, with soft lighting that creates gentle shadows and highlights.",
+            },
+            {
+                src: "images/aigc/真实/(upperbody-4164531822-01_05_31-1.png",
+                type: "image",
+                prompt:
+                    "Upper body portrait of a Chinese girl, realistic style, studio lighting, warm tones, black background.",
+            },
+            {
+                src: "images/aigc/真实/1girl,solo-4266376018-18_23_23-1.png",
+                type: "image",
+                prompt:
+                    "Solo portrait of a young girl, natural expression, soft light, realistic rendering.",
+            },
+            {
+                src: "images/aigc/真实/photo,phot-1044284916-21_34_12.png",
+                type: "image",
+                prompt:
+                    "AI generated photo style, documentary feel, lifelike details, photographic composition.",
+            },
+            {
+                src: "images/aigc/真实/Portraitof-3022511452-11_03_49.png",
+                type: "image",
+                prompt:
+                    "Classic portrait painting style, elegant pose, soft brushwork, realistic facial features.",
+            },
+            {
+                src: "images/aigc/真实/Surrealist-1816230559-00_11_52-0.png",
+                type: "image",
+                prompt:
+                    "Surrealist style, dreamlike atmosphere, symbolic elements, intricate details.",
+            },
+            {
+                src: "images/aigc/真实/Surrealist-1816230560-00_11_52-1.png",
+                type: "image",
+                prompt:
+                    "Surrealist art chinese girl,18yo,Portrait Studio,facial,official art,photographic lights,warm light,black background,realistic,solo,Sony A7R IV with Sony FE 85mm f-1.4 GM,Agfa Vista 400,green sweater,a blue blanket,surrealistic,16k image quality,sparse mesh sweater, . Dreamlike, mysterious, provocative, symbolic, intricate, detailed",
+            },
+            {
+                src: "images/aigc/真实/Surrealist-3942944011-22_05_30-1.png",
+                type: "image",
+                prompt:
+                    "Surrealist exploration, mysterious mood, symbolic props, creative composition.",
+            },
+            {
+                src: "images/aigc/真实/Theimagesh-3821439436-11_26_08-0.png",
+                type: "image",
+                prompt:
+                    "Experimental image processing, abstract forms, artistic distortion, unique texture.",
+            },
+            {
+                src: "images/aigc/真实/Theimagesh-523596826-11_33_34-0.png",
+                type: "image",
+                prompt:
+                    "Image processing variant, creative color palette, abstract visual effects.",
+            },
+            {
+                src: "images/aigc/真实/Thisimages-3555839914-01_20_00-0.png",
+                type: "image",
+                prompt:
+                    "Creative image generation, imaginative concept, vibrant colors, dynamic composition.",
+            },
+            {
+                src: "images/aigc/真实/WomaninSun-2230024233-14_00_08-0.png",
+                type: "image",
+                prompt:
+                    "Woman in sunlight, warm atmosphere, natural pose, realistic skin tones.",
+            },
+            {
+                src: "images/aigc/真实/WomaninSun-4274729358-13_52_45-0.png",
+                type: "image",
+                prompt:
+                    "Woman in sunlight variant, soft lighting, gentle expression, outdoor setting.",
+            },
+            {
+                src: "images/aigc/真实/1023117972237251-11_36_09.mp4",
+                type: "video",
+                prompt:
+                    "AIGC generated video, realistic motion, artistic style, smooth transitions.",
+            },
+            {
+                src: "images/aigc/真实/anethereal-927200614-11_32_10-0.png",
+                type: "image",
+                prompt:
+                    "Chinese girl in red sweater, studio lighting, realistic style.",
+            },
+            {
+                src: "images/aigc/真实/anethereal-2964012035-11_42_44-0.png",
+                type: "image",
+                prompt:
+                    "Young woman with long hair, soft background, natural expression.",
+            },
+            {
+                src: "images/aigc/真实/IntimateMo-705261385-12_30_00-0.png",
+                type: "image",
+                prompt: "Surreal composition, vibrant colors, imaginative concept.",
+            },
+        ];
+
+        // 图片展示类 - 采用new.html的策略
+        class ImageGallery {
+            constructor() {
+                this.container = document.getElementById("imageRows");
+                this.init();
+            }
+
+            init() {
+                this.populateImages();
+                this.bindEvents();
+                this.hideLoading();
+            }
+
+            populateImages() {
+                images.forEach((item, index) => {
+                    const rowElement = document.createElement("div");
+                    rowElement.className = "row";
+
+                    // 创建图片容器
+                    const imageContainer = document.createElement("div");
+                    imageContainer.className = "new-i";
+
+                    if (item.type === "video") {
+                        const video = document.createElement("video");
+                        video.src = item.src;
+                        video.controls = true;
+                        video.muted = true;
+                        video.loop = true;
+                        video.width = "100%";
+                        imageContainer.appendChild(video);
+                    } else {
+                        const img = document.createElement("img");
+                        img.src = item.src;
+                        img.alt = item.prompt || item.title;
+                        img.width = "100%";
+                        img.loading = "lazy";
+                        imageContainer.appendChild(img);
+                    }
+
+                    // 创建描述文字
+                    const descContainer = document.createElement("div");
+                    descContainer.className = "new-tt";
+                    const descElement = document.createElement("p");
+                    descElement.textContent = item.prompt || item.title;
+                    descContainer.appendChild(descElement);
+
+                    // 组装行元素
+                    rowElement.appendChild(imageContainer);
+                    rowElement.appendChild(descContainer);
+
+                    this.container.appendChild(rowElement);
+                });
+            }
+
+            bindEvents() {
+                // 只监听图片和视频的点击事件
+                this.container.addEventListener("click", (e) => {
+                    if (e.target.tagName === "IMG" || e.target.tagName === "VIDEO") {
+                        this.openLightbox(e.target);
+                    }
+                });
+            }
+
+            openLightbox(media) {
+                // 隐藏顶部导航栏
+                const navAll = document.querySelector(".nav-all");
+                if (navAll) navAll.style.display = "none";
+
+                // 获取 prompt 文本
+                let promptText = "";
+                if (media.tagName === "IMG" || media.tagName === "VIDEO") {
+                    promptText = media.alt || "";
+                    if (!promptText) {
+                        const found = images.find((item) => item.src === media.src);
+                        if (found) promptText = found.prompt || "";
+                    }
+                }
+
+                // 创建灯箱遮罩
+                const lightbox = document.createElement("div");
+                lightbox.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+        cursor: pointer;
+    `;
+
+                // 内容容器，横向排列
+                const contentBox = document.createElement("div");
+                contentBox.style.cssText = `
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        max-width: 96vw;
+        max-height: 90vh;
+        gap: 40px;
+    `;
+
+                let bigMedia;
+                if (media.tagName === "IMG") {
+                    bigMedia = document.createElement("img");
+                    bigMedia.src = media.src;
+                    bigMedia.alt = media.alt || "";
+                    bigMedia.style.cssText = `
+            max-width: 60vw;
+            max-height: 90vh;
+            border-radius: 8px;
+            background: #fff;
+            display: block;
+        `;
+                } else if (media.tagName === "VIDEO") {
+                    bigMedia = document.createElement("video");
+                    bigMedia.src = media.src;
+                    bigMedia.controls = true;
+                    bigMedia.autoplay = true;
+                    bigMedia.loop = true;
+                    bigMedia.muted = true;
+                    bigMedia.style.cssText = `
+            max-width: 60vw;
+            max-height: 90vh;
+            border-radius: 8px;
+            background: #fff;
+            display: block;
+        `;
+                }
+
+                // prompt 展示容器
+                const promptBox = document.createElement("div");
+                promptBox.style.cssText = `
+        max-width: 32vw;
+        font-size: 1.1rem;
+        color: #222;
+        background: #fff;
+        padding: 24px 18px;
+        border-radius: 8px;
+        word-break: break-all;
+        box-sizing: border-box;
+        line-height: 1.7;
+        box-shadow: none;
+    `;
+                promptBox.textContent = promptText;
+
+                contentBox.appendChild(bigMedia);
+                contentBox.appendChild(promptBox);
+                lightbox.appendChild(contentBox);
+                document.body.appendChild(lightbox);
+
+                // 点击遮罩关闭
+                lightbox.addEventListener("click", () => {
+                    document.body.removeChild(lightbox);
+                    if (navAll) navAll.style.display = "";
+                    document.removeEventListener("keydown", handleKeydown);
+                });
+
+                // ESC键关闭
+                function handleKeydown(e) {
+                    if (e.key === "Escape") {
+                        if (document.body.contains(lightbox)) {
+                            document.body.removeChild(lightbox);
+                            if (navAll) navAll.style.display = "";
+                        }
+                        document.removeEventListener("keydown", handleKeydown);
+                    }
+                }
+                document.addEventListener("keydown", handleKeydown);
+            }
+
+            hideLoading() {
+                setTimeout(() => {
+                    const loading = document.getElementById("loading");
+                    if (loading) {
+                        loading.style.opacity = "0";
+                        setTimeout(() => {
+                            loading.style.display = "none";
+                        }, 300);
+                    }
+                }, 1000);
+            }
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener("DOMContentLoaded", () => {
+            new ImageGallery();
+        });
+
+        // 百度统计
+        (function () {
+            var bp = document.createElement("script");
+            var curProtocol = window.location.protocol.split(":")[0];
+            if (curProtocol === "https") {
+                bp.src = "https://zz.bdstatic.com/linksubmit/push.js";
+            } else {
+                bp.src = "http://push.zhanzhang.baidu.com/push.js";
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+
+</html>

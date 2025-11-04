@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>用英语流利说的实战案例，聊聊如何利用品牌设计解决问题？</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2a052f2e-ef92-46fb-8137-1abe82dc9472" class="page sans"><header><h1 class="page-title"><strong>用英语流利说的实战案例，聊聊如何利用品牌设计解决问题？</strong></h1></header><div class="page-body"><p id="7eee6408-aec5-4e11-834b-c58f2c5aea79" class=""><a href="https://wj.qq.com/s2/7185461/75b6"> 我要投稿</a> 编辑： <a href="https://www.uisdc.com/author/sstt">土拨鼠</a> <a href="https://mp.weixin.qq.com/s?__biz=MzUyMjQ0OTY0NA==&amp;mid=2247484987&amp;idx=1&amp;sn=3a7f14737a12add5b4b4ff81e96f9891&amp;chksm=f9cae1b8cebd68aea49ef93f89a0ce6333e0eeacc40f1656f51f5bd37916aabd416183cbf005&amp;&amp;xtrack=1&amp;scene=90&amp;subscene=93&amp;sessionid=1600683867&amp;clicktime=1600684037&amp;enterid=1600684037#rd%E3%80%91">作者：流利说设计团队 </a>4天前 点赞 9 <a href="https://www.uisdc.com/liulishuo-vi#post_comment">评论区</a>  阅读本文需 8 分钟</p><p id="c74ed073-0573-473d-8c74-9276a343c240" class="">流利说今年发布了新的品牌视觉规范手册，作为负责该项目的品牌设计师，今天想和大家聊聊关于品牌设计上的一些知识及心得。</p><h1 id="12c14418-b063-43f0-8f76-7a033935e8be" class="">企业形象识别系统是什么？</h1><p id="1f7a52ca-8fac-491f-98a6-e6e15684c846" class="">企业形象识别系统又称之为 CIS，它由三大要素所构成，分别是：</p><ul id="b29ce95f-7f82-4f24-b96b-7a2ee03a9f36" class="bulleted-list"><li style="list-style-type:disc">MI（Mind Identity）理念识别</li></ul><ul id="c605ee2a-fc06-45c4-9af0-4b7aeaca9ebd" class="bulleted-list"><li style="list-style-type:disc">BI（Behavior Identity）行为识别</li></ul><ul id="f4a11ca9-8d52-46ad-9cfb-214f7670e0b8" class="bulleted-list"><li style="list-style-type:disc">VI（Visual Identity）视觉识别</li></ul><figure id="327eb41a-58f9-418f-ad34-c54a1d188853" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-1.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-1.jpg"/></a></figure><p id="9599c33d-cbbd-4558-b11a-0bd24a8421c7" class="">企业通过 SIC 使社会公众能一目了然的了解企业传达的信息，从而达到识别并建立企业形象的目的。设计师常常提到的品牌视觉规范其实就属于 VI 这一部分。</p><h1 id="2e6b037b-ce3b-4674-b2a9-7a46117f287a" class="">如何评判视觉规范?</h1><p id="01a1f72b-37f9-4096-b688-23d837f0d020" class="">视觉规范手册可以理解为“定义品牌视觉识别并解释如何使用的说明书”。建立视觉规范有助于明确公司理念与品牌之间的关系并建立产品与品牌之间统一的识别特征，将这些特征贯穿在品牌的整个视觉系统中从而使受众感受到更强的秩序感、统一感。</p><figure id="9efba987-0f26-4023-8a42-250a50003eec" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-2.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-2.jpg"/></a></figure><p id="90f4342a-5317-4632-8902-98957ec510c8" class="">什么才是一个好的品牌视觉规范呢？VI设计中主要遵循的原则和衡量标准主要有三个：品牌调性；视觉统一性 ；实际易用性</p><figure id="d3ad4759-ca2d-44a7-96f8-11ee446a683f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-3.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-3.jpg"/></a></figure><p id="260c6408-cd73-4e0d-88bc-abe3d976b31b" class="">下面就围绕着视觉规范中的“统一性”这一点，和大家展开聊一下。</p><h1 id="2dcdd544-d8a3-442f-a918-237849c038ab" class="">为什么统一性尤为重要？</h1><p id="c9db2b5d-20ac-49e9-a474-afd12a5dea37" class="">因为不一致的品牌视觉会让客户感觉不专业，品牌视觉及调性的混乱会使得消费者感到困惑，不信任你的品牌。2020 年在《Brand Management in the Digital Age》 的文章最新研究表明，所有平台上一致的品牌展示将使收入最多可增加 23％。</p><figure id="52417771-0701-4f26-afad-0ff2eca38ae2" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-4.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-4.jpg"/></a></figure><p id="d7322332-5863-4354-a194-c4d4fea51a52" class="">视觉规范中的一致性对于确保品牌知名度和可靠性至关重要。它最终传达出的是品牌对外的声音。当人们在公共场合看到您的产品时，他们可以轻松地发现自己熟知的品牌视觉。举一个正面的例子，比如 Target,他们在任何媒介上都保持一致的声音及调性，即使在社交媒体上也是如此。</p><figure id="563be148-a62f-49a9-8f95-5ae184e69c1f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-5.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-5.jpg"/></a></figure><p id="f24f8167-460a-4932-b6f9-87a51b5d1524" class="">△ Target在不同媒介上的视觉呈现</p><p id="9c44ae77-2a75-4ff0-9407-5481eec06a7e" class="">再举一个很好理解的例子：一个同事他总是西装革履，梳着整齐的短发。某一天，他穿着破旧的牛仔裤和上衣，身上纹了夸张的纹身来上班。这可能会导致你的不习惯，甚至你可能会询问他发生了什么。同样的逻辑也适用于品牌：不一致会使你的客户混淆甚至疏远。品牌视觉的统一很重要，因为它可以帮助企业在所有团队和渠道之间以一致的方式进行沟通。</p><h1 id="b2f9ffe9-b468-47bd-b3d5-ccf63b0675c4" class="">流利说的品牌统一历程</h1><p id="10fda8db-49bd-43ae-b2aa-f776339bc5a9" class=""><strong>1. 找出问题所在</strong></p><p id="d6ad6986-34c1-405c-8d80-e1d0149af4d0" class="">在本次品牌视觉规范更新中，品牌视觉不统一是最基本的问题。视觉保持一致性是一个挑战，尤其是当需要创建大量内容和整合时，如果没有正确的方向，很容易会出现混乱。在流利说品牌视觉制作中，最难的点是要对原有品牌资产和新创建的资产进行归纳统一。不但要考虑到目前的实际应用场景，还要考虑到未来的易用性及延展性。首先我们对在视觉中出现的问题进行了归纳。</p><figure id="7aafa516-f58a-4ca9-b081-61b23e6f036d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-6.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-6.jpg"/></a></figure><p id="13cdd28a-12ae-4ed5-9841-75c46cf3fccd" class="">△ 标志使用混乱的案例</p><p id="6d8ec031-22ae-49f9-b925-147368cfaef2" class="">总结下来基本问题出现在于：</p><ul id="b7304631-6d5f-45aa-912e-2ff7867d0c84" class="bulleted-list"><li style="list-style-type:disc">Logo 缺乏系统化统一，并且在不同应用场景下没有规范及使用标准；</li></ul><ul id="b72bd26d-e44f-4110-a8db-d5d82ed64f09" class="bulleted-list"><li style="list-style-type:disc">旧版色板易用性不好，无法同时满足线上线下使用场景；</li></ul><ul id="e841e4de-b650-4add-9177-e1f2a6f9b636" class="bulleted-list"><li style="list-style-type:disc">字体、 <a href="https://www.uisdc.com/topic/%e6%8f%92%e7%94%bb">插画</a>风格 、影像风格等等基础视觉元素不统一。</li></ul><p id="bb6ec1f7-8a76-441f-a18d-f2a34570f4eb" class="">在对这些问题进行梳理并制定好目标后，我们对每一项进行了逐步的优化和制定标准规范。</p><figure id="71334328-248a-4b93-a30f-d68730dfbfdb" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-7.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-7.jpg"/></a></figure><p id="9e6815d8-e605-478e-8a61-2f015c8be306" class="">△ 项目组讨论并找出问题</p><p id="f4b744d4-8ff3-4ae4-877f-4cf92d7d0190" class=""><strong>2. 标志的统一</strong></p><p id="0b55cc3f-3a8d-4267-8e70-9b359d4289df" class="">标志是品牌的基础，一致性很重要。在不同情况下标志呈现都应具有相同的基本品质，但可能需要不同的呈现方式。</p><p id="5ccb6fe4-4bf2-4f4e-b356-1ccf395a439e" class="">比如在不同背景下运用的不同颜色版本；用于打印目的的黑白版本或用于品牌服装的简化版本。在做品牌统一规范时，所有可能涉及到的情况都需考虑进去。并明确写清每个版本的应用范围、直观的示例、使用的所有绝对“禁止”。</p><figure id="8fbe6560-48c6-4629-be59-018eacc51062" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-8.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-8.jpg"/></a></figure><p id="e6df221c-e636-4543-bf58-95fce9fc40b9" class="">△ 考虑不同 Logo 版本可应用范围</p><p id="9d4d940b-55a2-4d45-a50e-0f6e1a889780" class="">流利说 Logo 本身是渐变色，因为颜色的复杂性，使用场景会受到很大的限制。首先我对 Logo 使用场景及需求进行搜集。归纳出，除了彩色Logo外，常用的 Logo 颜色形态为黑白及彩色单色，从而制定出另外三种单色的 Logo。为保证统一性和不同媒介上最好的呈现，对每种情况加以测试，选出最佳呈现效果后来制定规范化标准，并限定出可用背景种类及明暗度的参考值。</p><figure id="47529205-d0dd-4fa3-985b-fc108c3e0428" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-9.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-9.jpg"/></a></figure><p id="6e7af267-2523-4b5f-b14e-f6a2c4375c7e" class="">△ 不同颜色Logo在不同明暗度及背景上的应用范围</p><p id="d3e8c69a-5ce2-400a-b502-54c25c94a7e7" class=""><strong>3. 颜色的统一</strong></p><p id="a45dc302-9d96-4162-b272-00f6ba90f466" class="">品牌色彩可帮助建立视觉在所有品牌作品上的一致性，而无论它们是数字作品还是印刷作品。大多数品牌使用 1-3 种主要颜色，然后指定辅助或重点颜色。为确保一致性，品牌标准色应提供不同色样。其中包括 Pantone（印刷、织物、塑料），CMYK（印刷）和 RGB/HEX（在线，数字媒体）。</p><figure id="4f5941e2-e852-4a14-94d0-5863fbffbdd0" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-10.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-10.jpg"/></a></figure><p id="f2c103d2-2685-461c-afce-5814b0713d13" class="">这次在进行颜色统一时，发现最大的矛盾点在于线上线下的颜色使用比较乱，为了画面的丰富，设计师会选择自行调整颜色，但这就导致颜色极其不统一。不同场景设计师常用的颜色是完全不同的，产品用色一般考虑到视觉舒适度，而选饱和度没有那么高的颜色。但是运营设计常常需要以吸引人为主，所以颜色饱和度相对偏高。因此颜色的使用上不同职能的设计师还是有很大差别的。</p><figure id="06c1ffe1-1eab-4bff-9495-24e00457fbc8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-11.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-11.jpg"/></a></figure><p id="740be539-8d63-4005-89e5-46d04de0f78b" class="">△ 常用颜色搜集与归纳</p><p id="d0079198-0948-4283-bdcf-0a804e18f969" class="">为了解决这个问题，我们对设计师常用颜色进行了统计和归纳，以各渠道都可以适用为目标，对色板进行了优化。</p><p id="3b043ff7-830f-482f-82c4-5e2cba2931a8" class="">比如我们调整了主品牌的绿色，在原有基础上为了满足活动运营的需求，调整了绿色的饱和度，但又满足了产品中对于文字对比度的需求。</p><figure id="3c09e5cf-3112-4ad9-853e-d11df5478ffe" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-12.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-12.jpg"/></a></figure><figure id="1ddd1e1f-7d8b-4b3a-8113-941afb398532" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-13.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-13.jpg"/></a></figure><p id="9cc6d28f-b970-4518-963e-f08b9b6a16e6" class="">△ 筛选不同的绿色并测试对比度</p><p id="03ee4877-1f74-4d95-b41b-c228dd9c9835" class="">通过常用颜色的实际颜色测试和调研，对于辅助色我们提供了更多的亮度和饱和度的选项，在这一方面不但有更好的统一性，也大大提升了色板的易用性，更能满足不同设计师的需求。</p><figure id="2d785983-64b5-44b7-a46c-ee961093b1ee" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-14.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-14.jpg"/></a></figure><p id="d389db08-01de-4fea-9c58-b77f3b810063" class="">△ 提供不同颜色明度的选项</p><p id="9a365632-7706-4c67-9565-09128133f04b" class=""><strong>4. 插画风格的统一</strong></p><p id="cf51c48a-8847-41c6-8dff-6cd83fc5a658" class="">插画的风格在网站、社交媒体或其他渠道进行品牌传播时，保持一致的语气和个性很重要。比如品牌在微博上的风格是有趣和友好的扁平化画风，那么它在 Facebook 和淘宝上应该具有相似的风格。在淘宝上如果呈现的是炫酷立体风格，在用户感知上会觉得完全来自另一个品牌。</p><p id="35f7486d-e85d-4cfa-bde4-535cad0e160d" class="">在以往的插画风格上，我们的线上线下风格不太一致。经过小组讨论及尝试后，我们的解决方案是在不同平台上有不同的插画处理方法，但是整体传达的插画视觉形态是完全一致的。</p><figure id="bef8c496-10a0-4248-82f0-f4df89ca4ca8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-15.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-15.jpg"/></a></figure><p id="c596c7a1-efd1-4c9a-a7f2-4ca884309f2e" class="">△ 相同的插画风格，不同表现形式</p><p id="c39cd4ad-c980-4742-bc92-4c57f4a7cfae" class=""><strong>5. 其它视觉元素的统一</strong></p><p id="6b202761-e93e-475f-91d8-256626832c87" class="">除了 Logo、颜色的统一及规范制作，这次品牌视觉升级同时也统一了字体、影像风格、办公室用品等一系列视觉基础应用。在字体上，除了统一各渠道的常用字体，还制定了字体<a href="https://www.uisdc.com/tag/%e6%8e%92%e7%89%88">排版</a>细节的规范，以确保在版式上有最好的呈现。</p><figure id="f85d0a66-b3c3-466a-b668-ba150caa4e82" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-16.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-16.jpg"/></a></figure><p id="d635a38d-1156-4123-b07f-7b87ec35a4ea" class="">△ 文字排版中的具体规范</p><figure id="93ef1a8d-32db-45a1-ae64-20ff2a9a9880" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-17.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-17.jpg"/></a></figure><figure id="35c18841-667a-4863-b7da-70e8fa26c67b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-18.jpg"><img src="https://image.uisdc.com/wp-content/uploads/2020/09/uisdc-ll-20200921-18.jpg"/></a></figure><p id="8ef4109c-f9f1-463c-a776-fcede0dd3ef7" class="">△ 线上线下应用展示</p><h1 id="c2934f6b-69ab-4397-9ba1-f553336fa45f" class="">总结</h1><p id="f8b1ee58-4f5e-4b62-b740-3bc8a07ee7d2" class="">品牌视觉规范的统一重要的还是对整体视觉和目标的把控。在统一之前一定要做好的几点：</p><ul id="8677691f-be77-4bec-83b9-8a3f82f24ced" class="bulleted-list"><li style="list-style-type:disc">找出现有问题</li></ul><ul id="3a70884c-099f-41f1-8ff5-8db4adb6ee57" class="bulleted-list"><li style="list-style-type:disc">实际调研</li></ul><ul id="bc73a967-0168-4cad-8a6e-0d895a202f20" class="bulleted-list"><li style="list-style-type:disc">归纳共性</li></ul><ul id="23061644-7db4-4040-84c7-b9792e766598" class="bulleted-list"><li style="list-style-type:disc">测试与总结</li></ul><p id="18a5a797-8a58-4995-a469-1e134467e6c0" class="">一个好的品牌规范不仅仅要达到视觉上的美感，更重要的是正确的传达企业调性，解决问题并做到优秀的应用性。</p><p id="94be52ad-a7ab-438d-8d30-45c0d8c380c7" class="">本期作者的私藏推荐：<a href="http://www.brandnew.com/">www.brandnew.com</a></p><p id="8c3f5bdd-0396-4dba-9839-39873acade27" class="">品牌<a href="https://www.uisdc.com/?s=%E8%AE%BE%E8%AE%A1%E7%BD%91">设计网</a>站，定期更新各大品牌的新闻和动态。大家可以多看看其它优秀品牌是如何做品牌视觉更新及优化的，在里面还可以找到很多设计灵感哦～</p></div></article></body></html>

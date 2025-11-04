@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>18、卡片分类</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d2308528-295c-4c61-8657-3dfd109e27d7" class="page sans"><header><h1 class="page-title">18、卡片分类</h1></header><div class="page-body"><h1 id="0fd7aed3-5e89-4cfd-b63f-a9ca20d64837" class=""><strong>卡片分类</strong></h1><p id="e122c47d-f068-4b52-ac3f-90538d7bc5a4" class="">学习如何组织信息</p><h1 id="3ee5bb3f-288f-4879-be71-440c95200f82" class=""><strong>卡片分类是一种强大、廉价且快速的研究方法，可用于学习如何构建信息、讲故事、信息优先级等。</strong><strong>这种方法可以亲自或远程完成。</strong></h1><h1 id="52a1b450-171c-4640-8714-cb98271179c0" class=""><strong>几张牌？</strong></h1><p id="69eb8448-491f-4e37-8435-19cd9eb9aaf6" class="">70 多张卡片实在是太多了。如此大的一堆卡片只会让参与者感到疲倦，并且可能无法得到您想要的答案。对这个练习所做的研究表明，“甜蜜点”大约是 20 个，每个参与者一轮最多 40 张牌。</p><figure id="1dea07e2-66b3-4747-bffc-ac9e0a008e20" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/7u53HNUT9RNKq9IpVb9EZV/aaae8d1f87ddc5ab67f924666285458b/2.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/7u53HNUT9RNKq9IpVb9EZV/aaae8d1f87ddc5ab67f924666285458b/2.jpg"/></a></figure><h1 id="44612aa8-f863-44c0-8903-044904609466" class=""><strong>有多少参与者？</strong></h1><p id="bfecd7f5-a050-4e05-b3d1-41e734d6002c" class="">要找出模式和相似之处：为了获得最佳效果，该练习需要有 10 到 15 名以上的参与者进行。在进行更大规模的测试之前，您可以先从 1-2 名参与者开始，看看是否有任何您可能遗漏的问题，并在对更多受众进行测试之前想要改进。</p><figure id="e31f3ce4-070c-451d-8de8-ec6e56eb1b17" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/1XD1V4rUa3DddIFboYbgk0/e75bcd322364fb909b578d6520aa696a/3.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/1XD1V4rUa3DddIFboYbgk0/e75bcd322364fb909b578d6520aa696a/3.jpg"/></a></figure><h1 id="9dbd2ee1-6b9d-44aa-9b9e-200ce2f924ea" class=""><strong>卡片分类的类型</strong></h1><p id="fb9117b1-75f8-4796-afdb-6d806c3a4a20" class="">卡片分类有三种类型：开放卡片分类、封闭卡片分类和混合卡片分类。此外，还有两种不同的测试方法：有节制或无节制。</p><figure id="e6a484f9-68d0-44d1-900c-161e58445bb0" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/4NFGQGbnaqzue87ufE1UQO/6c44a8de5cd4c15f9574ea47b07e7708/4.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/4NFGQGbnaqzue87ufE1UQO/6c44a8de5cd4c15f9574ea47b07e7708/4.jpg"/></a></figure><h1 id="b6b24760-9d77-4fc0-abd6-8800ecf37185" class=""><strong>开放式卡片分类</strong></h1><p id="d248a1d4-215e-4454-8279-18855c67e87f" class="">开放式卡片分类意味着参与者自己执行以下两个操作：创建类别，并将卡片排列在他们自己创建的类别中。参与者也可以添加新卡。这种方法的一些优点是，由于其灵活性，它可以更准确地了解用户的心理模型，并允许研究人员发现新的角度、新的机会。</p><figure id="4758b46e-6551-4e78-a335-df27b70f2566" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2agbpO0roeYH7jUcrbgK5j/aecde51ee6407fb58b6b75f1bfd058ab/5.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2agbpO0roeYH7jUcrbgK5j/aecde51ee6407fb58b6b75f1bfd058ab/5.jpg"/></a></figure><h1 id="9c1463f6-00c0-4c77-82f7-6f7c5fbe6db4" class=""><strong>关闭卡片分类</strong></h1><p id="11d430ea-a073-4281-857e-f8ffa764fdab" class="">封闭式卡片分类意味着参与者只能使用提供给他们的卡片。因此，在练习之前已经建立了类别。此方法将帮助您轻松发现模式并测试假设。如果在卡片打开分类练习之后完成，这将有更好的帮助。</p><figure id="3fc04822-629d-4adf-9d90-aa38cc08c440" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2yySZC6u5rkEf1ZjNUZAY6/e1f672e7c747411eb72c9dfb8ca8d128/6.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2yySZC6u5rkEf1ZjNUZAY6/e1f672e7c747411eb72c9dfb8ca8d128/6.jpg"/></a></figure><h1 id="ce2272b3-a169-4caa-a371-0edeab1186ee" class=""><strong>混合卡片分类</strong></h1><p id="a78272af-9775-441a-a4f0-6c26c51b82f8" class="">混合卡片分类意味着您将为参与者提供一些灵活性。参与者将收到已建立的类别以及需要分类的卡片。但参与者也可以添加他们认为从牌组中缺少的新类别和卡片。在近距离卡片分类练习结束时使用这种方法是很好的。这将允许人们提出不同的建议，并可能为进一步探索打开新的大门。</p><figure id="b0072726-9eb2-4e4b-aa9b-7ef1a8e52312" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5kuYrQv7JeEbRcsFin4C20/c04bd6d4b66613a1fa24c712ac90701d/7.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5kuYrQv7JeEbRcsFin4C20/c04bd6d4b66613a1fa24c712ac90701d/7.jpg"/></a></figure><h1 id="83b712a2-2440-4699-b6fb-3667dca069b8" class=""><strong>审核卡片分类</strong></h1><p id="d5251036-deb8-4aae-b700-66487c105a6a" class="">适度的卡片分类需要研究人员、记录员和参与者，亲自或远程参与。这种类型的会话允许指导整个练习。它有助于实时讨论、阐述和记录参与者的行为。它还有助于深入了解哪些卡片更难分类、理解以及操作背后的推理。这样做的一个缺点是所有各方都需要在会议期间同时出席。</p><figure id="4b011825-24c7-4fe8-9238-34b413439126" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/593cPZyJZvFu4AE2phMCje/ab0798151727255d95e1369ebae7f957/8.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/593cPZyJZvFu4AE2phMCje/ab0798151727255d95e1369ebae7f957/8.jpg"/></a></figure><h1 id="c245767b-55f3-4cca-bdaf-23d13a73a086" class=""><strong>无节制的卡片分类</strong></h1><p id="47b69c24-930f-4e48-8d19-bc8b0cd24ba4" class="">通过无节制的卡片分类，您无需为参与者提供任何指导。它允许大批量测试，并收集大量定量数据。这样做的好处在于它可以异步完成，并且有很多在线工具可用。这些工具对最终结果和模式提供了很好的分析。</p><figure id="5a22d759-978e-49e9-b514-af71924a31d1" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2pjTu8jWZgnjrPdwWFwwVm/49ecd404d6e05def8427b6aad6a5d622/9.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2pjTu8jWZgnjrPdwWFwwVm/49ecd404d6e05def8427b6aad6a5d622/9.jpg"/></a></figure><h1 id="d5fdd99a-35be-434a-b15e-d413371f03f9" class=""><strong>在线卡片分类工具</strong></h1><p id="6b3d87de-0fab-4d12-aaab-4f0fed89d5a1" class="">正如我提到的，卡片分类可以在线完成，使用目前市场上可用的一些很好的选项。许多研究人员强烈推荐：</p><p id="f0c173e4-7899-454b-9f04-d9243dbd986b" class=""><a href="https://www.optimalworkshop.com/optimalsort/?gclid=CP-bzLvz9NMCFc1lfgodynEKwA"><strong>Optimal Workshop</strong></a></p><p id="59c58f90-ec86-4651-99b6-5126811b3872" class="">、</p><p id="c3be6082-83bd-4ed2-a931-abc4d1461236" class=""><a href="https://userpeek.com/features/"><strong>Usability Tools</strong></a></p><p id="37ab62b0-4e40-415a-9cc7-cb3b532a5323" class="">、</p><p id="1187f3f9-c205-4ef1-a28b-664228ba6d8d" class=""><a href="https://www.usabilitest.com/products"><strong>UsabiliTest</strong></a></p><p id="82240c74-f173-4a96-84ae-635b82a284ef" class="">。</p><figure id="c7270664-a03a-419c-932b-3321b318851a" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/0DLOIB0cyNnfNWmqkS0ge/4a51e913f64b2ee98efcb9b62ab2f918/10.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/0DLOIB0cyNnfNWmqkS0ge/4a51e913f64b2ee98efcb9b62ab2f918/10.jpg"/></a></figure><h1 id="3184b41b-71db-45c2-834a-07c56b9cf864" class=""><strong>练习：卡片分类笔和纸</strong></h1><p id="d8d0ab4c-3ee9-4368-9331-11d68f78c427" class="">我们将为电子商务菜单做一个简单的封闭式卡片练习。取或剪下 10 到 15 个用于写卡片的方格纸。看看房子周围是否有一些彩色纸，您将用它来写下类别。</p><figure id="8391be88-9545-4250-b799-044512a3655d" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/IgsXt9KJqQ7XHQc8FtSk8/1e460e0c59a4dfb27be767aff9e40799/11.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/IgsXt9KJqQ7XHQc8FtSk8/1e460e0c59a4dfb27be767aff9e40799/11.jpg"/></a></figure><p id="2005043a-f1cb-47cf-9601-39563b7bbbb7" class="">转到任何在线电子商务网站，然后从菜单中记下一些类别。将您的彩色“菜单卡”放在一条直线上并开始书写。</p><figure id="046aeb3f-a1a1-4cb7-8245-69e5165f0faf" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/3X6uh78Fv7wlVNkclVcwlF/2e03c7dbcfa6f9ab93de83b77b8a891a/12.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/3X6uh78Fv7wlVNkclVcwlF/2e03c7dbcfa6f9ab93de83b77b8a891a/12.jpg"/></a></figure><p id="ae6fcdc4-54a3-4c11-87fa-46d59307be12" class="">我选择了 4 个在某种意义上彼此接近的类别，因为我想在整理卡片时创造一种集中注意力的需要。</p><figure id="0170cf02-6580-45e7-a954-af040621f8cf" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/4PquouZFZWreSRdb13zomx/5d3e28d752ce3cc1dab2f3e6c7f8900e/13.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/4PquouZFZWreSRdb13zomx/5d3e28d752ce3cc1dab2f3e6c7f8900e/13.jpg"/></a></figure><p id="9fcfed2a-c209-4054-82c1-bc1e7fc380e4" class="">从同一网站，提取您在所选类别中找到的一些子类别。开始在卡片上写下您选择的名字。</p><figure id="d7a1a538-a88e-41c9-b0f4-bcf8fc0de758" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/1atL5eVqRu0PZw7FvOBCKa/0d0796a27b9f54c86602fe54b9067f8b/14.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/1atL5eVqRu0PZw7FvOBCKa/0d0796a27b9f54c86602fe54b9067f8b/14.jpg"/></a></figure><p id="18c792a4-d9fd-4604-9144-f9fcd83a4152" class="">确保每个类别至少有 2-3 个选项。</p><figure id="5509fee5-8e0b-47a9-a16c-526ea585cf07" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/wTQ27FskfaKpFHPggp7sF/6036ed5b90ec51e1e233ac83da98675a/15.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/wTQ27FskfaKpFHPggp7sF/6036ed5b90ec51e1e233ac83da98675a/15.jpg"/></a></figure><p id="babdeef0-405c-4c21-a0a7-e79e81adbce6" class="">混合卡片并开始将卡片放在您认为它们所属的类别下。</p><figure id="9b0f262f-8326-47df-86ea-6068f1277527" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/4jKHCfGsiOfChGNNzu63D9/cd5ce497b68ff5bd93dda537818aaaf2/16.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/4jKHCfGsiOfChGNNzu63D9/cd5ce497b68ff5bd93dda537818aaaf2/16.jpg"/></a></figure><p id="2cc5e0d1-61bf-4367-89f2-6a9451bc6568" class="">当然，您可以多次改变主意。完成后，查看您的卡片排列是否与您从中获取类别和卡片的网站相同。☺️</p><figure id="a4e2a0bd-824d-4c12-bb19-552e8f8b0a69" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6pkuKBTAriQQmQ5JY5dULg/2b370507848d849ce839f3cb1aaf0420/17.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6pkuKBTAriQQmQ5JY5dULg/2b370507848d849ce839f3cb1aaf0420/17.jpg"/></a></figure><h1 id="538e90f4-454d-4bd5-a3e4-7cba1def66bd" class=""><strong>结论</strong></h1><p id="9c1cb986-6264-4a20-a4a7-45628bdd750d" class="">如果可能，尝试记录参与者在练习期间的行为。您会发现某些术语或类别太难理解，无法组合在一起，也许决定最好将它们更改或完全删除。</p></div></article></body></html>

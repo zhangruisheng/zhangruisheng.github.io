@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>精益用户体验</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4f9cfc8e-6909-4e12-b807-7a89ec67427d" class="page sans"><header><h1 class="page-title">精益用户体验</h1></header><div class="page-body"><h1 id="231df452-b2fd-44dc-ade1-e113aad76bef" class=""><strong>精益用户体验是一种管理方法，旨在快速、高效和协作。</strong><strong>它旨在在团队成员之间不断迭代并与用户保持联系。</strong></h1><h1 id="f4ca125e-8491-4c77-9b68-0e6136aeb30b" class=""><strong>为什么要精益用户体验？</strong></h1><p id="90eee0ac-1c35-44b3-bafd-f2a115c98733" class="">传统的 UX 流程基于许多步骤，有时会导致阻塞。在传统的 UX 设计流程下完成工作可能非常耗时，有时会让所有相关人员感到沮丧。精益用户体验是您使用敏捷流程进行设计的方式，重点是在倾听用户的同时快速行动并在客户反馈的帮助下塑造您的产品。由于精益用户体验的周期较短，因此有助于提高效率和速度。有效地工作、发布、感知用户的反应、迭代等等。<a href="https://www.smashingmagazine.com/2011/03/lean-ux-getting-out-of-the-deliverables-business/"><strong>Jeff Gothelf 在 Smashing 杂志上有一篇很棒的文章，更详细地解释了它。</strong></a></p><figure id="aefa39dc-ff67-4357-88d2-67f37068dd90" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6aq86c1Dmp2Nu68uMUnC5q/f2cf39d1282afd76e1cdd77d86f49a0c/lean_ux_d.png"><img src="https://images.ctfassets.net/ooa29xqb8tix/6aq86c1Dmp2Nu68uMUnC5q/f2cf39d1282afd76e1cdd77d86f49a0c/lean_ux_d.png"/></a></figure><h1 id="3ccdc994-8718-45fa-9301-23a9d046b588" class=""><strong>回馈</strong></h1><p id="2e8beb8f-b69d-40c8-b003-1a0d2ef98516" class="">精益用户体验专注于收集尽可能多的反馈。如今，技术使我们能够不断地交付我们的产品。因为我们可以定期发布它们，所以我们可以立即获得反馈，这可以导致快速迭代。交互设计基金会有<a href="https://www.interaction-design.org/literature/article/a-simple-introduction-to-lean-ux"><strong>一篇文章</strong></a>，他们讨论了一些可以帮助我们使用精益 UX 进行敏捷开发的要点。</p><figure id="99161e67-5386-46b7-bdb7-afe2a4ace058" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5jxg5jIiXUhWVm0VQ5VDe2/64782bfd864365d26de66ee7d0922602/Untitled.png"><img src="https://images.ctfassets.net/ooa29xqb8tix/5jxg5jIiXUhWVm0VQ5VDe2/64782bfd864365d26de66ee7d0922602/Untitled.png"/></a></figure><h1 id="10930e6e-bcbc-4e6f-9e74-a82624c690f6" class=""><strong>持续学习</strong></h1><p id="726cb3d3-b80a-4540-9e61-ee763e9f4ca2" class="">如今，更新我们的产品并与我们的用户共享变得更加简单。这会导致即时反馈。使用这些反馈，我们可以改进我们的产品并再次分享。关闭整个循环并在用户和构建产品的团队之间建立持续的对话。换句话说，如果你想改进你的产品，不要害怕被批评，谦虚地接受批评并过滤它以帮助你的产品改进。<a href="https://twitter.com/jboogie"><strong>Jeff Gothelf</strong></a>有一个很棒的演讲，标题为<a href="https://www.youtube.com/watch?v=oudYcZ-59LA&amp;t=1454s"><strong>5 年的精益用户体验</strong></a>，他更详细地解释了所有这些主题。</p><figure id="0802a2d2-e3d8-4a93-bb0c-fb308f3eb63f" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/3sYQAtymdCWYA5tdAtVFqe/f22af4a3468d171bdc5a8ff489c18e54/Screen_Shot_2020-12-10_at_9.30.45_PM.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/3sYQAtymdCWYA5tdAtVFqe/f22af4a3468d171bdc5a8ff489c18e54/Screen_Shot_2020-12-10_at_9.30.45_PM.jpg"/></a></figure><h1 id="a3389f74-fd79-4c51-b87e-42adcaf81d31" class=""><strong>连续对话</strong></h1><p id="00ed6399-88df-449c-a2c6-ebea75e05bc3" class="">运送 → 感知 → 响应并重复。执行这些步骤中的每一个都将帮助我们改进产品并使我们的客户满意。意义：我们需要了解我们对客户的影响。回应：获得反馈，如果我们弄错了，确保改变方向。发布：尽快发布新版本，以便我们确定新版本是否有更好的影响。我们对产品缺陷了解得越多，就可以收集越多的信息来确定任务的优先级。</p><figure id="9431eb3b-e430-4f38-a53e-420a18da28e9" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/1v23cvFWxbk0QlZLYHID7O/be2b47a4691285fea76b7dedd0b7cb8c/lean_ux_d.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/1v23cvFWxbk0QlZLYHID7O/be2b47a4691285fea76b7dedd0b7cb8c/lean_ux_d.jpg"/></a></figure><h1 id="01bd7f77-aee4-455b-a4f8-62688ea059d2" class=""><strong>要谦虚</strong></h1><p id="5054ba86-e111-433d-8abb-6bb1a3f721fa" class="">有时，我们可以对接近我们的产品开发有强烈的意见。尽管如此，我们仍需要足够谦虚，以迅速承认我们的错误行为，并确保调整我们产品的进程并推出新版本。在 Design + Code，我们反复应用这种方法，我们在社交媒体上分享我们的工作并听取用户的意见，但更重要的是，我们关心解决这些问题并尽快发布修复程序。</p><figure id="a54f864d-34b6-4622-b51b-fc61b11ea21b" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6iu6we2TQOjUyBsOVAZdzb/e0286cbb0802d302b92e88d4ca03f202/Screen_Shot_2020-12-10_at_7.30.35_PM.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6iu6we2TQOjUyBsOVAZdzb/e0286cbb0802d302b92e88d4ca03f202/Screen_Shot_2020-12-10_at_7.30.35_PM.jpg"/></a></figure><h1 id="044f54c3-4cf9-4500-a57a-494cc20b4083" class=""><strong>精益用户体验中的看板方法</strong></h1><p id="2bd38f7d-682d-4183-80c4-3519be00ce7c" class="">有不同的方法可以帮助我们使用精益用户体验。看板就是其中之一。它于 1950 年代由丰田的大野太一发明，以支持及时向客户交付产品 (JIT) 的方法，无论是迟早还是迟。您可以在这篇很棒的<a href="http://ixd.prattsi.org/2015/04/the-kanban-method-in-lean-ux/"><strong>文章中</strong></a>了解更多信息。</p><figure id="4c932e28-f990-4d91-914b-5d2603de24ac" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5e2LHi3AFgW1PmmOowFYmA/27aed2e0bfdb01814a4c8c2fddc2c047/Untitled-2.png"><img src="https://images.ctfassets.net/ooa29xqb8tix/5e2LHi3AFgW1PmmOowFYmA/27aed2e0bfdb01814a4c8c2fddc2c047/Untitled-2.png"/></a></figure><h1 id="8aea2d0b-6d95-47a3-8762-c1986b90daa7" class=""><strong>在 Figma 中创建看板</strong></h1><p id="f117ad82-4575-4064-9fa6-50989e77f85c" class="">我们将开始定义一些将在我们的板中使用的主要颜色，并将这些颜色保存为颜色样式，以便我们稍后在练习中重新使用它们。您可以在我们的 Figma 文件中找到这个特定的调色板。</p><figure id="d6fac342-8b0e-44b9-9796-e460f7446a94" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/1jXeuzDoecDfdrbKVyZ99w/bfa23f01832a83abadb705bbfeab6efa/Screen_Shot_2020-12-05_at_9.38.08_AM.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/1jXeuzDoecDfdrbKVyZ99w/bfa23f01832a83abadb705bbfeab6efa/Screen_Shot_2020-12-05_at_9.38.08_AM.jpg"/></a></figure><p id="81935236-26c9-4e42-92e6-16e7cdad8222" class="">然后我们将创建一个名为“ <strong>user”</strong>的新框架，大小为 300x54，我们将使用白色作为不透明度为 40% 的颜色，并为其添加自动布局。在这个框架内，我们将添加一个宽度为 275 的文本元素。将文本设置为“谁在处理卡片”，并选择自动高度。</p><figure id="f585e920-4821-4e80-b263-e44f8d1d4651" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/1wTkHyVW9L7KDIGMPHMeyX/52c859ee32f9933a678a4f1c089eb9b1/Screen_Shot_2020-12-05_at_9.46.09_AM.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/1wTkHyVW9L7KDIGMPHMeyX/52c859ee32f9933a678a4f1c089eb9b1/Screen_Shot_2020-12-05_at_9.46.09_AM.jpg"/></a></figure><p id="f151e072-0d0c-4e43-94a8-903c9db0cf20" class="">接下来，我们将创建一个大小为 390x154 的新框架并将其命名为<strong>“card”</strong>。为其设置名为<strong>“Design”</strong>的颜色样式，添加 20 作为边距。在下面，我们将添加一个值为“Task”的新文本，宽度为 350，高度为自动。</p><figure id="71da2a33-4d67-4e3b-939e-35d365d42acc" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/7Edr43A9jdXe3sFCpTzw13/aeada656fb55d768cafd1959e4ff65f9/Screen_Shot_2020-12-05_at_9.42.54_AM.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/7Edr43A9jdXe3sFCpTzw13/aeada656fb55d768cafd1959e4ff65f9/Screen_Shot_2020-12-05_at_9.42.54_AM.jpg"/></a></figure><p id="dee384c6-742d-4e1c-8f93-e1765d544237" class="">然后我们将<strong>“卡片”</strong>转换为一个组件，并将这个组件添加到一个名为<strong>Section</strong>的新框架中。这个新框架的宽度和高度为 430x274。对于颜色，我们将从颜色样式调色板中选择“部分”。然后我们将使用边距为 20 的自动布局。我们将添加一个标题：“💪 To do”。</p><figure id="81c110cc-17a1-4484-a329-e00510c849e9" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/40P1DYsMsob1CkRqUboD0E/6a9299a7047e131d381b709ecdf6a534/Screen_Shot_2020-12-05_at_9.44.18_AM.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/40P1DYsMsob1CkRqUboD0E/6a9299a7047e131d381b709ecdf6a534/Screen_Shot_2020-12-05_at_9.44.18_AM.jpg"/></a></figure><p id="d449cb29-c3e5-446f-bfc3-65d682d30705" class="">在这一步中，我们将创建一个自动布局的框架，边距为 40，称为“Section”。然后，再制作三个该列的副本。将新专栏的标题更改为“⚙️ 进行中”、“🤖 审核”和“🎉完成”。</p><figure id="2895cece-b3f8-4658-805a-9cc151bc6984" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/1DsFXFqJMNrDsvsGhMYht6/9a2abc51ab6f66cda766d363e0d2335e/Screen_Shot_2020-12-05_at_9.40.48_AM.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/1DsFXFqJMNrDsvsGhMYht6/9a2abc51ab6f66cda766d363e0d2335e/Screen_Shot_2020-12-05_at_9.40.48_AM.jpg"/></a></figure><p id="72d448ee-fcc0-4770-8fb8-2463290f7a50" class="">在这一点上，我们有了可自定义的板，借助 Figma 的<a href="https://www.figma.com/blog/announcing-auto-layout/"><strong>自动布局</strong></a>，我们可以在其中轻松添加新卡片、编辑文本以及在行和列之间移动卡片<a href="https://www.figma.com/blog/announcing-auto-layout/"><strong>。</strong></a></p><figure id="a731ac1b-a7d0-43f3-939d-84e88fb76194" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2dZAVZ6s6C4OQLPrSvbpQM/2b811d0755c4574e98dbcf18158dcfe3/Screen_Shot_2020-12-05_at_9.33.33_AM.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2dZAVZ6s6C4OQLPrSvbpQM/2b811d0755c4574e98dbcf18158dcfe3/Screen_Shot_2020-12-05_at_9.33.33_AM.jpg"/></a></figure><h1 id="b5353557-1a38-4dd4-92f8-1979e95e2d7c" class=""><strong>结论</strong></h1><p id="156e20de-1447-48a5-87ff-60f2c5b8c6e3" class="">精益用户体验可以以非常高效和有效的方式帮助我们作为一个团队并行开发不同的产品。</p></div></article></body></html>

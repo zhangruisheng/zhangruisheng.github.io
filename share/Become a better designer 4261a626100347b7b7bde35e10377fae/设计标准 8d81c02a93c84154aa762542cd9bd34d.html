@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>设计标准</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8d81c02a-93c8-4154-aa76-2542cd9bd34d" class="page sans"><header><h1 class="page-title">设计标准</h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="d62237b8-a8e4-489b-b272-d34a0707493c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">首先，探讨这个问题，意义何在？笔者认为，有两点意义：首先，作为用户，我们可以用到好用的产品；其次，作为从业者，我们可以找到学习的榜样。</div></figure><p id="619689f5-c851-4e8f-801c-b9e071a6b3fc" class=""><strong>01 怎样算是品质？</strong></p><p id="cc9a5461-2587-46e1-9a0a-4e00fd719d21" class="">明确了意义，我们再回到问题本身：怎样算是品质？如何判断？</p><p id="34025949-eb79-4382-91b8-00d1cb01719b" class="">个人认为，和周到一样，是否拥有高品质，也是用户的主观感受说了算。</p><p id="7c41cad2-6ac5-4752-b578-90ba51e9bd88" class="">在涉及体验细节的小需求上，避免所有的不周到，就是周到。</p><p id="d1d38e1c-efd5-46a7-acd7-bb14c4e2d395" class="">这是关于周到与否的判断，相对比较容易。但是关于品质与否的判断，笔者没有找到这么简单的判断逻辑。所以我们尝试换一种方法。</p><p id="4b036547-67b4-4b36-afb5-5222a42587e0" class="">豆瓣的高分电影，比如《千与千寻》、《美丽人生》和《肖申克的救赎》，它们肯定存在不同之处，但同时也有一些共同特点（主人公都面临极大困境，但都心怀希望和目标，通过各种努力走出了困境）。</p><p id="6914fd83-2b85-4839-94b6-2498957550d6" class="">高分电影如此，高品质的交互设计，也是如此。</p><p id="7acc513d-ac27-49cb-80fa-094973bec480" class="">这一大段，就尝试去探索这些共同的特点，以便去发现、或者去验证，那些在交互设计方面拥有高品质的产品。</p><figure id="e39dfffa-aee7-44a2-b79b-d678bbd9ae27" class="image"><a href="http://image.woshipm.com/wp-files/2020/01/1qiEPov8CXHnBjUAqNPc.png"><img src="http://image.woshipm.com/wp-files/2020/01/1qiEPov8CXHnBjUAqNPc.png"/></a></figure><h3 id="5c92405c-296e-432a-b4fc-81104ae70c43" class=""><strong>1. 看着简单</strong></h3><p id="9e6e4c4c-2dcd-44a1-a3b9-fa8ffba9577f" class="">之前在《<a href="http://www.woshipm.com/pd/2736214.html">以不变应万变：浅析信息架构</a>》这篇中提过，只有简单，才能让用户马上找到掌控感、进而感觉良好。</p><p id="9b180fe7-b8db-4949-983a-a0e2c83c78a7" class="">高品质的交互设计，一定是要让用户感觉良好的，所以看起来一定是简单的。</p><h3 id="639a930f-1186-4073-a593-62035951d199" class=""><strong>2. 用着顺</strong></h3><p id="4a620887-34ec-4adc-9265-cf0c78f1ce1c" class="">个人观点，互联网产品有两类较为特殊的初级用户，一类是零经验的三岁小孩，一类是智能手机之前没怎么接触过互联网的老人。</p><p id="e5e83308-7e63-4f61-9a15-a6774a6fadcb" class="">一般情况下，大家习惯把用户分成三类：初级用户、中级用户和高级用户。其中初级用户的使用经验最少。</p><p id="30b80753-0994-4571-bf89-c6f5c177af75" class="">高品质的交互设计，会让初级用户很容易上手。稍加练习之后，初级用户也会像中高级用户一样，用起来很顺。</p><p id="65b6d9ce-f0c9-4962-85f9-72fb6fcdd8d1" class="">iPhone 的交互设计是很优秀的，所以三岁小孩也能很快上手操作。</p><p id="5539efa6-f6cf-4060-a03a-1608a354d7e1" class="">小孩的心智比较纯粹，没有受到社会大染缸的污染。用手机时他们会根据自己有限的生活经验去积极尝试操作。</p><p id="62ea48cb-5a9b-4be2-842e-08e4f66dc6b5" class="">老人和小孩则有点相反，部分老人可能思维比较固化，好奇心、积极性等方面都不如小孩，所以老人在用手机时可能会有点畏手畏脚。</p><p id="a1619907-47c0-4ef0-8f43-eb6b7d059545" class="">微信作为一款交互设计十分优秀的产品，如今拥有智能手机的老人基本都在用。有的可能是自己学会的，有的可能是子女教会的。整体而言，笔者观察周围的老人，用微信用的还比较顺畅。</p><h2 id="f5d2fadd-92a1-4977-b993-e4610c2d9bd2" class=""><strong>02 交互设计：如何做到品质？</strong></h2><p id="ca8aa239-69b0-43c3-bc96-5d2f45ba0ac4" class="">个人觉得，交互设计的高品质，<strong>是感性、理性和实践的完美融合。</strong></p><p id="b973fef4-ff1b-4168-98f0-8d5fa7ece3fa" class="">曾经有人问巴菲特的合伙人查理·芒格，如果只能用一个词儿来形容你的成功，会是什么？芒格回答说，是“理性”。</p><p id="67871b56-c906-4ec0-ab15-4c1bbff664dc" class="">老子曾经说过：“人生于世，有情有智。有情，故人伦谐和而相温相暖；有智，故明理通达而理事不乱。情者，智之附也；智者，情之主也。以情统智，则人昏庸而事颠倒；以智统情，则人聪慧而事合度”。</p><p id="4d39f4d4-38dd-4858-9293-52a5c62610f6" class="">简·奥斯汀的小说《理智与情感》，虽然写的是小镇的恋爱与琐事，但背后折射出来的洞见——“要有真情感，更要用理智控制情感”，与老子的观点也是不谋而合。</p><p id="286eb6dc-c8d8-4c95-b3ec-2cc624cfc8a7" class="">做人做事，需要理性和感性。做交互设计，也是如此。</p><p id="d526ad54-62c3-4cee-9253-91e22926b955" class="">芒格、老子和简·奥斯汀，在强调做事业和做人方面，都是理性在先、感性在后。</p><p id="24dbfff4-fd64-46db-a1d0-2b16988b5c6c" class="">做交互设计，就是在做用户体验，核心是用户的主观感受。所以笔者认为，此时是感性在先、理性在后。</p><p id="a137e805-4b25-4deb-80bd-cf386f14e6fd" class="">交互设计里的感性，有两层意思。</p><p id="91516c4f-b703-4211-9fe7-d25ee626a980" class="">第一层是微观层面，主要是性格上的<strong>敏锐度</strong>，比如我们平常听到的性格敏感、心思细腻等；第二层是宏观层面，也就是<strong>品位</strong>。</p><p id="c7798802-ff0c-40e5-a92e-fbf22a393466" class="">量变引起质变。微观上积累的多，才会带来品位的提升。</p><figure id="ac2d030d-b157-4876-be07-fed67ec3899d" class="image"><a href="http://image.woshipm.com/wp-files/2020/01/T7xd5Qro93ScYqNTxUi1.png"><img src="http://image.woshipm.com/wp-files/2020/01/T7xd5Qro93ScYqNTxUi1.png"/></a></figure><p id="f7c2df5d-8ac8-4c68-a4b0-a71212b82273" class="">交互设计里的理性，其标志是做出<strong>正确的决策</strong>。</p><p id="f2cda95b-8640-41df-b3fe-23e2711560ea" class="">那怎样判断决策是否正确？</p><p id="6b5b61aa-f0b2-4ce4-9e80-5f4672f934fc" class="">个人观点，有两块“试金石”可担此重任。</p><p id="47c72e9e-32be-4b2c-9b9d-9300fd684f64" class="">第一块“试金石”是来自最优竞品的检验，第二块“试金石”是自我检验。</p><figure id="8e6fb028-108f-431a-8291-5f80537bd3fc" class="image"><a href="http://image.woshipm.com/wp-files/2020/01/jXuyYxRniXq3A1oqDKS2.png"><img src="http://image.woshipm.com/wp-files/2020/01/jXuyYxRniXq3A1oqDKS2.png"/></a></figure><p id="f7db0955-7db0-4f51-a38b-a80e42c09e24" class="">最优竞品是一块很好的“试金石”。如果能和最优竞品一决高下或者“三足鼎立”，说明品质很不错；如果和最优竞品差距太大，则说明没有达到高品质。</p><p id="36b2eb85-5e9b-4c24-bc3d-1e61014006e4" class="">然而现状则是，市面上的最优竞品，也就是交互设计方面达到高品质的产品，为数不多。这就意味着很多领域的产品是不存在最优竞品的，此其一。</p><p id="4bd4aee5-6d1a-4da6-ba50-709d8e205bd9" class="">其二，与其被动的等待最优竞品的检验，不如主动成为最优竞品。要做到这一点，则需要第二块“试金石”，也即优秀的自我检验能力。这个优秀的自我检验能力，其实也基本等同于做出高品质交互设计的能力。</p><p id="14b9b4f9-7647-47eb-a5af-24e9beddae06" class="">实践就是一个<strong>反复试错、反复打磨、反复验证感性和理性的过程。</strong></p><figure id="b0851b83-3549-4088-b7ef-3c7fa197e240" class="image"><a href="http://image.woshipm.com/wp-files/2020/01/5g7Tty7AscgxgTytCV0A.png"><img src="http://image.woshipm.com/wp-files/2020/01/5g7Tty7AscgxgTytCV0A.png"/></a></figure><h3 id="22530779-66f5-4087-8c60-d93aff6e0925" class=""><strong>1. 培养语感</strong></h3><p id="ee6fd785-c0f7-488d-8e95-abcd5d11513d" class="">大家都学过英语，所以应该也都听说过“语感”这个词儿。</p><p id="07cb10bc-5fdf-4b6f-9beb-db6c19215ace" class="">英语语感好的人，会有这个优势：较少依赖语法，同时较少犯语法错误。</p><p id="9da22ccd-e820-4b26-8230-c272eeefe416" class="">就像游泳一样，熟练了以后，身体已经对动作形成很深记忆，完成动作就几乎不依赖大脑思考，同时也不会犯错。</p><p id="50c72206-dbe8-4b0c-b8bd-8d0a9eb368f9" class="">在语文里，“语感”被提起的次数就少了很多。大家每天都在用中文，甚至每天都在听说读写。对中文都很熟练，好像大家的语感都差不多。</p><p id="910775a3-5e3a-4f08-834c-0c20eb34e2f2" class="">但实际上，和英语一样，语文方面的语感，也存在一定差距。看看百度百科对“语感”的解释就知道了。</p><blockquote id="4d30f8d1-0c1d-4eab-8c87-b101aa3ffde0" class="">语感，是比较直接、迅速地感悟语言文字的能力，是语文水平的重要组成部分。它是对语言文字分析、理解、体会、吸收全过程的高度浓缩。语感是一种经验色彩很浓的能力，其中牵涉到学习经验、生活经验、心理经验、情感经验，包含着理解能力、判断能力、联想能力等诸多因素。</blockquote><p id="af883a9b-aca4-4a60-b39e-22ebebb16aae" class="">这个解释包含了四个经验、三个能力。每个经验、每个能力的获得都需要一定量的练习。不同的人，底子不同，练习的量存在不同，所以语文方面的语感必然存在不同。</p><p id="c1bdfa8b-a619-479d-a9c3-6a7a2130598a" class="">像语感里提到的心理经验、情感经验，在不同的语言里是相通的，且和交互设计里的主观感受存在相通之处。所以，在笔者看来，一定程度上，作为母语的语文，其语感是英语语感的基础，也是交互设计语感的基础。</p><p id="523e5b6d-8420-49f6-ae02-d4c7720b0e6c" class="">啥是交互设计的语感？</p><p id="451eb2d8-7e20-41b7-a58e-8e72fbc3865f" class="">和语文的语感类似，交互设计的语感，就是<strong>比较直接、迅速地感知交互设计优劣的能力，是交互设计水平的重要组成部分。</strong></p><p id="d352e4a6-1982-4b51-afe1-daa7863e1d59" class="">这个语感，和乔布斯口中“科技和人文的十字路口”中的“人文”，以及媒体和从业人员口中的“人文素养”，也有相通和相似之处。</p><p id="6cce9609-fcc0-4435-9fcc-d07e6a3db0e7" class="">苹果的设备之所以在交互设计方面拥有高品质，和乔布斯早年深受嬉皮士文化、民谣和摇滚歌手 Bob Dylan、禅文化、日式美学、字体设计等人文艺术方面的熏陶密切相关。</p><p id="b9db7369-bb7d-4a22-997b-ca41714b6040" class="">上世纪 90 年代，张小龙在开发 Foxmail 时，想必作为程序员的他并没有太多交互设计方面的经验，彼时这方面的理论和著作也少，张小龙更多是凭感觉在做。但是 Foxmail 就做到了交互设计方面的高品质并且产品广受欢迎，想必张小龙的语感也是极佳。而据网络资料显示，张小龙本人喜欢阅读、电影和 Michael Jackson 的音乐，也有比较深厚的人文素养。</p><p id="8e2b76aa-de1a-4c78-91a7-d80ffcaf954c" class="">所以，在笔者看来，交互设计语感的内核，或者<strong>广义的交互设计语感，就是语文的语感，或者更进一步，是人文和艺术的语感。</strong></p><p id="efb0c0f0-51ae-4b0b-893c-5f91a5c60a95" class=""><strong>狭义的交互设计语感，则是直接、迅速感知交互设计优劣的能力。</strong></p><figure id="36bbc017-84b2-4ce4-b83f-f800144f3787" class="image"><a href="http://image.woshipm.com/wp-files/2020/01/VwkSO8M4p5nokqn4qYeV.png"><img src="http://image.woshipm.com/wp-files/2020/01/VwkSO8M4p5nokqn4qYeV.png"/></a></figure><p id="08118a12-2b4e-4b79-8554-95b7450ef85f" class="">冰冻三尺，非一日之寒。一个广义语感，一个狭义语感，加起来基本等同于先天基因和人生经验之和。</p><p id="e03c1777-15b8-47af-a42e-add879857335" class="">听起来有点定型的感觉。那这俩语感，还能培养吗？当然可以。咋培养？</p><p id="b6c19085-dca7-450f-9451-d87c1217caed" class="">个人观点，广义的语感和狭义的语感需要同时培养。广义的语感是内核。正所谓水涨船高，这个内核越好，狭义的语感也会越好。</p><p id="500a3f61-a327-4b2c-8cbf-3e2f21cd680d" class=""><strong>先说广义的语感</strong>，即人文和艺术方面的素养。个人认为，主要受性格和练习影响。性格则主要受遗传基因和童年经历影响。</p><p id="cf6d436b-0c3a-43cc-8b49-8db0d538c7d5" class="">天生内向的人，通常内心会更加细腻。这种细腻，对于日后建立丰富的精神世界和情感世界，是一种优势。</p><p id="a924320e-563a-4f16-8e1f-27c34407c882" class="">所谓祸兮，福之所依。有些人的优势，则是建立在童年不愉快的经历上。</p><p id="04179ea1-6e9b-404f-9798-28d52cbae3cf" class="">比如美剧《千谎百计》里测谎公司的莉亚，童年时期暴力的父亲经常殴打她，使她学会了迅速判断别人的心情。莉亚没有受过任何专业训练，但是童年不幸的遭遇使她在识别微表情方面异常敏锐，最终被莱特曼博士力邀加入了团队。</p><p id="df7b0a79-45f7-43b5-8791-e59de991b165" class="">性格有优势的话，自然是加分项。没有优势的话，也可以通过后天的练习来弥补。</p><p id="436f3bd1-8736-45c5-a3d7-a2df2f91a051" class="">这个后天的练习，在笔者看来，非常重要的一点，是来自书影音的熏陶。</p><p id="719f1214-b544-4954-91bb-53031d26415f" class="">简单说说书影音。</p><figure id="61930dc4-493f-4903-8834-18a87cdbe1ff" class="image"><a href="http://image.woshipm.com/wp-files/2020/01/BRWperEDwzUVIU38CvCu.png"><img src="http://image.woshipm.com/wp-files/2020/01/BRWperEDwzUVIU38CvCu.png"/></a></figure><p id="8b40cb1f-b815-469d-8f24-3fdab0eea499" class="">首先，一定要看一些文学性强的作品，感受“思无邪”之美。因为这些是人类内心深处共同的精神家园。个人的理解，文学性强，是指满含人间烟火味、但无半点名利心的作品，比如《诗经》、《草房子》、《城南旧事》等。</p><p id="ec28196c-c7e7-476b-bf71-cb06a38b7d5b" class="">其次，一定要看一些思想性强的作品，感受大道的至简之美。因为这些对于理性、对于探索事物的本质非常有益。具体的作品，可以参考《道德经》、《巴菲特致股东的信》等。</p><p id="c7bcbeb3-d4bf-4f91-870e-cb5b5cf9eaa6" class="">最后，影视剧要多看，书更要多读。原因如下。</p><p id="cdd25ace-e712-4373-95e5-dd7a1fa50d56" class="">影视作品在刺激我们视觉和听觉的同时，留给我们思考和想象的空间，通常都没有文字留给我们的多，此其一；</p><p id="409e949d-cf3e-4397-b481-3c5c0677514d" class="">其二，影视作品里的语言基本以对话为主，而小说等书籍中除了对话，还有很多关于环境、人物、心理、情感以及哲理等的描写。</p><p id="8de6c85d-76aa-442d-b460-7ed41d465b69" class="">基于这两点，虽然有些人可能天生就是视觉动物，但<strong>阅读始终是无法替代的，在培养语感方面也发挥着更为重要和基础的作用。</strong></p><p id="738a5d95-78bf-4114-859c-5ee0a915ba9f" class="">整体而言，如果目标是高品质的交互设计，在书影音的选择上面，笔者就建议大家去选一些经典的作品。具体而言，豆瓣评分和豆瓣 Top 250 榜单会是不错的参考。</p><figure id="a499892b-a685-4f37-b4f4-d6d7528562db" class="image"><a href="http://image.woshipm.com/wp-files/2020/01/mzLrfIrk4OsRwJaznCrj.png"><img src="http://image.woshipm.com/wp-files/2020/01/mzLrfIrk4OsRwJaznCrj.png"/></a></figure><p id="d27474eb-2144-4962-9901-596ca64c254b" class=""><strong>再说下狭义的语感</strong>，即对交互设计的感知能力。</p><p id="7f936cec-d64f-43a1-ba53-5eb2ea6fb9e1" class="">这个完全是后天训练出来的。如果这方面的语感不够好，则进步空间很大。主要方式就是多用交互设计方面高品质的产品。</p><p id="8db45b19-9d20-4a98-8187-47a65adc3023" class="">举个例子，可能我们很多人用的第一台电脑都是 Windows 系统，后来一部分人改用了 Mac。Mac 用久了，就再也用不惯 Windows。这就是语感提高的典型例子。</p><p id="3ca196d6-9be8-4bf3-b34c-25725be6f679" class="">我们常用的一些产品，比如微信、iOS、快手等，在交互设计方面都拥有很高的品质。</p><p id="60083625-1f0b-428f-9e9d-740ae27d0d5d" class="">这些日常使用的产品，客观上也在潜移默化的提升我们的语感。最终的结果，也会对整个行业的交互设计提出更高的要求。</p><p id="883c4585-fd20-40a4-b94e-6b9614d64ee7" class="">这里笔者再向大家推荐一个涉及网页端和后台管理、编辑的产品，交互设计方面很优秀，那就是博客搭建平台 SquareSpace。笔者自己的工作室网站 SnowDesign.Me 就是基于这个平台搭建的。</p><h3 id="07cd0360-43e4-4397-8e48-1240154eb077" class=""><strong>2. 理性思考</strong></h3><p id="9739ec91-eb8f-4a10-af9f-e25b4c1867fa" class="">交互设计要做到高品质，就要求从信息架构到交互设计，大大小小的无数细节，其决策几乎全部是正确的。这是一个很高的要求，背后必须要有理性思考的支撑。</p><p id="3c74d729-21f4-47a2-92da-0ae245f4692b" class="">现实情况是，很多团队做不到这一点。</p><p id="8409b057-30b3-4f42-afcb-97dcd33129f4" class="">然而，交互设计，从构思、到设计、到优化、到讨论、到修改，每一个环节我们都有理性思考，那又为什么做不到高品质？</p><p id="071dd5fc-e9f4-440d-b197-8d6d157aba9e" class="">在笔者看来，这些理性思考还存在进步空间。<strong>只有优秀的理性思考，才能设计出优秀的交互设计。</strong></p><p id="c404316e-8cb3-41ee-ade4-b6a90fb6832d" class="">个人观点，优秀的理性思考，通常是一种独立思考，主要有 3 个维度，分别是：逻辑、全面、权重。</p><figure id="14bc7df1-e686-4696-a380-e31f0c343a3b" class="image"><a href="http://image.woshipm.com/wp-files/2020/01/9s2Bk2WdTxjlD12ubNxx.png"><img src="http://image.woshipm.com/wp-files/2020/01/9s2Bk2WdTxjlD12ubNxx.png"/></a></figure><p id="98906efc-f41e-428c-b1d6-63f372a01e99" class="">以微信为例，如果换个团队，有可能会把朋友圈作为一级 tab 单独拿出来。因为大家使用朋友圈的频率很高，这样少点一下会更方便。这在逻辑上完全没问题。</p><p id="b7aefbbb-6606-4d66-bd26-b2cff3a16ccd" class="">但微信团队的考虑，个人推测，至少有这 3 点：</p><ol type="1" id="53867b41-c9b0-4a3a-98f0-6951c5870ce7" class="numbered-list" start="1"><li>微信坚持只有 4 个 tab；</li></ol><ol type="1" id="7d51af66-4399-441b-87d7-19b951eeac07" class="numbered-list" start="2"><li>朋友圈是个插件功能，可拆卸，作为一级 tab 不合适；</li></ol><ol type="1" id="f449f09a-de37-4041-b260-bcfe9311aa1e" class="numbered-list" start="3"><li>少点一下，更方便。</li></ol><p id="f9f2186d-ae0a-4b5d-b8dc-f71865f1078f" class="">这里面权重最高的是第 1 条，权重最低的是第 3 条。综合来看，微信是不会把朋友圈单独作为一级 tab 的。</p><p id="db79de04-1448-434a-9a02-12ef3a2552e2" class="">这个例子很有意思，笔者觉着它在一定程度上反映了我们很多人存在的不足。</p><p id="b648ff8d-4c65-432e-8ae7-3e58e8f57c9d" class="">我们很多从业者，在进行理性思考的时候，逻辑方面基本没问题。但是在全面和权重这两点上，可能会做的不到位。这就导致我们无法做出正确的决策。这样的细节一多，必然导致我们无法做出高品质的交互设计。</p><p id="810fb93c-12f9-4cd6-841f-bf8511cb3b8f" class="">所以，要想在理性思考方面达到优秀，就需要同时做到这三点：逻辑准确、考虑全面、权重正确。这还只是一个细节的决策，所有细节的决策，都要如此。加起来会是一个庞大的工程。</p><p id="4e21e93b-b7be-4183-9035-971753c4748d" class="">这里再顺便强调一下“全面”。</p><p id="44099288-217e-4f47-9bf7-b800ea3b9e06" class="">这个全面，一定要去抓、并抓到事物的本质和核心。</p><p id="bb27fe5c-daf3-41b4-90c4-c0a3a70118e7" class="">所谓大道至简，本质一般都不复杂。一个可供参考的数字是，本质通常只有 1-2 个点，影响本质的因素通常有 4 个左右的点。再具体的，可以参考一篇旧文：<a href="http://www.woshipm.com/operate/2841416.html">《找到本质需求：聊聊内容分类》</a>。</p><p id="5ec40925-b50d-4838-b533-923673f0b7e1" class="">还有一个影响因素，就是社会压力。</p><p id="319b6e89-a572-4022-80b9-61ed9847e77d" class="">很多时候，我们不愿去独立思考，而是直接参考别人的设计。一来省事儿，二来也容易找到归属感和安全感。而独立思考，可能会把我们带入到一种蓦然回首“空无一人”的“孤独”状态。</p><p id="13331f28-7549-40a9-bdd5-7f7130d17f8a" class="">但是朴素的辩证法告诉过我们，凡事都有两面。选择了白天，就会失去黑夜。所以，关于社会压力的问题，本质上可能是一个选择题，同时也包含了每个人对孤独、安全感等话题的理解和接纳程度，此处就不深入讨论了。</p><h3 id="e5496768-7776-4c5e-9c20-7f37d95f7efd" class=""><strong>3. 反复实践</strong></h3><p id="0b61dc62-40f1-4ab3-a05f-5ae2d9432d7f" class="">先说理性思考这块儿。</p><p id="645cf7a7-291a-4bd2-9490-ee581e6eeaa6" class="">因为互联网产品总是会更新，所以不管是新人还是老人，只要目标是高品质的交互设计，总会碰到很多未知的或超越经验范畴的问题。</p><p id="06b8d121-7d0a-4e01-a41e-b1469b0a0264" class="">面对新问题，很少有人能在第一版的初步想法上就做出正确的决策，也就是做到逻辑、全面和权重的完美无误。人类大脑中的想法，通常都是先有后优。选定一个方案通常都需要有多个方案的比较和权衡，优化选中的方案也包含了无数细节的调优。</p><p id="335090f1-2410-42c1-b3a1-014ff7ca4bfd" class="">Foxmail、QQ 邮箱和微信的交互设计都很优秀，为张小龙提供了大量成功经验。即便如此，微信上新功能的时候，张小龙也还要通过反复试用不同的版本来找到那个正确的版本，更别说我们这些没有多少成功经验的普通大众了。</p><p id="496c0057-8684-4107-8bd2-2f6222fbc3f0" class="">不管是选定方案的大决策，还是细节调优的小决策，要想变成正确的决策，都需要大量的实践。<strong>这个实践既包含理性思考的支撑，也包含了感性语感的检验。</strong></p><p id="f8fdf665-51d6-4407-afbe-c1c62e3872e6" class="">因为语感就类似品位，也会影响到交互设计的品质。</p><p id="801115f8-2f62-4881-a202-c9035075f255" class="">如前所述，交互设计的语感，既包含人文艺术这个广义的语感，也包含感知交互设计这个狭义的语感。</p><p id="8c1c26de-ac37-4803-8f7f-02f8b23dbb7c" class="">培养广义的语感，需要经年累月的实践，少则一二十年，多则一生的时间。如果想要一直保持那个状态，就需要一直实践。重点在于优秀文化的熏陶以及自己的吸收，还有自己不断的观察与思考。</p><p id="84ce87e6-061d-43ed-b8e9-baab72488b3a" class="">培养狭义的语感，也需要大量的实践。重点就是日常多用交互设计优秀的产品。</p><p id="641ca381-a8f9-473d-96c3-9deb8aa7ebb4" class="">类似游泳需要让身体而非大脑记住动作，我们需要让控制感性而非理性的那部分大脑，记住并习惯于用过的所有优秀产品。</p><p id="96ef035b-d1f6-4dc0-9906-9bc6ccb2ca0b" class="">如果广义语感和狭义语感都很棒，当体验到品质不高的交互设计时，很有可能，马上就会产生不太舒服的感觉；而当体验到高品质的交互设计时，极有可能，也会很快产生诸如开心、满足之类的积极情绪。</p><h2 id="dfbc4814-6ff0-4109-ae53-5b42c8cce0cc" class=""><strong>结语</strong></h2><p id="4418ad70-672b-4231-a00a-86205479bc07" class="">交互设计，如果看着简单、用着顺，则基本为高品质。</p><p id="09dad1aa-b99d-4f54-823a-159d3d268b42" class="">一边培养人文艺术方面的广义语感，一边培养感知交互设计方面的狭义语感；</p><p id="b65fa1cd-2cd8-4089-908f-80ae536d2237" class="">理性思考要在逻辑、全面和权重这三方面都做到尽善尽美，全面这块一定要抓到事物的本质和核心；</p><p id="0b9cee25-8b52-4f4d-baca-cac674e91090" class="">第一版方案做不到高品质是正常和普遍的，做出错误的决策也是难免的，最重要的是在培养语感和理性思考方面反复实践，直到打磨出高品质的交互设计为止。</p><p id="7ccd535c-53a5-457a-bd24-7f01e9637621" class="">以上三点，可以帮助我们做出高品质的交互设计。</p><p id="8bc34857-9906-4e8d-bd8a-d30a5c95a35e" class="">最后，借乔布斯的一句话来结束本文。</p><p id="0df86ab7-300a-48d0-a978-3efa72e83f2b" class="">你要熟悉人类在各领域的优秀成果，尝试将之融入你在做的事情里。</p></div></article></body></html>

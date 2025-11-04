@@ -1,0 +1,680 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>/小红书</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="838eb70c-b586-4dfe-addb-f351a12d2838" class="page sans"><header><h1 class="page-title">/小红书</h1><p class="page-description"></p></header><div class="page-body"><p id="a2134b48-8403-4166-ae49-61afb9ce7161" class=""><strong>万字拆解！月活2亿的小红书产品设计全方位深度解析</strong></p><p id="551c723a-be37-4111-bcd6-1af92369c21d" class=""><strong>万字拆解！月活2亿的小红书产品设计全方位深度解析 </strong><strong> </strong><em><strong>收藏</strong></em><strong>
+</strong><strong>2023/04/25 推荐： </strong><a href="https://www.uisdc.com/u/287700/publish/all"><strong>设计大侦探</strong></a><strong>阅读 1.6w点赞 38</strong><a href="https://www.uisdc.com/xiaohongshu-design#post_comment"><strong>评论有奖</strong></a><strong> 阅读本文需 40 分钟</strong></p><ul id="c0ef862f-cfd6-436a-abfa-f402a35a132a" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.uisdc.com/">首页</a></li></ul><ul id="da6357b7-8e9b-4369-91a8-57c42601291c" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.uisdc.com/archives">设计文章</a></li></ul><ul id="3754b074-f070-4b2f-a858-b5308e233c34" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.uisdc.com/category/product/product-design">产品设计</a></li></ul><ul id="11be6ea6-b930-4e53-89de-1323f0bd6ee1" class="bulleted-list"><li style="list-style-type:disc">详情</li></ul><figure id="42bc8cbb-830e-467a-98d9-1d3118a0a7b8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/ysbanner-202300411-1-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/ysbanner-202300411-1-1.jpg"/></a></figure><p id="7134281d-692c-424e-a999-f18d692458d1" class="">这是一个神奇的平台，因为活跃在这个平台的 2 亿用户都是追求生活品质的年轻人，他们乐于分享自己的购物体验和生活方式，然后再顺便种个草，赚点钱。这里没有人因为你要推广自己的商品而感到厌烦，只要你的图片和文字足够吸引人，他们对来自全世界的好东西都不会拒绝。这就是<a href="https://www.uisdc.com/tag/%e5%b0%8f%e7%ba%a2%e4%b9%a6">小红书</a>，一个以年轻女性用户群体为主的生活分享内容社区，他们向大家种草全世界的好东西，他们还希望好产品都从这里长出来。本期设计大侦探，就让我们跟随廖尔摩斯和他的新助理 Notion AI，一起拆解这个神奇的社交电商平台。</p><p id="d8e9c15d-1ba9-46e2-9756-ae8a0799a3b0" class="">往期拆解：</p><p id="ae6d3a32-e024-493c-9d52-3a7171d1bc20" class=""><a href="https://www.uisdc.com/xiaoe-teach-5"><strong></strong></a><a href="https://www.uisdc.com/xiaoe-teach-5"><strong><strong>12000字产品拆解！为什么160万知识付费创业者选择了小鹅通？</strong></strong></a><a href="https://www.uisdc.com/xiaoe-teach-5">
+</a><a href="https://www.uisdc.com/xiaoe-teach-5">这一期对小鹅通的拆解，侧重点是对小鹅通的商业模式、产品体系以及营销场景做了全面深入的分析... 作为知识付费行业的头部SaaS服务商，小鹅通诞生于2016年知识付费的元年。</a><a href="https://www.uisdc.com/xiaoe-teach-5">阅读文章 </a><a href="https://www.uisdc.com/xiaoe-teach-5"><em>&gt;</em></a></p><h1 id="c970067a-d748-4658-9b53-b7e8ba83bad4" class="">一、导读</h1><p id="ea98a7b6-a9fc-4f5e-aa38-c39f78834045" class=""><strong>1. 内容结构</strong></p><p id="667608f7-bec5-4dbb-ac00-d2365a678a03" class="">小红书的<a href="https://www.uisdc.com/tag/%e4%ba%a7%e5%93%81%e6%8b%86%e8%a7%a3">产品拆解</a>包含七个部分，分别是导读、产品画像、内容服务、社区服务、企业服务和、思考总结和写在后面的话，内容篇幅 13582 字，阅读时间最少 30 分钟。</p><figure id="6e6ac177-67f0-4452-b099-691ba395808e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-1.jpg"/></a></figure><p id="83413fc0-f76a-4246-a395-e9af2b8f2cad" class=""><strong>2. 适读人群</strong></p><p id="959de615-5f26-454d-9187-e6577a0f27ee" class="">产品拆解是一种专业、深度的创作形式，所以比较适合于以下几类用户阅读学习：</p><ol type="1" id="b255641b-8be2-4bef-a918-b5dea91f7d6a" class="numbered-list" start="1"><li>C 端社交平台产品设计师：通过对小红书完整的产品拆解，了解小红书的产品设计体系和细节，有助于更好理解自己所在公司的产品设计，其次可以全方位提升产品分析、竞品分析能力。</li></ol><ol type="1" id="35bb9016-93d6-4514-901b-c89fcae22224" class="numbered-list" start="2"><li>希望提升产品思维的 UI/UX 设计师：通过从产品层到体验层的拆解，帮助你跳出设计执行层理解一个功能设计背后的价值和意义，提升<a href="https://www.uisdc.com/tag/%e4%ba%a7%e5%93%81%e8%ae%be%e8%ae%a1">产品设计</a>思维。</li></ol><ol type="1" id="13f1d6b6-7b04-45bd-a84a-35bc60270779" class="numbered-list" start="3"><li>准备跳槽到小红书的互联网从业者：如果你有准备去小红书求职，这份产品拆解报告可以帮助你提前了解小红书的产品细节和体系。</li></ol><ol type="1" id="e06bebf1-fc71-4ebd-92d9-51996a73da14" class="numbered-list" start="4"><li>内容社区平台从业者及创业者：收获一份专业、完整、有价值的竞品分析参考。</li></ol><figure id="10a087f6-ec29-4972-a040-49b6b42e1bdd" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-2.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-2.jpg"/></a></figure><p id="0360b8b4-ee57-4267-bea4-8b6639116867" class=""><strong>3. 分析模型</strong></p><p id="45df8401-faf8-4a86-8036-00bb72a340a3" class="">产品拆解是以反向推导的形式去拆解一个产品的设计策略和思路，所以我们采用了以下分析模型和设计理论做支撑：</p><ol type="1" id="7cb75845-6f63-4808-9f45-78d3404aa963" class="numbered-list" start="1"><li>AARRR 模型（又称为海盗模型）：由戴夫·麦克卢尔提出，包含用户获取、用户激活、用户留存、获取收入、用户推荐，分别对应用户生命周期中的 5 个重要环节，主要用于拆分和分析产品的功能价值。</li></ol><ol type="1" id="6b7e3f7c-8349-4148-b216-84e5f19dcae5" class="numbered-list" start="2"><li>尼尔森十大可用性原则：尼尔森十大可用性原则是界面设计中最基础、最重要的设计原则，任何产品的设计，都可以通过这十个原则进行指导设计。</li></ol><ol type="1" id="f8f98447-58d1-43bc-a632-10a618f61697" class="numbered-list" start="3"><li>设计基础理论：包括常见的格式塔原理、费茨定律、巴甫洛夫反应、7±2 效应、席克定律等常见理论，用于诊断小红书的交互及界面设计。</li></ol><p id="835c58cf-98e6-468b-9825-b17ac11ef06a" class=""><a href="https://www.uisdc.com/aarrr-funnel-model"><strong></strong></a><a href="https://www.uisdc.com/aarrr-funnel-model"><strong><strong>用一篇文章，让你掌握能让用户快速增长的AARRR 模型</strong></strong></a><a href="https://www.uisdc.com/aarrr-funnel-model">
+</a><a href="https://www.uisdc.com/aarrr-funnel-model">AARRR模型因其掠夺式的增长方式也被称为海盗模型，是Dave McClure 2007提出的，核心就是AARRR漏斗模型，对应客户生命周期帮助大家更好地理解获客和维护客户的原理。</a><a href="https://www.uisdc.com/aarrr-funnel-model">阅读文章 </a><a href="https://www.uisdc.com/aarrr-funnel-model"><em>&gt;</em></a></p><p id="1689a78e-469d-4441-853a-ff2bac95e5b1" class=""><a href="https://www.uisdc.com/nielsen-design-principles-4"><strong></strong></a><a href="https://www.uisdc.com/nielsen-design-principles-4"><strong><strong>用超多案例，帮你掌握尼尔森十大可用性原则</strong></strong></a><a href="https://www.uisdc.com/nielsen-design-principles-4">
+</a><a href="https://www.uisdc.com/nielsen-design-principles-4">尼尔森设计原则是人机交互学博士 Jakob Nielsen 于 1995 年发表的“十大可用性原则”。</a><a href="https://www.uisdc.com/nielsen-design-principles-4">阅读文章 </a><a href="https://www.uisdc.com/nielsen-design-principles-4"><em>&gt;</em></a></p><figure id="0d5c4381-64c1-42d9-a689-066f8287f35a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-3.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-3.jpg"/></a></figure><p id="440821b9-6b06-45da-a729-fa7fcb794bac" class=""><strong>4. 阅读建议</strong></p><p id="83a6a3de-6f4d-4e19-9080-ec287cc0e314" class="">在阅读本篇拆解的时候，建议一边体验小红书 APP，一边阅读产品拆解报告。</p><h1 id="1b27feb1-f176-4cd3-8158-809066176ec9" class="">二、产品画像</h1><p id="ecb9b6de-b4cf-4585-9658-d1157dd63b90" class="">在拆解小红书 APP 之前，我们需要从以下 8 个维度去提炼小红书的产品画像，这样才能理解小红书的产品设计逻辑。</p><figure id="bd3fad79-c573-4223-9d0c-d0986ef3ef7c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-4.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-4.jpg"/></a></figure><p id="fd432946-22e8-40f1-9887-94797fd3e363" class=""><strong>1. 行业发展</strong></p><p id="a8b738c7-36b7-4b3a-a0f2-d447b8243232" class="">小红书所在的行业属于互联网媒体内容社区，是一个生活方式类内容社区，同时小红书结合了电商和社交媒体打造了新型的商业模式，是社交电商的开拓者和领先者。我们从艾瑞咨询的《中国互联网媒体内容社区模式发展研究报告》和《2019 中国社交电商行业研究》两份报告中获取到以下数据：</p><ol type="1" id="766f88f6-685f-4c40-970a-1841e152a892" class="numbered-list" start="1"><li>随着内容社区的变现模式多元化发展，互联网媒体的商业变现空间越来越大。艾瑞咨询预计在 2022 年，中国网络广告市场规模将突破 1.2 万亿元，网络购物市场交易规模在 2022 年将会达到 13.9 万亿元。</li></ol><ol type="1" id="01a16059-36eb-43da-ab41-d35c9aebb04f" class="numbered-list" start="2"><li>传统电商的红利已尽，已经进入行业衰退期，用户增速已持续放缓至 20%甚至更低水平。而社交电商正在蓬勃发展，成为移动端最主要的流量入口，使用频次高、粘性强，流量价值极其丰富，行业交易规模在 2021 年就达到 28646.3 亿元。</li></ol><figure id="97703cb4-1ba1-45b3-ab92-909afc8213f4" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-5.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-5.jpg"/></a></figure><p id="486c072f-3038-457e-b2ac-77db573c85eb" class="">综上所述，小红书所在的行业具有广阔的发展前景和潜力，而小红书作为国内最大的生活方式平台和社交电商领先者，还有极大的空间去挖掘。其次随着 AIGC（AI Generated Content，是指利用人工智能技术来生成内容）时代来临，对过去以 UGC 为主的小红书内容创作平台来说，是新的机遇也是挑战。</p><p id="0c4292ec-328a-42d0-8785-66aa4fcc65cd" class=""><strong>2. 竞争形势</strong></p><p id="bc08333c-f48c-4cca-bf47-0d4ece793c5c" class="">在《中国互联网媒体内容社区模式发展研究报告》一文中，艾瑞咨询梳理了互联网媒体内容社区生态图谱。从图谱看出，小红书作为生活方式类内容社区，并无直接竞争对手，但存在诸多潜在竞争对手，包括文娱类的微博、豆瓣、抖音、B 站，还有消费类「什么值得买」，知识类内容社区知乎，旅行类内容社区马蜂窝、飞猪等。</p><figure id="a1d20b41-f76b-4cc6-b813-891ff12eebfc" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-6.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-6.jpg"/></a></figure><p id="e543fa09-10d8-406b-b48d-75fc49f6ff8e" class="">从易观千帆数据观察，小红书相比其他间接竞争对手，除了抖音以月活跃用户人数 7.4 亿超出小红书 3 倍以外，小红书月活人数超 2 亿排名第二，领先排名第三 1.7 亿的哔哩哔哩，其他社区月活人数距离小红书有一定差距。</p><p id="d2d3c011-349d-4d4f-b29d-5cc553191817" class="">不过就在年初，社交巨无霸微信的微信公众号已经推出小红书式的笔记传播形式，降低创作门槛，吸引大众用户 UGC，这对于小红书来说，将会是一个潜在的挑战。</p><p id="2208e837-422c-47b7-9f20-fdf97b75b79e" class=""><strong>3. 产品介绍</strong></p><p id="a7ed203c-a94f-436d-ac57-d3783d6c2242" class="">小红书是一款集购物、分享、社交于一体的手机 APP。它的主要功能是帮助用户分享生活中的美好瞬间和购物心得，同时也为用户提供了一种社交平台。作为一个年轻人的生活方式平台，小红书以“Inspire Lives 分享和发现世界的精彩”为使命，用户可以通过短视频、图文等形式记录生活点滴，分享生活方式，并基于兴趣形成互动。</p><figure id="0fa97bb3-a37d-4e70-b666-5099e8638abf" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-8.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-8.jpg"/></a></figure><p id="1d29dcaf-1c66-4f9e-aad8-11bd9518cd2d" class=""><strong>4. 商业模式</strong></p><p id="2c3b93eb-abd8-4ec8-8e23-9c4b4f637f83" class="">基于对小红书的深入调研，再结合艾瑞咨询《中国互联网媒体内容社区模式发展研究报告》，我们对小红书的商业模式进行了推导。</p><figure id="4b811842-b215-4ece-bbfe-12f2b9c8c9ea" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-7.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-7.jpg"/></a></figure><p id="3f8f999c-a573-4ed0-aedc-cb951cdfc8ea" class="">① 客户细分</p><p id="1709a0f0-0b85-40e6-837d-67ada08cd568" class="">C 端：年轻用户群体，以女性居多，生活在一二线城市，希望发现和购买优质商品，喜欢分享自己的购物心得和生活经验，有较高的月支配消费能力。</p><p id="ac0b2fb1-c570-497d-81a5-f18c36b2f703" class="">B 端：中高端品牌，品质高、信誉好，期望通过小红书获取种子用户、快速打造爆款以及和年轻用户建立沟通的企业。</p><p id="158c8aa2-38fe-4997-9b0a-255226dce812" class="">拓展阅读</p><p id="35a6f13f-5933-4352-bf37-043ff869f9f3" class="">根据艾瑞咨询的《中国互联网媒体内容社区模式发展研究报告》，挖掘到内容社区已经步入成熟阶段，由 B、C 两端朝着营销线、商品线、平台线和内容线衍生出多元商业模式。这个信息有助于接下来理解小红书的产品体系。</p><p id="d4245eb1-ba0b-4932-ae18-ea3e7b640e13" class="">② 价值主张</p><p id="03e0d13e-a4bb-4d17-a58b-dcbba72ae6d8" class="">标记我的生活</p><p id="18d0d0ae-24ab-41a2-ba2a-eae30b52f70a" class="">③ 渠道通路</p><p id="da2830df-29cf-46c8-9c47-878462dc9dce" class="">作为中国最大的生活方式分享社区，小红书用户基数大，用户忠诚度高，主要依靠用户口碑分享，以及常规的广告、搜索引擎等渠道进行推广和维护品牌形象。</p><p id="2f2278e9-74cd-445c-8808-fc4fd956ba57" class="">④ 客户关系</p><p id="7d1ceb5b-e9d4-43f6-bfc1-ad2df50a6465" class="">面对社区博主和行业 KOL，通过创作中心、蒲公英等平台为博主链接优质广告资源；面对企业客户，通过商家课堂等方式指导开店培育。</p><p id="29fe6e88-a5de-469b-9e5c-0f68e431438e" class="">⑤ 收入来源</p><p id="39d7f015-791a-496e-b34d-3106877b1b0b" class="">根据《2021 年小红书内容营销数据洞察白皮书》报告显示，2021 年小红书的收入主要由广告和电商两部分组成，二者的份额占比分别为 80%和 20%。</p><p id="72aace67-9638-4bcb-b153-8fc92fce0493" class="">⑥ 核心资源</p><p id="f9018c31-3540-46c6-b5d6-7e6fd593cfb4" class="">小红书是中国最大的生活方式分享社区，用户基数大，忠诚度高，2021 年已经成功登陆港股市场，有充足的资金优势。</p><p id="71ca6199-576f-4238-a636-aaede22c0d7b" class="">⑦ 关键业务</p><p id="b71946b6-a2e1-48f6-9211-f361a742a3e7" class="">面向 C 端，小红书主要提供笔记发布、购物、直播等核心功能；面向 B 端，提供蒲公英、薯条、聚光平台等业务。</p><p id="b4424316-fe7c-4eec-8ac2-8ed5d3261af8" class="">⑧ 重要合作伙伴</p><p id="a3318cb7-eab3-4ac6-9283-93d76d8631d8" class="">各行业头部 KOL 及 MCN 机构，为平台提供高质内容，官方同时提供流量倾斜和扶持；</p><p id="51719bd2-8799-4c57-8031-6a2024ebdc35" class="">企业客户，负责小红书电商自营平台的生产链供给以及其他内容合作。</p><p id="14eb9bca-8910-46d2-9a95-c85415b4d916" class="">⑨ 成本结构</p><p id="a068cc55-6873-4706-9863-11bd58bd8c17" class="">作为一个互联网科技公司，小红书的成本结构主要来自产品的研发投入和人力成本。</p><p id="e85ba47f-d783-4ad8-8ec2-02839e24ae69" class=""><strong>5. 用户画像</strong></p><p id="44b2440f-9985-4ea3-ba39-4fc2175bb1ed" class="">结合易观千帆小红书 APP 数据，我们对小红书终端使用用户人群提炼了以下用户特征：</p><ol type="1" id="b50aec9a-4921-4ed6-bd34-8230eb1beb66" class="numbered-list" start="1"><li>从用户性别看，以女性居多，占比 72.25%，男性占比 27.75%；</li></ol><ol type="1" id="c6beeeeb-b6b0-43ba-b2de-e36cfb45fd7c" class="numbered-list" start="2"><li>从年龄分布看，24 岁以下用户人群最多，占比 42.48%，其次为 31-35 岁，占比 29.53%，24-30 岁用户人群占比 15.83%；</li></ol><ol type="1" id="219cf7d0-c1a5-4bf1-b25a-e89574760571" class="numbered-list" start="3"><li>从用户消费能力看，中等消费者占比 36.75%，中高消费者占比 36.21%，合计超过 70%，购买能力很强（官方数据为月支配可消费费用超过 4000 元）；</li></ol><ol type="1" id="ec31cc0a-1bec-472a-89e7-d3cab7e3e9d8" class="numbered-list" start="4"><li>从地域分布看，新一线城市用户最多，占比 22.17%，其次为三线城市，占比 20.93%，二线城市占比 19.28%，其中广州市最多，其次为北京和上海。</li></ol><figure id="fe926e1b-2450-4bb0-b50a-281dfb00d1b8" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-9.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-9.jpg"/></a></figure><p id="d66a92cd-d510-42e1-bbec-05ae1485ba82" class=""><strong>6. 信息结构</strong></p><p id="9ef08d73-891c-4857-8114-456acc126af9" class="">通过对小红书 APP 的信息结构梳理，可以看出小红书的功能结构比较简单，菜单栏包含了首页、视频、发布、消息和用户中心五个栏目。</p><ol type="1" id="4432013f-1769-47c5-bee9-b3ffaf931b4c" class="numbered-list" start="1"><li>首页：以千人千面的信息流推荐为主，其中推荐、购物和直播权重最高，也是小红书的核心功能。</li></ol><ol type="1" id="97dd05df-0c83-46a4-b4a5-c02dd6bd6652" class="numbered-list" start="2"><li>视频：提供沉浸式的短视频笔记体验，用户可以不断上拉下滑观看视频笔记；</li></ol><ol type="1" id="3b614d25-1e0a-4e52-b851-f31a692c0396" class="numbered-list" start="3"><li>发布：提供拍照、相册、模版和直播发布功能，是用户发布笔记的入口；</li></ol><ol type="1" id="d1cb1643-c60b-48d9-88ba-bae9a83dc907" class="numbered-list" start="4"><li>消息：提供系统公告以及消息通知，用户聊天的窗口；</li></ol><ol type="1" id="2f19fe17-7e12-471a-89ec-e0431b072f69" class="numbered-list" start="5"><li>用户中心：用户的个人主页，包含笔记、收藏和个人资料等功能。</li></ol><figure id="cbed3afe-f801-45d3-87d8-79a8657fd6a4" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-10.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-10.jpg"/></a></figure><p id="41ac6460-1fe4-486c-9bbe-24c1384ee7aa" class=""><strong>7. 产品迭代记录</strong></p><p id="25b3e4c6-be33-4a8f-b81b-ffb524b32f68" class="">根据七麦数据资料，小红书的 APP 首个版本发布于 2013 年 12 月 05 日，截止到 2023 年 4 月 3 日，APP 版本已经更新至 V7.82 版本，近一年版本更新次数为 98 次，迭代频率非常高。从十年前的「全世界的好东西」到今天的「标记我的生活」，小红书迎来自己的十周岁生日。</p><figure id="c8a38a03-bb8e-4226-acb8-1be4984591fa" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-11.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-11.jpg"/></a></figure><p id="83020b60-72c4-4cfc-8335-617924b7d78b" class="">以下为小红书版本重要迭代记录：</p><ol type="1" id="77144370-07f6-4199-bbf6-7e95bc512988" class="numbered-list" start="1"><li>2014 年 8 月，发布 V2.0 版本，上线「商城」功能，支持用户在小红书下单购买；</li></ol><ol type="1" id="0494bd08-f3fb-4974-93d1-4d71078b4446" class="numbered-list" start="2"><li>2015 年 11 月，发布 V4.0 版本，产品全新升级，首页根据用户兴趣智能化推荐；</li></ol><ol type="1" id="6f627bc8-5478-4356-b0f8-ad2025341910" class="numbered-list" start="3"><li>2017 年 9 月，发布 V5.1 版本，产品全新升级，加入闪拍、小视频等功能；</li></ol><ol type="1" id="94e30f66-7bd9-4f5d-b2fa-4b5a8dd8701c" class="numbered-list" start="4"><li>2018 年 5 月，发布 V5.16.1 版本，加入「附近」功能，可发现身边有意思的笔记和用户；</li></ol><ol type="1" id="5b790fe0-4e70-427e-bd8d-8a10b9528868" class="numbered-list" start="5"><li>2019 年 5 月，发布 V6.0 版本，产品全新升级；</li></ol><ol type="1" id="1a28372a-80ba-4c8e-ac19-880c63b3779f" class="numbered-list" start="6"><li>2021 年 7 月，发布 V7.0 版本，产品全新升级。</li></ol><p id="cffea445-6d62-416f-9df1-4748257551d2" class=""><strong>8. 产品生命周期</strong></p><p id="09a8f6c5-c4f0-4e4a-9518-e85b9310f1cf" class="">根据易观千帆数据显示，截止到 2023 年 1 月，小红书 APP 月活跃用户人数超过 2.1 亿，注册用户在 2019 年就超过 3 亿（来自官网），公司在 2021 年成功登陆港股市场。从以上资料数据看出，我们可以推导出小红书 APP 已经进入产品生命周期的成熟期，当下以及未来将会聚焦于商业变现和用户留存。</p><figure id="13b7104d-4952-499d-a038-faea35cbba43" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-12.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-a-20230424-12.jpg"/></a></figure><p id="6b26a0db-707c-409e-aba7-e6419b34fd91" class=""><strong>9. 小结</strong></p><p id="7dc85a77-5dc8-4d48-82e8-18211dca0197" class="">通过以上数据信息，我们可以看出，作为一个诞生于 2013 年的移动互联网元老，小红书从最初旨在打造一个海外购物社交平台到如今成为亿万年轻人的生活方式社交平台，他们的用户非常年轻，以 90 后居多，月活跃用户超过 2 亿，它已经成为国内最大的生活方式分享平台和社交电商平台。</p><h1 id="e49c8085-4fea-4153-b497-f272e28f43db" class="">三、内容服务</h1><p id="db3269a9-d6bf-429e-9037-189937231010" class="">「内容服务」是根据 AARRR 模型拆分，这个版块的功能主要是实现用户留存，包含首页、视频、笔记发布、消息、创作中心和专业号等功能。</p><figure id="8537158c-d785-407c-9098-bef4ae563d5c" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-1.jpg"/></a></figure><h3 id="5f75cbda-9f85-4425-8184-4213ea06a1b8" class="">1. 首页</h3><p id="6ca92eb2-f7fb-4593-9327-af897a63016d" class="">作为中国最大的生活方式分享社区，小红书以 UGC 用户生产内容模式为主，内容包含图文、短视频、语音等多种传播形式，覆盖了美妆、潮流、美食、科技、旅行、汽车、职场等众多行业。</p><figure id="8437ac84-749a-4b44-ba1e-16d71ed8b206" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-2.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-2.jpg"/></a></figure><p id="a32961ee-6d5d-4d4e-a7bc-b2ed936849ba" class="">① 发现</p><p id="229d4f39-7148-4b31-a8c2-82df8af06080" class="">「发现」作为小红书的默认首页，平台根据用户的兴趣、标签、浏览偏好内容进行个性化推荐（从产品迭代记录查询到小红书早在 2015 年就开启了千人千面的个性化推荐）。从 TAB 栏可以看出小红书的内容覆盖了美食、科技、旅行、汽车、职场等众多行业，同时支持用户根据自己兴趣偏好自定义编辑。</p><figure id="d677feea-a18a-4867-835f-30266271e155" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-3.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-3.jpg"/></a></figure><p id="ac70dcc2-d578-4160-968b-521ee7e1ce1e" class=""><strong>内容推荐逻辑</strong></p><p id="2fdd6428-1e0d-4ca9-903c-6a29fc0fbe63" class="">在研究小红书「发现-推荐」推荐逻辑时候，笔者有点捉摸不透。因为每一次刷新推荐的内容排序其实并不是单纯的以点赞、发布时间、收藏数为准，更像是随机展示，所以特意查询了关于小红书内容推荐逻辑的文章。</p><p id="272a7d4e-79d8-4e3e-b4c0-9f3109ccb3b7" class="">笔者找到了人人都是产品经理专栏作家江流的《小红书的内容营销逻辑》这篇文章，作者经过大量的测试，推导了小红书的内容推荐营销逻辑：</p><ol type="1" id="41139110-c770-44d6-9436-f1781b95e7fe" class="numbered-list" start="1"><li>「发现-推荐」页占据了小红书 80%的流量；</li></ol><ol type="1" id="178befaa-dcbc-49fb-aaf1-8fd2de62efd9" class="numbered-list" start="2"><li>小红书内容推荐的逻辑主要是三个：高打开率，高互动率，高搜索打开率。</li></ol><figure id="b86c0f34-8b5c-4a2b-b3c2-98076d179f01" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-4.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-4.gif"/></a></figure><p id="da99abb4-e5d1-4f06-8362-8e41b5b9d6d9" class="">体验陷阱</p><p id="ecabea63-63b3-41cc-8cb6-dbabf694bfb5" class="">当我发现平台给我推荐我讨厌的内容时候，我没找到屏蔽按钮，最后尝试长按图片才弹出屏蔽弹窗。这个设计对新手不友好，违反尼尔森十大原则的人性化帮助原则，没有提供清晰的提示，增加了学习成本。</p><figure id="bfd559dd-fafe-45d5-8525-206e44481797" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-5.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-5.gif"/></a></figure><p id="c5d48ceb-71d0-41e2-9fea-f1684f7a8ea9" class="">② 关注</p><p id="6d1a7e23-b6af-4c33-a4a5-7d29c72f4bfc" class="">「关注」是为用户提供自己关注好友的动态展示，内容设计比较简单。不过我对这个栏目的推荐机制感到不解，当我刷新页面的时候，内容并不是根据时间先后顺序展示，而是没有规律的随机展示。</p><figure id="283eaaa5-31e0-460c-adb2-c4b6c41352a9" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-6.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-6.gif"/></a></figure><p id="bfcdde88-5a25-4071-9ee7-92aa2ac851d2" class="">③ 本地</p><p id="7406f70b-c9b7-440c-a616-2fd6f2731a8c" class="">「本地」是根据用户所在位置读取附近用户的笔记，这个功能上线于 2018 年 V5.16.1 版本，它的价值是帮助用户发现身边有意思的笔记和用户，从而建立关系链接，提升用户留存率。</p><figure id="89b8a19a-5215-4fd1-8505-48036c20b5ad" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-7.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-7.gif"/></a></figure><p id="aa111e9f-c39c-4c97-859d-ef116f3ec2d4" class="">设计思考</p><p id="80c36bf4-b732-4b56-a163-bff09cdc6d83" class="">作为一个生活方式平台，「本地」的内容太单薄，如果能把内容分类，比如按景区、美食、出行等来设计，可以极大提升小红书在本地生活场景中的打开频次。来小红书，不仅可以标记你的生活方式，还可以发现身边更多有趣的生活方式。</p><p id="54c19c02-bc36-4f42-bc69-121485a74951" class="">④ 搜索</p><p id="6804fe73-0205-496f-b82c-210fe455a942" class="">「搜索」是小红书流量分发的重要入口（占 20%），不仅为用户提供实时的社区热门话题，更是小红书的商业服务中的重要场景（提供搜索信息流、专区、火焰话题和搜索菜单等推广方式）。</p><p id="39a7d840-963f-4938-bbb3-7de8c484a109" class=""><strong>引导页</strong></p><p id="aa4bbb2c-81ed-4246-a1bb-27a15ed72136" class="">「引导页」由历史记录、猜你想搜和搜索发现组成，这个页面主要承担流量分发以及展示社区热门话题，设计得比较简单。</p><figure id="4037307b-9b6a-4b19-be1e-006f0f1ae5d5" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-8.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-8.jpg"/></a></figure><p id="f8ce67fe-0ba3-4b0a-9c1b-556f633b112d" class="">迭代建议</p><p id="ea500580-482b-4ceb-bca3-ea94e7f387f5" class="">可参考 QQ 音乐的搜索引导页，根据话题内容设计排行榜，把引导页做得更丰富，提升用户使用时长。</p><p id="9316f52d-eef1-4e1a-bb18-3a1aa701ee27" class=""><strong>结果页</strong></p><p id="9e8f07c6-56cd-4ac6-b13e-230bee502662" class="">「结果页」提供四个维度的内容展示，分别是全部（包含最新、最热）、用户、商品和筛选（笔记类型，视频和图文）。其次根据搜索关键词加入二级分类，比如搜索 UI 设计，二级分类有 APP 界面、高级感、作品集和素材相关联标签。</p><figure id="7a0c795a-bcec-445b-8593-9180084662a4" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-9.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-9.jpg"/></a></figure><p id="358906ec-91a7-4912-8616-fcaed5a9ddd2" class="">设计思考</p><p id="1b5bb0ff-fcbe-4027-bb23-5d3a6b644630" class="">在深入体验搜索功能以后，我对平台对搜索关键词的算法机制不太理解。比如排名第一的并不是点赞最高的，也不是发布时间最早的，甚至会出现低点赞、发布时间很早的笔记。对此，深表疑惑。</p><h3 id="66420005-8742-453c-94f2-e7bb74db72ff" class="">2. 视频</h3><p id="3f02c447-39c4-4d78-8361-be9eecd2eeb3" class="">「视频」是一级栏目，位于菜单栏第二个位置，进入后向用户提供沉浸式的阅读体验，可以不断上滑刷新视频。短视频是当下最流行的传播方式，对提升用户使用产品时长有非常大的帮助。</p><p id="ee00b7da-0663-4bc9-a46c-03f10e80e780" class="">① 详情页</p><p id="3a1a3fde-ea92-462b-b222-40788ff6fd83" class="">底部展示作者信息，可一键关注，提供喜欢、收藏、分享和评论功能。其次当博主关联粉丝群，还支持用户快速入群，帮助博主引流。</p><figure id="6f0dd804-a5a7-428a-9abf-083223a553d7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-10.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-10.gif"/></a></figure><h3 id="7bea6b0c-cb3f-49f7-83b3-b7c5d6ff14c2" class="">3. 笔记发布</h3><p id="32118652-e67b-4eaf-a11e-28f06050f0f0" class="">「笔记发布」作为小红书社区最重要、最高频的功能，向用户提供了图文和视频两种发布类型。为了降低用户学习成本，提升产品的核心增长指标，小红书提供了非常丰富、精美的设计模版，用户一键使用，更换素材即可发布漂亮、精致、酷炫的笔记。</p><figure id="8bef5f5e-fb58-49bf-817a-c9befa0ae994" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-11.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-11.jpg"/></a></figure><p id="62212eb4-127c-4fed-ae59-77ba5404900b" class="">① 拍照</p><p id="d03a4502-5956-4708-896a-c1a8466b47c9" class="">「拍照」是小红书最基础的笔记形式，主要通过拍照搭配音乐、文字的形式传播，门槛低、操作简单，是社区的主要内容。</p><p id="002a486d-6294-4558-b78b-9960ce64e2db" class=""><strong>发布流程</strong></p><p id="b9daf186-5e23-4110-89e0-6de1b4f01c9b" class="">1）拍照</p><p id="ca5cdd00-7847-4b97-84e4-5ef2d8ec0083" class="">需要用户拍照，不支持读取手机相片（如果想要加入本地图片，需切换到「相册」）。</p><p id="c6b89f8f-66a0-4055-b96e-c920d827a6be" class="">头部提供比例切换（3:4 和 1:1）、闪光灯、翻转、滤镜（提供日常、春夏、秋日等类型）、美颜（支持磨皮、脸型、眼睛、鼻子等）。</p><p id="30c90354-601d-4619-9958-8adfb8465512" class="">底部提供默认、黑白相机、摩登、小宇宙和灰色拍立得五种模式，满足各种特效拍照需求。</p><figure id="7aad9932-0df3-4449-b0ea-39546091de47" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-12.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-12.gif"/></a></figure><p id="e77b1e0d-b251-48a1-87ae-6b505df4cba7" class="">2）装饰</p><p id="b6d72afb-9185-498a-bc68-04adea7a347f" class="">头部提供加入音乐功能，音乐库包含欧美、运动、日韩等各种主流音乐类型。</p><p id="6726609b-82aa-471d-8054-7804fcc3c601" class="">底部提供图文模版、视频模版、商品（加入种草场景）、文字、帖子、滤镜和调节功能，用户可根据自己偏好加入装饰元素。</p><figure id="70fa8075-559d-4b9f-b496-8984af4f6dbc" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-13.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-13.gif"/></a></figure><p id="74fc759c-7427-4838-a8d4-4d0e9cdea85a" class="">3）发布</p><p id="59ea911a-6731-4160-b812-cc8c3cc5ff40" class="">图片加工装饰好以后，用户需要输入笔记的标题、介绍。</p><p id="5fd076be-4e79-46bd-afc0-736ead70f162" class="">用户可以加入标签（这是小红书平台内容检索的重要元素，一般用户会加入多个标签）、商品和互动组件（包含 PK 组件和投票组件两种类型，主要用于提升用户活跃度）。</p><p id="1a593a83-938b-427c-9850-aa484398e5f8" class="">用户可加入发布地点，在高级选项可选择关联直播预告和群聊。</p><p id="7c279cc1-4a91-452d-b446-be88eac4a734" class="">一切准备就绪后，用户可选择保存草稿和立即发布。</p><figure id="02805b0f-8e5c-4eac-b06b-e459d73e4a4d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-14.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-14.jpg"/></a></figure><p id="e3f77c13-1a1d-4e2b-aead-a66c85a9cac6" class=""><strong>笔记详情页</strong></p><p id="9debf312-4bb4-40e7-b524-94d63136cefc" class="">笔记详情页的权重非常高，不过页面内容也比较简单。头部展示用户信息，可一键关注，右上角可点击分享笔记。</p><p id="6df49229-c86a-44d0-ac43-d3c0be950533" class="">笔记内容由图片（视频）+标题+文字内容+标签构成，其他用户可对笔记进行评论、点赞和收藏。</p><figure id="37e5dc76-2d18-4326-969f-c27ef023bd0a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-15.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-15.gif"/></a></figure><p id="a5d8ed94-d497-486e-9395-5656ec760f20" class="">迭代建议</p><p id="0a3fc18e-30f5-4fe4-8757-1e20be91f30a" class="">小红书的笔记分享形式太过简单，可参考 QQ 音乐的分享功能，设计丰富、精致的个性化模版，比如音乐卡片、视频卡片等，刺激用户进行分享，帮助平台拉新引流。</p><p id="f016749e-8488-47d2-921f-407c421bdb3c" class="">② 拍视频</p><p id="c48259d4-6456-4b10-a2c5-7f601d2ce058" class="">「视频」的发布流程和「拍照」相似，其次小红书也提供了基础的视频剪辑功能，帮助用户制作更优质的视频，以及避免用户流失到其他视频剪辑软件（微信视频号就不支持视频剪辑，这导致用户会使用剪映这些第三方软件）。</p><figure id="4d10b508-d5b4-4560-a086-fb86ecadc4a7" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-16.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-16.gif"/></a></figure><p id="b64e67f9-dec0-489a-8f99-7727d289c894" class="">③ 相册</p><p id="040d6c2c-f4b9-45ba-9de4-7c5cdb6106b4" class="">「相册」和「拍照」的区别就是为用户提供从本地上传图片，两者的功能和流程一样。</p><figure id="f80194d3-a744-48da-b58c-49c0a1820b99" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-17.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-17.jpg"/></a></figure><p id="fbedfebe-c6bc-4b76-b040-34b4634ecdfc" class="">迭代建议</p><p id="d43883af-bf47-48a4-a12c-5116b9175d92" class="">建议把「相册」和「拍照」两个功能合并，减少操作路劲，降低用户操作成本。</p><p id="50470938-64e0-4703-9566-9c317d0ddbb2" class="">④ 模版</p><p id="8d1c6dae-bb07-4535-a7a7-510309efe664" class="">「模版」分为视频和图文，用户可选择好自己喜欢的模版进行直接编辑发布。</p><figure id="694ccaab-10a0-491a-9efd-e569de19ae0a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-18.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-18.gif"/></a></figure><h3 id="a98d5fd5-4e77-49a9-aed2-7a3e74ae02be" class="">4. 记录日常</h3><p id="7fa93f46-e049-4a38-a594-4ddd81ff7598" class="">「记录日常」的入口在首页左上角，主要为用户提供语音、打卡、日签等形式的动态发布。这个版块的功能价值在拆解完以后，笔者认为更多是满足 Z 时代年轻用户群体的兴趣偏好，比如为情侣量身定制的咻咻，还有语音笔记等。其次这个版块的笔记发布形式行动成本比较低，更能吸引用户参与发帖，是激活新用户以及长尾用户的绝佳方式。</p><figure id="05ce32af-c4e7-47f2-a75f-59998d85925d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-19.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-19.gif"/></a></figure><p id="071975ef-21fa-40cc-b7be-ed345d2a505a" class="">① 咻咻</p><p id="bb58cf9c-e344-46b3-818e-76f9bff2e30f" class="">「咻咻」是一个专门为年轻情侣用户量身定制的功能，通过绑定 TA 的小红书号，情侣之间就能及时分享有趣的笔记霸屏对方的屏幕。这个功能看上去设计得很有趣，和 QQ 音乐类产品的「一起听」相似，增强了即时的社交聊天元素，增加用户时间和频次。</p><figure id="754fe160-98da-4f25-ae91-df7bf1a57863" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-20.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-20.gif"/></a></figure><p id="82e1faee-c6a2-4084-b0e3-49cda61900a8" class="">体验陷阱</p><p id="5225dab0-fee9-4158-b08c-f797d4b169b8" class="">这个功能看上去很时髦，但是在体验下来以后发现很鸡肋。当我给另一个小红书账号发送咻咻的时候，系统没有任何提示，消息中心也没有。最后只能前往「咻咻」找到右上角的那个 TA，我才发现原来消息推送到这里了。这样的提醒设计，太失败了。</p><p id="6580815a-eb38-46fe-a5a0-aa5f2468aee9" class="">② 语音</p><p id="a9323194-7689-48d6-8e1e-8ef3ddb9fc76" class="">「语音」是向用户提供语音笔记的功能，用户可以录制一段自己的想说的话，选择封面以后，输入心情记录，就可以发布。这个功能对于 Z 时代的用户群体来说非常受欢迎，极大提升用户使用时间，笔者体验了上百条语音笔记，发现用户主要通过语音笔记哼唱歌曲，是一种全新的听觉体验。</p><figure id="e2e1246e-ac5d-4704-988d-1f1e5f8c9b29" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-21.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-21.jpg"/></a></figure><p id="76ffa217-6416-4161-a56b-36cf20d24ee1" class="">迭代建议</p><p id="0d4e9d2e-475e-4ed4-9bcb-1bfa0d5a5d88" class="">在「语音」详情页，我尝试上滑浏览下一条，但最后发现需要左右滑动才能切换，这个设计和用户习惯不一致，建议改进。其次在查看用户「表态」内容时，语音就暂停了，影响听觉体验。</p><p id="1367a875-9bd5-448b-bc58-8c7fb4dc7fde" class="">③ 日签</p><p id="ab5a4de6-6504-4818-a734-f69d4e3fc353" class="">「日签」就是以发布笔记的形式进行签到，用户可以选择心情，上传背景图片（系统会自动生成精美的图片），然后输入心情就可以发布。小红书还为用户提供「漂流瓶」功能，用户可以选择笔记塞入漂流瓶后，接收到漂流瓶的用户可以给与回应。</p><figure id="76ab7511-00ba-4476-aceb-4ad52017c110" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-22.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-22.gif"/></a></figure><p id="07678327-d9d8-4ca9-b9d7-5ee1ee639e4d" class="">④ 打卡</p><p id="5824a999-9d48-4cc2-913a-4979cc3fcc1a" class="">「打卡」和「日签」相似，主要提升用户使用产品的频次和时间，小红书为用户提供各种主题的打卡，比如护肤打卡、练字打卡、考研打卡等，用户选择对应的主题，上传图片以后，就可以发布。</p><figure id="e415847f-eed4-45e6-8927-c9fa38c8bd0f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-23.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-23.gif"/></a></figure><p id="e52c40be-d824-4fe1-b2e4-4a875ba9c1ab" class="">⑤ 文字</p><p id="00d728e3-b156-450b-9532-c183c34fd6e8" class="">「文字」的功能非常简单，用户只需输入文字，然后选择背景风格，就可以生成文字笔记。</p><figure id="93ef26f2-73cf-483f-a380-7585c10a6aec" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-24.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-24.gif"/></a></figure><p id="a823b14e-7483-49cc-a151-9ca40967d9e9" class="">⑥ 拍摄</p><p id="cdfbb7c1-d6b4-4890-899a-a6e12bc767f8" class="">「拍摄」的功能也非常简单，用户拍摄一段视频，就可以生成笔记，和一级菜单的「视频笔记」不同，在这个栏目支持上传本地图片，体验更佳。</p><h3 id="7322af9b-d640-47c9-a944-f4696887cb00" class="">5. 消息</h3><p id="945353b4-d0e9-435a-9b1f-8e91231045a5" class="">「消息」主要向用户提供私信、群聊功能，其次可实时查询笔记的点赞、收藏、关注动态以及官方通知公告。</p><figure id="965dee99-5d4a-4024-bc41-588406765962" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-25.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-25.jpg"/></a></figure><p id="321ebbe2-4c56-4108-ad51-1c3557cf4f4c" class="">① 群聊</p><p id="167baddb-61cc-4548-a9d0-07ca2f795c31" class="">小红书支持博主建立自己的粉丝群，功能比较基础，主要帮助用户沉淀自己的粉丝，提升用户留存率。</p><figure id="60217633-3cc2-4eaa-9bd6-956c0c09b407" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-26.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-26.jpg"/></a></figure><h3 id="c80261f8-5a7e-4fc7-8fee-a33cb8ff70ff" class="">6. 创作中心</h3><p id="2f5197f1-fabf-4358-acff-00a37fd1b98c" class="">作为一个以 UGC 用户生产内容的平台，创作中心主要为创作者提供创作指导，这个版块包含数据中心、创作服务、创作学院和笔记灵感四个部分。</p><figure id="1d1dd3d3-a2e5-41cf-b73b-9b04d72009a3" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-27.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-27.jpg"/></a></figure><p id="2e9656e3-10fe-443f-a2c8-e3c7b9d8e008" class="">① 数据中心</p><p id="80e50867-3ff9-4c58-8abc-909b2eb67166" class="">「数据中心」为创作者提供账号概览、笔记分析和粉丝数据三个维度的数据统计分析。创作者可以查看近 30 日的详细数据分析，比如观看人数、观看总时长、观众来源、单篇笔记详细数据以及粉丝画像等内容。这些数据可以帮助创作者及时调整运营策略，创作更受用户喜欢和关注的内容。</p><figure id="a1e9f03b-dae9-4eb2-9c82-e0e012f8679a" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-28.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-28.gif"/></a></figure><p id="eb517bb0-c43b-4ab0-b57c-60805c2dbda8" class="">② 创作服务</p><p id="29c7c0d0-8434-4f9f-b495-46ff860767bf" class="">「创作服务」是为创作者提供更丰富的平台服务和推广，包含创作权益、作者能力和内容变现三块内容。平台提供笔记周报、笔记置顶、创建合辑、薯条推广、内容合作等功能，为创作者提供创作工具以及内容变现等服务。</p><figure id="3f94c6c0-a61a-4d42-8623-88918ec34024" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-29.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-29.gif"/></a></figure><p id="6c25783c-41fc-44ac-a339-725e51851312" class="">③ 创作学院</p><p id="302709f3-cc79-4af5-af47-7012756a15ca" class="">「创作学院」为创作者提供了小红书内容创作和内容运营的各种主题课程，比如选题取材、粉丝运营等内容，这些课程都是免费的，创作者只要投入时间精力，都能有所回报。</p><figure id="3d054ce0-1f03-4e7f-a558-9658eb155bd3" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-30.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-30.gif"/></a></figure><p id="73735607-5129-4b61-8d4d-e66e3375aa83" class="">④ 笔记灵感</p><p id="2cfe884a-f5ce-4542-ac5d-c2b9332fd4db" class="">「笔记灵感」为创作者提供了小红书热门笔记的选题参考，比如时尚、户外、春日等主题，通过这些爆款笔记，能给创作者提供更清晰、精准的创作灵感，从而为社区输出高质量内容笔记。</p><figure id="caf89818-e774-4c12-b96c-8e03993ba759" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-31.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-31.gif"/></a></figure><h3 id="9d497642-a501-4100-aad6-e27c7b90596f" class="">7. 专业号</h3><p id="ff20c14b-0736-4aa4-8f49-9999396fed30" class="">小红书的专业号是面向更专业的知识创作者，为他们提供更专业的内容、服务和功能，帮助他们获得更多的曝光度、关注度，以及通过丰富的数据分析提供运营支持。</p><figure id="09d1d7e7-1ab2-4fa9-aa64-51ba621963e1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-32.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-32.jpg"/></a></figure><p id="9b224942-cc64-484c-8de2-37553d5593c0" class="">① 数据中心</p><p id="a7ead382-6924-4481-8d6b-64811b346ce2" class="">相比「创作中心」，专业号的「数据中心」提供了更专业完善的数据分析，比如数据维度，可按根据交易、引导和互动去查看，还有笔记观众分析，提供了更详细的用户特征，包含年龄分布、城市、用户兴趣等，以及个人主页和店铺的数据统计分析。</p><figure id="9c972599-38fb-48de-a6d2-84dee4aa1460" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-33.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-33.gif"/></a></figure><p id="6ddd3176-ae02-4208-9f9d-f61f3b003380" class="">② 互动工具</p><p id="23722e41-1be7-4674-91ab-1e3b46719b75" class="">「互动工具」包含店铺管理（小红书支持用户开通店铺销售商品，可以理解为淘宝用户的淘宝店）、直播互动、抽奖工具和主页装修等功能，主要为创作者提供个人店铺装修和直播两个场景的互动营销。从功能体验看，这些工具设计得还比较单薄，还有很大优化空间。</p><figure id="2f0ebc72-6c2a-48f9-bee9-1879f9efa745" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-34.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-34.jpg"/></a></figure><p id="84aebd0c-a2d9-4618-a9af-2d07d284fb76" class="">③ 笔记工具</p><p id="efc938a3-1dca-4cfa-8ee0-086d5f16bc6c" class="">「笔记工具」包含发布商品笔记、商品笔记创作、商品笔记灵感和商品笔记热榜四个功能。所谓商品笔记就是已经开通店铺的用户可以直接在笔记加入自己的商品，从而实现引流转化。这个版块主要为用户提供商品笔记的创作数据分析和社区热门话题参考，帮助用户创作出优秀的种草笔记。</p><figure id="122aa976-29c9-4c0c-b672-8d7de78705ca" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-35.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-35.jpg"/></a></figure><p id="31fc8cb3-f3d3-430d-86e5-4bea7dbc8487" class="">④ 推广工具</p><p id="fc90bfb9-229a-4be6-b7d7-e3aa8ef26743" class="">「推广工具」包含薯条推广、内容合作和直播选品。</p><ol type="1" id="ba863655-40b8-4f3d-a996-2deca0757e31" class="numbered-list" start="1"><li>薯条广告主要为用户提供商品笔记的付费推广（花钱购买笔记流量券，让更多用户阅读）；</li></ol><ol type="1" id="e9a31847-2e09-4666-a1e6-3183541ee428" class="numbered-list" start="2"><li>内容合作是小红书面向专业用户打造的蒲公英平台，通过招募优质博主，给与内容变现指导和助推，帮助用户在小红书实现可观的收益；</li></ol><ol type="1" id="1e1eeb1f-f554-4b0f-97c8-9aadd3cb4dbf" class="numbered-list" start="3"><li>直播选品是为用户提供直播带货功能，用户可以加入适合的商品在直播间进行销售，最后获取返佣。</li></ol><figure id="64d2a99b-8704-427f-9007-2d8f7ff45d1e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-36.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-36.jpg"/></a></figure><p id="eda19d78-c93b-417e-8f2f-d0dc7564edcf" class="">⑤ 热门课程</p><p id="16758964-4b08-4df7-92eb-644d1a710671" class="">「热门课程」提供了小红书账号定位、笔记创作、商铺运营等内容的教程，帮助用户快速熟悉小红书的平台内容推荐极致以及用户习惯偏好等。</p><figure id="c5c24d3b-e1a4-4a79-83e6-ccc791851358" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-37.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-b-20230424-37.gif"/></a></figure><h3 id="55eef290-458e-449a-b075-9857b8191b88" class="">8. 小结</h3><p id="26e42faf-b909-43d7-a3b5-8a176ff4de44" class="">从内容服务版块的设计拆解，我们可以看出：</p><ol type="1" id="a89fc584-9459-40ff-8321-038e91720754" class="numbered-list" start="1"><li>小红书作为一个生活方式分享社区平台，所覆盖的内容已经包含了汽车、职场、影视、文化、科技、体育、母婴等行业。这说明小红书的用户群体逐渐多元化发展，这点从用户画像的数据也可以看出，小红书的男性用户已经快逼近 30%，未来小红书的用户规模还有很大空间。</li></ol><ol type="1" id="54a5fb92-86a0-4c38-adbc-daf023efd848" class="numbered-list" start="2"><li>小红书的笔记形式已经越来越丰富，除了最传统的图文，未来短视频或许是社区更流行的内容形式（目前「视频」栏目已经调整为菜单栏第二位，权重非常高）。其次也为年轻用户提供了时髦、流行、制作成本更低的咻咻、语音笔记发布功能，极大提升了用户参与度。</li></ol><ol type="1" id="019ebec7-6df6-4a69-864c-70aa29123f6f" class="numbered-list" start="3"><li>在产品设计方面，个人认为小红书还有很多优化的空间，目前整个 APP 的产品内容不够丰富，几乎没有创新点。</li></ol><h1 id="41075981-c1f6-4d10-b118-c0dfb876ca1f" class="">四、社区服务</h1><p id="bf1ac276-a7e7-4665-bb34-b59e8d3c7231" class="">「社区服务」是根据 AARRR 模型拆分，这个版块的功能主要是实现商业变现，包含首购物、直播和小红卡会员。</p><figure id="8923cdb6-306e-4c7d-aef1-69f4ee589fe6" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-1.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-1.jpg"/></a></figure><h3 id="383dc82c-8248-44a6-a6b9-5d25fc096b15" class="">1. 购物</h3><p id="95c3bd79-2d55-424d-8007-3c4649f09e58" class="">作为社交电商的先驱和领军者之一，「购物」是小红书在 C 端变现的最重要方式。虽然被「视频」顶替了菜单栏的位置，但在「购物」频道，可以看到小红书的电商玩法，真是独特又有趣。</p><figure id="ef711faf-9681-4974-a926-3839a6d13fde" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-2.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-2.jpg"/></a></figure><p id="23b8d7a4-f2c1-4274-ad81-63e69e147eeb" class="">① 潮流买手店</p><p id="1ffecf46-27ef-4953-805f-e2584079721f" class="">「潮流买手店」是为用户提供当下最流行的潮流服饰销售，在这个频道可以看到众多的国内外知名潮牌最新的产品。页面内容设计得比较简单，为用户提供了潮流趋势、新品发售和品牌专区的内容，用户可直接下单。</p><figure id="29515794-992a-41c7-a937-27d893dacbee" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-3.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-3.jpg"/></a></figure><p id="83c56261-2f1d-42f1-a60e-18c221ee01d5" class="">② 新趋势</p><p id="8abc33e3-40c4-4eef-8948-0967fc390263" class="">「新趋势」是向用户种草「正在流行的东西」，它的内容结构是平台根据不同的主题结合社区笔记和商品来生成，比如海边度假穿搭，平台会把社区优质的笔记收录，然后再关联相关的商品，通过特定的场景和主题向用户种草。相比传统电商，这正是社交电商的魅力。</p><figure id="bca53014-a88a-4a31-9879-8d353e0ea8ae" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-4.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-4.jpg"/></a></figure><p id="28c995af-b0d0-42b9-91f1-7372d02fb5e6" class="">③ 福利社</p><p id="1985a288-2ae2-4c17-90d9-478fd6a1290c" class="">「福利社」小红书官方直营的高端电商品牌，上线于 2014 年 12 月，旨在为用户提供全世界的好东西，目前已经有超过 20000+美妆商品。这个频道主要包含新品日历、先锋品牌、热门品牌和热门分类四块内容，其次它的视觉风格设计得非常精致，让人有强烈的购买欲望。</p><figure id="d5fb8084-6c60-4a93-8bb0-3343973882b1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-5.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-5.gif"/></a></figure><p id="23bdd37b-13ee-4480-a02d-2dd9bc3e521e" class="">④ 小绿洲</p><p id="f4b1950c-f7cb-4a7e-91c3-7bd3d014f9cb" class="">「小绿洲」的定位是一站式购买户外好物，旨在打造一个汇聚泛户外生活方式穿搭、装备用品的买手平台。从频道内容看，包含露营、都市运动、滑板和滑雪四个大类，在每个类目可查看相应类目的商品分类、促销商品、品牌精选等内容。</p><figure id="0b254171-1caa-466f-84b9-0534e28d2d94" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-6.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-6.gif"/></a></figure><p id="6d95f49d-2cda-4eba-b638-ec7bb5542df8" class="">⑤ 宝藏好店</p><p id="4617adae-2bd9-46dc-8c67-8d85b8505739" class="">「宝藏好店」是向用户推荐小红书平台的宝藏店铺，内容包含每日精选、生活玩家、美护大赏等栏目。</p><figure id="f94c06be-c769-4a67-840d-09accf8e2fae" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-7.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-7.jpg"/></a></figure><p id="16e55b82-fe16-436d-b9e2-03aae8a6b743" class="">⑥ 独特设计</p><p id="f05a6650-f1c8-4b51-b1fb-424bda80eacd" class="">「独特设计」这个频道，是由小红书官方以及业内优秀设计师、社区优质作者和时尚行业专家共同评审出来的独特设计商品。用户人群定位高端，满足那些想要高品质、高审美的用户群体的需求——在小红书，找到全世界的好东西。</p><figure id="04a676f6-a470-406e-970d-92667682f291" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-8.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-8.jpg"/></a></figure><h3 id="d80a2a3f-c666-4853-93ab-130b33df423c" class="">2. 直播</h3><p id="55d2e6a8-8543-471b-9471-3c47c6ee6928" class="">直播是当下最流行、最重要的运营手段。小红书的直播版块，设计了众多丰富的互动、营销工具，极大提升播主的运营效率。</p><p id="87de9c23-affe-4a11-945c-89c4a71802e9" class="">① 发布直播</p><p id="07957abe-2473-4a60-a6fd-cfb81963302d" class="">播主在点击「发布」后，在底部切换到「直播」即可开启。</p><ol type="1" id="bca30149-ace3-429e-b0ba-ab2255c64778" class="numbered-list" start="1"><li>在头部，用户需要选择直播方式，目前小红书提供视频、语音、手游和电脑（通过电脑直播）四种直播方式，然后填入基础的直播信息比如直播主题、介绍，和上传封面等。</li></ol><ol type="1" id="1d554c05-3c5d-46a1-948b-caea702a1ada" class="numbered-list" start="2"><li>在底部，用户可以选择美化、翻转等效果，还可以添加带货商品、设置礼物打赏等功能。</li></ol><figure id="7380df87-0042-4a7c-8b18-81c6d8e79764" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-9.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-9.gif"/></a></figure><p id="d40a2443-b6cb-4473-a292-c5bd1ee9cad7" class="">② 直播间</p><p id="157f9404-2b03-4bb9-8842-0904d74b068c" class=""><strong>互动支持</strong></p><p id="02d707d5-2214-42c1-9a29-7858c760c8eb" class="">小红书为播主提供了 PK、投票、直播预告、连麦、小纸条等多种互动工具：</p><ol type="1" id="088f3be1-ce64-4864-aa0c-8d4bac03f43a" class="numbered-list" start="1"><li>PK：支持礼物 PK 和人气 PK 两种模式，播主可选择随机匹配和邀请指定主播，这个功能有助于提升直播的趣味性，播主连麦 PK 可相互提升用户的活跃度。</li></ol><ol type="1" id="6794b980-4bc7-425c-a9ad-632927274975" class="numbered-list" start="2"><li>投票：播主可实时发起投票，增强和粉丝之间的互动，提升用户活跃度。</li></ol><ol type="1" id="418527dc-0bde-426f-8522-2323fb17bd8f" class="numbered-list" start="3"><li>群推送：当播主发起直播后，可以一键把直播推送到小红书的粉丝群，直接触达用户。</li></ol><ol type="1" id="a5412c2b-ed94-4741-8224-370d9f893260" class="numbered-list" start="4"><li>发红包：播主购买红包后，可设置关注播主才能领取来快速涨粉。</li></ol><ol type="1" id="e92a493a-dc79-40f3-84ec-2505f6371492" class="numbered-list" start="5"><li>抽奖：播主可设置比如关注主播、分享直播、加入粉丝团等参与条件，通过抽奖的形式提升直播间的用户活跃度。</li></ol><figure id="86eb89d4-5356-424c-98be-e37449834278" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-10.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-10.gif"/></a></figure><p id="7b5031e1-0a63-4f57-b752-d384d0aafc5c" class=""><strong>直播工具</strong></p><p id="b9e33248-dbb2-4c3d-af8b-e8800885c547" class="">直播工具包含了数据看板、直播送礼、抽奖等重要功能：</p><ol type="1" id="5a832369-7a53-491d-8f45-7938b09e0471" class="numbered-list" start="1"><li>信息卡：播主可创建直播公告、推荐商品和模特信息三个卡片，帮助进入直播间的用户快速了解播主，提升用户观看时长。</li></ol><ol type="1" id="d3926b53-b342-45d4-96ea-72c5d9ad7800" class="numbered-list" start="2"><li>数据看板：通过这个频道，可以查看当前直播间的详细数据，包括观看人数、新增粉丝数、流量来源、送礼排行等，有效帮助播主提升运营效率。</li></ol><figure id="2c32f558-9447-4487-ac02-0a0c35a00c28" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-11.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-11.gif"/></a></figure><p id="3f925fa0-86a9-424e-a992-4fcabd5b26d7" class=""><strong>商品管理</strong></p><p id="0b6adc4a-46e8-4e10-926e-0cccfdbd2b40" class="">商品管理包含了直播闪拍，限时秒杀，直播优惠券等功能，赋能播主直播带货。</p><ol type="1" id="66b6d639-5786-42a3-b73e-f26a9a6bfd51" class="numbered-list" start="1"><li>直播闪拍：这个功能非常方便，播主可以拍照就能上传商品，操作简单，行动成本低可以快速帮助播主提升销售转化率。</li></ol><ol type="1" id="9ef104e0-5b58-4ff4-b3da-a11c095cecd1" class="numbered-list" start="2"><li>限时秒杀：用户可创建限时秒杀商品，通过直播讲解吸引用户购买。</li></ol><ol type="1" id="c2c2ba69-e5a4-481b-bbe7-c5da13689996" class="numbered-list" start="3"><li>直播优惠券：播主可在直播期间快速创建优惠券，提升销售转化率。</li></ol><ol type="1" id="7863a6ba-6b88-495f-893a-490364e3b0bd" class="numbered-list" start="4"><li>预告推送：播主可插入下一场直播预告，让用户提前预约。</li></ol><figure id="1e4f21d1-aecc-4e65-b721-134cd4be3a20" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-12.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-12.gif"/></a></figure><p id="341036ea-bc9b-40d4-8e2f-9d631678bb5e" class="">细节侦查：直播闪拍这个功能很亮眼，只需随便拍照一张，就能快速上架商品，这对直播间的销售转化有非常大的帮助。正如福格模型的行动公式，主要行动成本足够低，行动频次就能增加。</p><p id="c6910df2-7ded-4bfb-81ab-938f3ce5c24d" class="">③ 直播中心</p><p id="88e4bc31-48a0-44c7-840a-950537560927" class="">「直播中心」类似于创作中心，包含数据分析、开播奖励和主播课程等内容，主要帮助播主提升直播频次和运营效率。其次对于粉丝基础比较少的博主，还可以完成每日开播任务领取平台奖励，提升直播曝光。</p><figure id="a55b7cb1-843d-4e74-a1a6-b5b6ee9bcf1b" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-13.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-13.jpg"/></a></figure><h3 id="8e1fcd1c-13cd-4f70-8ba4-7978bc66834c" class="">3. 小红卡会员</h3><p id="1c62b2b2-4442-4a65-a0c9-03ce8ccc2899" class="">「小红卡会员」是小红书为用户设计的会员专属权益服务，定价 199 元每年，主要享受会员专享价、无门槛包邮、限时购提前抢、专属客服等权益。从这个版块的内容看，小红卡会员设计得比较简单，权益不够丰富，吸引力较低。</p><figure id="001165cb-fa41-4245-a5fc-54e5978c1f97" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-14.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-14.jpg"/></a></figure><h3 id="3872c60a-fae2-4000-b9c1-40fb30b3c8cc" class="">4. 小结</h3><p id="3c4a6578-66f6-41d3-90a3-f12ba2ce0bfe" class="">从社区服务版块的设计拆解，我们可以看出：</p><ol type="1" id="e375b7e0-fef7-4447-8ab8-b3d3b4ebd7ad" class="numbered-list" start="1"><li>小红书在 C 端的变现方式比较单一。我觉得可以再丰富一点，除了传统的社交电商，是否可以再可以参考腾讯系的产品设计一些个性化功能，增强产品的变现方式。</li></ol><ol type="1" id="83d7ce87-e3fc-4fff-9027-98eac9c5d0ff" class="numbered-list" start="2"><li>直播功能设计得非常用心。笔者过去主要通过微信的视频号直播，在拆解完小红书以后，我只能感慨小红书直播的功能非常完善和人性化，特别在提升直播博主销售转化率的功能设计上，体验非常友好。</li></ol><ol type="1" id="b582fa87-5408-4a03-b196-aa1753d44e3d" class="numbered-list" start="3"><li>小红卡会员可以重新设计。从目前的会员权益来看，这个功能设计得毫无亮点，不过由于没有真实数据参考，仅代表我的一家之言。</li></ol><h1 id="f65c24b7-97ab-421f-81eb-4ddbd2033ddb" class="">五、企业服务</h1><p id="fbefde0b-a6ea-45cd-a10a-473d4d909452" class="">「企业服务」是根据格式塔原则拆分，这个版块的功能主要是小红书面向企业 B 端的商业服务，包含商家店铺和品牌营销两块内容。作为国内最大的生活方式平台，根据《小红书商业化营销通案》报告，小红书不仅月活超 2 亿，而且用户群体月均可支配消费支出 4.1K，超过 81%的用户在小红书浏览完内容以后产生了购买欲望。所以小红书是好产品长出来的绝佳土壤，也成了商家品牌营销的必争之地。</p><figure id="5577e828-eeb4-4011-bbd4-28a55514715f" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-15.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-15.jpg"/></a></figure><h3 id="1949166a-e1af-4a78-b966-66bd7c1f5555" class="">1. 商家店铺</h3><p id="9dd4c411-235f-4f5e-9c95-f91b665f9728" class="">小红书的店铺面向个人和企业招募，用户只需要按照条件申请都能通过。这就像十年前人人都可以拥有一个淘宝店一样，通过输出有趣的笔记就可以进行种草转化。</p><figure id="fd778128-f115-4185-8ffb-d516be554951" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-16.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-16.gif"/></a></figure><p id="e1767449-10c1-44ac-b110-d7d6e9b43371" class="">① 店铺管理</p><p id="bd9e4195-f84d-471e-9c99-16f9a4fa6626" class=""><strong>PC 管理后台</strong></p><p id="9c078df0-6d44-4cb5-9124-951bbbe47cd3" class="">小红书的商铺管理平台主要帮助商家实现对店铺的管理和通过数据分析提供运营支撑，主要包含以下重要功能：</p><ol type="1" id="33f9330f-43f2-4a39-b0b4-767193f61093" class="numbered-list" start="1"><li>商品：主要为商家提供商品的上下架功能，其次还提供商品一键搬家、组合商品销售等功能。</li></ol><ol type="1" id="6174ab0b-846f-460e-9665-5b3b302c1e97" class="numbered-list" start="2"><li>数据：这个频道内容设计得很丰富，提供店铺流量、商品、笔记、直播和店铺等内容的数据分析，通过多维度的数据，帮助商家提升店铺运营效率。</li></ol><ol type="1" id="c08b83f1-44b2-437d-9271-2437fb1812fa" class="numbered-list" start="3"><li>笔记：提供商业笔记的管理、创作和创作灵感，帮助商家创作更好的种草笔记。</li></ol><ol type="1" id="8284d1f4-0411-4d48-9189-9cab743325ff" class="numbered-list" start="4"><li>营销：提供小红书官方运营活动的报名以及多种店铺营销工具；</li></ol><ol type="1" id="fe1e49cc-20a6-4412-ab2a-68b9bf2cbcb6" class="numbered-list" start="5"><li>用户：这个频道为商家提供更精准的用户运营计划，通过专业完善的数据洞察店铺的用户行为，提升销售转化率。</li></ol><figure id="4731d980-faef-4418-8d94-d261e0b93f5e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-17.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-17.gif"/></a></figure><p id="43d8bef0-2a19-4a53-8416-9a3b1c397f2f" class=""><strong>APP 客户端</strong></p><p id="3f5b757d-91b2-47cc-926c-de81c11f5148" class="">为了给商家提供更友好运营管理体验，小红书也为商家单独开发了小红书商家版。通过 APP 就可以实现对店铺的数据化管理，非常友好。</p><figure id="a391de51-4332-4ff4-87bb-3f3b13d245d6" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-18.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-18.jpg"/></a></figure><p id="e68966c3-5e26-4b46-9ef4-645a836de521" class="">② 商家课堂</p><p id="fbf5497f-c80c-4e4d-9537-23dc01c34917" class="">「商家课堂」是为小红书商家提供的一站式学习平台，目的是帮助商家快速、系统学习小红书店铺运营，提升店铺运营效率。</p><figure id="baff7c73-a632-41b3-ac84-562364bc8976" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-19.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-19.jpg"/></a></figure><p id="29a14a9e-20d2-47a0-8dc9-e0288b72f88f" class=""><strong>成长地图</strong></p><p id="b3ca30d1-e36e-4c6b-9c84-0363a77accbd" class="">小红书商家成长地图提供了一站式课程体系，包括新手必学、成长进阶和瓶颈突破三块内容。其次这个栏目有一个非常亮眼的功能，那就是支持商家设计系统学习计划，可设置系统提醒时间和学习频次，非常友好。</p><figure id="baafb8fe-b2ef-4102-a1d5-71854858c614" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-20.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-20.gif"/></a></figure><p id="a3183b9e-46f1-4606-beb6-d6da431946aa" class=""><strong>课程中心</strong></p><p id="4f12959c-0cd0-4100-b7b1-37b17230c0f2" class="">「课程中心」相比成长地图，提供了更详细、完整的直播以及录播课程内容学习，比如开店入驻、店铺基础、财务结算这些偏店铺管理操作的技能学习。从这个频道可以看出，小红书商家店铺运营方面，投入了很大的精力，打造了非常专业、完善的学习系统。</p><figure id="6e54fdbc-9668-4284-afa1-43c4943ef07d" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-21.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-21.gif"/></a></figure><p id="2bddf70c-2208-4e3e-bfe9-67dfa23a6b34" class="">迭代建议</p><p id="4f92b64b-dae3-44a6-acd0-a1f25daa19aa" class="">小红书在商家运营指导投入的精力超出我的想象，个人觉得小红书可以参考像知识付费 SaaS 服务商小鹅通的训练营模式，把店铺运营学习打造成一个动态的学习课程，这样不仅可以加深和用户的链接，为商家提供专业、有价值的课程，还能拓展商业变现的方式。</p><p id="de46d5be-70ea-43cb-b563-0189b89af98a" class=""><strong>服务市场</strong></p><p id="fbd7c4b6-8a1d-4ec5-87da-1069bbc29e51" class="">「服务市场」是小红书为商家遴选的第三方优秀合作伙伴，包含商品管理、订单管理、企业管理、直播管理和内容管理五大类，帮助商家更智能化运营店铺，提升效率，比如有提供商品批量搬家上架的服务智淘分销应用，可以一键将 1688 商品上货到小红书店铺等。</p><figure id="67358bac-3d80-4b8b-91b0-bb2bbed6dda1" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-22.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-22.gif"/></a></figure><h3 id="390f2170-ccb9-4c27-97f4-0042fce59555" class="">2. 品牌营销</h3><p id="180fd917-007c-4cb8-88f6-01d17173ad2e" class="">小红书商业产品体系非常丰富，有负责内容生产的蒲公英平台，有负责流量+转化的聚光平台、薯条和品牌广告。本文不过多分析，如有兴趣可阅读《小红书商业化营销通案》报告。</p><figure id="8f8e282c-1b24-4258-8466-1076a408f162" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-23.jpg"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-23.jpg"/></a></figure><p id="31a42305-2de8-45dc-a726-7d717dc75a7c" class="">① 蒲公英</p><p id="beca834c-da62-4e68-bf13-eb5d57591f1d" class="">「蒲公英」是小红书官方优质创作者商业服务平台，它覆盖海量博主和多种匹配能力，提供定制、招募、共创多种内容合作模式，全方位满足品牌的内容营销诉求。根据官网最新数据，目前已有累计 10w+创作者、65000+海外企业商户入驻。我们可以简单理解为蒲公英是小红书初级的品牌营销平台，只要你的的粉丝好过 1000，你都能申请入驻，通过发布优秀笔记种草赚钱。</p><figure id="da99fba3-c33a-403a-a608-c996f9f02232" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-24.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-24.gif"/></a></figure><p id="d5a2b925-cbee-4104-83b0-bccf622f8efe" class="">② 薯条推广</p><p id="be8f2ace-530a-4c7c-8fa5-64a36111d2c6" class="">「薯条」是小红书为内容创作者和企业商家打造的自助式投放产品，可以有效地帮助内容创作者扩大内容影响力，也能帮助企业商家通过更灵活高效的推广方式提升营销效率。也就是当博主或商家发布笔记以后，可以选择薯条推广进行笔记推广，它主要包含内容加热和营销推广两种形式。</p><figure id="d96c2dac-dfb0-4c71-b749-6b122b7c1d9e" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-25.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-25.gif"/></a></figure><p id="925185bd-7050-4d24-9291-fda6e6d8fd21" class="">③ 聚光平台</p><p id="40c4d766-79b0-4427-9a0e-6c8d09d59690" class="">「聚光平台」是小红书营销全新上线的一站式广告投放平台，能够满足广告主以“产品种草、商品销量、客资收集、直播推广、抢占赛道”为目标的多样化营销诉求。聚光平台主要为企业客户使用，通过小红书全站营销的多种组合场景，帮助企业提升广告投放回报率，高效触达用户。从官方文档介绍，聚光平台支持信息流、CPC 点击等多种形式，灵活高效。</p><figure id="df61e746-6bca-4430-a0b7-c315c9fce5fb" class="image"><a href="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-26.gif"><img style="width:700px" src="https://image.uisdc.com/wp-content/uploads/2023/04/uisdc-c-20230424-26.gif"/></a></figure><h3 id="30b1a111-0ceb-4875-a877-50426c31396d" class="">3. 小结</h3><p id="e8e804aa-444a-4b61-8276-ff3c301498ae" class="">从企业服务版块的设计拆解，我们可以看出：</p><ol type="1" id="9024671d-2a5f-488c-9af9-052d75d5bfde" class="numbered-list" start="1"><li>小红书未来在 B 端的业务线会越来越深，也许很快人人都会拥有一个小红书店铺，一边标记生活方式，一边向客户种草。</li></ol><ol type="1" id="0618aab4-163c-420e-9ac1-fcdd1a9df52d" class="numbered-list" start="2"><li>小红书为企业客户提供的品牌营销体系非常完善，不仅有蒲公英、薯条、聚光等平台，还独创 IDEA 方法论，从洞察机会、定义策略、击穿品类赛道再到沉淀品牌资产，都利用平台自身强大的用户资源满足客户的需求。</li></ol><ol type="1" id="d5f0eac3-e16e-4ee2-9b99-935ee089f874" class="numbered-list" start="3"><li>如果只是体验 APP，我们无法获知小红书真正核心的产品体系，所以当我们升维去拆解一个产品的时候，我们的收获就会更大。</li></ol><h1 id="01e1c8bf-7ef9-4764-8088-aeda96367f57" class="">六、思考总结</h1><p id="db2691fd-412b-454f-bf46-3c9ffa444168" class="">通过以上部分对小红书的全面体验和拆解，我们可以看出，小红书作为国内最大的生活方式平台和社交电商开拓者，产品设计其实也有诸多问题，以下为我梳理的产品设计总结和建议：</p><p id="68690420-6c65-4c77-8601-481f513e00a1" class=""><strong>1. 商业层</strong></p><p id="9798390d-76f5-4e3d-a589-d15ed96896cf" class="">小红书在 C 端的变现业务太单薄，仅有购物、直播打赏和小红卡会员，可以尝试增加合理的变现手段，不仅能为平台增加收入，也能为用户提供个性化的服务。当然从企业服务的拆解看，他们为企业客户提供覆盖内容生产、流量+转化的商业产品体系已经足够丰富，他们不缺盈利手段。其次我更喜欢小红书过去的产品 Slogan——发现全世界的好东西，这个口号简单、直接、朗朗上口，听一次就记得住。</p><p id="ed654880-adf4-431b-9304-14701a715f18" class="">2. 产品层</p><p id="88acd919-2a45-43ee-a3d6-c67fb6a22c03" class="">虽然已经发展十年，近一年产品迭代版本次数高达 98 次（在我拆解过的产品中最高，12306 平均年迭代次数为 3 次），但我认为小红书 APP 的内容设计不够创新，也不够丰富。我在「内容服务」版块提了很多迭代建议，比如首页的「本地」频道可以把内容再拆分得细致一些，让用户能找到更精准的内容。还有笔记的分享功能，只提供一张朋友圈长图海报生成方式，太浅陋了，不够细致。</p><p id="c650d11e-911a-4a40-ad4a-eec8c4083528" class=""><strong>3. 体验层</strong></p><p id="f0852246-09d3-4030-a2c6-f6fddfcf6a5e" class="">如果从一个普通用户去体验，小红书 APP 产品体验非常流畅，操作简单、学习成本低，这和社区内产品交互流程本身比较简单有关，几乎没有涉及复杂的业务流程。但从一个小红书博主的角度去体验，我发现小红书的创作平台规划非常乱。比如创作者中心、专业号中心、商家入驻中心、商家店铺管理以及直播中心这些产品，边界不清晰，入口也不明显，需要反复来回查找才能找到入口（我甚至每个平台的网址都单独收藏，才能快速访问，否则我会在官网迷失很久）。</p><h1 id="32a178fb-fcb9-4a20-8df4-d6d3c75fbf4c" class="">七、写在后面的话</h1><p id="874bb7d6-0203-4333-ba83-5eed39db8d8d" class="">过去曾经不太理解小红书为什么会被称为一个神奇的平台，但在拆解完小红书整个产品体系以后，才真正明白小红书为什么能成为让抖音、微信都忌惮的对手。因为在这里，种草就是小红书的基因，你无需羞涩，只要你的产品足够好，你的笔记足够吸引人，那么超过 81%、月平均可支配超过 4000 元的用户就会产生购买欲望。让好产品从这里成长，是小红书的愿景，也是小红书的底气。</p><p id="5595f2a8-b9d8-4494-b2e5-9fd1f545acaa" class="">最后，特别感谢我的新伙伴——Notion AI，在这篇产品拆解的过程中，它不仅为我提供了很多资料参考，而且和我一起讨论了很多问题，解决了我的很多困惑，我感觉我的创作不再孤独。开始拥抱AIGC，各位朋友，这会是一个全新的时代。</p><p id="21413afe-496e-466c-98e1-edafb2c9d3a0" class=""><strong>参考文献</strong></p><ol type="1" id="11c481c0-d3be-4407-8691-c9ed20a6ba7c" class="numbered-list" start="1"><li>易观千帆-小红书 APP 数据分析</li></ol><ol type="1" id="bf7ac57f-13b6-44b6-91f5-5cc21c2f8eb4" class="numbered-list" start="2"><li>七麦数据-小红书 APP 产品迭代记录</li></ol><ol type="1" id="cec36927-6fed-4f3d-aeeb-262562b34671" class="numbered-list" start="3"><li>小红书官网</li></ol><ol type="1" id="eca0fdaa-a90d-4b99-9563-7379f4a543f1" class="numbered-list" start="4"><li>小红书商业化营销通案</li></ol><ol type="1" id="b75e8f42-9415-4795-88dd-884d6358c3a8" class="numbered-list" start="5"><li>中国互联网媒体内容社区模式发展研究报告-艾瑞咨询</li></ol><ol type="1" id="b9a96e40-a04f-419e-8e4c-1d00c0c25ca5" class="numbered-list" start="6"><li>2019 年中国社交电商行业研究报告- 艾瑞咨询</li></ol><ol type="1" id="63f68927-ac43-4e30-85f5-147ecfe66bee" class="numbered-list" start="7"><li>小红书产品体验报告：含淘宝逛逛、抖音、知乎等种草方面竞品分析</li></ol><ol type="1" id="9afdd53d-71ad-497d-816e-5ba991a08f89" class="numbered-list" start="8"><li>小红书的内容营销逻辑</li></ol><p id="b8becbb3-b4a5-4bc8-83a8-eb17de6dcf3e" class="">欢迎关注作者微信公众号：「设计大侦探」</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

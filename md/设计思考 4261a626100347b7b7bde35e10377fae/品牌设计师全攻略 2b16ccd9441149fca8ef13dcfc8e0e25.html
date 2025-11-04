@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>品牌设计师全攻略</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2b16ccd9-4411-49fc-a8ef-13dcfc8e0e25" class="page sans"><header><h1 class="page-title"><strong>品牌设计师全攻略</strong></h1><p class="page-description"></p></header><div class="page-body"><p id="8a906d9d-8ded-4c86-8756-54384fa57058" class="">
+</p><p id="90ebe992-f57f-4c66-b874-ce1504dcb2b4" class="">前言</p><p id="d6270967-c1bd-4d39-a3e1-b462f5027a77" class="">你真的会学设计吗？也许你做了很多无用功，这篇文章告诉你如何做规划，如何学好设计。</p><p id="d7a245cd-7b56-438d-b70f-59dcac40e96a" class="">本文比较长，你需要花十分钟认真去看，花十分钟就能解决你不知如何学设计的问题。</p><figure id="cb60733b-d8a2-4dc7-b8b1-22eb65d3ccab" class="image"><a href="https://img1.gtn9.com/0815566e2c8c4cccac1429089b3103a8.png"><img src="https://img1.gtn9.com/0815566e2c8c4cccac1429089b3103a8.png"/></a></figure><p id="8ee3383f-b719-488d-a0a3-88ea2204bfc4" class=""><strong>划重点，首先要建立一个正确的学习认知，“ 是技皆可成名天下，唯无技之人最苦；片技即足自立天下，唯多会之人最劳。——陈继儒” </strong>只要有技艺就能扬名天下，只有无技艺的人最为痛苦；只要有一技之长便能够自立，但是拥有多种技艺的人活得最为辛苦。</p><p id="0b3b6666-e797-44da-9b21-d498425cce97" class="">这句话也解答了设计行业的千古难题：“平面、UI、电商等设计有前途吗？”设计领域没有好与坏，任何设计领域的设计师都可以名扬天下，有一技之长便能自立。</p><p id="a94b0927-56eb-4f3e-b020-8e9dbd083300" class="">对于这个时代的设计师，一专多能更容易发展。</p><p id="0d2b7557-e3eb-482f-8d45-f6d079a06031" class="">如何正确的理解“一专多能”？</p><p id="0a9d6446-49b8-46fc-ba45-8bd9a96c401b" class=""><strong>一专多能，是在一个设计领域有一技之长还需要有一些辅助技能，而不是拥有多个设计领域的技能。</strong></p><p id="7bb7e075-66e6-4b20-ae1a-7b68a848a86f" class="">举个栗子：你是平面设计师，你要在平面领域有一技之长，还要会做平面领域的其他设计，比如LOGO设计是你的一技之长，你还需要会画册、包装、海报、C4D等设计。</p><p id="3acebf4e-196c-47d6-aaa8-d01a14cd5937" class="">如果你会电商设计，会UI设计，会平面设计，会品牌设计，插画，C4D,，AE等多领域设计技能，这样你只会很辛苦，学习辛苦，工作辛苦，赚钱辛苦。因为你学太多，太杂，学起来很辛苦，学太多每一个都只会皮毛，技艺不精，工作很辛苦，自然挣钱也很辛苦。</p><p id="7c918b6c-311b-40fb-ad8e-8c542c761768" class=""><strong>所以，你需要在一个设计领域拥有一技之长，做到一专多能。</strong></p><figure id="01861dca-130f-48d4-bd78-dcebf1993dfb" class="image"><a href="https://img1.gtn9.com/7d5e9370a42b405fa712b76e1a64a16d.jpg"><img src="https://img1.gtn9.com/7d5e9370a42b405fa712b76e1a64a16d.jpg"/></a></figure><p id="6bf06a3b-bfb6-4007-ba0e-7f84fea35063" class="">设计师有如此之多的技能要学，要怎么学才能做到一专多能？ 那就要有计划、有策略的学设计。 今天就以（品牌设计师）为例来分析，如果你是平面、电商或者UI设计师，你也想知道如何做规划，私下我们可以一起探讨。</p><p id="9487ea7a-e6a4-4ac1-9ce4-d6f6dcd1ffae" class=""><strong>划重点，正确的学习认知： 学设计是一个点一个点的突破，而不是全面的学，全面发展就等于全面平庸。</strong> </p><p id="3de8c378-b056-4c85-a9d4-ad14dff7f585" class="">首先找到自己的定位，你要成为哪一个设计领域的设计师，有了定位，接下来需要有规划的学习。要学什么？要把什么技能发展为一技之长？什么技能学了对工作有帮助，什么技能学了可以应用到多个设计中。</p><p id="df9bfef4-4994-4f7a-bef8-213e5ce08709" class="">有规划、有计划的学设计才不会迷茫，才能高效的学设计。</p><p id="26684198-7bb6-4a07-9906-a4415eddb748" class="">这里我已经做好了一份品牌设计师的学习规划图，接下来我就带着你一步一步的分析。</p><figure id="c7a61fe5-b07d-4d88-9f18-c21d2833b59d" class="image"><a href="https://img1.gtn9.com/1bf117ad4b0c48459063fd3145eab2b6.jpg"><img src="https://img1.gtn9.com/1bf117ad4b0c48459063fd3145eab2b6.jpg"/></a></figure><p id="94612697-33c8-4bf5-8b82-9a0a615d8b76" class="">看着图中要学的技能，是不是就头疼， <strong>其实只有20%的技能是需要精通，而有80%的技能只需要掌握及了解。</strong></p><p id="411f49dc-e1e1-4208-a0a7-6728e6c15973" class="">精通和掌握有什么区别？只有正确理解两者的含义，才能更好的选择学什么？需要精通的技能你需要做到80分以上，而需要掌握的技能做到60分即可，换句话说会做就可以。</p><p id="8c1bd7c6-0da7-4fab-add4-2ed3e608cb0c" class="">我把技能分为需要精通的和只需要掌握的，在这两类中再细分为三类：通用技能、专业技能、理论知识。</p><p id="6c711968-0d14-4dd2-af4a-8f9ee0ac257c" class="">我们来看一下需要精通的技能。</p><figure id="ce958c90-12d6-4e59-9d05-9964d083af09" class="image"><a href="https://img1.gtn9.com/9f71489a41f7492cb7df5560ebbcc6d9.jpg"><img src="https://img1.gtn9.com/9f71489a41f7492cb7df5560ebbcc6d9.jpg"/></a></figure><p id="89274aeb-1485-4cc4-9843-9714ebd1bf9f" class=""><strong>一、在专业方面需要精通的技能：LOGO/VI设计，卡通IP、插画（卡通IP和插画选其一）</strong></p><p id="ec15bd67-12e3-499c-a948-27981d2ce99d" class="">LOGO和VI没什么好说的，品牌设计师工作中大部分工作都是LOGO/VI设计，必须精通的技能。</p><p id="e4efa0e2-e295-4a23-ad2c-278e5a7df4fb" class="">重点来说一下，品牌设计师为什么要学卡通IP设计？</p><p id="48a47fab-0190-46f4-9a1b-d067b8a65eef" class="">从这两年的趋势来看，卡通IP形象越来越受到企业的青睐。</p><p id="d7f6e5ba-1389-4112-a90f-5c9e6f511341" class=""><strong>企业/品牌都在打造自有品牌IP， 增强与消费者之间的情感距离，卡通IP能让品牌具有性格特征、个性、亲和力等特点，成为一种大趋势。</strong></p><p id="93ba69dd-acf5-408f-8831-a6cd6204244a" class="">以前品牌设计师只需要做好LOGO和VI就好，但现在市场需求在变，你会卡通IP设计，那你就比其他品牌设计师更有竞争力。</p><p id="096f1f4e-67b5-4e13-a484-8ff7f1e47421" class=""><strong>所以设计师也要跟着时代去改变，我们不跟风，但要随时代改变，AI人工智能都能做设计的时代，你需要有硬核的技能，而且需要精通然后做到专业。</strong></p><p id="7c1d4a0f-f80b-4cc1-b213-0695e5d8f220" class="">插画也一样，是这两年的发展趋势，在专业设计公司和大公司都有专门的插画师，但对于一些小公司就没有插画师，如果你会插画也是一个竞争优势。</p><p id="78af2daa-f01e-4d43-98bb-ef403c962021" class="">对于想学插画的设计师一点建议：插画要么不学，要么一直画，插画不是一两天就可以学好，需要长期的坚持。</p><p id="be0a7e83-3f79-439e-8d17-4d66c827ff3a" class="">插画和卡通IP设计，你只需要选择其一来学就可以，切忌不要贪多，贪多必失。</p><figure id="e25e9e63-5f87-4312-a724-21b0cf40998a" class="image"><a href="https://img1.gtn9.com/961492b4513546de96af3daa7eedbb44.jpg"><img src="https://img1.gtn9.com/961492b4513546de96af3daa7eedbb44.jpg"/></a></figure><p id="f2342f7a-de07-446b-be69-196aa49b9b08" class="">二、需要精通的技能中的通用技能：板式设计、平面构成、借鉴能力、审美能力</p><p id="6a4c021e-36dc-435f-af9b-8a118681130a" class=""><strong>01/板式设计、平面构成</strong></p><p id="2874b719-9cb5-42a8-9555-e2f8a2f1cfa0" class="">这两个技能可以说是万能的设计技能，无论是设计LOGO、还是海报、还是包装、还是画册，还是UI设计、电商设计都需要用到板式设计和平面构成。平面构成涉及，形态、构图、设计元素之间的关系、材料、图形创意法等多方面的知识，平面构成既是设计基础又是设计最高法则。</p><p id="3be132c6-48e7-41d5-bd5f-009c84a67348" class="">当然平面构成也是最难学的，但是不学又不行，所以可以从易到难慢慢的学，需要长期的学，不是一年半载可以学明白。</p><p id="3d851c7a-5346-4e2f-bd0e-980215c0795a" class="">大学也有三大构成的课，但大学时没有结合设计去思考，所以学了也很难理解，觉得也没有什么用。</p><p id="e43921ab-780a-45cc-b0ff-1a5f494fbff4" class="">如果你已经是工作两年以上设计师，想要有所突破，可以认真学习平面构成，可以看书或者课程。</p><p id="06a6edc8-724e-48c2-a39a-ddf4f2e945de" class="">如果你是刚入门设计师，可以不用学，对于你目前来说，学好设计的技法，能做出设计，才是首要任务，对设计有一定的理解之后再去学习平面构成。</p><p id="9d01130f-7e89-4c49-b443-ffd834010a04" class=""><strong>02/借鉴和审美，借鉴也是一种能力，也是需要精通的能力</strong>，很多设计师不会做设计就是因为不会借鉴， <strong>其实在设计的初期“你的借鉴能力就等于你的设计能力”。</strong></p><p id="2a9645fd-dde3-4365-af59-268fe5b16f65" class="">对于审美就更不用说，设计师需要不断的提升审美能力， <strong>你不可能做出你审美以外的作品。</strong></p><p id="288374bc-2354-4148-9606-759e18aa285d" class="">对于如何借鉴和提升审美，这里不多说，没有几千字也说不明白，在后续文章中讲解，今天主要是讲解品牌设计师的学习规划和提供一些学习设计的思路。</p><p id="9f24b3ac-a843-4752-a2b6-ad20fdf93338" class="">说完需要精通的技能，接下来我们继续分析需要掌握及了解的技能。</p><figure id="509d8a08-aa3d-4d0d-8b35-09ea464616c6" class="image"><a href="https://img1.gtn9.com/7b0f03cfdc3444c98cfd9480e364a169.jpg"><img src="https://img1.gtn9.com/7b0f03cfdc3444c98cfd9480e364a169.jpg"/></a></figure><p id="dc6fe121-6f8d-4afc-8a4b-aecbf5fc0b71" class="">三、需要掌握及了解的软件：PS、AI、CDR、ID、AE、C4D</p><p id="5767c63f-0b0f-4146-ae2c-9a4352129242" class=""><strong>01/ PS、AI、CDR这三个是平面设计师必备技能</strong>，当然AI和CDR只需要选择一个就可以，两个都是做矢量图的软件。</p><p id="f1a37ce5-71b8-441f-9d8c-400d79ff10d8" class=""><strong>02/ AE和C4D也是这两年的一个发展趋势</strong>，你可以选择一个来深入的学习，记住不要求多，学精一个已经足够。</p><p id="d9db400c-b76a-4279-a49c-793de8f8c858" class="">说到AE和C4D，我们来聊一下动态视觉设计。</p><p id="25dad7b4-6313-4d21-a536-d2218cb90ff7" class="">在5G的到来动态视觉也成为趋势，以前都是静止的平面图，现在的海报、LOGO都已经动起来。</p><p id="dd3c1f19-5fb5-4014-b093-d592dfd764ad" class="">对于设计师要不要学动态视觉设计，我认为，如果设计基本功不扎实，基础设计能力还有欠缺，学会这些技术对你帮助也不大，有可能学了没有地方使用，过段时间就又忘记，会做些无用功，当你能用到这些技术的时候再去学习也不迟。 <strong>03/ ID是一款做排版的软件</strong>，如果你工作中主要是画册等需要大量用到排版及印刷的工作，可以选择学习。</p><p id="c4dbb99d-78c4-4552-a4e8-f5cd35089568" class=""><strong>这么多软件都要学吗？并不是，还是开篇的那句话，“技多者最苦”。</strong></p><p id="7cb1eaca-4a46-4239-b1f3-03662e192e10" class="">PS和AI是必学，至于C4D和AE，选择一个来学就可以，根据自己的喜好和工作来定。</p><p id="04825883-e6a7-4dce-90af-5b0f337df9a7" class="">对刚入行设计师推荐先从PS着手，PS可以满足工作中大部分的工作，可以画矢量图，各种排版，海报，包装，画册，修图，插画都可以胜任。</p><p id="579b9a9f-b538-4ff3-9aa6-daa40b9e0d93" class="">软件并不是需要学精之后再去学设计，你只需要会简单的操作就可以学习设计， <strong>在做设计和学设计中去精通悉软件，</strong>很多设计师入门的时候，大量的时间用来学习各种软件，学完软件才发现不会做设计。</p><p id="091a72c7-bbda-46e6-a288-c32f13519824" class="">学软件，要找那种带设计案例的教程，不要学那种纯讲工具的教程，有设计案例的教程不仅可以学会软件的基本操作，还能知道一个设计是怎么产生的。</p><figure id="5b7d06ce-45ae-4e67-901d-6940266460e2" class="image"><a href="https://img1.gtn9.com/5f079409537a43af804c80c4a852813f.jpg"><img src="https://img1.gtn9.com/5f079409537a43af804c80c4a852813f.jpg"/></a></figure><p id="3fcf2116-6264-4a6e-96c7-f15bd7e8df8a" class=""><strong>划重点，建立正确的学习认知 会软件不等于会设计，软件不在于多，够用即可， 不是精通之后才学设计，而是学设计和做设计过程中精通软件。</strong> </p><p id="6ca89143-185b-4bdc-881f-d1b280b21f02" class="">学软件的3点建议：<strong>01/按需学习，软件不在于多，够用就可以</strong>，不会做设计，就算学了再多的软件依然做不出好的设计，有了设计的能力，用什么软件都不是问题。</p><p id="73e51364-a947-456d-bb64-784210316b4e" class=""><strong>02/学了之后，对现阶段有什么价值</strong>。如果对你现阶段没有帮助，那么可以先放一放，先学对你现阶段有帮助的技能。</p><p id="92c594ca-8dab-4c50-b550-546340c14c60" class=""><strong>03/是否和我现在的能力匹配</strong>。 和自己能力不匹配，就算学了也做不出什么好的作品。比如你做设计都成问题，去学了C4D，你依然没办法做出好的作品，不会提升你的设计能力。</p><p id="8c19aa6a-176f-479b-9a18-5bb9ed012d17" class="">当你有想法，有能力把设计做好之后，软件才能辅助你做出更出色的设计，不然你学的软件就会成为你的负担。</p><p id="eec81468-85c7-45e5-9c04-1b198b504c6a" class="">以上这3个原则，非常实用，当你想要学习一个技能的时候就可以先问自己这三个问题。</p><figure id="0adc9ac8-edf8-4014-b99e-81e640cb00e7" class="image"><a href="https://img1.gtn9.com/50f83e3e746a4a52a6b28324333c261c.jpg"><img src="https://img1.gtn9.com/50f83e3e746a4a52a6b28324333c261c.jpg"/></a></figure><p id="bb5516d2-8cc5-4bb3-9d85-6cfae64969e1" class="">四、需要掌握的专业技能：字体设计、画册设计、包装设计、海报设计、各类物料设计</p><p id="cf2e94a5-3b52-4d68-a25a-4545f24006bf" class=""><strong>01/字体设计，</strong>做LOGO需要设计字体，包装中也需要设计字体，海报也需要设计字体，再加上字库字体有版权问题，作为品牌设计师字体设计也是需要掌握的技能。 <strong>02/海报设计及各种物料设计</strong>，作为品牌设计师也需要掌握，至于包装和画册根据工作需要选择学习。 以上介绍的各种需要精通和需要掌握的技能，不是固定不变的，要根据自己工作需要去调整，这里只是带着大家去分析，至于你要精通什么？掌握什么？要结合自身情况，适合自己的才是最好的。</p><p id="0529d7cf-91b9-4a98-9595-7cda60a2a472" class="">如此之多的技能，你不要认为一年半载就能学完，需要一个过程慢慢消化，循序渐进的学习，不断深入。</p><p id="b98c04e6-f77b-449f-a6c4-ba0ae450a0f7" class="">一件事做到60分很容易，稍加努力就可以，但要做到90分以上就会有难度，需要花更多的精力，我们的时间和精力有限，不可能把所有的事都做到90分，这个时候就需要有所取舍，选择哪些需要精通做到90分，哪些只需要做到60分。</p><p id="0cecaa39-ddfe-47f8-a197-c8ce5a891055" class="">需要精通的技能持续学习，只需要掌握的技能学会就可以，做到一专多能。</p><figure id="f0033dea-0ef5-44d2-96e7-7b5bbb43f998" class="image"><a href="https://img1.gtn9.com/38cdf1d6adb14fc3977da875335e60c9.jpg"><img src="https://img1.gtn9.com/38cdf1d6adb14fc3977da875335e60c9.jpg"/></a></figure><p id="a6455991-dc31-4bf1-89a4-b025dba323d4" class="">五、需要掌握的通用能力：学习能力、独立思考能力、社交能力、沟通表达能力。 重点说一下学习能力和沟通表达能力</p><p id="bdd27b88-2cc1-49d9-b99d-37dd504ba8f4" class=""><strong>01/学习能力</strong>在设计行业没点学习能力还真不好混，特别是那些安装软件都需要麻烦别人的设计师，你需要问问自己是否具备学习能力。如何提升学习能力？</p><p id="6a1dd705-93ef-446a-b79f-06f49c0384f7" class=""><strong>从被动学习转变为主动学习</strong>，不要什么都等着别人给你讲，告诉你怎么做，你需要主动去研究，主动找资料解决问题。</p><p id="41315a29-4302-4469-a2bf-9d7917e3b3b2" class="">02、沟通表达能力1）<strong> 沟通能力：</strong>与客户沟通，与团队沟通，与上级沟通，都需要你有一定的沟通能力，特别是与客户沟通更是需要技巧，沟通不到位，改图可以把你改到你怀疑人生。   2）<strong>表达能力：</strong>汇报工作需要表达、设计想法需要清晰的表达，到后期品牌设计师可能还需要设计提案汇报等。</p><p id="6960fc9a-e077-48e3-a0c4-92317bf4dd3a" class=""><strong>六、理论都需要学些什么？</strong>理论学习重在看书，养成看书的习惯，书中已经有很多知识和方法，翻翻书你就能获取。</p><p id="129b2db5-ef68-47a1-bfa8-6baf1330bd03" class=""><strong>01/ 成长类和时间管理类书籍：</strong>这些书里能告诉你成长的方法和一些人生的道理，还有一些能颠覆你认知的思维。比如《世界顶级思维》《请停止无效努力》《终身成长》《零秒思考》《把时间当作朋友》《认知突围》《深度思考》等等。</p><p id="6438111f-5c56-4f62-9ca6-bb5814c43236" class=""><strong>02/ 设计类书籍：</strong>对于初学者建议看些教程类、干货类的书籍，理论性的书籍不适合新手设计师，设计类书籍很多，去网上搜一下有很多推荐设计书的文章写得非常专业，这里就不在推荐。</p><p id="8f631c80-e701-411e-b1be-dec3e9ac7c5e" class=""><strong>03/ 看自己喜欢的书籍</strong>，多看设计以外的书籍，可以让你视野开阔，能帮助你在设计中找到不一样的角度。</p><p id="305a4794-26d7-456c-ab0f-c6cabb822c93" class=""><strong>七、品牌设计师后期</strong></p><p id="5698e011-8343-4e1e-aa5f-499f42eee6a5" class="">品牌设计师后期，这个时期你设计能力已经不是问题，<strong>你需要培养品牌思维和营销思维，不再是简单的做一张图，你需要关注你的设计能给品牌带来什么价值。</strong></p><p id="3aa52462-aabb-4ba0-8be3-0b86d40757c3" class="">可以看一些品牌类书籍，比如定位、超级符号、视觉锤、影响力等等，了解品牌商业画布和一些品牌策略上的知识。</p><figure id="15c16904-2654-4ee4-b0a2-26bf005f50d5" class="image"><a href="https://img1.gtn9.com/e9660aaf6de14f33b255e21919f2c292.jpg"><img src="https://img1.gtn9.com/e9660aaf6de14f33b255e21919f2c292.jpg"/></a></figure><p id="295ca7ac-153a-4dab-a275-407b803fd540" class=""><strong>再分享一个，</strong></p><p id="0b06dc0f-97bf-4cbb-8c68-f22d1bc28a8d" class=""><strong>学设计的正确认知 无论什么时候，都要舍得花钱投资自己</strong></p><p id="713d5675-d058-4f82-9301-73629cc6e554" class="">不要等有钱了才去学习，有设计师等了几年还是没有钱学习，这样的思维你会一直没钱。</p><p id="5a612c06-24d6-4f2f-991b-14117641c2c2" class="">你有200元就要制定200元的学习规划，有1000元有1千的学习方式，哪怕你兜里只有50元也有50元的学习方式。</p><p id="41b49081-3877-46db-85f8-7462351f37a6" class="">在你没钱的时候更应该花钱去学习，才能走出困境，而不是说等有了几千一万才去学设计，千万不要等，哪怕你只有50元，你都要选择买一本书学习，而不是等。 要有成长型思维，无论任何时候都要告诉自己，我要通过学习去改变，设计能力是可以通过学习和练习提升的。 能不能提升设计能力是思维的问题，是你愿不愿意去改变的问题，而不是钱的问题，如果你没有成长型思维，花了钱也不一定能学好设计。</p><p id="2f418979-11eb-4b82-9c6c-28a50950f0c1" class="">最后今天说了那么多，想要学好设计，你需要专注， <strong>专注不是只学一样，而是你所学的技能是在强化你在该领域的设计能力，而不是多领域全面发展。</strong></p><p id="4d088974-4127-40cd-b468-222e2d7235ba" class="">本文来源于公众号《一只设计夜猫子》（ID：hello0159）专注于品牌设计师成长，分享LOGO/VI思考及一些设计的方法和思维。</p><p id="2d0ffd3a-1665-4b57-89ae-b5c21a49b584" class=""><strong>创作不易，点个赞鼓励一下</strong> </p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

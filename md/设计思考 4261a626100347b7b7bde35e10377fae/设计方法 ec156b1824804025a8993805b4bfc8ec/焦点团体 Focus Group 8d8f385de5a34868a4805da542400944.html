@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>焦点团体 Focus Group</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8d8f385d-e5a3-4868-a480-5da542400944" class="page sans"><header><h1 class="page-title">焦点团体 Focus Group</h1><p class="page-description"></p></header><div class="page-body"><p id="c0a689b3-614f-4d4d-854e-24dc0c55fb6b" class=""><strong>Focus Group</strong></p><p id="73c6c536-7144-4aa9-ab35-4581910102fc" class="">焦点团体</p><h2 id="dac2ab12-301f-43a0-baef-57c44455c753" class=""><strong>摘要（Abstract）</strong></h2><p id="edb96da0-3077-4fca-b81f-d4c4d854044f" class="">由一个训练有素的主持人以一种自然形式与被调查者<a href="https://wiki.mbalib.com/zh-tw/%E4%BA%A4%E8%B0%88">交谈</a>，主要藉由团体的互动，收集团体成员对特定主题的想法、意见、知觉、态度与信念。</p><h2 id="c86a91ac-05ec-458a-baf3-420ad6d0791b" class=""></h2><h2 id="ee9c9385-063b-4900-adba-daa78cbcfbdd" class=""><strong>定义（Definition）</strong></h2><p id="f67be28f-1e6b-4644-a665-ac12e7c92d2d" class="">焦点团体（Focus Group）别名「焦点团体法」或称「焦点访谈法」</p><p id="e9f5f97a-3746-4bb6-82b8-5849875e8a43" class="">是质性研究的一种方法，就某一产品、服务、概念、广告和设计，而通过询问和面谈的方式采访一个群体以获取其观点和评价。该焦点小组的成员往往经过实验者选择而定，并保证在实验过程中被试方能够充分分享其意见和主张。基本上，研究者在焦点团体中所收集到的资料，是团体成员互动与脑力激荡的结果，而非个人之意见或观点。</p><h2 id="b52d21e7-ffa5-43c8-a946-5be12c4f4cbc" class=""><strong>步骤（Procedure）</strong></h2><p id="d6e322b0-4f1d-4c6b-9582-88ae12f53c14" class=""><strong>Step1. 确定研究的问题</strong></p><p id="2e5cd14e-0d6c-4ca2-a5a1-4af5ccb70516" class="">界定研究问题时需清楚地陈述想要什么资料，及应从何处获得资料。</p><p id="b3f598b4-d8d6-4343-aee3-9610094e366c" class=""><strong>Step2. 确认主持者及设计访谈大纲</strong></p><p id="a23af0e8-19aa-4f40-8144-5ba0a593c7f4" class="">确定主持者以及包括在访谈大纲中问题的类型、形式，应配合被访谈的团体。</p><p id="53847738-38da-4af2-bca0-60bd8ac2e67c" class=""><strong>Step3. 召募焦点团体参与者并进行访谈</strong></p><p id="061922b7-a77a-46c7-97b3-350ebf550313" class="">召募焦点团体参与者通常与主持者的确认及访谈大纲的设计是同时进行的。召募过程需要确认团体聚会的时间与地点，该场所必须对可能的参与者是地点适中之处。此外，参与者通常会被告知该访谈的一般主题，因而会激发他们的兴趣，并增加他们参与的可能性。</p><p id="d48de9d5-988c-4195-9ccd-04eac4d3b9aa" class=""><strong>Step4. 资料分析、解释与报告撰写</strong></p><p id="030c68ca-d0ff-4c7b-831b-1a048939e77a" class="">资料分析、解释以及报告撰写与其他类型的研究相似，为焦点团体研究的最后阶段。</p><h2 id="322025b9-b4f4-4e8e-a751-39b489f54168" class=""></h2><h2 id="cf33ce06-71db-476f-a530-92ca66a7cec3" class=""><strong>案例（Case）</strong></h2><h3 id="801df78f-84ad-420d-8a19-457ed67bda3a" class=""><strong>案例一 具提醒及确认功能的智慧药盒</strong></h3><p id="d774ceb2-3288-4b5d-9d34-9496ebc8d466" class="">随着人们的寿命延长许多慢性病也随之出现，为避免吃错药或是忘记吃药的现象发生，探讨人们对具提醒及确认功能的智慧药盒的需求。</p><p id="ac7b5e96-fafb-4b08-90b7-76c12d39cef5" class=""><strong>Step1. 确定研究的问题</strong></p><p id="b0aa0662-e579-4882-b87f-353feb5f625a" class="">随着高龄化的时代来临人们的寿命延长，相对的可能遇到的慢性病也随之来临，然而需求多种药物控制的人口越来越多，该怎么运用科技与药盒结合是本次探讨的主题，所以找了几位家中有需求药物控制的家人来进行讨论。</p><p id="61f2fee8-7984-488a-a7d7-a3fa0290fdbb" class=""><strong>Step2. 确认主持人及设计访谈大纲</strong></p><p id="ce1e5645-b7b2-49a0-a5db-435ba34f9a15" class="">设计师准备了几项问题进而对参与此次会议探讨中的成员发问好让大家可以进入状况，提出的问题如下：</p><p id="59565952-7105-4e5f-9d7e-61b658dd5eec" class="">1.家中药物需求者的大致状况？能否自主？</p><p id="f3821ce6-5dec-4cc8-a171-f21c18447749" class="">2.对于一般市售的药盒在分类药品上有何好处有何坏处？</p><p id="028919d1-8d7c-47d4-9119-44b44a1f160a" class="">3.家中药物需求者是否曾经在不对的时间吃药？又或是吃错该时段需求的药物？等等。</p><p id="e255de1b-42a0-4e1f-98b5-b71d5a9c12e9" class="">一方面运用你问我答的方式再利用回答的过程多开启一点「为什么」或是「为什么不」衍伸更多具参考价值的回馈。</p><p id="bb60a4b5-19c9-421d-aaeb-d7909785084e" class=""><strong>Step3. 召募焦点团体参与者并进行访谈</strong></p><p id="cf234e62-9814-4497-bc21-dca990572d99" class="">讨论后可归纳以下几点</p><ol type="1" id="3ba9cc0c-3dd1-48e8-9c47-30fba827f2ca" class="numbered-list" start="1"><li>需求药物盒的患者多半得是得到慢性病且无法停止用药的。例如：糖尿病、中风等等。</li></ol><ol type="1" id="2a839bb2-cccc-411e-9ef7-2d661bd75f7a" class="numbered-list" start="2"><li>目前市售的药盒已在盒上有分星期、时段且携带算是方便，但是标示得有点简易又或者不适合年长者使用。</li></ol><ol type="1" id="ef80cc78-34d5-449f-8955-a1375c6fd268" class="numbered-list" start="3"><li>有些患者需求的药物不只一种，在分装上若不清楚很难进行。（譬如：某患者需求中风以及糖尿病的药物，光靠人为放置药物只要一个不注意可能少吃或是多吃。）</li></ol><ol type="1" id="875732a2-429f-4055-8f1e-68499c3a354e" class="numbered-list" start="4"><li>常常拿了两周的处方签配药但是却因为患者上了年纪常常忘记服用，导致家人不清楚服用的状况，又或者不清楚饭前或是饭后一般药盒较无提醒。</li></ol><ol type="1" id="afcd3402-85a0-4779-9f4e-2bdb3dd3a258" class="numbered-list" start="5"><li>一般药盒常常会有多种药物一起放置同一格可能有药物互相污染的疑虑。</li></ol><ol type="1" id="4d666627-6ec6-4318-b6a0-452cc1c788e0" class="numbered-list" start="6"><li>药物盒上面的星期以及图示是便利的，但是英文字的呈现以及图示可能对于年长者会是混乱。</li></ol><p id="f6b21a3b-0494-422f-8c20-34a40497a9ad" class=""><strong>Step4. 资料分析、解释与报告撰写</strong></p><p id="6bfb986f-7cc5-4046-9edf-5e91678ac0f1" class="">这些资料的来源透过受访人员的口述或是提供实体药盒、照片等等皆是设计师要转化为文字记录的重要回馈，统合完各项需求设计方向如下：</p><ol type="1" id="dbf05a28-2fc7-4c0f-a57d-aceb732d6d76" class="numbered-list" start="1"><li>此项设计是对于长期需求服用药物控制的患者而设计。</li></ol><ol type="1" id="cf5cd2f0-c80e-4004-8927-201385fcd84c" class="numbered-list" start="2"><li>能简化一些不用的标示。</li></ol><ol type="1" id="513dd9c1-61f0-4d42-9580-280c67a67953" class="numbered-list" start="3"><li>透过科技的导入需做出一个会自动分装的药物盒。</li></ol><ol type="1" id="ae4b8120-9d5e-475a-a514-f3c2cc2d1de9" class="numbered-list" start="4"><li>连接app或是药物盒本身加入闹铃提醒功能。</li></ol><ol type="1" id="c2ff2989-eaeb-4484-89f1-f4afebfab268" class="numbered-list" start="5"><li>药物单一分装，服用时间到即会将该时段须服用的药物以及数量呈现，这样患者只要听到闹铃就去取药服用即可。</li></ol><hr id="8a2d5c02-72dc-4e33-924c-4bb66963bea2"/><h3 id="446cad6f-a3d1-466c-8a6a-02eb17c6b31b" class=""><strong>案例二 </strong><strong>Cooking M3多重烹饪机</strong></h3><p id="b8915b95-f1eb-4837-9ed9-3e64f0e966e0" class="">现代化的生活中有许多学生或是顶客族常选择外食的方式解决吃饭的问题，Cooking M3 多重烹饪机可少量一次性的烹煮多道料理，使用焦点团体的方式探讨大众是否有此需求。</p><p id="683e791c-db7d-4d45-aa6c-361c4740c931" class=""><strong>Step1. 确定研究的问题</strong></p><p id="d1463438-bcc8-4b52-9ba3-3b4f79ec17b5" class="">基于现代匆忙的生活步调，煮饭费心又耗时，越来越多上班族或是住外面的学生族群，一次不需要做太多料理，只需要简单的几道菜也不会有浪费食物的情况产生，找了几位有需求的人来进行讨论。</p><p id="f70196f3-17b6-4650-b691-0d66f2d0b92f" class=""><strong>Step2. 确认主持人及设计访谈大纲</strong></p><p id="60b30372-002b-49a1-8480-eb5d33a56d21" class="">准备了几项问题进而对参与此次会议探讨中的成员发问好让大家可以进入状况，提出的问题如下：</p><p id="bfc2ab83-42aa-40ff-9849-c87d6ef56c4a" class="">1.是否会因为只有一个人要吃饭所以时常外食?</p><p id="20e00a4b-68d2-4829-afb6-a44ca14aadde" class="">2.会不会想要改善这样不太健康的外食习惯?</p><p id="8991acff-9a59-4985-8690-2425c58daeb7" class="">3.会不会常常不知道该如何处理剩菜剩饭….等等。</p><p id="c65629c4-5b51-4558-8be3-9bf769bb8169" class="">利用你问我答的方式让受访者能更快速的进入状况，再利用回答的过程多开启一点「为什么」或是「为什么不」衍伸更多具参考价值的回馈。</p><p id="f50490fc-a194-4825-9e8d-83be396b52c8" class=""><strong>Step3. 召募焦点团体参与者并进行访谈</strong></p><p id="44b00b03-f451-410d-b9cf-c6a5c9cd720e" class="">讨论后可归纳以下几点：</p><p id="7ccfc670-fe3b-49da-980a-21739a2f587d" class="">1.因为是一个人吃饭不想要煮饭又炒菜，所以时常外食。</p><p id="55f1e530-f1de-4029-831a-b4bed4cf00de" class="">2.一个人吃饭的量很难抓，煮多了有剩菜剩饭的情形。</p><p id="4fc1d0dd-f0c7-48a2-8a89-8f745a22fdeb" class="">3.在冰箱的剩菜剩饭久了忘记吃，造成食物的浪费。</p><p id="dc4927aa-508a-43c8-948b-e4219cb89190" class="">4.现在虽然有市售的小电锅，但没办法同时煮很多菜。</p><p id="3c2813e3-bee3-40ec-825a-bf6336633068" class=""><strong>Step4. 资料分析、解释与报告撰写</strong></p><p id="cd8346e7-e14a-4a77-b92a-738ba48086bc" class="">这些资料的来源透过受访人员的口述或是提供照片等等皆是设计师要转化为文字记录的重要回馈，统合完各项需求设计方向如下：</p><p id="85f9be65-a04c-424c-9f72-91934b3f7e0a" class="">1.此项设计是针对一个人住的上班族或学生族群所设计。</p><p id="b49a6f88-9b62-46fb-9252-8f79de662042" class="">2.分格子的设计让使用者一次可以煮很多菜。</p><p id="1eb360eb-c404-4784-953c-c69d3ed453e3" class="">3.设计成一人用的电锅大小就刚刚好，也很方便携带。</p><h2 id="73aaba34-8c8d-4408-8cfc-37bbfc5a6b8c" class=""></h2><h2 id="5337e1f6-29b1-41b3-ad51-0d2b03d1d4c4" class=""><strong>参考资料（Reference）</strong></h2><p id="7f7fcaac-253c-4634-90a3-6ffc2471314f" class=""><a href="http://blog.xuite.net/yogadola/twblog/162323483-%E7%84%A6%E9%BB%9E%E5%9C%98%E9%AB%94%E8%A8%AA%E8%AB%87%E6%B3%95">Dola静心瑜珈。</a><a href="http://blog.xuite.net/yogadola/twblog/162323483-%E7%84%A6%E9%BB%9E%E5%9C%98%E9%AB%94%E8%A8%AA%E8%AB%87%E6%B3%95">焦点团体访谈法。</a></p><p id="95af3df3-8430-406f-9e31-b9de283bb8ed" class=""><a href="http://pedia.cloud.edu.tw/Entry/Detail/?title=%E7%84%A6%E9%BB%9E%E5%9C%98%E9%AB%94%E8%A8%AA%E8%AB%87%E6%B3%95&amp;search=%E6%9C%89%E9%97%9C%E4%BF%82">教育百科。</a><a href="http://pedia.cloud.edu.tw/Entry/Detail/?title=%E7%84%A6%E9%BB%9E%E5%9C%98%E9%AB%94%E8%A8%AA%E8%AB%87%E6%B3%95&amp;search=%E6%9C%89%E9%97%9C%E4%BF%82">焦点团体访谈法。</a></p><p id="c5caa88b-1cb9-4e4f-a888-2c7e68b82b88" class=""><a href="https://ewda2010.wordpress.com/2010/07/15/%E7%84%A6%E9%BB%9E%E5%9C%98%E9%AB%94%E6%B3%95inquiry-focus-groups/">Ewda2010 Blog。</a><a href="https://ewda2010.wordpress.com/2010/07/15/%E7%84%A6%E9%BB%9E%E5%9C%98%E9%AB%94%E6%B3%95inquiry-focus-groups/">焦点团体法。</a></p><p id="9955c973-6527-402c-b402-176dc19d6291" class=""><a href="http://www.teach.ltu.edu.tw/public/Download/6261/201703161048429.pdf">林冠妤、吴槐桂、 彭圣博、刘邦星、王琮勋、林志启、涂冠晖。</a><a href="http://www.teach.ltu.edu.tw/public/Download/6261/201703161048429.pdf">具提醒及确认功能的智慧药盒雏型设计。</a></p><p id="27bcafe7-75d8-474f-ad6c-469df04df93c" class=""><a href="https://www.ilong-termcare.com/Article/Detail/896">爱长照。</a><a href="https://www.ilong-termcare.com/Article/Detail/896">智慧药盒超贴心，长辈从此不怕吃错药。</a></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,18 @@
+/* Centralized design tokens: default values overridden by runtime JS when present */
+:root {
+  /* Core colors */
+  --color-00: #000;
+  --color-ff: #fff;
+
+  /* Accents and surfaces (safe defaults) */
+  --color-oa: #f5f5f5; /* light surface */
+  --color-o5: rgba(0, 0, 0, 0.05); /* subtle overlay */
+
+  /* Strokes */
+  --grey-10: rgba(0, 0, 0, 0.1);
+
+  /* Fonts */
+  --font-sans-desktop: "Helvetica Neue", "Helvetica", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Arial", sans-serif;
+  --font-sans-mobile: "Helvetica Neue", "Helvetica", "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN";
+  --font-footer: 'Gotham-Book', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei", "Source Han Sans CN", sans-serif;
+}

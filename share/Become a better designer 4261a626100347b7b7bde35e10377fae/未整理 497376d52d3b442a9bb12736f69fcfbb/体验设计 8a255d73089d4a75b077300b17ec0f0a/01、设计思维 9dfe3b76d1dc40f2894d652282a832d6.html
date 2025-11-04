@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>01、设计思维</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9dfe3b76-d1dc-40f2-894d-652282a832d6" class="page sans"><header><h1 class="page-title">01、设计思维</h1><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M4,3 C4,2.447715 4.447715,2 5,2 L12,2 C12.5523,2 13,2.447716 13,3 C13,3.55228 12.5523,4 12,4 L5,4 C4.447715,4 4,3.55228 4,3 Z M4,7 C4,6.447715 4.447715,6 5,6 L12,6 C12.5523,6 13,6.447716 13,7 C13,7.55228 12.5523,8 12,8 L5,8 C4.447715,8 4,7.55228 4,7 Z M4,11 C4,10.447715 4.447715,10 5,10 L12,10 C12.5523,10 13,10.447716 13,11 C13,11.55228 12.5523,12 12,12 L5,12 C4.447715,12 4,11.55228 4,11 Z M2,4 C1.44771525,4 1,3.55228475 1,3 C1,2.44771525 1.44771525,2 2,2 C2.55228475,2 3,2.44771525 3,3 C3,3.55228475 2.55228475,4 2,4 Z M2,8 C1.44771525,8 1,7.55228475 1,7 C1,6.44771525 1.44771525,6 2,6 C2.55228475,6 3,6.44771525 3,7 C3,7.55228475 2.55228475,8 2,8 Z M2,12 C1.44771525,12 1,11.5522847 1,11 C1,10.4477153 1.44771525,10 2,10 C2.55228475,10 3,10.4477153 3,11 C3,11.5522847 2.55228475,12 2,12 Z"></path></svg></span>Property</th><td><span class="selected-value select-value-color-brown">体验</span><span class="selected-value select-value-color-green">思维</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>说明</th><td>用设计思维解决问题</td></tr></tbody></table></header><div class="page-body"><p id="7e2c929a-58db-43bc-b9bf-b5c03c334c3e" class="">现实世界和大学不同。</p><p id="051f008b-df4a-4e49-9b42-67bd9a90f1bf" class="">在大学里，教授们编造一些虚拟的问题。 而在现实世界里，问题不会像学习材料那么亲切友好、干净整洁地来到你面前。你需要探究问题的来源。 你仅仅看到表面现象，从来不深究真正的问题所在，这样太容易了。</p><p id="65f2554d-6301-4c85-9ff6-97168f006b80" class="">一、解决正确的问题对错误的问题提精彩的解决方案，不如根本不采取措施：</p><p id="6247c689-ca45-4b3f-b444-7406e028c3c4" class="">我们要解决正确的问题。 优秀的设计师从来不会一开始就着手解决丢给他们的问题：他们会先努力理解真正的问题是什么。 本书强调的重点在于，开发那些能够满足人们需求和能力的新产品的重要性。 以人为本的设计，探讨设计的结果要符合用户的愿望、需求和能力。毕竟，我们生产产品的目的，就是提供给用户使用。 设计师拒绝从初始问题一步就跳到解决方案，相反，他们花时间确定真正的、根本的问题所在，然后，不是立即解决问题，而是停下来想一想更充分的潜在方案。只有这样才能最后得出新的建议。这个流程就叫做设计思维（design thinking）。 设计师对自己的创新能力很自豪，能够发现根本原因，找到极具创意的解决方案，设计思维就成了现代设计机构的标志。 设计思维有两个强大的工具，以人为本的设计思想和双钻（发散-聚焦）设计模式。 以人为本的设计，既确保满足用户的需求，设计出的产品具有易用性和可理解性，能够完成期待中的任务，并且拥有积极和愉悦的用户体验。它强调两个方面：解决正确的问题，采用满足用户需求和能力的恰当方式。 以人为本的设计原则的共同理念，即循环往复地进行四个步骤：观察、创意、打样和测试。在此之前，还有一个超越一切的原则，即要解决正确的问题。</p><p id="050e3457-ea36-4759-9573-fd958d799a0d" class="">二、双钻设计模式设计师从质疑拿到的问题开始设计之路：</p><p id="3f12d0fa-4206-4c72-8e88-49dfcd399155" class="">会扩大问题的范围，进一步分别检测问题至下隐藏的根本原因，然后聚焦于其中某一个问题的描述。在研究制定解决方案的阶段，首先扩展可能的方案，在进行一次发散思考的过程，最后，将这一切重归于某个合适的方案。 2005年，英国设计协会（the British Design Council）首次提出这种双发散-聚焦设计模式，被称作双钻设计模式（double-diamond design process model）。 其设计过程分为四个步骤：“发现”和“定义”，确认正确问题的发散和聚焦阶段；然后是“开发”和“交付”，及制定正确的发散和聚焦阶段。 双钻（发散-聚焦）设计流程，可以有效地将设计师从不必要的局限中解放出来，关注问题和方案的广阔空间。 在确认将要解决的正确问题时，这种重复的发散-聚焦过程非常重要，也是最好的实施方法。虽然好像杂乱无序，漫无章法，单证流程实际上遵循了精心建立的原则和程序。 产品经理应鼓励设计师自游探索，但同时控制这些流程在特定时间（或成本预算）限制之内，没有比设置不可更改的截止日期更有效的方法，能够让这些创意的心灵最终汇聚在目标上。 </p><p id="9141f09f-1d35-4b37-a382-d05c72ae727d" class="">三、以人为本的设计流程双钻设计模式描述了设计的两个阶段：</p><p id="adc254c1-8673-4031-b80c-f0fd6baea8a0" class="">找到正确的问题，和满足用户需求。 实际上通过以人为本的设计流程进行实现和发挥优势：以人为本的设计可以嵌入双钻（发散-聚焦）设计流程中使用。 3.1 以人为本的设计流程的四个行动步骤观察初步理解问题的本来面目，是设计研究的原则的一部分“应用人类学”由于目的不一样，人类的种群分析不同于缓慢的、更加学术化和研究型驱动的学院派人类学研究一是确定用户需求的明确目标二是需要有快速的评价结果调研对象应当与潜在用户一致，这一点非常重要设计调研支持双钻设计流程的两个阶段找出正确的问题，深入了解用户的真实需求深入了解潜在用户群的行为方式设计调研与市场调查设计和市场是产品研发的两个重要组成部分设计想知道用户的真实需求，以及用户如何在实际条件下使用产品或服务市场想知道人们买什么，包括了解他们如何做出购买决定不同的方法具有不同的目的，产品非常不一样的结果设计师抱怨市场调查使用的方法不能得到用户真实的行为反馈市场调查人员抱怨尽管设计调研方法可以直指内心，但少数的调研对象仍是个问题争论没有用市场调研和设计调研团队应该精诚合作，互为补充成功产品的要求是产品设计必须提供影响用户购买决定的所有因素一旦用户购买的产品，开始使用产品，产品应当能满足用户的真实需求，人们才会使用和理解，并从中得到快乐设计规范必须包括所有这些因素：市场和设计，购买和使用激发创意（构思）定义：当设计团队确定了设计需求，下一波就是产品可能的解决方案，这个过程被称作“激发创意”（idea generation），或“构思”（ideation）在双钻模式的两个阶段都可能激发创意探寻问题解决问题激发创意的方案，很多冠以“头脑风暴”（brainstorming），通常遵循两个主要的规则激发足够数量的创意。在设计流程的初期，如果只是拘泥于一两个点子，那就很危险创意，不要受限制。避免批评任何点子，无论是你自己的还是别人的。即使非常疯狂的点子，经常具有明显的错误，但也包含着潜在的创意，能够在日后被提取，应用到最终创意的选择中，要避免过早的抛弃任何点子作者：质疑每一件事情。愚蠢的问题可能会触及事情的本质打样想真正知道一个创意是否合理，唯一的方式就是测试在厘清问题的阶段就制作样品模型，主要是确保很好地理解问题如果目标人群已经在使用和新产品相关的东西，那也可以被当做是样品在设计过程中解决问题的阶段，针对建议方案制作真实的样品测试汇集小部分与目标人群特征尽量符合的人，目标人群即未来使用产品的用户让这些人使用样品，尽可能接近他们实际使用的方式研究结束时，通过追溯操作，提现测试者曾经的动作，并作进一步提问，这样就能得到关于用户体验的更加详细的信息测试人员在五人重复测试-改进循序，多次循环改进产品在定义问题阶段进行测试，可以保证很好的了解问题，然后在解决方案阶段再次测试，可以确保新的设计满足那些将要使用产品的用户需求和能力以人为本的设计迭代流程观察潜在目标人群，激发创意，制作样品，然后测试。不断循环这个过程，直到满意为止。这也经常被称作“螺旋式理论”（与这里描绘的环状稍有不同），强调每一轮的重复都要有提升、进展。重复在以人为本的设计原则中，重复能够促使设计持续地改进和加强“频繁失败，快速失败”设计最难的部分就是搞清楚正确的设计要求找到正确的设计需求需要反复研究用户和进行测试：反复循环这样的设计流程的结束取决于产品经理，即时间和成本 以活动为中心的设计与以人为本的设计强烈关注个体用户的设计理念，是以人为本的设计思想的标志以人为本的设计确保产品满足用户的真正需求，因而产品具有易用性和可理解性关注操作，而非单个用户，称作以活动为中心的设计（activity-centered design），让操作方式来定义产品和结构，依据操作的概念模型来建立产品的模型概念所有的操作需要人来完成，也是为人而设计；以活动为中心的设计就是以人为本的设计思路，尤其适用于大量的各种各样的目标人群一边改善操作，一边留心人们的能力。人们会接受新的设计，乐于学习必要的知识 关于任务和活动的区别声明：任务与活动存在不同之处强调：必须为活动而设计，为任务而设计通常存在太多约束一项活动通常包含一系列的任务，但所有任务都向着一个共同的、更高层次的目标活动是分等级的，因而高层次的活动（去工作）可以被分解成置于其下的无数低层次的活动相应的，低层次的活动会产生大量的“任务”这些任务最终被基本的“操作”来执行为个人所做的设计，结果可能对一部分特定的目标人群非常出色，但与其他的人并不相配为活动而设计，其结果适用于每一个人主要好吃：如果新的好时机诶要求与用户的活动一致，用户会容忍复杂和新的要求，去学习新的东西：只要适应了任务，掌握了复杂和新的要求，用户会感到自然，认为这都是合理的 循环往复的设计流程与线性流程传统的设计流程是线性的，也叫“瀑布式方法”，因为设计过程趋向于单一方向，一旦做了觉得，想回头就非常困难或几乎不可能具有逻辑性在以人为本的设计思想里，过程是循环的，不断改进，不断变化，允许改变主意，重新考虑早期的想法适用于产品设计的初期阶段，不适用于后期 </p><p id="afa552aa-6bfc-4c93-b53a-842548431e71" class="">四、我刚告诉你什么？</p><p id="aeea2023-73ce-4a4a-908d-3dde37a95978" class="">那根本行不通以人为本的设计流程描述了理想的状态 目前商业环境下的现实，公司驱动新产品设计只有两种方式增加功能，同竞争者对抗根据新技术的发展，增加功能这种情况很典型：市场驱动的压力，再加上工程技术为核心的公司，会屈从于形势，不停地增加功能，使产品越来越复杂，然后用户越来越困惑。 唐·诺曼的产品研发守则：产品研发流程启动的那一天，就已经晚点，并且超预算。 相互冲突的规范可以交由多部门的联合团队来解决，他们会理解并尊重每个规范要求。 优秀的产品研发团队是个很融洽的合作小组，包含了来自相关部门的代表，他们始终出席，表达并沟通不同意见。 有技巧的产品尽力可以协调好团队，达到共同理解和互相尊重。 双钻模式和以人为本的设计理念所描述的设计方法是理想化的。 尽管理想和实践有很大的差距，坚持理想还是有很大好处，但是对待时间和预算的挑战要采取现实的态度。如果正视挑战，精心规划设计流程，这些问题都能被克服。 多部门的团队能够加强沟通合作，节约时间和成本。 </p><p id="b52c8cbe-f63e-415f-9832-5e831e4f2bfa" class="">五、设计的挑战做好的设计有难度。</p><p id="8f2017b4-3304-4558-8bf5-d7b28efbcf75" class="">也就是为什么这是一门需要广博学识、倾心投入的职业，设计的结果是强大的，实实在在的。设计师需要解决如何管理复杂的事物，协调技术和用户之间的互动。 好的设计师是快速学习者。 产品的每一个方面都呈现出一系列的要求，有时候一些方面看起来同别的方面对立。时间与预算经常就是最苛刻的约束。 设计师不辞辛苦，确认用户的真正需求，然后去实现它们，而市场关心影响人们实际购买产品的那些要素。 在运转良好的机构里，团队成员来自产品生命周期的各个不同方面，大家聚集在一起，分享自己的需求，协同工作，设计和生抽产品，满足这些需求，或者至少达成最低限度的一致。 具有多个互相冲突的需求的产品制造商关注的焦点是产品的直接消费者（决策者），而非产品的最终用户成本是主导因素事情越来越复杂，另外一些人的需求也应当被考虑：工程师、研发人员、生产者、服务人员、销售人员和市场人员公司内部不同部门的一些聪明人尝试对公司产品的原始产品设计进行改动设计是个复杂的过程让这个复杂的流程凝聚起来的唯一方法，就是所有相关的参与者像一个团队那样一起工作 为特殊人群设计每个人都不一样，所谓的典型人并不存在有些问题不能通过调节或平均方法解决：左撇子和习惯右手的人一种产品无法满足每一个人年老体弱、残疾人、盲人或弱视的人、聋哑人或听力很差的人、个子太高或太矮的人、语言不同的人 面子问题设计许多设备的目的是帮助有特殊障碍的人群可能设计得很好，也可以解决问题，但目标用户拒绝使用帮助老年人生活所设计的助步器为特殊人群所设计经常被称作“和合设计”（inclusive design）或“普遍设计”（univesal design）为每个人设计会遇到困难，最好的解决方案就是灵活处理、能够调节的物品至少可以给那些具有特殊需要的人提供一个机会 </p><p id="b3546f98-857e-4172-bfd6-3f9621ef4381" class="">六、复杂是好事，混乱惹麻烦物品的复杂性是基本特性，混乱才是不必要的。 </p><p id="42a50ad0-c49d-43b8-9e0d-6a8ceb9e9d9d" class="">驯服复杂性是最重要的原则之一，就是设计一个良好的概念模型。 一旦了解了事物何以复杂，复杂的事物就不在繁杂。</p><p id="eceae395-4670-402c-b079-7b1578d39c3f" class="">七、标准化和技术标准化实际上属于另一种类型的文化约束因素。</p><p id="cc88aa2c-23d0-44ae-9719-e3aa519dd559" class=""> 标准化是产品易用性的一个重大突破。 建立标准一个小公司可以不费太大力气将自己的产品标准化，但一个行业、国家或者国际性组织要达成一致标准，就困难得多最终确立的标准通常会折中处理不同竞争组织的利益，时常是最基本的妥协方案为什么需要标准：一个简单的例子钟表标准太费时，技术先超越建立标准，可能旷日持久，当它们被实际应用时，可能已经过时了无所谓，标准还是必需的标准让我们的生活更简单，让不同品牌的产品可以和谐地工作在一起没有达成标准：数字时间-“斯沃琪国际时间”标准化，你的生活会更简单：每个人只需要学习一次标准化需要掌握时机，不能过早，过晚则很难达成国际标准 </p><p id="29a9cfc1-78b2-4254-ad0d-13ad5b268d70" class="">八、故意制造困难良好的设计做到既注重产品的易用性、易懂性，又能满足产品在“安全、隐私和保密”方面的要求。 很多东西本应该设计得很好用，但却没有办到：</p><p id="a7ff20fa-4655-4a6a-a2fa-b6aacf1ec945" class="">有些东西是故意设计得很难用，但这样的设计却合情合理。 尽管很多东西需要设计得难以理解、难以使用，但这并不意味着要抹杀设计原则的重要性这类物品并没有完全排斥易用性即便要增加使用某类物品的难度，也要让用户知道如何操作 可以把以往的规则反过来叙述隐藏关键的部位，使用户看不出相关的操作信息在任务执行阶段利用不自然的匹配关系，使控制器和受控物之间的关系不相称，或具有任意性增加操作的物理难度要求把握非常精确的操作时机和操作步骤不提供任何反馈信息在任务评估阶段利用不自然的匹配关系，使用户难以了解系统状态 九、设计：为了人类发展科技设计是个非凡的学科，将科技与人，商务与政治，文化与社交结合在一起。设计需要承受不同的严酷压力，给设计师带来巨大的挑战。 同时，设计师必须在头脑中一直保持最重要的理念，产品要被用户使用，这才是对设计最大的奖赏；从另一方面来说，设计是个机会，开发那些能够帮助并丰富人们生活的产品，愉悦身心，造福社会。</p></div></article></body></html>

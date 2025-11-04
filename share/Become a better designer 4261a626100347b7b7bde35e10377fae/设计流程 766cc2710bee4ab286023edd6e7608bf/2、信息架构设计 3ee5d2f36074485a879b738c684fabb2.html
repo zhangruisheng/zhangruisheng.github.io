@@ -1,0 +1,670 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>2、信息架构设计</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3ee5d2f3-6074-485a-879b-738c684fabb2" class="page sans"><header><h1 class="page-title">2、<strong>信息架构设计</strong></h1></header><div class="page-body"><p id="020be69d-a1b7-44d7-8efc-1ddf9b136953" class="">
+</p><h1 id="e5038481-ff40-4ba9-be51-d014f7038e5f" class=""><strong>交互设计笔记（中）：</strong></h1><figure id="a8837ed1-e599-4ce6-89ed-32716295717a" class="image"><a href="http://image.woshipm.com/wp-files/2018/09/A9yjehemVfAdqheG6tLb.jpg!/both/72x72"><img src="http://image.woshipm.com/wp-files/2018/09/A9yjehemVfAdqheG6tLb.jpg!/both/72x72"/></a></figure><p id="203646d3-dc98-4b6c-a80d-aa783ebaaa82" class=""><a href="http://www.woshipm.com/u/716231">设计笔记库</a>关注作者</p><p id="249bcf0f-52c4-4ef6-85e3-6d12a7203576" class="">2019-05-30</p><p id="0c6e9fd7-8e66-4ce1-ba07-0c88ac4e9d53" class="">6 评论1.8万 浏览137 收藏10 分钟</p><p id="17d32ff4-40b1-499b-a374-96db704f709b" class=""><a href="http://996.pm/7gGmo">4大调研基础核心技能，提供教科书式入门指导，让你掌握用户心理和行为，做让用户惊艳的产品！戳这了解&gt;&gt;</a></p><p id="30ef588e-97fd-48ed-9da7-38bcd0b9aa91" class="">释放双眼，带上耳机，听听看~！</p><p id="45f08f5c-ce55-41cd-9a4c-6bdbe6d87d67" class="">00:00</p><p id="29a06e64-5a38-4e63-acb9-2e51e23a0260" class="">00:00</p><blockquote id="2f181478-fc01-43a2-8451-5f3899690662" class="">做好信息架构是每个交互设计师必须掌握的一门技能，信息架构是产品的骨架，决定了一个产品的生长方向、产品的布局，以及用户对一个产品的初步印象和整体体验。由于信息架构的复杂性，需要交互设计师拥有非常强的逻辑思维能力和完善的整体思考能力。所以，为了完成一套完整的信息架构，须掌握一门科学的设计方法。</blockquote><figure id="4d90bdce-b3d6-422a-8bd2-305771f4dd73" class="image"><a href="http://image.woshipm.com/wp-files/2019/05/KKOahSDPJmYLkClHSjQ3.png"><img src="http://image.woshipm.com/wp-files/2019/05/KKOahSDPJmYLkClHSjQ3.png"/></a></figure><p id="be7e6bbe-d17b-4545-b3b7-b27520052578" class="">从2018年10月发布<a href="http://www.woshipm.com/ucd/1477690.html">交互笔记（上）</a>到现在已经快9个月了，毕业、工作So many things to do啊，好吧，还是有拖延症……终于整理了之前的学习笔记，希望通过分享的方式，使自己形成系统化的交互知识体系。切入正题，信息架构可从准备和产出两个阶段来进行设计。</p><h2 id="3bf0955b-afad-443d-95e8-d7bd2e2ab5ca" class=""><strong>1. 信息架构设计的前期工作</strong></h2><h3 id="dcdf7b7e-6fdd-4544-b635-d13d03dc331c" class=""><strong>1.1 寻找：产品的共性（要遵循的用户习惯）+差异（设计机会点）</strong></h3><p id="50f132a4-9ae6-4725-b0a7-fa48214c7367" class="">首先和用研团队了解用户（Persona）和用户场景（如何使用产品），提取用户的习惯。</p><p id="388ca117-04f1-45c7-98e4-6201c62351eb" class=""><strong>设计信息架构时，一方面须尊重用户的习惯，不要在不必要的地方体现差别。</strong></p><ul id="7259f0d5-996e-4d24-b01d-24d2262647ef" class="bulleted-list"><li style="list-style-type:disc">思考用户用产品做什么事；</li></ul><ul id="23637031-74a4-4fcd-adb4-800d655b67fa" class="bulleted-list"><li style="list-style-type:disc">用户用这类产品最关心的是什么；</li></ul><ul id="7e5f2df9-fc57-4daf-b789-c79d708d46c8" class="bulleted-list"><li style="list-style-type:disc">用户有哪些思维定式；</li></ul><ul id="e3577003-97a2-4658-a32b-2d8ae924b730" class="bulleted-list"><li style="list-style-type:disc">用户用过什么类似的产品等。</li></ul><p id="2661acd1-2347-4542-b5ff-5b72f8292067" class="">如图片社交类产品存在一些共性，发布自己喜欢的图片，关注朋友的动态并结交朋友是用户要做的事和最关心的事情，所以刚进入APP都会定位在关注这一模块，关注的人往往是最重要的东西。底部导航中间都会设置发布按钮，虽然样式不同，但都起到强化发布的作用。由于用户的思维定式（用户觉得应该有什么），都有消息和个人中心的存在。</p><figure id="e17a9564-2788-4ad3-881a-59110117ffdb" class="image"><a href="http://image.woshipm.com/wp-files/2019/05/vuzr1Yx1DHY17RHEnU6U.jpg"><img src="http://image.woshipm.com/wp-files/2019/05/vuzr1Yx1DHY17RHEnU6U.jpg"/></a></figure><p id="bc3a0872-502a-4e68-849f-68a76fd954cd" class=""><strong>另一方面要考虑创新。</strong></p><p id="96df83a1-d810-405c-83ce-ce44783e2c88" class="">如在发现（或广场）这一页，产品有较大的区别，有的直接把图片铺出来，有的体现内容，有的体现标签，因为在这一页，不同产品可能有不同侧重点，所以会做出不一样的设计。这就是产品的差异，可以创新的地方，设计时想那些是可以创新的，哪些需要遵循用户的习惯，其实创新也是和习惯相关的，只有了解用户习惯后，才能在不妨碍用户的情况下做出合理的创新。</p><figure id="e1aca81b-dfbf-4ed0-a8cb-a84de54df619" class="image"><a href="http://image.woshipm.com/wp-files/2019/05/3PU2LtHtRMZl5qfU34Re.jpg"><img src="http://image.woshipm.com/wp-files/2019/05/3PU2LtHtRMZl5qfU34Re.jpg"/></a></figure><h3 id="fda41ba5-09ac-43b7-bcb7-fa15ebdd4e6a" class=""><strong>1.2 输出物：竞品信息架构树状图（3个）+用户信息架构树状图（用户心智模型）</strong></h3><p id="0885e4aa-4e56-478c-8a0f-cd7ad97f060b" class="">调研竞品的信息架构是产品设计中非常重要的成分，便于交互设计师了解现在所面临的市场和面对的目标用户等。</p><p id="42ba1e4f-acdd-4a2b-90c3-5817ac0b1df8" class="">设计信息架构前，可以找3-5个同类竞品，分析并用Mindmap（思维导图）整理他们的信息架构，制作思维导图的工具有很多，如Mindmanager、X-Mind、Mindline等，可以做出如图所示的树状图。</p><p id="edaa29a0-28f5-4069-b90b-c230a0602582" class="">树是体现信息架构的最佳形式，拼多多APP由首页、推荐、搜索、聊天和个人中心组成，在每一模块下又可分裂出其他的元素，这样层层展开是最好的体现信息架构的方式。</p><figure id="174789d7-c618-4f35-9cab-4daf208cc542" class="image"><a href="http://image.woshipm.com/wp-files/2019/05/ShdWmat1aLrR7kQM4KWd.jpg"><img src="http://image.woshipm.com/wp-files/2019/05/ShdWmat1aLrR7kQM4KWd.jpg"/></a></figure><p id="6cfbd665-6133-4f37-b250-483aee63d668" class="">得到3-5个竞品的信息架构树状图后，需分析共性和差异。找到竞品在哪些地方存在共同点（和之前了解用户习惯一样），就是交互设计师需要遵循的用户习惯。因为竞品可能使用户形成了习惯，一旦改变会使用户不适，如所有的通讯软件都有消息和联系人，并放在重要的部分，因为发消息、寻找联系人是产品的重中之重。</p><p id="fc9722e6-009d-483f-9c4b-11552e35bc86" class="">其次是找到哪些地方存在差异，这些差异就是设计机会点，也就是创新点，如社交产品的发现页，有非常多的做法，可以突出不一样的元素或做不一样的组织架构，每个产品都可以发挥自己的创意。</p><p id="bae34aa0-b751-4a8f-b8d6-1d96ef29ad44" class="">了解竞品后，可用卡片分类法进一步了解用户的心智模型，即让用户对功能卡片进行分类、组织，并给相应功能的集合重新定义名称的一种自下而上的整理方法。简言之，是用户对功能卡片进行归类的方法，站在用户的角度，理解用户如何认定这些功能的。</p><p id="f3c9b610-7237-4191-93e4-3decea6a3be3" class="">需要准备的东西和执行整个流程如图所示，其中需注意功能卡片的提取，是功能或界面的名字，如联系人名片、对话窗口，来自于现有信息架构树的树叶（无子树部分，避免发生包含关系）。不要过度细分，如不细分列表单元格内的元素。卡片数量少于30张，卡片分类法结束后，整理并输出符合用户心智模型的信息架构树状图。</p><figure id="bb13abb3-b161-4a2d-a681-9ccb6c057e2b" class="image"><a href="http://image.woshipm.com/wp-files/2019/05/bU2lBhEegOwQ9E6Rv560.jpg"><img src="http://image.woshipm.com/wp-files/2019/05/bU2lBhEegOwQ9E6Rv560.jpg"/></a></figure><h2 id="6366548e-f300-4593-afc7-2c72f9fa8628" class=""><strong>2. 产出产品信息架构设计</strong></h2><p id="901ceed7-6df9-4748-9329-040c1fafe16e" class="">利用Mindmap整合前期调研信息和结果，对功能进行重要性分级，再将整合的信息翻译到Axure站点地图中，考虑信息架构和交互构图的关系。</p><h3 id="7799ea7f-50f0-42e6-9b33-c313e3dc1a1e" class=""><strong>输出物：自己产品的树状图（层与度的平衡）+重要性分级+Axure站点地图</strong></h3><p id="8c338ef3-4966-4784-a198-9563c75031d0" class="">在了解用户习惯，竞品信息架构和用户心智模型的基础上，根据共性和差异，进行信息组织和功能整合，用Mindmap产出自己的信息架构树状图，要注意的是寻找层和度的平衡。</p><ul id="ff2e3268-3c51-4e7d-a379-1cdc20de71b4" class="bulleted-list"><li style="list-style-type:disc">层=信息架构树的深度（刚进入产品到找到一个功能需要几个页面），一般不超过5个层级，否则会使用户操作困难；</li></ul><ul id="662e705c-2079-47b5-bae1-75d61f865792" class="bulleted-list"><li style="list-style-type:disc">度=某一节点子节点的数量（一级导航下功能数），如果某一层级（页面）有过多的内容，会增加用户认知成本，找不到想找的内容。</li></ul><figure id="a225cd6f-94e5-486b-a14c-1dcc28b98d5c" class="image"><a href="http://image.woshipm.com/wp-files/2019/05/aoB6RxPAWaGwMSNhtaZJ.jpg"><img src="http://image.woshipm.com/wp-files/2019/05/aoB6RxPAWaGwMSNhtaZJ.jpg"/></a></figure><p id="e255af44-610b-46ae-a05d-a6028c70e908" class="">整合完大量信息和功能后，还要对信息架构做重要性分级，跟PM讨论哪些功能是重要的，哪些是次要的，通过数字对每一层级功能的重要性进行分级。在落地到页面设计时，可以明确哪些功能应该突出设计，哪些可以设计相对比较次要。</p><p id="f69f46d5-207b-404f-bd79-e008d319e2d6" class="">如微博首页（第一层级）的信息和功能非常多，有搜索、侧边栏（热门、特别关注、好友圈等来体现不同的微博内容）、发布内容、广告、个人信息、明星势力榜等等。</p><p id="bc2e4f11-ab2c-40aa-9a15-07b309e50c0a" class="">但这些内容的层次和主次不一样，有些部分放的非常大，如关注的人所发布的微博和自己发布内容的发布框。而有些内容相对比较次要，放的比较靠边，如个人信息和明星势力榜。所以，在做信息架构时，虽然这些内容放置在同一层级，但它的重要性是不一样的。</p><figure id="c30dae50-e56c-4e27-9b8d-82040e86ea67" class="image"><a href="http://image.woshipm.com/wp-files/2019/05/gL7hwDRLauvXBcDgfieI.jpg"><img src="http://image.woshipm.com/wp-files/2019/05/gL7hwDRLauvXBcDgfieI.jpg"/></a></figure><h2 id="b431c062-f349-40c7-834d-1b67ae3611f9" class=""><strong>3. 总结</strong></h2><p id="e2f0a568-5026-4d43-b66a-71e9d4b809a5" class="">信息架构设计的关键是对产品骨架的思考，在尊重用户习惯的前提下，寻找产品的创新点。构建信息树时注意层与度的平衡，区分重要性。可用Axure站点地图来体现信息架构，Axure是常用的交互设计工具，一层包一层的结构非常符合树状图的需求。</p><p id="22a07061-2d98-422e-b615-736712b37602" class="">所以，将整合的信息（思维导图）翻译到Axure站点地图中，能帮助交互设计师更好地在Axure里完成产品的页面设计。</p><h3 id="685e202b-0659-4a12-ad36-4106e1adf172" class=""><strong>相关阅读</strong></h3><p id="1c18bf74-7987-4762-a9c0-848f6dd6bb02" class=""><a href="http://www.woshipm.com/ucd/1477690.html">交互设计笔记（上）：设计需求分析</a></p><p id="b404e381-205e-4c95-b4ca-0e85229fe976" class="">本文由 @产品负一岁 原创发布于人人都是产品经理。未经许可，禁止转载</p></div></article></body></html>

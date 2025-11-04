@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>上班不如创业？3家初成立设计工作室经验大公开</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c6e4b928-8018-4d50-83a8-9bdd12c75f28" class="page sans"><header><h1 class="page-title">上班不如创业？3家初成立设计工作室经验大公开</h1><p class="page-description"></p></header><div class="page-body"><p id="432cdce4-35c8-43ce-84e5-5ae72d94a62c" class="">原创 Design360° Design360 <em>2023-05-24 21:34</em> <em>发表于广东</em></p><figure id="2efe6cb4-fa55-4590-b605-869385153ca4" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz3yXgAaQYiawhTcqQnNPjezbOEIjdzuOQiclqkJfREFEOFakmEOIqicfJaQ0Ycm2O9RKNnicOeiaNPxYNg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz3yXgAaQYiawhTcqQnNPjezbOEIjdzuOQiclqkJfREFEOFakmEOIqicfJaQ0Ycm2O9RKNnicOeiaNPxYNg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="2c9a39f0-856d-44e9-a3ff-1a796ccf1303" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz3yXgAaQYiawhTcqQnNPjezbniaB1ysDrcPs76WQC7rHZz7UNI4ragYBibqkR1rx0Cic28Y4QicPlKt87w/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz3yXgAaQYiawhTcqQnNPjezbniaB1ysDrcPs76WQC7rHZz7UNI4ragYBibqkR1rx0Cic28Y4QicPlKt87w/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="7b9df7e8-2550-44a9-b848-eedf3e59aa35" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeKYpYEVGnbr4XKk9wEmuuLicHeeaFOh8OWJzYs1gqoT8k9CaR9cEqSDg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeKYpYEVGnbr4XKk9wEmuuLicHeeaFOh8OWJzYs1gqoT8k9CaR9cEqSDg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="5d2e0b26-ffaa-4b23-b674-51ce7f0be62a" class="">毕业后就职于设计公司、设计工作室，还是大厂？近年，越来越多年轻设计师选择了第三条路——开设自己的工作室。在不少设计师眼中，“有自己的工作室”与“实现自由”、“追求设计理想”等概念相挂钩，但一家年轻的工作室能够得以成立并持续经营，往往并非只依靠其成员对设计的热情，而是多个层面的努力成果。</p><p id="b4a93039-961f-4926-b13a-cf591fdadd8f" class="">在本篇中，我们深度采访了湿士铁条设计工作室、StudioTODO、氧化反应设计工作室<strong>3家由Z世代设计师创建的年轻设计工作室</strong>，都是由成员们在本科毕业三年内创建，并顺利运营至今。如何迈出开工作室的第一步？组建资金从哪里筹集？初始如何获得客户？看完他们分享的经历，或许对在当下有计划开工作室的你有所启发。</p><figure id="4b8d8432-d826-4521-ac3e-9e8554152615" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeEoFfLsMvNHmkCnrfT7G71xznCTyOBgfEoO1K6kL6Q4njiaNiaUL5Wjdg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeEoFfLsMvNHmkCnrfT7G71xznCTyOBgfEoO1K6kL6Q4njiaNiaUL5Wjdg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="99ede583-8f9e-46c3-a093-ebed80c4d15b" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUew93oGsCHjAH6mvsoIpCDTh9Bt91QKGJxXbX2JtTeZRLMk7oSpwP0IA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUew93oGsCHjAH6mvsoIpCDTh9Bt91QKGJxXbX2JtTeZRLMk7oSpwP0IA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="5837e526-7484-40f3-b79e-8c4baffe710c" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeLGncP2L7RbhM8o8JjBHLUuAm1lZgL38q6Yq9eDaQpo3uKzzBWBauHg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeLGncP2L7RbhM8o8JjBHLUuAm1lZgL38q6Yq9eDaQpo3uKzzBWBauHg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="c91b4613-6172-4a50-a479-a584f366118c" class="">湿士铁条设计/substitus design是一家以品牌思维为主导型，具有创意思维与探索精神的视觉设计机构。同时致力于品牌视觉设计、活动形象设计、包装设计、插图设计等。</p><figure id="9fa0a17a-bf78-419f-96e2-ef75fc1e21b2" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icH8G8N5DLR51gJsJYb5sGfoj5K5QpjE9OgPx5kMBV3MIYPeHTTaAqq8g/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icH8G8N5DLR51gJsJYb5sGfoj5K5QpjE9OgPx5kMBV3MIYPeHTTaAqq8g/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="dc9e4510-b15a-43fd-97a3-c655725d1ff8" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcW4N5uWAGWKSBCMnpcNorpNOoDWlBOQJrU91ibH0AFTd6QovSlWjEL6w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcW4N5uWAGWKSBCMnpcNorpNOoDWlBOQJrU91ibH0AFTd6QovSlWjEL6w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="d9297952-787e-4495-a2c4-6b99332f095c" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcBANef1FibSgXudicqcaU3wNryhhGHJk0Yr8qqDnqicbRZZibfoL8t5Yk0g/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcBANef1FibSgXudicqcaU3wNryhhGHJk0Yr8qqDnqicbRZZibfoL8t5Yk0g/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="9081925d-6b16-4129-bcd5-bcc08e12564a" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeicBmtiawD2Sltdp7IWZYe1l4Gb4n15KJicuiaiaSXDZPiasH0iavDH7NicwZaw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeicBmtiawD2Sltdp7IWZYe1l4Gb4n15KJicuiaiaSXDZPiasH0iavDH7NicwZaw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="1beb5516-22df-47c8-b18a-324e64b95047" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcKelcYrhxtHY4gU9CImibmaunqK0WYIbU94yEWwgAub78ayfrP6GibicnQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcKelcYrhxtHY4gU9CImibmaunqK0WYIbU94yEWwgAub78ayfrP6GibicnQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="8e656f5a-f47b-4700-91b7-ff3a695e9c54" class="">湿士铁条工作室部分作品</p><p id="7017772a-9b9d-4aeb-af1b-1938f36b6a48" class="">←向左滑动查看更多</p><figure id="23a567e4-8056-4763-b2c6-986a80de8673" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUefCwx2aUgO0C7UU4S9FSno61BA2ibSen3uc02VMIf7bmXFGWRtlXMMrg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUefCwx2aUgO0C7UU4S9FSno61BA2ibSen3uc02VMIf7bmXFGWRtlXMMrg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="7be8f6e4-edaf-4f72-90d1-ad1078a4f992" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeDEUpJmKXqJ6oXrOOBLUTpT2qh0PZ65sljUVSFzl4WBc3fCXEw3DsFQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeDEUpJmKXqJ6oXrOOBLUTpT2qh0PZ65sljUVSFzl4WBc3fCXEw3DsFQ/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="42fca8c4-1e86-4421-92f0-15528d51208d" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUe9oW9wMqN0z8satd6icYmUlhM4OiamPSldZW3VNwRgZ8FicmNvKyJ2GSkA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUe9oW9wMqN0z8satd6icYmUlhM4OiamPSldZW3VNwRgZ8FicmNvKyJ2GSkA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="56e5d5b0-c2e1-4a50-a104-7666846b41a0" class="">OxyreactDesign氧化反应是一家年轻化创意型设计工作室，其业务包括但不限于品牌VI、文创周边、插画设计、包装设计、IP设计等。我们秉承着“探索无止境，设计无界限”的设计理念与委托人一起去共同创作每个作品。“探索无止境”的过程中也会给我们不同的指引：当没有思路，没有灵感的时候，不断告诉自己，再探索下，好的方向肯定会在下一秒出现。</p><figure id="6175c0ef-b48c-4e3c-b6eb-1f5684935e0c" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcOXonfLk6JYnhTToGpCqntGibkCsCXf3gDxibxU6NadsvZP0Y0cDrkgvA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcOXonfLk6JYnhTToGpCqntGibkCsCXf3gDxibxU6NadsvZP0Y0cDrkgvA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="4cf5ce57-8795-4764-826c-73c3dab3fad2" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccroqvww3pK8XwT4dkyFyDpnibric8l1VBWUyxBoV5MF3cmyiaL44PELBEg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccroqvww3pK8XwT4dkyFyDpnibric8l1VBWUyxBoV5MF3cmyiaL44PELBEg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="ff50f5b7-ed84-48cc-a2f5-d502d03efa35" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUePDPY17b4E8xUzMZPRyUkzorb1ibHaDFgPUOxsuRibQY5Dic3bDBOhhXjw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUePDPY17b4E8xUzMZPRyUkzorb1ibHaDFgPUOxsuRibQY5Dic3bDBOhhXjw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="3ce91e57-ce86-43ff-9e03-12072d026e1c" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcZ37hsmQ2YM0D0uvCUwnFlYZrbNq4uKbBg56J8k1qdibPlqodc5Oah2w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcZ37hsmQ2YM0D0uvCUwnFlYZrbNq4uKbBg56J8k1qdibPlqodc5Oah2w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="2434d1fa-1211-43cb-af53-ddae4551d65b" class="">氧化反应设计工作室部分作品</p><p id="6c560c74-d020-4f4a-b43f-3c26185f9095" class="">←向左滑动查看更多</p><figure id="316375a9-dea7-41b9-b50c-7fdf6691fa63" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUehoC452MgFMe1ibV55NULh58MDDUbg1KU0Prf3b0OM3oeMSnbwu249tg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUehoC452MgFMe1ibV55NULh58MDDUbg1KU0Prf3b0OM3oeMSnbwu249tg/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="3f7e7f57-f197-4184-9839-fecd1ecdcdcc" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUezzH97NAZk1cibaDhiaQxqkszhxzeVvMkGnLvWGSZemicW5lAEx9UqlsLw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUezzH97NAZk1cibaDhiaQxqkszhxzeVvMkGnLvWGSZemicW5lAEx9UqlsLw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="3535940e-12b9-4d0a-8658-621e26981f93" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeMAmFCBXU1Ndrk4jZfNvfqbpEKibhK51f6rKdp1Bw5plGSvFIzIv72dA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeMAmFCBXU1Ndrk4jZfNvfqbpEKibhK51f6rKdp1Bw5plGSvFIzIv72dA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="f9b3dbd5-d6d5-4b7d-999e-7ad6b99bbf77" class="">StudioTODO是一家视觉设计事务所，为商业与文化领域的客户提供设计与咨询服务。提倡「视觉指向沟通，沟通承载美学」，通过对项目背后文本的解析, 重新定义概念，用可触达、可感知的方式传递信息与建立沟通。作品曾入选Tokyo TDC 、NY ADC、Award360°年度商业品牌/年度文化品牌、APD亚太设计年鉴、全国书籍设计艺术展铜奖等。作品曾参与北京太庙千里之行展、宁波国际设计双年展、意大利佛罗伦萨国际设计双年展等。</p><figure id="5c4c578a-767b-4996-9de1-08c645984c44" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccdebw3PH5N0TkAZYxT2yC0g575FN5iaZZhfWVx8abzTkYKrCtWNBeU9w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccdebw3PH5N0TkAZYxT2yC0g575FN5iaZZhfWVx8abzTkYKrCtWNBeU9w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="9208b00d-d2d3-4bbd-a0cd-c6ebc4023b36" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc9tm1hmrhK33QQ81XW7GU5cibq8f3YhhnlZcVVLGiaSpkLwffTkdg4U4A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc9tm1hmrhK33QQ81XW7GU5cibq8f3YhhnlZcVVLGiaSpkLwffTkdg4U4A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="cee23e16-73b6-4e01-89c3-af24dbd66bde" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeKl7BVkuLibtico3l7fsFWiamcqGfibV4wfBiczbOaWjWRgnULKTiabI6jicXg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUeKl7BVkuLibtico3l7fsFWiamcqGfibV4wfBiczbOaWjWRgnULKTiabI6jicXg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="dca4871f-88c6-472d-a842-a1b32ebd1295" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcooYbthRG9MvPqEIpToTqqb38ibVZr37wdoHG5Dae0jecZIibTQ5ic2xpQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcooYbthRG9MvPqEIpToTqqb38ibVZr37wdoHG5Dae0jecZIibTQ5ic2xpQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="2dc8c3d2-73f5-44f2-8538-1efeec0bdba6" class="">StudioTODO工作室部分作品</p><p id="c9ce2ee7-23fc-4f08-aaea-7655f39eaa50" class="">←向左滑动查看更多</p><figure id="aacf6038-bceb-493f-bc3e-c59ac9ff01c2" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcxUKOrfQ9RlXsA6Buiaciaicx2vlWUGw45SccSPFM9dMNcXyR4dZB2lNVA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcxUKOrfQ9RlXsA6Buiaciaicx2vlWUGw45SccSPFM9dMNcXyR4dZB2lNVA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><h1 id="7b9771df-f1bd-41e4-889e-11bfd51bde4b" class="">为什么想自己开工作室？</h1><p id="d4cf60d0-e444-4342-9086-8790fbf2ca43" class="">“年轻不尝试，莫非要等40岁再去？”</p><p id="c6b818e4-993a-457d-9445-b9575b9e6641" class=""><strong>湿士铁条：</strong></p><p id="2c18eb9f-a0a2-46c7-b72f-2800961f36a6" class="">我们是在国美的创业支持下，有机会直接开设工作室，但核心还是“想试试看”，看能做出点什么成绩来。<strong>创业前的就业经验也很重要</strong>，能走少很多弯路，所以要做好实习和前期成本的准备。</p><p id="40992d1c-0f21-40b4-b26d-ee92d2c270be" class=""><strong>StudioTODO</strong>：</p><p id="c959a061-91c8-4adc-96f6-ab3fca1314be" class="">我们的合作始于在美院上学一起接项目。当步入社会、各自接触到更大体量的项目后，开始意识到<strong>需要团队的力量，以及不一样的想法碰撞</strong>。大家设计上、生活上的价值观都是相近的，自然而然就会有一起合作的想法。</p><p id="0d9fc3df-540f-4637-ac8c-43cd72db3970" class="">后来当我们以一个工作室名义参与、完成的项目逐渐增多，并对外开始有了一些表达时，就有意识地去更近一步思考团队、未来的期待和愿意为之努力的方向。</p><p id="84a8799e-972f-4d80-b795-9ef56e4f801c" class=""><strong>氧化反应：</strong></p><p id="3e335656-5bc2-49c3-acb1-95fa5c79cb47" class="">这是本科毕业时就萌生的想法。当时我们其中一人决定离职读研，另一人在深圳一家4A广告公司工作。在公司工作的经历，让我们确定成立自己的工作室才是实现设计理想的途径，于是我们<strong>约定好好研究设计、不断积累资源，等其中一方读研毕业，再一起做工作室</strong>。在这期间，我们有接小项目，利用课余和下班时间两人共同推进，成果也不赖。</p><p id="a2a54a3a-8661-4096-b49d-b037963fe425" class="">工作室其他一些成员则是研究生同学，有大厂工作的经历。也许是都历经了种种公司的毒打，大家一拍即合——就开个工作室闯闯呗，年轻不尝试，莫非要等40岁再去？</p><figure id="4944f68a-1139-4558-b8d5-10ec9ca53afb" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icH8zOuc2j6n74TZA5iaMdeYwnToWY3so77X4Oj5EicR3Ed6GKIch4sVibVg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icH8zOuc2j6n74TZA5iaMdeYwnToWY3so77X4Oj5EicR3Ed6GKIch4sVibVg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="8d04f8df-0590-45b5-b95b-5f6059133a38" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHfyxUhMicJU1vHFU1LsndcqYibVfl9Uo3ebsvib8BNZ4RKTlkIMibkQaAEg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHfyxUhMicJU1vHFU1LsndcqYibVfl9Uo3ebsvib8BNZ4RKTlkIMibkQaAEg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="b0754290-a366-4c02-9842-3f0cce92465c" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHsc1ttv9WAA5P78lj6FHBD9aPRWqNDUwKyeM5qaibxxJM2Nr84ManiczA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHsc1ttv9WAA5P78lj6FHBD9aPRWqNDUwKyeM5qaibxxJM2Nr84ManiczA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="cd7b6826-241b-48c9-a421-94695be85a62" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHDzLibea7usQ1WwJ5ibGJL3m1CsnAU1ibxug0aPTexicicr6ibWGI8fAdBwfw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHDzLibea7usQ1WwJ5ibGJL3m1CsnAU1ibxug0aPTexicicr6ibWGI8fAdBwfw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="bd5bda78-1da0-4b14-8d64-6efeb9e0a6ab" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHibm3QfFophQhbSwb9ml7TcvickEXeKViaIm3p4dCXIuQAS1Xlcx1IINUw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHibm3QfFophQhbSwb9ml7TcvickEXeKViaIm3p4dCXIuQAS1Xlcx1IINUw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="e804ab46-17a2-40fa-9b07-f1855c642f94" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHw2L4ckSqNzibSgALHI0puXIPk2gdP3paxlOC7YqKBP25Usf8PZXM5LA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHw2L4ckSqNzibSgALHI0puXIPk2gdP3paxlOC7YqKBP25Usf8PZXM5LA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="a3234e34-4012-466a-b2a7-ec1a24b66a43" class="">氧化反应设计工作室作品“Meet+遇”</p><p id="5049ab75-87ae-4dfe-8466-ff659bf8eb72" class="">←向左滑动查看更多</p><h1 id="d77b3f85-5878-470a-9ed1-9499e6827324" class="">成立前对“开工作室”的理解？成立后有改观吗？</h1><p id="18ca5585-df5a-4ba6-bde8-f3a391cae20d" class="">“很多事情都不是有百分之百的准备才去做的，见准时机让自己先走起来，走起来是需要勇气和胆量的。”</p><p id="f3a4e34b-50ac-403f-80a4-c42224ca3904" class=""><strong>StudioTODO：</strong></p><p id="c530361f-19f2-4caf-800e-28598dee133b" class="">在以前还是上班时，对工作室的向往更多是作为独立设计师能有更大的自主权去发挥创意；在作为合伙人身份参与工作室后，才会理解<strong>项目管理和商务洽谈的能力也是和设计能力一样的重要</strong>。这确实与以前上班和独立设计师的状态、理解很不一样。</p><p id="47509b9d-e90a-49bf-a28b-c9e8c6bf4fc5" class=""><strong>氧化反应：</strong></p><p id="eb27ccfa-4909-410c-8964-7e25c08acb72" class="">当时的理解有一些浅，想着两三个设计有共鸣的同学好友一起开开心心做项目，顺顺利利挣大钱。但开工作室后发现现实是有很大差距的，有时候大家的想法还是不一样，意见也难免出现分歧。其次就是项目数量问题，当时在想一定要做好的大项目，<strong>可是真正面临没有项目的时候，也会回归N年前，做一些小的、不怎么需要设计的单</strong>。</p><p id="bec2e93c-331f-48fe-9941-c46cb7aecaf7" class=""><strong>湿士铁条：</strong></p><p id="a1fc3b45-57dd-416d-a0fc-42eab70d7aa7" class="">成立之前预感到不简单，但又觉得好像没那么难，还畅想了许多发展的可能性。有次与客户畅聊的时候提到，“<strong>很多事情都不是有百分之百的准备才去做的，见准时机让自己先走起来</strong>，走起来是需要勇气和胆量的。”</p><p id="f2fb986f-f5f6-40f7-b96c-5a767b6e8531" class="">成立工作室后尝试了很多，虽然目前发展速度没有那么快，但是我们相信一步一脚印走起来后就会顺利很多，其实自己做工作室是很有意思的，目前觉得当下是不错的。</p><figure id="61935b06-9c4d-4d66-9329-081617d0d009" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcMHG7Hiav2GJ3UQ3ToUeq7RVX9Yo1RxmHQYu7PYgvS02ekY87uuyiaSWQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcMHG7Hiav2GJ3UQ3ToUeq7RVX9Yo1RxmHQYu7PYgvS02ekY87uuyiaSWQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="1bd4f6c1-234b-45bc-8b1a-3a64f1c5c9ff" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_gif/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcX4Zeia6EeraQ4tibHwk3aoSwp5pUzTMGyfVLBFyYKpNfcl7WMQsjKwdQ/640?wx_fmt=gif&amp;wxfrom=5&amp;wx_lazy=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_gif/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcX4Zeia6EeraQ4tibHwk3aoSwp5pUzTMGyfVLBFyYKpNfcl7WMQsjKwdQ/640?wx_fmt=gif&amp;wxfrom=5&amp;wx_lazy=1"/></a></figure><figure id="611852b6-2af7-487b-ab89-085d31273302" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcaibIXK029RRyJB10qvU7tIlW3nwzZibTW4VW3UjYF2QE2icNarj54VTAQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcaibIXK029RRyJB10qvU7tIlW3nwzZibTW4VW3UjYF2QE2icNarj54VTAQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="a05a47b7-537a-46b3-bce7-89893b5aa34d" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccc19FEBmUy7dY1tvOmy5LzASniaZ6YFh9zIAGoCeFwTI5wKbYtH4A6eQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccc19FEBmUy7dY1tvOmy5LzASniaZ6YFh9zIAGoCeFwTI5wKbYtH4A6eQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="cceb0334-8e6c-41ee-b46b-996966e1069c" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CczgKlgY1q1u6RhMPKw6dWBfYz4TibnIiaxPY5QzkaCwmzqV5TcwMdl27A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CczgKlgY1q1u6RhMPKw6dWBfYz4TibnIiaxPY5QzkaCwmzqV5TcwMdl27A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="f4e97508-ebeb-4075-aeb1-7cbf5fde8b4c" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcqUic49JnS8BfPjbL9BoE9xbzealeyAxwe6SfA7Fz130wmguuyW5nzFg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcqUic49JnS8BfPjbL9BoE9xbzealeyAxwe6SfA7Fz130wmguuyW5nzFg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="fd44ecbf-99fb-4f85-89ff-59e01c1020b0" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CclCK9QEmHsEsmLk9XPE05YAU2CyH8xh4icDGG7JC00CPTy6qGbsg2b5w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CclCK9QEmHsEsmLk9XPE05YAU2CyH8xh4icDGG7JC00CPTy6qGbsg2b5w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="4dd8d6aa-e9cd-405c-84b4-c60dfe1e3778" class="">湿士铁条工作室作品“uec project”</p><p id="b997b8b6-d0ba-4eac-a001-251312e3f868" class="">←向左滑动查看更多</p><h1 id="09cf635d-43f1-4d61-80ee-f6406e17fabf" class="">开工作室前会担心经营问题吗？如何跨过心理障碍走出第一步？</h1><p id="7d869529-6927-4b5f-b981-d7a9bf9b4b67" class="">“经营者就应该具备经营能力和面对风险的心理素质。”</p><p id="71982e6e-3bb1-47ab-86ec-ad52ee12d69d" class=""><strong>湿士铁条：</strong></p><p id="b5f2ad53-2821-449f-893d-863980541efd" class="">工作室成立时正是疫情开始，市场受疫情影响，客户的需求也会相对减少。但正是这段时期，社会发展慢下脚步，我们也从中不断学习与提升。</p><p id="d3ce719f-439a-40d0-9c83-4d5303ddcaf1" class="">刚开始担心是会有的，但比起经营问题，我们觉得更担心的是没有充足的把握进步的时间和机会，当下的展示渠道这么多，其核心还在需要自己本身的作品能够打动人。<strong>对于经营发展终有一个最后底线，只要没退到那条线，干就对了。</strong></p><p id="82eb980f-7f75-424d-8a03-8482babc1875" class=""><strong>StudioTODO：</strong></p><p id="e8bf6faf-ef31-4542-99ce-fd2f0f3b28cf" class="">我们认为经营者就应该<strong>具备经营能力和面对风险的心理素质</strong>。选择创立工作室就要做好心理准备，要去面对经营、资金周转、风险如初期没有稳定收入等等的问题。</p><p id="cf914618-d791-499a-83b6-729c5a6810ce" class="">这些担忧我们有过，也会一直都存在，但我们不认为它是一种需要解决的心理障碍。一方面市场的不确定性会是常态；另一方面相比较个人的设计工作，经营工作室所需要承担的角色、解决的问题会更多。经济上需要自负盈亏，工作上需要协调、管理，稳定地输出创意……<strong>不断学习，保持一些担忧和警惕也不是坏事。</strong></p><figure id="f8adace7-f197-4658-83ab-907d734e3cff" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcE7zgvqMZ0oCrsfhFmDRcY1J90ibdZGHF7LeO3G193ibcAtG2YljK5Vjg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcE7zgvqMZ0oCrsfhFmDRcY1J90ibdZGHF7LeO3G193ibcAtG2YljK5Vjg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="06307acc-bf12-42b3-825d-ac89bf934115" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc9tm1hmrhK33QQ81XW7GU5cibq8f3YhhnlZcVVLGiaSpkLwffTkdg4U4A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc9tm1hmrhK33QQ81XW7GU5cibq8f3YhhnlZcVVLGiaSpkLwffTkdg4U4A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="b309f3b9-d86d-4b0a-9b82-3ff65c4bc781" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcHGwILOOpicOle96sy96qGN4y3awwFb07ibuL4WBsL4pwK4D9fK8z5XSQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcHGwILOOpicOle96sy96qGN4y3awwFb07ibuL4WBsL4pwK4D9fK8z5XSQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="1128c29e-947e-4d90-b29e-01172608691a" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc7ribHArH9hbtkLJHEXbA4QDL51vnQHyXcc5HicqGZkctibK0vhf1rIGlA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc7ribHArH9hbtkLJHEXbA4QDL51vnQHyXcc5HicqGZkctibK0vhf1rIGlA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="3de2b0c9-848f-45fb-8c37-9a55fb439f52" class="">StudioTODO作品“wholike”</p><p id="29a73e90-3022-4d73-b41c-c7805354b248" class="">←向左滑动查看更多</p><h1 id="73fdb5a9-418f-43dd-93ea-7df11272347f" class="">如何筹集组建成本？</h1><p id="aa506ea5-0f14-4812-ab4c-6ca7fc05c8dc" class="">“多去关注大学和地区政府能提供的创业补贴。”</p><p id="728dfd90-fcf1-4048-b8e2-4b5d06f79fea" class=""><strong>StudioTODO：</strong></p><p id="5ccf8bb2-8842-4a08-b71b-f433558c647a" class="">通过合资。主要成本有基础的人员薪资、场地租赁、项目复盘。比较苦的是一些年框的项目是有垫款的时候。但无论如何只是做个设计工作室而已，切勿借贷！</p><p id="d7c6c049-a1a8-4c26-9158-f596f424468c" class="">另外，我们在组建工作室之前，各自通过以前工作和社会关系，有一些资金和资源积累，也接受了一些资金的支持。后续也有持续项目维持成本和人员收入，<strong>成本超出预想的情况多数是初期项目执行时发生，每一次经历都能积累多一点控制成本的经验</strong>。</p><p id="df213590-0988-4f15-8cff-202924cea5e6" class=""><strong>氧化反应：</strong></p><p id="8f51b314-b0b1-4eb1-82a3-20822fc02a57" class="">工作室的成本除了房租就是电脑，这个倒是在可控范围内。筹集成本的方式是合资，且资源不断在整合中，而成员也在用研究生的身份<strong>申请创业基金</strong>来维持整个工作室。</p><p id="594f3dde-5618-4865-8f54-3b733ea58c10" class=""><strong>湿士铁条：</strong></p><p id="e4e8d757-2643-4469-b5f2-4c1d9766ee17" class="">对于跳过了就业阶段的我们来说，<strong>家里人的资助是最主要的成本来源</strong>，所以如何去争取到家人的支持和帮助也是很多毕业生所需要面对的。<strong>多去关注大学和地区政府能提供的创业补贴</strong>，也可以大大节省前期成本。不建议借贷，真不行就在就业期好好积累。</p><figure id="a4d83bb7-ee9f-44cf-851c-e95a01fd38ce" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcZsstp3txejAJMVQfFXSF3IbiaqHS4x8gRrriaKMKPzX3PH4SqU1w3WdQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcZsstp3txejAJMVQfFXSF3IbiaqHS4x8gRrriaKMKPzX3PH4SqU1w3WdQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="7273fefe-3d40-417d-8a67-ba434a2aede4" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcM0Pm9ehXRBcAAhy7dwdNM9W8GM8wZwKOpC3DVNbicAwPZ4lqwHaYj7g/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcM0Pm9ehXRBcAAhy7dwdNM9W8GM8wZwKOpC3DVNbicAwPZ4lqwHaYj7g/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="b3159740-124e-4752-bc45-15b0e0eea065" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcGeDQGaWsBTQPHGc1avynSVyPDFjtff6VE3Lvw8yWY5SBJdYSHj8GHw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcGeDQGaWsBTQPHGc1avynSVyPDFjtff6VE3Lvw8yWY5SBJdYSHj8GHw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="57a47e7e-a17e-45fb-9a46-b11d02e27d7d" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcnjBZeATia055YBGcundsXdfs7wsqjjLNMSWg2uaQa7anq13FOvnt3bA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcnjBZeATia055YBGcundsXdfs7wsqjjLNMSWg2uaQa7anq13FOvnt3bA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="90544c73-594b-45f9-a225-fbec8fa70b02" class="">湿士铁条工作室作品“云朵蜡笔”</p><p id="19999099-0529-479f-a994-4c31bcaba149" class="">←向左滑动查看更多</p><h1 id="dadf8f2a-b94a-429d-95f8-c65b06f7f859" class="">工作室是否采取合伙制度？团队分工差别是怎样的？</h1><p id="5ddae4be-88b4-449a-9ed0-09066c1d81de" class=""><strong>湿士铁条：</strong></p><p id="06b8dc41-363a-4786-a5b6-19cd6eec53f7" class="">目前是合伙制，由两位AD和一位PM共同出资。两位AD从小学就相识，并不约而同地接触到了设计，便创立了Substitus艺术项目，尝试从平面设计出发，进行服装、饰品、视频等多媒介的实验。同时在机缘巧合下认识到PM，创立了创意平台uec project，并拉其入伙，最后就有了现在的湿士铁条设计工作室了。</p><p id="eeae0cee-5ca6-4589-b867-3876f1036a42" class=""><strong>氧化反应：</strong></p><p id="b31445c2-8eb9-4d69-a264-da16a9b889f7" class="">成员一部分是本科期间的同学，另一部分是研究生志同道合的同学，都是同学，因为互相有深度了解，相互也非常理解与信任彼此。当下共同经营整个工作室，除了做资源整合外还是因为各有所长而存在分工差别——有的擅长视觉，有的擅长建模。</p><p id="952a7953-0e74-4ece-b67d-141fcab81fc4" class=""><strong>StudioTODO：</strong></p><p id="9855d696-9ea3-4dc2-9cb3-1492c8b8a837" class="">目前工作室的主要营收业务是设计类业务，由两位设计师合伙人作为项目负责人来轮值管理、推进。另有一名合伙人丹妮主导涉及到品牌营销、内容运营甚至广告制作的业务。在经营上，三个人相互帮助，彼此独立，互为牵制。</p><figure id="023fbb2e-a6d3-482c-b0b8-a8c1d796730a" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcXHAXvM3m2Tm5UGI6n7gPUpRZDP57diaswHrVcV4W5Zt1hfe8jDVkU3w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcXHAXvM3m2Tm5UGI6n7gPUpRZDP57diaswHrVcV4W5Zt1hfe8jDVkU3w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="e9824147-dfe0-4616-8853-cb75e2326d04" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcB6PFkziaDWTicaw2gCdrPVKP40L0cLBab268Sqby7hgibmGnl38aYibnMw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcB6PFkziaDWTicaw2gCdrPVKP40L0cLBab268Sqby7hgibmGnl38aYibnMw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="8bfc4729-f7a6-41cb-915f-d92dacd1afc3" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccdebw3PH5N0TkAZYxT2yC0g575FN5iaZZhfWVx8abzTkYKrCtWNBeU9w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccdebw3PH5N0TkAZYxT2yC0g575FN5iaZZhfWVx8abzTkYKrCtWNBeU9w/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="6c39a255-9888-4029-8664-4bc8013a3ee4" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcODHZaaekQBbs69L5blbh4veKld7ln3kcY7FtYKeOpt354fJWrgwbUQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcODHZaaekQBbs69L5blbh4veKld7ln3kcY7FtYKeOpt354fJWrgwbUQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="999ab417-4881-473d-8431-4c4c0cbec6be" class="">StudioTODO作品“PabePabe”</p><h1 id="e44c04a7-d846-4754-9479-6e70c7c663b4" class="">创立初期的客户来源？</h1><p id="219e2437-afa4-4a80-b6cd-153759d14176" class="">“主动去找客户，去找潜在客户。”</p><p id="55a9846f-47f7-4fe8-8140-4e755cadb001" class=""><strong>StudioTODO：</strong></p><p id="e0966242-c5df-4c91-b6c5-a927cbf0a96f" class="">创立初期主要还是由早期个人工作表现所积累的<strong>人脉</strong>，在品牌方的朋友或建筑师设计师朋友给予信任与帮助，从而推荐项目给我们；当第一次项目合作成果被认可后，自然而然就会有后续的合作，或者客户推荐我们给其他客户。每一次的项目都尽全力，才有更多打开渠道的可能性。</p><p id="ba9a05ce-0c8c-472e-88e0-c02ab2db932c" class=""><strong>湿士铁条：</strong></p><p id="a27d878b-a4cc-4dc2-87b7-0af505601cc3" class="">对于初创工作室来说，<strong>朋友推荐</strong>是最直接也是最见效的一种渠道，所以学会整理身边的资源和人脉很重要。在新媒体平台上<strong>制造热点</strong>也可以快速拓展客户源。<strong>设计奖项</strong>则更多是能在业内获得认可的一种渠道，不必看得过重而操之过急。</p><p id="4019ff71-58a7-48e9-af30-df74ffe9eccc" class=""><strong>氧化反应：</strong></p><p id="9fcc83b6-5432-48d4-ac5e-753ac7d98234" class="">一是前期积累，珍重每一位客户，因为<strong>客户会推客户，慢慢地资源就多了</strong>，成员间也会资源共享。二是在这流量为王的时代，各类社交平台也是吸引客户的途径。</p><p id="a1034041-0fdd-41bf-b30b-d5435316b2f7" class="">三是<strong>主动去找客户，去找潜在客户</strong>，想方设法去咨询，去做自我介绍。比如我们成员之一的家乡、一个小县城里有家餐饮店，如果多年前老板注重设计、注重细节，或许就可以成为一个开遍整个县城的垄断性品牌，而如今随着城市经济的发展、外来品牌的落地，这个老餐饮店慢慢就没落了。这个时候你可以毛遂自荐，去跟老板探讨这个事情。</p><figure id="08371240-52db-490a-8993-facbf7003715" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CczEHYsDWtN2yh8aCOhAejpLhRVep0hR8mQDzEFEd36LAUO0YSqZQKMg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CczEHYsDWtN2yh8aCOhAejpLhRVep0hR8mQDzEFEd36LAUO0YSqZQKMg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="d57e0e9c-5ba0-4eb2-abd4-21c25a3138dd" class="">氧化反应设计工作室作品“Nice Coffee”</p><h1 id="a6d0e68b-bf8d-403c-bb2a-5fd086fe8814" class="">如何面对经营压力？是否有定经营目标？</h1><p id="a6aaf7e7-3988-41b4-8f16-1fe40a67c114" class="">“会有一段非常忙碌但回过头看没赚到什么钱的时期，很容易会产生对创业的自我怀疑。”</p><p id="a4318bfa-9996-4497-8e9f-ff9a663133b2" class=""><strong>StudioTODO：</strong></p><p id="c0ac80f1-1e7a-4e86-923e-9c236635eaa9" class="">年度伊始时，我们会制定能覆盖全年成本支出和人员收入的<strong>基本项目额</strong>，并为此目标各自去争取项目。当实现了此基本项目额，工作室经营压力缓解后，我们会开始选择我们感兴趣的项目。<strong>做好作品，保持对设计的热忱，多少还是对抗经营压力的良药</strong>。</p><p id="d1e555e1-e04b-40e7-88a4-99b43991799c" class=""><strong>湿士铁条：</strong></p><p id="452ad0d6-cb55-40bc-92d5-ffc481512cc8" class="">独立工作室的好处是在于前期成本低，能更好地应对风险，但也容易忽视后续发展的经营压力。所以<strong>一定的经营目标和计划是必须的</strong>，尽量去避免越干越穷的困境。不过也可以聘请或者拉拢有相对能力的伙伴。</p><p id="499d7396-d77a-4d54-845d-341df729e56b" class="">初创工作室而言定价也是很重要的一环，会有一段非常忙碌但回过头看没赚到什么钱的时期，很容易会产生对创业的自我怀疑。多去<strong>参考成功的商业体，从而做出更合理的定价</strong>。</p><figure id="f8423958-7aa6-4358-b319-e6345d44e47a" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcBANef1FibSgXudicqcaU3wNryhhGHJk0Yr8qqDnqicbRZZibfoL8t5Yk0g/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcBANef1FibSgXudicqcaU3wNryhhGHJk0Yr8qqDnqicbRZZibfoL8t5Yk0g/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="45f7c432-38e4-40b9-9f75-50cc6219f68c" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcB2RgrIvUIJPpNv51yrgAkBzgywrZzcgGzote7rV8U8wclYGbHxjbdg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcB2RgrIvUIJPpNv51yrgAkBzgywrZzcgGzote7rV8U8wclYGbHxjbdg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="d5ece710-a749-4695-a831-f661f71b7871" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CchvIVciaWhnFlH4kNFKkegsll1EFS1B3tm9lL4XIibuk2nT74icBUNyGJA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CchvIVciaWhnFlH4kNFKkegsll1EFS1B3tm9lL4XIibuk2nT74icBUNyGJA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="11ea6460-84c4-400c-99d9-56e80b25077a" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcT0JSI9vXS6ZX5ssbKQ91dQTXWVe0eZ1wib2LkfsiadVTS7UMsnuGeTYg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcT0JSI9vXS6ZX5ssbKQ91dQTXWVe0eZ1wib2LkfsiadVTS7UMsnuGeTYg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="a4e99797-6092-4b8e-8f4e-d4eeb17105ca" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcE356Qmk7f87Dp13ich5bF1TSp6kRfojhxmY3PyzxgvGqnicMkUsONmFg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcE356Qmk7f87Dp13ich5bF1TSp6kRfojhxmY3PyzxgvGqnicMkUsONmFg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="670da209-bbc5-4fa3-936f-6dc632774cee" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcBn7D7fMzr9WAiaicT7FGYL6xZXGEmUbONWmlftLYQfwDP9n4jxU63QsQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcBn7D7fMzr9WAiaicT7FGYL6xZXGEmUbONWmlftLYQfwDP9n4jxU63QsQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="5fe6a5c3-c62a-4ea7-aecf-b0cc73b6a707" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcsIib0lLWYibJVl0rpyeZFtpFhsqcEIyELH3n5xSsWP4btIwKOoBr353A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcsIib0lLWYibJVl0rpyeZFtpFhsqcEIyELH3n5xSsWP4btIwKOoBr353A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="940e3602-a70b-4011-968f-0c219155c9bf" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcqhS5vlRLF4QFlZYYkEVHcwZrZiaDF41f6WgNBbfBH9eH3V8bUff9IQA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcqhS5vlRLF4QFlZYYkEVHcwZrZiaDF41f6WgNBbfBH9eH3V8bUff9IQA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="f870367b-69f4-414e-8662-b14b31324a0f" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccp8j1fXmYFHzqmMwNbW7QFKQyQp3yozwEgQdaO2adXlYMicJstBbVrIw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccp8j1fXmYFHzqmMwNbW7QFKQyQp3yozwEgQdaO2adXlYMicJstBbVrIw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="904df459-2e2a-4191-89b0-ea951e3142a4" class="">湿士铁条工作室作品：《大力蔬菜01》书籍设计</p><p id="21f5a249-e1f4-402b-aa98-42df7cec5ea5" class="">←向左滑动查看更多</p><h1 id="83b4641e-7f11-48fc-8131-13dd096aa946" class="">如何处理团队成员分歧？</h1><p id="fdbe64a8-02a2-4e20-a549-0460ecb68899" class="">“有分歧才有碰撞。”</p><p id="f5b1299d-4049-4870-8512-7a1abb739b0e" class=""><strong>氧化反应：</strong></p><p id="f9c3e2f9-e3b4-4742-b0a5-877d62faf8a3" class="">分歧肯定会有的。相信任何设计师在一起策划方案、提出idea的时候都会不同，但正因为如此，大家才会<strong>相互碰撞最终找到一个最佳的方案</strong>。如果真的遇到大的分歧，讨论没有结果的时候就会进行投票，少数服从多数。</p><p id="02412690-c3b2-4c54-b0e3-93321ac714c9" class=""><strong>湿士铁条：</strong></p><p id="5996787a-fdd6-4703-98de-4f341388a50e" class="">理性沟通与合理放权很重要，每个项目开始都会有一个主要的AD来负责把控方向，再去结合其他设计师的想法，减少分歧的同时保留更多的自主权。</p><p id="b4ff78e7-d0cf-41e4-8ebb-6ea8878aee44" class=""><strong>StudioTODO：</strong></p><p id="8f8b08e8-d984-4566-aaca-4711599cf65d" class="">有分歧才有碰撞，否则很难形成更深层面的思考。以品牌视觉的基础流程为例——调研分析、制定策略、概念设计、执行深化。在调研分析和制定策略的时候大家是共同参与，结论都是共识的结果。针对具体的创意会有不同呈现形式，产生分歧的地方多数在概念设计与执行深化这方面。面对这种情况，我们会围绕项目的原点重新进行讨论，判断创意是否能有效回应项目的客观条件和需求。解决了客观层面的问题，一些较为主观的问题我们不会太多讨论，最终项目主要负责人说了算。</p><p id="daca0cd5-324f-4540-9059-691935d7271c" class="">合伙关系就需要适当放下一点“自我”，并给予对方多一点尊重。产生分歧时多换位思考一下为什么搭档会这样思考。从设计师转换为设计工作室经营者和合伙人的身份之后，<strong>共同完成项目、保持工作室事业往前推进才是我们的重心，而不是只执着于某个具体设计问题</strong>。</p><figure id="a65298fd-a1ee-4011-87a0-6a816e0eef9c" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcAMQIbbHmqJ39sI7bQ3y43ibStmxaIEPrZczZhqGR1svhKVGlBIE56ZA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcAMQIbbHmqJ39sI7bQ3y43ibStmxaIEPrZczZhqGR1svhKVGlBIE56ZA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="1025647f-ab5b-4eec-938e-d1cf933b94c7" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cck8NEdDJFpQsW2W4gjNxbSGWuIx3HU4t8hencQhG4m80Amdtwj8749Q/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cck8NEdDJFpQsW2W4gjNxbSGWuIx3HU4t8hencQhG4m80Amdtwj8749Q/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="9022f5b6-5e86-4544-a1a0-d336761023b9" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CceUQ4fvDDX7wwb2MSxRlEdYuX2sXdWC0kDbf5Mo5QROph9sXYXo2gLg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CceUQ4fvDDX7wwb2MSxRlEdYuX2sXdWC0kDbf5Mo5QROph9sXYXo2gLg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="309804fe-9186-49ee-815d-7803dffa0936" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc9QpPciaNJ80VjyAC3rj9qaZ6j9CbzPhgWuBTpjqh2bib9RclL0RFtgXQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc9QpPciaNJ80VjyAC3rj9qaZ6j9CbzPhgWuBTpjqh2bib9RclL0RFtgXQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="0aced8b1-6c8b-433d-ab0f-afc32d6034d3" class="">StudioTODO作品“森山大道”</p><p id="484420c3-007f-42cb-9967-88f462cc7f59" class="">←向左滑动查看更多</p><h1 id="56ac0c11-b4f1-4b4e-916e-e2ca34e6d71b" class="">如何保持自我学习？</h1><p id="0c64d8a3-15bb-4e26-b06d-5929782e970f" class="">“观察，记录，重复，表达。”</p><p id="b1bacaa4-fbd3-4061-b595-ac24a16e273b" class=""><strong>StudioTODO：</strong></p><p id="98a9af1a-6ff9-4450-8845-37601fa1e28f" class="">一方面来源于<strong>过往工作经历带来的认知和经验积累</strong>，创立工作室之前，大家有过在其他公司供职和自由职业的经历。周期长的项目会暴露更多自身在方法论和理解的问题，同时也让设计师也有足够的时间去重复审视设计背后的意义，并在尝试里去寻找答案。</p><p id="e26acdc8-62db-4d4a-b5dc-ab8aaa22e031" class="">另一方面，在独自运营工作室时，<strong>自我学习能力很大程度上是被项目推着提高的</strong>：想在项目里用更新的技术和概念去表达时，或者客户对项目表现方式有需求时，都会推着我们想办法去学习新技术、新知识。多和同行朋友交流学习也是很重要的方式。</p><p id="3fbf1fab-f357-4b13-b9a7-05227d4dd667" class=""><strong>氧化反应：</strong></p><p id="001cbbac-997c-4d47-9036-2826d4dd5438" class="">每周，每位成员都有半天的时间可以自行学习有关设计的东西，软件也好、看视频也好，当然前提也是其他成员工作量能支撑。有时候遇到大家都接触不多的事，还是会请教同行，各种打听、了解、学习。至于自学能力，这不是一个合格设计师的标配能力嘛。</p><p id="32910edb-fc00-4867-99e2-7f5f747ca9f2" class=""><strong>湿士铁条：</strong></p><p id="eee53cf5-4cdf-4e70-bb73-8322e226f776" class="">观察，记录，重复，表达。我们应该也和很多人一样通过书、新媒体和直播去拓展自身的认知，同时认识更多不同身份的人也可以获得经验。我们相信<strong>“</strong><strong>力量”人人都拥有，但需要自身的认知来把“力量”变成“能力”</strong>。工作室里还鼓励手绘，抽空就会画画，抛开鼠标去感受纸和画笔的触感。</p><figure id="43964f75-6c0b-409f-93fa-fec4216c3ce5" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icH49B0Mz00xhiaMhhMoU3nQicsicUGCsZPAVpPTN71Wb0V4hV5zmbz7KBmw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icH49B0Mz00xhiaMhhMoU3nQicsicUGCsZPAVpPTN71Wb0V4hV5zmbz7KBmw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="5f47fff4-a875-49be-b355-9723ff842d22" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHOiaVMqHj0QhmrtBUWfnL0ficapIUn23LUmZqATJZlj4LFNfmHr6v4fug/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHOiaVMqHj0QhmrtBUWfnL0ficapIUn23LUmZqATJZlj4LFNfmHr6v4fug/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="22e1764f-6cc3-4d6b-8d75-313b1e7bba75" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHfStM1x39FfPXh4malkAzOnick8jXnrehibvTQFGKyX664iaay16ys6AcQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHfStM1x39FfPXh4malkAzOnick8jXnrehibvTQFGKyX664iaay16ys6AcQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="01d1d83a-dd73-4828-bcdd-4de40dfc8e6e" class="">湿士铁条成员的手绘作品</p><h1 id="95b730fd-4326-43ce-bed9-e0a93a5cc705" class="">通过什么渠道来宣传/推广自己？</h1><p id="661ae997-c00e-4d2c-8655-9d5793a44f0d" class="">“不要刻意去回避同行。”</p><p id="fdb11205-3f93-4eca-9937-402b5549758d" class=""><strong>氧化反应：</strong></p><p id="6155f323-2663-4de7-b71d-d557afc3d45a" class="">主动在Behance、小红书等平台上发布自己的优秀作品，同时也会有一些公众号推广我们的作品。</p><p id="2f5be881-006c-4218-813d-5c695ecd4894" class=""><strong>StudioTODO：</strong></p><p id="81782a29-4be6-404b-8670-0345d3a0ad50" class="">当下无论是谁都需要去“抢夺注意力”，因此“被关注”本身就是一种资源。能够占据流量渠道的人，大概率会拥有更多的话语权。但无论渠道怎么更新换代，引人驻足的始终是“内容”本身，这一点不能本末倒置。先<strong>利用一些已有的公域渠道，例如网页、公众号，面向客户做好基础的展示，充分、详实地展现作品</strong>，是我们现阶段优先考虑的事情。</p><p id="243c4333-4af1-4527-b9cc-9f2c90dbe715" class=""><strong>湿士铁条：</strong></p><p id="1af2a3ef-a2c3-4fd8-86ee-389b4d05c838" class="">新媒体渠道之类的应该都说烂了，有一点可能大家容易忽略的，不要刻意去回避同行。学会通过<strong>资源共享</strong>反而可以带来更大的宣传效果。</p><figure id="516fcb54-7197-4e02-ac79-1d70a99449dc" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcM9Xd2Tks0xnrwK7YbQb2GQkIrw7XXCer1On4Vf8ZNRluMbLwLlkDkw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcM9Xd2Tks0xnrwK7YbQb2GQkIrw7XXCer1On4Vf8ZNRluMbLwLlkDkw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="0d424950-69b2-4cca-8ceb-9719603d6dcf" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CctHic3WVCCDY8ZO34DH1etME5pZrtYFmiciajvRnNtZz91ZH3YG4MH4csw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CctHic3WVCCDY8ZO34DH1etME5pZrtYFmiciajvRnNtZz91ZH3YG4MH4csw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="bb6ac11a-7e8d-4dd9-872c-0d54a4cd598d" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcvUfzZLSricb2zDIrQpT7202s3KIshjeZNNYO7yySk2p139wEmxNqepw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcvUfzZLSricb2zDIrQpT7202s3KIshjeZNNYO7yySk2p139wEmxNqepw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="7d9d28df-c172-45fd-bb0b-84982bebbc11" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccnmb4j98fr8vygiaiaMOwtqJPcdh7SJ3C7ZWIQnveEfQeFYYrcJeefdQA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccnmb4j98fr8vygiaiaMOwtqJPcdh7SJ3C7ZWIQnveEfQeFYYrcJeefdQA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="9cb073c6-6733-4073-ba33-43a1b17c2c78" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcdjmC8OoEK59KHW9qSMAlgiaDuwJfH0hAw4c5UcicfibnicxsoJYh9mhrFg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcdjmC8OoEK59KHW9qSMAlgiaDuwJfH0hAw4c5UcicfibnicxsoJYh9mhrFg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="a2fdbf4e-4110-4284-a9b2-477bd331589a" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcicPrj22lntibP1WJicNfs7dkqzdyTiaKnbXP0rQOARYscvsQIarPGl1Pag/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcicPrj22lntibP1WJicNfs7dkqzdyTiaKnbXP0rQOARYscvsQIarPGl1Pag/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="11a4ea6b-39cb-41c6-a64f-59dcca5bef3c" class="">氧化反应设计工作室作品：A&amp;B Double巧克力</p><p id="2a6fcdfb-ddf3-4acf-8e36-e579108c1667" class="">←向左滑动查看更多</p><h1 id="751daef1-d6ef-45b1-a159-19726e6ae168" class="">如何规划核心竞争力和打造形象？</h1><p id="bc21aefb-3af8-4cb1-8ec5-f9e280cfa728" class=""><strong>StudioTODO：</strong></p><p id="005d6b63-82dc-4a71-b61b-ac8b9c4885cc" class="">需要发挥团队自身的优势去规划工作室方向，做好相应的复盘和必要的平台展示，<strong>项目成果就代表这个工作室的思考与形象</strong>。</p><p id="5c732da6-ff3c-4ec2-b6b4-10b485d120ad" class=""><strong>湿士铁条：</strong></p><p id="07154f98-4e12-4431-b2a7-a503a3f57bb1" class="">当下社会，单一的设计服务体已经不够看了，我们更希望能<strong>联合其他工作室打造一个资源整合平台</strong>，尝试更多的设计表现形式，例如书籍、空间、产品等等，能为客户提供更多元更完整的设计服务。</p><figure id="716e6627-4a07-49d3-8337-7002177e7f1e" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_gif/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcAhvCr98Cgf7b3VEVicKGXhUFHncxVQdeJ93JxQVPKxnRnFTZsstxz8w/640?wx_fmt=gif&amp;wxfrom=5&amp;wx_lazy=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_gif/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcAhvCr98Cgf7b3VEVicKGXhUFHncxVQdeJ93JxQVPKxnRnFTZsstxz8w/640?wx_fmt=gif&amp;wxfrom=5&amp;wx_lazy=1"/></a></figure><figure id="362a04ef-3ba2-43c9-ad79-07ddce376149" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUepQMKDjptxJN9cuY0KH3ibC41Wib8VjLIYicVTqicEQynQO6IaTakkTthEw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUepQMKDjptxJN9cuY0KH3ibC41Wib8VjLIYicVTqicEQynQO6IaTakkTthEw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="2068f9b7-73ea-493d-9a82-f1b861d5a39c" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcDbkAdCLw7oL1BnjCnAiaIrOjEXNL86ibWqMe2eKOEFuwWUgjFo0vhmDQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcDbkAdCLw7oL1BnjCnAiaIrOjEXNL86ibWqMe2eKOEFuwWUgjFo0vhmDQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="10a40c03-6833-4d4d-a578-19364a6af512" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc6LePKxLnicPiaJt70aK92lpWrszgQqhHibTU1jyLZkwjrOria67vF4ed0A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc6LePKxLnicPiaJt70aK92lpWrszgQqhHibTU1jyLZkwjrOria67vF4ed0A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="64b592f2-bbaa-4095-bd3c-91913853422b" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcAekvo5cvwhYVFXOzcP9WQdwiaEJwGSeGR12pNsd1kBQ3Zk1KK7tOkYg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcAekvo5cvwhYVFXOzcP9WQdwiaEJwGSeGR12pNsd1kBQ3Zk1KK7tOkYg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="6e7d1f4e-af6b-4df2-87b4-41d806d396fd" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccl3nIHFZTDttamXw7rYIUjDQ80O8NeIicBIsapyu9xdDPMj0SSaAMnkg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Ccl3nIHFZTDttamXw7rYIUjDQ80O8NeIicBIsapyu9xdDPMj0SSaAMnkg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="b7d4ca53-c835-4e73-91b6-58d21bc8af2e" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc9iatHd3Djv4lPc651TdT3NloAF34J8d6HsoKaDcrhRTplldq92ZDgHw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5Cc9iatHd3Djv4lPc651TdT3NloAF34J8d6HsoKaDcrhRTplldq92ZDgHw/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="d3ee87ed-e3c3-406f-bb12-c853c150a8c6" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CckoxDePs2vOLSNAbiafqkvua4XU0xHvkE9P4gkesZ6hWIZ8TgZFGDxrQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CckoxDePs2vOLSNAbiafqkvua4XU0xHvkE9P4gkesZ6hWIZ8TgZFGDxrQ/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="f3ae7d04-e667-481d-9c0f-0cb9576e312a" class="">湿士铁条工作室作品“日出·日本平面设计阅读”</p><p id="1cf3030e-5c84-452c-9afc-d0964da06b5f" class="">←向左滑动查看更多</p><h1 id="d36ec850-78c6-4820-9f5b-d77d1207b5c0" class="">关于开工作室的心得建议？</h1><p id="0542de40-a582-439a-9205-5f8e5a4aad31" class=""><strong>湿士铁条：</strong></p><p id="f1414597-70af-4ebe-b321-c9e8bce34cb1" class="">还是建议毕业后能有一个实习阶段来<strong>积累经验和成本</strong>，短期内的话得去<strong>争取到家人的支持</strong>和帮助。同时找到互补的合伙人也很重要，各取所长才会有更长远的发展。最后，为工作室起个好名。</p><p id="632d4925-58ef-4f41-ad6e-4d056f320969" class=""><strong>氧化反应：</strong></p><p id="a5680191-b990-4c01-a446-efe2b962c97c" class="">工作室不是最初想象的那么简单，作为一个设计师你还需要了解工商、股份、税务等各种相关信息，同时还要去协调各位小伙伴，<strong>这些看似简单的事情</strong>，实施起来是非常琐碎的，<strong>有时候会占用很多设计的时间</strong>。</p><p id="411a5623-9ffe-4dcf-9267-cf092b88179c" class="">还是那句话，打铁还需自身硬，不用着急，好好沉淀自己，同时提升软件技巧，不断积累资源。</p><p id="9ffbfafd-6e96-4d97-8314-45f1abcbd342" class=""><strong>StudioTODO：</strong></p><p id="7076f4be-2c35-4714-9829-bd83679b8feb" class="">自己开工作室是个值得为之努力的目标，但或许<strong>有了一些积累和经验再行动也不迟</strong>。成立一个工作室的行为并不太需要什么契机，成立也不是最终目的，一个人一台电脑就能原地宣布自己成立工作室。如何保持热情、协调好设计与管理，持续稳定地输出创意更为重要。</p><p id="c7e066bc-2a45-4659-8800-79a1f5dea60f" class="">在当今环境下，不光是设计创意能力，更需要充分思考自己的项目渠道、与外界沟通能力、项目管理能力是否能匹配运营工作室的要求。可能先去设计公司、甚至是品牌方了解商业运作，都是刚毕业很好的选择。</p><figure id="7de0e325-763d-40b5-8933-d92adc789c10" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUe3a78qiavuficz3keL5TK6403dxGq0d21hs2SZF4EwX5K1lZu7z74icrUA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUe3a78qiavuficz3keL5TK6403dxGq0d21hs2SZF4EwX5K1lZu7z74icrUA/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="fd424058-141f-4d28-ae00-31272ae29807" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUenfIxNFC25iaHUOvqsTOlXoQiaU6icnGiaGibYLCkoT5ibnqToRWzBuicMiareg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz181Jo1J0JW6Q4nPBGYDibUenfIxNFC25iaHUOvqsTOlXoQiaU6icnGiaGibYLCkoT5ibnqToRWzBuicMiareg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="5c9066e7-3e5f-43aa-8825-a4edb177d9f1" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHDRu7AjsHLJn5dicU74l3IlXt0hE7aN8rNVDOZwKYqCoiaxdEn0eYCx4A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHDRu7AjsHLJn5dicU74l3IlXt0hE7aN8rNVDOZwKYqCoiaxdEn0eYCx4A/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="d482193d-5f95-413e-a868-dc143c4010ea" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHDLSWP0mTcVRgh6UWK6cbxxTXreBZESTibk4ZQmnv1wsBuzNGzyfq8Fg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHDLSWP0mTcVRgh6UWK6cbxxTXreBZESTibk4ZQmnv1wsBuzNGzyfq8Fg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="52a71183-8529-49a7-a549-ded57a073b1d" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHAqHZ8mKf3MPmKceh7CANCWFicCM05sqAjTib9Sq1kCjRks5ajQAV43lg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHAqHZ8mKf3MPmKceh7CANCWFicCM05sqAjTib9Sq1kCjRks5ajQAV43lg/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><figure id="41b7884f-e34b-4e2d-9a15-4d9b5cfe1fcc" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHIWFKYTRcXktNm20Y43Wme364R8csy1l1GSdd1qcG95UnXwib4PkZl6g/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_jpg/icbgZ7wxszz1x2QnNichBGLZuscbgxq1icHIWFKYTRcXktNm20Y43Wme364R8csy1l1GSdd1qcG95UnXwib4PkZl6g/640?wx_fmt=jpeg&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="cf462782-f000-43a4-b8c4-7a432caa4fbc" class="">StudioTODO作品：OWLBOU x PabePabe：一场上海的城市行走</p><figure id="6e30dded-9b8b-451f-a934-2c1fd885618e" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcxUKOrfQ9RlXsA6Buiaciaicx2vlWUGw45SccSPFM9dMNcXyR4dZB2lNVA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz1vVOq0qXqGMYWtW9vIt5CcxUKOrfQ9RlXsA6Buiaciaicx2vlWUGw45SccSPFM9dMNcXyR4dZB2lNVA/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure><p id="3c98fa62-3aca-41ce-b82b-1407be0435e8" class="">🎤</p><p id="1ab1ed2d-a767-416a-a067-3b3546a3ef05" class=""><strong>#你想自己开工作室吗？#</strong></p><p id="cf89f19a-5b40-4fbb-b53b-c7567c68369a" class=""><strong>文末一起来聊聊吧！</strong></p><p id="9fb788fd-a21d-46ec-97b0-24f3ae58cf8d" class="">采编 | Naomi</p><p id="9cc6a8f3-2727-490b-9bca-cc4b21df4059" class="">校对 | Astra</p><figure id="7077db70-9ab3-4688-8919-a4567fe2aa0b" class="image"><a href="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz2BNTgaZuJpQib64kSYCKH0iaeR61WWpnmSTfZMKvhlTgGDfpO4qkHJicd4R4YibXT1PBYwZiaTzhXtib3Q/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"><img style="width:100px" src="https://mmbiz.qpic.cn/mmbiz_png/icbgZ7wxszz2BNTgaZuJpQib64kSYCKH0iaeR61WWpnmSTfZMKvhlTgGDfpO4qkHJicd4R4YibXT1PBYwZiaTzhXtib3Q/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

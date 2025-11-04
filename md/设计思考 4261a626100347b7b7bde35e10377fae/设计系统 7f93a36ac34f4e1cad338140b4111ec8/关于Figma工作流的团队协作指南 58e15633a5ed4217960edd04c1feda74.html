@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>关于Figma工作流的团队协作指南</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="58e15633-a5ed-4217-960e-dd04c1feda74" class="page sans"><header><h1 class="page-title"><strong><strong>关于Figma工作流的团队协作指南</strong></strong></h1><p class="page-description"></p></header><div class="page-body"><p id="f5266b54-9ce7-4f97-865a-fd8d0c68452c" class="">
+</p><figure id="4f6e7dbc-c508-44bf-866c-beeaca250372" class="image"><a href="https://img.zcool.cn/community/013a0a60dca8dd11013f47205d6a63.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/013a0a60dca8dd11013f47205d6a63.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><p id="8c94edf5-d21e-4742-8b08-eedf91012460" class=""><a href="https://bqdesign.zcool.com.cn/"><strong>BQ_duan</strong></a></p><p id="80c30a37-caff-4015-bb21-4eb866a408c6" class="">深圳/UI设计师/287天前/2011浏览</p><p id="bb527c3f-8936-41b6-9665-0aaa79de2ac9" class="">版权</p><p id="0d2d77e8-39bf-45a4-b172-2a30abe0cdf7" class="">私信</p><p id="abddfe05-e4bd-4e73-88fa-af19a308b740" class="">关注</p><p id="73b6bed5-3e59-494f-aeff-c52e8a01f0b3" class=""><strong>关于Figma工作流的团队协作指南</strong></p><figure id="a46b0e2b-e112-45f5-976b-5e695ad0b232" class="image"><a href="https://img.zcool.cn/community/013a0a60dca8dd11013f47205d6a63.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/013a0a60dca8dd11013f47205d6a63.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><p id="0c8642b8-14c5-4d77-a8d5-e05860b10890" class=""><a href="https://bqdesign.zcool.com.cn/"><strong>BQ_duan</strong></a></p><p id="135b5912-bc45-4ab6-be06-0bc20c2fbf60" class="">关注</p><figure id="0cec391f-2aab-481a-bb9f-ad4cee56fafb" class="image"><a href="https://img.zcool.cn/community/04864458e4d101a801219c772d9217.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/04864458e4d101a801219c772d9217.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="4f206b58-ead9-4e69-b937-231888bcea90" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="cda9ffb5-5176-4da7-874a-9cbe6a8e95c2" class="image"><a href="https://img.zcool.cn/community/03109be5f5de85811013e3187997464.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/03109be5f5de85811013e3187997464.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="c7ff7287-6bf6-48fa-ad33-22c0b36215f5" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="2c3a9cec-79be-45c5-9330-da910f8b78d6" class="image"><a href="https://img.zcool.cn/community/016bd15f44d3bca801215aa0106216.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/016bd15f44d3bca801215aa0106216.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="5d98b5db-c14b-45b7-b826-095a9a54cb05" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="e2ba7734-d6b3-4029-859d-cb5053faf532" class="image"><a href="https://img.zcool.cn/community/0482ca553faad20000014027abc5f3.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/0482ca553faad20000014027abc5f3.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="1181dff5-6c24-4a9d-b7fc-3c6e9716459e" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="1856ff45-cfe6-4c88-92aa-018c25f0dc4d" class="image"><a href="https://img.zcool.cn/community/0456a9553f47de000001998741c984.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/0456a9553f47de000001998741c984.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="acd82ab0-110b-433e-b78a-71c5c607d0f3" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="3c8cd461-c0d8-4034-8604-882cb7431735" class="image"><a href="https://img.zcool.cn/community/046vouat4g4syjrctggoc83338.png?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/046vouat4g4syjrctggoc83338.png?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="ca5e0375-85e1-454a-85e2-b1de93cc6e67" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="98802954-842e-4b19-ae57-7bef9bd8e465" class="image"><a href="https://img.zcool.cn/community/0138165d20b673a80120764089458c.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/0138165d20b673a80120764089458c.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="58a11f0a-0158-4ea8-9233-d97ee202739f" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="53de6eaa-634d-4ea9-85a7-d348b276bf5d" class="image"><a href="https://img.zcool.cn/community/031b0b05a7aedf3a8012045b3c6eda5.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/031b0b05a7aedf3a8012045b3c6eda5.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="1b53cdf1-c65a-4074-9cfe-2e77496e3559" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="eadb6755-6707-4aff-9c06-28bed3971bce" class="image"><a href="https://img.zcool.cn/community/04fcf7553fa07700000140272004cb.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/04fcf7553fa07700000140272004cb.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="14368899-e6e9-4a9c-ac78-1555b427200f" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="56109a07-b668-4ad3-98db-e8da36eacbd8" class="image"><a href="https://img.zcool.cn/community/01cd4d5dc0e2f4a801209e1f68f8f2.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/01cd4d5dc0e2f4a801209e1f68f8f2.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="ce8bcd85-beee-4a1b-8d72-4998907162de" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="107a9c75-d54f-4d80-87db-7c1a23bcee93" class="image"><a href="https://img.zcool.cn/community/04da09563878ea0000012720c5dd39.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/04da09563878ea0000012720c5dd39.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="805bb91d-63eb-48e7-88b9-c7a0ee4b054a" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="d9b6d7ad-0bba-47c1-b175-3e24da3925fa" class="image"><a href="https://img.zcool.cn/community/0146945f6080b111013f1a64dc3e80.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/0146945f6080b111013f1a64dc3e80.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="f321de92-ea0e-4c09-b9e3-e2bfe851f516" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="a4ac36f2-2d99-4df8-925d-dd6dc1793e02" class="image"><a href="https://img.zcool.cn/community/01c3ad5f2b5abea801215aa0b980dd.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/01c3ad5f2b5abea801215aa0b980dd.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="37a72b49-1160-41f9-9980-b0493536b960" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="9cdc7852-b0d8-480e-8d9f-427f6d3a441e" class="image"><a href="https://img.zcool.cn/community/044d98554065760000017c5075485e.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/044d98554065760000017c5075485e.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="5b12c754-9ce4-4e09-b5cb-e93d9c715bf8" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="88f4fd69-60be-4665-99df-598b718e7c5d" class="image"><a href="https://img.zcool.cn/community/00c2fb5ae07678a80120927b11c67c.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/00c2fb5ae07678a80120927b11c67c.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="d104f642-60a7-4821-9321-ddb968aabaad" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="b35e9cc8-c54d-4a16-bd29-81d6d6bd6ba1" class="image"><a href="https://img.zcool.cn/community/040ee5553f6163000001998707702c.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/040ee5553f6163000001998707702c.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="60849682-f072-4593-9d30-56d0be164db9" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="873921ec-9d4b-43a0-817c-204a022da6ef" class="image"><a href="https://img.zcool.cn/community/04qeouedqscgw2fcynnos33631.png?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/04qeouedqscgw2fcynnos33631.png?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="01d16085-ed4c-4bf1-90f4-0cbbef48741b" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="179694b4-853b-42a1-8ef7-406d822c4662" class="image"><a href="https://img.zcool.cn/community/041da0553f7c5f0000019987f7302e.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/041da0553f7c5f0000019987f7302e.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="e44dbf92-d6f5-4da3-9a42-8f99edd6acc1" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="2772128e-40d4-4864-a06c-4c28b34ce44a" class="image"><a href="https://img.zcool.cn/community/045f06586108bba8012060c8392626.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/045f06586108bba8012060c8392626.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="14547682-f941-46dd-ad9a-c8ed2ca05713" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="6330d72a-4566-4cc8-88b2-aad4b4d847b1" class="image"><a href="https://img.zcool.cn/community/04b7e4553fa1a30000014027726302.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/04b7e4553fa1a30000014027726302.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="e3cfe7bc-5a24-4188-a2eb-a9fd1940a9c4" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="c63eee5c-3438-458e-a8ac-fd29af01097a" class="image"><a href="https://img.zcool.cn/community/00fd155b03ed5da801218cf4fcd1a1.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/00fd155b03ed5da801218cf4fcd1a1.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="df6f8304-c0c3-4610-a5a7-f580c18376ef" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="4b999fcd-2a43-4377-aa65-4b8bbd6cb275" class="image"><a href="https://img.zcool.cn/community/0434fc553f416a00000199872129a9.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/0434fc553f416a00000199872129a9.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="dbaaa2bb-4113-4d64-8049-d74730acd6e8" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="575bd375-ce5c-403d-92da-cb22021831bc" class="image"><a href="https://img.zcool.cn/community/04bhroxdificdkyhpxtmjl3439.png?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/04bhroxdificdkyhpxtmjl3439.png?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="1bda15f5-d22f-47a4-8aba-3d2ff30ce51d" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="6427a404-9aae-40ed-aa8b-b9c221c03431" class="image"><a href="https://img.zcool.cn/community/019dc9623c751b0002c3290f83dd26.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/019dc9623c751b0002c3290f83dd26.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="e8c8f667-e9be-4689-8755-e02326fb8118" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="30b9fc4c-c468-48af-a07f-1bfa9f489a53" class="image"><a href="https://img.zcool.cn/community/04518f557d27c300000180727ce842.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/04518f557d27c300000180727ce842.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="f8aeb50b-c89a-4d5f-8c96-02d8e0675690" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="00f86765-3c65-4bfd-8fde-37469436fcca" class="image"><a href="https://img.zcool.cn/community/00cdb8595325dfa8012193a396236d.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/00cdb8595325dfa8012193a396236d.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="074175d5-7f8e-4144-b107-5563a8c39d53" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="6d9ed809-c103-4866-9fb1-ca6b38ad1608" class="image"><a href="https://img.zcool.cn/community/04ab245548c3910000019ae9f9a38c.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/04ab245548c3910000019ae9f9a38c.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="9a13237c-6f73-438c-8a9d-b702e3ce0b62" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="dc472208-e85d-426b-a43d-6410114329d7" class="image"><a href="https://img.zcool.cn/community/0471b35540b5650000017c500d4707.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/0471b35540b5650000017c500d4707.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="53c624d7-5d26-45cc-af56-aee70771604a" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="c6f53815-0835-4cd6-8e0b-a5e916907f4b" class="image"><a href="https://img.zcool.cn/community/01fa005ffc2bc811013ee04d459192.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/01fa005ffc2bc811013ee04d459192.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="b86f2250-5c3a-424c-b57d-02f123421bdb" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><figure id="d3135fcf-72dd-4c6a-b24a-56d38d35824a" class="image"><a href="https://img.zcool.cn/community/004ea95936b7b0a8012193a332a41c.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"><img src="https://img.zcool.cn/community/004ea95936b7b0a8012193a332a41c.jpg?x-oss-process=image/resize,m_fill,w_160,h_160,limit_0/auto-orient,1/sharpen,100/format,webp/quality,q_100"/></a></figure><figure id="08660196-fe5d-4894-b5bb-b8edc3f47294" class="image"><a href="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"><img src="https://static.zcool.cn/z/images/svg/honor_tuijian_designer.svg"/></a></figure><p id="eaf7628f-7ab0-418e-b438-e5e6c1e812a5" class="">本文按照不同的职能角色视角，来讲解Figma在各自工作场景中的使用方法，体验Figma工作流带来的效率提升。</p><figure id="590f9cc7-202b-44bc-9afe-4cf7f333c746" class="image"><a href="https://img.zcool.cn/community/01762a61ca984911013e8cd0e16f22.png"><img src="https://img.zcool.cn/community/01762a61ca984911013e8cd0e16f22.png"/></a></figure><h1 id="cf8dc8f9-af4c-48d7-8384-303f754db4a8" class=""></h1><h1 id="88020754-d23a-4997-b5b9-06a7281d918d" class="">前言</h1><p id="0d8ad1c7-371b-4ccb-93e4-ba0b352a8711" class="">最近在团队内部推行UI设计工具Figma，以尝试用新的工作流方式来替代旧方式，简化冗长的沟通和工具切换成本，以提升设计协作的效率。</p><p id="4e045966-a37f-4f51-9a01-dc64f30be0dc" class="">关于Figma是一款什么样的工具，我在这里就不做赘述，相信各位同行早已接触过它。本文重点讲解怎样向自己的团队推广Figma，而Figma对于不同职能的工作场景都有哪些用处，该如何去使用它？为那些准备在团队内推广Figma的设计师们提供一份「参考指南」。</p><p id="4586bd3b-7074-451c-bf35-692affbdeb58" class="">本人在当前团队的UI设计工作中一般会经历：“设计方案 — 设计评审 — 设计交付”三个环节，而在这三个环节中分别会用到“Sketch — 在线文档 — 蓝湖”三种工具。在这个过程中，通常会有多个角色参与进来。</p><p id="80cd057a-dc8f-4018-9128-c2387b24e6b4" class="">下面我就通过讲解不同职能的角色在整个设计研发环节都该如何使用Figma，帮助那些还没有使用这款工具的设计师们如何在自己的团队内应用起来。</p><h1 id="5c425b46-3b10-4f30-99a4-a6a06138f61a" class="">目录</h1><figure id="e6f76134-a97a-4442-ac1a-ed61ba5946c6" class="image"><a href="https://img.zcool.cn/community/01122d61ca98ac11013f01cdb89601.png"><img src="https://img.zcool.cn/community/01122d61ca98ac11013f01cdb89601.png"/></a></figure><p id="6250dca4-d6b3-4fc4-a938-a6e4b2aa714e" class="">注：目录主题与实际工作过程的顺序并无关联。</p><p id="634bef52-dbf0-4e51-8859-f1995a960bf0" class="">— — — — — — — — — — — — — — —</p><h1 id="48eae23b-5bdf-4922-8dc1-fd1eddd0b5eb" class=""></h1><h1 id="e9c46fc5-71a3-4635-a6b7-d9801f037cbe" class="">开始前</h1><h3 id="ea04b3ee-03a0-4428-aa46-007932731ae1" class=""></h3><h2 id="78dbd295-ad16-423e-80d8-0b7d0bfd7d5d" class="">1. 注册账号</h2><p id="1563558d-96f4-4b4e-92e3-f06b24d2af6a" class="">请先注册并创建一个Figma账号，可在 <a href="https://www.figma.com/">Figma官网</a> 注册。</p><p id="b537b26c-5b61-4594-ace0-2c161a9d1b28" class="">有两种注册方式：</p><p id="6fd252e3-3585-4286-b37f-ef30fb83aff3" class="">a. 通过Google账号登陆并创建账号；</p><p id="3181d372-0d74-41d0-aafe-83caba41cc62" class="">b. 填写一个邮箱号进行注册。</p><figure id="f533530f-a536-4fd5-889a-5a039fdcee9d" class="image"><a href="https://img.zcool.cn/community/01e53c61ca98c911013f01cdda1b6a.png"><img src="https://img.zcool.cn/community/01e53c61ca98c911013f01cdda1b6a.png"/></a></figure><p id="454f94e9-69b6-4910-984c-3a474a1d8244" class="">注册后的用户昵称尽量同公司内称谓保持一致，方便团队内部的协作和账号管理。</p><h2 id="4950cce4-b4b5-4c46-9eef-7a9b8b9f8045" class="">2. 查看团队项目</h2><p id="c6fbd20b-814d-4d71-a4ac-438ea371e5fe" class="">因为Figma的付费策略缘故，如果团队内有多名设计师需要协作和共享文件时，建议升级为“Professional”或“Organization”，因为免费版目前最多只能创建3个Figma团队文件，而“Drafts”文件虽然不限数量，但不能支持设计师间的协作，其它成员仅仅只有查看权限。</p><p id="8178861b-ea68-4e0b-871b-36cb38128b4e" class="">假设我们目前在Figma里已经创建好了团队，那么其他成员想要查看团队项目，首先需要加入团队。</p><p id="a0429fc9-b488-4fd1-b6cd-a2124c939b4a" class="">加入团队的方式有两种：</p><p id="c0c63331-9483-4afe-9000-176698e0ca51" class=""><strong>1. 通过团队管理员分享的邀请链接加入；</strong></p><p id="72775eca-45bf-4375-b5e7-e0a2a235d5c6" class=""><strong>2. 把自己的邮箱账号发送给管理员</strong>，待其邀请账号加入。</p><p id="694f47e5-e840-42b1-a757-4c92a8cead3d" class="">加入团队以后，便可看到当前团队内所创建的项目文件了。</p><h2 id="dcf48f64-1d62-439d-a07d-829c625c3704" class="">3. Figma管理设计资源的三级结构</h2><p id="1a4d7b54-0d68-4a46-86c8-5ace0f61d188" class=""><strong>团队&gt;项目&gt;文件</strong></p><figure id="fa06ac10-dffb-4876-ae42-106f19521fd7" class="image"><a href="https://img.zcool.cn/community/01e3cd61ca98e111013f01cd719ea4.png"><img src="https://img.zcool.cn/community/01e3cd61ca98e111013f01cd719ea4.png"/></a></figure><p id="b47cc937-67c4-40b7-a0bd-d106f0892e05" class="">Figma最大的优势是实现了团队间的在线实时协作，所以我们需要知道Figma是如何对设计稿进行结构化管理的。</p><p id="35a86b71-89e4-4c01-b69a-943ead66ce31" class="">当设计师想要把自己的设计稿拿到<strong>团队中进行共享和协作</strong>时，首先需要<strong>创建一个团队</strong>，团队创建好后，可在团队下<strong>创建项目</strong>，然后在项目下<strong>创建文件</strong>，每一个文件当中的设计图还可以通过分页进行更精细的管理。</p><blockquote id="57940cb7-5ef2-4da2-a5dc-c98a400d6a60" class="">「<p id="18be5390-e5ea-4e9b-95c0-b5c8ed29e804" class="">众所周知！Figma是一款从原型方案评审，到设计师敏捷协作，再到开发对接的一站式UI设计工具（以前不知道的，那现在让你知道！）</p><p id="512c2e9b-033f-4d77-91a2-1d867f63068e" class="">所有前戏都完成后，接下来我根据大家在团队中不同的角色和使用目的，来分开介绍Figma的使用方法。</p><p id="26a5f5e3-cd18-4536-890b-6af00afbf3b7" class="">」</p></blockquote><p id="5238daf1-1582-47af-9c90-748fbcb16f17" class="">— — — — — — — — — — — — — — —</p><h1 id="02eba38c-6568-466b-93a7-b93127dd6e84" class=""></h1><h1 id="9e96e173-5559-4a73-8450-0279d626a200" class="">技术开发请看这里</h1><p id="41a10bee-0d01-4c23-8bff-86fd3f89848c" class="">对于前端 &amp; 客户端的同学来说，UI协作中一般都只关注两个重点，<strong>标注和切图</strong>。</p><h2 id="ea9fe7de-b97c-4a5b-bc58-a840113c6630" class="">1. 关于标注</h2><p id="6443a7ab-913a-439e-b8c8-d4df529d401f" class="">打开一个项目文件，你可以在右边的属性面板顶部看到“<strong>Inspect和Export</strong>”两个切换按钮，在切换到Inspect时就是查看UI标注，切换到Export时就是导出切图；</p><figure id="09d14abd-7176-4f4b-a05c-5f0bce98460f" class="image"><a href="https://img.zcool.cn/community/017d0f61ca991211013f01cd502ced.png"><img src="https://img.zcool.cn/community/017d0f61ca991211013f01cd502ced.png"/></a></figure><p id="e519f879-f37c-483a-aa06-5c4ad326b56d" class="">在查看UI标注时，代码和颜色两处属性，需要程序员同学根据自己的需求手动切换。</p><p id="9353db2f-3f7c-410d-81a5-1a84421ad0cf" class="">代码类型<strong>目前支持iOS、Android、CSS三种</strong>，大家可在图中Code模块的左侧区域切换代码类型，在右侧切换查看源码还是查看元素属性。</p><p id="4cccfcf7-22d4-41c0-823f-315f63c7fea9" class="">色彩的算法类型目前支持Hex / RGB / CSS / HSL / HSB 五种，也可根据自己的需求去切换</p><figure id="77cef467-63e6-4805-8f61-9e041671c8ac" class="image"><a href="https://img.zcool.cn/community/017e4461ca993311013e8cd067a1e6.png"><img src="https://img.zcool.cn/community/017e4461ca993311013e8cd067a1e6.png"/></a></figure><h3 id="9c878f68-b04d-48bd-bdfb-865562af04b2" class=""></h3><h2 id="3295c576-41bf-48fe-ab9b-7516f488f918" class="">2. 关于切图</h2><p id="2c306eae-c8ca-4267-8b88-3db19d64dcc8" class="">Figma的原生切图功能在进行设计交付的时候支持的并不好，这和目前国内蓝湖等工具比起来，开发同学在使用上会变得稍显繁琐一点。尤其对于Android开发而言不太友好。</p><ul id="1fa36229-d5ab-46ec-8307-8d199d6f141b" class="bulleted-list"><li style="list-style-type:disc"><strong>如何精准的选择切图？</strong></li></ul><p id="d7ff6f27-4dd9-48e6-a470-0ceb9c5b19e8" class="">因为图层组被分解成了一个个层级结构，开发在选择切图时，很容易选中某一“细碎”的元素，而不能很轻松的点选到某一图层组。（下方的➡️icon，在点选时选到了最底层小箭头的图层，而整个切图是包含了箭头、横线、编组框三层元素）</p><figure id="199a4fab-ae71-4881-aa39-d52cded2f933" class="image"><a href="https://img.zcool.cn/community/01f0dc61ca995411013f01cd3b926c.png"><img src="https://img.zcool.cn/community/01f0dc61ca995411013f01cd3b926c.png"/></a></figure><p id="d8fcf0a6-b6af-44a7-9f4b-608edf80fe61" class=""><strong>当没有精准的选中整个图层组时，就需要我们结合左侧的图层面板</strong>，选中该切图的最上层，这时候再看画板中的元素，就能很好的识别到整个切图了。</p><figure id="4ae481b2-5ab6-401e-904b-4dda5c407f83" class="image"><a href="https://img.zcool.cn/community/01537061ca997611013e8cd0e5e865.png"><img src="https://img.zcool.cn/community/01537061ca997611013e8cd0e5e865.png"/></a></figure><p id="c2d7933f-ef6a-482e-8070-025367b0062c" class="">这里还有一个小技巧：非编辑权限的用户，在选择图层时按住Command键，就可以按照从大到小的层级依次的选择图层；如果有编辑权限，则按住Command键时，首先选到的是最小层级的图层。</p><p id="872e96dc-0225-4d16-8af5-03db60164ad8" class="">值得注意：编辑与非编辑权限者在使用Command键点选图层的规则正好相反。</p><ul id="b52258d5-ed2b-4671-a44e-d719eea4c30b" class="bulleted-list"><li style="list-style-type:disc"><strong>如何导出需要的切图？</strong></li></ul><p id="5d999ce6-7577-415a-b905-53fca472c3d8" class="">当选好了切图以后，我们再看右侧的Export面板的操作，这时你会发现你刚刚选中的图层出现在了右侧的Export列表里。</p><figure id="6d707883-e39c-4d67-8d0e-c955c02fa52a" class="image"><a href="https://img.zcool.cn/community/019cf561ca999011013e8cd09c6b99.png"><img src="https://img.zcool.cn/community/019cf561ca999011013e8cd09c6b99.png"/></a></figure><p id="416b465e-1f31-4e89-a3a3-114cfb1fa1fe" class="">这时候你需要做得就是点击Export列表里的“<strong>+</strong>”号按钮，每点击一下新增一个切图，而Figma的默认添加是依次添加png格式下的1倍、2倍、3倍等（连点三下）图片，可以看到Figma的默认设置对iOS开发还是相对友好的，包括命名后缀也已经预设好。</p><p id="492d0325-1faa-4f12-92f5-d9ac3c344087" class="">点击前面的“数字x”你也可以切换其它的图片倍率去导出，而“数字x”代表的切图倍率与Android图片资源包的关系如下所示：</p><figure id="93240540-4d5c-4507-b3de-0e3b7d2ead73" class="image"><a href="https://img.zcool.cn/community/018d9761ca9a0411013e8cd05cbafd.png"><img src="https://img.zcool.cn/community/018d9761ca9a0411013e8cd05cbafd.png"/></a></figure><p id="1c89b295-a221-4f5a-9d99-6b6e207afd1d" class="">可这和Android使用的图片资源包的规范并不匹配，不能方便Android开发直接调用，这个时候就需要我们设计师的同学借助一些插件工具打通这一步协作环节，尽可能的方便开发同学直接调用图片资源。</p><figure id="20bd60ca-fbea-4eb6-8ed9-a35b3c4b26b2" class="image"><a href="https://img.zcool.cn/community/010b7561ca9a6311013f01cdb1abd9.png"><img src="https://img.zcool.cn/community/010b7561ca9a6311013f01cdb1abd9.png"/></a></figure><h2 id="bf7b664e-6dab-48dd-8fb8-3f0cdd516f58" class="">3. 设计组件化</h2><p id="a9fb3253-38e4-4921-a263-c4446d5f4ffc" class="">Figma的亮点不仅是解决了设计协作之间的组件化问题，并且在开发对接上也带来了组件化效益，让设计组件与开发同步变得简单直接。</p><p id="3028542b-a8e8-4caa-891d-ab03f4e527f4" class="">开发同学可以<strong>通过图层列表来辨别</strong>组件和普通元素的区别，<strong>只有紫色的图层并且名称前被打上了“菱形”icon</strong>的都是组件。设计师可以通过在Figma上建立规范的设计组件并与开发及时同步，避免在日常工作中设计师定义的组件与开发封装的组件成为两套孤立的体系。</p><figure id="c2c099ef-bc14-4c59-b199-744469fb5a22" class="image"><a href="https://img.zcool.cn/community/01f99261ca9a8511013f01cd0a0b4f.png"><img src="https://img.zcool.cn/community/01f99261ca9a8511013f01cd0a0b4f.png"/></a></figure><p id="b876b245-32c2-473a-a0c7-7e0dceb62408" class="">注：通过母版复制的组件均为子组件，开发同学只需知道UI中哪些属于组件即可。</p><p id="2ec9b846-7c02-4853-bd26-47aa5304dd40" class="">— — — — — — — — — — — — — — —</p><h1 id="51dabbf5-b31a-4881-b0e6-5456ef94d12d" class=""></h1><h1 id="319b903a-d049-4634-bc1d-0169de5db1d3" class="">设计评审请看这里</h1><p id="eb5043b9-7547-48de-9328-7f10befb2e12" class="">在设计师完成UI后，一般都会进行一些内部评审，而Figma的评论功能目前可以较好的支持这部分需求，它可以方便团队成员讨论和提出建议，设计师可以实时的看到大家的反馈并回复交流。</p><h2 id="4f55023f-dcd7-4d79-bdc6-04c31f052698" class="">1. 查看设计稿</h2><ul id="4f7cb35f-7e3e-4d3c-aa61-44798e5e89ef" class="bulleted-list"><li style="list-style-type:disc">登陆自己的Figma账号并加入相关的团队后，就可以在左侧的团队列表中看到自己的团队了，点击相应团队，中间的列表会出现该团队目前所有已创建项目（如果项目创建者将团队内的某一项目权限设置为仅限邀请，则该项目对于未被邀请的成员不会显示）。</li></ul><figure id="bf49225a-219b-486f-aa54-f0e4c9ea9791" class="image"><a href="https://img.zcool.cn/community/01fb0861ca9b8e11013e8cd065c84b.png"><img src="https://img.zcool.cn/community/01fb0861ca9b8e11013e8cd065c84b.png"/></a></figure><ul id="758272ed-c6d5-4d19-9036-742e7e946ff7" class="bulleted-list"><li style="list-style-type:disc">点击某一项目进入，可以看到该项目下目前创建的所有文件，成员可以通过创建者的文件命名来选择自己想要看的设计稿。</li></ul><h3 id="d6d233fa-061a-42e3-949e-d753a6cb65a2" class=""></h3><h2 id="bd9474b7-e9e5-4193-bdf3-bfb86438b785" class="">2. 对设计稿发表评论</h2><figure id="36e99dc5-383f-4919-b183-7248c4583220" class="image"><a href="https://img.zcool.cn/community/01405661ca9ba311013f01cdc49989.png"><img src="https://img.zcool.cn/community/01405661ca9ba311013f01cdc49989.png"/></a></figure><ul id="9f962f24-a9d5-47f3-91c1-fb42f4581bbc" class="bulleted-list"><li style="list-style-type:disc">点开设计稿，然后点击左上角的“评论”，切换至评论功能，这时你的鼠标箭头也会变成一个评论icon，移动鼠标，在你想要发表意见的地方点击便可插入一条新的评论，点击Post完成评论。</li></ul><figure id="573b5965-388c-4448-af4f-b5a185c004b1" class="image"><a href="https://img.zcool.cn/community/01264361ca9bbc11013e8cd0b3955e.png"><img src="https://img.zcool.cn/community/01264361ca9bbc11013e8cd0b3955e.png"/></a></figure><ul id="f85bb9db-9117-4a43-a280-b5d16aabc7ad" class="bulleted-list"><li style="list-style-type:disc">发表评论后，评论者的信息也会出现在这条评论中，方便成员间交流，而右侧的面板中也会按照时间顺序展示该设计稿中的所有评论内容</li></ul><figure id="0414c91a-1f88-4c70-b8e0-54ebf4d41446" class="image"><a href="https://img.zcool.cn/community/01da9861ca9bd011013f01cd6a759b.png"><img src="https://img.zcool.cn/community/01da9861ca9bd011013f01cd6a759b.png"/></a></figure><ul id="07bff73d-23ce-49a6-9ddf-7a32e87cf67e" class="bulleted-list"><li style="list-style-type:disc">当你成功发表一条评论后，项目内的成员在账号右上角的通知icon会实时出现小红点提示，点开后可看到成员的近期活动</li></ul><figure id="1489e971-cb63-409d-bc7b-2584292344a8" class="image"><a href="https://img.zcool.cn/community/01712861ca9be511013f01cd592aea.png"><img src="https://img.zcool.cn/community/01712861ca9be511013f01cd592aea.png"/></a></figure><ul id="ff36d911-79aa-4aa9-bdf2-1db902ff6c3a" class="bulleted-list"><li style="list-style-type:disc">当项目成员打开文件后，评论功能处也会出现小红点提示有新的评论，点击评论icon，切换至评论模式，当前页面则会将所有的评论都标记出来，点开对应评论后，我们还可以对该条评论进行回复。</li></ul><figure id="61ea8f23-7c46-45b5-ba61-079ab42e8daa" class="image"><a href="https://img.zcool.cn/community/0179f961ca9c2411013e8cd0da5887.png"><img src="https://img.zcool.cn/community/0179f961ca9c2411013e8cd0da5887.png"/></a></figure><h2 id="e657cc2a-bab3-4feb-a8f1-4926af829f6a" class=""></h2><h2 id="6b621f42-4066-4eba-97b0-44559f479adf" class=""></h2><h2 id="c15fdcd2-3cca-4a41-8751-f9d0410f5727" class="">3. 评论功能的更多操作</h2><ul id="903f13d3-d849-424b-811f-8c640dbe55ee" class="bulleted-list"><li style="list-style-type:disc">通过评论右上角的两个icon，我们可以对已发表的评论进行一些其它操作，点击左侧的“...”则会出现相应的操作名称，这里不多介绍，重点介绍一下右侧的“解决”功能。</li></ul><ul id="4d14b949-08d0-4bf0-b8d2-42ffc3dce6e9" class="bulleted-list"><li style="list-style-type:disc">当一条评论中的意见已经被解决后，则可以点击“解决”icon，点击后该评论则会作为一条“已归档的信息”被隐藏起来，我们在页面中不会再看到，只有点击评论面板的“展示已解决评论”则会出现在列表消息里。</li></ul><figure id="78820708-fa22-4c89-a3d7-1222966e4779" class="image"><a href="https://img.zcool.cn/community/012d2661ca9c4011013f01cd3fbdb6.png"><img src="https://img.zcool.cn/community/012d2661ca9c4011013f01cd3fbdb6.png"/></a></figure><p id="aed45bf2-9a58-4c8c-9ec9-345a55512e2c" class="">作为设计评审角色，在使用Figma时，重点只需用好评论功能，以及知道设计稿在Figma中是通过什么结构来管理的，方便自己快速找到对应的设计稿即可。</p><p id="255ab514-bc67-43d7-b9d4-8137070493b1" class="">— — — — — — — — — — — — — — —</p><h1 id="5449853c-3cb6-4d37-ad71-77f9b155bb7c" class=""></h1><h1 id="baa38d29-7704-4fa4-9d18-dddb59f6b1d6" class="">画低保真原型请看这里</h1><p id="5496259d-7667-49fa-a1b3-742cad679317" class="">如果你在团队中担任<strong>产品经理或交互设计师</strong>的角色，需要画线框图，并且将自己的方案能够随时分享给其他成员，那么用Figma也是一个不错的选择。下面主要通过<strong>设计</strong>和<strong>分享</strong> 两个场景来介绍怎么在Figma中制作原型并且内部交流。</p><h2 id="e8215b1c-264e-47c3-bdd7-d910f38db5ce" class="">1. 使用Figma设计原型</h2><h2 id="932adc5c-90d5-4d8b-8a25-21f55f5d9342" class=""></h2><figure id="d6b5848c-b225-4128-aee9-7759b8cb288e" class="image"><a href="https://img.zcool.cn/community/0107de61ca9c5611013f01cd160f3c.png"><img src="https://img.zcool.cn/community/0107de61ca9c5611013f01cd160f3c.png"/></a></figure><ul id="7e234bef-7c4d-4b03-b07f-e68822002c64" class="bulleted-list"><li style="list-style-type:disc">因为Figma的收费策略的缘故，如果你只是使用Figma制作低保真原型，并且分享给其他成员查看的话，则可以直接在“Drafts”下创建文件<em>（主要是经济成本考虑，普通账号在“Drafts”里可以创建无限的文件，如果在团队项目下想要创建的话就需要开通编辑者权限，而团队费用是按编辑者人数来收费）</em></li></ul><figure id="ec44f720-985f-4b46-b706-839ffa900932" class="image"><a href="https://img.zcool.cn/community/01132761ca9c6b11013f01cd6d5fa1.png"><img src="https://img.zcool.cn/community/01132761ca9c6b11013f01cd6d5fa1.png"/></a></figure><ul id="8b7ead12-bc43-468a-9948-d7ed83a154cc" class="bulleted-list"><li style="list-style-type:disc">新建好一个文件后，我们就可以使用左上角的工具栏进行基本的原型设计了。工具栏中提供的“移动”、“框架”、“图形”、“钢笔”、“文字”、“拖动”等工具基本上可以满足绝大部分画原型的需求，而Figma的用户界面和Sketch、墨刀等工具都十分相似，如果以前用过其它的原型工具，那么在上手Figma时应该不会有什么学习成本。</li></ul><figure id="5f52779a-2830-4f0d-ab04-6a523adffa40" class="image"><a href="https://img.zcool.cn/community/01ed0361ca9c7d11013f01cda3f92e.png"><img src="https://img.zcool.cn/community/01ed0361ca9c7d11013f01cda3f92e.png"/></a></figure><ul id="623b2cd6-cb62-4072-8ee1-8daf89252fe5" class="bulleted-list"><li style="list-style-type:disc">当你绘制了一个形状或是插入了一个文本，可以对应的在右侧属性面板进一步修改和添加一系列属性效果。</li></ul><ul id="b8fdcc15-798e-4940-9b3a-2d1e1a67e400" class="bulleted-list"><li style="list-style-type:disc"><strong>区分“Frame”和“Group”</strong></li></ul><p id="12bd2b95-9849-42dc-87a2-2c84361247ec" class=""><strong>Frame</strong>是一个界面中最大的层级单位，Group和其它设计元素都可以包含在一个Frame当中，我们可以把Frame理解为一个界面大小，而且Frame之间也可以互相嵌套，尺寸小的Frame可以被包含进更大的Frame之中。在绘制界面时，Figma中的Frame和Sketch中的画板是同样的功能，但区别在于Sketch的画板不可以互相嵌套。</p><p id="d1fdec09-b2eb-4dd0-9e97-4a4d777abe68" class=""><strong>Group</strong>仅仅只是给图层编组。它不能像Frame作为一个界面单位存在，只可以用来给组件或icon等更低层级的图层编组。</p><p id="034dad47-32e9-4429-81d9-b9409a43e200" class="">注：如果你把一个Group作为界面画板来使用，而又移入了一个Frame到Group中去，因为Frame比Group的层级更高，这时Frame的名称会显示出来， 你也不能将它们作为同一个界面导出。</p><figure id="8eca398d-93b3-4cde-a1ec-9f0d7351db88" class="image"><a href="https://img.zcool.cn/community/01710961ca9c9111013f01cdc7f509.png"><img src="https://img.zcool.cn/community/01710961ca9c9111013f01cdc7f509.png"/></a></figure><h2 id="52feb3fb-4947-4284-bd61-cc67831f6d44" class="">2. 如何提升效率 —— 插件 &amp; 模版 &amp; 组件</h2><p id="8b5d520f-9bda-42dc-81f0-bae5a58caa8b" class="">当然如果只使用Figma用户界面中的这些基础工具，还不足以方便我们绘制原型，效率也会很低，这时候你就需要了解Figma的<strong>“Community”生态和组件化功能</strong>了。</p><figure id="893de8a3-34c7-4f34-b461-051f09f07529" class="image"><a href="https://img.zcool.cn/community/011d6d61ca9ca511013e8cd0ca690a.png"><img src="https://img.zcool.cn/community/011d6d61ca9ca511013e8cd0ca690a.png"/></a></figure><ul id="b1a642ab-5e30-4638-b278-29e0eed4291d" class="bulleted-list"><li style="list-style-type:disc">点击Figma的“Community”，在这里你可以找到全世界开发者和设计师为Figma社区提供的插件和模版等好东西。比如你可以搜索“iOS UI”，任意打开一个文件，将你想要用到的一些设计元素和UI组件复制到自己的原型中去，你甚至可以直接在别人提供的原型文件上修改，将它改为自己想要的方案。</li></ul><figure id="e0358cbb-6f09-4474-bea1-16bfd67183bb" class="image"><a href="https://img.zcool.cn/community/01fd7361ca9cb811013e8cd03aa625.png"><img src="https://img.zcool.cn/community/01fd7361ca9cb811013e8cd03aa625.png"/></a></figure><ul id="84e3b5d9-3362-452b-b518-651941f1e597" class="bulleted-list"><li style="list-style-type:disc">除此之外Figma还提供了各式各样的插件，它的插件丰富和好用程度目前看来应该是已经超越了Sketch的插件生态。这里主要介绍一下使用icon和填充图片的插件吧，这是我们日常绘制原型图时经常会用到的功能。</li></ul><figure id="0ce903fb-9dad-486f-81c5-f6fdebe04ad9" class="image"><a href="https://img.zcool.cn/community/0163d861ca9cc811013f01cd4923ce.png"><img src="https://img.zcool.cn/community/0163d861ca9cc811013f01cd4923ce.png"/></a></figure><ul id="c995dc89-bebe-46a5-986b-8b8716c8e516" class="bulleted-list"><li style="list-style-type:disc">首先是搜索并挑选自己想要用的插件，找到后点击“Install”先安装好它们。这里我推荐一个网站，方便大家挑选合适的插件。<a href="https://www.figma.cool/plugins">Figma中文社区—插件库</a></li></ul><ul id="76d1ad2a-a336-4014-bd00-5d3604617e5b" class="bulleted-list"><li style="list-style-type:disc">插件安装好以后，我们可以通过文件左上角的logo菜单找到自己已经安装过的插件；也可以通过鼠标右键唤起快捷菜单找到；如果你下载了Figma的客户端，还可以通过系统菜单栏找到。</li></ul><figure id="3e077164-ec2a-4e18-9286-e40657f3f7c0" class="image"><a href="https://img.zcool.cn/community/01d58561ca9cd911013f01cd7c3993.png"><img src="https://img.zcool.cn/community/01d58561ca9cd911013f01cd7c3993.png"/></a></figure><ul id="de37ea2d-cc82-4e4d-ad72-db9741b1e794" class="bulleted-list"><li style="list-style-type:disc">除了以上方式，你还可以通过快捷键“command+/”，调出Figma的内置搜索，输入插件名称即可模糊搜索相关内容。</li></ul><figure id="0bc3cac4-58a6-40e0-887d-fce5a65aebf4" class="image"><a href="https://img.zcool.cn/community/01b48e61ca9ced11013e8cd0aeb797.png"><img src="https://img.zcool.cn/community/01b48e61ca9ced11013e8cd0aeb797.png"/></a></figure><ul id="32690b7a-3ea1-43ee-8d61-d944be2c0182" class="bulleted-list"><li style="list-style-type:disc">打开一个自己要用的插件后，根据插件面板的功能展示，选择使用即可。一般图标类插件，先搜索自己要用的icon，找到后通过点击下载或拖拽的方式即可应用到自己的原型中。还有图片填充和文字填充的插件，先选择一个需要填充的图层，然后在插件上点击相应要填充的素材内容，插件会自动帮你填充到相应的图层中去。这些都是在绘制原型时经常要用到的功能。</li></ul><figure id="5ca920b4-b97b-4abc-bbfd-25b1cb7d75a3" class="image"><a href="https://img.zcool.cn/community/01528361ca9d0211013e8cd0311ab2.png"><img src="https://img.zcool.cn/community/01528361ca9d0211013e8cd0311ab2.png"/></a></figure><p id="1b3b23b0-7b1c-490c-a762-197b5b50a268" class="">这里在介绍一个画原型时使用icon的小技巧。平时我们也会通过其它的网站去下载合适的icon，在下载icon的时候如果有一个“复制SVG代码”的按钮，我们可以直接通过复制粘贴的方式在Figma中使用了，而不用再下载一次，同理，Sketch和Figma都可以互相复制彼此的SVG代码。</p><ul id="4a7f984b-9777-4dae-9311-8b6b2661c175" class="bulleted-list"><li style="list-style-type:disc"><strong>组件功能</strong></li></ul><p id="e7f1c6ea-7555-4534-b9a0-0a903c5878a0" class="">对于一个长期迭代的项目而言，学会使用Figma的组件也会大有益处。对于绘制低保真原型而言，一般不需要产品经理或交互设计师来制作组件，你们可以直接在UI设计师的设计稿中去复制组件来使用，从其他人的文件里复制来的组件也会保留其组件属性。</p><p id="e58c43e5-7551-4707-930d-b2fb06ac81b2" class="">大家可以在文件的图层面板中点击“Assets”<em>（快捷键 option+2）</em>，你文件当中的组件都会展示在这里，不管这个组件是你自己创建的还是从其他文件中复制粘贴而来的，直接拖拽就可以使用这些本地化组件了。</p><figure id="4dcfd636-8f24-47d5-b707-0c4f2d94a5f2" class="image"><a href="https://img.zcool.cn/community/0104ad61ca9d0f11013e8cd09bdf95.png"><img src="https://img.zcool.cn/community/0104ad61ca9d0f11013e8cd09bdf95.png"/></a></figure><p id="a9bbae9a-8bde-4763-b2bb-91822f917fab" class="">除此之外，如果你想自己创建组件的话，可以把自己画好的图层编组后，点击下图指向的“菱形icon”，即会创建一个新的组件，新组建同时也会出现在Assets列表中。</p><figure id="c8dd682a-bb81-4c63-8137-342915ef7044" class="image"><a href="https://img.zcool.cn/community/014fb361ca9d2411013e8cd0c18346.png"><img src="https://img.zcool.cn/community/014fb361ca9d2411013e8cd0c18346.png"/></a></figure><h2 id="52b19d75-a676-415c-b81f-83bdf4ddf666" class="">3. 分享原型</h2><ul id="f1bb925b-76f9-45dd-8712-c0153cb8d4d6" class="bulleted-list"><li style="list-style-type:disc">想要把自己绘制好的原型分享给其它人，可以点击界面上的分享按钮，这时会弹出一个弹窗，你可以通过输入被分享人的邮箱账号，或是复制你的文件链接将它分享出去。</li></ul><figure id="2083c730-dea2-41a9-8df9-c85573cbe595" class="image"><a href="https://img.zcool.cn/community/01081461ca9d3111013e8cd0b4914a.png"><img src="https://img.zcool.cn/community/01081461ca9d3111013e8cd0b4914a.png"/></a></figure><ul id="4eb344bc-5bca-44b1-88bb-37140fa8ecf6" class="bulleted-list"><li style="list-style-type:disc">如果是<strong>通过邮箱账号分享</strong>，被分享者在打开自己的“通知提醒”后，选择接受分享就可以在自己近期的项目列表中看到别人分享来的文件了。如果是<strong>通过链接分享</strong>的，直接打开分享链接即可查看文件。</li></ul><figure id="3085feab-ebfb-4b2a-8344-036a1957407a" class="image"><a href="https://img.zcool.cn/community/0198e161ca9d3e11013f01cd80d50f.png"><img src="https://img.zcool.cn/community/0198e161ca9d3e11013f01cd80d50f.png"/></a></figure><p id="7c95b60e-ef16-4e2e-b2da-538dbabefc49" class="">— — — — — — — — — — — — — — —</p><h1 id="4c8f2f89-7084-4662-90f9-77f1dedcb284" class=""></h1><h1 id="d427546d-2c2c-4a98-aa88-3bbb1b8369bb" class="">UI设计师请看这里</h1><p id="79c25b4c-7870-40fb-ad8f-888970ea9527" class="">UI设计师你好呀！</p><p id="65334b4e-b092-41d4-9399-e49e44195f8a" class="">你好惨呀！</p><p id="b9fd6ca5-f26b-4d01-83bc-2047df124fb6" class=""><strong>你不仅需要了解以上其它角色都要知道的内容外，还需要知道一些Figma的独家技能</strong>，这些内容是之前我们使用Sketch或其它设计工具时不同的地方。因为本文重点只介绍Figma在团队里不同角色间的分工使用方式，便于在团队内进行推广。鉴于篇幅缘故<em>（以及作者也懒）</em>，就不作为一篇针对UI设计师的Figma教程来写了，因为相关的教程网络上已经可以找到很多。下面我会分享一些我看到的学习资料，以及学习Figma时需要重点掌握的一些内容。</p><h2 id="89f99d8e-82e4-4889-a6b2-ae26afda1297" class=""></h2><h2 id="230e021e-4a98-480a-a52d-137dccb3c171" class="">1. 学习资源分享</h2><ul id="83938288-190f-4ae4-bc2b-4d99615d966f" class="bulleted-list"><li style="list-style-type:disc">Figma 中文社区</li></ul><ul id="90b4c0b1-e7fc-45d9-91a6-6d74c1823907" class="bulleted-list"><li style="list-style-type:disc">学习Figma的必备网站之一，其中的插件库和一些学习导航可以节省我们大量找资源的时间。</li></ul><p id="5ba37527-f7ba-434d-994d-3bfb3cd155fe" class=""><a href="https://www.figma.cool/">https://www.figma.cool/</a></p><ul id="3b05e84c-6143-4f78-b1e5-82ee089f89b3" class="bulleted-list"><li style="list-style-type:disc">《关于Figma，看这一篇就够》</li></ul><ul id="044375fa-0afb-430a-b657-119aa6eef6be" class="bulleted-list"><li style="list-style-type:disc">木七大佬的一篇总结，虽然是一年前的文章，但这篇文章的讲解已是足够全面和系统，推荐阅读。</li></ul><p id="fccf3106-1ef1-464a-af4b-7afcb04f53e0" class=""><a href="https://www.zcool.com.cn/article/ZMTE4NzU2NA==.html">https://www.zcool.com.cn/article/ZMTE4NzU2NA==.html</a></p><ul id="19c8905c-82e4-49ad-b510-ac702e0cd976" class="bulleted-list"><li style="list-style-type:disc">Figma 新手教学系列视频</li></ul><ul id="a9b56b15-f802-4ea2-8fea-4d024e51f823" class="bulleted-list"><li style="list-style-type:disc">Figma视频教程，想更全面系统学习的可看下面的视频。</li></ul><p id="2d10b507-bba6-4b99-9b65-8b26c0fb2268" class=""><a href="https://space.bilibili.com/389903587/channel/seriesdetail?sid=299830&amp;ctype=0">https://space.bilibili.com/389903587/channel/seriesdetail?sid=299830&amp;ctype=0</a></p><ul id="18d59070-ef23-4b06-b376-cd36b22a0e77" class="bulleted-list"><li style="list-style-type:disc">Figma 高效技巧 &amp; 花式操作 - 合集</li></ul><ul id="ca9eca52-03a1-42f0-90c8-6cdfa4cf8712" class="bulleted-list"><li style="list-style-type:disc">Figma提效技巧汇总，草帽老师的这一套教程短小精炼，视频中介绍了很多容易被忽略但又很有用的小技巧。</li></ul><p id="b3e69190-b2fb-463d-bc82-e14b0be18b1a" class=""><a href="https://www.bilibili.com/video/BV1RJ411D714">https://www.bilibili.com/video/BV1RJ411D714</a></p><h2 id="f11d75b4-9e6a-45eb-8b6c-604404e23a97" class="">2. 学习Figma时需要重点掌握的内容</h2><ul id="2dbdf75d-edab-4b69-9af1-79268fb3ad80" class="bulleted-list"><li style="list-style-type:disc">账号管理体系</li></ul><p id="3126bafb-d55e-4b65-8021-9e7d43dde9fa" class="">Figma是一款在线UI协作工具，有别于其它本地化软件，关于账号管理和团队项目管理等需要有足够多的了解，如果只知道用它来设计界面还是不够的。</p><ul id="9d23fedf-3b0d-4d6f-a8cc-542291cc91ed" class="bulleted-list"><li style="list-style-type:disc">约束、栅格、网格、Auto Layout</li></ul><p id="0f3fd325-2d3e-4c76-a33e-af662ed13a4f" class="">这几个功能在Sketch当中也有涉及，但只有Figma将这些功能做到了更易用，尤其是Auto Layout功能，符合程序化思维，在UI设计中合理的使用，可以提高效率使自己的设计更加规范。</p><ul id="f0238b9a-c59e-45f2-b836-cc3ff3819db6" class="bulleted-list"><li style="list-style-type:disc">UI组件化</li></ul><p id="988980c0-1d85-47d6-9582-68e7ed008f91" class="">基本可以复用Sketch的经验，以前知道如何用Sketch创建组建，那用起Figma时也不会陌生。但Figma的组件调用以及团队组件库更便于设计师间开展协作。尤其是组件搭配Auto Layout，可以让你的UI设计更加规范化。</p><ul id="a1d1a4ae-f825-4850-8590-5feea88de3fe" class="bulleted-list"><li style="list-style-type:disc">设计交付</li></ul><p id="5775b03e-fe4b-4589-8526-7c73b2c728e4" class="">对于我们用惯了蓝湖等第三方工具而言，Figma在设计交付这块就显得有些不够完善，除了在平时的协作中使用它原生的功能进行交付外，我们还可以搭配使用 <a href="https://www.figma.com/community/plugin/830051293378016221/Heron-Handoff">Heron Handoff</a> 这个插件。</p><p id="45d7e052-210e-4cd4-9322-f5646eaf0138" class="">— — — — — — — — — — — — — — —</p><h1 id="f04ba8d5-3a3d-488c-a9e4-a291943bcd03" class=""></h1><h1 id="814791bf-28c2-4bb6-83ca-d9468b10050a" class="">完。</h1><p id="85a2ecd6-469d-4ddc-99fc-b12138a6333c" class="">写累了，就到这～</p><p id="91c3b6c3-0be3-441b-bfdd-baf4a2706e85" class="">谢谢阅读 ：)</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -65,24 +65,35 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/footer.css">
 
-    <!-- Google Analytics -->
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL"></script>
+    <!-- Google Analytics (production only) -->
     <script>
+      (function(){
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) { return; }
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL';
+        document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
         gtag('js', new Date());
-
         gtag('config', 'G-5CXJCNBDLL');
-
+      })();
     </script>
 
-    <!-- Google AdSense-->
-    <script data-ad-client="ca-pub-1677892562045013" async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Google AdSense（仅生产环境）-->
+    <script>
+      (function(){
+        var isProd = location.hostname === 'monk.ren' || location.hostname.endsWith('.monk.ren');
+        if (!isProd) return;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+        s.setAttribute('data-ad-client', 'ca-pub-1677892562045013');
+        document.head.appendChild(s);
+      })();
+    </script>
 </head>
 
 <body class="bbbb">
@@ -95,7 +106,17 @@
          
             <div class="ww">
                 MONK.REN |
-                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <script>
+                (function(){
+                  var host = location.hostname;
+                  var isProd = host === 'monk.ren' || host.endsWith('.monk.ren');
+                  if (!isProd) return;
+                  var s = document.createElement('script');
+                  s.async = true;
+                  s.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+                  document.head.appendChild(s);
+                })();
+                </script>
                 <span id="busuanzi_container_site_pv">访问:<span id="busuanzi_value_site_pv"></span></span> | <span
                     id="busuanzi_container_site_uv">
                     访客:<span id="busuanzi_value_site_uv"></span>
@@ -109,7 +130,17 @@
                     _wau.push(["small", "kcllq148a8", "d93"]);
 
                 </script>
-                <script async src="//waust.at/s.js"></script>
+                <script>
+                (function(){
+                  var host = location.hostname;
+                  var isProd = host === 'monk.ren' || host.endsWith('.monk.ren');
+                  if (!isProd) return;
+                  var s = document.createElement('script');
+                  s.async = true;
+                  s.src = '//waust.at/s.js';
+                  document.head.appendChild(s);
+                })();
+                </script>
             </div>
             <div class="www">
                 <ul class="social-light">
@@ -124,8 +155,11 @@
                     <li><a target="_blank" href="https://www.instagram.com/monk.ren"><img
                                 src="images/social/instagram-2.svg" width="100%" alt="ins"></a></li>
                     <!--                    <li><a target="_blank" href="https://weibo.com/212318502"><img src="images/social/weibo-2.svg" width="100%" alt="Weibo"></a></li>-->
-                    <li><img class="wechat" src="images/social/wechat-2.svg" width="100%" alt="wechat"><img
-                            class="monkren" src="images/basis/monkren.png" width="100%" height="100%" alt="me"></li>
+                    <li>
+                        <a target="_blank" href="/weixin/index.html">
+                        <img class="wechat" src="images/social/wechat-2.svg" width="100%" alt="wechat"><img
+                            class="monkren" src="images/basis/monkren.png" width="100%" height="100%" alt="me">
+                        </a></li>
                 </ul>
             </div>
         </div>
@@ -159,17 +193,17 @@
 
 <script>
     (function () {
+        var host = location.hostname;
+        var isProd = host === 'monk.ren' || host.endsWith('.monk.ren');
+        if (!isProd) return;
         var bp = document.createElement('script');
         var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
+        bp.src = (curProtocol === 'https')
+            ? 'https://zz.bdstatic.com/linksubmit/push.js'
+            : 'http://push.zhanzhang.baidu.com/push.js';
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(bp, s);
     })();
-
 </script>
 
 <script>

@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>图标</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="7f5591e7-0d6a-4729-8cdb-f5e6c086e66b" class="page sans"><header><h1 class="page-title">图标</h1><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M7.01356 14.0001C8.8042 14.0001 10.5958 13.3107 11.9575 11.9324C14.681 9.21201 14.6808 4.7603 11.9571 2.04013C9.23336 -0.680043 4.77573 -0.680043 2.05199 2.04013C0.727519 3.36277 0 5.13301 0 6.99553C0 8.8764 0.727811 10.6285 2.05199 11.9509C3.43207 13.3106 5.22243 14.0001 7.01356 14.0001ZM3.72947 7.00914V8.461V8.65543H3.92382H5.34563H8.2794H8.4738V8.461V5.52541V3.37947V3.18502H8.2794H6.82747H6.63307V3.37947V6.81467H3.92382H3.72947V7.00914ZM1.83985 6.99553C1.83985 5.61698 2.38099 4.32597 3.36061 3.3477C5.36746 1.34337 8.64803 1.34062 10.6585 3.33944C10.6613 3.34219 10.6639 3.34494 10.6668 3.3477C12.676 5.3546 12.6763 8.63642 10.6668 10.6434C8.65705 12.6504 5.37031 12.6504 3.36061 10.6434C2.38099 9.66506 1.83985 8.37408 1.83985 6.99553Z"></path></svg></span>Created</th><td><time>@June 16, 2021 3:45 PM</time></td></tr><tr class="property-row property-row-created_by"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedBy"><path d="M13.125,10.0354 C12.5536,9.48588 10.801,8.53125 9.625,7.875 L9.625,7.04112 C9.849,6.71912 10.045,6.37 10.1911,5.98588 C10.5849,5.7435 10.9375,5.28412 10.9375,4.8125 C10.9375,4.35488 10.9323,3.94275 10.4668,3.605 C10.3049,1.5575 9.436,0 7,0 C4.564,0 3.69513,1.5575 3.53325,3.605 C3.06775,3.94275 3.0625,4.35488 3.0625,4.8125 C3.0625,5.28412 3.41513,5.7435 3.80888,5.98588 C3.955,6.37 4.151,6.71912 4.375,7.04112 L4.375,7.875 C3.199,8.53125 1.44638,9.48588 0.875,10.0354 C0.1645,10.7188 0,11.8125 0,14 L14,14 C14,11.8125 13.8364,10.7188 13.125,10.0354 Z"></path></svg></span>Added by</th><td><span class="user"><img src="https://lh3.googleusercontent.com/a-/AAuE7mCYLgNL-U_Il_abXX0ZuWQePjPOGoT8vXJW8WBz=s100" class="icon user-icon"/>张大圣</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Tags</th><td></td></tr><tr class="property-row property-row-url"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesUrl"><path d="M3.73333,3.86667 L7.46667,3.86667 C8.49613,3.86667 9.33333,4.70387 9.33333,5.73333 C9.33333,6.7628 8.49613,7.6 7.46667,7.6 L6.53333,7.6 C6.01813,7.6 5.6,8.0186 5.6,8.53333 C5.6,9.04807 6.01813,9.46667 6.53333,9.46667 L7.46667,9.46667 C9.5284,9.46667 11.2,7.79507 11.2,5.73333 C11.2,3.6716 9.5284,2 7.46667,2 L3.73333,2 C1.6716,2 0,3.6716 0,5.73333 C0,7.124 0.762067,8.33453 1.88953,8.97713 C1.87553,8.83107 1.86667,8.6836 1.86667,8.53333 C1.86667,7.92013 1.98753,7.33447 2.2036,6.7978 C1.99267,6.4954 1.86667,6.12953 1.86667,5.73333 C1.86667,4.70387 2.70387,3.86667 3.73333,3.86667 Z M12.1095,5.28907 C12.1231,5.4356 12.1333,5.58307 12.1333,5.73333 C12.1333,6.34607 12.0101,6.9294 11.7931,7.46513 C12.0059,7.768 12.1333,8.13573 12.1333,8.53333 C12.1333,9.5628 11.2961,10.4 10.2667,10.4 L6.53333,10.4 C5.50387,10.4 4.66667,9.5628 4.66667,8.53333 C4.66667,7.50387 5.50387,6.66667 6.53333,6.66667 L7.46667,6.66667 C7.98187,6.66667 8.4,6.24807 8.4,5.73333 C8.4,5.2186 7.98187,4.8 7.46667,4.8 L6.53333,4.8 C4.4716,4.8 2.8,6.4716 2.8,8.53333 C2.8,10.59507 4.4716,12.2667 6.53333,12.2667 L10.2667,12.2667 C12.3284,12.2667 14,10.59507 14,8.53333 C14,7.14267 13.2375,5.93167 12.1095,5.28907 Z"></path></svg></span>Link</th><td></td></tr></tbody></table></header><div class="page-body"><p id="349add80-7b86-4756-a832-b14f6024d5e6" class="">图标是任何设计系统或产品体验的重要组成部分。图标帮助我们快速导航。它们与语言无关。最重要的是：它们真的很小，所以它们不会占用太多的空间。图标是良好设计系统的基本组成部分，对营销材料非常有帮助。它们是插图内容的基本构建块，但它们也具有很高的技术性。喜欢设计图标的人并不多，擅长设计的人就更少了。我编写本指南是为了帮助您成为这些人中的一员。无论您是设计系统专家、插画家还是产品设计师，本指南都将帮助您学习如何构建图标、如何将它们与您的品牌保持一致，以及如何将它们实施到您的设计系统中。让我们从基础开始。图标的基本元素尺寸一致性是图标的关键，当你构建它们时，所有的图标都应该是相同的大小。首先，您需要确保您知道您的网格是如何构建的（8 或 10 的倍数？）。从那里，您的基本图标大小应该直接与此相关。所以，如果你有一个基于 8s 的网格，你会想要在 16、24 或 32 处构建。选择一个通用尺寸来构建您的所有图标，然后允许您的工程师缩放到其他设计师可能需要的其他尺寸。您不想以多种尺寸一遍又一遍地构建相同的图标。当您需要字形复杂度时，这就是您想要开始添加大小的时候。你的基本产品图标可能是 24 像素，但营销图标是 80 像素，因为在使用上存在巨大差异。您需要为那些较大的尺寸添加细节。24x24、40x40 和 80x80 的商店图标在构建不同尺寸的相同图标时，我喜欢从最大的尺寸开始，然后向下。我发现删除细节和简化要容易得多，而不是边走边添加。在您真正将其最小化之前，它还可以让您了解对象。颜色对于产品图标，使用 1 种颜色：黑色。除此之外，您的组件将变得过于复杂，其他设计师难以利用。对于营销图标，如果它是您品牌的重要组成部分，您可能希望使用 2 种颜色，但我个人认为图标应该是单一颜色。任何具有 3 种或更多颜色的东西都是插图，而不是图标。左：这是一个现场插图。中间：带有透视图的图标。右：平面图标。网格该<strong>像素网格</strong>是使用最小增量的根本格：一个像素。在构建图标时，您总是希望将对象与像素网格对齐，尤其是直线。但是，您可以在像素网格上构建其他形状（如果您使用 Figma，您已经自动完成了）。你想在像素网格上构建东西，不仅仅是因为它会渲染得更好，还因为它让你的生活更轻松。当您使用网格时，均匀地间隔事物要容易得多。它可以帮助您与您的位置保持一致，并且总体上会使您的图标看起来更好。您可以在 Figma 中轻松看到“像素上”和“关闭”之间的区别。左：在像素上。右：关闭像素。我喜欢在开始之前为自己建立一个网格。这是我在 Figma 中的设置。伟大的！现在您已经掌握了像素网格，您将想要了解光学网格。光学网格可以帮助我们确定图标的质心在哪里，以及人眼感知到的大小。圆形和弯曲的物体比正方形占用更少的视觉空间。最好将您的图标放在一个固定大小的容器中，以便在导出时它们的尺寸都相同。添加此内在填充支持光学/感知权重，而无需在开发人员后期进行额外的大惊小怪。在构建我的光学网格时，我喜欢在边缘设置与我的笔画重量相等的填充，或者如果我使用 1px 笔画，则可能会加倍。您可以在下面的示例中看到不同的形状如何到达网格的不同边缘。从视觉上看，主要对象应该在垂直和水平方向都居中。主导物体（矩形）居中如果您正在使用像素网格并利用光学网格，那么您将领先于街道。笔触和填充还记得我说过一致性是关键吗？我再说一遍。没有什么比看到两个并排的图标更让我烦恼的了，其中一个被填充，另一个被抚摸。确保所有图标的样式都相同非常重要。例如，您可能有应用填充来显示选定内容的用例，但您肯定希望创建具有一种样式的集合，并可能创建另一种变体。通常，填充的图标具有更高的可识别性。描边图标为您提供创建微小细节的强大能力。在选择哪种风格更合适时，您还应该考虑您的整体品牌。如果您要创建描边图标，描边都需要具有相同的权重。我还建议笔画之间的空间不要小于您的笔画重量。笔划之间的距离应尽可能反映笔划重量也许您有一个图标集满足一种风格，但不能满足另一种风格。在创建描边图标的填充版本时，您将需要了解如何简化线条工作。理想情况下，填充图标类似于阴影，而不是基于倒线的图标。创建填充图标的描边版本涉及确定您可以在空间中适应的描边粗细以及在保持清晰度的同时可以添加哪些细节。我不建议使描边图标小于 10px（假设描边粗细为 1px-2px）。他们将很难破译。风格选择您的图标反映了您的品牌。在开始这项工作时，重要的是要了解您品牌的核心价值以及它们如何在视觉上表现出来。要考虑的一些形容词是硬/软、休闲/正式、豪华/经济和字面/抽象。您可能有可以参考的插图样式。有些图标看起来很简单（一个 X、一个汉堡菜单、一个 V 形图标），但是这些图标要求您已经弄清楚您的图标系统的基本原则。我建议从更难的图标（即更复杂）开始，以帮助您确定要灌输的规则。这样，一旦你开始设计更简单的图标，它就会变得轻而易举。5 种风格的 5 个产品图标 - 请注意细微的差异如何使每个集合感觉一致和完整。以下是反映公司视觉品牌声音和基调的产品和营销图标的选择：<a href="https://brand.uber.com/guide#iconography-system-icons">优步</a><a href="https://material.io/tools/icons/?style=baseline">谷歌</a><a href="https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/system-icons/">苹果</a><a href="https://www.zachroszczewski.com/airbnb/">爱彼迎</a><a href="https://www.bonniekatewolf.com/icon-system.html/">正方形</a>绘图图标几何形状除非我要创建一种非常自然、有机的图标样式，否则我喜欢从基本形状开始来创建图标的形式。矩形、正方形和圆形都为您创建更精美的图标提供了很好的起点。这只橡皮鸭是由圆形（和一个圆角矩形）组成的。绘制几何图形时，如果需要制作复杂的多边形，可以从正方形或矩形开始，也可以使用钢笔工具从点到像素。这样做时，拥有清晰的网格尤为重要，这样您就可以看到这些点的去向。当您需要绘制有<strong>角度的几何形状时</strong>，我不建议只使用矩形并旋转它。相反，使用像素网格来绘制成角度的矩形。左：旋转的矩形（锚点不与网格对齐）。右：手绘矩形（确保您的点与网格对齐）。自然形态在 Figma 中绘制更自然的形式很容易。您可以使用传统的逐点绘制曲线的方法，也可以使用 Figma 出色的点圆角半径工具。我喜欢将我所有的点绘制为直线，然后使用圆角半径工具将圆角画圆。此工具对于创建有机、平衡的形状非常有帮助。由于 Figma 的角会自动调整，您可以在这些点周围移动，角会为您调整。角/连接角有几个选项：斜接（方形）、斜面和圆形。我强烈建议您为图标集坚持一种风格。拐角半径使用它来圆角正方形和矩形时，您要确保所有角都具有相同的半径。创建同心形状时，您需要调整角半径以创建完美的同心形状。内部形状的半径将小于外部形状。这个公文包中同心半径的很好样本路径上的任何中间点都可以通过检查器中的角半径属性进行舍入。如果您选择整个路径，它会将所有角都圆化到相同的程度。如果您进入编辑模式，您可以选择单个点并分别舍入它们。端盖端盖可以是圆形或方形的。坚持一种选择。填充物当您的图标需要在其主窗体中填充对象时（如房屋中的窗户），您最好在描边图标中保留描边形状。和填充图标中的填充对象。当您没有用于描边形状的空间时，您希望使用与您的描边成比例的填充形状。例如，如果您的笔画粗细为 2px，则您不希望填充大于 4x4px 的形状。隐喻隐喻在图标中很重要——我们一直在使用它们，甚至不假思索。房子的图标意味着主页。昆虫意味着错误。当缩放图标以创建更小的版本时，我喜欢记住我用来传达图标信息的比喻。使用一个常见的比喻来以较小的尺寸继续，而不是简单地以较小的比例制作精确的图标。当所有内容都不适合时，确定哪些细节最重要，然后删除多余的。如果受空间限制，您可以简化关键细节而不是删除它们。看法在图标中使用透视很棘手 - 它们的大小使得它变得困难，因为使用透视绘图会占用额外的空间。如果您确实想使用透视，要么广泛使用它并使其成为系统的关键部分，要么在有助于提高易读性和清晰度时谨慎使用。顶行：平。底行：透视。输入（避免！）如果可能，请避免输入您的图标。图标是全球性的。如果您确实需要字体（例如，货币符号），请自己绘制，而不是使用字体。工具提示布尔运算布尔运算通过以下四个公式之一组合任何一组形状图层：联合、减去、相交和排除。这个工具是实时的，而且很棒。这是使您的图标更易于编辑的好方法。您可以使用联合功能，而不必剪切路径。不想用手寻找形状的交点？尝试减法。布尔组被视为单个形状图层并共享填充和笔触属性，并且可以通过后续的布尔操作与其他布尔组组合。<strong>Union</strong> : Union 将选定的形状组合成一个布尔组。如果对象重叠，则新形状的外部路径由其子层路径的组合减去任何重叠的段组成。然后将笔画应用于该外部路径，而忽略彼此重叠的任何路径段。<strong>减法</strong>：减法与联合相反。减去从基本形状中删除一个形状或一组形状的区域。只有底部形状层是实心的，其余的都从中减去。<strong>相交</strong>：相交创建一个布尔组，其形状仅由其子层的重叠部分组成。<strong>排除</strong>：排除与相交相反。排除仅显示其子图层不重叠的区域。一旦我完成了一个图标，我喜欢创建一个联合（如果它已经不是一个大路径），这样当未来的设计师调整颜色时，很容易只改变一个属性（填充）填充和描边。矢量网络矢量网络是 Figma 中最独特的功能之一。大多数钢笔工具以定义的方向循环绘制路径，总是希望重新连接到它们的原始点。矢量网络没有方向，可以在不同方向分叉，而无需创建单独的路径对象。然后可以在同一个对象中创建具有相同属性的复杂对象，比使用传统矢量路径工具绘制它们的速度要快得多。有关这方面的更多信息，请访问这篇<a href="https://help.figma.com/article/63-vector-networks/">文章</a>。如何在设计系统中使用图标让团队的其他成员可以访问您的图标集是组织、资产管理和意识的问题。组织让我们从文件命名开始。您的图标应该根据它们显示的内容命名，而不是它们代表的内容。例如，秒表图标应该命名为<strong>stopwatch</strong>，而不是<strong>speed</strong>。灯泡应该被称为<strong>灯泡</strong>，而不是<strong>想法</strong>。您希望立即让人们清楚图标是什么，而不是它在更概念化的层面上传达的内容。名字越短越好。当您需要多个单词时，请使用破折号将它们分开。像这样的图标可能需要多个词——例如，厨师帽。最终，您会将所有图标变成组件。在 Figma 中，组件就像框架一样工作，通过组件的副本创建新实例而不是副本。这意味着您可以拥有一个包含所有图标的巨大库，当您需要使用一个时，您可以从库中创建一个实例。如果有人对原始图标进行了更改，您的图标仍将是最新的。您可以搜索这些资产，因此您可能希望添加可搜索的信息。但不是将它放在文件名中，而是有一个替代方案。Figma 有一个组件描述框，允许您添加标签和关键字。这是一个很好的地方，可以添加人们可能在您的图书馆中搜索的所有短语，而不会产生疯狂的长而复杂的名称。这就是这些产品价值的所在！为了帮助您的工程师，您需要同时使用框架和页面。页面代表最外层的分组（所以我喜欢按大小对它们进行排序）。然后框架可以帮助您缩小内容的范围，如下例所示。这个图标的命名系统是<strong>size &gt; category &gt; file name</strong>。当您拥有带有变体的相同图标时，这就是我喜欢处理它们的方式。<strong>不同的尺寸</strong>：使用不同的页面，因为您很少会直接从一个实例切换到另一个实例。<strong>填充与描边</strong>：如果您同时使用两种样式，请在图标名称后使用斜杠来表示填充或描边图标。左：咖啡/抚摸。右：咖啡/填充<strong>调整后的图像</strong>：当您的图标具有视觉变体（例如，多个货币变体）时，您还可以使用命名来帮助区分，使用与填充图标和描边图标相同的方法。左边的原始图标是“盾牌”。然后，从左到右依次是“盾牌/美元”、“盾牌/欧元”、“盾牌/英镑”、“盾牌/日元”、“盾牌/加号”管理您的资产完成图标后，您希望它们尽可能干净以实现最佳导出。使用布尔运算来简化您的工作（还记得我们的朋友联盟吗？）。避免任何多余的线条或形状。检查所有线条是否都落在框架内。让另一个人查看您的所有图标并仔细检查是否整洁是绝对值得的。Figma 很棒，因为它鼓励协作和透明度。使用图标，您可能很想允许所有设计师都拥有编辑权限，以便他们可以添加新图标。我建议单独收集图标，审核它们，并在它们达到标准时自己添加它们。为您的同事提供查看访问权限（和访问您的库的权限）足以让他们参与您正在制作的内容，而不会以 cattywampus 库和文件结束。您的一些同事可能想要创建相同图标的不同版本（例如，使用不同颜色或不同名称）。当有人将图标与概念或产品相关联时，通常会发生这种情况。您永远不希望库中每个图标的版本超过一个。使用这些名称的组件描述。您的设计师同事应该在他们的个人文件中调整图标颜色，而不是在母版中。相信我，您必须不时对这些图标进行更改，而且您不想在多个地方进行更改。当您准备好导出图标时，文件格式是关键。如果您向设计或工程团队之外的合作伙伴提供图标，您可能会向他们提供 .png 文件。以 1x、2x 和 3x 导出以适应多种设备。对于工程和设计，您通常会导出 .svg 文件，这些文件可在设计程序中编辑，并在您的应用程序或网站上在线呈现时通过代码在浏览器中绘制。导出 SVG 时，您需要尽可能干净的代码。选择 Figma 的另一个重要原因是超最小 SVG 导出。因为经过优化，它消除了进一步优化的需要。看看这个<a href="https://www.figma.com/blog/with-figmas-new-svg-exports-less-more/">文章</a>以了解更多信息。将您的图标交到他人手中你可以成为世界上最伟大的图标设计师，但如果你不能在你的应用程序/网页/直接邮件中实现你的图标，那将没有任何好处。在开始设计之前，请与负责将这些融入产品的工程团队交谈。他们将能够为您提供有关网站或应用程序基础架构的信息，这些信息将推动您做出一些选择，例如笔画粗细或大小。询问其他设计师过去做了什么，以确保您没有重复工作。从您的 PMM 中找出他们一直渴望看到的其他图标。成为向人们寻求反馈、建议和帮助的友好同事。它会让你更好地了解你应该做什么，所以你不会重做工作，或者忽略其他人已经弄清楚的关键租户。当你<a href="https://johanronsse.be/2018/09/23/the-figma-api-for-the-rest-of-us/">使用 Figma 的 API 以编程方式导出</a>.其他资源请随时通过<a href="mailto:bonniekatewolf@gmail.com/">bonniekatewolf@gmail.com</a>与 Bonnie Kate Wolf<a href="mailto:bonniekatewolf@gmail.com/">联系</a>我喜欢<a href="https://thenounproject.com/">thenounproject.com</a> → 这个地方有大量的灵感来自不同的方式看待同一主题（谁知道有这么多方法来绘制文件夹！）<a href="https://www.figma.com/file/v8WczgltywYcWbZyAqChfX/Design-Systems-Icon-Guide/duplicate">开始使用图像</a><a href="https://www.figma.com/file/v8WczgltywYcWbZyAqChfX/Design-Systems-Icon-Guide/duplicate">获取图标入门模板</a><a href="https://www.designsystems.com/sections/getting-started/">入门</a></p><figure id="01df0216-93f3-4231-a796-a008180c57e3" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/74BVyk6RfIQGAJuqlhaOGU/7723f354d17f580cd967150dea6ba0e6/1-Venn-Diagram.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/74BVyk6RfIQGAJuqlhaOGU/7723f354d17f580cd967150dea6ba0e6/1-Venn-Diagram.png"/></a></figure><figure id="a004ab95-3de1-4b19-ae10-c32f5adfdb39" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/zEFETwJBuwONuwU5GIxrj/98196770c222635ae8895aa8185d03ee/2-houses.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/zEFETwJBuwONuwU5GIxrj/98196770c222635ae8895aa8185d03ee/2-houses.png"/></a></figure><figure id="32adab79-91c2-4775-9cd9-4e137c75b6e5" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/6ETnUgi2ms9GuoDpUtmU2D/18bc7529fe909b4fe8e673b42906e7fd/3-Drinks.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/6ETnUgi2ms9GuoDpUtmU2D/18bc7529fe909b4fe8e673b42906e7fd/3-Drinks.png"/></a></figure><figure id="0e1f0c74-ac8a-4c99-96c5-a112efa1b6de" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/4FJojSCuwlE2Pdl3Kg6cmh/1fa7c0b270bd9ab15d3f4e7b9cf74d72/Group__10_.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/4FJojSCuwlE2Pdl3Kg6cmh/1fa7c0b270bd9ab15d3f4e7b9cf74d72/Group__10_.png"/></a></figure><figure id="0d7b14da-b3c2-4a0a-a3d8-93dc4515d05c" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/7EEKlGUtPFDc5vMAYIcSrI/aa73b75d9ba26db8b408b8642b158fce/4-Grid.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/7EEKlGUtPFDc5vMAYIcSrI/aa73b75d9ba26db8b408b8642b158fce/4-Grid.png"/></a></figure><figure id="ad2eb9d0-925f-4887-b241-c5a3d12259cd" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/4C1tVk4XmRFWf4uoF5Lr7t/cd090c180a3d129e3702c07015834971/Group__11_.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/4C1tVk4XmRFWf4uoF5Lr7t/cd090c180a3d129e3702c07015834971/Group__11_.png"/></a></figure><figure id="fb1b5410-4cd4-43f1-8ea2-c2876a7ac495" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/5SesdMsVfSff3MILXkxNHy/d6d66278754502fb5be0743849cec4a0/09-Optical-Grid-05.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/5SesdMsVfSff3MILXkxNHy/d6d66278754502fb5be0743849cec4a0/09-Optical-Grid-05.png"/></a></figure><figure id="5c2b65d2-e62f-451e-baa5-64d4de46d648" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/3957h6OhfvOzbmUcKybKN1/cb367b073711b2654fe5fb63310797b4/10-Trash.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/3957h6OhfvOzbmUcKybKN1/cb367b073711b2654fe5fb63310797b4/10-Trash.png"/></a></figure><figure id="a5f11d67-b6c8-4e81-926b-47258dc7f898" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/X0X9bZhSOlVhC09qo9Bgp/84fb5d83a85fab7630164c283329d470/11-Icons-Style-Options.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/X0X9bZhSOlVhC09qo9Bgp/84fb5d83a85fab7630164c283329d470/11-Icons-Style-Options.png"/></a></figure><figure id="5adaf143-80bc-4b44-a0a7-27180d310d01" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/74ZdOcDV1wFVseCn3dCkVI/fe476fe00f0f51731f455a58dade72d4/12-Icons-Style-Options-Stroked.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/74ZdOcDV1wFVseCn3dCkVI/fe476fe00f0f51731f455a58dade72d4/12-Icons-Style-Options-Stroked.png"/></a></figure><figure id="c3d1ee0c-0e99-44ea-b49b-b301fbab3b3e" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/2FIsmwTAMMHgxWMmC5vC7k/cb94a51388524e36f9ccb3778540b792/13-circle_duck.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/2FIsmwTAMMHgxWMmC5vC7k/cb94a51388524e36f9ccb3778540b792/13-circle_duck.png"/></a></figure><figure id="777458b9-52e6-4002-9b90-611f7b4b51fe" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/4xcuIeBBSspyd4HnFy88qA/9e2f0cca07188d20474d8a9770408ba5/14-pencils.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/4xcuIeBBSspyd4HnFy88qA/9e2f0cca07188d20474d8a9770408ba5/14-pencils.png"/></a></figure><figure id="2ccab1ef-b9fc-49a2-8f5b-4c919b585ddd" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/5MYYSotfaMbGOnhZUgrW1T/9eb43f876de0aaf9305a64be1361d3be/15-IconGuide_Dog-Points.gif"><img src="https://images.ctfassets.net/7jw9uvgmirvi/5MYYSotfaMbGOnhZUgrW1T/9eb43f876de0aaf9305a64be1361d3be/15-IconGuide_Dog-Points.gif"/></a></figure><figure id="ba83b537-d5e0-4c36-9ff5-e821cef645ec" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/356XuxbBaWnoankNF8sEhQ/d0b0083dab2feab17e835ff8ca908594/16-briefcase.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/356XuxbBaWnoankNF8sEhQ/d0b0083dab2feab17e835ff8ca908594/16-briefcase.png"/></a></figure><figure id="b836dff0-3392-421a-81ea-9366f93257bf" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/2tQpFsGO6AZZJlct86221W/36896d49b019b341da9c27d505d4a27b/17-metaphor-1.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/2tQpFsGO6AZZJlct86221W/36896d49b019b341da9c27d505d4a27b/17-metaphor-1.png"/></a></figure><figure id="a5a1dea6-06de-4d59-952d-52ed6eacebff" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/4uvnyJ9JkWz5RExdjvUElp/03cbcb393a26538d6cb1fa69090c377a/18-metaphor-2.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/4uvnyJ9JkWz5RExdjvUElp/03cbcb393a26538d6cb1fa69090c377a/18-metaphor-2.png"/></a></figure><figure id="4b3189fb-265a-47ab-b2e2-10f3ea352d75" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/3bICzdNg4RMO57bREnxPKG/0ae8be1699ef407075c36e043600ae6f/19-metaphor-3.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/3bICzdNg4RMO57bREnxPKG/0ae8be1699ef407075c36e043600ae6f/19-metaphor-3.png"/></a></figure><figure id="88eb3333-5319-4c08-9043-5b6d6489883f" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/7ilXGCJHBNk4SnWb18Gdz/9f4c7b51fb0ade39ce3e373148a62223/20-perspective.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/7ilXGCJHBNk4SnWb18Gdz/9f4c7b51fb0ade39ce3e373148a62223/20-perspective.png"/></a></figure><figure id="bad28575-3062-4088-b13f-0d006654a5ee" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/7rES2t3UKk1YpCtBHGcM0M/1ad316d0111830c2a839c3eef5b59301/21-IconGuide-Boolean.gif"><img src="https://images.ctfassets.net/7jw9uvgmirvi/7rES2t3UKk1YpCtBHGcM0M/1ad316d0111830c2a839c3eef5b59301/21-IconGuide-Boolean.gif"/></a></figure><figure id="8a748952-65be-438f-83a6-82a7a9097fd1" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/6HuptcBmkIAVFLw7SgjOTl/87f01b1b03113f04005582aa9d9f333e/22-chefhat.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/6HuptcBmkIAVFLw7SgjOTl/87f01b1b03113f04005582aa9d9f333e/22-chefhat.png"/></a></figure><figure id="33e68ae0-65b2-4d08-9635-3c39d088fbc3" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/2a7L868vPrKE0KRocEIsEu/c3b23ca132f34563338e12d21d266f42/23-Organization.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/2a7L868vPrKE0KRocEIsEu/c3b23ca132f34563338e12d21d266f42/23-Organization.png"/></a></figure><figure id="338f2d92-ea5d-41fb-84ec-f041d9f12a9b" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/394n4HE2amAjQnTPB7PIlJ/3b77a4bab3377868e44502f181f3f9f1/24-Coffees.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/394n4HE2amAjQnTPB7PIlJ/3b77a4bab3377868e44502f181f3f9f1/24-Coffees.png"/></a></figure><figure id="82f2b5ef-aab8-47a1-84f5-b39a46f3fece" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/5KugjMk9FempnsFYYdyvZF/5e587a79affe7294ca488834c9a3c777/25-Shields.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/5KugjMk9FempnsFYYdyvZF/5e587a79affe7294ca488834c9a3c777/25-Shields.png"/></a></figure><figure id="4f6a9814-cacb-4840-9a05-47754a9c43ea" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/64WayKGw8LOCAyZZg4zQKM/466d67d1d4aff9ca421a5e00b3013681/Group_2__2_.png"><img src="https://images.ctfassets.net/7jw9uvgmirvi/64WayKGw8LOCAyZZg4zQKM/466d67d1d4aff9ca421a5e00b3013681/Group_2__2_.png"/></a></figure><figure id="ee90cac9-4382-45ca-8364-6db4360886fe" class="image"><a href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAXVBMVEUAAAAApPAApPAApPAft/8PrfcApPBMx/8/wv+E2P9/1v+E2P8TsPkApPBFxP8ft/+E2P9Mx/+E2P+E2P+E2P8NrPYIqfQ6wf81v/8TsPl51f941P9DxP+E2P+D2P+U7rhwAAAAFXRSTlMALzsZQeFsQdcv4Tv6Z/N1/nUXYmFWyl4pAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAB3RJTUUH5QUaECgPrN0IUQAAAEdJREFUGNNjYKAtYGQCA2ZkMRZWURAQY0MSY+cQBwEJSSRBTi4pEJCWQRbklgUDORIEeXgxBfn4GTAEBQSRXSkkDAYiDAMOAKN/B9naLnozAAAAAElFTkSuQmCC"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAAAXVBMVEUAAAAApPAApPAApPAft/8PrfcApPBMx/8/wv+E2P9/1v+E2P8TsPkApPBFxP8ft/+E2P9Mx/+E2P+E2P+E2P8NrPYIqfQ6wf81v/8TsPl51f941P9DxP+E2P+D2P+U7rhwAAAAFXRSTlMALzsZQeFsQdcv4Tv6Z/N1/nUXYmFWyl4pAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAB3RJTUUH5QUaECgPrN0IUQAAAEdJREFUGNNjYKAtYGQCA2ZkMRZWURAQY0MSY+cQBwEJSSRBTi4pEJCWQRbklgUDORIEeXgxBfn4GTAEBQSRXSkkDAYiDAMOAKN/B9naLnozAAAAAElFTkSuQmCC"/></a></figure><figure id="5dc929de-3acc-46d6-9a7a-ca81f75199a5" class="image"><a href="https://images.ctfassets.net/7jw9uvgmirvi/2hJiwWE6lk7CqUO4ToGrzW/81ff0a52d977aeb47cd37e278c0bcfca/get-started.png?w=130&amp;q=50"><img src="https://images.ctfassets.net/7jw9uvgmirvi/2hJiwWE6lk7CqUO4ToGrzW/81ff0a52d977aeb47cd37e278c0bcfca/get-started.png?w=130&amp;q=50"/></a></figure><h1 id="144d5093-aeec-4565-bc7d-4980389ceacc" class="">入门</h1></div></article></body></html>

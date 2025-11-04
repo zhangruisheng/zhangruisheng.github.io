@@ -23,7 +23,7 @@ $(function () {
     var d5 = "rgba(0, 0, 0, .25)";
     var l5 = "rgba(255, 255, 255, .25)";
 
-    if (new Date().getHours() > 8 || new Date().getHours() < 6) {
+    if (new Date().getHours() > 18 || new Date().getHours() < 6) {
         document.documentElement.style.setProperty('--color-ff', dark);
         document.documentElement.style.setProperty('--color-00', light);
         document.documentElement.style.setProperty('--color-oa', oadark);
@@ -44,15 +44,22 @@ var open1 = document.getElementById("open-button");
 var close1 = document.getElementById("close-button");
 
 
-close1.onclick = function () {
-    "use strict";
-    document.getElementById("menu").setAttribute("class", "menu");
-    document.getElementById("zzhao").setAttribute("class", "zzzhao");
-};
+if (close1) {
+    close1.onclick = function () {
+        "use strict";
+        var menu = document.getElementById("menu");
+        var zzhao = document.getElementById("zzhao");
+        if (menu) menu.setAttribute("class", "menu");
+        if (zzhao) zzhao.setAttribute("class", "zzzhao");
+    };
+}
 
-open1.onclick = function () {
-    "use strict";
-    document.getElementById("menu").setAttribute("class", "menu-open");
-    document.getElementById("zzhao").setAttribute("class", "zzhao");
-
-};
+if (open1) {
+    open1.onclick = function () {
+        "use strict";
+        var menu = document.getElementById("menu");
+        var zzhao = document.getElementById("zzhao");
+        if (menu) menu.setAttribute("class", "menu-open");
+        if (zzhao) zzhao.setAttribute("class", "zzhao");
+    };
+}

@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>设计思考</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		width:auto;
+		color: rgb(55, 53, 47);
+		
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4261a626-1003-47b7-b7bd-e35e10377fae" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">✨</span></div><h1 class="page-title">设计思考</h1><p class="page-description"></p></header><div class="page-body"><hr id="abcdbe73-348b-4f78-954a-a2c8581bbbf4"/><div id="49d427df-6e3e-493b-ade6-017443493799" class="column-list"><div id="977f3b40-87d5-4ef3-858e-ab3b0a78147c" style="width:20.833333333333332%" class="column"><h1 id="c394dd3b-d273-4317-b9d7-3b8c6c4010df" class=""><mark class="highlight-red">#认知</mark></h1><p id="b5210122-bc6e-45ea-8192-d0142db90815" class="">对于设计本身的理解认知是设计师立身的根本，认知的高度决定了设计的品质</p><figure id="765833a4-0b9b-4032-ac1e-2e71e3122035" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E6%9E%84%E5%BB%BA%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%B8%AA%E4%BA%BA%E8%83%BD%E5%8A%9B%E4%BD%93%E7%B3%BB%20765833a40b9b4032ac1e2e71e3122035.html">构建设计师个人能力体系</a></figure><p id="a6c773ef-b818-4fc5-94cc-989d7a3e9e18" class="">
+</p></div><div id="0e1001d3-0e88-4145-8dec-eef5dbe6da3a" style="width:45.833333333333336%" class="column"><hr id="79596191-8d5d-4dd6-8b48-1c785be917df"/><h3 id="d25e7f00-df7b-4f42-ab33-59a33ec5bfc8" class=""><mark class="highlight-red">#设计价值</mark></h3><p id="96abe682-7d70-4a51-b874-f98cd4616f06" class="">设计创造差异、差异塑造价值、价值决定未来</p><figure id="76320791-c83f-43e4-840e-8e237e8ac139" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E6%98%AF%E4%BB%80%E4%B9%88%2076320791c83f43e4840e8e237e8ac139.html">设计是什么</a></figure><figure id="7157ed51-2230-49d2-8c7b-091e7bc97517" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BB%B7%E5%80%BC%207157ed51223049d28c7b091e7bc97517.html">设计的价值</a></figure><figure id="4494b478-47aa-44dc-83fd-a8229e6776a6" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4%204494b47847aa44dc83fda8229e6776a6.html">设计思维</a></figure><p id="3ec1199a-929f-4359-8e9d-7eea31c45a45" class="">
+</p></div><div id="ebbe32b7-cabb-4764-be4a-a17a26f3b4b2" style="width:33.33333333333333%" class="column"><hr id="b486d744-77f6-46f8-8c52-f6270bd0f4ec"/><h3 id="d8367230-5e31-4a86-ada8-0d05322d85ed" class=""><mark class="highlight-red">#设计品质</mark></h3><p id="3ad442fa-fab2-4d8f-b214-9a32dbe91853" class="">始于美，陷于品质，忠于良善</p><figure id="aa75f3af-e625-401c-bd80-3f203e7f4ddd" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E4%BB%B7%E5%80%BC%E8%A7%82%20aa75f3afe625401cbd803f203e7f4ddd.html">设计价值观</a></figure><figure id="bcfdf9f1-3e20-44f9-a577-d862e9b768f6" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E5%96%84%E8%89%AF%20bcfdf9f13e2044f9a577d862e9b768f6.html">善良</a></figure><figure id="ac7f05fc-2e7f-489c-bc12-f1fdc120aa11" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E7%BE%8E%20ac7f05fc2e7f489cbc12f1fdc120aa11.html">美</a></figure><figure id="edc96d14-d4a8-456a-ac6e-d0e72261f1ca" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E6%83%8A%E5%96%9C%20edc96d14d4a8456aac6ed0e72261f1ca.html">惊喜</a></figure><figure id="8d81c02a-93c8-4154-aa76-2542cd9bd34d" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E6%A0%87%E5%87%86%208d81c02a93c84154aa762542cd9bd34d.html">设计标准</a></figure></div></div><div id="fbe926a8-8265-4a6d-8992-5959229b247e" class="column-list"><div id="780fe889-2b0a-4228-a187-36e6a42043c5" style="width:20.833333333333332%" class="column"><h1 id="e61a1db2-333f-4fba-a568-91996e24e4fe" class=""><mark class="highlight-red">#决策</mark></h1><p id="d0365b64-d66c-4fe2-9753-c0f80bd7eaf8" class="">设计师的职业成长伴随思维升级和技能突破两件事，而这两件事都离不开方法论的支持</p><p id="009878ea-29f7-4365-99b2-3b6644b69c72" class="">好的方法论可以让你在设计过程中事半功倍，更系统性和逻辑性地看待亟待解决的问题</p><p id="1e873e92-4e80-4164-9caf-9cdca925247e" class="">设计的方法也不只是某个设计工具的操作方式，或者某个认知心理学的定律。它是一种适合自己思维习惯的，能够举一反三的分解问题的手段，掌握这些看待问题的方法，你自然能够更快地学习好软件，更好地在适合的场景中运用设计理论。</p><p id="a2895526-a6d2-4a05-a49c-5bc78fb3be5e" class="">
+</p></div><div id="87eaebb8-1839-4495-ab15-5f5451b164d8" style="width:45.83333333333335%" class="column"><hr id="432fa5cf-911f-49c8-9e4a-6c9f4724fffd"/><h3 id="fd99700b-2f80-407b-af9f-6aa98d99bb40" class=""><mark class="highlight-red"><strong>#用户体验策略、视觉策略</strong></mark></h3><p id="3758b2e1-2006-48b5-9dfd-3668446dc505" class="">要取得成功，每个数字产品都必须具有美感，实用、坚固、独特且令人难忘。为确保正确保持这些成分的平衡 我总是保持密切联系与客户合作并全面解决每个项目。</p><figure id="1fd30335-611a-4898-a228-c0611b5ae002" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%83%8C%E6%99%AF%E7%A0%94%E7%A9%B6%201fd30335611a4898a228c0611b5ae002.html">背景研究</a></figure><figure id="ddbd0a28-2b5d-4117-83f2-f6e1aafb4d5b" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82%20ddbd0a282b5d411783f2f6e1aafb4d5b.html">用户需求</a></figure><figure id="d9c77c1c-88b2-4ed2-8921-1f86d829c798" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E4%BA%A7%E5%93%81%E7%9B%AE%E6%A0%87%20d9c77c1c88b24ed289211f86d829c798.html">产品目标</a></figure><figure id="2b16ccd9-4411-49fc-a8ef-13dcfc8e0e25" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E5%93%81%E7%89%8C%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%85%A8%E6%94%BB%E7%95%A5%202b16ccd9441149fca8ef13dcfc8e0e25.html">品牌设计师全攻略</a></figure><figure id="f35930b5-c4f4-434c-92ec-0ce9db06dd88" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E5%A6%82%E4%BD%95%E5%81%9A%E5%93%81%E7%89%8C%E5%8D%87%E7%BA%A7%20f35930b5c4f4434c92ec0ce9db06dd88.html">如何做品牌升级</a></figure><p id="f763c60c-3813-4002-b1e3-021a3c77e8c5" class="">
+</p></div><div id="b316cec5-2458-448d-a667-7e93fe53f50d" style="width:33.33333333333333%" class="column"><hr id="eb8079d1-d9b4-4158-a6de-2f5763235a1a"/><h3 id="ae1470ea-8327-4ab8-af4a-cf3c953228c4" class=""><mark class="highlight-red">#体验设计</mark></h3><p id="21b24030-06f4-4888-8c16-2aadda597ebf" class="">我对每个项目的最终目标是提出一个基于解决方案的设计方法来帮助我的客户解决真实案例，实现业务需求。</p><p id="eb8a345a-2227-45d9-a72e-9d4be2d6a3cf" class="">要做到这一点，需要提出许多想法和假设生成并迭代。创造性思维激发灵感创意，而创意赋予变革力量。</p><figure id="affef102-6916-4721-be92-0484c564425c" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E6%80%9D%E7%BB%B4%20affef10269164721be920484c564425c.html">设计思维</a></figure><figure id="2a1afc54-12aa-481d-9d62-52ad2abd499e" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E4%BB%80%E4%B9%88%E6%98%AF%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E8%AE%BE%E8%AE%A1%202a1afc5412aa481d9d6252ad2abd499e.html">什么是用户体验设计</a></figure><figure id="4f9cfc8e-6909-4e12-b807-7a89ec67427d" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E7%B2%BE%E7%9B%8A%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%204f9cfc8e69094e12b8077a89ec67427d.html">精益用户体验</a></figure><figure id="3eaa7903-0f84-4d57-8602-a26f2e695363" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E6%9C%AA%E6%95%B4%E7%90%86%203eaa79030f844d578602a26f2e695363.html">未整理</a></figure></div></div><div id="065d2541-1e18-4147-8003-5ccacad1879f" class="column-list"><div id="81b95fc3-7c24-485c-8270-d1c0200f9d49" style="width:20.833333333333332%" class="column"><h1 id="cc6b4912-2097-4a94-9fe0-eade374037ea" class=""><mark class="highlight-red">#执行</mark></h1><p id="379b9293-84aa-48c0-93af-d2e482373837" class=""><strong>用户体验架构》视觉概念》互动》发展》测试》🎂项目诞生</strong></p></div><div id="079bf57b-7c20-4a3c-aaee-8b01e191bbfd" style="width:45.83333333333334%" class="column"><hr id="1c6018ab-3bca-4ff2-bc56-db12bf05bba5"/><h3 id="841b2fef-d4d1-4033-93bf-50ad199c47c0" class=""><mark class="highlight-red">#设计基础</mark></h3><figure id="958593c6-a35f-4db9-911c-c01fa2f76de4" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/UI%E8%AE%BE%E8%AE%A1%E7%BE%8E%E5%AD%A6%20958593c6a35f4db9911cc01fa2f76de4.html">UI设计美学</a></figure><figure id="766cc271-0bee-4ab2-8602-3edd6e7608bf" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E6%B5%81%E7%A8%8B%20766cc2710bee4ab286023edd6e7608bf.html">设计流程</a></figure><figure id="68e42466-4aff-4c2d-8ccc-3e879fc9cd01" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%89%BA%E6%9C%AF%E7%9A%84%E8%A1%A8%E7%8E%B0%E5%BD%A2%E5%BC%8F%E3%80%8C%E6%B5%81%E6%B4%BE%2068e424664aff4c2d8ccc3e879fc9cd01.html">艺术的表现形式「流派</a></figure><figure id="73baf34d-d6a3-4c1e-b4b1-1dafec69ea23" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E6%A0%BC%E5%BC%8F%E5%A1%94%E5%8E%9F%E7%90%86%2073baf34dd6a34c1eb4b11dafec69ea23.html">格式塔原理</a></figure><figure id="f94ab59a-98f7-45b0-b41e-f0d695ccdcfd" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%89%B2%E5%BD%A9%20f94ab59a98f745b0b41ef0d695ccdcfd.html">色彩</a></figure><figure id="bebf8810-247f-4648-9f83-b553a8d1ca51" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E6%9C%AA%E6%9D%A5%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9B%9B%E9%A1%B9%E5%8E%9F%E5%88%99%20bebf8810247f46489f83b553a8d1ca51.html">未来设计的四项原则</a></figure><h3 id="9f8a4df1-6bfc-4593-a8c9-9cd0c6e94ef2" class=""><mark class="highlight-red">#用户界面</mark></h3><figure id="19646e05-7e17-42bc-b849-31ce296fd30d" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%2019646e057e1742bcb84931ce296fd30d.html">基础组件</a></figure><figure id="084790fd-bdf0-46cf-aeda-93ac367ed2c6" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F%20084790fdbdf046cfaeda93ac367ed2c6.html">设计系统</a></figure><figure id="7f93a36a-c34f-4e1c-ad33-8140b4111ec8" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F%207f93a36ac34f4e1cad338140b4111ec8.html">设计系统</a></figure><figure id="2e439461-6a42-4705-a5ec-5f152377b3ad" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E7%B3%BB%E7%BB%9F%E6%9E%84%E5%BB%BA%202e4394616a424705a5ec5f152377b3ad.html"><span class="icon">🤖</span>设计语言系统构建</a></figure><figure id="8f63e87a-7ecc-45f4-a086-4204c9c0a0fb" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E7%BB%86%E8%8A%82%208f63e87a7ecc45f4a0864204c9c0a0fb.html">设计细节</a></figure><figure id="ec156b18-2480-4025-a899-3805b4bfc8ec" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95%20ec156b1824804025a8993805b4bfc8ec.html">设计方法</a></figure><p id="56aa8190-cd14-4ba1-9d18-abcc5ccf1355" class="">
+</p><p id="48490f0f-3dac-4919-b385-fa5b47dfe227" class="">
+</p></div><div id="eeef7f8a-5feb-4e32-a1aa-6c089dd50832" style="width:33.33333333333333%" class="column"><hr id="6e47e885-7aaf-4399-bca1-318bd53e6dc6"/><h3 id="f3488ec1-aff1-4f78-81ad-362ef8b0c236" class=""><mark class="highlight-red">#品牌设计</mark></h3><figure id="90887c58-35fa-402f-b5de-de6f48ce0c65" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/IP%E8%AE%BE%E8%AE%A1%2090887c5835fa402fb5dede6f48ce0c65.html">IP设计</a></figure><figure id="2adbc0fe-e514-42f0-91ea-c7c103e44737" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E5%93%81%E7%89%8C%202adbc0fee51442f091eac7c103e44737.html">品牌</a></figure><h3 id="3deee632-d7cf-4ad5-ab29-5bef7f0b800f" class=""><mark class="highlight-red">#设计重构</mark></h3><figure id="412a6283-3106-4513-97d5-dbbe61d7715a" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E6%94%B9%E8%BF%9B%E5%BE%AE%E4%BF%A1%E5%AE%9E%E6%97%B6%E5%AE%9A%E4%BD%8D%E5%8A%9F%E8%83%BD%EF%BC%8C%E8%AE%A9%E5%9C%A8%E8%A1%97%E4%B8%8A%E4%BD%BF%E7%94%A8%E6%9B%B4%E9%AB%98%E6%95%88%E3%80%81%E6%9B%B4%E5%AE%89%E5%85%A8%20412a62833106451397d5dbbe61d7715a.html">改进微信实时定位功能，让在街上使用更高效、更安全</a></figure><p id="86157724-71c1-4aad-9ed2-0c7f2c710ab9" class="">UX 策略/品牌策略 视觉策略</p><figure id="94e9c184-44aa-4eca-b758-403e6d7aa53b" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E5%95%86%E6%A0%87%E8%A7%92%E4%B8%8A%E7%9A%84TM%E5%92%8CR%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D%2094e9c18444aa4ecab758403e6d7aa53b.html">商标角上的TM和R是什么意思</a></figure><figure id="8a4d54f1-a5cb-4929-8b44-8fac9c70b61c" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E5%AD%97%E4%BD%93%E8%AE%BE%E8%AE%A1%208a4d54f1a5cb49298b448fac9c70b61c.html">字体设计</a></figure></div></div><hr id="1280ffbd-ec48-4000-981c-ecdca99985ed"/><div id="ac07988c-bbaa-411b-9ac4-fdff272e602b" class="column-list"><div id="ba3c037d-5d30-4c5e-90da-22b39f5aeb49" style="width:33.33333333333334%" class="column"><h1 id="ed3b6ed0-3fde-4552-b82d-9810926af1d1" class=""><mark class="highlight-red">#设计文章</mark></h1><hr id="4435f2e8-9aa0-4082-a439-73a1ce0c3fba"/><h3 id="58506db5-287e-49cc-a107-040847677d4e" class="">#产品设计</h3><figure id="88b47fb4-d3dc-44b7-a16b-c060f9de9311" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E5%BE%AE%E4%BF%A1%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A180%E9%97%AE%2088b47fb4d3dc44b7a16bc060f9de9311.html">微信产品设计80问</a></figure><figure id="2a052f2e-ef92-46fb-8137-1abe82dc9472" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E7%94%A8%E8%8B%B1%E8%AF%AD%E6%B5%81%E5%88%A9%E8%AF%B4%E7%9A%84%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%EF%BC%8C%E8%81%8A%E8%81%8A%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E5%93%81%E7%89%8C%E8%AE%BE%E8%AE%A1%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%EF%BC%9F%202a052f2eef9246fb81371abe82dc9472.html">用英语流利说的实战案例，聊聊如何利用品牌设计解决问题？</a></figure><p id="95f2e05f-b89f-455a-9d6a-9d25ef859add" class="">
+</p><h3 id="9d686338-7ed4-4127-b7d2-8cb93209e179" class=""><mark class="highlight-teal">#大厂文章</mark></h3><figure id="d5aa8acb-acf2-419f-be18-c8bae29f2f91" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E5%AE%9E%E6%88%98%E6%A1%88%E4%BE%8B%EF%BC%81%E6%9D%A5%E7%9C%8B%E5%A4%A7%E5%8E%82%E6%98%AF%E5%A6%82%E4%BD%95%E5%81%9A%E5%93%81%E7%89%8C%E5%8D%87%E7%BA%A7%E7%9A%84%EF%BC%81%20d5aa8acbacf2419fbe18c8bae29f2f91.html">实战案例！来看大厂是如何做品牌升级的！</a></figure><h3 id="ffa74303-9506-4333-801a-449d0236e483" class=""><mark class="highlight-teal">#汇报</mark></h3><h3 id="b8ccb189-1987-440f-bfe7-c6122e5616ae" class=""><mark class="highlight-teal">#作品集文章</mark></h3></div><div id="6d53130e-ad52-41ea-8008-a778d773ddaf" style="width:33.333333333333336%" class="column"><h1 id="8e06a9be-b2e7-4645-8568-3f5d6eabef6e" class=""><mark class="highlight-red">#职业</mark></h1><hr id="e24e4870-398b-4c9b-9d83-10060e6649cb"/><figure id="c6e4b928-8018-4d50-83a8-9bdd12c75f28" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E4%B8%8A%E7%8F%AD%E4%B8%8D%E5%A6%82%E5%88%9B%E4%B8%9A%EF%BC%9F3%E5%AE%B6%E5%88%9D%E6%88%90%E7%AB%8B%E8%AE%BE%E8%AE%A1%E5%B7%A5%E4%BD%9C%E5%AE%A4%E7%BB%8F%E9%AA%8C%E5%A4%A7%E5%85%AC%E5%BC%80%20c6e4b92880184d5083a89bdd12c75f28.html">上班不如创业？3家初成立设计工作室经验大公开</a></figure><figure id="39f9caf3-8d52-49fc-8dda-32e873c38713" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E5%A6%82%E4%BD%95%E5%8C%BA%E5%88%86%E5%88%9D%E7%BA%A7%E8%AE%BE%E8%AE%A1%E5%B8%88%E3%80%81%E4%B8%AD%E7%BA%A7%E8%AE%BE%E8%AE%A1%E5%B8%88%E3%80%81%E8%B5%84%E6%B7%B1%E8%AE%BE%E8%AE%A1%E5%B8%88%E3%80%81%E4%B8%93%E5%AE%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%EF%BC%9F%2039f9caf38d5249fc8dda32e873c38713.html">如何区分初级设计师、中级设计师、资深设计师、专家设计师？</a></figure><figure id="85ecb85d-fe31-4d2f-a522-77b9045dec75" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%AE%BE%E8%AE%A1%E8%81%8C%E4%B8%9A%2085ecb85dfe314d2fa52277b9045dec75.html"><span class="icon">🕳️</span>设计职业</a></figure><figure id="43c69416-5da6-4b7f-a3f5-406964f5a93f" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%81%8C%E4%B8%9A%E4%B9%A0%E6%83%AF%E5%92%8C%E5%BF%83%E6%80%81%2043c694165da64b7fa3f5406964f5a93f.html">职业习惯和心态</a></figure><figure id="848c4882-a7fb-46e4-99fb-d9bd970acf52" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%87%AA%E7%94%B1%E8%81%8C%E4%B8%9A%20%E8%BF%9C%E7%A8%8B%E5%8A%9E%E5%85%AC%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87%20848c4882a7fb46e499fbd9bd970acf52.html">自由职业/远程办公如何提高效率</a></figure><figure id="272d95e6-3531-465b-8c0c-2395a7f0b020" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E8%AE%BE%E8%AE%A1%E5%B8%88%20272d95e63531465b8c0c2395a7f0b020.html"><span class="icon">🎰</span>用户体验设计师</a></figure><figure id="3ae4bab4-39d6-41cb-a2fb-929c28526898" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E8%87%AA%E7%94%B1%E8%81%8C%E4%B8%9A%203ae4bab439d641cba2fb929c28526898.html">自由职业</a></figure><figure id="9b0bba94-19da-4ec5-9b14-7ffa6c09a259" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E4%BD%9C%E5%93%81%E9%9B%86%209b0bba9419da4ec59b147ffa6c09a259.html">作品集</a></figure><figure id="6792064e-e179-4575-9cd7-3a345ed736f8" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/Behance%E8%AE%BE%E8%AE%A1%E5%B8%88%E6%9F%A5%E6%89%BE%E6%89%8B%E5%86%8C%EF%BC%8C%E6%94%B6%E5%BD%95%E8%B6%85100%E4%BD%8D%E8%AE%BE%E8%AE%A1%E5%B8%88%206792064ee17945759cd73a345ed736f8.html">Behance设计师查找手册，收录超100位设计师</a></figure></div><div id="deddf2a0-6e25-481d-8c34-842a0d2aa908" style="width:33.33333333333333%" class="column"><h1 id="07879faa-ade6-42c2-88b8-50f7c939e1be" class=""><mark class="highlight-red">#行业关注</mark></h1><hr id="f187f241-d28b-4df6-9c34-bb2f06355769"/><figure id="db9eea8a-ef83-4934-ba2f-b4e97aeb81a8" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E6%B1%BD%E8%BD%A6HMI%20db9eea8aef834934ba2fb4e97aeb81a8.html">汽车HMI</a></figure><figure id="91fab424-1ba4-42f5-b565-d1a8f6c0c410" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E6%B5%B7%E5%A4%96%EF%BC%88%E5%A4%9A%E8%AF%AD%E8%A8%80%2091fab4241ba442f5b565d1a8f6c0c410.html">海外（多语言</a></figure><p id="32683b6c-d57b-4334-86c6-52c4bb399529" class="">NFT</p><p id="aed46712-d679-4558-81c4-965579724df0" class="">AI</p><p id="ab24e60a-d0bd-4d19-83bb-973f17f8c35b" class="">VR</p><figure id="838eb70c-b586-4dfe-addb-f351a12d2838" class="link-to-page"><a href="%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%80%83%204261a626100347b7b7bde35e10377fae/%E5%B0%8F%E7%BA%A2%E4%B9%A6%20838eb70cb5864dfeaddbf351a12d2838.html">/小红书</a></figure></div></div><p id="6fe140aa-256b-4307-a42a-0deb81d73068" class="">
+</p><p id="17587f7a-e204-4e7a-9640-fdd3d12bd5db" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

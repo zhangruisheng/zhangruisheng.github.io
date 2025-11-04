@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>定量研究</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0a5bb926-ae10-4bf4-aa86-8c7437142f8a" class="page sans"><header><h1 class="page-title">定量研究</h1><p class="page-description"></p></header><div class="page-body"><h1 id="f8127019-068d-4b2b-8f6d-63328b04ce09" class=""><strong>定量研究是收集和分析数值数据以解释特定现象的过程。</strong><strong>它可用于查找模式、进行预测、测试因果关系和概括结果。</strong></h1><h1 id="fa2e40f2-daca-4a64-bd72-ce8a7b20e32d" class=""><strong>定量研究的好处</strong></h1><ul id="6e4b3232-50a2-439a-aec5-2274b34157a5" class="bulleted-list"><li style="list-style-type:disc">查找确切数字</li></ul><ul id="ba72afc9-0730-44b2-9c30-94b7d349ce7b" class="bulleted-list"><li style="list-style-type:disc">监控性能</li></ul><ul id="18c015d5-4723-4e83-b4b4-7209979050aa" class="bulleted-list"><li style="list-style-type:disc">寻找操作的投资回报率</li></ul><ul id="2f07a56b-af9c-4b8b-b846-40cec2fe88df" class="bulleted-list"><li style="list-style-type:disc">寻找百分比</li></ul><figure id="6413fce6-84e5-4c61-acfa-0cd4922d17a4" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/577OcM4EnvNs0Hg7UBU8Ya/512aa66e481f6087dd800969dd25e339/1.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/577OcM4EnvNs0Hg7UBU8Ya/512aa66e481f6087dd800969dd25e339/1.jpg"/></a></figure><h1 id="1311bee2-8c23-475a-8538-0858bc33322f" class=""><strong>最常用的定量方法</strong></h1><p id="91e8b83b-c961-4f2b-ae16-34ff62d30f5b" class="">下面讨论了一些最常用的定性方法。</p><h1 id="0fa766db-2543-4494-9275-4e090149bb51" class=""><strong>分析</strong></h1><p id="a9043d2b-86b0-4df6-b0a6-bd3d9e9baad4" class="">分析数据可帮助您了解人们正在使用您的实时产品做什么。诸如：他们来自哪里，他们点击了什么，他们忽略了什么，他们在页面或视频上花费了多少时间，他们何时离开。</p><figure id="58652c96-9074-4c96-abbf-aa16be4f1c91" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/MOWcKAqSacqweuQCgHyCl/37b2a4d9b0c8e57d457d6fc26ed53bed/2.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/MOWcKAqSacqweuQCgHyCl/37b2a4d9b0c8e57d457d6fc26ed53bed/2.jpg"/></a></figure><h1 id="8733ff07-3f17-45e0-8092-396bc3154425" class=""><strong>A/B 测试</strong></h1><p id="c04e4b2e-95ca-4cb1-9cfb-46a05558a4d1" class="">A/B 测试用于比较 2 个设计选项。这意味着创建 2 个不同的 UI 实时版本并尝试不同的功能。最后，在比较结果后，您可以找出哪个做得更好。例如，您可以使用号召性用语按钮创建 2 个不同的设计，并跟踪哪个设计获得更多点击，或哪个图像</p><figure id="deacdb07-dab5-4fb8-9327-45e7803e4903" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2t2a3lPoFXuBrGLEZgqrwn/8112a79d266ff66f9c0e324069a6b1d2/3.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2t2a3lPoFXuBrGLEZgqrwn/8112a79d266ff66f9c0e324069a6b1d2/3.jpg"/></a></figure><h1 id="50d63ec3-2c85-4ef8-87b5-c60bf12b79d9" class=""><strong>卡片分类</strong></h1><p id="cf1b7959-399c-4377-b257-32fb593d03a8" class="">该测试可以亲自或在线进行。它有助于找出某个元素/页面在用户心目中属于哪个类别或组。因此，当他们浏览您的网站时，他们不会因为不知道东西在哪里而感到迷茫和沮丧。</p><figure id="ed819827-1be6-4976-9277-1e8755f90ee9" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2skxZTb8awTupTZBc9iCmJ/abf86f7ef735838622eb680426536998/4.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2skxZTb8awTupTZBc9iCmJ/abf86f7ef735838622eb680426536998/4.jpg"/></a></figure><h1 id="83b56f79-9e34-4a09-bf53-df8b6f4d71bc" class=""><strong>树测试</strong></h1><p id="313418bf-a7a5-4f93-af85-799197e94398" class="">此方法可用于确定信息架构结构是否符合人们的期望。</p><figure id="2f2fab6f-2c2a-4cb8-bc7f-68c74f872eab" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5HTExHXUVGHWWHShIoykO1/c5d76e5e25bb410afc261d1ac18f8964/5.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5HTExHXUVGHWWHShIoykO1/c5d76e5e25bb410afc261d1ac18f8964/5.jpg"/></a></figure><h1 id="cd258b22-61fd-4f77-9b9a-c6e4cfa12d8e" class=""><strong>调查或问卷</strong></h1><p id="6bac25b2-6f67-4e53-89c2-47d7424cb47d" class="">调查和问卷的目的是收集有关您的用户、他们的态度和行为的信息。问卷是任何书面问题集，而</p><p id="4175b89b-f1d8-4fae-a25c-c58fd95579f0" class=""><strong>调查</strong></p><p id="10ee1973-ec56-43f6-9ba9-b20d2f8a2a96" class="">既是问题集，也是收集和分析这些问题的答案的过程。</p><figure id="b0491c2c-b81d-4aad-979f-aa74b72f3af3" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/vw4jNmgjiaTpc96v28jml/42c4b5bbc202b6d7f454251c5f1f3aa4/6.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/vw4jNmgjiaTpc96v28jml/42c4b5bbc202b6d7f454251c5f1f3aa4/6.jpg"/></a></figure><h1 id="79c3036f-6c1f-4fe0-9a47-97b7929ca788" class=""><strong>合意性研究</strong></h1><p id="2f64fb0e-1fbb-4b42-b41c-76c9bdb102b9" class="">帮助衡量产品的质量——例如审美吸引力、品牌实力、语气。示例：您展示了产品图片，然后您将要求受访者通过从描述性词语列表中选择选项来描述设计。</p><figure id="8799e772-6c5c-48f0-bfc6-2b1775c99046" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/42ns2BRiyJFJ6NkG1mJoKg/8ebd5bba94676f16268dd6c4d1f5716a/7.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/42ns2BRiyJFJ6NkG1mJoKg/8ebd5bba94676f16268dd6c4d1f5716a/7.jpg"/></a></figure><h1 id="e100a778-46d3-4b2b-9f5e-7daecb25bd96" class=""><strong>眼球追踪测试</strong></h1><p id="a1816871-f684-4ae1-83f9-064f1460ad13" class="">眼球追踪研究需要特殊设备来跟踪用户在界面上移动时的眼睛。用户之间的趋势将开始出现，您可以判断页面的哪些元素吸引了人们的注意力或分散了注意力，用户是否错过了重要元素等等。</p><figure id="43763924-20cc-4ebd-a646-572d24b91659" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/3XexLQiZcn7TPL0jpqr78b/8e77240ff32a6398c03113043be712ae/8.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/3XexLQiZcn7TPL0jpqr78b/8e77240ff32a6398c03113043be712ae/8.jpg"/></a></figure><h1 id="21bd67dc-04b4-4631-b52e-460f19050d16" class=""><strong>定量研究的特点</strong></h1><p id="d6a2d7a3-52b6-4dda-ba60-2036b2eded12" class="">一些定量研究特征是扩展的样本量、可靠的结果、可重复使用的结果、结构化研究技术、封闭式问题、数字结果、结果的概括、先验知识。</p><figure id="772bd3c5-a307-4053-bdf9-991280583ce0" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5aHP4VLfdJkhs7lBiZzLVD/4bdbbe0bf9739038f46054ef12426b38/9.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5aHP4VLfdJkhs7lBiZzLVD/4bdbbe0bf9739038f46054ef12426b38/9.jpg"/></a></figure><h1 id="55f7d1a6-cab7-4e88-a3a3-39ee43af6d5f" class=""><strong>练习：进行调查</strong></h1><p id="199847e1-003d-4a44-9b2d-6824350cf378" class="">对于本练习，我们将选择“调查”定量研究方法。我们中的很多人从未做过调查，甚至不知道这是 UX 研究的一个选项，因此这是一个了解如何进行调查的好机会。</p><figure id="a38af5f8-f489-4a24-adc4-2743a50ed149" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/10cOMwB4q3oJ6SM5y7G8c5/4f64c0541e274ebc126f4016508d7469/10.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/10cOMwB4q3oJ6SM5y7G8c5/4f64c0541e274ebc126f4016508d7469/10.jpg"/></a></figure><p id="c68711b3-25fc-4b9d-97f3-8359be5178aa" class="">我们将在本练习中使用</p><p id="b3b5a536-8bed-433d-ab28-b2fe5932434b" class=""><a href="https://www.surveymonkey.com/"><strong>https://www.surveymonkey.com</strong></a></p><p id="9c861403-23a7-4146-8f38-23e09709f68c" class="">。首先，您需要创建一个帐户。他们有一个免费的选择，所以不用担心。然后只需单击“创建调查”即可开始。</p><p id="8b52d127-e06f-4a9b-acc2-f04f5f705bcd" class=""><a href="https://www.surveymonkey.com/"><strong>SurveyMonkey：世界上最受欢迎的免费在线调查工具</strong></a></p><figure id="2280fb33-d173-462b-8748-a4ef9055ba1d" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/1FyeoTQWT5prHIB1oAYxDy/e07d71a0c528a370b399ac3345332c4f/11.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/1FyeoTQWT5prHIB1oAYxDy/e07d71a0c528a370b399ac3345332c4f/11.jpg"/></a></figure><p id="5f5cb58d-66c5-4088-b523-1085d0b0be9f" class="">作为初学者，最好选择一个模板并从那里开始。这将为您节省大量时间，您将能够专注于更重要的事情，即写出正确的问题，而不是学习网站上的一切如何运作。</p><figure id="9074165f-f5cd-400e-bafe-c0523bc01858" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/514P0TvUYkFLm8YxTACMfi/429b8282f558d018c027eba07aabd981/12.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/514P0TvUYkFLm8YxTACMfi/429b8282f558d018c027eba07aabd981/12.jpg"/></a></figure><p id="88a487e4-4d00-4ffa-a35f-c7b366f66b71" class="">该网站将为您提供多种选择。对于本练习，我们将使用“客户满意度调查模板”。</p><figure id="ffcf9b5c-f438-454e-b8d5-ebad37eae424" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6NBJMgvyl9CUwhx0LyQbfA/34975a66bc91b74b5deb8dc45620b42c/13.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6NBJMgvyl9CUwhx0LyQbfA/34975a66bc91b74b5deb8dc45620b42c/13.jpg"/></a></figure><p id="00f2cfea-ce93-4118-a03c-fc2eda632e6c" class="">该模板有多种类型的问题模型：从矩阵评分量表到滑块、排名、复选框、星级评分等。在您看到预览并决定使用此模板后，只需单击右下角的“使用此模板”即可。</p><figure id="01ffebc2-37ab-48f4-b76b-e9c687c9ca8f" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/4cQXpGnCROmlFbBOmD2A6o/f2fc9dc5fa6b90227501b8405a11cf5c/14.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/4cQXpGnCROmlFbBOmD2A6o/f2fc9dc5fa6b90227501b8405a11cf5c/14.jpg"/></a></figure><p id="3c8381f8-ca88-441f-8c8e-359e763ac350" class="">所有的文本和格式都很容易编辑。只需单击编辑按钮并编写您自己的问题。确保您的问题对用户将拥有的答案选项有意义。</p><figure id="1ad20d3f-9553-4321-bc4e-94bef2ea933d" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/6JaEbNur5Awsv4X4D3CAAX/97bad025796daf1bf3d859169a188cbc/15.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/6JaEbNur5Awsv4X4D3CAAX/97bad025796daf1bf3d859169a188cbc/15.jpg"/></a></figure><p id="1e1e6be8-3507-431b-8355-ac2c1a6f9fb6" class="">完成模板的编辑后，您必须选择可供用户使用的按钮，例如“完成”、“上一个”或“下一个”。</p><figure id="5c794c28-ef4f-42bc-b2b8-f57d5f036f8e" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/17P6s6HWYyyiUgcHRGWa5c/7f087b55fdb6518d9a10135956301c17/16.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/17P6s6HWYyyiUgcHRGWa5c/7f087b55fdb6518d9a10135956301c17/16.jpg"/></a></figure><p id="abeb8c0b-3b52-4774-878c-ce2a7bf2878e" class="">然后转到工具栏菜单中的“收集回复”。您有 2 种选择，一种是复制调查链接，然后自己将链接分享给您的用户、电子邮件列表、社交媒体。第二个选项是使用 SurveyMoneky 全球受众并可以访问非常准确的选项。</p><figure id="00835fc4-e785-46cb-b620-0ce692bddb41" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/5fDufDhtbQ5nuWCTn090tc/1e7276c7bd1a98e6ab85e42a3b8c0883/17.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/5fDufDhtbQ5nuWCTn090tc/1e7276c7bd1a98e6ab85e42a3b8c0883/17.jpg"/></a></figure><p id="92bc2b38-53e3-416c-83a5-d553a4de6dc4" class="">当您使用 SurveyMonekey 受众时，您已将您的调查发送到一个真正集中的市场，“创建”您想要的理想用户头像：性别、宗教、家庭收入、工作类型等。这是一个付费选项，所以请记住这一点。</p><figure id="960f029d-114f-4a80-91df-a717e8016e45" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/1BxVBasw5RMtOVYTJwm9b0/62a889cd4874537f05cce2340e12c5d5/18.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/1BxVBasw5RMtOVYTJwm9b0/62a889cd4874537f05cce2340e12c5d5/18.jpg"/></a></figure><p id="b22a6569-7ccd-4b4c-b37e-5aa401e91804" class="">一旦人们开始回复您的调查，您就可以跟踪所有信息。所有这些都在“分析结果”中。您可以访问多种选项：问题摘要见解、数据趋势、个人回答。</p><figure id="bc1315a5-56de-432d-a3a8-7532f69aad5c" class="image"><a href="https://images.ctfassets.net/ooa29xqb8tix/2VYOE1pxSyYMnwflALrIPu/1e73a8e0ae508eff38e5859697bc23f9/19.jpg"><img src="https://images.ctfassets.net/ooa29xqb8tix/2VYOE1pxSyYMnwflALrIPu/1e73a8e0ae508eff38e5859697bc23f9/19.jpg"/></a></figure><h1 id="00fa1158-1c2a-42cf-9328-195670f18381" class=""><strong>结论</strong></h1><p id="ab04f86f-47ea-4208-9775-92f9cc2177a1" class="">定量研究有很多优点，但如果你想得到最好的结果，最好将它与定性研究结合起来。尽可能多地查找所有方法，并使用更适合您的项目的方法。</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
