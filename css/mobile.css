@@ -244,55 +244,7 @@
     /* logo/导航*/
 
 
-    .logom {
-        position: fixed;
-        top: 16px;
-        left: 50%;
-        margin-left: -20px;
-        width: 40px;
-        height: 40px;
-        z-index: 999999;
 
-    }
-
-    .logo {
-        position: fixed;
-        top: 16px;
-        left: 3%;
-        /* margin-left: -20px; */
-        width: 40px;
-        height: 40px;
-        z-index: 999999;
-    }
-
-
-    .logo-i {
-        position: relative;
-        float: left;
-        width: 38px;
-    }
-
-
-    .logo-t {
-        /*
-        position: relative;
-        float: left;
-        left: 50%;
-        font-size: 50px;
-
-        margin-left: -120px;
-        font-weight: 200;
-        top: -10px
-*/
-        position: relative;
-        font-size: 32px;
-        width: 100%;
-        font-weight: 200;
-        text-align: center;
-        font-family: "coltrane regular demo";
-        margin-top: 0px;
-
-    }
 
     /*********************
     
@@ -419,15 +371,7 @@
     }
 
 
-    .logo2 {
-        position: absolute;
-        float: left;
-        bottom: 16px;
-        left: 10px;
-        z-index: 99999;
-        display: none;
 
-    }
 
     .selector {
         position: absolute;
@@ -2497,5 +2441,104 @@ padding-top: 5px;
 
         pointer-events: none;
     }
-}
+    
+    /* IP页面移动端响应式设计 */
+    .ip-gallery {
+        gap: 24px;
+        margin-top: 32px;
+        margin-bottom: 40px;
+    }
+    
+    .ip-item {
+        border-radius: 6px;
+    }
+    
+    .ip-description {
+        padding: 16px;
+    }
+    
+    .ip-description h4 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .ip-description p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    /* 图片响应式调整 */
+    .ip-image {
+        max-height: 300px;
+        object-fit: contain;
+    }
+    
+    /* 补充移动端响应式样式 */
+    .menu ul, .menu-open ul {
+        font-size: 32px;
+        line-height: 1.2em;
+        font-weight: 400;
+    }
+    
+    .menu li .submenu a, .menu-open li .submenu a {
+        font-size: 24px;
+        line-height: 1.6em;
+        font-weight: 500;
+    }
+    
+    /* 内容字体大小调整 */
+    .about-xxtext {
+        font-size: 48px;
+        margin-bottom: 20px;
+        font-weight: 400;
+    }
+    
+    .about-t p {
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 14px;
+        color: var(--color-00);
+    }
+    
+    .about-t h2 {
+        font-size: 32px;
+        margin-bottom: 14px;
+        font-weight: 400;
+    }
+    
+    .about-t h4 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+    
+    .about-t h5 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+    
+    .about-t {
+        margin-bottom: 28px;
+    }
+    
+    /* 顶部导航栏移动端样式 */
+    .monkren-t a {
+        font-size: 24px;
+        line-height: 1.22em;
+        font-weight: 500;
+    }
+    
+    .ip-item h3 {
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+    
+    .ip-item p {
+        font-size: 16px;
+        color: var(--color-00);
+        line-height: 1.7;
+    }
 }

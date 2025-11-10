@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MONKREN - IP设计</title>
+    
+    <!-- 移动端自适应-->
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <!-- favicon 关联-->
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    
+    <!-- CSS 关联-->
+    <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Google Analytics（仅生产环境） -->
+    <script>
+        (function () {
+            var host = location.hostname;
+            var isProd = host === 'monk.ren' || host.endsWith('.monk.ren');
+            if (!isProd) return;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL';
+            document.head.appendChild(s);
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', 'G-5CXJCNBDLL');
+        })();
+    </script>
+</head>
+
+<body>
+    
+    <nav class="nav-all">
+        <div class="monkren-t">
+            <a href="index.html" target="_top">
+                MONK.REN
+            </a>
+        </div>
+        <div class="monkren-t">
+            <a href="index.html" target="_top">
+                <span class="nav-cn">Designer<br>
+                    Beijing<br>
+                    Ruisheng Zhang</span>
+                <span> I'm a Designer<br>
+                    Living in Beijing<br>
+                    Ruisheng Zhang </span>
+            </a>
+        </div>
+        <a href="/index.html">
+            <div class="monkren-t">
+                <img src="favicon/monkey.png" width="40px" alt="MONKREN Logo" />
+            </div>
+        </a>
+    </nav>
+    
+    <main class="container">
+        <div class="w100">
+            <div class="w85">
+                <!-- MONKREN 标题区域 -->
+                <div class="monkren-header">
+                    <H1 class="about-xxtext monkren-title">
+                        MONKREN
+                    </H1>
+                    <h2 class="monkren-subtitle">LIMITED EDITION 2025</h2>
+                    <p class="monkren-slogan">内藏猴人，立人禁止</p>
+                </div>
+                
+                <!-- IP 展示区域 - 严格按设计稿调整 -->
+                <div class="ip-gallery">
+                    <!-- 设计师信息 -->
+                    <div class="ip-item ip-designer">
+                        <div class="ip-designer-info">
+                            <div class="ip-designer-label">ME</div>
+                            <div class="ip-designer-details">
+                                <div class="ip-designer-title">Designer</div>
+                                <div class="ip-designer-name">Ruisheng Zhang</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 四视图展示 -->
+                    <div class="ip-item">
+                        <div class="ip-section-title">VIEW</div>
+                        <img src="images/IP/monkren ip 02.png" alt="MONKREN 3D MODEL VIEWS" class="ip-image" style="display:block; width:100%;">
+                    </div>
+                    
+                    <!-- 主 Banner -->
+                    <div class="ip-item">
+                        <div class="ip-section-title">BANNER</div>
+                        <img src="images/IP/banner.png" alt="MONKREN Banner" class="ip-image" style="display:block; width:100%;">
+                        <div class="ip-description">
+                            <p class="ip-caption">内藏猴人</p>
+                            <p class="ip-caption">立人禁止</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 主海报 -->
+                    <div class="ip-item">
+                        <div class="ip-section-title">POSTER</div>
+                        <img src="images/IP/海报.png" alt="MONKREN POSTER" class="ip-image" style="display:block; width:100%;">
+                        <div class="ip-description">
+                            <p class="ip-caption">MONKREN</p>
+                            <p class="ip-caption">2025 COLLECTION</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 三角度视图 -->
+                    <div class="ip-item">
+                        <img src="images/IP/monkren ip 03.png" alt="MONKREN 3D MODEL FRONT SIDE BACK" class="ip-image" style="display:block; width:100%;">
+                        <div class="ip-description">
+                            <p class="ip-caption">FRONT VIEW</p>
+                            <p class="ip-caption">SIDE VIEW</p>
+                            <p class="ip-caption">BACK VIEW</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 简单的页面交互脚本 -->
+    <script>
+        // 移动端菜单功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const openButton = document.getElementById('open-button');
+            const closeButton = document.getElementById('close-button');
+            const menu = document.getElementById('menu');
+            const zhao = document.getElementById('zzhao');
+            
+            if (openButton && closeButton && menu && zhao) {
+                openButton.addEventListener('click', function() {
+                    menu.style.transform = 'translateX(0)';
+                    zhao.style.display = 'block';
+                });
+                
+                closeButton.addEventListener('click', function() {
+                    menu.style.transform = 'translateX(-100%)';
+                    zhao.style.display = 'none';
+                });
+                
+                zhao.addEventListener('click', function() {
+                    menu.style.transform = 'translateX(-100%)';
+                    zhao.style.display = 'none';
+                });
+            }
+        });
+    </script>
+    
+</body>
+
+</html>

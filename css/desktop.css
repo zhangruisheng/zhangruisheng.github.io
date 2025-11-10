@@ -167,76 +167,7 @@
 
 
 
-    .logo {
-        position: fixed;
-        z-index: 999999;
-        width: 40px;
-        height: 40px;
-        list-style: none;
-        font-weight: 500;
-        font-size: 14px;
-        /* background-color: var(--color-o5); */
-        /* backdrop-filter: blur(40px); */
-        top: 0px;
-        left: 0px;
-        display: none;
-    }
 
-    .logom {
-        position: fixed;
-        z-index: 999999;
-        width: 40px;
-        height: 40px;
-        list-style: none;
-        font-weight: 500;
-        font-size: 14px;
-        /* background-color: var(--color-o5); */
-        /* backdrop-filter: blur(40px); */
-        top: 0px;
-        left: 0px;
-        display: none;
-    }
-
-
-
-    .logo h3 {
-        margin-top: 18px;
-    }
-
-    .logo2 {
-        display: none;
-        position: fixed;
-        bottom: 34px;
-        z-index: 9999;
-        margin-left: 10px;
-        width: 180px;
-        list-style: none;
-        font-weight: 500;
-        font-size: 14px;
-    }
-
-    .logo-i {
-        position: relative;
-        float: left;
-        margin-top: 44px;
-
-        z-index: 999999;
-        margin-left: 12px;
-        width: 120px;
-
-
-    }
-
-    .logo-i img {
-        border-radius: 0%;
-    }
-
-    .logo-t {
-        position: relative;
-        float: left;
-        margin: 8px 0 0 12px;
-
-    }
 
 
 
