@@ -1,3 +1,14 @@
+/* CSS变量定义 */
+:root {
+    --color-00: #000000;
+    --color-ff: #ffffff;
+    --grey-10: rgba(255, 255, 255, 0.1);
+    --grey-20: rgba(255, 255, 255, 0.2);
+    --grey-30: rgba(255, 255, 255, 0.3);
+    --grey-50: rgba(255, 255, 255, 0.5);
+    --grey-70: rgba(255, 255, 255, 0.7);
+}
+
 /* 通用 */
 img:hover {
     cursor: pointer;

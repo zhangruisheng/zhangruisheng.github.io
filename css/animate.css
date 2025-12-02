@@ -1,0 +1,54 @@
+/* 基础动画库 - 解决页面加载错误 */
+
+/* 淡入效果 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 滑入效果 */
+@keyframes slideIn {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.slideIn {
+  animation: slideIn 0.6s ease-out;
+}
+
+/* 脉动效果 */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* 旋转效果 */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+
+/* 延迟加载动画 */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* 保持动画效果 */
+.fadeIn, .slideIn {
+  animation-fill-mode: both;
+}

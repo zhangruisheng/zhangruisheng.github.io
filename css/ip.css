@@ -1,0 +1,417 @@
+/* IP页面样式 - 专业设计布局 */
+
+/* 基础容器样式 */
+.container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    max-width: none;
+}
+
+.page {
+    position: relative;
+    width: 100%;
+    display: block;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.w100 {
+    position: relative;
+    width: 100%;
+}
+
+.content-wrapper {
+    width: 85%;
+    margin: 0 0 0 auto;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+/* 淡入动画 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Hero区域 */
+.hero-section {
+    margin-bottom: 4rem;
+    width: 100%;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 600px;
+    margin: 0 auto;
+}
+
+/* 通用分区样式 */
+.section, .details-section, .concept-section, .collaboration-section {
+    margin-bottom: 6rem;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.section-title, .collaboration-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    padding-right: 1rem;
+    margin-left: auto;
+    text-align: right;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background-color: #333;
+}
+
+/* 网格布局 */
+.grid-2,
+.grid-3,
+.grid-4 {
+    display: grid;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: 0;
+    margin-right: 0;
+    justify-items: end;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-item {
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    margin: 0 0 0 auto;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.03);
+}
+
+/* 创作理念区域 */
+.prompt-section {
+    margin: 4rem 0;
+    padding: 3rem;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.prompt-content h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-family: 'Arial', sans-serif;
+    font-weight: 600;
+}
+
+.prompt-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #666;
+    margin: 0 0 0 auto;
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    text-align: right;
+}
+
+/* 响应式设计 */
+@media (min-width: 768px) {
+    .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        padding: 3rem;
+    }
+    
+    .content-wrapper {
+        width: 85%;
+        align-items: flex-end;
+    }
+    
+    .hero-section {
+        margin-bottom: 6rem;
+    }
+    
+    .section {
+        margin-bottom: 8rem;
+    }
+    
+    .product-grid {
+        max-width: 100%;
+        justify-items: end;
+    }
+}
+
+/* 移动端优化 */
+@media (max-width: 767px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .content-wrapper {
+        width: 100%;
+        align-items: flex-end;
+    }
+    .product-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        justify-items: end;
+    }
+    .section, .details-section, .concept-section, .prompt-section, .collaboration-section {
+        text-align: right;
+        align-items: flex-end;
+    }
+    .section-title, .collaboration-title {
+        font-size: 1.3rem;
+        text-align: right;
+    }
+    
+    .hero-section {
+        margin-bottom: 2rem;
+        padding: 1rem 0;
+    }
+    
+    .section {
+        margin-bottom: 4rem;
+    }
+    
+    .section-title {
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        gap: 1rem;
+    }
+    
+    .prompt-section {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .prompt-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .prompt-content p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}
+
+/* 作品展示区域样式 - 保持与网站整体风格一致 */
+.works-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+}
+
+/* 响应式设计调整 */
+@media (max-width: 1400px) {
+    .works-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .works-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .works-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .banner-container {
+        margin-bottom: 2rem;
+    }
+    
+    .prompt-container {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+}
+
+/* 作品项样式 - 简化样式以避免冲突 */
+.work-item {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.work-image {
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%; /* 4:3 比例 */
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.work-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.work-item:hover .work-image img {
+    transform: scale(1.05);
+}
+
+.work-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.work-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* 提示词信息区域 */
+.prompt-container {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #666;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prompt-container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.prompt-box h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.prompt-box p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #666;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
