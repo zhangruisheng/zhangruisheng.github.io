@@ -18,6 +18,14 @@ img {
     border-radius: 0px;
 }
 
+/* 工作图片样式 */
+.work-img {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: auto;
+}
+
 /* 卡片描边 */
 .stroke {
     /* border: 1px solid rgba(0, 0, 0, 0.1); */

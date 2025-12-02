@@ -50,30 +50,30 @@
     <!-- Google Analytics - 添加错误处理 -->
     <script>
         // 安全加载Google Analytics
-        (function() {
+        (function () {
             try {
                 var script = document.createElement('script');
                 script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5CXJCNBDLL';
                 script.async = true;
-                script.onerror = function() {
+                script.onerror = function () {
                     console.log('Google Analytics script failed to load, continuing without analytics');
                 };
                 document.head.appendChild(script);
-                
+
                 window.dataLayer = window.dataLayer || [];
-                window.gtag = function() {
+                window.gtag = function () {
                     try {
                         dataLayer.push(arguments);
-                    } catch(e) {
+                    } catch (e) {
                         console.log('Analytics event failed, continuing without tracking');
                     }
                 };
-                
-                script.onload = function() {
+
+                script.onload = function () {
                     gtag('js', new Date());
                     gtag('config', 'G-5CXJCNBDLL');
                 };
-            } catch(e) {
+            } catch (e) {
                 console.log('Google Analytics initialization failed, continuing without analytics');
             }
         })();
@@ -86,41 +86,41 @@
             adsScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677892562045013';
             adsScript.async = true;
             adsScript.crossOrigin = 'anonymous';
-            adsScript.onerror = function() {
+            adsScript.onerror = function () {
                 console.log('AdSense script failed to load, continuing without ads');
             };
             document.head.appendChild(adsScript);
-        } catch(e) {
+        } catch (e) {
             console.log('AdSense initialization failed, continuing without ads');
         }
     </script>
-    
+
     <!-- 头条搜索 - 添加错误处理 -->
     <script>
         try {
             var ttScript = document.createElement('script');
             ttScript.src = 'https://sf1-scmcdn-tos.pstatp.com/goofy/ttzz/push.js?f531e7e47a28714a2f49eb52a46becb92bd082349d7801841df17436910a419abf822fac7779c3baa99751206e7b37d34f192ce1af70ac3a97bb777260beb18f';
             ttScript.id = 'ttzz';
-            ttScript.onerror = function() {
+            ttScript.onerror = function () {
                 console.log('Toutiao script failed to load, continuing without toutiao tracking');
             };
             document.head.appendChild(ttScript);
-        } catch(e) {
+        } catch (e) {
             console.log('Toutiao initialization failed, continuing without toutiao tracking');
         }
     </script>
-    
+
     <!-- 360 - 添加错误处理 -->
     <script>
         try {
             var qhScript = document.createElement('script');
             qhScript.src = 'https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba';
             qhScript.id = 'sozz';
-            qhScript.onerror = function() {
+            qhScript.onerror = function () {
                 console.log('360 script failed to load, continuing without 360 tracking');
             };
             document.head.appendChild(qhScript);
-        } catch(e) {
+        } catch (e) {
             console.log('360 initialization failed, continuing without 360 tracking');
         }
     </script>
@@ -215,7 +215,7 @@
                     <video class="about-me-img" id="myVideo">
                         <source src="/images/aboutme/zhangruisheng.mp4" type="video/mp4">
                         Your browser does not support the video tag.
-                    </video>              
+                    </video>
                 </div>
                 <div class="w40">
                     <div class="nav-top-li">
@@ -223,7 +223,7 @@
                             我呀
                         </h5>
                     </div>
-                    
+
                     <div class="w100">
 
                         <!-- <div class="about-t">
@@ -234,10 +234,10 @@
                                 嗨
                                 ！我是张大圣，一位图形和界面设计师，专注于图形视觉设计、用户界面设计、用户体验研究和品牌图形设计
                                 <br>
-                               
+
                             </p>
                         </div>
-                   
+
                         <div class="about-t">
                             <h4> X$%$^*@#$</h4>
                             <p>住在北京</p>
@@ -259,7 +259,7 @@
                             <p>喜欢咖啡</p>
                             <p>热衷于与做有意义事的人们一起工作</p>
                         </div>
-                        
+
 
                     </div>
 
@@ -467,7 +467,9 @@
                     </div>
                 </div>
                 <div class="columns">
-                    <iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="960" src="https://embed.figma.com/proto/PlXSgCtC0xRxwOAEfRWJnc/Portfolio-2025?page-id=1626%3A15300&node-id=1626-15514&viewport=884%2C477%2C0.05&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1626%3A15514&embed-host=share" allowfullscreen></iframe>
+                    <iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="960"
+                        src="https://embed.figma.com/proto/PlXSgCtC0xRxwOAEfRWJnc/Portfolio-2025?page-id=1626%3A15300&node-id=1626-15514&viewport=884%2C477%2C0.05&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1626%3A15514&embed-host=share"
+                        allowfullscreen></iframe>
 
                     <!-- <div class="column"><a href="/article/portfolio-2020.html"><img class="w100"
                                 src="images/aboutme/portfolio-2020.png" width="100%" alt="" /></a></div>
@@ -477,16 +479,15 @@
                                 width="100%" alt="" /></a></div> -->
                 </div>
                 <div class="w100">
-                    <a href="/file/zhangruisheng.pdf"
-                        target="_blank">
+                    <a href="/file/zhangruisheng.pdf" target="_blank">
                         <h4><u>PDF简历 ↘</u></h4>
                     </a>
                 </div>
-               
-            <div class="w100">
-                <line2></line2>
-           
-             
+
+                <div class="w100">
+                    <line2></line2>
+
+
                     <div class="nav-top-li">
                         <h5>
                             Contacts
@@ -496,14 +497,13 @@
                         <p>ME: 张瑞圣(北京)</p>
                         <p>电话: 185-1048-2879</p>
                         <p>微信: ruisheng</p>
-                   
-                            <p><a
-                                    href="mailto:monkren@outlook.com?subject=【MONK.REN】"><u>monkren@outlook.com↘</u></a><br>
-                            </p>
-                        
-                       
+
+                        <p><a href="mailto:monkren@outlook.com?subject=【MONK.REN】"><u>monkren@outlook.com↘</u></a><br>
+                        </p>
+
+
                         <br>
-                       
+
                         <div class="follow">
 
                             <div class="social left">
@@ -526,7 +526,8 @@
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink">
                                                 <title>uicn</title>
-                                                <g id="uicn" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g id="uicn" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
                                                     <g id="uich-2x" transform="translate(6.000000, 5.000000)"
                                                         fill="var(--color-00)" fill-rule="nonzero">
                                                         <g id="编组" transform="translate(4.000000, 6.500000)">
@@ -606,10 +607,12 @@
                                                     </path>
                                                 </g>
                                             </svg> </a></li>
-                                    <li> <svg class="wechat" width="32px" height="32px" viewBox="0 0 26 26" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <li> <svg class="wechat" width="32px" height="32px" viewBox="0 0 26 26"
+                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
                                             <title>wechat</title>
-                                            <g id="wechat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="wechat" stroke="none" stroke-width="1" fill="none"
+                                                fill-rule="evenodd">
                                                 <g id="wechat-2" transform="translate(5.000000, 7.000000)"
                                                     fill="var(--color-00)" fill-rule="nonzero">
                                                     <path
@@ -635,66 +638,69 @@
                             </div>
                             <br>
                             <br>
-    
+
                         </div>
-                   
+
+                    </div>
+
                 </div>
-    
+              
+
+
             </div>
-            <div class="w99">
-                <line2></line2>
-                <div class="columns">
-
-                    <div class="column">
-                        <img src="/images/basis/banner.png" width="100%" alt="me">
-                    </div>
-                    <div class="column">
+              <div class="w100">
+                    <line2></line2>
+                    <div class="columns">
                         <div class="column">
-                            <h6>MONK.REN</h6>
-                            <a href="/typography.html">
-                                <h5>Typography</h5>
-                            </a>
-                            <a href="/monkey.html">
-                                <h5>IP</h5>
-                            </a>
-                            <a href="/share.html">
-                                <h5>THINKING</h5>
-                            </a>
-                        </div>
-                        <div class="column">
-                            <h6>TOOLS
-                            </h6>
-                            <a target="_blank" href="https://www.sketch.com/">
-                                <h5>Sketch</h5>
-                            </a>
-                            <a target="_blank" href="https://www.figma.com/@monkren">
-                                <h5>Figma</h5>
-                            </a>
-                            <a target="_blank" href="https://www.figma.com/@monkren">
-                                <h5>
-                                    VS Code</h5>
-                            </a>
+                            <img src="/images/basis/banner.png" width="100%" alt="me">
                         </div>
                     </div>
-                    <div class="column">
+                    <div class="columns">
+                        <div class="column">
+                            <div class="column">
+                                <h6>MONK.REN</h6>
+                                <a href="/typography.html">
+                                    <h5>Typography</h5>
+                                </a>
+                                <a href="/monkey.html">
+                                    <h5>IP</h5>
+                                </a>
+                                <a href="/share.html">
+                                    <h5>THINKING</h5>
+                                </a>
+                            </div>
+                            <div class="column">
+                                <h6>TOOLS
+                                </h6>
+                                <a target="_blank" href="https://www.sketch.com/">
+                                    <h5>Sketch</h5>
+                                </a>
+                                <a target="_blank" href="https://www.figma.com/@monkren">
+                                    <h5>Figma</h5>
+                                </a>
+                                <a target="_blank" href="https://www.figma.com/@monkren">
+                                    <h5>
+                                        VS Code</h5>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="column">
 
-                        <!-- <span class="tag is-black">广告呀</span> -->
-                        <script async
-                            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677892562045013"
-                            crossorigin="anonymous"></script>
-                        <!-- 一级 -->
-                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1677892562045013"
-                            data-ad-slot="3087793882" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
+                            <!-- <span class="tag is-black">广告呀</span> -->
+                            <script async
+                                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1677892562045013"
+                                crossorigin="anonymous"></script>
+                            <!-- 一级 -->
+                            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1677892562045013"
+                                data-ad-slot="3087793882" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+
+                        </div>
 
                     </div>
-                    
                 </div>
-            </div>
-
-      
         </div>
     </main>
 
